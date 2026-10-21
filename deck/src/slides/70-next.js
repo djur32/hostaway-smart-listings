@@ -208,7 +208,7 @@ Deck.define('nx-roadmap', {
   },
 });
 
-/* ── cl-thanks: the close on the brand plate (4 Oct). The plate settles (a slight scale), the words rise out of their
+/* ── cl-thanks: the close on the brand plate. The plate settles (a slight scale), the words rise out of their
    mask, the lockup scales in, the blob and the dots scale in from nothing; the rings and strokes draw themselves
    (data-a="draw"). Nothing fades. The CSS rests on the final state, so motion off and print show the finished plate. */
 Deck.define('cl-thanks', {

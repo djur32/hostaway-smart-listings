@@ -25,7 +25,7 @@
 .nx-dir__n { display: inline-flex; align-items: center; gap: 8px; margin: 0; font: var(--w-text) 20px / 1.2 var(--font-ui); color: var(--ink-3); white-space: nowrap; }
 .nx-dir__n svg { stroke: var(--ink-3); width: 20px; height: 20px; }
 
-/* ── nx-roadmap detail "Roadmap" · now, next, later as three feature cards; the four lines of work marked ── */
+/* ── nx-roadmap detail "Horizons" · core, extends, reach as three feature cards; the four lines of work marked ── */
 .nx-road .hc-feature__plate { height: auto; min-height: 0; padding: 66px 24px 24px; }
 .nx-road .hc-mini__r { padding: 12px 20px; }
 .nx-road .hc-mini__l { font-size: 21px; }
@@ -109,7 +109,7 @@
 .nx-kill__do { font: var(--w-medium) 23px / 1.3 var(--font-ui); color: var(--ink); text-wrap: pretty; }
 .nx-kill .nx-effects__note { margin-top: 10px; }
 
-/* ══ nx-roadmap · the service map (4 Oct): the hub, three rings, wires in their status ══════════
+/* ══ nx-roadmap · the service map: the hub, three rings, wires in their status ══════════
    Geometry is placed by 70-next.js (drawMap): nodes get left/top/width/height, wires are drawn in
    two SVG layers under the cards (the rings' bands, then the wires), labels sit over everything. */
 .nx-key .nx-k { display: inline-block; width: 30px; height: 0; border-top: 3px solid var(--color-gray-500); }
@@ -169,7 +169,7 @@
 .nx-sh__k { position: absolute; left: 18px; top: 12px; margin: 0; font: var(--w-head) 20px / 1.2 var(--font-ui); color: var(--color-primary-700); }
 .nx-n--in .nx-n__i { background: var(--color-primary-50); color: var(--color-primary-600); }
 
-/* ══ nx-roadmap details · where it falls short (4 Oct) ══════════════════════════════════════════ */
+/* ══ nx-roadmap details · open edges ══════════════════════════════════════════ */
 /* a row's label: an icon and a word, in the quiet ink */
 .nx-lab { display: flex; align-items: center; gap: 10px; margin: 0; font: var(--w-head) 20px / 1.2 var(--font-ui); color: var(--ink-3); }
 .nx-lab svg { flex: none; width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
@@ -217,7 +217,7 @@
 .nx-run { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr); gap: 22px; }
 .nx-run > div { display: grid; align-content: start; gap: 12px; padding: 18px 22px 20px; border-radius: 22px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
 
-/* panel "Over time": a sketch of the chart I'd draw, then what's built, missing, measured and shown */
+/* panel "Over time": a sketch of the chart as drawn, then what is specified, needed, measured and shown */
 .nx-perf { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); gap: 26px; align-items: stretch; }
 .nx-sketch { display: grid; grid-template-rows: auto auto 1fr; gap: 14px; margin: 0; padding: 24px 26px 22px; border-radius: 30px; background: var(--plate-quiet); box-shadow: inset 0 0 0 1px var(--line); }
 .nx-sketch__k { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 0; font: var(--w-head) 24px / 1.2 var(--font-ui); color: var(--ink); }
@@ -255,7 +255,7 @@
 .nx-act__o.is-host svg { stroke: var(--ink-3); }
 }
 
-/* the roadmap's three cards: identical in size, the stage badge on the left with room under it, no halo outline (review, 4 Oct) */
+/* the horizons' three cards: identical in size, the stage badge on the left with room under it, no halo outline */
 .nx-road { align-items: stretch; }
 .nx-road .hc-feature { grid-template-rows: 1fr auto; }
 .nx-road .hc-feature__plate { place-items: start stretch; min-height: 0; padding: 30px 30px 32px; align-content: start; }
@@ -263,7 +263,7 @@
 .nx-road .hc-feature__halo { padding: 0; background: none; }
 .nx-road .hc-feature__halo > * { border-radius: 18px; box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent); }
 
-/* the key: every swatch centred on its word's line, one height for all four (review, 4 Oct: "align") */
+/* the key: every swatch centred on its word's line, one height for all four */
 .nx-key [data-k] { display: inline-flex; align-items: center; gap: 10px; line-height: 1; }
 .nx-key .nx-k { flex: none; vertical-align: middle; }
 .s-head > .nx-key { display: flex; align-items: center; }
@@ -276,7 +276,7 @@
 .nx-sb--wait { fill: none; stroke: var(--color-gray-300); stroke-width: 1.5; stroke-dasharray: 4 4; }
 .nx-sk-c { transform: translateX(-50%); white-space: nowrap; }
 
-/* ── cl-thanks: the close, on the aubergine brand plate (4 Oct; kit/hc.css .hc-brand) ──────
+/* ── cl-thanks: the close, on the aubergine brand plate (kit/hc.css .hc-brand) ──────
    A short statement, centred on the plate; the lockup on the plate's bottom inset; the marks at its corners. */
 @layer slides {
 .s[data-id="cl-thanks"] > .s-body { margin-bottom: 0; }

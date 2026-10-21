@@ -34,7 +34,7 @@
 .tm-star__by svg { color: var(--ink-3); }
 .tm-kgrid { display: grid; grid-template-columns: 186px repeat(4, minmax(0, 1fr)); grid-template-rows: auto auto auto auto auto; column-gap: 20px; }
 .tm-kgrid__l { grid-column: 1; align-self: center; margin: 0; font: var(--w-head) 18px / 1.2 var(--font-ui); color: var(--ink-3); }
-/* a goal card: the feature card's tinted plate (the icon top right, no badge tile; the number bottom left, review 4 Oct), then three rows on white */
+/* a goal card: the feature card's tinted plate (the icon top right, no badge tile; the number bottom left), then three rows on white */
 .tm-goal { grid-row: 1 / span 5; display: grid; grid-template-rows: subgrid; min-width: 0; overflow: hidden; border-radius: 30px; background: var(--bg); box-shadow: inset 0 0 0 1.5px var(--line); }
 .tm-goal__plate { position: relative; display: flex; align-items: flex-end; min-height: 170px; padding: 0 24px 18px; background: var(--tint-plate); }
 .tm-goal__i { position: absolute; top: 20px; right: 20px; width: 44px; height: 44px; fill: none; stroke: var(--tint-line); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
