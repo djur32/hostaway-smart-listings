@@ -144,7 +144,7 @@ export function PanelStack({ main, panels, onBack, onClose, label = 'Details', r
                   </section>
                 ))}
               </div>
-              {/* the page's Discard / Save (useMobileActions) — the sheet covers the shell's bar, so it moves here */}
+              {/* the page's Discard / Save (useMobileActions), the sheet covers the shell's bar, so it moves here */}
               <MobileSheetSaveButtons className="h-pstack-m__foot" />
             </div>
           </div>,
@@ -178,7 +178,7 @@ export function PanelStack({ main, panels, onBack, onClose, label = 'Details', r
 }
 
 /** A row in a panel that opens the next level: label, a one-line summary, chevron (HS-C01's "Listing markups ›"). */
-/** `ai`: the purple Dynamic Pricing card (HS-C01: tinted surface, the summary in AI text) — the docked Calendar sidebar. */
+/** `ai`: the purple Dynamic Pricing card (HS-C01: tinted surface, the summary in AI text), the docked Calendar sidebar. */
 export function PanelLink({ title, summary, onClick, current, ai }: { title: ReactNode; summary?: ReactNode; onClick?: () => void; current?: boolean; ai?: boolean }) {
   return (
     <button type="button" className={cx('h-pstack-link', ai && 'h-pstack-link--ai', current && 'is-current')} onClick={onClick} aria-current={current || undefined}>

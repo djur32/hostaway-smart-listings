@@ -21,7 +21,7 @@ const LOGO = (
 export const HostawayMark = () => LOGO
 
 /** Hostaway's chat bubble, always at the bottom right of the app shell ("present at all times except in
- *  full-screen flows", and no behaviour — it opens nothing). Full-screen flows (the strategy wizard, the policy flow) are
+ *  full-screen flows", and no behaviour, it opens nothing). Full-screen flows (the strategy wizard, the policy flow) are
  *  routes outside the shell, and the photos takeover covers it, so mounting it in AppShell is exactly that. */
 export function ChatFab({ docked }: { /** phones: rendered inside .h-m-dock, so it rides 16 above the tab bar or the Discard / Save bar, whichever is on top */ docked?: boolean } = {}) {
   return <button type="button" className={`h-chat-fab ${docked ? 'h-chat-fab--docked' : 'h-chat-fab--app'}`} aria-label="Chat with Hostaway">{LOGO}</button>
@@ -68,7 +68,7 @@ export function Sidebar({ active, collapsed: hostCollapsed, onToggle, persona, o
       <ul className="h-nav">
         {/* QA B25: Search opens the properties search; Getting started opens the connect flow (first-time setup starts there) */}
         {/* only Properties navigates (straight to the property); every other global item is shown but
-         * inert — this concept doesn't rebuild those parts. Getting started is inert too and loses its highlight ("we don't want to do anything with that"). */}
+         * inert, this concept doesn't rebuild those parts. Getting started is inert too and loses its highlight ("we don't want to do anything with that"). */}
         <li><span className="h-nav__item is-inert" aria-disabled="true"><Icon name="search" /><span className="h-label">Search<span className="h-nav__kbd">⌘K</span></span></span></li>
         {/* Priya has no first-time setup, so Getting started is hidden for her account */}
         {!gettingStartedHidden && <li><span className="h-nav__item is-inert" aria-disabled="true"><Icon name="trending-up" />{gettingStarted > 0 && <span className="h-nav__badge">{gettingStarted}</span>}<span className="h-label">Getting started</span></span></li>}
@@ -91,7 +91,7 @@ export function Sidebar({ active, collapsed: hostCollapsed, onToggle, persona, o
       <div className="h-sidebar__spacer" />
       {/* Demo control (R-130): clearly labelled; S12 implements what each mode changes (D-126). */}
       {demo && <div className="h-persona" ref={ref} style={{ position: 'relative' }}>
-        {!collapsed && <div className="h-persona__label">Demo · viewing as</div>}{/* S12: "Viewing as: Family host ▾" — a demo control, never a product label */}
+        {!collapsed && <div className="h-persona__label">Demo · viewing as</div>}{/* S12: "Viewing as: Family host ▾", a demo control, never a product label */}
         <button className="h-persona__btn" aria-haspopup="listbox" aria-expanded={open} onClick={() => setOpen(!open)}>
           <span className="h-persona__tag">{persona}</span><span className="h-label">{PERSONAS[persona].label}</span><Icon name="selector" />
         </button>
@@ -177,9 +177,9 @@ export function PropertiesSheet({ property, open, onClose, onPick }: { property:
   )
 }
 
-/** QA B23: switching property keeps the section you're on (Listing, a Hub tab, Photos, Pricing?tab=…), not just Overview —
+/** QA B23: switching property keeps the section you're on (Listing, a Hub tab, Photos, Pricing?tab=…), not just Overview -
  *  except a channel section (/ch/<channel>/…) the target property doesn't have connected (switching away
- *  from Booking.com to a property with no Booking.com shouldn't land on a dead Booking.com route — go to its Overview). */
+ *  from Booking.com to a property with no Booking.com shouldn't land on a dead Booking.com route, go to its Overview). */
 function useSameSection() {
   const nav = useNavigate()
   const loc = useLocation()
@@ -282,7 +282,7 @@ export function MobileHead({ title, lead, titleEnd, property, actions, right, su
         {property && !openPropertyMenu && <PropertySwitcher property={property} />}
         <div className="h-m-head__titlerow">
           {lead && <span className="h-m-head__lead">{lead}</span>}
-          {/* the whole title is the tap target (an overlay button, so a chip inside the title — "Source of truth" — stays
+          {/* the whole title is the tap target (an overlay button, so a chip inside the title, "Source of truth", stays
               its own button instead of being nested in this one) */}
           <h1 className={cx('h-m-head__title', openPropertyMenu && 'is-switch')} data-compact-title={label}>
             {/* a plain-text title keeps its last word and the ⌄ together, so a wrapped title never leaves the ⌄ alone */}
@@ -304,7 +304,7 @@ export function MobileHead({ title, lead, titleEnd, property, actions, right, su
     </HeadTipsSlot.Provider>
   )
 }
-/** The page's Tips button, placed at the right of the phones' title row (MobileHead). Desktop: nothing here — the
+/** The page's Tips button, placed at the right of the phones' title row (MobileHead). Desktop: nothing here, the
  *  page shows its own Tips in the tab row / head as before (`.ch-tips-m` stays hidden above 767px). */
 export function HeadTips({ children, className }: { children: ReactNode; className?: string }) {
   const slot = useContext(HeadTipsSlot)

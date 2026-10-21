@@ -7,14 +7,14 @@ import { pricesFor, availabilityFor } from '../../data/property-listing'
 import { AVAIL_FIELDS } from '../../data/availability'
 import { fieldChannels } from '../details/shared'
 
-/** Every field that is genuinely shared across channels today — no per-channel customization, Base/Customize-for-
+/** Every field that is genuinely shared across channels today, no per-channel customization, Base/Customize-for-
  *  {channel} pattern (`inherit`/`override`), or Knowledge Hub governance (`hub`): just the one uniform value, the
  *  same on every *connected* channel (`state: 'listing'` on each, V3-SPEC §1). "still
- *  seeing tags and languages as opposed to a general toggle for everything that is shared across channels" — this
+ *  seeing tags and languages as opposed to a general toggle for everything that is shared across channels", this
  *  isn't a fixed list of examples, it's derived from the same field enumeration the Classic editor uses
- *  (`classicFields`, data/v3-ch.ts — Hostaway's own order, tab by tab, EXTRA_FIELDS included), so a field that
+ *  (`classicFields`, data/v3-ch.ts, Hostaway's own order, tab by tab, EXTRA_FIELDS included), so a field that
  *  moves to/from `listing` elsewhere in the data model moves to/from this section automatically. Scoped to the
- *  property's actual connected channels (`chs`), not a hardcoded 3-channel assumption — same spirit as
+ *  property's actual connected channels (`chs`), not a hardcoded 3-channel assumption, same spirit as
  *  PricingPanels.tsx's scopeText.
  *  3 Oct: every channel screen, not just Listing. The
  *  shared rows of Pricing (`price:<key>`, data/property-listing.ts pricesFor) and Availability (`avail:<key>`,

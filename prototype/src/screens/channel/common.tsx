@@ -236,14 +236,14 @@ export function useScopedField(def: FieldDef, c: ListingChannel, opts: { customi
       disabled = true
       actionLabel = opts.customizeLabel ?? `Customize for ${name}`
       // Customize brings back the channel's own text if it had one (kept under `<key>@stash` by "Use the Base")
-      // (a kept value that is empty is never brought back: a field never opens empty — )
+      // (a kept value that is empty is never brought back: a field never opens empty, )
       onAction = () => {
         const kept = d.custom?.[stashKey(def.key)]
         const next = typeof kept === 'string' && kept.trim() !== '' ? kept : opts.customizeFrom ?? v.value
         // Use the Base → Customize on a row that started custom brings back exactly what is saved: drop the draft entry
         // (and a fee's own basis/currency) rather than writing a value equal to it, so the round trip is no change and
         // leaves no Unsaved bar (audit B-1). `savedCustom[k]` is what the store holds: a string, or undefined when the
-        // custom value is the row's own seed (def.value) — setCustom treats "same as the store" as no entry.
+        // custom value is the row's own seed (def.value), setCustom treats "same as the store" as no entry.
         const saved = viewOf(def, c, savedCustom, d.base)
         if (saved.state !== 'inherit' && saved.value === next) {
           d.setCustom(def.key, savedCustom?.[def.key])
@@ -297,11 +297,11 @@ export function EverywhereNote({ c }: { c: ListingChannel }) {
 }
 
 /* ---------- Field visibility on Pricing / Availability (Property › Overview's one Show / Edit / Don't show control) ----------
- * The control (screens/smart/PropertyOverview.tsx FieldVisibilitySection) writes the same value to every shared key —
- * the Listing tabs' keys AND the shared Pricing (`price:*`) and Availability (`avail:*`) rows — in
+ * The control (screens/smart/PropertyOverview.tsx FieldVisibilitySection) writes the same value to every shared key -
+ * the Listing tabs' keys AND the shared Pricing (`price:*`) and Availability (`avail:*`) rows, in
  * store.overview[pid].fieldVisibility. One source of truth, per key, so the Listing editor's FieldRow reads exactly what
  * it read before. A shared row here reads its own key; if that key was never written (a session that set the control
- * before Pricing/Availability were covered, 3 Oct) it falls back to the value every written key agrees on — the
+ * before Pricing/Availability were covered, 3 Oct) it falls back to the value every written key agrees on, the
  * control's value. Unset everywhere = undefined = today's normal behaviour: unset never locks anything. */
 const uniformVisibility = (m: Partial<Record<string, FieldVisibility>> | undefined): FieldVisibility | undefined => {
   if (!m) return undefined
@@ -312,7 +312,7 @@ const uniformVisibility = (m: Partial<Record<string, FieldVisibility>> | undefin
 /** What the Overview control says for one shared row (`orig` = this row's state on this channel). Channel-specific rows
  *  (Uses the Base, Custom for {channel}, set by the channel, only here) are never shared fields: always undefined.
  *  Channel pages only (a `:channel` route): Listing base › Availability (screens/base/Availability.tsx) reuses ScopedRow
- *  with every row forced to 'listing' — it is where shared values are set, so the control never hides or locks it. */
+ *  with every row forced to 'listing', it is where shared values are set, so the control never hides or locks it. */
 export function useSharedVisibility(k: string, orig: FieldState): FieldVisibility | undefined {
   const pid = useProperty().id
   const onChannel = useChannel() !== null

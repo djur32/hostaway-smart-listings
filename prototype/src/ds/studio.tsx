@@ -1,5 +1,5 @@
 /* Angle B studio patterns (S11, D-148): grounded sentence (h-cite), reorder list (h-reorder), market band (h-band),
- * autonomy control (h-autonomy, ds/ai-patterns.md §4). CSS lives in ds/components.css §10d / §10 — never copied here. */
+ * autonomy control (h-autonomy, ds/ai-patterns.md §4). CSS lives in ds/components.css §10d / §10, never copied here. */
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import { useIsMobile } from './mobile'
 import { TipSheet } from './tooltipSheet'

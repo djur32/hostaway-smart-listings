@@ -72,7 +72,7 @@
 .h-khr-srcactions { display: flex; align-items: center; gap: 8px; }
 
 /* ── phones (≤ 767px, ds/mobile.md): R-core's own classes. `FactRow` (reused from C) and `KhcQuestion`/`KhcCard` etc.
-   already have their own phone rules in kh-c.css — this block only covers what's new in kh-r.css. Stacked fields,
+   already have their own phone rules in kh-c.css, this block only covers what's new in kh-r.css. Stacked fields,
    one scroller (the page body already is), 44px tap targets. ── */
 @media (max-width: 767px) {
   .h-khr__head { padding-top: var(--content-padding-top); }
@@ -130,7 +130,7 @@
 
 /* ── the "+" chip-insert menu ── */
 .h-khr-chipmenu { position: relative; display: inline-flex; }
-/* R2: the menu now hangs off the step editor's own "+" (left end of the edit toolbar, KhrStepItem) — left-anchored,
+/* R2: the menu now hangs off the step editor's own "+" (left end of the edit toolbar, KhrStepItem), left-anchored,
  * so it opens into the content column instead of off its left edge toward the rail (ds/kh-r.tsx KhrChipMenu). */
 /* the shared menu surface and rows (.h-menu / .h-dropdown__menu, review 3 Oct) */
 .h-khr-chipmenu__pop { position: absolute; left: 0; top: calc(100% + 4px); z-index: 20; min-width: 240px; padding: 0 0 var(--space-2); border-radius: var(--radius-sm); background: var(--color-surface-primary); box-shadow: var(--elevation-dropdown), 0 0 0 1px var(--color-border-secondary-alt); display: flex; flex-direction: column; animation: h-drop var(--dur-2) var(--ease-enter); }
@@ -222,7 +222,7 @@
   .h-khr-wf2-trigger { padding: var(--space-4); }
   .h-khr-wf2-step { padding: 12px 0; }
   .h-khr-wf2-step__sentence { padding: 8px 2px; font-size: var(--m-lead-size); line-height: var(--m-lead-leading); }
-  .h-khr-wf2-step:not(.is-editing) .h-khr-wf2-step__tools { opacity: 1; } /* no hover on touch — the pencil/trash stay visible */
+  .h-khr-wf2-step:not(.is-editing) .h-khr-wf2-step__tools { opacity: 1; } /* no hover on touch, the pencil/trash stay visible */
   .h-khr-wf2-step__tools .h-btn-icon { min-width: var(--m-tap); min-height: var(--m-tap); }
   .h-khr-wf2-step__editbar { flex-wrap: wrap; gap: 8px; }
   .h-khr-editor__head { flex-direction: column; align-items: stretch; }
@@ -235,14 +235,14 @@
  * ones) or added to R2's own `h-khr-addfact-`/`h-khr-srcactions`/`h-khr-addcontent` rules (existing ones, scoped with
  * extra selectors so the originals are untouched). Tokens only. */
 
-/* ── a topic page's own "Ask a question" search (item 1) — reuses KhrAsk/KhcAnswer/RFactChipRow as-is, this only
+/* ── a topic page's own "Ask a question" search (item 1), reuses KhrAsk/KhcAnswer/RFactChipRow as-is, this only
    tightens the spacing of the card around them and the no-match empty line. ── */
 .h-khr-ov3-search__result { display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-2); }
 
 /* ── Add-fact: the free-text-first describe step and the confirm step's "From: …" recap (items 3/4) ── */
 .h-khr-addfact__hint { font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
 
-/* ── Overview: Gaps demoted — smaller heading, muted rows, no card border/background, follows the coverage bar and
+/* ── Overview: Gaps demoted, smaller heading, muted rows, no card border/background, follows the coverage bar and
    the topic grid instead of leading them (item 5, review: "I want the gaps to be more hidden"). Collapsed by
    default; "Show" reveals the same KhcGapRow list used before. ── */
 .h-khr-ov3-gapsquiet { padding: var(--space-4) 2px 0; border: 0; border-radius: 0; background: none; border-top: 1px solid var(--color-border-divider); gap: 10px; }
@@ -259,7 +259,7 @@
   .h-khr-ov3-gapstoggle { min-height: var(--m-tap); }
 }
 
-/* Add fact · Number: the shared NumberField (ds/v3-ch.tsx .h-numfield) beside the unit input — the field keeps the
+/* Add fact · Number: the shared NumberField (ds/v3-ch.tsx .h-numfield) beside the unit input, the field keeps the
    180px the old stepper's input had; its own inner input fills it. */
 .h-khr-addfact__number .h-numfield { flex: none; width: 180px; }
 .h-khr-addfact__number .h-numfield > .h-input { max-width: none; }
@@ -301,10 +301,10 @@
 .h-khr2-src-row--add:focus-visible { outline: none; box-shadow: var(--shadow-focus-neutral); border-radius: var(--radius-sm); }
 .h-khr2-src-row__add { pointer-events: none; }
 
-/* ── Workflows, rewired: the topic card, static — cancel the clickable card's hover, pointer and transition. ── */
+/* ── Workflows, rewired: the topic card, static, cancel the clickable card's hover, pointer and transition. ── */
 .h-khr2-wf-card.h-khr-ov2-topiccard { cursor: default; transition: none; }
 .h-khr2-wf-card.h-khr-ov2-topiccard:hover { border-color: var(--color-border-card); box-shadow: none; }
-/* the topic page's questions: one plain list — no box around it, none around each question (review, 3 Oct) */
+/* the topic page's questions: one plain list, no box around it, none around each question (review, 3 Oct) */
 .h-khr2 .h-khc-qs { border: 0; border-radius: 0; background: none; border-top: 1px solid var(--color-border-divider); }
 .h-khr2 .h-khc-q { border-bottom: 1px solid var(--color-border-divider); }
 .h-khr2 .h-khc-q + .h-khc-q { border-top: 0; }
@@ -313,9 +313,9 @@
 .h-khr2 .h-khr-facts, .h-khr2 .h-khc-facts { border-top: 1px solid var(--color-border-divider); }
 .h-khr2 .h-khr-fact:last-child, .h-khr2 .h-khc-fact:last-child { border-bottom: 1px solid var(--color-border-divider); }
 .h-khr2-ask { display: flex; flex-direction: column; gap: var(--space-4); }
-/* the ask box: ONE focus ring, on the outside (the inner input's global focus style doubled it — review, 3 Oct) */
+/* the ask box: ONE focus ring, on the outside (the inner input's global focus style doubled it, review, 3 Oct) */
 .h-khr-ask__input:focus, .h-khr-ask__input:focus-visible { outline: none; box-shadow: none; border: 0; }
-/* a fact's channel caption never runs past its column (the House manual's Airbnb text overflowed — review, 3 Oct):
+/* a fact's channel caption never runs past its column (the House manual's Airbnb text overflowed, review, 3 Oct):
  * the channel name, then its own value cut to one line; the hover still shows every value in full */
 .h-khc-fact__scope { overflow: hidden; }
 .h-khc-own { display: flex; align-items: baseline; gap: 6px; min-width: 0; max-width: 100%; }
@@ -355,9 +355,9 @@
 .h-tips .h-khc-fact { grid-template-columns: minmax(0, 1fr); border-bottom: 0; padding-top: 0; }
 .h-tips .h-khc-fact__label, .h-tips .h-khc-fact__value, .h-tips .h-khc-fact__scope, .h-tips .h-khc-fact__editor { grid-column: 1; }
 .h-tips .h-khc-fact__action:empty { display: none; }
-/* the fact rows stack when the table narrows (panel open) — the same container query the fact list always had */
+/* the fact rows stack when the table narrows (panel open), the same container query the fact list always had */
 .h-khr2-facttable { container: khc-facts / inline-size; }
-/* the fact editor panel: the label as its heading, then the editor — not the read-only value and channels again */
+/* the fact editor panel: the label as its heading, then the editor, not the read-only value and channels again */
 .h-tips .h-khc-fact__value, .h-tips .h-khc-fact__scope { display: none; }
 .h-tips .h-khc-fact__label { font-size: var(--text-md); }
 .h-tips .h-khc-fact__editor { padding-top: var(--space-3); }
@@ -426,7 +426,7 @@
   /* touch has no hover: a tapped row doesn't stay grey */
   .h-khr2-rowclick:hover:not(.is-active) { background: transparent; }
 }
-/* Test sheet (phones): "Ask another question" doesn't fit half a sheet footer — the two actions stack, the primary
+/* Test sheet (phones): "Ask another question" doesn't fit half a sheet footer, the two actions stack, the primary
  * (Edit knowledge) on top; the ask box's submit is a 44px target. */
 @media (max-width: 767px) {
   .h-m-sheet__foot:has(> .h-khr2-foot-left) { flex-direction: column-reverse; }

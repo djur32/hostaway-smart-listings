@@ -2,7 +2,7 @@
  * Tabs are content types; each tab is a table of items × Base · Airbnb · Booking.com · Direct. Every edit goes through
  * the store (sl3Base / sl3Custom, the same keys the channel screens read). Sources and Ask the AI open one side panel.
  * URL states: ?v=a&tab=<id> · &cell=<key>:<base|airbnb|booking|direct> · &panel=ask|sources · &ask=<question id> ·
- * &ch=<channel> · &add=1 (Amenities add row, "Smart TV") · &tip=<key>:<channel> (a "—" or lock tip open). */
+ * &ch=<channel> · &add=1 (Amenities add row, "Smart TV") · &tip=<key>:<channel> (a "-" or lock tip open). */
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { Button, KhaLegend, KhaNone, KhaQuiet, KhaSplit, KhaTabs, KhaToolbar, Icon, PageHead, useIsMobile } from '../../../ds'
@@ -59,7 +59,7 @@ export function HubA() {
       return { label: def.label, text: v.on[c] === true ? 'Listed' : 'Not listed', state: 'amenity', on: v.on[c] === true, why: v.base }
     }
     const item = items.find((i) => i.key === key)
-    if (!item) return { label: key, text: '—', state: 'na', raw: '' }
+    if (!item) return { label: key, text: '-', state: 'na', raw: '' }
     const s = scopeOf(item, d)
     const cv = cellOf(item, s, c)
     const raw = s.own.find((o) => o.c === c)?.value ?? s.set.find((x) => x.c === c)?.value ?? (s.on.includes(c) ? s.base : '')

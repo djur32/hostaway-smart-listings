@@ -236,10 +236,10 @@ function Fees({ row, lens }: { row: Row; lens: ChannelId | 'all' }) {
         </Field>
         {deep && <>
           <Field label="Short-stay cleaning fee" help="Stays of 1–2 nights. Airbnb only: the other channels have no field for it." chip={<InheritChip level="channel" channel="airbnb" />}>
-            <div className="h-input-group"><span className="h-affix h-affix--start"><Mark channel="airbnb" /></span><span className="h-input" style={{ display: 'flex', alignItems: 'center', border: 0 }}>{f('fee.cleaning_short_stay') ?? '—'}</span></div>
+            <div className="h-input-group"><span className="h-affix h-affix--start"><Mark channel="airbnb" /></span><span className="h-input" style={{ display: 'flex', alignItems: 'center', border: 0 }}>{f('fee.cleaning_short_stay') ?? '-'}</span></div>
           </Field>
-          <Field label="Extra guest fee" chip={<InheritChip level="property" from="this home" />}><div className="h-input-group"><span className="h-input" style={{ display: 'flex', alignItems: 'center', border: 0 }}>{f('fee.extra_guest') ?? '—'}</span></div></Field>
-          <Field label="Pet fee" chip={<InheritChip level="property" from="this home" />}><div className="h-input-group"><span className="h-input" style={{ display: 'flex', alignItems: 'center', border: 0 }}>{f('fee.pet') ?? '—'}</span></div></Field>
+          <Field label="Extra guest fee" chip={<InheritChip level="property" from="this home" />}><div className="h-input-group"><span className="h-input" style={{ display: 'flex', alignItems: 'center', border: 0 }}>{f('fee.extra_guest') ?? '-'}</span></div></Field>
+          <Field label="Pet fee" chip={<InheritChip level="property" from="this home" />}><div className="h-input-group"><span className="h-input" style={{ display: 'flex', alignItems: 'center', border: 0 }}>{f('fee.pet') ?? '-'}</span></div></Field>
         </>}
       </div>
       <div className="p-col p-mt4">

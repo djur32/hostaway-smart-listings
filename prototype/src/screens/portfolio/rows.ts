@@ -1,6 +1,6 @@
 /* SCR-05 · the Grid's row model · owner S12 · R-115 R-133 · D-151 D-154
  * Joins the 12 portfolio rows (data/portfolio.ts) with what the store knows: group strategies and property overrides
- * (pricing inheritance), bulk results (cleared, marks), and — for the scenario property — the live record itself. */
+ * (pricing inheritance), bulk results (cleared, marks), and, for the scenario property, the live record itself. */
 import { DETAIL, GROUPS, MY_PORTFOLIO as PORTFOLIO, syntheticPortfolio } from '../../data/portfolio' // the account's own (D-160)
 import { PROPERTY_ID } from '../../data/scenario'
 import type { ChannelHealth, ChannelId, PortfolioGroup, PricingStrategy, Property, PropertyDetail } from '../../data/types'

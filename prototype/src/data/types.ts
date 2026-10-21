@@ -18,8 +18,8 @@ export type ConflictPolicy =
   | 'merge (union)'
   | 'hub only'
 
-/** Write reach per channel, from canonical-fields.csv `writable_to_channel`: Y yes · A adapter/partial · F feed · N no · — not applicable. */
-export type Reach = 'Y' | 'A' | 'F' | 'N' | '—'
+/** Write reach per channel, from canonical-fields.csv `writable_to_channel`: Y yes · A adapter/partial · F feed · N no ·, not applicable. */
+export type Reach = 'Y' | 'A' | 'F' | 'N' | '-'
 
 /** One row of ia/canonical-fields.csv, plus where it lives in IA-R. */
 export interface CanonicalField {
@@ -231,7 +231,7 @@ export interface Listing {
   description: string
   photoOrder: string[]
   highlightedAmenities: string[]
-  /** Booking.com Page Score (Property Scores API) — value. */
+  /** Booking.com Page Score (Property Scores API), value. */
   pageScore?: number
   lastPush?: string
   /** Booking.com writes its own description (D-032, I-06). */

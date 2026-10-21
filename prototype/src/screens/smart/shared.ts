@@ -29,7 +29,7 @@ export function seedSmartOn() {
   // the demo strategies have run for a while: Performance has versions to compare (the scenario property's only, QA B01)
   useStore.getState().setSmartHistory(scenario)
   // a property that isn't the scenario listing gets its own generated history here too, BEFORE the fallback below
-  // records a single version starting today — otherwise ?smart=on would undo it and every row would read
+  // records a single version starting today, otherwise ?smart=on would undo it and every row would read
   // "Still measuring" again
   seedPropertyHistory(pid, channels)
   for (const c of channels) {
@@ -53,10 +53,10 @@ export function seedSmartOn() {
  * This is the other half: writing those versions into the store, so Strategy's cards and Performance's Versions table
  * read the same history the numbers come from, and flipping smartHistory on so Performance shows its full page (with
  * its period control) instead of the just-set-up branch. The live plan is set to the LAST version's plan, so
- * syncVersions/commitVersion below don't immediately record a spurious fifth version starting today — which would
+ * syncVersions/commitVersion below don't immediately record a spurious fifth version starting today, which would
  * show as "Still measuring", the very thing this fixes.
  * Only properties seeded with Smart Listings already on get a history (data/portfolio.ts smartListingsDefaultOn).
- * A host who has just been through Setup themselves — the three deliberately-off properties — genuinely has none, and
+ * A host who has just been through Setup themselves, the three deliberately-off properties, genuinely has none, and
  * Performance says so rather than inventing months of results. */
 export function seedPropertyHistory(pid: string, channels: ListingChannel[]) {
   if (isScenarioProperty(pid) || !smartListingsDefaultOn(pid) || !channels.length) return

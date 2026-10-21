@@ -9,10 +9,10 @@
  * URL: /property/:id/smart/wizard?entry=first|add|edit|replace&ch=airbnb&from=overview|strategy|detail
  *   first    Overview's Smart Listings toggle, first use: intro, every connected channel pre-selected
  *   add      Strategy › Add strategy (no ch) or a channel row's Add a strategy (ch pre-selected)
- *   edit     a channel's current answers pre-filled; saving updates the strategy (no versions in the UI — )
+ *   edit     a channel's current answers pre-filled; saving updates the strategy (no versions in the UI, )
  *   replace  a fresh strategy for one channel that has one; it takes the current one's place
  * The full spectrum:
- * with 2+ channels, one strategy for all, one each, or (3+) some channels share one — two strategies, each channel
+ * with 2+ channels, one strategy for all, one each, or (3+) some channels share one, two strategies, each channel
  * assigned to one. The answers are a draft in sessionStorage until Save, so a reload keeps them; × asks first. */
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Navigate, useNavigate, useParams, useSearchParams } from 'react-router-dom'
@@ -371,7 +371,7 @@ function Flow({ pid, entry, ch, from }: { pid: string; entry: Entry; ch: Listing
   const nextLabel = last ? (groups.length > 1 ? 'Save strategies' : 'Save strategy') : returning ? 'Back to review' : 'Continue'
 
   // no side preview card (the channel-logo card with Goal / For / Price / Autopilot dashes "doesn't
-  // make sense") — the answers show on the Review step instead.
+  // make sense"), the answers show on the Review step instead.
   const wizardTitle = entry === 'edit' ? `Edit ${names(groups[0])} strategy` : entry === 'replace' ? `Replace ${chName(ch!)} strategy` : 'Set up a strategy'
   return (
     <Wizard title={wizardTitle} progress={(idx + 1) / seq.length} onBack={back} onClose={close}

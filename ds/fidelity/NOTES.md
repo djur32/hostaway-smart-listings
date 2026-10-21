@@ -23,7 +23,7 @@ Shell, field row, tabs, buttons, AI card, radio cards, table and modal read as t
 
 | # | Where | Delta | Why / what we did |
 |---|---|---|---|
-| 1 | Everywhere | Now set in TT Norms (review's licensed files, D-093). The app uses TT Norms Pro DemiBold for 600; our set has no DemiBold, so 600 renders in Bold — headings a touch heavier | Real face (D-093, supersedes the Figtree stand-in of D-021). Stack lists TT Norms, then TT Norms Pro, so machines with it render the real face. |
+| 1 | Everywhere | Now set in TT Norms (review's licensed files, D-093). The app uses TT Norms Pro DemiBold for 600; our set has no DemiBold, so 600 renders in Bold, headings a touch heavier | Real face (D-093, supersedes the Figtree stand-in of D-021). Stack lists TT Norms, then TT Norms Pro, so machines with it render the real face. |
 | 2 | Sidebar / sub-nav icons | Tabler glyphs differ in detail (e.g. Properties building, Getting-started arrow, Knowledge Hub book) | Open set at the same weight and size (D-022). Shapes and stroke match; exact glyphs are Hostaway's. |
 | 3 | Logo | Wordmark set in TT Norms Bold, not the real logotype; ring mark redrawn | Identification only. Deck/prototype should use the real logo image if review has it (OQ-092). |
 | 4 | Property thumbnails | Gradient placeholder instead of the listing photo | Content, not system. Prototype uses sample photos (). |

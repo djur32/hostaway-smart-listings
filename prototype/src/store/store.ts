@@ -91,20 +91,20 @@ export type PropertySnapshot = Pick<State, typeof PROPERTY_SLICES[number]>
 
 export interface OverviewSettings {
   listed?: Partial<Record<ListingChannel, boolean>>; nickname?: string; sync?: boolean; muted?: boolean
-  /** Smart Listings on: what a non-channel-specific field (today Languages, Tags — data/sl3.ts FIELDS keys; review,
+  /** Smart Listings on: what a non-channel-specific field (today Languages, Tags, data/sl3.ts FIELDS keys; review,
    *  1 Oct third round: "not just languages and tags... pricing, availability...", so this isn't closed to two
-   *  fields — see OvFieldKey) does on every connected channel's page. 'show' (default, missing = 'show') is today's
+   *  fields, see OvFieldKey) does on every connected channel's page. 'show' (default, missing = 'show') is today's
    *  one value everywhere, unchanged, no chrome; 'edit' opens the per-channel override UI the channel editor already
    *  has for Tags (ds/v3-ch.tsx TagBox), for this field too; 'hidden' removes the field from the channel's page
-   *  entirely — a different axis from show/edit (appears at all, not read-only vs editable).
+   *  entirely, a different axis from show/edit (appears at all, not read-only vs editable).
    *  UI-only here (screens/smart/PropertyOverview.tsx FieldVisibilitySection): the channel Listing editor is the
    *  peer session's file and isn't wired to read this yet. */
   fieldVisibility?: Partial<Record<OvFieldKey, FieldVisibility>>
 }
-/** A field key from any fields ledger that isn't inherently channel-specific — today data/sl3.ts FIELDS' 'languages'
+/** A field key from any fields ledger that isn't inherently channel-specific, today data/sl3.ts FIELDS' 'languages'
  *  and 'tags'. Kept as a plain string (not a closed two-value union): third round, this setting isn't
- *  just for Languages/Tags — it can apply to pricing, availability and other global fields later. Which fields
- *  actually show the control today is FIELD_VIS_KEYS (screens/smart/PropertyOverview.tsx), a plain array — adding a
+ *  just for Languages/Tags, it can apply to pricing, availability and other global fields later. Which fields
+ *  actually show the control today is FIELD_VIS_KEYS (screens/smart/PropertyOverview.tsx), a plain array, adding a
  *  field there (e.g. a future base/Pricing.tsx key) is a one-line change, not a type change here. */
 export type OvFieldKey = string
 export type FieldVisibility = 'show' | 'edit' | 'hidden'
@@ -204,7 +204,7 @@ export interface Actions {
   clearPending: (propertyIds: string[], what: 'suggestions' | 'conflicts' | 'failed' | 'drift') => void
   markProperties: (propertyIds: string[], mark: string) => void
   setScale200: (on: boolean) => void
-  /** Demo: jump 90 days ahead — versions v1…v3, series, a running switchback test (D-155…D-157). */
+  /** Demo: jump 90 days ahead, versions v1…v3, series, a running switchback test (D-155…D-157). */
   jumpAhead: () => void
   startTest: (t: Omit<ListingTest, 'id'>) => void
   stopTest: (id: string) => void
@@ -291,8 +291,8 @@ function initial(persona: PersonaId = 'P1'): State {
 }
 
 /** A property's slices on its first visit. The scenario property starts as before (initial()); the others get their
- *  light seed (data/property-seeds.ts): own photo library, default policies, and — per data/portfolio.ts
- *  smartListingsDefaultOn — Smart Listings already on, past setup, with a strategy per
+ *  light seed (data/property-seeds.ts): own photo library, default policies, and, per data/portfolio.ts
+ *  smartListingsDefaultOn, Smart Listings already on, past setup, with a strategy per
  *  channel and real tips waiting, EXCEPT the three properties that deliberately stay off (the "before you turn this
  *  on" demonstration). Past setup (not just switched on): setupDone true and a Plan per channel, the same shape
  *  Setup.tsx's finish() would leave behind, so Overview/Strategy/Performance don't redirect to Setup or show a
@@ -323,7 +323,7 @@ function outcome(c: QueuedChange): { state: ReceiptState; reason?: string } {
     return { state: 'in-review', reason: 'Booking.com reviews name changes (usually within 48 h).' }
   const f = FIELD[c.fieldId]
   const r = f?.reach[c.channel]
-  if (r === 'N' || r === '—') return { state: 'not-supported', reason: `${c.label} can’t be sent to this channel.` }
+  if (r === 'N' || r === '-') return { state: 'not-supported', reason: `${c.label} can’t be sent to this channel.` }
   return { state: 'live' }
 }
 
@@ -401,7 +401,7 @@ export const useStore = create<State & Actions>()(
         const toPush: QueuedChange[] = field?.visibility === 'public'
           ? (['airbnb', 'booking'] as ChannelId[])
               .filter((c) => field.reach[c] === 'Y' || field.reach[c] === 'A')
-              .map((c) => ({ id: uid('chg'), channel: c, fieldId: q.fieldId, label: field.label, before: f?.value ?? '—', after: value, origin: 'question' as const, at: now() }))
+              .map((c) => ({ id: uid('chg'), channel: c, fieldId: q.fieldId, label: field.label, before: f?.value ?? '-', after: value, origin: 'question' as const, at: now() }))
           : []
         set({
           questions: s.questions.map((x) => (x.id === id ? { ...x, status: 'answered', answer } : x)),
@@ -437,7 +437,7 @@ export const useStore = create<State & Actions>()(
         set({
           facts: { ...s.facts, [fieldId]: { ...f, value, status: 'confirmed', source: { kind: 'host', at: now() } } },
           queue: [...s.queue.filter((q) => !(q.fieldId === fieldId && q.origin === 'studio')),
-            ...chans.map((c) => ({ id: uid('chg'), channel: c, fieldId, label: field.label, before: f.value ?? '—', after: value, origin: 'studio' as const, at: now() }))],
+            ...chans.map((c) => ({ id: uid('chg'), channel: c, fieldId, label: field.label, before: f.value ?? '-', after: value, origin: 'studio' as const, at: now() }))],
         })
       },
       setOverride: (fieldId, channel, value) => {
@@ -449,7 +449,7 @@ export const useStore = create<State & Actions>()(
         else overrides[channel] = { value, reason: 'set by host', at: now() }
         set({
           facts: { ...s.facts, [fieldId]: { ...f, overrides } },
-          queue: [...s.queue, { id: uid('chg'), channel, fieldId, label: FIELD[fieldId]?.label ?? fieldId, before: f.overrides[channel]?.value ?? f.value ?? '—', after: value ?? (f.value ?? '—'), origin: 'studio', at: now() }],
+          queue: [...s.queue, { id: uid('chg'), channel, fieldId, label: FIELD[fieldId]?.label ?? fieldId, before: f.overrides[channel]?.value ?? f.value ?? '-', after: value ?? (f.value ?? '-'), origin: 'studio', at: now() }],
         })
       },
       setListingField: (channel, key, value) => {
@@ -547,7 +547,7 @@ export const useStore = create<State & Actions>()(
           status: 'confirmed',
         }
         const queued: QueuedChange[] = input.mapping.kind === 'channel'
-          ? [{ id: uid('chg'), channel: input.mapping.channel, fieldId: id, label: `${input.mapping.field}: ${input.label}`, before: '—', after: input.value, origin: 'studio', at: now() }]
+          ? [{ id: uid('chg'), channel: input.mapping.channel, fieldId: id, label: `${input.mapping.field}: ${input.label}`, before: '-', after: input.value, origin: 'studio', at: now() }]
           : []
         set({ customFields: [...s.customFields, field], facts: { ...s.facts, [id]: fact }, queue: [...s.queue, ...queued] })
         return id

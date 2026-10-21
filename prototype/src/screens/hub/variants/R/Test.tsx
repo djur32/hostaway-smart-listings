@@ -1,10 +1,10 @@
-/* KH-R · Test, replaces "Ask the AI" (ref 07, concepts/knowledge-hub/R-BRIEF.md "Agent 2 — R-workflows"). Type a guest
+/* KH-R · Test, replaces "Ask the AI" (ref 07, concepts/knowledge-hub/R-BRIEF.md "Agent 2, R-workflows"). Type a guest
  * question → one listing-wide answer (never "answer as {channel}": resolved silently through the property's primary
  * channel, chs[0]) → the facts it used, quoted ("Referenced sources") → a few it didn't need ("Other sources searched
  * over") → "Edit knowledge". Matching is the same bag-of-words idea as KH-C's old ask box (C.tsx `match()`), reused via
- * `bestMatch` (./workflows-data) — canned, not a real model (R-BRIEF: "the point is the UI pattern").
+ * `bestMatch` (./workflows-data), canned, not a real model (R-BRIEF: "the point is the UI pattern").
  * Mounted/unmounted by someone else's R.tsx; this file owns its own drawer (DetailsDrawer), so it works wherever
- * it's dropped. Available from Overview and every category page per the spec — the trigger button lives in R.tsx. */
+ * it's dropped. Available from Overview and every category page per the spec, the trigger button lives in R.tsx. */
 import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button, DetailsDrawer, Empty, KhrAnswer, KhrAsk, KhrSourceRow } from '../../../../ds'
@@ -56,7 +56,7 @@ function useTest() {
   const reset = () => { setQuery(''); setAsked('') }
   const matched = useMemo(() => (asked ? bestMatch(asked, hub.questions, (q) => `${q.q} ${q.kw ?? ''}`, 0.34, (q) => q.asked ?? 0)?.item : undefined), [asked, hub.questions])
   // a.text is every channel's answer; a.only is a sentence just one channel's guests get (e.g. Airbnb's checkout
-  // tasks) — shown labelled, not folded into the plain lines, so it never reads as the general answer (1 Oct).
+  // tasks), shown labelled, not folded into the plain lines, so it never reads as the general answer (1 Oct).
   const answer = useMemo(() => (matched ? answerOf(matched, hub, primary) : undefined), [matched, hub, primary])
   const lines = answer?.text ?? []
   const only = answer?.only && answer.only.c === primary ? { channel: answer.only.c, text: answer.only.text } : undefined

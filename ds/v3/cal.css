@@ -59,7 +59,7 @@
 
 /* Look only (review, 3 Oct: "just show what it looks like… switch between pricing and availability, and that's it"):
  * the toolbar's Preview / Layers and the sidebar's drill-down rows have no handler, so they keep Hostaway's look but
- * drop the pointer, the hover and the press — nothing suggests a click that does nothing. */
+ * drop the pointer, the hover and the press, nothing suggests a click that does nothing. */
 .h-calp__bar .h-btn.h-calp__inert, .h-calp__inert-links > .h-pstack-link { cursor: default; }
 .h-calp__bar .h-btn--secondary.h-calp__inert:hover { background: var(--color-action-secondary-bg); border-color: var(--color-action-secondary-border); }
 .h-calp__bar .h-btn.h-calp__inert:active { transform: none; }
@@ -84,7 +84,7 @@
 /* Phones, mobile pass (3 Oct). The head is display: contents on phones (ch.css), so the description and the toolbar get
  * the page gutter here. Toolbar: Occupancy | Tasks + Layers on one line, then "Pricing & availability" (the sheet that
  * holds the desktop sidebar) and Preview each full width; every control 44px. Month: the established compact phone
- * calendar (Airbnb host app, iOS Calendar) — the month name and weekday row stick under the top edge while that month scrolls, each
+ * calendar (Airbnb host app, iOS Calendar), the month name and weekday row stick under the top edge while that month scrolls, each
  * cell is the date and the night's price only (the minimum stay is in the cell's label and in Pricing & availability),
  * price 14px so it stays readable. */
 @media (max-width: 767px) {
@@ -127,7 +127,7 @@
   .h-calfilters__select { flex: 1 1 100%; }
 }
 
-/* Calendar › one property's month (global /calendar?property=): the filter chip's × (was inline styles) — a 44px target
+/* Calendar › one property's month (global /calendar?property=): the filter chip's × (was inline styles), a 44px target
  * on phones; the month's type one step up on phones so dates, prices and guest names stay readable (12px floor). */
 .h-calfilters__clear { margin-left: 2px; } /* the outlined × (h-close--sm) */
 @media (max-width: 767px) {

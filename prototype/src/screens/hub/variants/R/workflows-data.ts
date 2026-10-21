@@ -1,4 +1,4 @@
-/* KH-R · Workflows data (concepts/knowledge-hub/R-BRIEF.md, "Agent 2 — R-workflows"). the three seed
+/* KH-R · Workflows data (concepts/knowledge-hub/R-BRIEF.md, "Agent 2, R-workflows"). the three seed
  * workflows below are plausible content for Neukölln (refs 04–06), not real host data. Every other property starts
  * with the template gallery only (no saved workflows) until the host creates one.
  * Step text carries chip tokens (`%guest_name%`, `%action:message%`…), the same `%shortcode%` convention as the rest
@@ -29,7 +29,7 @@ export function bestMatch<T>(text: string, items: T[], bagOf: (item: T) => strin
 /* ---------- chips: reservation data + the three actions a step can take ---------- */
 export type ActionKind = 'message' | 'task' | 'handoff'
 /** A sample step's own kind: one of the three actions, or 'note' when the step is an internal check with no action
- *  chip (e.g. "Check whether another guest checks out that morning") — not something the guest sees. */
+ *  chip (e.g. "Check whether another guest checks out that morning"), not something the guest sees. */
 export type StepKind = ActionKind | 'note'
 export interface ChipDef { token: string; label: string; icon: string; kind: 'data' | 'action' }
 export const DATA_CHIPS: ChipDef[] = [

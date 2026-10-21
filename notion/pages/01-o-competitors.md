@@ -1,383 +1,383 @@
-<callout icon="✅" color="gray_bg">
-	**Output · Done** · Eight products that already solve part of "one record, many channels, with AI help", and the pattern Smart Listings borrows from each; then every product reviewed, with its source. Provenance: from each product's public help pages and docs.
+<callouticon=✅ color=gray_bg>
+	**OutputDone** · EightproductsthatalreadysolvepartofonerecordmanychannelswithAIhelpandthepatternSmartListingsborrowsfromeach; theneveryproductreviewedwithitssource. Provenancefromeachproduct'spublichelppagesanddocs.
 </callout>
-## The short version
-- Inside short-term rental software, **per-channel copy is rare**: six of eleven platforms reviewed send one description everywhere. The sharper patterns come from product-information tools and e-commerce.
-- **AI listing copy is shallow and local to one field.** No one I found generates per-channel versions from one set of facts and shows which fact each suggestion came from.
-- **Comps inform price, almost never content.**
-- So the opening (my reading, ): no PMS combines a fact record with per-channel versions, grounded AI suggestions with sources, and comps that inform content.
-## Eight products, eight patterns
-<table header-row="true">
+## Theshortversion
+- Insideshort-termrentalsoftware**per-channelcopyisrare**: sixofelevenplatformsreviewedsendonedescriptioneverywhere. Thesharperpatternscomefromproduct-informationtoolsande-commerce.
+- **AIlistingcopyisshallowandlocaltoonefield.** NooneIfoundgeneratesper-channelversionsfromonesetoffactsandshowswhichfacteachsuggestioncamefrom.
+- **Compsinformpricealmostnevercontent.**
+- Sotheopening(myreading): noPMScombinesafactrecordwithper-channelversionsgroundedAIsuggestionswithsourcesandcompsthatinformcontent.
+## Eightproductseightpatterns
+<tableheader-row=true>
 	<tr>
 		<td>Product</td>
-		<td>What it does</td>
-		<td>Pattern I borrow</td>
-		<td>Where it shows in Smart Listings</td>
+		<td>Whatitdoes</td>
+		<td>PatternIborrow</td>
+		<td>WhereitshowsinSmartListings</td>
 	</tr>
 	<tr>
-		<td>[Guesty](https://help.guesty.com/hc/en-gb/articles/18116100002333-Setting-a-property-s-title-and-description)</td>
-		<td>Named description sets per channel; deleting one falls back to the default. AI writes three drafts with tone and length.</td>
-		<td>Per-channel copy that falls back to a default</td>
-		<td>A channel field uses the Base until it's customised</td>
+		<td>[Guesty](https//help.guesty.comhcen-gbarticles18116100002333-Setting-a-property-s-title-and-description)</td>
+		<td>Nameddescriptionsetsperchannel; deletingonefallsbacktothedefault. AIwritesthreedraftswithtoneandlength.</td>
+		<td>Per-channelcopythatfallsbacktoadefault</td>
+		<td>AchannelfieldusestheBaseuntilit'scustomised</td>
 	</tr>
 	<tr>
-		<td>[OwnerRez](https://www.ownerrez.com/support/articles/property-descriptions)</td>
-		<td>Default descriptions plus an override tab per channel; fields inherit until replaced; per-channel limits in tooltips.</td>
-		<td>Inherit until overridden, field by field</td>
-		<td>"Uses the Base" / "Custom for Airbnb" on every field</td>
+		<td>[OwnerRez](https//www.ownerrez.comsupportarticlesproperty-descriptions)</td>
+		<td>Defaultdescriptionsplusanoverridetabperchannel; fieldsinherituntilreplaced; per-channellimitsintooltips.</td>
+		<td>Inherituntiloverriddenfieldbyfield</td>
+		<td>UsestheBaseCustomforAirbnboneveryfield</td>
 	</tr>
 	<tr>
-		<td>[Pimcore](https://docs.pimcore.com/platform/next/Pimcore/Objects/Object_Classes/Additional_Class_Settings/Data_Inheritance/)</td>
-		<td>Product information tool. Inherited values show grey with a marker that links to their source.</td>
-		<td>Inherited vs changed, visible on every field</td>
-		<td>Base values render read-only on channel pages; hovering shows the Base and each channel's value</td>
+		<td>[Pimcore](https//docs.pimcore.complatformnextPimcoreObjectsObject_ClassesAdditional_Class_SettingsData_Inheritance)</td>
+		<td>Productinformationtool. Inheritedvaluesshowgreywithamarkerthatlinkstotheirsource.</td>
+		<td>Inheritedvschangedvisibleoneveryfield</td>
+		<td>Basevaluesrenderread-onlyonchannelpages; hoveringshowstheBaseandeachchannel'svalue</td>
 	</tr>
 	<tr>
-		<td>[Akeneo](https://help.akeneo.com/serenity-your-first-steps-with-akeneo/serenity-understand-product-completeness)</td>
-		<td>Product information tool where a channel is a scope; completeness per channel, with a jump to each missing field.</td>
-		<td>Per-channel status that links to the field</td>
-		<td>Tip counts on each channel page in the menu, and on each tab of the page</td>
+		<td>[Akeneo](https//help.akeneo.comserenity-your-first-steps-with-akeneoserenity-understand-product-completeness)</td>
+		<td>Productinformationtoolwhereachannelisascope; completenessperchannelwithajumptoeachmissingfield.</td>
+		<td>Per-channelstatusthatlinkstothefield</td>
+		<td>Tipcountsoneachchannelpageinthemenuandoneachtabofthepage</td>
 	</tr>
 	<tr>
-		<td>[Shopify Markets](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/store-contextualization/understanding-markets-and-overrides)</td>
-		<td>Store defaults with overrides per market, and a "View as" preview of each.</td>
-		<td>Default → override, plus see it as the customer does</td>
-		<td>Canvas: each channel's guest page, built from the same data</td>
+		<td>[ShopifyMarkets](https//help.shopify.comenmanualonline-storethemescustomizing-themesstore-contextualizationunderstanding-markets-and-overrides)</td>
+		<td>StoredefaultswithoverridespermarketandaViewaspreviewofeach.</td>
+		<td>Default→ overrideplusseeitasthecustomerdoes</td>
+		<td>Canvaseachchannel'sguestpagebuiltfromthesamedata</td>
 	</tr>
 	<tr>
-		<td>[Rankbreeze](https://support.rankbreeze.com/en/articles/15282318-create-a-high-converting-airbnb-listing-with-rankbreeze-s-ai-listing-writer)</td>
-		<td>Airbnb listing writer that only uses features already in the listing; three title drafts; delivered by copy and paste.</td>
-		<td>Grounded generation: no invented features</td>
-		<td>Tips cite the Listing base facts and guest questions they rest on</td>
+		<td>[Rankbreeze](https//support.rankbreeze.comenarticles15282318-create-a-high-converting-airbnb-listing-with-rankbreeze-s-ai-listing-writer)</td>
+		<td>Airbnblistingwriterthatonlyusesfeaturesalreadyinthelisting; threetitledrafts; deliveredbycopyandpaste.</td>
+		<td>Groundedgenerationnoinventedfeatures</td>
+		<td>TipscitetheListingbasefactsandguestquestionstheyreston</td>
 	</tr>
 	<tr>
-		<td>[AirDNA](https://help.airdna.co/en/articles/10559022-rentalizer-revenue-calculator)</td>
-		<td>Market data. Builds comp sets and rates their strength; "Comparable Amenities" splits must-haves from advantages.</td>
-		<td>Comps that inform content, not only price</td>
-		<td>"Similar homes" as a reason in a tip's why</td>
+		<td>[AirDNA](https//help.airdna.coenarticles10559022-rentalizer-revenue-calculator)</td>
+		<td>Marketdata. Buildscompsetsandratestheirstrength;ComparableAmenitiessplitsmust-havesfromadvantages.</td>
+		<td>Compsthatinformcontentnotonlyprice</td>
+		<td>Similarhomesasareasoninatip'swhy</td>
 	</tr>
 	<tr>
-		<td>[GitHub suggested changes](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)</td>
-		<td>A reviewer's change shown as a small diff, applied with one click or dismissed.</td>
-		<td>A suggestion is a visible diff you accept or dismiss</td>
-		<td>A tip shows the change as a diff, with Accept and Dismiss</td>
+		<td>[GitHubsuggestedchanges](https//docs.github.comenpull-requestscollaborating-with-pull-requestsreviewing-changes-in-pull-requestsincorporating-feedback-in-your-pull-request)</td>
+		<td>Areviewer'schangeshownasasmalldiffappliedwithoneclickordismissed.</td>
+		<td>Asuggestionisavisiblediffyouacceptordismiss</td>
+		<td>AtipshowsthechangeasadiffwithAcceptandDismiss</td>
 	</tr>
 </table>
 <columns>
 	<column>
-		![Pimcore: inherited values render grey with a green marker; a changed field renders solid. Provenance: docs.pimcore.com.](file-upload://3eee18af-1645-8102-aa67-00b24862953c)
+		![Pimcoreinheritedvaluesrendergreywithagreenmarker; achangedfieldrenderssolid. Provenancedocs.pimcore.com.](file-upload//3eee18af-1645-8102-aa67-00b24862953c)
 	</column>
 	<column>
-		![Guesty: description sets, each tied to the channels it applies to. Provenance: help.guesty.com.](file-upload://3eee18af-1645-8158-ad0f-00b2044aa372)
+		![Guestydescriptionsetseachtiedtothechannelsitappliesto. Provenancehelp.guesty.com.](file-upload//3eee18af-1645-8158-ad0f-00b2044aa372)
 	</column>
 </columns>
-## What I designed against
-Each of these is documented by the vendor itself or in public host complaints.
-- **One ownership switch per listing** ("sync everything" or not) instead of a state per field.
-- **AI that rewrites guest-facing text without the host seeing it.** The few public AI-copy complaints are about exactly this.
-- **Bulk copy that overwrites with no history.**
-- **A Booking.com description box that goes nowhere,** because Booking.com writes its own.
-## Every product reviewed
-All through their public help pages, docs and product pages (). The competitor scan covered 36 products; the Knowledge Hub and Smart Listings explorations then studied more tools for specific patterns. Each group opens below.
+## WhatIdesignedagainst
+Eachoftheseisdocumentedbythevendoritselforinpublichostcomplaints.
+- **Oneownershipswitchperlisting** (synceverythingornot) insteadofastateperfield.
+- **AIthatrewritesguest-facingtextwithoutthehostseeingit.** ThefewpublicAI-copycomplaintsareaboutexactlythis.
+- **Bulkcopythatoverwriteswithnohistory.**
+- **ABooking.comdescriptionboxthatgoesnowhere** becauseBooking.comwritesitsown.
+## Everyproductreviewed
+Allthroughtheirpublichelppagesdocsandproductpages. Thecompetitorscancovered36products; theKnowledgeHubandSmartListingsexplorationsthenstudiedmoretoolsforspecificpatterns. Eachgroupopensbelow.
 <details>
-<summary>**Short-term rental software: PMS, channel managers and host tools (15)**</summary>
-	<table header-row="true">
+<summary>**Short-termrentalsoftwarePMSchannelmanagersandhosttools(15)**</summary>
+	<tableheader-row=true>
 		<tr>
 			<td>Product</td>
-			<td>What I looked at</td>
+			<td>WhatIlookedat</td>
 			<td>Source</td>
 		</tr>
 		<tr>
 			<td>**Hostaway** (today)</td>
-			<td>The baseline. "Edit per channel" on a few fields, for Airbnb and Direct only; no Booking⁠.com text; AI for guest messaging, not listings.</td>
-			<td>[Help centre](https://help.hostaway.com/en/articles/11596108-listing-management-overview)</td>
+			<td>Thebaseline.EditperchannelonafewfieldsforAirbnbandDirectonly; noBooking⁠.comtext; AIforguestmessagingnotlistings.</td>
+			<td>[Helpcentre](https//help.hostaway.comenarticles11596108-listing-management-overview)</td>
 		</tr>
 		<tr>
 			<td>**Guesty**</td>
-			<td>Full vs limited sync; named description sets per channel; AI drafts with tone, length and audience.</td>
-			<td>[Help centre](https://help.guesty.com/hc/en-gb/articles/18116100002333-Setting-a-property-s-title-and-description)</td>
+			<td>Fullvslimitedsync; nameddescriptionsetsperchannel; AIdraftswithtonelengthandaudience.</td>
+			<td>[Helpcentre](https//help.guesty.comhcen-gbarticles18116100002333-Setting-a-property-s-title-and-description)</td>
 		</tr>
 		<tr>
 			<td>**Hostaway**</td>
-			<td>Import from Airbnb; a Channel Specific tab; an "improve" button; listing facts feed its AI replies.</td>
-			<td>[Help centre](https://support.hostaway.com/hc/en-us/articles/360016537733-Listings-Content-Fields-Exported-to-Channels)</td>
+			<td>ImportfromAirbnb; aChannelSpecifictab; animprovebutton; listingfactsfeeditsAIreplies.</td>
+			<td>[Helpcentre](https//support.hostaway.comhcen-usarticles360016537733-Listings-Content-Fields-Exported-to-Channels)</td>
 		</tr>
 		<tr>
 			<td>**Hostfully**</td>
-			<td>One checkbox for a separate Booking⁠.com description.</td>
-			<td>[Help centre](https://help.hostfully.com/en/articles/8017235-update-your-property-s-description)</td>
+			<td>OnecheckboxforaseparateBooking⁠.comdescription.</td>
+			<td>[Helpcentre](https//help.hostfully.comenarticles8017235-update-your-property-s-description)</td>
 		</tr>
 		<tr>
 			<td>**Lodgify**</td>
-			<td>"Sync everything" vs limited, per channel; per-channel fees and mark-up.</td>
-			<td>[Help centre](https://help.lodgify.com/hc/en-us/articles/360010559439-Edit-channel-configurations-for-Airbnb-API)</td>
+			<td>Synceverythingvslimitedperchannel; per-channelfeesandmark-up.</td>
+			<td>[Helpcentre](https//help.lodgify.comhcen-usarticles360010559439-Edit-channel-configurations-for-Airbnb-API)</td>
 		</tr>
 		<tr>
 			<td>**OwnerRez**</td>
-			<td>A default plus an override tab per channel; fields inherit until replaced.</td>
-			<td>[Help centre](https://www.ownerrez.com/support/articles/property-descriptions)</td>
+			<td>Adefaultplusanoverridetabperchannel; fieldsinherituntilreplaced.</td>
+			<td>[Helpcentre](https//www.ownerrez.comsupportarticlesproperty-descriptions)</td>
 		</tr>
 		<tr>
 			<td>**Smoobu**</td>
-			<td>Content stays on each channel; Smoobu owns price and availability only.</td>
-			<td>[Help centre](https://support.smoobu.com/hc/en-us/articles/12204140260754-After-connecting-where-do-I-change-prices-and-settings-Smoobu-or-the-channel)</td>
+			<td>Contentstaysoneachchannel; Smoobuownspriceandavailabilityonly.</td>
+			<td>[Helpcentre](https//support.smoobu.comhcen-usarticles12204140260754-After-connecting-where-do-I-change-prices-and-settings-Smoobu-or-the-channel)</td>
 		</tr>
 		<tr>
 			<td>**Uplisting**</td>
-			<td>A one-way push at publish, behind a pre-publish checklist.</td>
-			<td>[Help centre](https://support.uplisting.io/en/article/how-to-connect-to-bookingcom-m0ns68/)</td>
+			<td>Aone-waypushatpublishbehindapre-publishchecklist.</td>
+			<td>[Helpcentre](https//support.uplisting.ioenarticlehow-to-connect-to-bookingcom-m0ns68)</td>
 		</tr>
 		<tr>
 			<td>**iGMS**</td>
-			<td>A separate editor per channel.</td>
-			<td>[Help centre](https://help.igms.com/en/articles/9927954-airbnb-listing-editor-overview)</td>
+			<td>Aseparateeditorperchannel.</td>
+			<td>[Helpcentre](https//help.igms.comenarticles9927954-airbnb-listing-editor-overview)</td>
 		</tr>
 		<tr>
 			<td>**Avantio**</td>
-			<td>Distributes property details to 50+ portals, with per-portal rules.</td>
-			<td>[Product page](https://www.avantio.com/vacation-rental-channel-manager/)</td>
+			<td>Distributespropertydetailsto50+ portalswithper-portalrules.</td>
+			<td>[Productpage](https//www.avantio.comvacation-rental-channel-manager)</td>
 		</tr>
 		<tr>
 			<td>**Beds24**</td>
-			<td>Specific content for Airbnb; "View content" before switching to full sync.</td>
-			<td>[Wiki](https://wiki.beds24.com/index.php/Specific_content_for_Airbnb)</td>
+			<td>SpecificcontentforAirbnb;Viewcontentbeforeswitchingtofullsync.</td>
+			<td>[Wiki](https//wiki.beds24.comindex.phpSpecific_content_for_Airbnb)</td>
 		</tr>
 		<tr>
 			<td>**Tokeet**</td>
-			<td>Full sync locks the Airbnb dashboard; imports a replica of the listing.</td>
-			<td>[Help centre](https://www.tokeet.com/help/article/airbnb-api-new-faq)</td>
+			<td>FullsynclockstheAirbnbdashboard; importsareplicaofthelisting.</td>
+			<td>[Helpcentre](https//www.tokeet.comhelparticleairbnb-api-new-faq)</td>
 		</tr>
 		<tr>
 			<td>**Breezeway**</td>
-			<td>Its AI concierge names the fact each answer used, and learns from staff replies.</td>
-			<td>[Product page](https://www.breezeway.io/concierge)</td>
+			<td>ItsAIconciergenamesthefacteachanswerusedandlearnsfromstaffreplies.</td>
+			<td>[Productpage](https//www.breezeway.ioconcierge)</td>
 		</tr>
 		<tr>
 			<td>**HostAI** (Conduit)</td>
-			<td>Daily suggested knowledge tunings the host accepts or skips.</td>
-			<td>[Blog](https://conduit.ai/blog/elevate-your-short-term-rentals-with-host-ais-knowledge-tuning)</td>
+			<td>Dailysuggestedknowledgetuningsthehostacceptsorskips.</td>
+			<td>[Blog](https//conduit.aiblogelevate-your-short-term-rentals-with-host-ais-knowledge-tuning)</td>
 		</tr>
 		<tr>
-			<td>**Enso Connect**</td>
-			<td>A knowledge base where one entry applies to a listing, a group or a tag.</td>
-			<td>[Product page](https://ensoconnect.com/features/enso-ai)</td>
+			<td>**EnsoConnect**</td>
+			<td>Aknowledgebasewhereoneentryappliestoalistingagrouporatag.</td>
+			<td>[Productpage](https//ensoconnect.comfeaturesenso-ai)</td>
 		</tr>
 	</table>
 </details>
 <details>
-<summary>**AI and market tools (6)**</summary>
-	<table header-row="true">
+<summary>**AIandmarkettools(6)**</summary>
+	<tableheader-row=true>
 		<tr>
 			<td>Product</td>
-			<td>What I looked at</td>
+			<td>WhatIlookedat</td>
 			<td>Source</td>
 		</tr>
 		<tr>
-			<td>**Airbnb** (host AI)</td>
-			<td>AI photo tour that keeps the host's manual edits when it re-sorts.</td>
-			<td>[Newsroom](https://news.airbnb.com/airbnb-2025-summer-release)</td>
+			<td>**Airbnb** (hostAI)</td>
+			<td>AIphototourthatkeepsthehost'smanualeditswhenitre-sorts.</td>
+			<td>[Newsroom](https//news.airbnb.comairbnb-2025-summer-release)</td>
 		</tr>
 		<tr>
 			<td>**Rankbreeze**</td>
-			<td>A listing writer that uses only features already in the listing; three title drafts; copy and paste, no push.</td>
-			<td>[Help centre](https://support.rankbreeze.com/en/articles/15282318-create-a-high-converting-airbnb-listing-with-rankbreeze-s-ai-listing-writer)</td>
+			<td>Alistingwriterthatusesonlyfeaturesalreadyinthelisting; threetitledrafts; copyandpastenopush.</td>
+			<td>[Helpcentre](https//support.rankbreeze.comenarticles15282318-create-a-high-converting-airbnb-listing-with-rankbreeze-s-ai-listing-writer)</td>
 		</tr>
 		<tr>
 			<td>**AirDNA**</td>
-			<td>Comp sets with a strength rating; comparable amenities split into must-haves and advantages.</td>
-			<td>[Help centre](https://help.airdna.co/en/articles/10559022-rentalizer-revenue-calculator)</td>
+			<td>Compsetswithastrengthrating; comparableamenitiessplitintomust-havesandadvantages.</td>
+			<td>[Helpcentre](https//help.airdna.coenarticles10559022-rentalizer-revenue-calculator)</td>
 		</tr>
 		<tr>
 			<td>**PriceLabs**</td>
-			<td>Market dashboards with percentile price bands; one comp set reused across pricing and pacing.</td>
-			<td>[Product page](https://hello.pricelabs.co/market-dashboards/)</td>
+			<td>Marketdashboardswithpercentilepricebands; onecompsetreusedacrosspricingandpacing.</td>
+			<td>[Productpage](https//hello.pricelabs.comarket-dashboards)</td>
 		</tr>
 		<tr>
 			<td>**Beyond**</td>
-			<td>Comp sets that show what is included or excluded, and why.</td>
-			<td>[Product page](https://www.beyondpricing.com/products/insights-pro)</td>
+			<td>Compsetsthatshowwhatisincludedorexcludedandwhy.</td>
+			<td>[Productpage](https//www.beyondpricing.comproductsinsights-pro)</td>
 		</tr>
 		<tr>
 			<td>**Wheelhouse**</td>
-			<td>Comp sets built on how guests decide, with thresholds that adapt to density.</td>
-			<td>[Research page](https://usewheelhouse.com/research-comp-sets)</td>
+			<td>Compsetsbuiltonhowguestsdecidewiththresholdsthatadapttodensity.</td>
+			<td>[Researchpage](https//usewheelhouse.comresearch-comp-sets)</td>
 		</tr>
 	</table>
 </details>
 <details>
-<summary>**Analogues outside short-term rentals (18)**</summary>
-	<table header-row="true">
+<summary>**Analoguesoutsideshort-termrentals(18)**</summary>
+	<tableheader-row=true>
 		<tr>
 			<td>Product</td>
-			<td>What I looked at</td>
+			<td>WhatIlookedat</td>
 			<td>Source</td>
 		</tr>
 		<tr>
-			<td>**Akeneo PIM**</td>
-			<td>A channel as a scope; completeness per channel with a jump to the missing field.</td>
-			<td>[Help centre](https://help.akeneo.com/serenity-your-first-steps-with-akeneo/serenity-understand-product-completeness)</td>
+			<td>**AkeneoPIM**</td>
+			<td>Achannelasascope; completenessperchannelwithajumptothemissingfield.</td>
+			<td>[Helpcentre](https//help.akeneo.comserenity-your-first-steps-with-akeneoserenity-understand-product-completeness)</td>
 		</tr>
 		<tr>
 			<td>**Salsify**</td>
-			<td>Readiness per retailer, and a grade for what actually went live.</td>
-			<td>[Help centre](https://getstarted.salsify.com/help/configuring-a-readiness-report)</td>
+			<td>Readinessperretailerandagradeforwhatactuallywentlive.</td>
+			<td>[Helpcentre](https//getstarted.salsify.comhelpconfiguring-a-readiness-report)</td>
 		</tr>
 		<tr>
 			<td>**Pimcore**</td>
-			<td>Child objects inherit empty fields; inherited values show grey with a link to their source.</td>
-			<td>[Docs](https://docs.pimcore.com/platform/next/Pimcore/Objects/Object_Classes/Additional_Class_Settings/Data_Inheritance/)</td>
+			<td>Childobjectsinheritemptyfields; inheritedvaluesshowgreywithalinktotheirsource.</td>
+			<td>[Docs](https//docs.pimcore.complatformnextPimcoreObjectsObject_ClassesAdditional_Class_SettingsData_Inheritance)</td>
 		</tr>
 		<tr>
-			<td>**Shopify** (channels and Markets)</td>
-			<td>Defaults with overrides per market, and "View as" each one.</td>
-			<td>[Help centre](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/store-contextualization/understanding-markets-and-overrides)</td>
+			<td>**Shopify** (channelsandMarkets)</td>
+			<td>DefaultswithoverridespermarketandViewaseachone.</td>
+			<td>[Helpcentre](https//help.shopify.comenmanualonline-storethemescustomizing-themesstore-contextualizationunderstanding-markets-and-overrides)</td>
 		</tr>
 		<tr>
 			<td>**Contentful**</td>
-			<td>Field-level locales; an empty field falls back along a chain.</td>
-			<td>[Help centre](https://www.contentful.com/help/localization/field-and-entry-localization/)</td>
+			<td>Field-levellocales; anemptyfieldfallsbackalongachain.</td>
+			<td>[Helpcentre](https//www.contentful.comhelplocalizationfield-and-entry-localization)</td>
 		</tr>
 		<tr>
 			<td>**Sanity**</td>
-			<td>Field-level and document-level translation in one model: facts per field, voice per document.</td>
-			<td>[Docs](https://www.sanity.io/docs/studio/localization)</td>
+			<td>Field-levelanddocument-leveltranslationinonemodelfactsperfieldvoiceperdocument.</td>
+			<td>[Docs](https//www.sanity.iodocsstudiolocalization)</td>
 		</tr>
 		<tr>
-			<td>**Figma variables**</td>
-			<td>One variable, one value per mode: rows are facts, columns are channels.</td>
-			<td>[Help centre](https://help.figma.com/hc/en-us/articles/15343816063383-Modes-for-variables)</td>
+			<td>**Figmavariables**</td>
+			<td>Onevariableonevaluepermoderowsarefactscolumnsarechannels.</td>
+			<td>[Helpcentre](https//help.figma.comhcen-usarticles15343816063383-Modes-for-variables)</td>
 		</tr>
 		<tr>
-			<td>**Google Ads** (responsive search ads)</td>
-			<td>A pool of headlines, pinning, a live strength rating and "Added by Google AI".</td>
-			<td>[Help centre](https://support.google.com/google-ads/answer/7684791)</td>
+			<td>**GoogleAds** (responsivesearchads)</td>
+			<td>ApoolofheadlinespinningalivestrengthratingandAddedbyGoogleAI.</td>
+			<td>[Helpcentre](https//support.google.comgoogle-adsanswer7684791)</td>
 		</tr>
 		<tr>
-			<td>**Google Merchant Center**</td>
-			<td>Issues per destination, warning vs disapproval, with suggested fixes.</td>
-			<td>[Help centre](https://support.google.com/merchants/answer/12153802?hl=en)</td>
+			<td>**GoogleMerchantCenter**</td>
+			<td>Issuesperdestinationwarningvsdisapprovalwithsuggestedfixes.</td>
+			<td>[Helpcentre](https//support.google.commerchantsanswer12153802?hl=en)</td>
 		</tr>
 		<tr>
-			<td>**Notion AI**</td>
-			<td>Select, edit with AI, then Accept, Discard or Try again.</td>
-			<td>[Guide](https://www.notion.com/help/guides/notion-ai-for-docs)</td>
+			<td>**NotionAI**</td>
+			<td>SelecteditwithAIthenAcceptDiscardorTryagain.</td>
+			<td>[Guide](https//www.notion.comhelpguidesnotion-ai-for-docs)</td>
 		</tr>
 		<tr>
 			<td>**Grammarly**</td>
-			<td>Brand tones set by picking examples; a tone chip on drafts.</td>
-			<td>[Help centre](https://support.grammarly.com/hc/en-us/articles/4403544890253-Set-brand-tones)</td>
+			<td>Brandtonessetbypickingexamples; atonechipondrafts.</td>
+			<td>[Helpcentre](https//support.grammarly.comhcen-usarticles4403544890253-Set-brand-tones)</td>
 		</tr>
 		<tr>
 			<td>**Canva**</td>
-			<td>Brand voice, extracted from an existing site or document.</td>
-			<td>[Help centre](https://www.canva.com/help/brand-voice/)</td>
+			<td>Brandvoiceextractedfromanexistingsiteordocument.</td>
+			<td>[Helpcentre](https//www.canva.comhelpbrand-voice)</td>
 		</tr>
 		<tr>
-			<td>**GitHub** (pull requests)</td>
-			<td>A suggested change as a small diff, committed alone or in a batch.</td>
-			<td>[Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)</td>
+			<td>**GitHub** (pullrequests)</td>
+			<td>Asuggestedchangeasasmalldiffcommittedaloneorinabatch.</td>
+			<td>[Docs](https//docs.github.comenpull-requestscollaborating-with-pull-requestsreviewing-changes-in-pull-requestsincorporating-feedback-in-your-pull-request)</td>
 		</tr>
 		<tr>
 			<td>**Figma** (branching)</td>
-			<td>Review changes side by side; resolve each conflict by picking a side.</td>
-			<td>[Help centre](https://help.figma.com/hc/en-us/articles/5693123873687-Review-branch-changes)</td>
+			<td>Reviewchangessidebyside; resolveeachconflictbypickingaside.</td>
+			<td>[Helpcentre](https//help.figma.comhcen-usarticles5693123873687-Review-branch-changes)</td>
 		</tr>
 		<tr>
 			<td>**Airtable**</td>
-			<td>Bulk actions whose button says how many records it will change.</td>
-			<td>[Help centre](https://support.airtable.com/articles/3799201176-updating-multiple-fields-with-bulk-field-actions)</td>
+			<td>Bulkactionswhosebuttonsayshowmanyrecordsitwillchange.</td>
+			<td>[Helpcentre](https//support.airtable.comarticles3799201176-updating-multiple-fields-with-bulk-field-actions)</td>
 		</tr>
 		<tr>
 			<td>**Linear**</td>
-			<td>Filter, select all, then one command on the selection.</td>
-			<td>[Docs](https://linear.app/docs/select-issues)</td>
+			<td>Filterselectallthenonecommandontheselection.</td>
+			<td>[Docs](https//linear.appdocsselect-issues)</td>
 		</tr>
 		<tr>
-			<td>**App store experiments** (Apple, Google Play)</td>
-			<td>Treatments against a baseline, with plain verdicts and "apply treatment".</td>
-			<td>[Apple](https://developer.apple.com/app-store/product-page-optimization/) · [Google Play](https://support.google.com/googleplay/android-developer/answer/12053285?hl=en)</td>
+			<td>**Appstoreexperiments** (AppleGooglePlay)</td>
+			<td>Treatmentsagainstabaselinewithplainverdictsandapplytreatment.</td>
+			<td>[Apple](https//developer.apple.comapp-storeproduct-page-optimization) · [GooglePlay](https//support.google.comgoogleplayandroid-developeranswer12053285?hl=en)</td>
 		</tr>
 		<tr>
-			<td>**Email A/B testing** (Klaviyo, Mailchimp)</td>
-			<td>AI writes a variation along a named axis; the winner is picked by significance.</td>
-			<td>[Klaviyo](https://help.klaviyo.com/hc/en-us/articles/115005228148) · [Mailchimp](https://mailchimp.com/help/create-ab-tests/)</td>
+			<td>**EmailABtesting** (KlaviyoMailchimp)</td>
+			<td>AIwritesavariationalonganamedaxis; thewinnerispickedbysignificance.</td>
+			<td>[Klaviyo](https//help.klaviyo.comhcen-usarticles115005228148) · [Mailchimp](https//mailchimp.comhelpcreate-ab-tests)</td>
 		</tr>
 	</table>
 </details>
 <details>
-<summary>**AI support tools studied for the Knowledge Hub (3)**</summary>
-	<table header-row="true">
+<summary>**AIsupporttoolsstudiedfortheKnowledgeHub(3)**</summary>
+	<tableheader-row=true>
 		<tr>
 			<td>Product</td>
-			<td>What I looked at</td>
+			<td>WhatIlookedat</td>
 			<td>Source</td>
 		</tr>
 		<tr>
-			<td>**Intercom Fin**</td>
-			<td>Content gaps ranked by impact, shown with the conversations behind them; answers list the content they used.</td>
-			<td>[Help centre](https://www.intercom.com/help/en/articles/11394959-use-ai-powered-content-suggestions-to-improve-fin)</td>
+			<td>**IntercomFin**</td>
+			<td>Contentgapsrankedbyimpactshownwiththeconversationsbehindthem; answerslistthecontenttheyused.</td>
+			<td>[Helpcentre](https//www.intercom.comhelpenarticles11394959-use-ai-powered-content-suggestions-to-improve-fin)</td>
 		</tr>
 		<tr>
 			<td>**Chatbase**</td>
-			<td>Sources added by type in a side sheet; several phrasings of a question mapped to one answer.</td>
-			<td>[Docs](https://www.chatbase.co/docs/user-guides/chatbot/data-sources)</td>
+			<td>Sourcesaddedbytypeinasidesheet; severalphrasingsofaquestionmappedtooneanswer.</td>
+			<td>[Docs](https//www.chatbase.codocsuser-guideschatbotdata-sources)</td>
 		</tr>
 		<tr>
-			<td>**Ada, Crisp, Zendesk**</td>
-			<td>Knowledge switched on or off per item; Test next to Publish.</td>
-			<td>[Ada docs](https://docs.ada.cx/docs/generative/set-up-your-ai-agent-s-knowledge-and-behavior/manage-your-knowledge-content/)</td>
+			<td>**AdaCrispZendesk**</td>
+			<td>Knowledgeswitchedonoroffperitem; TestnexttoPublish.</td>
+			<td>[Adadocs](https//docs.ada.cxdocsgenerativeset-up-your-ai-agent-s-knowledge-and-behaviormanage-your-knowledge-content)</td>
 		</tr>
 	</table>
 </details>
 <details>
-<summary>**Pattern references behind the Smart Listings directions**</summary>
-	<table header-row="true">
+<summary>**PatternreferencesbehindtheSmartListingsdirections**</summary>
+	<tableheader-row=true>
 		<tr>
 			<td>Direction</td>
-			<td>Products studied</td>
+			<td>Productsstudied</td>
 		</tr>
 		<tr>
-			<td>Voice kit</td>
-			<td>[Grammarly brand tones](https://support.grammarly.com/hc/en-us/articles/4403544890253-Set-brand-tones) · [Canva brand voice](https://www.canva.com/help/brand-voice/)</td>
+			<td>Voicekit</td>
+			<td>[Grammarlybrandtones](https//support.grammarly.comhcen-usarticles4403544890253-Set-brand-tones) · [Canvabrandvoice](https//www.canva.comhelpbrand-voice)</td>
 		</tr>
 		<tr>
-			<td>Live canvas</td>
-			<td>[Framer on-page editing](https://www.framer.com/help/articles/on-page-editing/) · [Notion AI](https://www.notion.com/help/guides/notion-ai-for-docs) · [Canva Magic Design](https://www.canva.com/help/use-magic-design/)</td>
+			<td>Livecanvas</td>
+			<td>[Frameron-pageediting](https//www.framer.comhelparticleson-page-editing) · [NotionAI](https//www.notion.comhelpguidesnotion-ai-for-docs) · [CanvaMagicDesign](https//www.canva.comhelpuse-magic-design)</td>
 		</tr>
 		<tr>
-			<td>Listing score</td>
-			<td>[Google Ads optimisation score](https://support.google.com/google-ads/answer/9061546?hl=en) · [Google Ads Ad Strength](https://support.google.com/google-ads/answer/9921843?hl=en) · [Yoast SEO](https://yoast.com/yoast-seo-traffic-lights/)</td>
+			<td>Listingscore</td>
+			<td>[GoogleAdsoptimisationscore](https//support.google.comgoogle-adsanswer9061546?hl=en) · [GoogleAdsAdStrength](https//support.google.comgoogle-adsanswer9921843?hl=en) · [YoastSEO](https//yoast.comyoast-seo-traffic-lights)</td>
 		</tr>
 		<tr>
-			<td>Goals, guardrails and experiments</td>
-			<td>[Google Performance Max](https://support.google.com/google-ads/answer/10724817?hl=en) · [Meta Advantage+ creative](https://www.facebook.com/business/help/297506218282224) · [Optimizely results](https://support.optimizely.com/hc/en-us/articles/38994840559501-Optimizely-Experiment-Results-page)</td>
+			<td>Goalsguardrailsandexperiments</td>
+			<td>[GooglePerformanceMax](https//support.google.comgoogle-adsanswer10724817?hl=en) · [MetaAdvantage+ creative](https//www.facebook.combusinesshelp297506218282224) · [Optimizelyresults](https//support.optimizely.comhcen-usarticles38994840559501-Optimizely-Experiment-Results-page)</td>
 		</tr>
 		<tr>
-			<td>Multi-channel composer</td>
-			<td>[Buffer](https://support.buffer.com/article/644-how-do-i-schedule-posts-for-multiple-social-channels-at-the-same-time) · [Hootsuite Composer](https://help.hootsuite.com/hc/en-us/articles/115010088387-Overview-Create-and-publish-posts)</td>
+			<td>Multi-channelcomposer</td>
+			<td>[Buffer](https//support.buffer.comarticle644-how-do-i-schedule-posts-for-multiple-social-channels-at-the-same-time) · [HootsuiteComposer](https//help.hootsuite.comhcen-usarticles115010088387-Overview-Create-and-publish-posts)</td>
 		</tr>
 		<tr>
 			<td>This-or-that</td>
-			<td>[Midjourney personalisation](https://docs.midjourney.com/hc/en-us/articles/32433330574221-Personalization) · [Spotify taste profile](https://newsroom.spotify.com/2026-03-13/taste-profile-beta-announcement/)</td>
+			<td>[Midjourneypersonalisation](https//docs.midjourney.comhcen-usarticles32433330574221-Personalization) · [Spotifytasteprofile](https//newsroom.spotify.com2026-03-13taste-profile-beta-announcement)</td>
 		</tr>
 		<tr>
 			<td>Co-writer</td>
-			<td>[ChatGPT Canvas](https://openai.com/index/introducing-canvas/) · [Claude Artifacts](https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them) · [Notion suggested edits](https://www.notion.com/help/suggested-edits)</td>
+			<td>[ChatGPTCanvas](https//openai.comindexintroducing-canvas) · [ClaudeArtifacts](https//support.claude.comenarticles17153992-what-are-artifacts-and-how-do-i-use-them) · [Notionsuggestededits](https//www.notion.comhelpsuggested-edits)</td>
 		</tr>
 	</table>
-	Each direction was also checked against real screens on Mobbin (Grammarly, Squarespace, Wix, Semrush, Klaviyo, Buffer, Hootsuite, ChatGPT, Mistral, PandaDoc, HubSpot, Airtable and others). All 197 screens, with what I borrowed from each and a link to its Mobbin page, are on <mention-page url="https://app.notion.com/p/3efe18af164581dc88e7ceb2c86bb63e">Design references</mention-page>. See <mention-page url="https://app.notion.com/p/3eee18af1645815aa317e53bdcf8435d">Concept directions</mention-page>. {color="gray"}
+	EachdirectionwasalsocheckedagainstrealscreensonMobbin(GrammarlySquarespaceWixSemrushKlaviyoBufferHootsuiteChatGPTMistralPandaDocHubSpotAirtableandothers). All197screenswithwhatIborrowedfromeachandalinktoitsMobbinpageareon<mention-pageurl=https//app.notion.comp3efe18af164581dc88e7ceb2c86bb63e>Designreferences</mention-page>. See<mention-pageurl=https//app.notion.comp3eee18af1645815aa317e53bdcf8435d>Conceptdirections</mention-page>. {color=gray}
 </details>
-## How it was made
-From 36 products in the competitor scan, plus the tools studied later for the Knowledge Hub and the Smart Listings directions, all through their public pages (every one is listed above). See <mention-page url="https://app.notion.com/p/3eee18af164581459cf4cb6d1a03f1d9">Desk research</mention-page>.
+## Howitwasmade
+From36productsinthecompetitorscanplusthetoolsstudiedlaterfortheKnowledgeHubandtheSmartListingsdirectionsallthroughtheirpublicpages(everyoneislistedabove). See<mention-pageurl=https//app.notion.comp3eee18af164581459cf4cb6d1a03f1d9>Deskresearch</mention-page>.
 ---
-**Builds on**
-- <mention-page url="https://app.notion.com/p/3eee18af164581459cf4cb6d1a03f1d9">Desk research</mention-page>
+**Buildson**
+- <mention-pageurl=https//app.notion.comp3eee18af164581459cf4cb6d1a03f1d9>Deskresearch</mention-page>
 **Feeds**
-- <mention-page url="https://app.notion.com/p/3eee18af1645815aa317e53bdcf8435d">Concept directions</mention-page>
-- <mention-page url="https://app.notion.com/p/3eee18af1645811a82c4e772997ac875">Tips & AI rewrite</mention-page>
-- <mention-page url="https://app.notion.com/p/3eee18af16458187b60ec60bb6c3c5c5">Canvas preview</mention-page>
+- <mention-pageurl=https//app.notion.comp3eee18af1645815aa317e53bdcf8435d>Conceptdirections</mention-page>
+- <mention-pageurl=https//app.notion.comp3eee18af1645811a82c4e772997ac875>Tips& AIrewrite</mention-page>
+- <mention-pageurl=https//app.notion.comp3eee18af16458187b60ec60bb6c3c5c5>Canvaspreview</mention-page>
 **Decisions**
-- <mention-page url="https://app.notion.com/p/3eee18af16458164b971f07e49e0fa84">KD-04</mention-page>
-- <mention-page url="https://app.notion.com/p/3eee18af164581319e3afd8d876c7cb2">KD-09</mention-page>
-- <mention-page url="https://app.notion.com/p/3eee18af164581b19c66d8d053ea6ab0">KD-12</mention-page>
-- <mention-page url="https://app.notion.com/p/3eee18af1645819e9675db2668610c2b">KD-14</mention-page>
+- <mention-pageurl=https//app.notion.comp3eee18af16458164b971f07e49e0fa84>KD-04</mention-page>
+- <mention-pageurl=https//app.notion.comp3eee18af164581319e3afd8d876c7cb2>KD-09</mention-page>
+- <mention-pageurl=https//app.notion.comp3eee18af164581b19c66d8d053ea6ab0>KD-12</mention-page>
+- <mention-pageurl=https//app.notion.comp3eee18af1645819e9675db2668610c2b>KD-14</mention-page>

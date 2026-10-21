@@ -1,12 +1,12 @@
 /* Knowledge Hub iteration R · Overview + a topic page (concepts/knowledge-hub/KH-NEXT-2.md, "Overview, rebuilt" / "A
- * topic page" — second revision, Agent R-overview2; punch list round 3, concepts/knowledge-hub/KH-NEXT-3.md, Agent R3).
- * Overview: coverage, the nine topics as clickable cards, then Gaps — demoted below the fold and collapsed by default
+ * topic page", second revision, Agent R-overview2; punch list round 3, concepts/knowledge-hub/KH-NEXT-3.md, Agent R3).
+ * Overview: coverage, the nine topics as clickable cards, then Gaps, demoted below the fold and collapsed by default
  * (round 3, "I want the gaps to be more hidden"; still cross-referenced to a live AI suggestion elsewhere
- * when one genuinely shares the gap's missing fact, that stays). No Sources summary here any more — Sources is its own
+ * when one genuinely shares the gap's missing fact, that stays). No Sources summary here any more, Sources is its own
  * page. A topic page is question-first (brings back C's pattern, calmer): its own search bar
  * to ask a question directly (round 3, "bring back C's question-first UI, specifically its search bar"), then
- * one listing-wide answer per question, its source facts as compact chips, a gap's "Add the answer" inline, and —
- * below the questions — every fact this topic holds, including ones a question already cites (round 3: facts no
+ * one listing-wide answer per question, its source facts as compact chips, a gap's "Add the answer" inline, and -
+ * below the questions, every fact this topic holds, including ones a question already cites (round 3: facts no
  * longer get pulled out of this list just because a question also cites them). A property with no knowledge base yet
  * renders Empty.tsx instead of all of this (R-BRIEF.md). */
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
@@ -79,7 +79,7 @@ function OverviewReady({ tab }: { tab?: string | null }) {
   )
 }
 
-/** The nine topics as template-style cards (ref 04's family) — click one to open its page. */
+/** The nine topics as template-style cards (ref 04's family), click one to open its page. */
 function TopicCards({ r, onOpen }: { r: R; onOpen: (id: RTopicId) => void }) {
   return (
     <>
@@ -94,7 +94,7 @@ function TopicCards({ r, onOpen }: { r: R; onOpen: (id: RTopicId) => void }) {
 }
 
 /** A fact's chip label: its own label where one is given (a composite, like "Check-in from · until"), else the
- *  underlying item's — the same label FactRow would show, just without the row's controls. */
+ *  underlying item's, the same label FactRow would show, just without the row's controls. */
 function factChipLabel(hub: Hub, f: FactRef): string {
   if (f.label) return f.label
   const k0 = f.keys[0]
@@ -104,10 +104,10 @@ function factChipLabel(hub: Hub, f: FactRef): string {
   return hub.item(k0)?.label ?? k0
 }
 
-/** A topic page: the Strategy channel page's back chevron before the title; a tab row — Questions ·
- *  Facts — and nothing else at its end. Each tab opens on its count and its primary add button, then a bordered table
- *  styled like Sources. A whole row is clickable (hover on the row) and opens a side DRAWER over the page — the same
- *  drawer as Add a fact — with the item's editor and Delete; its ··· menu has Edit · Delete. Add question opens the same
+/** A topic page: the Strategy channel page's back chevron before the title; a tab row, Questions ·
+ *  Facts, and nothing else at its end. Each tab opens on its count and its primary add button, then a bordered table
+ *  styled like Sources. A whole row is clickable (hover on the row) and opens a side DRAWER over the page, the same
+ *  drawer as Add a fact, with the item's editor and Delete; its ··· menu has Edit · Delete. Add question opens the same
  *  drawer shape as Add a fact. */
 type TopicDrawer = { kind: 'q'; id: string } | { kind: 'f'; key: string; ref: FactRef } | { kind: 'new-q' }
 const STATE_TEXT: Record<KhcState, string> = { a: 'Answered', p: 'Partly answered', n: 'Not answered' }
@@ -221,7 +221,7 @@ function TopicPage({ topic, hub, base, onAddFact, onAddFactForGap, onEditAdded }
       )}
 
       <TestDrawer open={testing} onClose={() => setTesting(false)} />
-      {/* the drawers: Edit fact · Edit question · Add question — over the page, like Add a fact (DetailsDrawer) */}
+      {/* the drawers: Edit fact · Edit question · Add question, over the page, like Add a fact (DetailsDrawer) */}
       <DetailsDrawer open={drawer?.kind === 'f'} title="Edit fact" onClose={close}
         footer={drawer?.kind === 'f' ? <Button className="h-khr2-delete" onClick={() => remove(`fact:${drawer.key}`)}>Delete fact</Button> : undefined}>
         {drawer?.kind === 'f' && <div className="h-khr2-drawer"><FactRow hub={hub} fact={drawer.ref} base={base} editing onEdit={(v) => { if (!v) close() }} /></div>}
@@ -258,7 +258,7 @@ function QuestionRow({ state, label, meta, active, onOpen, menu }: { state: KhcS
   )
 }
 
-/** Host edits to a question: its wording and the answer the AI gives (kept per property; — the real answer
+/** Host edits to a question: its wording and the answer the AI gives (kept per property;, the real answer
  *  is generated from the facts, so this stands for "the answer you've reviewed"). */
 export const useQuestionEdits = createPropertyStore('hostaway-kh-r-question-edits', (): { items: Record<string, { q?: string; answer?: string }> } => ({ items: {} }), (set) => ({
   save: (id: string, v: { q?: string; answer?: string }) => set((s) => ({ items: { ...s.items, [id]: v } })),
@@ -336,7 +336,7 @@ function QuestionDrawer({ hub, base, q, added, edit, gap, onClose, onDelete, onE
   )
 }
 
-/** Add a question — the same drawer as Add a fact: type it or "Use voice" (canned: a short
+/** Add a question, the same drawer as Add a fact: type it or "Use voice" (canned: a short
  *  "Listening…", then a sample guest question), and an optional answer. */
 const VOICE_QUESTION = 'Can we check in before 3 pm if the flat is ready?' // sample
 /** `pick`: opened above the topics (the Knowledge Hub's Questions page), the topic is a dropdown first */

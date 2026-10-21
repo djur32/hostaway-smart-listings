@@ -3,7 +3,7 @@
  * style … style the selectors the same way". Used by Smart Listings › Strategy's create / edit / replace wizard
  * (prototype/src/screens/smart/StrategyWizard.tsx); React parts in prototype/src/ds/wizard.tsx. Tokens only.
  *
- * Anatomy (refs 01–06): a full-viewport takeover — top bar (bordered square back · centred title · bordered square ×,
+ * Anatomy (refs 01–06): a full-viewport takeover, top bar (bordered square back · centred title · bordered square ×,
  * 1px divider), a brand progress line under it, one centred content column, a footer bar with Back (secondary) left and
  * Continue (primary) right, both aligned to the column, both the same width. No live preview card (review, 3 Oct: "I
  * don't want to see the preview"). Sized to fit one view at 1440×900: H2-size question, compact cards, grids where
@@ -234,7 +234,7 @@
   .h-wz-config__control { display: flex; width: 100%; }
   .h-wz-row .h-lens, .h-wz-config__control .h-lens { display: flex; width: 100%; height: var(--m-tap); }
   .h-wz-row .h-lens__seg, .h-wz-config__control .h-lens__seg { flex: 1 1 0; height: 36px; font-size: var(--text-md); }
-  /* the audience's set-up: settings rows — label, then the value as a full-width 44px row with the pencil at its end */
+  /* the audience's set-up: settings rows, label, then the value as a full-width 44px row with the pencil at its end */
   .h-wz-config { padding: var(--space-4); }
   .h-wz-config__line, .h-wz-config__reset, .h-wz-config__label, .h-wz-config__hint { font-size: var(--text-sm); line-height: var(--leading-sm); }
   .h-wz-config__reset { min-height: var(--m-tap); }
@@ -271,5 +271,5 @@
 /* a phone top toast (ds/mobile.md §7) raised over the takeover while one is open (policy flow's discount error) */
 body:has(.h-wz) .h-m-toast { z-index: calc(var(--z-toast) + 12); }
 /* …and so is a sheet opened from inside it: on phones OvDialog ("Discard this strategy?") is a BottomSheet portalled to
-   body at the layer's own z, which sat under the takeover — × looked dead (mobile stress test, 3 Oct) */
+   body at the layer's own z, which sat under the takeover, × looked dead (mobile stress test, 3 Oct) */
 body:has(.h-wz) .h-m-layer { z-index: calc(var(--z-toast) + 12); }

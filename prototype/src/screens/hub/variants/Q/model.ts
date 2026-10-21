@@ -6,7 +6,7 @@
  *     Hub itself holds, because no Listing base field covers them;
  *   · guest questions from Inbox conversations (sample data, ./data.ts), by topic, per channel, per month.
  * Answers stay faithful: a question is Answered only when a Listing base fact (or a confirmed answer) backs it. When
- * nothing does, the AI says so and asks the host — the gap becomes a tip. A gap's status is read live from the Listing
+ * nothing does, the AI says so and asks the host, the gap becomes a tip. A gap's status is read live from the Listing
  * base: once the field holds the fact (accepted from a tip, or typed in Listing details), the question is answered. */
 import { useMemo } from 'react'
 import { useStore } from '../../../../store/store'
@@ -152,7 +152,7 @@ export function useKQ(): KQ {
       const id = q.id
       const topic = (EXTRA_TOPIC[id] ?? topicOf(id))!
       const label = questionLabel(q)
-      // ---- how often, where, when (sample Inbox data; the scenario property only — the others have no history yet)
+      // ---- how often, where, when (sample Inbox data; the scenario property only, the others have no history yet)
       const gap = scenario ? GAPS.find((g) => g.question === id) : undefined
       const authored = scenario ? (CONVOS[id] ?? []) : []
       const n = scenario ? q.asked ?? 0 : 0

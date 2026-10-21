@@ -1,8 +1,8 @@
 /* Full-screen wizard (Hostaway "Add property" replica) · WS-SL, 3 Oct. CSS: ds/v3/wizard.css (tokens only).
- * Source: research/current-state/review-2026-10-03-add-property/01–06. Generic parts — shell, step,
- * choice card, intro rows, voice field, config row, review summary, generating modal — so any create/edit flow can
+ * Source: research/current-state/review-2026-10-03-add-property/01–06. Generic parts, shell, step,
+ * choice card, intro rows, voice field, config row, review summary, generating modal, so any create/edit flow can
  * use them; Smart Listings › Strategy's wizard is the first (screens/smart/StrategyWizard.tsx).
- * No live preview card ("I don't want to see the preview") — the column is centred on its own and the
+ * No live preview card ("I don't want to see the preview"), the column is centred on its own and the
  * answers show on the Review step. Sized to fit one view at 1440×900 ("way too big … fit everything in
  * one screen, without having to scroll"). */
 import { useEffect, useRef, useState, type ReactNode } from 'react'
@@ -23,7 +23,7 @@ export function Wizard({ title, progress, onBack, onClose, backDisabled, childre
 }) {
   const body = useRef<HTMLDivElement>(null)
   // every step starts at the top. Keyed on the step (progress moves with it), not on `children`: a new children element
-  // comes with every answer, and on a phone (where steps scroll) that threw the host back to the top mid-step — e.g.
+  // comes with every answer, and on a phone (where steps scroll) that threw the host back to the top mid-step, e.g.
   // typing in "Describe your guests" under the audience cards
   useEffect(() => { body.current?.scrollTo({ top: 0 }) }, [progress])
   return (
@@ -58,7 +58,7 @@ export function WizardQuestion({ eyebrow, title, titleIcon, sub, children }: { e
   )
 }
 
-/** Footer: Back (secondary) left, the primary action right — the same two buttons on every step, the same width
+/** Footer: Back (secondary) left, the primary action right, the same two buttons on every step, the same width
  *  ("the Back and Continue buttons have to be the same size, the same width"). */
 export function WizardFoot({ onBack, backLabel = 'Back', onNext, nextLabel = 'Continue', nextDisabled, hint }: {
   onBack?: () => void; backLabel?: string; onNext: () => void; nextLabel?: string; nextDisabled?: boolean; hint?: ReactNode
@@ -198,7 +198,7 @@ export function WizardSummaryGrid({ count, children }: { count: number; children
   return <div className={cx('h-wz-sums', count > 1 && `h-wz-sums--${Math.min(3, count)}`)}>{children}</div>
 }
 
-/** Ref 03: a modal over the dimmed wizard listing what is happening — done (check), now (spinner), next (ring). */
+/** Ref 03: a modal over the dimmed wizard listing what is happening, done (check), now (spinner), next (ring). */
 export function WizardGenerating({ items, label = 'Saving' }: { items: Array<{ label: string; state: 'done' | 'active' | 'pending' }>; label?: string }) {
   return (
     <div className="h-wz-gen" role="alertdialog" aria-modal="true" aria-label={label} aria-busy={items.some((i) => i.state !== 'done')}>

@@ -96,7 +96,7 @@ export const MIX_ROWS = {
   policy: { label: 'Cancellation', line: '15 of 24 similar homes use Moderate.', items: [{ id: 'flexible', label: 'Flexible' }, { id: 'moderate', label: 'Moderate' }, { id: 'firm', label: 'Firm' }] },
 } as const
 /** Audience step ("if I tap on any of these, I should see what the configuration is"): the price,
- *  minimum stay and cancellation each audience starts from. defaults for the Neukölln scenario — remote
+ *  minimum stay and cancellation each audience starts from. defaults for the Neukölln scenario, remote
  *  workers: long stays, flexible cancel; city-break couples: 2-night weekends, priced like similar homes; Let Smart
  *  Listings decide: its recommended mix; `custom` (the host describes the guests): the neutral default. */
 export const AUDIENCE_MIX: Record<AudienceId | 'custom', Mix> = {

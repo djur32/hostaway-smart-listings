@@ -1,8 +1,8 @@
 /* WS-CV · the facts a replica page states that have a setting elsewhere (audit 3 Oct, C-1/C-2/C-3): house rules
  * (check-in/out times, children, pets, smoking, events), maximum guests, the cancellation policy and the price lines.
- * Every one is read from the same place its settings page reads it, as this channel's effective value — the Rules
+ * Every one is read from the same place its settings page reads it, as this channel's effective value, the Rules
  * fields through the Canvas's own `text()` (Base › this channel's value › your edit), Policies through
- * useChannelPolicy / BOOKING_POLICY, Pricing through the same `price:<key>` rows (with this channel's markup) — so the
+ * useChannelPolicy / BOOKING_POLICY, Pricing through the same `price:<key>` rows (with this channel's markup), so the
  * page can never contradict its settings. Wording follows each channel's real page (layout, values). */
 import { AIRBNB_CANCELLATION, AIRBNB_LONG_TERM, BOOKING_POLICY, DIRECT_CANCELLATION, optionById, type ChannelPolicy } from '../../data/policies'
 import { pricesFor, type PriceLine } from '../../data/property-listing'

@@ -4,7 +4,7 @@
 
 ## Principles
 
-1. **Motion explains a change of state, nothing else.** Something moved, arrived, was accepted, or synced — the animation says which. No decorative loops except "the AI is working" and "listening".
+1. **Motion explains a change of state, nothing else.** Something moved, arrived, was accepted, or synced, the animation says which. No decorative loops except "the AI is working" and "listening".
 2. **Borrow Hostaway's timing.** Their CSS already uses 150 ms `cubic-bezier(.4,0,.2,1)` for almost every transition, plus an expo-out `(.16,1,.3,1)`, a drawer curve `(.32,.72,0,1)` and a spring `(.34,1.56,.64,1)` (public stylesheet). We name them; we don't add new ones.
 3. **Fast in, faster out.** Entrances use `--ease-enter`/`--ease-emphasized`; exits use `--ease-exit` at one step shorter.
 4. **The host's changes feel instant; the AI's feel considered.** Host edits: `--dur-1`. AI results: `--dur-3` so a new value is noticed.
@@ -25,7 +25,7 @@
 | `--ease-exit` | `cubic-bezier(.4,0,1,1)` | things leaving |
 | `--ease-emphasized` | `cubic-bezier(.16,1,.3,1)` | AI results landing, tab underline, autonomy track |
 | `--ease-drawer` | `cubic-bezier(.22,.72,0,1)` | side panels, bottom sheets, the unsaved-changes bar |
-| `--ease-spring` | `cubic-bezier(.34,1.56,.64,1)` | checkmarks, radio dot, autonomy stop — small objects only |
+| `--ease-spring` | `cubic-bezier(.34,1.56,.64,1)` | checkmarks, radio dot, autonomy stop, small objects only |
 
 ## Specs
 
@@ -35,7 +35,7 @@
 | M-17 | **Side panel in a split** (Tips beside the listing form / canvas) | barely there: the sheet, pinned right, fades in from 6 px (¾ `--motion-distance`); the main column snaps to its new width with no animation, and nothing inside it rescales (photo thumbs wrap, the canvas keeps its zoom). Close: the sheet fades out, then the column snaps back. The page head never moves (review 30 Sep: the first version was "kind of extreme") | `--dur-1` · enter; exit `--dur-1` · exit | fade only |
 | M-18 | **Tab / view loading** (listing editor tabs, channels, Classic ↔ Canvas) | a 24 px raspberry ring spinner (`h-spinner`) centred in the content area for ~350 ms; the header stays | spin `.7s` linear | same (a loading indicator is essential motion) |
 | M-19 | **Panel stack** (`PanelStack`: Calendar › a night › a pricing section › one value per channel; D-927) | the opened level's column grows 0 → 384px from the right edge, its sheet pinned to the column's left edge at full width, so it **slides in from the right**; at the same time the previous level's column shrinks to a 44px spine (its sheet fades out, the spine and its vertical title fade in) and the main content narrows in step. Nothing inside any column rescales. Back (spine, "‹", Esc) and close are the exact reverse: the top level slides out to the right while the previous one opens from its spine; levels that leave stay mounted for one slide. Entering uses `@starting-style` (width 0). Phones: full-screen sheets translate 100% → 0 over the previous one, which drifts −32px (4 × `--motion-distance`); back reverses. Subtle on purpose (review rejected a big slide-and-resize as "extreme" and a fade-and-snap as "clunky") | `--dur-drawer` (160 ms) · `--ease-drawer`, both ways | widths snap, only the sheet/spine fade (`--dur-1`); phones fade the sheet, no travel |
-| M-20 | **Unsaved-changes bar** (`UnsavedBar`: pins to the top the moment any registered draft is dirty) | the strip fades in and rises 4 px (½ `--motion-distance`) from the very top of the viewport — "quick, not gradual" (review, 1 Oct), so it mostly just *appears*; no bounce, no width change, the page underneath keeps scrolling normally. Clean again (saved or discarded): reverse, one step shorter | `--dur-drawer` (160 ms) · `--ease-drawer`; exit `--dur-1` | fade only, no travel |
+| M-20 | **Unsaved-changes bar** (`UnsavedBar`: pins to the top the moment any registered draft is dirty) | the strip fades in and rises 4 px (½ `--motion-distance`) from the very top of the viewport, "quick, not gradual" (review, 1 Oct), so it mostly just *appears*; no bounce, no width change, the page underneath keeps scrolling normally. Clean again (saved or discarded): reverse, one step shorter | `--dur-drawer` (160 ms) · `--ease-drawer`; exit `--dur-1` | fade only, no travel |
 | M-02 | **Suggestion accept** | the field's value cross-fades + rises `--motion-distance` with a 2 px blur clearing (`h-value-in`); source chip flips "AI suggestion" → "✓ Accepted" (green) with a cross-fade; Accept button pops 1.04 | value `--dur-3` · emphasized; chip `--dur-2` · enter; pop `--dur-2` · spring | instant value swap; chip colour change only |
 | M-03 | **Regenerate** | suggestions are replaced by a lavender shimmer skeleton (`h-skeleton`, 1.4 s loop) while the sparkle glyph breathes (`h-sparkle-spin`); new options cross-fade in, staggered | shimmer loop; entrance `--dur-2` · enter + `--stagger` | static lavender skeleton + "Generating…" text; no stagger |
 | M-04 | **Conflict resolved** | the conflict card fades, lifts `--motion-distance` and collapses its height to 0 (`.h-conflict.is-resolved`); the fact row below gets the M-02 value landing | `--dur-3` · standard | card removed; row value swaps; a polite live-region message announces "Cleaning fee set to €25 on all channels" |
@@ -55,7 +55,7 @@
 ## Rules
 
 - **Never animate layout of the content column while the host is typing.** Suggestions and syncs arrive around the field, not inside it, until the host accepts.
-- **One animation per moment.** If a value lands (M-02), the sync pulse (M-05) waits until the channel confirms — they never play together.
+- **One animation per moment.** If a value lands (M-02), the sync pulse (M-05) waits until the channel confirms, they never play together.
 - **Loops are for waiting only** (M-03, M-08, M-09, M-16) and stop the moment the wait ends.
 - **Undo is the reverse animation** at `--dur-2`, never a new effect.
 - Implemented as CSS classes in `ds/components.css` §11 (`h-panel-enter`, `h-crossfade-enter`, `h-drag-lift`, `is-updated`, `is-resolved`, `is-entering`, `is-pulse`) so the prototype (S09) toggles classes rather than writing keyframes; S14 extends this file for edge-case states.

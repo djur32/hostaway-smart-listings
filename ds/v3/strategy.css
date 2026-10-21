@@ -1,7 +1,7 @@
 /* Smart Listings › Strategy · WS-SL, 3 Oct (review: "a horizontal layout for all the strategies"; three side-by-side
  * cards rejected). One full-width row per connected channel, stacked in one bordered list, and the channel strategy
  * detail (definition list). React parts in prototype/src/ds/strategy.tsx. Tokens only.
- * Deliberately a list page, not a wizard: page head + property switcher, quiet rows, secondary buttons — the full-screen
+ * Deliberately a list page, not a wizard: page head + property switcher, quiet rows, secondary buttons, the full-screen
  * wizard (ds/v3/wizard.css) is where answers are given. */
 
 /* ---------- page lead: description + the page-level action on one line (review, 3 Oct) ---------- */
@@ -11,7 +11,7 @@
 .sl-leadrow__action { display: flex; align-items: center; gap: var(--space-2); flex-shrink: 0; }
 
 /* ---------- the stacked channel rows ---------- */
-/* review, 3 Oct: four columns with fixed tracks so every row aligns — channel · strategy · status · actions.
+/* review, 3 Oct: four columns with fixed tracks so every row aligns, channel · strategy · status · actions.
    The actions track fits the widest set (Open + Add a strategy); buttons sit right inside it. */
 .sl-strats { --sl-strat-cols: 228px minmax(0, 1fr) 184px; /* channel + chip ("Booking.com" 131 + 12 + "No strategy" 84), the strategy, actions (Open · Edit · ⋯ 184) */
   margin: 0; padding: 0; list-style: none; border: 1px solid var(--color-border-secondary); border-radius: var(--radius-lg); background: var(--color-surface-primary); }
@@ -74,7 +74,7 @@
   .sl-def__row { grid-template-columns: minmax(0, 1fr); gap: var(--space-1); }
 }
 
-/* Phones, mobile pass (3 Oct): a strategy's name wraps (up to two lines) instead of being cut — the row stacks anyway,
+/* Phones, mobile pass (3 Oct): a strategy's name wraps (up to two lines) instead of being cut, the row stacks anyway,
  * so equal heights no longer matter; Open · Edit share the line equally beside a 44px ⋯ (its menu is an action sheet on
  * phones, OvMenu); every button 44px; the definition list reads at 16px. */
 @media (max-width: 767px) {

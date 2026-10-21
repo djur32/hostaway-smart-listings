@@ -1,4 +1,4 @@
-/* The canonical field map, read at build time from ia/canonical-fields.csv (S06a, 100 rows) — never copied.
+/* The canonical field map, read at build time from ia/canonical-fields.csv (S06a, 100 rows), never copied.
  * If S06a/S03 update the CSV (e.g. channel-constraints §10 deltas), the prototype picks it up on the next build. */
 import csv from '../../../ia/canonical-fields.csv?raw'
 import { homeOf } from './ia'
@@ -34,7 +34,7 @@ function parseReach(s: string): Partial<Record<ChannelId, Reach>> {
   for (const part of s.split('·')) {
     const [k, v] = part.trim().split(/\s+/)
     const ch = REACH_KEYS[k]
-    if (ch) out[ch] = (['Y', 'A', 'F', 'N'].includes(v) ? v : '—') as Reach
+    if (ch) out[ch] = (['Y', 'A', 'F', 'N'].includes(v) ? v : '-') as Reach
   }
   return out
 }

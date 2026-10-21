@@ -136,7 +136,7 @@ function PhotosRead({ base, chs }: { base: string; chs: ListingChannel[] }) {
         {chs.map((c) => {
           const { shown, hidden } = channelPhotos(c, lib, sl3)
           return <KhbFact key={c} id={`photos:${c}`} label={<span className="khb-chlabel"><Mark channel={c} size={14} />{NAME(c)}</span>}
-            value={`${shown.length} photos · Cover: ${lib.meta[shown[0]]?.description ?? '—'}${hidden.length ? ` · ${hidden.length} hidden` : ''}`} />
+            value={`${shown.length} photos · Cover: ${lib.meta[shown[0]]?.description ?? '-'}${hidden.length ? ` · ${hidden.length} hidden` : ''}`} />
         })}
       </KhbGrid>
     </>

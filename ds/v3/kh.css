@@ -167,7 +167,7 @@
 .h-pushgroup__note .h-icon { width: 14px; height: 14px; flex-shrink: 0; }
 .h-pushrow.is-dismissed .h-changerow__what, .h-pushrow.is-dismissed .h-diff, .h-pushrow.is-dismissed .h-pill { opacity: .45; }
 .h-pushrow.is-dismissed .h-diff ins { text-decoration: line-through; }
-/* .h-keep (Keep · Dismiss) uses the shared segmented look as is — no local size override (3 Oct segmented pass) */
+/* .h-keep (Keep · Dismiss) uses the shared segmented look as is, no local size override (3 Oct segmented pass) */
 .h-push__version { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: start; }
 .h-push__version label { display: block; font-weight: var(--font-weight-semibold); margin-bottom: 6px; }
 .h-push__version .h-small { margin-top: 6px; color: var(--color-text-muted); }

@@ -27,7 +27,7 @@ export const PRICE_AREAS: Record<ListingChannel, Record<string, PriceKey[]>> = {
 export const priceKeysFor = (ch: ListingChannel, areaId: string): PriceKey[] | undefined => PRICE_AREAS[ch][areaId]
 
 /** What the page shows: Pricing's rows with this channel's markup (facts.ts canvasPriceLine), read from the store +
- *  draft for every property — the scenario one included — so the page matches the Pricing screen (audit C-3). */
+ *  draft for every property, the scenario one included, so the page matches the Pricing screen (audit C-3). */
 export const canvasPrice = (pid: string, ch: ListingChannel, s: SL3State): PriceLine => canvasPriceLine(pid, ch, s)
 
 export function PricePanel({ pid, channel, keys, draft }: { pid: string; channel: ListingChannel; keys: PriceKey[]; draft: SectionDraft }) {

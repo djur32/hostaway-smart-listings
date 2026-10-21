@@ -3,7 +3,7 @@
  * but every drill-down slides in beside the one you came from instead of replacing it (ds/panels.tsx).
  *   level 1  the night: date, price and where it comes from, prices with markup per channel, stays, rule set, sections
  *   level 2  Base price · Dynamic Pricing · Listing markups · Security deposit · Occupancy based pricing · Fees · Discounts
- *            — each row is the Base value, then one row per connected channel, Listing's own two-state pattern
+ *           , each row is the Base value, then one row per connected channel, Listing's own two-state pattern
  *            ("Uses the Base" / "Customize for {channel}", D-927 revised 1 Oct): no "Edit per channel" drill-down
  *   level 3  a single channel-only field with nothing to fall back to (e.g. Airbnb's short-term cleaning fee)
  * Values: the active property's Pricing rows (data/property-listing.ts pricesFor, = data/v3-ch.ts PRICES for Neukölln)
@@ -96,7 +96,7 @@ export interface Night { i: number; date: Date; daysAhead: number }
  *  the same Base/Customize editing the Calendar's night drill-down and usePricingPanels use, without the stack-only
  *  `path`/`setPath`/`night` plumbing. `section` keys the draft (switching it drops any unsaved edit, same as
  *  before: leaving a Calendar section or switching Pricing tabs both start a fresh draft). `ed.open` is a no-op here
- *  — usePricingPanels overrides it with its own `setPath`-based navigation; a flat page has nothing to navigate to. */
+ * , usePricingPanels overrides it with its own `setPath`-based navigation; a flat page has nothing to navigate to. */
 export function usePriceEditor({ pid, section }: { pid: string; section: string }) {
   const [raw, setRaw] = useState<Draft>(() => emptyDraft(section))
   const draft = raw.key === section ? raw : emptyDraft(section) // switching section drops its draft
@@ -144,7 +144,7 @@ export function usePriceEditor({ pid, section }: { pid: string; section: string 
 
 export function usePricingPanels({ pid, row, night, path, setPath, onDraft }: {
   pid: string; row: Row; night: Night | null; path: string[]; setPath: (p: string[]) => void
-  /** Reports the open section's live dirty/save/discard every render (no permanent Discard/Save —
+  /** Reports the open section's live dirty/save/discard every render (no permanent Discard/Save -
    *  a host page wires this into the shared `useUnsavedChanges` top bar instead of this hook's own footer). */
   onDraft?: (d: { dirty: boolean; save: () => void; discard: () => void }) => void
 }): StackPanel[] {
@@ -154,7 +154,7 @@ export function usePricingPanels({ pid, row, night, path, setPath, onDraft }: {
   const stored = usePriceView(pid)
   onDraft?.({ dirty, save, discard })
   // The shared bar (useUnsavedChanges) is the only Discard/Save now; a clean panel just shows its own "saved" note.
-  // ds/unsaved.tsx, 1 Oct evening rework: the bar itself is no longer mounted globally — since this draft only ever
+  // ds/unsaved.tsx, 1 Oct evening rework: the bar itself is no longer mounted globally, since this draft only ever
   // exists while a section/field panel is open, <UnsavedBar/> renders in THAT panel's own footer slot
   // (.h-pstack__foot, already "pinned under the scrolling body"), not in the Calendar's month column behind it.
   const foot = dirty ? <UnsavedBar /> : saved ? <span key={saved.at} className="h-saved h-saved--sent" role="status"><Icon name="circle-check" />{saved.text}</span> : null
@@ -168,7 +168,7 @@ export function usePricingPanels({ pid, row, night, path, setPath, onDraft }: {
   if (section && TITLE[section]) {
     const editable = section !== 'deposit' && section !== 'dynamic'
     const leaf = path[1]
-    // the footer (and its live <UnsavedBar/> when dirty) goes on whichever panel is actually deepest/active — never
+    // the footer (and its live <UnsavedBar/> when dirty) goes on whichever panel is actually deepest/active, never
     // both at once, since a level that's merely a narrowed "spine" behind the active one stays mounted (ds/panels.tsx)
     // and a second live bar/nav-guard instance there would double up the blocker and the beforeunload handler.
     const leafRow = leaf ? (() => { const [tab, key] = leaf.split(':') as [PriceTab, string]; const r = pv.row(tab, key); return r ? { tab, key, r } : null })() : null
@@ -238,7 +238,7 @@ function NightPanel({ pv, row, night, open, current }: { pv: PV; row: Row; night
   const smart = row.d.priceOwner.airbnb === 'channel' && pv.channels.includes('airbnb')
   const c0 = pv.channels[0]
   const markups = pv.channels.map((c) => [c, pv.num(c, 'base', 'markup')] as const)
-  const v = (tab: PriceTab, key: string) => { const r = pv.row(tab, key); return r ? unitText(r, pv.baseOf(tab, key)) : '—' }
+  const v = (tab: PriceTab, key: string) => { const r = pv.row(tab, key); return r ? unitText(r, pv.baseOf(tab, key)) : '-' }
   const minStay = pv.channels.map((c) => [c, pv.avail(c, 'min_stay')?.value] as const).filter(([, x]) => x)
   const sameMin = new Set(minStay.map(([, x]) => x)).size === 1
   return (
@@ -265,7 +265,7 @@ function NightPanel({ pv, row, night, open, current }: { pv: PV; row: Row; night
           <Line label="Status" value="Available" />
           <Line label="Check-in" value="Allowed" />
           <Line label="Checkout" value="Allowed" />
-          {sameMin ? <Line label="Minimum stay" value={minStay[0]?.[1] ?? '—'} />
+          {sameMin ? <Line label="Minimum stay" value={minStay[0]?.[1] ?? '-'} />
             : minStay.map(([c, x]) => <Line key={c} label={<>Minimum stay<Mark channel={c} /></>} value={x} />)}
         </dl>
         <p className="h-pstack-note"><Link className="h-textlink" to={`/property/${row.p.id}/ch/${c0}/availability`}>Open in Availability</Link></p>
@@ -300,7 +300,7 @@ function SectionPanel({ s, ed, row, night }: { s: Section; ed: Editor; row: Row;
 
 /** A price row, Listing's exact two-state pattern ("either use the Base, which you cannot edit, or
  *  you change it for Airbnb specifically... it has to be literally the same"): the Base value (editable here, reaches
- *  every channel that uses it unless it has its own), then one row per connected channel — "Uses the Base" (disabled)
+ *  every channel that uses it unless it has its own), then one row per connected channel, "Uses the Base" (disabled)
  *  with "Customize for {channel}", or a channel's own editable value with "Use the Base" to revert. Stacked, one
  *  channel at a time, never a multi-column comparison. No "Edit per channel": every channel's row is just here. */
 export function BaseRow({ ed, tab, r, label, help, per, baseOnly }: {
@@ -414,7 +414,7 @@ function BasePanel({ ed }: { ed: Editor }) {
 function MarkupsPanel({ ed, night }: { ed: Editor; night: Night }) {
   const { pv } = ed
   const rate = pv.baseOf('base', isWeekendNight(night.date) ? 'weekend' : 'nightly')
-  // "pricing markup — make it specific, remove Custom for Airbnb / Use the Base, that's
+  // "pricing markup, make it specific, remove Custom for Airbnb / Use the Base, that's
   // obviously not necessary." A markup only ever exists per channel (there's no shared Base value to inherit), so
   // this one field skips SettingRow's Base/Customize chrome entirely: a plain label+help+input per channel.
   return (

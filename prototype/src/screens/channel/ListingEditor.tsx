@@ -55,7 +55,7 @@ export function ListingEditor() {
 }
 
 /** Pattern C's tab content: the same sticky head (ListingPageHead + ListingTabs) every other tab uses, with "Photos"
- *  appended to the row, and PhotosManager (head-less — the tab row is the only "back" this pattern needs) as the
+ *  appended to the row, and PhotosManager (head-less, the tab row is the only "back" this pattern needs) as the
  *  tab's body, inside the same Split every other tab's body renders in. */
 function ListingPhotosTab({ c }: { c: ListingChannel }) {
   const p = useProperty()
@@ -66,7 +66,7 @@ function ListingPhotosTab({ c }: { c: ListingChannel }) {
     <div className="ch-editor">
       <div className="ch-editor__head">
         <div className="ch-page"><ListingPageHead c={c} tab="essentials" view="classic" s={s} /></div>
-        {/* qs({}) carries every other param forward (?photosNav=tab included) — the same as every other tab link
+        {/* qs({}) carries every other param forward (?photosNav=tab included), the same as every other tab link
            this row renders, so switching away and back never drops which pattern is being compared. */}
         <ListingTabs tab="photos" s={s} extraTabs={[{ id: 'photos', label: 'Photos', to: `${base$}/photos${s.qs({})}` }]} />
       </div>
@@ -125,7 +125,7 @@ type ListingHeadState = ReturnType<typeof useListingHeadState>
 
 /** Row 1: title + property switcher + Classic | Canvas, next to the title (back out of
  *  the tab row). Canvas keeps this fixed above the canvas (unchanged, WS-CV); Classic lets it scroll away with the
- *  page — only the tab row below it (ListingTabs) stays pinned. */
+ *  page, only the tab row below it (ListingTabs) stays pinned. */
 function ListingPageHead({ c, tab, view, s }: { c: ListingChannel; tab: ListingTab; view: 'classic' | 'canvas'; s: ListingHeadState }) {
   const { p, nav, on, autopilot, pending, tipsOpen, togglePanel, turnOff, base$, qs } = s
   const draft = useOptionalDraft()
@@ -158,7 +158,7 @@ function ListingPageHead({ c, tab, view, s }: { c: ListingChannel; tab: ListingT
 /** Row 2: Essentials · Arrival · Location · Amenities · Rules. this row stays pinned
  *  ("I like that it's sticky") while the title above it and the body below it both scroll normally.
  *  `extraTabs`/a widened `tab` type: Pattern C of the photos-navigation exploration (ListingPhotosTab, above)
- *  appends "Photos" to this exact row rather than building its own — every other caller leaves it unset, unaffected. */
+ *  appends "Photos" to this exact row rather than building its own, every other caller leaves it unset, unaffected. */
 function ListingTabs({ tab, s, extraTabs }: { tab: ListingTab | 'photos'; s: ListingHeadState; extraTabs?: Array<{ id: string; label: string; to: string }> }) {
   const { on, pending, tipsOpen, togglePanel, base$, qs, tabCounts } = s
   const items = [...LISTING_TABS.map((t) => ({ id: t.id as string, label: t.label, to: `${base$}/${t.id}${qs({})}`, count: tabCounts[t.id] as number | undefined })), ...(extraTabs ?? [])]
@@ -188,7 +188,7 @@ function Classic({ c, tab }: { c: ListingChannel; tab: ListingTab }) {
   const draft = useSectionDraft(c, tab, { readOnly: autopilot }) // Autopilot on: read-only until it is turned off
   const loading = useBriefLoading(`classic:${c}:${tab}`) // tab / channel / view switch: a brief spinner (M-18)
   // "Manage photos" (photosNav.tsx): an overlay over this exact tab, every channel's Essentials (its "Manage photos"
-  // link is the only thing that opens it — see ChannelPhotosRow, Photos.tsx). A (full screen) by default; B by URL.
+  // link is the only thing that opens it, see ChannelPhotosRow, Photos.tsx). A (full screen) by default; B by URL.
   const photosNav = usePhotosNav()
   const photosOverlay = tab === 'essentials' && photosNav.open
   const tipsOpen = on && (params.has('tips') || params.has('tip'))
@@ -209,7 +209,7 @@ function Classic({ c, tab }: { c: ListingChannel; tab: ListingTab }) {
   const closePanel = () => setParams((prev) => { const n = new URLSearchParams(prev); n.delete('tips'); n.delete('tip'); return n }, { replace: true })
   // only one right-side panel at a time (D-927, item 3): Tips force-closes if a pricing/availability panel claims the slot
   useExclusivePanel('tips', tipsOpen, closePanel)
-  // Smartify (ds/smartify.tsx, ): a host's rewrite opens as a result card in this SAME one-panel slot —
+  // Smartify (ds/smartify.tsx, ): a host's rewrite opens as a result card in this SAME one-panel slot -
   // opening it closes Tips and opening Tips closes it (panelSlot.ts). Nothing changes in the field until Accept, which
   // writes the chosen version as a normal draft (Discard/Save bar); Dismiss leaves the field untouched.
   const [refine, setRefine] = useState<RefineSession | null>(null)
@@ -332,8 +332,8 @@ function Classic({ c, tab }: { c: ListingChannel; tab: ListingTab }) {
   return (
     <DraftProvider value={draft}>
       <div className="ch-editor">
-        {/* task 2: the WHOLE head — title, Classic|Canvas switcher, property switcher and the tab
-         * row — stays pinned together as one sticky block while only the form below scrolls. Both pieces share one
+        {/* task 2: the WHOLE head, title, Classic|Canvas switcher, property switcher and the tab
+         * row, stays pinned together as one sticky block while only the form below scrolls. Both pieces share one
          * wrapper (.ch-editor__head, sticky) instead of the tab row sticking on its own, so there's one sticky
          * context, not two (ds/v3/ch.css). */}
         <div className="ch-editor__head">
@@ -343,7 +343,7 @@ function Classic({ c, tab }: { c: ListingChannel; tab: ListingTab }) {
         </div>
         {tab === 'essentials' && photosNav.pattern === 'drawer' ? (
           // Pattern B: PanelStack's own drawer hosts both Tips and Photos (PanelStack claims the one shared
-          // side-panel slot, ds/panelSlot.ts — opening Photos here force-closes Tips the same way a Pricing/Canvas
+          // side-panel slot, ds/panelSlot.ts, opening Photos here force-closes Tips the same way a Pricing/Canvas
           // drill-down already would, no extra wiring needed).
           <PhotosDrawerHost channel={c} open={photosOverlay} onClose={photosNav.closePhotos} main={main} panel={sidePanel} />
         ) : (
@@ -351,7 +351,7 @@ function Classic({ c, tab }: { c: ListingChannel; tab: ListingTab }) {
         )}
       </div>
       {/* Pattern A (the default, every channel): a true full-screen takeover, portaled above everything (including
-         the sidebar) — never nested inside .ch-editor, since it must cover it. Locked to this channel's photos. */}
+         the sidebar), never nested inside .ch-editor, since it must cover it. Locked to this channel's photos. */}
       {tab === 'essentials' && photosNav.pattern === 'full' && (
         <PhotosFullTakeover channel={c} open={photosOverlay} onClose={photosNav.closePhotos} />
       )}
@@ -362,7 +362,7 @@ function Classic({ c, tab }: { c: ListingChannel; tab: ListingTab }) {
 /* ---------------- Amenities: the inherited list, read-only, plus what this channel adds (HS-26/27, CL-07) ----------------
  * (round 4): the amenities in a channel are inherited from the Listing base, so the inherited rows carry
  * no Remove, no Hide and no edit here; the one list is managed in Listing base › Details › Amenities.
- * "you cannot change it at this level" — inherited rows stay read-only — but a channel can ADD:
+ * "you cannot change it at this level", inherited rows stay read-only, but a channel can ADD:
  *  - an amenity on the Base list that isn't on this channel ("Not on Airbnb") gets "Add to Airbnb" on its row;
  *  - an amenity only this channel's catalogue has (data/property-listing.ts channelOnlyAmenities), from
  *    "Add {channel} amenities", which now sits on the section title's line, as "Add amenity" does on the Base page.

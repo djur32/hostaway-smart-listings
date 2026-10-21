@@ -89,7 +89,7 @@ export function khItems(): KhItem[] {
   for (const f of fieldsOf(TAB_FIELDS.arrival)) out.push(fromField('arrival', f, f.group ?? 'inside'))
   for (const f of fieldsOf(TAB_FIELDS.location)) out.push(fromField('location', f))
   for (const f of fieldsOf(TAB_FIELDS.rules)) out.push(fromField('rules', f, ['checkin', 'checkin_end', 'checkout'].includes(f.key) ? 'times' : 'rules'))
-  // Pricing (PRICES) — channel markups and Booking.com's own deals come in as per-channel values
+  // Pricing (PRICES), channel markups and Booking.com's own deals come in as per-channel values
   for (const g of PRICE_GROUPS) for (const r of PRICES[g.id]) {
     out.push({
       key: `price:${r.key}`, section: 'pricing', group: g.id, label: r.label, help: r.help, kind: priceKind(r.unit), unit: r.unit === 'guests' ? 'guests' : r.unit,

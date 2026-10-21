@@ -56,7 +56,7 @@ export function RGenerateIcon() {
     </span>
   )
 }
-/** A growing list: the current step on top (bold, green), earlier ones fading below it — the real product's own effect. */
+/** A growing list: the current step on top (bold, green), earlier ones fading below it, the real product's own effect. */
 export function RStepList({ steps, at }: { steps: readonly string[]; at: number }) {
   const shown = steps.slice(0, at + 1).slice().reverse()
   return (
@@ -74,18 +74,18 @@ export function RProgressBar({ pct }: { pct: number }) {
  * Hub-wide "Test" that replaces "Ask the AI", ref 07) and the drawer they both slide in from. Tokens only. No
  * "answer as {channel}" anywhere below.
  * R2 revision (1 Oct, "basically not rendered fine… not even how I envision this happening"): rebuilt the
- * editor closer to Intercom Fin's procedure editor (refs 05–06) — a weighted trigger box (KhrTrigger) and steps that
+ * editor closer to Intercom Fin's procedure editor (refs 05–06), a weighted trigger box (KhrTrigger) and steps that
  * rest as flowing, chip-woven sentences (KhrStepItem) instead of a raw %token%-filled textarea shown at all times.
  * New pieces are kept in this same section; genuinely new CSS is prefixed `h-khr-wf2-` (ds/v3/kh-r.css) so it can't
  * collide with R-core's own classes above. `KhrAnswer`/`KhrAsk`/`KhrSourceRow`/`.h-khr-sim__label` below
- * are Test.tsx's (someone else's screen) — kept exactly as they were, not part of this revision. */
-/* `useRef`/`ReactNode` (react) and `Icon`/`cx` (./primitives) are already imported above by Agent 1 — reused as-is,
+ * are Test.tsx's (someone else's screen), kept exactly as they were, not part of this revision. */
+/* `useRef`/`ReactNode` (react) and `Icon`/`cx` (./primitives) are already imported above by Agent 1, reused as-is,
  * not re-imported (TS would flag the duplicate identifiers). Only the names below are new to this file. */
 import { useEffect, useState } from 'react'
 import { Button } from './primitives'
 import { ACTION_CHIPS, CHIP_RE, DATA_CHIPS, type ChipDef } from '../screens/hub/variants/R/workflows-data'
 
-/* ---------- chip text: %token% rendered as an inline bold-underlined mention (refs 05/06 — "People.signed_up",
+/* ---------- chip text: %token% rendered as an inline bold-underlined mention (refs 05/06, "People.signed_up",
  * "Handoff to team: X" woven into the sentence), read views only; editing shows the raw %token% text instead. ---------- */
 const CHIP_LOOKUP = new Map<string, ChipDef>([...DATA_CHIPS, ...ACTION_CHIPS].map((c) => [c.token, c]))
 export function KhrChipText({ text }: { text: string }) {
@@ -133,7 +133,7 @@ export function KhrChipMenu({ onPick }: { onPick: (token: string) => void }) {
   )
 }
 
-/* ---------- the trigger box: "When to use this workflow" (refs 05/06 — a labeled, bordered card at the top of the
+/* ---------- the trigger box: "When to use this workflow" (refs 05/06, a labeled, bordered card at the top of the
  * editor, not an afterthought textarea sitting loose among the steps). ---------- */
 export function KhrTrigger({ value, onChange, placeholder }: { value: string; onChange: (v: string) => void; placeholder: string }) {
   return (
@@ -145,9 +145,9 @@ export function KhrTrigger({ value, onChange, placeholder }: { value: string; on
 }
 
 /* ---------- a workflow step: rests as a numbered, flowing sentence with its tokens woven in as inline chip
- * mentions (refs 05/06) — never raw %token% syntax at rest. Click the sentence (or its pencil) to edit: a plain
+ * mentions (refs 05/06), never raw %token% syntax at rest. Click the sentence (or its pencil) to edit: a plain
  * textarea reappears, with the same "+" chip menu to insert a token at the cursor, closed again with Done or Esc.
- * A brand-new, empty step opens straight into edit mode — there's nothing to render as a sentence yet. ---------- */
+ * A brand-new, empty step opens straight into edit mode, there's nothing to render as a sentence yet. ---------- */
 export function KhrStepItem({ index, value, onChange, onRemove }: { index: number; value: string; onChange: (v: string) => void; onRemove?: () => void }) {
   const [editing, setEditing] = useState(!value.trim())
   const ref = useRef<HTMLTextAreaElement>(null)
@@ -189,7 +189,7 @@ export function KhrStepItem({ index, value, onChange, onRemove }: { index: numbe
 }
 
 /* ---------- simulate / test result pieces, shared by a workflow's own Test and the Hub-wide Test (ref 06, ref 07) ---------- */
-/** `only`: a sentence just one channel's guests get (e.g. Airbnb's checkout tasks) — labelled, never folded silently
+/** `only`: a sentence just one channel's guests get (e.g. Airbnb's checkout tasks), labelled, never folded silently
  *  into the plain-answer lines (channel-specific content must say so, the same way KhcAnswer already
  *  does on a topic page). Reuses KhcAnswer's own classes so the two read identically. */
 export function KhrAnswer({ lines, only }: { lines: string[]; only?: { channel: ChannelId; text: string } }) {
@@ -212,7 +212,7 @@ export function KhrSourceRow({ icon, label, quote, onEdit }: { icon: string; lab
     </div>
   )
 }
-/** The plain ask input (no channel picker — one answer, listing-wide). */
+/** The plain ask input (no channel picker, one answer, listing-wide). */
 export function KhrAsk({ value, onChange, onSubmit, placeholder, plain, autoFocus }: {
   value: string; onChange: (v: string) => void; onSubmit: () => void; placeholder: string
   /** no sparkles (testing the Hub isn't a recommendation) */
@@ -228,9 +228,9 @@ export function KhrAsk({ value, onChange, onSubmit, placeholder, plain, autoFocu
 }
 
 /* ---- Overview, rebuilt + a calmer topic page (Agent R-overview2, concepts/knowledge-hub/KH-NEXT-2.md) ----
- * The nine topics as template-style cards (visually in `.h-khr-tplcard`'s family, ref 04, extended here — not
+ * The nine topics as template-style cards (visually in `.h-khr-tplcard`'s family, ref 04, extended here, not
  * renamed), the gap→suggestion cross-reference line, and a compact fact-citation chip row for a question's answer
- * (replacing C's full editable fact list under every question — "busy", "a lot of content"). CSS classes
+ * (replacing C's full editable fact list under every question, "busy", "a lot of content"). CSS classes
  * below are all prefixed `h-khr-ov2-` so they can't collide with the Workflows agent's own additions to this file. */
 
 /** One topic, as a clickable card (icon, name, fact count, a one-line description). Built on `.h-khr-tplcard`'s shape
@@ -260,7 +260,7 @@ export function ROverviewTopicGrid({ children }: { children: ReactNode }) {
 }
 
 /* ---------- the Knowledge Hub page frame ----------
- * Every Knowledge Hub page is a CONCEPT — where the facts behind Smart Listing tips come from, not a developed feature —
+ * Every Knowledge Hub page is a CONCEPT, where the facts behind Smart Listing tips come from, not a developed feature -
  * so its title carries the "Concept" chip. The frame is the channel template's: the sticky head (title + property
  * switcher, then an optional tab row) and a Split body whose right column is the side panel (Test). A sub-page (a topic)
  * gets the Strategy channel page's back chevron before its title instead of a "‹ Overview" link under it. */
@@ -289,7 +289,7 @@ export function KhrFrame({ title, property, back, desc, descAction, tabs, panel,
   )
 }
 
-/* ---------- Sources, rewired: one row shape for both the Sources table and the Add-a-source table —
+/* ---------- Sources, rewired: one row shape for both the Sources table and the Add-a-source table -
  * icon, name, then ONE line "{desc} · {meta}", equal top/bottom padding, the trailing status/actions centred. An add
  * option is the same row as a whole-row button, with a trailing "Add" button look (a span: no nested buttons). ---------- */
 export function KhrSourceItem({ icon, name, desc, meta, action }: { icon: string; name: string; desc: string; meta?: string; action?: ReactNode }) {
@@ -317,7 +317,7 @@ export function KhrSourceAddItem({ icon, name, desc, onClick }: { icon: string; 
   )
 }
 
-/* ---------- Workflows, rewired: a static concept gallery — the Content page's topic card, exactly
+/* ---------- Workflows, rewired: a static concept gallery, the Content page's topic card, exactly
  * (`.h-khr-tplcard .h-khr-ov2-topiccard` in `.h-khr-tplgrid`), but an <article>: no hover, no pointer, not focusable. ---------- */
 export function KhrWorkflowConceptCard({ icon, meta, title, desc }: { icon: string; meta: string; title: string; desc: string }) {
   return (

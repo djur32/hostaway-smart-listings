@@ -1,5 +1,5 @@
-/* Knowledge Hub, reframed · one question (list → detail). How the AI answers it — faithfully: the reply guests get, and
- * every fact it read, by reference (a link to the Listing base field, never a copy) —; when nothing backs it, the note
+/* Knowledge Hub, reframed · one question (list → detail). How the AI answers it, faithfully: the reply guests get, and
+ * every fact it read, by reference (a link to the Listing base field, never a copy) -; when nothing backs it, the note
  * that the AI said it would check and asked you, with the tip that fixes it; how often guests asked, per channel and
  * per month; and the conversations behind it. */
 import { Link, Navigate } from 'react-router-dom'

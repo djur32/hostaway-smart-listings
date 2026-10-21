@@ -181,8 +181,8 @@ export function TaskList({ value, onChange, disabled }: { value: string; onChang
   )
 }
 
-/** A Guest resources link (Guidebook, Rental Agreement, Upsell — Hostaway's %shortcode% URLs). once a
- *  URL is in, it isn't shown as a raw input any more but as an item — the link, with Copy, Edit and Remove. Empty, or
+/** A Guest resources link (Guidebook, Rental Agreement, Upsell, Hostaway's %shortcode% URLs). once a
+ *  URL is in, it isn't shown as a raw input any more but as an item, the link, with Copy, Edit and Remove. Empty, or
  *  being edited, it's the input (placeholder "Your guidebook URL", as in the product). Read-only (Uses the Base / Show
  *  visibility / Autopilot): the item with Copy only. Edits write through `onChange` like typing (the section's draft). */
 export function LinkField({ value, onChange, disabled, label, placeholder, inputRef }: {

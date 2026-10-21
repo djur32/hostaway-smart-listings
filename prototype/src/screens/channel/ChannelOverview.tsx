@@ -1,13 +1,13 @@
 /* Channels › {channel} › Overview (V3-SPEC §1, NV-4a content area). Owner WS-CH.
  * The channel's status (last sync = the last change sent, since Save sends: QA A08, with a standing link to "Changes
  * sent"), a Status row (Online/Offline, not a "Listed" chip on the title: ), a strategy card, 1–2
- * meaningful tips (performance/gap-tied, each with its expected effect and one action — not a bare open-tips count:
+ * meaningful tips (performance/gap-tied, each with its expected effect and one action, not a bare open-tips count:
  * ), a small performance strip, and one list of everything about the listing on this channel (merged
  * "specific to" + "set by": ). No "Recent changes" list (review 1
- * Oct — reachable from the last-sync line only). No channel selector: the channel is chosen in the menu.
+ * Oct, reachable from the last-sync line only). No channel selector: the channel is chosen in the menu.
  * URL states: ?smart=on|off
  * Multi-property (QA B01/B02): the meta, prices and amenities are the active property's (data/property-listing.ts); the
- * Autopilot log and the KPIs are the scenario property's only (other properties show a neutral "—"). */
+ * Autopilot log and the KPIs are the scenario property's only (other properties show a neutral "-"). */
 import { useMemo } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import {
@@ -58,7 +58,7 @@ function Overview({ c }: { c: ListingChannel }) {
   // photos: this channel's real set and cover, from the library (QA B18)
   const photos = useMemo(() => {
     const shown = channelPhotos(c, lib, { tips: sl3.tips, custom: sl3.custom }).shown
-    return { own: !(lib.useBase?.[c] ?? c === 'direct'), line: `${shown.length} photos · cover: ${lib.meta[shown[0] ?? '']?.description ?? '—'}` }
+    return { own: !(lib.useBase?.[c] ?? c === 'direct'), line: `${shown.length} photos · cover: ${lib.meta[shown[0] ?? '']?.description ?? '-'}` }
   }, [c, lib, sl3.tips, sl3.custom])
   // what was sent to this channel, and what still waits (Knowledge Hub edits)
   const sent = ui.receipts.filter((r) => r.channel === c)
@@ -70,7 +70,7 @@ function Overview({ c }: { c: ListingChannel }) {
   const applied = scenario ? AUTOPILOT_LOG.filter((x) => x.channel === c && x.state === 'applied').length : 0
 
   // Meaningful tips only: up to 2, money/performance-tied ones first, each with its own expected
-  // effect (why[0]) and one action — not a bare "N open" count. Nothing shown when there's nothing worth surfacing.
+  // effect (why[0]) and one action, not a bare "N open" count. Nothing shown when there's nothing worth surfacing.
   const meaningfulTips = useMemo(() => [...pending].sort((a, b) => Number(!!b.money) - Number(!!a.money)).slice(0, 2), [pending])
 
   // what differs from the Base on this channel: listing fields, prices, channel-only terms
@@ -156,17 +156,17 @@ function Overview({ c }: { c: ListingChannel }) {
           <div>
             <SectionHead title="Performance" desc="Last 30 days on this channel." actions={active ? <Link className="h-link h-small" to={`/property/${p.id}/smart/performance`}>See performance</Link> : undefined} />
             <div className="h-kpis ch-mt">
-              <KpiTile label="Occupancy" value={meta.kpis ? `${meta.kpis.occ}%` : '—'} delta={meta.kpis?.occDelta} vs="vs last month" />
-              <KpiTile label="Average nightly rate" value={meta.kpis ? `€${meta.kpis.adr}` : '—'} delta={meta.kpis?.adrDelta} down={meta.kpis?.down?.includes('adr')} vs="vs last month" />
-              <KpiTile label="Average stay" value={meta.kpis ? `${meta.kpis.stay} nights` : '—'} delta={meta.kpis?.stayDelta} vs="vs last month" />
-              <KpiTile label="RevPAR" value={meta.kpis ? `€${meta.kpis.revpar}` : '—'} delta={meta.kpis?.revparDelta} vs="vs last month" />
+              <KpiTile label="Occupancy" value={meta.kpis ? `${meta.kpis.occ}%` : '-'} delta={meta.kpis?.occDelta} vs="vs last month" />
+              <KpiTile label="Average nightly rate" value={meta.kpis ? `€${meta.kpis.adr}` : '-'} delta={meta.kpis?.adrDelta} down={meta.kpis?.down?.includes('adr')} vs="vs last month" />
+              <KpiTile label="Average stay" value={meta.kpis ? `${meta.kpis.stay} nights` : '-'} delta={meta.kpis?.stayDelta} vs="vs last month" />
+              <KpiTile label="RevPAR" value={meta.kpis ? `€${meta.kpis.revpar}` : '-'} delta={meta.kpis?.revparDelta} vs="vs last month" />
             </div>
           </div>
 
           <div>
             {/* one list for everything about this listing on this channel, with a neutral heading (drop
                the "specific to / set by" framing entirely, not just merge the two sections under one of those names).
-               Per-row scope captions ("Set by Airbnb" etc.) stay — they're what tells the host what they can't edit. */}
+               Per-row scope captions ("Set by Airbnb" etc.) stay, they're what tells the host what they can't edit. */}
             <SectionHead title={`On ${name}`}
               desc={specific.length ? `${customCount} value${customCount === 1 ? ' differs from the Base, is set by the channel, or exists' : 's differ from the Base, are set by the channel, or exist'} only here. Everything else uses the Base.` : `Everything on ${name} uses the Base.`} />
             {specific.length > 0 ? (

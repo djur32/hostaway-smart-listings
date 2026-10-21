@@ -14,15 +14,15 @@ Hostaway already speaks "AI" in four places (): the lavender **Dynamic Pricing �
 | AI title | `--color-ai-title` (grape-darker) | headings on AI surfaces |
 | AI body | `--color-ai-text` (secondary-700) | 6.45:1 on lavender; Hostaway's own #9571c3 (3.47:1) stays only in the replica of the existing card |
 | AI glyph | `--color-ai-sparkle` / `--color-ai-accent` | sparkle icon, strength meter, autonomy track |
-| The decision | `--color-action-primary` (raspberry) | **Accept** is always the ordinary primary button — accepting AI is a normal host action, not an AI action |
+| The decision | `--color-action-primary` (raspberry) | **Accept** is always the ordinary primary button, accepting AI is a normal host action, not an AI action |
 | After accept | success green | the lavender goes away; the source chip becomes "✓ Accepted" |
 
 Lavender means "not yours yet". Once accepted, the content is the host's and looks like the rest of the page.
 
 ## 2 · When the AI speaks
 
-- **On request** — the host clicks "Suggest titles", selects text (selection toolbar), speaks (voice sheet), or opens the AI panel.
-- **At natural checkpoints** — after import (reconcile), when a fact changes (projections need rewriting), or when a comps signal crosses a threshold (insight card). Maximum one unsolicited suggestion per screen; the rest go to a digest.
+- **On request**, the host clicks "Suggest titles", selects text (selection toolbar), speaks (voice sheet), or opens the AI panel.
+- **At natural checkpoints**, after import (reconcile), when a fact changes (projections need rewriting), or when a comps signal crosses a threshold (insight card). Maximum one unsolicited suggestion per screen; the rest go to a digest.
 - **Never** mid-typing, never as a modal, never with a sound, never on a screen the host opened to do something else unless it blocks that task (e.g. a channel will reject the title).
 
 ## 3 · Every AI output carries five things
@@ -40,21 +40,21 @@ If any of the five can't be shown, the suggestion isn't shown.
 ## 4 · Nothing publishes without a level the host chose
 
 - Autonomy is a **dial per field group** (titles & descriptions · photos order · amenities highlights · pricing), not a global switch: **Suggest** → **Auto-apply with review** (24 h window) → **Autopilot** (D-025).
-- Default is **Suggest** for everyone. Persona modes may *propose* a higher level (P3 portfolio: Auto-apply with review for descriptions), shown as a recommendation the host confirms — never silently set.
+- Default is **Suggest** for everyone. Persona modes may *propose* a higher level (P3 portfolio: Auto-apply with review for descriptions), shown as a recommendation the host confirms, never silently set.
 - **Autopilot is never a default** and is never offered for facts (rules, fees, check-in times, amenities). Facts come from the host or an import; AI may *derive* a fact ("AI-derived" chip) but it stays unconfirmed until the host confirms it.
 - Every auto-applied change raises an **autonomy notice** ("AI updated the Vrbo description under Auto-apply with review · goes live in 23 h · Review · Undo") and appears in the version timeline with the AI as author.
-- Channel constraints are enforced *before* a suggestion is shown (length limits, banned words, fields a channel doesn't accept — S03's channel-constraints table). A suggestion that a channel would reject is marked "too long for Airbnb", never offered as the recommendation.
+- Channel constraints are enforced *before* a suggestion is shown (length limits, banned words, fields a channel doesn't accept, S03's channel-constraints table). A suggestion that a channel would reject is marked "too long for Airbnb", never offered as the recommendation.
 
 ## 5 · States
 
 | State | Looks like | Copy pattern |
 |---|---|---|
 | Generating | lavender skeleton + breathing sparkle | "Reading 12 similar listings…" (say what it's doing) |
-| Ready | recommended option first, alternatives below, each with chars/limit + strength | — |
+| Ready | recommended option first, alternatives below, each with chars/limit + strength |, |
 | Low confidence | amber note above the options | "Only 3 comparable listings on Vrbo nearby. Treat these as a starting point." |
 | Failed | red note, nothing changed | "Couldn't generate suggestions. Your listing hasn't changed. Try again" |
 | Accepted | green "✓ Accepted" chip, sync state pending → in sync | "Live on Booking.com in ~2 min" |
-| Rejected / dismissed | card leaves; the dismissal is remembered for that field + channel | — (no confirmation dialogs) |
+| Rejected / dismissed | card leaves; the dismissal is remembered for that field + channel |, (no confirmation dialogs) |
 
 ## 6 · Disclosure language
 
@@ -77,7 +77,7 @@ If any of the five can't be shown, the suggestion isn't shown.
 | Explain low confidence with its cause | Hide low-confidence suggestions without saying why |
 | Offer one unsolicited suggestion per screen | Stack multiple AI promo cards on one page |
 
-## 8 · Ask, don't assert — the question card (D-090, D-106)
+## 8 · Ask, don't assert, the question card (D-090, D-106)
 
 When the AI would need a fact the home's record doesn't hold (Wi-Fi speed, a balcony one channel lists and another doesn't, a licence number), it **asks** instead of writing around it or guessing. This is the grounding rule of principle 4, "The AI says only what the home can back" (`concepts/PRINCIPLES.md`, D-085), made concrete.
 

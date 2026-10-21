@@ -2,8 +2,8 @@
  * ABOVE the thing they explain, centred on it, separated from the content, and may wrap to two lines.
  * A CSS-only tooltip can't do that reliably here: the form column and the Tips panel are scrollers, so a tooltip
  * centred on an icon near their edge was clipped (the reason several callers had been pushed to open rightwards).
- * This layer keeps every caller's markup as it is — the inline .h-tooltip stays in the DOM (hidden) so
- * aria-describedby still names it — and shows a fixed-position copy above the anchor, clamped to the viewport,
+ * This layer keeps every caller's markup as it is, the inline .h-tooltip stays in the DOM (hidden) so
+ * aria-describedby still names it, and shows a fixed-position copy above the anchor, clamped to the viewport,
  * flipping below only when there is no room above. Hover shows after the product's 250ms delay; keyboard focus
  * (:focus-visible) shows it too; a click, Escape or a scroll hides it;
  * on touch, a tap on the anchor shows it. Mounted once in main.tsx. */
@@ -124,7 +124,7 @@ export function TooltipLayer() {
     setPos({ left, top: above >= EDGE ? above : r.bottom + GAP })
   }, [shown])
 
-  // phones: a tooltip is a bottom sheet with a title, its text and × — never a floating bubble.
+  // phones: a tooltip is a bottom sheet with a title, its text and ×, never a floating bubble.
   // Desktop keeps the floating layer above (hover and focus are unchanged there).
   if (mobile && shown) return (
     <TipSheet open title={sheetTitle(shown.anchor)} onClose={() => setShown(null)} host={{ current: shown.anchor }}>

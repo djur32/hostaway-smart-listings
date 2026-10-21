@@ -6,7 +6,7 @@ Read this before writing a slide. It is the Hostaway version of the InvestEngine
 
 ## 0. What we are making
 
-A ≤ 56-slide deck that walks Hostaway's leadership through the process behind **Listing Management II** (angles A + B), and is the script for a **~22-minute Loom** (Standard path). It is built as an app in presentation mode, in Hostaway's own visual language: the product's top bar and underline tabs, its white, blush and aubergine grounds, its lavender AI card. The deck states the design and never claims a result.
+A ≤ 56-slide deck that walks Hostaway's leadership through the process behind **Smart Listings** (angles A + B), and is the script for a **~22-minute walkthrough** (Standard path). It is built as an app in presentation mode, in Hostaway's own visual language: the product's top bar and underline tabs, its white, blush and aubergine grounds, its lavender AI card. The deck states the design and never claims a result.
 
 ## 1. Files
 

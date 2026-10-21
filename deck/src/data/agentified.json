@@ -1,7 +1,7 @@
 {
   "_note": "One line per part cover, keyed by data-stage (kit/hc.js agentify): what AI agents did in that stage, and what review decided. Facts from the project status and session log (3 Oct). Keep each line short; no em dashes.",
   "1": "Agents audited 59 screenshots, 46 help articles and 36 competitors, and captured 62 competitor screens. I set the hypotheses.",
-  "2": "Interviews and seven datasets simulated from my plan and grounded in 115 public reviews, each one labelled. Agents then mapped 100 canonical fields and scored seven structures. I chose the structure.",
+  "2": "Interview premises and seven datasets drafted from my plan and grounded in public reviews. Agents then mapped 100 canonical fields and scored seven structures. I chose the structure.",
   "3": "Seven directions drawn in parallel, then 19 more in Paper, with Mobbin references saved locally. I judged them at the gate.",
   "4": "The prototype written in code on Hostaway's tokens, rebuilt across my reviews and captured headlessly for this deck.",
   "5": "Agents drafted the goals, the test programme, the instruments and the KPI tree. Nothing has been run on real hosts.",

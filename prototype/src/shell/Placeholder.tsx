@@ -7,7 +7,7 @@ import { PageBody, useProperty } from './PropertyLayout'
 export function Placeholder({ scr, owner, title, children, refs }: {
   scr: string; owner: 'S10' | 'S11' | 'S12' | 'S13' | 'S14' | 'out of scope'; title: string; children?: ReactNode; refs?: string
 }) {
-  // an out-of-scope page shouldn't read as a small card with dead space under it — the "unchanged"
+  // an out-of-scope page shouldn't read as a small card with dead space under it, the "unchanged"
   // message is the whole page, centred in the space the content would otherwise fill.
   return (
     // it takes the whole available space under the head (not a small card), no decorative background
@@ -29,7 +29,7 @@ export function PropertyPlaceholder({ title, children }: { title: string; childr
   return (
     <PageBody>
       <PageHead title={title} property={p} />
-      <Placeholder scr="—" owner="out of scope" title={`${title} is unchanged`}>{children}</Placeholder>
+      <Placeholder scr="-" owner="out of scope" title={`${title} is unchanged`}>{children}</Placeholder>
     </PageBody>
   )
 }

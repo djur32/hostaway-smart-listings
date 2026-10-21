@@ -1,13 +1,13 @@
 /* Property › Shared › Listing base › Pricing ("Under Listing base you will have the details, then
- * pricing and availability, the same way that we have it on the channels"). A flat tabbed page — Listing's own frame
+ * pricing and availability, the same way that we have it on the channels"). A flat tabbed page, Listing's own frame
  * (one sticky `.ch-editor__head`: PageHead + the `.ch-tabrow` inside it, then the tab's fields scrolling below,
- * exactly ListingEditor.tsx's Classic composition) —
+ * exactly ListingEditor.tsx's Classic composition) -
  * NOT the Calendar's "tap a night" PanelStack drill-down (screens/global/Calendar.tsx keeps that, unchanged, for its
  * own "which night" context; it's the right interaction there and the wrong one here, per the real-product
  * screenshots, concepts/smart-listing/refs/base-pricing/README.md).
  * Real tabs, in order: Base price · Occupancy based · Fees · Security deposits · Direct Discounts · Taxes.
  * Field-level logic (Base/Customize-for-{channel}, the Amount input, Discard/Save-as-one-draft) is PricingPanels.tsx's
- * (built for Calendar, reused here via the shared usePriceEditor/BaseRow/RowsPanel/DepositPanel/Amount/Desc — no
+ * (built for Calendar, reused here via the shared usePriceEditor/BaseRow/RowsPanel/DepositPanel/Amount/Desc, no
  * pricing logic is re-derived). Saving is unchanged: it commits to the store (sl3Base / sl3Custom) and sends one
  * receipt per channel that changed (commitAndSend, inside usePriceEditor). Owner: this session. */
 import { useState } from 'react'
@@ -24,7 +24,7 @@ import {
 } from '../pricing/PricingPanels'
 
 // Dynamic Pricing's side panel (DynamicPanel, PricingPanels.tsx) needs a night to anchor its "This night" breakdown
-// to; this page has no calendar context (it's property-wide, flat tabs — not Calendar's "tap a night" drill-down),
+// to; this page has no calendar context (it's property-wide, flat tabs, not Calendar's "tap a night" drill-down),
 // so it anchors to today, same as ChannelPricing.tsx's own Dynamic Pricing entry point (screens/channel/ChannelPricing.tsx).
 const TODAY: Night = { i: 0, date: new Date(), daysAhead: 0 }
 
@@ -38,7 +38,7 @@ const BASE_TABS: Array<{ id: BaseTab; label: string }> = [
   { id: 'taxes', label: 'Taxes' },
 ]
 /** One heading + one line per tab, as on a channel's Pricing ("use the channels template for
- *  everything") — the long product paragraphs the tabs carried before are hidden on this page (.ch-page--base-pricing). */
+ *  everything"), the long product paragraphs the tabs carried before are hidden on this page (.ch-page--base-pricing). */
 const BASE_DESC: Record<BaseTab, string> = {
   base: 'The default nightly rate for open dates that don’t have a price set by hand or by Dynamic Pricing.',
   occupancy: 'Set prices based on how many guests are staying. You can charge for extra guests beyond your included count and define a maximum occupancy.',
@@ -64,12 +64,12 @@ export function BasePricing() {
   useUnsavedChanges({ dirty, onDiscard: discard, onSave: save })
 
   // Dynamic Pricing ("it opens up in the side view, just the same way that a tip opens in the side
-  // view of the listing"): a single-level PanelStack — the same slide-in-beside-the-content container Calendar's
+  // view of the listing"): a single-level PanelStack, the same slide-in-beside-the-content container Calendar's
   // night drill-down and ChannelPricing's own Dynamic Pricing card already use (ds/panels.tsx), but opened directly
   // with one panel instead of going through usePricingPanels' night/section/field stack, which this flat tabbed page
   // was deliberately rebuilt out of. PanelStack wires itself into the single shared side-panel slot
   // (useExclusivePanel('pstack', …), ds/panelSlot.ts), so opening it force-closes Tips (or any other panel) and
-  // vice versa — no extra wiring needed here. DynamicPanel is read-only (no Discard/Save of its own, OpenInPricing
+  // vice versa, no extra wiring needed here. DynamicPanel is read-only (no Discard/Save of its own, OpenInPricing
   // instead), so it reuses this tab's own `ed`/pv rather than a second draft.
   const [dynOpen, setDynOpen] = useState(false)
   const s = useStore()
@@ -80,7 +80,7 @@ export function BasePricing() {
 
   return (
     <div className="ch-editor">
-      {/* The WHOLE head sticks as one unit — title, property switcher and the tab row below it — exactly as the
+      {/* The WHOLE head sticks as one unit, title, property switcher and the tab row below it, exactly as the
        * channel editor composes it (screens/channel/ListingEditor.tsx Classic, ds/v3/ch.css .ch-editor__head).
        * The tab row must be INSIDE .ch-editor__head: as a sibling it stuck on its own at the same top/z-index and
        * painted over the title + property switcher, and it also missed the head's --content-padding-x gutter, so it
@@ -119,8 +119,8 @@ export function BasePricing() {
   )
 }
 
-/** Base price: Nightly/weekend rate carry no "N channels" caption at all (real screenshots) — SettingRow's
- *  `hint={false}` drops the whole caption row. Then the Dynamic Pricing card — clickable, opens DynamicPanel in the
+/** Base price: Nightly/weekend rate carry no "N channels" caption at all (real screenshots), SettingRow's
+ *  `hint={false}` drops the whole caption row. Then the Dynamic Pricing card, clickable, opens DynamicPanel in the
  *  page's PanelStack ("it opens up in the side view"). Listing markups are each channel's own value,
  *  so they aren't on the Base: each channel's Pricing › Base price has its markup row. */
 function BaseTabContent({ ed, onOpenDynamic }: { ed: Editor; onOpenDynamic: () => void }) {
@@ -143,7 +143,7 @@ function BaseTabContent({ ed, onOpenDynamic }: { ed: Editor; onOpenDynamic: () =
 
 /** Fees: Cleaning, Linens, Resort and Management fee as Base-only rows (BaseRow baseOnly: the Base input and the
  *  informational "ⓘ N channels" caption, N = the channels that use the Base). the Base shows only
- *  shared values, nothing about how a channel differs — so Airbnb's short-term cleaning fee (Airbnb only) isn't here;
+ *  shared values, nothing about how a channel differs, so Airbnb's short-term cleaning fee (Airbnb only) isn't here;
  *  it lives on Channels › Airbnb › Pricing › Fees. Linens/Resort/Management: €0 defaults (data/v3-ch.ts
  *  PRICES.fees). Pet fee isn't in the real screenshots for this tab, so it's left out. */
 function FeesTab({ ed }: { ed: Editor }) {
@@ -176,7 +176,7 @@ function DiscountsTab({ ed }: { ed: Editor }) {
 /** Taxes: brand new, no shared Section/TITLE/usePricingPanels entry (Calendar's night drill-down has no tax concept
  *  and shouldn't gain one). No seeded tax data anywhere in the prototype, so this is always the empty state; "Add
  *  tax" is visually a normal top-right section action (SectionHead, same composition as a channel's Save actions)
- *  but inert — no tax-creation flow was asked for. */
+ *  but inert, no tax-creation flow was asked for. */
 function TaxesTab() {
   return (
     <>

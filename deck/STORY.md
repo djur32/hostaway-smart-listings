@@ -4,7 +4,7 @@
 
 **The story in three lines.** Hostaway already has two truths about every property (Details and the Knowledge Hub) and a silent moment after "You're connected". *A creates the truth*: import, reconcile, and a Knowledge Hub where every fact shows its source. *B puts it to work*: a Smart Listing studio that writes each channel's voice from those facts, with the host in the loop. The process (discovery, research, IA, concept, design, test, measure) is the spine. The tension is the problem.
 
-**Paths** (Personalise, `V`): **S** Short · **St** Standard (the ~22-minute Loom) · **E** Everything. Today: Short 21, Standard 41 (21.3 min), Everything 49 (25.3 min). The plan's targets are ≈18 and ≈32 (OQ-070).
+**Paths** (Personalise, `V`): **S** Short · **St** Standard (the ~22-minute walkthrough) · **E** Everything. Today: Short 21, Standard 41 (21.3 min), Everything 49 (25.3 min). The plan's targets are ≈18 and ≈32 (OQ-070).
 **Angle** (`data-angle`): A · B · both · none. Scope guard: ≥ 70% of Standard slides are A, B or both. Today it's 36 of 41 (88%).
 **Notion**: every slide's "In Notion ↗" resolves through `src/data/notion-links.json` (CONTRACT.md §6). "Page" below is the key in its `pages`.
 **Cover**: the first slide of each part opens under that part's cover (D-072); its question is quoted with the part.
@@ -14,7 +14,7 @@
 
 | # | id | Slide | The one message | Path | Angle | Page | Component (placeholder) | Requirements | Fills from |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | `op-title` | Listing Management II | Facts once. Voice per channel. The host stays in the loop. | S | none | 00-brief | title | R-180 R-181 R-189 | deck |
+| 1 | `op-title` | Smart Listings | Facts once. Voice per channel. The host stays in the loop. | S | none | 00-brief | title | R-180 R-181 R-189 | deck |
 | 2 | `op-brief` | The brief in one breath | Two angles, taken as one story: A creates the truth, B puts it to work. | S | both | 00-brief | brief | R-001 R-008 | plan/BRIEF.md · D-001 |
 | 3 | `op-thesis` | Facts once, voice per channel, host in the loop | The thesis this work set out to test, and what would have proved it wrong. | S | both | 00-brief | thesis | R-001 R-016 R-011 | MASTER-PLAN §2 |
 | 4 | `op-how` | How I worked | Eight stages, AI sessions for the legwork, and a label on everything that is not real. | St | none | 00-brief | how | R-035 R-010 R-037 | 99 · Process |

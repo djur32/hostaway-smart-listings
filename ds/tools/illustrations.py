@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the case-study illustrations in Hostaway's mascot style (v4b, 3 Oct, fourth pass).
+"""Generate the concept illustrations in Hostaway's mascot style (v4b, 3 Oct, fourth pass).
 
 Style, from Hostaway's own site (research/references/hostaway-marketing/08 laptop mascot,
 10 trumpet mascot: one mascot, ONE prop, a lot of air) and the in-product empty states (HS-06, HS-31):

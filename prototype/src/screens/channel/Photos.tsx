@@ -5,7 +5,7 @@
  *   drag a tile to re-order it right in the grid (ds/sortable.tsx, Hostaway's drag-to-reorder pattern, 3 Oct);
  *   Re-order mode (drag by the grip, or arrow keys on it), Edit photo modal.
  * State: store.photoLib (data/photos.ts). Every change is mirrored into sl3.custom, so Canvas shows the new order.
- * Like every other field (ds/unsaved.tsx), every action here drafts locally first — reordering, Hide/Show, Delete,
+ * Like every other field (ds/unsaved.tsx), every action here drafts locally first, reordering, Hide/Show, Delete,
  * Edit photo and Use the Base/Customize all stage a change and wait for the shared Discard/Save bar, never sending on
  * their own ("if you make a change... you should open the unsaved changes dialog to make sure you do
  * that"). Save is the commit (QA A08): it sends every staged change to the channels it touches at once, with a
@@ -47,13 +47,13 @@ const alt = (lib: PhotoLib, k: string) => lib.meta[k]?.description || 'Photo'
 
 /* ---------------- Essentials › Photos (listing editor, one channel) ---------------- */
 /** This row's only edit is Use the Base / Customize for {channel}; drafted exactly like CanvasView's CvDraft
- *  (screens/canvas/CanvasView.tsx) — a small local overlay on top of the committed lib, registered with the shared
+ *  (screens/canvas/CanvasView.tsx), a small local overlay on top of the committed lib, registered with the shared
  *  Discard/Save bar (ds/unsaved.tsx). `pending.c !== c` (switching channel/tab without saving) resets it, the same
  *  "stale draft" guard useSectionDraft uses (screens/channel/common.tsx). */
 export function ChannelPhotosRow({ c, tips, activeTip, onTip, focus, readOnly }: { c: ListingChannel; tips?: string[]; activeTip?: string | null; onTip?: (id: string) => void; focus?: boolean; readOnly?: boolean }) {
   const p = useProperty()
   const { lib, sl3 } = usePhotoLib()
-  // "Manage photos" (screens/channel/photosNav.tsx, ): every channel opens its own photos in place —
+  // "Manage photos" (screens/channel/photosNav.tsx, ): every channel opens its own photos in place -
   // Pattern A, the full-screen takeover, by default; B (drawer) / C (tab) only via ?photosNav=drawer|tab.
   const nav = usePhotosNav()
   const [params] = useSearchParams()
@@ -61,7 +61,7 @@ export function ChannelPhotosRow({ c, tips, activeTip, onTip, focus, readOnly }:
   const keep = params.toString() ? `?${params}` : ''
   const openParams = new URLSearchParams(params); openParams.set(PHOTOS_OPEN_PARAM, '1')
   // the href still lands in the same place (open in a new tab / middle-click): this channel's Essentials with the
-  // overlay open — never the cross-channel /photos library, which this channel's link no longer leads to
+  // overlay open, never the cross-channel /photos library, which this channel's link no longer leads to
   const manageTo = nav.pattern === 'tab' ? `/property/${p.id}/ch/${c}/listing/photos${keep}` : `/property/${p.id}/ch/${c}/listing/essentials?${openParams}`
   const onManage = nav.pattern !== 'tab' ? (e: MouseEvent) => { e.preventDefault(); nav.openPhotos() } : undefined
   const useBase = useStore((s) => s.photoUseBase)
@@ -86,7 +86,7 @@ export function ChannelPhotosRow({ c, tips, activeTip, onTip, focus, readOnly }:
   return (
     <div className={cx('h-field-row', 'h-field-row--stacked', focus && 'is-tip-focus')}>
       {/* PhotosRow + the hint share one control wrapper (the caption should sit as close to the photos
-         as a normal field's caption sits under its input) — nested here, not a sibling flex item of the row above, so
+         as a normal field's caption sits under its input), nested here, not a sibling flex item of the row above, so
          the gap down to it is just --field-hint-gap, not that plus h-field-row--stacked's own flex gap on top. */}
       <div className="h-field-row__control">
         <PhotosRow
@@ -113,7 +113,7 @@ export function ChannelPhotosRow({ c, tips, activeTip, onTip, focus, readOnly }:
  * A flat, chronological queue rather than one slot per field: each entry is exactly the store action it will become
  * on Save (photoReorder/photoHide/photoDelete/photoEdit), so folding them with the same pure builders the store
  * itself uses (reorderLib/hideLib/deleteLib/editLib, data/photos.ts) previews the library precisely as sequential
- * immediate commits would have — e.g. a reorder that includes a photo deleted afterwards is already corrected,
+ * immediate commits would have, e.g. a reorder that includes a photo deleted afterwards is already corrected,
  * because deleteLib strips a deleted key from base/order the same way it would mid-session. Save replays the queue
  * through the real store actions inside one commitPhotosAndSend, so every channel it touched gets one receipt. */
 type PhotoOp =
@@ -143,27 +143,27 @@ const runOp = (op: PhotoOp) => {
  *  component to close itself instead of closing out from under it: `requestClose` runs the exact same dirty-check
  *  the internal back-chevron uses, so a shell's X / Escape / spine-click never silently drops an unsaved draft. */
 export interface PhotosManagerHandle { requestClose: () => void }
-/** The actual photo-management screen — grid, re-order, Add, Edit photo, bulk select, the Discard/Save bar — shared
+/** The actual photo-management screen, grid, re-order, Add, Edit photo, bulk select, the Discard/Save bar, shared
  *  by every "Manage photos" destination (the standalone /photos route below, and the three navigation patterns in
  *  PhotosShells.tsx) so none of this logic is ever duplicated ("don't duplicate PhotosPage's logic
  *  three times"). Two things change per host, both optional:
  *  - `head`: the shared title line (PageHead: back-chevron, "All photos", the property switcher). On for the
  *    standalone route only; the full-screen takeover (its own top bar + `titled` H1, like the real product), the
  *    drawer and the tab all pass `head={false}`. `channel` locks the view to one channel (no scope switcher).
- *  - `onBack`: when given, the back-chevron calls it instead of rendering a route `<Link>` — an overlay's "back" is
+ *  - `onBack`: when given, the back-chevron calls it instead of rendering a route `<Link>`, an overlay's "back" is
  *    closing the overlay, not navigating. It's still routed through the same unsaved-changes guard as leaving the
  *    real route would be (useBlocker only catches a PATHNAME change, which an overlay's query-param toggle never
- *    is — see ds/unsaved.tsx's own docblock — so this component owns that check itself when `onBack` is in play). */
+ *    is, see ds/unsaved.tsx's own docblock, so this component owns that check itself when `onBack` is in play). */
 export function PhotosManager({ head = true, onBack, ref, channel, titled = false, baseOnly = false }: {
   head?: boolean; onBack?: () => void; ref?: Ref<PhotosManagerHandle>
-  /** Opened from a channel's Listing: the view is that channel's photos and nothing else — no
+  /** Opened from a channel's Listing: the view is that channel's photos and nothing else, no
    *  All photos / per-channel switcher, and every action (re-order, hide, add, edit, bulk select, cover) stays on that
    *  channel. Unset = the standalone cross-channel library (/property/:id/photos), which keeps its scope tabs. */
   channel?: ListingChannel
   /** Render the page's own H1 + subtitle in the body (the full-screen takeover's layout, like the real product). */
   titled?: boolean
   /** Opened from Listing base › Photos ("should work the same way as in the channels"): the Base's
-   *  own photos (All photos) and nothing else — no per-channel switcher, as a channel-locked view has none either. */
+   *  own photos (All photos) and nothing else, no per-channel switcher, as a channel-locked view has none either. */
   baseOnly?: boolean
 }) {
   const p = useProperty()
@@ -183,7 +183,7 @@ export function PhotosManager({ head = true, onBack, ref, channel, titled = fals
     setParams((prev) => { const n = new URLSearchParams(prev); if (s === 'all') n.delete('channel'); else n.set('channel', s); return n }, { replace: true })
   }
 
-  // every staged action (reorder, hide/show, delete, Edit photo's Apply/Delete — bulk included), in the order they were made
+  // every staged action (reorder, hide/show, delete, Edit photo's Apply/Delete, bulk included), in the order they were made
   const [ops, setOps] = useState<PhotoOp[]>([])
   const draftLib = useMemo(() => ops.reduce((l, op) => applyOp(l, sl3, op), lib), [lib, sl3, ops])
   const dirty = ops.length > 0
@@ -205,18 +205,18 @@ export function PhotosManager({ head = true, onBack, ref, channel, titled = fals
   const saveOps = () => { commit(() => { for (const op of ops) runOp(op) }); setOps([]) }
   const discardOps = () => setOps([])
   useUnsavedChanges({ dirty, onDiscard: discardOps, onSave: saveOps, label: 'Photos' })
-  // onBack only (an overlay host): closing while dirty asks first, the same choice UnsavedBar's own dialog offers —
+  // onBack only (an overlay host): closing while dirty asks first, the same choice UnsavedBar's own dialog offers -
   // see this function's docblock for why the router's own guard can't do this for us here.
   const [confirmClose, setConfirmClose] = useState(false)
   const requestClose = () => { if (dirty) setConfirmClose(true); else onBack?.() }
   useImperativeHandle(ref, () => ({ requestClose }), [dirty, onBack])
   const stage = (op: PhotoOp) => setOps((o) => [...o, op])
   /** A locked channel that still follows the Base would silently ignore its own order/hidden list (channelPhotos,
-   *  data/photos.ts), so the first channel-only change there also stages "Customize for {channel}" — the same switch
-   *  the Essentials row offers — keeping the change on this channel instead of rewriting the Base for everyone. */
+   *  data/photos.ts), so the first channel-only change there also stages "Customize for {channel}", the same switch
+   *  the Essentials row offers, keeping the change on this channel instead of rewriting the Base for everyone. */
   const detach = (): PhotoOp[] => (locked && draftLib.useBase?.[locked] ? [{ kind: 'useBase', channel: locked, on: false }] : [])
   const stageScoped = (op: PhotoOp) => setOps((o) => [...o, ...detach(), op])
-  /** One path for every order change — Re-order mode's "Save order" and a drop in the grid — so both stage the same
+  /** One path for every order change, Re-order mode's "Save order" and a drop in the grid, so both stage the same
    *  draft op (replacing an earlier order for this scope) and wait for the shared Discard/Save bar. */
   const stageOrder = (keys: string[]) => {
     const target = scope === 'all' ? 'base' : scope
@@ -224,7 +224,7 @@ export function PhotosManager({ head = true, onBack, ref, channel, titled = fals
   }
   const saveOrder = () => { stageOrder(reorderKeys!); setReorderKeys(null) }
   // drag a shown photo straight in the grid ("Right now there is no dragging behaviour"); hidden photos
-  // aren't in the order, so they don't drag. The first shown photo is the cover — the preview moves the pill live.
+  // aren't in the order, so they don't drag. The first shown photo is the cover, the preview moves the pill live.
   const sort = useSortable({ keys: shown, onReorder: (next) => stageOrder(next), disabled: !!reorderKeys })
   const bulk = {
     hide: scope === 'all' ? null : selHidden
@@ -293,7 +293,7 @@ export function PhotosManager({ head = true, onBack, ref, channel, titled = fals
               ]} />}
             </div>}
             <div className="h-photos-grid" ref={sort.containerRef}>
-              {/* All photos: this is the Base grid — its job is the count, add and re-order, not a running
+              {/* All photos: this is the Base grid, its job is the count, add and re-order, not a running
                  tally of every channel's covers and hidden photos. That per-channel detail belongs on that channel's tab,
                  where it's a single, scoped fact instead of a badge stack on every tile. */}
               {sort.order.map((k, i) => (
@@ -348,7 +348,7 @@ export function PhotosManager({ head = true, onBack, ref, channel, titled = fals
           />
         )}
         {adding && <AddPhotos channel={locked} onClose={() => setAdding(false)} />}
-        {/* last child of this page's own scroll column (.ch-page doesn't go through Page/PageBody) — ds/unsaved.tsx */}
+        {/* last child of this page's own scroll column (.ch-page doesn't go through Page/PageBody), ds/unsaved.tsx */}
         <UnsavedBar />
         {/* an overlay host only (onBack): the same "Unsaved changes" choice as leaving the real route would trigger,
            reusing OvDialog (ds/overview.tsx) rather than duplicating ds/unsaved.tsx's own UnsavedDialog. */}
@@ -365,7 +365,7 @@ export function PhotosManager({ head = true, onBack, ref, channel, titled = fals
   )
 }
 
-/** The standalone route (/property/:id/photos?channel=…&back=…) — the cross-channel photo library, reached from
+/** The standalone route (/property/:id/photos?channel=…&back=…), the cross-channel photo library, reached from
  *  Listing base › Details › Essentials (screens/details/fields.tsx, ?channel=all) and the mobile demo index; no
  *  channel's "Manage photos" leads here any more (those open the channel-locked takeover). Keeps its
  *  All photos / per-channel scope tabs: PhotosManager with its default head and no onBack, inside the usual Split. */
@@ -396,7 +396,7 @@ function ReorderGrid({ scope, keys, lib, onChange }: { scope: Scope; keys: strin
     else if (e.key === 'Home') { e.preventDefault(); setGrabbed(k); move(k, 0) }
     else if (e.key === 'End') { e.preventDefault(); setGrabbed(k); move(k, keys.length - 1) }
   }
-  // mouse/pen: drag the tile or its grip; touch: the grip (pointer events — the old HTML5 drag-and-drop never fired here)
+  // mouse/pen: drag the tile or its grip; touch: the grip (pointer events, the old HTML5 drag-and-drop never fired here)
   const sort = useSortable({ keys, onReorder: (next, m) => { onChange(next); announce(m.key, m.to) } })
   const where = scope === 'all'
     ? 'the Base order. Channels that follow the Base get it; a channel with its own order keeps it.'
@@ -503,7 +503,7 @@ function EditPhoto({ k, lib, onClose, onApply, onDelete, channel }: {
         </div>
         {channel ? (
           /* Channel-locked: a channel only decides whether it shows the photo (Yes / No) and, if it
-           * wants, its own caption — "Uses the Base" until customised, like any other field. The room or area comes
+           * wants, its own caption, "Uses the Base" until customised, like any other field. The room or area comes
            * from the Listing base and is read-only here; the photo itself is changed on the Listing base. */
           <div className="h-photo-edit__form h-photo-edit__form--channel">
             <section>
@@ -530,7 +530,7 @@ function EditPhoto({ k, lib, onClose, onApply, onDelete, channel }: {
             <section>
               <p className="h-photo-edit__q">Room or area</p>
               <Locked>{t ? t.label : 'Not tagged'}</Locked>
-              <p className="h-photo-edit__inherit"><span>{TAG_USE[channel]}: {t ? t[channel] : '—'}</span></p>
+              <p className="h-photo-edit__inherit"><span>{TAG_USE[channel]}: {t ? t[channel] : '-'}</span></p>
             </section>
             <p className="h-photo-edit__note"><Icon name="info-circle" size={16} />To change the photo itself or its room, go to <Link className="h-textlink" to={`/property/${p.id}/details/essentials?photosOpen=1`} onClick={onClose}>the Listing base photos</Link>.</p>
           </div>

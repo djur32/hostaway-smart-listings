@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Slide archive: every slide ever produced, grouped by case study, with a thumbnail.
+"""Slide archive: every slide ever produced, grouped by concept, with a thumbnail.
 
     python3 tools/archive-index.py
 
@@ -158,7 +158,7 @@ ul{{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat
 .h{{padding-top:4px!important;font-weight:500}} .i{{padding:4px 10px 10px!important;color:var(--mute);font:11px ui-monospace,Menlo,monospace;word-break:break-all}}
 .t{{display:inline-block;padding:0 6px;border-radius:3px;color:#fff;font-size:11px;background:var(--v1)}}
 .v2 .t{{background:var(--v2)}} .overlay .t{{background:var(--ov)}}
-</style></head><body><header><h1>Slide archive</h1><p class="legend">{legend}. Grouped by case study, then stage. Click a thumbnail to enlarge.</p><nav>{nav}</nav></header>
+</style></head><body><header><h1>Slide archive</h1><p class="legend">{legend}. Grouped by concept, then stage. Click a thumbnail to enlarge.</p><nav>{nav}</nav></header>
 {"".join(parts)}</body></html>'''
     os.makedirs(OUT, exist_ok=True)
     open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(page)

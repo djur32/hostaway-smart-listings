@@ -1,183 +1,163 @@
-<callout icon="✅" color="gray_bg">
-	**Output · Done** · The design system behind the prototype: Hostaway's own tokens as the base, plus the few patterns Smart Listings needed. Provenance: the base tokens are Hostaway's public CSS ([their stylesheet](https://my.hostaway.com/static/styles-K7T6MMZ5.css)); colour roles are traced to the product's screenshots ().
+<callouticon=✅ color=gray_bg>
+	**OutputDone** · ThedesignsystembehindtheprototypeHostaway'sowntokensasthebaseplusthefewpatternsSmartListingsneeded. ProvenancethebasetokensareHostaway'spublicCSS([theirstylesheet](https//my.hostaway.comstaticstyles-K7T6MMZ5.css)); colourrolesaretracedtotheproduct'sscreenshots.
 </callout>
-![The design-system gallery: Hostaway's raw colour scales under Hostaway's own names, used verbatim. .](file-upload://3eee18af-1645-8111-8bad-00b20b3b1c16)
-## The short version
-- The base is Hostaway's own: **244 root CSS variables** captured from the app's public stylesheet and used as they are, under their own names.
-- On top sits a role layer that says what each colour does, matched to pixels in the screenshots. The prototype and the deck use these tokens only, never a raw colour.
-- Ten patterns were added for Smart Listings. Each was added to the system first, then used on screens.
-- I also challenged some of Hostaway's own patterns, such as where Save changes appears. These reach far beyond listings, so I'd weigh them with each product team and test them before they spread.
-## The base
-- **Raw layer:** Hostaway's palette (gray, primary, secondary, success, error, warning…) and semantic names, copied verbatim, so an engineer there recognises every token.
-- **Role layer:** sidebar, actions, pills, AI, channels, type, space, radius, motion, elevation. Most roles match a Hostaway token exactly; anything guessed is marked .
-- **Colour means one thing:** raspberry to act (one primary per view), purple for what the AI proposes (tips), orange for Rewrite with AI, which the host starts, green for chosen or done.
-- **Type and icons:** TT Norms, from my licensed files, and Tabler outline icons.
-- **The AI speaks the assistant's language:** the sparkle icon and purple on lavender are the ones Hostaway uses for the assistant (hostaway.com) and in the product's sidebar footer (). Tips, the Tips panel and Rewrite reuse them, so every AI surface reads as the same assistant. <mention-page url="https://app.notion.com/p/3efe18af164581ceabafdfe5275589dd">KD-20</mention-page>
-## What I added
-<table header-row="true">
+![Thedesign-systemgalleryHostaway'srawcolourscalesunderHostaway'sownnamesusedverbatim. .](file-upload//3eee18af-1645-8111-8bad-00b20b3b1c16)
+## Theshortversion
+- ThebaseisHostaway'sown**244rootCSSvariables** capturedfromtheapp'spublicstylesheetandusedastheyareundertheirownnames.
+- Ontopsitsarolelayerthatsayswhateachcolourdoesmatchedtopixelsinthescreenshots. Theprototypeandthedeckusethesetokensonlyneverarawcolour.
+- TenpatternswereaddedforSmartListings. Eachwasaddedtothesystemfirstthenusedonscreens.
+- IalsochallengedsomeofHostaway'sownpatternssuchaswhereSavechangesappears. ThesereachfarbeyondlistingssoI'dweighthemwitheachproductteamandtestthembeforetheyspread.
+## Thebase
+- **Rawlayer** Hostaway'spalette(grayprimarysecondarysuccesserrorwarning…) andsemanticnamescopiedverbatimsoanengineerthererecogniseseverytoken.
+- **Rolelayer** sidebaractionspillsAIchannelstypespaceradiusmotionelevation. MostrolesmatchaHostawaytokenexactly; anythingguessedismarked.
+- **Colourmeansonething** raspberrytoact(oneprimaryperview), purpleforwhattheAIproposes(tips), orangeforRewritewithAIwhichthehoststartsgreenforchosenordone.
+- **Typeandicons** TTNormsfrommylicensedfilesandTableroutlineicons.
+- **TheAIspeakstheassistant'slanguage** thesparkleiconandpurpleonlavenderaretheonesHostawayusesfortheassistant(hostaway.com) andintheproduct'ssidebarfooter. TipstheTipspanelandRewritereusethemsoeveryAIsurfacereadsasthesameassistant. <mention-pageurl=https//app.notion.comp3efe18af164581ceabafdfe5275589dd>KD-20</mention-page>
+## WhatIadded
+<tableheader-row=true>
 	<tr>
 		<td>Pattern</td>
-		<td>What it is</td>
-		<td>Where it's used</td>
+		<td>Whatitis</td>
+		<td>Whereit'sused</td>
 	</tr>
 	<tr>
-		<td>**Tip card and Tips panel**</td>
-		<td>One card for every suggestion: the field in purple caps, x of n, the change, a short Why with its sources, Dismiss and Accept. One docked panel, opened from the Tips button or a field's purple icon</td>
-		<td>Each channel's Listing, Pricing, Availability and Booking policies; Canvas</td>
+		<td>**TipcardandTipspanel**</td>
+		<td>OnecardforeverysuggestionthefieldinpurplecapsxofnthechangeashortWhywithitssourcesDismissandAccept. OnedockedpanelopenedfromtheTipsbuttonorafield'spurpleicon</td>
+		<td>Eachchannel'sListingPricingAvailabilityandBookingpolicies; Canvas</td>
 	</tr>
 	<tr>
-		<td>**Scope caption**</td>
-		<td>The line under a field: "ⓘ Uses the Base", "Custom for Airbnb", "Airbnb only", "Booking.com only" with a lock, or "N channels" on the left, one text link on the right. Hovering shows the values behind it</td>
-		<td>Every field on the Listing base and channel pages</td>
+		<td>**Scopecaption**</td>
+		<td>Thelineunderafieldⓘ UsestheBaseCustomforAirbnbAirbnbonlyBooking.comonlywithalockorNchannelsontheleftonetextlinkontheright. Hoveringshowsthevaluesbehindit</td>
+		<td>EveryfieldontheListingbaseandchannelpages</td>
 	</tr>
 	<tr>
-		<td>**Lock with a reason**</td>
-		<td>A disabled field with a lock where the chevron was, and the reason in Hostaway's dark tooltip</td>
-		<td>Property type, Room type and the address on the Base. Booking.com's Summary shows the lock with "Booking.com only", and its tooltip says why</td>
+		<td>**Lockwithareason**</td>
+		<td>AdisabledfieldwithalockwherethechevronwasandthereasoninHostaway'sdarktooltip</td>
+		<td>PropertytypeRoomtypeandtheaddressontheBase. Booking.com'sSummaryshowsthelockwithBooking.comonlyanditstooltipsayswhy</td>
 	</tr>
 	<tr>
-		<td>**Rewrite composer**</td>
-		<td>Describe a change or pick Shorten, Summarize, More formal, Warmer or More detail. The result shows in the tip card's shape, original against new; nothing changes until Accept</td>
-		<td>Long text fields and Property name, in Classic and in Canvas's field panel</td>
+		<td>**Rewritecomposer**</td>
+		<td>DescribeachangeorpickShortenSummarizeMoreformalWarmerorMoredetail. Theresultshowsinthetipcard'sshapeoriginalagainstnew; nothingchangesuntilAccept</td>
+		<td>LongtextfieldsandPropertynameinClassicandinCanvas'sfieldpanel</td>
 	</tr>
 	<tr>
-		<td>**Panel stack**</td>
-		<td>Drill-downs slide in beside the page; the previous level folds into a thin spine; going back plays it in reverse</td>
-		<td>Pricing (Dynamic Pricing, Security deposit) and Calendar › a night</td>
+		<td>**Panelstack**</td>
+		<td>Drill-downsslideinbesidethepage; thepreviouslevelfoldsintoathinspine; goingbackplaysitinreverse</td>
+		<td>Pricing(DynamicPricingSecuritydeposit) andCalendar› anight</td>
 	</tr>
 	<tr>
-		<td>**Unsaved changes bar and toasts**</td>
-		<td>The bar shows only when something changed and guards leaving with Keep editing, Discard changes, Save changes. Toasts sit at the bottom of the content column, fade after 5 s, pause on hover and can carry Undo</td>
-		<td>Every editing screen</td>
+		<td>**Unsavedchangesbarandtoasts**</td>
+		<td>ThebarshowsonlywhensomethingchangedandguardsleavingwithKeepeditingDiscardchangesSavechanges. Toastssitatthebottomofthecontentcolumnfadeafter5spauseonhoverandcancarryUndo</td>
+		<td>Everyeditingscreen</td>
 	</tr>
 	<tr>
-		<td>**Full-screen wizard**</td>
-		<td>Hostaway's Add-property flow made reusable: top bar, progress line, one question per screen, Back and Continue</td>
-		<td>Smart Listings strategy; Booking policies › Configure</td>
+		<td>**Full-screenwizard**</td>
+		<td>Hostaway'sAdd-propertyflowmadereusabletopbarprogresslineonequestionperscreenBackandContinue</td>
+		<td>SmartListingsstrategy; Bookingpolicies› Configure</td>
 	</tr>
 	<tr>
-		<td>**KPI and chart cards**</td>
-		<td>From Hostaway's Metrics: compact KPI cards and widget cards with a Bar or Line setting, showing the period before the strategy and the period since</td>
-		<td>Smart Listings › Performance</td>
+		<td>**KPIandchartcards**</td>
+		<td>FromHostaway'sMetricscompactKPIcardsandwidgetcardswithaBarorLinesettingshowingtheperiodbeforethestrategyandtheperiodsince</td>
+		<td>SmartListings› Performance</td>
 	</tr>
 	<tr>
-		<td>**Bottom sheet**</td>
-		<td>The phone form of every side panel, with a grip to drag it closed and a full-screen variant for long edits</td>
-		<td>All screens at phone width</td>
+		<td>**Bottomsheet**</td>
+		<td>Thephoneformofeverysidepanelwithagriptodragitclosedandafull-screenvariantforlongedits</td>
+		<td>Allscreensatphonewidth</td>
 	</tr>
 	<tr>
-		<td>**Drawer motion**</td>
-		<td>Side panels slide in from the right while the form narrows in step, in 160 ms with one shared curve. Content never rescales</td>
-		<td>Tips, Rewrite, Hub drawers, panel stack, the unsaved bar</td>
+		<td>**Drawermotion**</td>
+		<td>Sidepanelsslideinfromtherightwhiletheformnarrowsinstepin160mswithonesharedcurve. Contentneverrescales</td>
+		<td>TipsRewriteHubdrawerspanelstacktheunsavedbar</td>
 	</tr>
 </table>
-![Rewrite with AI in the docked panel: the orange composer and quick actions, beside fields with their scope captions. Live prototype, values .](file-upload://3eee18af-1645-815b-9e6f-00b21009a9ac)
-## Patterns I challenged and introduced
-Smart Listings didn't only add to Hostaway's system. Some of its own patterns I questioned and changed, and I would consolidate those changes elsewhere in the platform rather than keep two versions. Each row below exists in the prototype's code. Four matter most, as in the deck: drill-down navigation, counts that move, stacked fields, and a Save that shows only when something changed.
-<table header-row="true">
+![RewritewithAIinthedockedpaneltheorangecomposerandquickactionsbesidefieldswiththeirscopecaptions. Liveprototypevalues.](file-upload//3eee18af-1645-815b-9e6f-00b21009a9ac)
+## PatternsIchallengedandintroduced
+SmartListingsdidn'tonlyaddtoHostaway'ssystem. SomeofitsownpatternsIquestionedandchangedandIwouldconsolidatethosechangeselsewhereintheplatformratherthankeeptwoversions. Eachrowbelowexistsintheprototype'scode. Fourmattermostasinthedeckdrill-downnavigationcountsthatmovestackedfieldsandaSavethatshowsonlywhensomethingchanged.
+<tableheader-row=true>
 	<tr>
-		<td>Hostaway pattern I challenged</td>
+		<td>HostawaypatternIchallenged</td>
 		<td>Today</td>
-		<td>What I did</td>
+		<td>WhatIdid</td>
 	</tr>
 	<tr>
-		<td>**Drill-down navigation**</td>
-		<td>Only the main menu opens to sub-pages. A property's sections are flat links ()</td>
-		<td>Each section opens to its pages in the side menu: Listing base to Details, Pricing and Availability, each channel to its own pages</td>
+		<td>**Drill-downnavigation**</td>
+		<td>Onlythemainmenuopenstosub-pages. Aproperty'ssectionsareflatlinks</td>
+		<td>EachsectionopenstoitspagesinthesidemenuListingbasetoDetailsPricingandAvailabilityeachchanneltoitsownpages</td>
 	</tr>
 	<tr>
-		<td>**Counts in the menu**</td>
-		<td>No counts on the property menu ()</td>
-		<td>Counts that move: the total sits on the parent while it's closed, and each page shows its own once it's open</td>
+		<td>**Countsinthemenu**</td>
+		<td>Nocountsonthepropertymenu</td>
+		<td>Countsthatmovethetotalsitsontheparentwhileit'sclosedandeachpageshowsitsownonceit'sopen</td>
 	</tr>
 	<tr>
-		<td>**Inline fields**</td>
-		<td>Label on the left, input on the right ()</td>
-		<td>Stacked fields: the label sits above the input, so Tips or Canvas fit as a second column</td>
+		<td>**Inlinefields**</td>
+		<td>Labelontheleftinputontheright</td>
+		<td>StackedfieldsthelabelsitsabovetheinputsoTipsorCanvasfitasasecondcolumn</td>
 	</tr>
 	<tr>
-		<td>**Where Save changes appears**</td>
-		<td>Discard and Save sit on each section's header, always visible, disabled until something changes ()</td>
-		<td>A bar at the bottom of the area being edited, only when something changed. Leaving asks first: Keep editing, Discard changes, Save changes. Then a toast: "Changes saved", the channels it reached, and Undo</td>
+		<td>**WhereSavechangesappears**</td>
+		<td>DiscardandSavesitoneachsection'sheaderalwaysvisibledisableduntilsomethingchanges</td>
+		<td>Abaratthebottomoftheareabeingeditedonlywhensomethingchanged. LeavingasksfirstKeepeditingDiscardchangesSavechanges. ThenatoastChangessavedthechannelsitreachedandUndo</td>
 	</tr>
 	<tr>
-		<td>**Close ×**</td>
-		<td>The outlined × of Hostaway's dialogs</td>
-		<td>The same outlined ×, in three sizes, for every close, dismiss and remove</td>
+		<td>**Close×**</td>
+		<td>Theoutlined× ofHostaway'sdialogs</td>
+		<td>Thesameoutlined×, inthreesizesforeveryclosedismissandremove</td>
 	</tr>
 	<tr>
-		<td>**Locked fields**</td>
-		<td>Disabled, with a chevron and no reason ()</td>
-		<td>A lock, and the reason in Hostaway's dark tooltip</td>
+		<td>**Lockedfields**</td>
+		<td>Disabledwithachevronandnoreason</td>
+		<td>AlockandthereasoninHostaway'sdarktooltip</td>
 	</tr>
 </table>
-And these are new, each added to the system before any screen used it:
-- **Tips side drawer**, a bottom sheet on phones: one docked panel on a channel's pages.
-- **Tip card contract**: the field, the change, a short why with its sources, Dismiss and Accept, Undo after.
-- **Access to improvements**: Tips · n on the page, the purple marker beside a field's label, and tip counts on the menu.
-- **Rewrite with AI**: the orange sparkle beside a text field, the host's own request, shown in the tip card's shape.
-- **Reach caption** under every field: "Uses the Base · Customize for Airbnb", "Airbnb only", "Booking.com only" with a lock.
-- **Channel badges**: each channel's mark as a coloured square.
-- **Canvas preview**: the Classic | Canvas switch, and Your edits | Live now on the guest page.
-- **Section tabs with tip counts**: Essentials 5, Arrival 2, Location 2, so a host sees where the improvements are.
-- **Performance**: KPI and chart cards that compare the period since the strategy with the one before.
-- **The assistant's sparkle, purple on lavender**, now on every AI surface in the listing. <mention-page url="https://app.notion.com/p/3efe18af164581ceabafdfe5275589dd">KD-20</mention-page>
-## Impact on the rest of Hostaway
-None of these stays inside listings. This is my reading of where each would land, to check with each product team ().
-<table header-row="true">
+Andtheseareneweachaddedtothesystembeforeanyscreenusedit
+- **Tipssidedrawer**, abottomsheetonphonesonedockedpanelonachannel'spages.
+- **Tipcardcontract**: thefieldthechangeashortwhywithitssourcesDismissandAcceptUndoafter.
+- **Accesstoimprovements**: Tipsnonthepagethepurplemarkerbesideafield'slabelandtipcountsonthemenu.
+- **RewritewithAI**: theorangesparklebesideatextfieldthehost'sownrequestshowninthetipcard'sshape.
+- **Reachcaption** undereveryfieldUsestheBaseCustomizeforAirbnbAirbnbonlyBooking.comonlywithalock.
+- **Channelbadges**: eachchannel'smarkasacolouredsquare.
+- **Canvaspreview**: theClassic| CanvasswitchandYouredits| Livenowontheguestpage.
+- **Sectiontabswithtipcounts**: Essentials5Arrival2Location2soahostseeswheretheimprovementsare.
+- **Performance**: KPIandchartcardsthatcomparetheperiodsincethestrategywiththeonebefore.
+- **Theassistant'ssparklepurpleonlavender**, nowoneveryAIsurfaceinthelisting. <mention-pageurl=https//app.notion.comp3efe18af164581ceabafdfe5275589dd>KD-20</mention-page>
+## ImpactontherestofHostaway
+Noneofthesestaysinsidelistings. Thisismyreadingofwhereeachwouldlandtocheckwitheachproductteam.
+<tableheader-row=true>
 	<tr>
 		<td>Pattern</td>
 		<td>Inbox</td>
 		<td>Calendar</td>
 		<td>Pricing</td>
 		<td>Operations</td>
-		<td>Guest experience</td>
+		<td>Guestexperience</td>
 		<td>Metrics</td>
-		<td>Mobile app</td>
+		<td>Mobileapp</td>
 	</tr>
 	<tr>
-		<td>Save bar and toast (challenged)</td>
+		<td>Savebarandtoast(challenged)</td>
 		<td></td>
 		<td>●</td>
 		<td>●</td>
 		<td>●</td>
-		<td>●</td>
-		<td></td>
-		<td>●</td>
-	</tr>
-	<tr>
-		<td>Drill-down navigation (challenged)</td>
-		<td></td>
-		<td>●</td>
-		<td>●</td>
-		<td></td>
 		<td>●</td>
 		<td></td>
 		<td>●</td>
 	</tr>
 	<tr>
-		<td>Counts in the menu and stacked fields (challenged)</td>
+		<td>Drill-downnavigation(challenged)</td>
 		<td></td>
 		<td>●</td>
 		<td>●</td>
+		<td></td>
 		<td>●</td>
 		<td></td>
 		<td>●</td>
-		<td>●</td>
 	</tr>
 	<tr>
-		<td>Outlined close (challenged)</td>
-		<td>●</td>
-		<td>●</td>
-		<td>●</td>
-		<td>●</td>
-		<td>●</td>
-		<td>●</td>
-		<td>●</td>
-	</tr>
-	<tr>
-		<td>Tips drawer and card</td>
-		<td>●</td>
+		<td>Countsinthemenuandstackedfields(challenged)</td>
+		<td></td>
 		<td>●</td>
 		<td>●</td>
 		<td>●</td>
@@ -186,7 +166,27 @@ None of these stays inside listings. This is my reading of where each would land
 		<td>●</td>
 	</tr>
 	<tr>
-		<td>Tip markers and counts</td>
+		<td>Outlinedclose(challenged)</td>
+		<td>●</td>
+		<td>●</td>
+		<td>●</td>
+		<td>●</td>
+		<td>●</td>
+		<td>●</td>
+		<td>●</td>
+	</tr>
+	<tr>
+		<td>Tipsdrawerandcard</td>
+		<td>●</td>
+		<td>●</td>
+		<td>●</td>
+		<td>●</td>
+		<td></td>
+		<td>●</td>
+		<td>●</td>
+	</tr>
+	<tr>
+		<td>Tipmarkersandcounts</td>
 		<td>●</td>
 		<td>●</td>
 		<td>●</td>
@@ -196,7 +196,7 @@ None of these stays inside listings. This is my reading of where each would land
 		<td>●</td>
 	</tr>
 	<tr>
-		<td>Rewrite with AI</td>
+		<td>RewritewithAI</td>
 		<td>●</td>
 		<td></td>
 		<td></td>
@@ -206,7 +206,7 @@ None of these stays inside listings. This is my reading of where each would land
 		<td>●</td>
 	</tr>
 	<tr>
-		<td>Reach caption and badges</td>
+		<td>Reachcaptionandbadges</td>
 		<td>●</td>
 		<td>●</td>
 		<td>●</td>
@@ -216,7 +216,7 @@ None of these stays inside listings. This is my reading of where each would land
 		<td>●</td>
 	</tr>
 	<tr>
-		<td>Canvas preview</td>
+		<td>Canvaspreview</td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -226,7 +226,7 @@ None of these stays inside listings. This is my reading of where each would land
 		<td>●</td>
 	</tr>
 	<tr>
-		<td>Section tabs with tip counts</td>
+		<td>Sectiontabswithtipcounts</td>
 		<td>●</td>
 		<td></td>
 		<td></td>
@@ -236,45 +236,45 @@ None of these stays inside listings. This is my reading of where each would land
 		<td>●</td>
 	</tr>
 </table>
-The biggest questions: a Save that appears only when something changed would have to behave the same on every settings screen, or hosts learn two rules. A tip drawer beside the assistant's smart replies in the Inbox would need one shared panel, not two. And tip counts in the menu would meet the other counts the product shows, so they must not compete.
-## How I'd evaluate and test them
-**Planned.** Not run. Each test puts the alternatives side by side before a pattern spreads.
-<table header-row="true">
+ThebiggestquestionsaSavethatappearsonlywhensomethingchangedwouldhavetobehavethesameoneverysettingsscreenorhostslearntworules. Atipdrawerbesidetheassistant'ssmartrepliesintheInboxwouldneedonesharedpanelnottwo. Andtipcountsinthemenuwouldmeettheothercountstheproductshowssotheymustnotcompete.
+## HowI'devaluateandtestthem
+**Planned.** Notrun. Eachtestputsthealternativessidebysidebeforeapatternspreads.
+<tableheader-row=true>
 	<tr>
 		<td>Step</td>
 		<td>How</td>
-		<td>What I'd look for</td>
+		<td>WhatI'dlookfor</td>
 	</tr>
 	<tr>
-		<td>**Evaluate the impact**</td>
-		<td>One review per product team (Inbox, Calendar and Pricing, Operations, Guest experience, Metrics, mobile), with the table above</td>
-		<td>Where each pattern lands, what it replaces, who owns it, and which differences are worth keeping</td>
+		<td>**Evaluatetheimpact**</td>
+		<td>Onereviewperproductteam(InboxCalendarandPricingOperationsGuestexperienceMetricsmobile), withthetableabove</td>
+		<td>Whereeachpatternlandswhatitreplaceswhoownsitandwhichdifferencesareworthkeeping</td>
 	</tr>
 	<tr>
-		<td>**Save placement**</td>
-		<td>A first-click and preference test: Discard and Save on the header, against the bar that appears when something changed</td>
-		<td>Do hosts find Save first time, and do they notice unsaved changes before leaving?</td>
+		<td>**Saveplacement**</td>
+		<td>Afirst-clickandpreferencetestDiscardandSaveontheheaderagainstthebarthatappearswhensomethingchanged</td>
+		<td>DohostsfindSavefirsttimeanddotheynoticeunsavedchangesbeforeleaving?</td>
 	</tr>
 	<tr>
-		<td>**Tips: drawer or inline**</td>
-		<td>Moderated usability tests on both versions of a channel's Listing page, on desktop and phone</td>
-		<td>Do hosts find a tip, read its why, and trust Accept? Does the drawer feel like part of the page?</td>
+		<td>**Tipsdrawerorinline**</td>
+		<td>Moderatedusabilitytestsonbothversionsofachannel'sListingpageondesktopandphone</td>
+		<td>DohostsfindatipreaditswhyandtrustAccept? Doesthedrawerfeellikepartofthepage?</td>
 	</tr>
 	<tr>
-		<td>**Clear and established**</td>
-		<td>Comprehension checks on the reach caption, channel badges and the Classic | Canvas switch, then the same captions placed in Pricing</td>
-		<td>Can hosts say what "Uses the Base" means, and does each pattern read the same in another product area?</td>
+		<td>**Clearandestablished**</td>
+		<td>ComprehensionchecksonthereachcaptionchannelbadgesandtheClassic| CanvasswitchthenthesamecaptionsplacedinPricing</td>
+		<td>CanhostssaywhatUsestheBasemeansanddoeseachpatternreadthesameinanotherproductarea?</td>
 	</tr>
 </table>
-## How it was made
-Hostaway's public stylesheet was captured, and colours were sampled from the screenshots and converted from Display-P3 to sRGB before matching. Components live in one stylesheet and a gallery. The gallery also keeps patterns from earlier rounds, such as the channel lens and conflict card, that the converged build no longer uses. The drawer timing was first 240 ms; I made it quicker, and 160 ms is what ships.
+## Howitwasmade
+Hostaway'spublicstylesheetwascapturedandcoloursweresampledfromthescreenshotsandconvertedfromDisplay-P3tosRGBbeforematching. Componentsliveinonestylesheetandagallery. Thegalleryalsokeepspatternsfromearlierroundssuchasthechannellensandconflictcardthattheconvergedbuildnolongeruses. Thedrawertimingwasfirst240ms; Imadeitquickerand160msiswhatships.
 ---
-**Builds on**
-- <mention-page url="https://app.notion.com/p/3eee18af1645811087cecfef47d6bfe3">UI changes</mention-page>
-- <mention-page url="https://app.notion.com/p/3eee18af164581cfb862c44df572735c">Design principles</mention-page>
-**Used by** · <mention-page url="https://app.notion.com/p/3eee18af1645811a82c4e772997ac875">Tips & AI rewrite</mention-page> · <mention-page url="https://app.notion.com/p/3eee18af164581178debffa0628f4703">Listing base & channels</mention-page> · <mention-page url="https://app.notion.com/p/3eee18af1645816c86aee6acef674975">Strategy & performance</mention-page> · <mention-page url="https://app.notion.com/p/3eee18af164581daa8b7f210cb1c6f4e">Mobile & tablet</mention-page>
+**Buildson**
+- <mention-pageurl=https//app.notion.comp3eee18af1645811087cecfef47d6bfe3>UIchanges</mention-page>
+- <mention-pageurl=https//app.notion.comp3eee18af164581cfb862c44df572735c>Designprinciples</mention-page>
+**Usedby** · <mention-pageurl=https//app.notion.comp3eee18af1645811a82c4e772997ac875>Tips& AIrewrite</mention-page> · <mention-pageurl=https//app.notion.comp3eee18af164581178debffa0628f4703>Listingbase& channels</mention-page> · <mention-pageurl=https//app.notion.comp3eee18af1645816c86aee6acef674975>Strategy& performance</mention-page> · <mention-pageurl=https//app.notion.comp3eee18af164581daa8b7f210cb1c6f4e>Mobile& tablet</mention-page>
 **Decisions**
-- <mention-page url="https://app.notion.com/p/3eee18af164581ca9016ce7928ea3008">KD-16</mention-page>
-**In the prototype**
-- [Airbnb › Listing]()
-- [Smart Listings › Performance]()
+- <mention-pageurl=https//app.notion.comp3eee18af164581ca9016ce7928ea3008>KD-16</mention-page>
+**Intheprototype**
+- [Airbnb› Listing]
+- [SmartListings› Performance]

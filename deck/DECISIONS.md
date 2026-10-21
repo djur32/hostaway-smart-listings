@@ -14,12 +14,12 @@ One line each: what, and why.
 
 | Piece | Where | Why |
 |---|---|---|
-| The 1920 × 1080 stage, scaled to the window | `kit/engine.js`, `kit/deck.css` | Every slide keeps its composition at any size. Nothing is re-laid out, so what S17 checks is what the Loom shows. |
+| The 1920 × 1080 stage, scaled to the window | `kit/engine.js`, `kit/deck.css` | Every slide keeps its composition at any size. Nothing is re-laid out, so what S17 checks is what the walkthrough shows. |
 | Beats (`data-beat`), ← lands on the finished slide | `kit/motion.js`, `kit/engine.js` | Content is revealed in the order review talks through it. |
 | Declarative motion (`data-a="rise · lines · grow · draw · count…"`) | `kit/motion.js` | The new chart marks carry `data-a`, so they animate with no per-slide code and land in their final state with motion off. |
 | ⌘K / `O` jump palette | `kit/engine.js` | Now searches by part, title, `D-###`/`I-##` in `data-notion`, and `R-###`. |
 | Personalise (`V`): Short, Standard, Everything | `kit/plan.js`, `kit/plan.css` | It maps straight onto MASTER-PLAN §7's S / St / E. It was re-keyed from the InvestEngine rows to parts × depth (D-075). |
-| Presenter window (`P`): notes, next slide, a clock that tracks drift | `kit/engine.js` | This is the Loom's script. The clock budgets from each slide's `data-min`. |
+| Presenter window (`P`): notes, next slide, a clock that tracks drift | `kit/engine.js` | This is the walkthrough script. The clock budgets from each slide's `data-min`. |
 | The detail layer ("a layer below the slide") | `kit/engine.js`, `kit/deck.css` | It's the natural home for deep dives. It stays in the talk without costing a slide against the 56 limit. |
 | Primitives: rows, KPIs, rails, doors, connectors, glyphs, tags | `kit/components.css`, `kit/links.js`, `kit/glyphs.js` | They're content-agnostic and restyle through tokens. |
 | Screenshot lightbox (click any screen, → through the set) | `kit/engine.js` | The 7 × 5 concept grid opens its frames with it. |
@@ -37,9 +37,9 @@ One line each: what, and why.
 |---|---|
 | Studio and Lumen, the two four-colour themes, and the `Y` switch | There's one look, Hostaway's (D-071). The skins are parked in `_origin/kit/themes/`. |
 | Atmospheres (studio ink mesh, lumen fields), film grain, the thread | The product is flat. The atmosphere now only paints the window's ground (`atmos/hostaway.js`). The atmospheres are parked in `_origin/kit/atmos/`. |
-| The digimal.studio mark and the "The six stages" titles | They're replaced by the Hostaway lockup and "Listing Management II · case study". |
+| The digimal.studio mark and the "The six stages" titles | They're replaced by the Hostaway lockup and "Hostaway Smart Listings". |
 | The case badge (`stories.json`, client logos) | This deck has one case. `data/stories.json` is left empty so the engine code stays untouched. |
-| Job Atlas and market-signal pieces, the three-lens grammar (did / hold / now), the "me" strip | They belonged to a portfolio talk, not to a case study. The CSS stays in `components.css` (unused) so nothing old breaks. |
+| Job Atlas and market-signal pieces, the three-lens grammar (did / hold / now), the "me" strip | They belonged to a portfolio talk, not to a concept. The CSS stays in `components.css` (unused) so nothing old breaks. |
 | InvestEngine, Adeslas, Santander, ASISA and Hostaway screens, videos, art and client logos | Moved to `_origin/assets/`. Hostaway's logo is kept, because it's a competitor (CMP). |
 | The light/dark screen switch (`L` still works; nothing in this deck has pairs) | Hostaway's product screens exist in one mode. |
 | Paths to the website | S00 deleted `web-bundle.mjs` and cut the gate key. `tools/audit.mjs` checks that nothing in `deck/` points at process-deck or digimal.studio. |
@@ -63,7 +63,7 @@ One line each: what, and why.
 **Why (c).** The IA work (object model, one fact under four names, seven structures) is the argument of angles A and B. Folding it into Research would hide the structural thinking the panel rewards ("systems thinking"). Test and Measure are four slides between them, and one tab is enough. Eight labels fit the bar at wall size.
 **Evidence and strength.** MASTER-PLAN §5 and §7, the brief's lens (plan/CONVENTIONS.md §1). Moderate: it's a judgement about emphasis.
 **Serves.** R-182, R-187. **Reversible:** two-way door (`STAGES` in `kit/engine.js` and the part files).
-**Revised 2026-10-03 (Antonio):** "information architecture is the tangible decision of the research, so it should not have its own section; it's what the research translates into." IA folds into Research: seven tabs, Intro · Discovery · Research · Concept · Design · Test & measure · Systems & next (`data-stage` 0 to 6). The IA slides close the Research part under "What it became". Option (a) of this record, for a different reason than CONVENTIONS gave.
+**Revised 2026-10-03 (designer):** "information architecture is the tangible decision of the research, so it should not have its own section; it's what the research translates into." IA folds into Research: seven tabs, Intro · Discovery · Research · Concept · Design · Test & measure · Systems & next (`data-stage` 0 to 6). The IA slides close the Research part under "What it became". Option (a) of this record, for a different reason than CONVENTIONS gave.
 **Note.** CONVENTIONS §7 still says "six-stage spine". OQ-072 asks S-plan to update it.
 
 ## D-071 · One theme, taken from ds/tokens.css through one door (2026-09-29, S07)
@@ -79,12 +79,12 @@ One line each: what, and why.
 
 **Decision.** Each part's cover (the part's name, its question from MASTER-PLAN §5, its methods and outputs, and S02's illustration on a blush disc, all on the sidebar's aubergine) is the **first beat** of the part's first slide. → lifts it into the top bar, and the chrome turns from aubergine to white. The cover is written once per part as `<template class="hc-cover-tpl" data-stage="N">`. The engine places it on whichever slide opens that part *in the current plan*, so Personalise can never cut a part's cover.
 **Options.** (a) Seven opener slides, which would make 56 slides, over R-185's 50. (b) No openers. (c) Covers as a beat.
-**Why (c).** It keeps the chapter moment that makes a 22-minute Loom navigable, at zero slide cost. ← and motion-off land past it, and so does print (the PDF shows slides, not covers).
+**Why (c).** It keeps the chapter moment that makes a 22-minute walkthrough navigable, at zero slide cost. ← and motion-off land past it, and so does print (the PDF shows slides, not covers).
 **Serves.** R-185, R-181, R-188. **Strength:** moderate. **Reversible:** two-way.
 
 ## D-073 · Guardrails on the wall (2026-09-29, S07)
 
-`<meta name="robots" content="noindex, nofollow">` sits on every page. The title and the close carry the line *"Concept work by review Silva for Hostaway's Head of Design case study. Product UI © Hostaway."* Hostaway's mark is redrawn for identification only. Provenance chips use CONVENTIONS §2's six labels, and reads **"Illustrative"** on the wall (its dot is hollow). Stand-in numbers in placeholders say "Layout only".
+`<meta name="robots" content="noindex, nofollow">` sits on every page. The title and the close carry the line *"An independent design concept for Hostaway"* Hostaway's mark is redrawn for identification only. Provenance chips use CONVENTIONS §2's six labels, and reads **"Illustrative"** on the wall (its dot is hollow). Stand-in numbers in placeholders say "Layout only".
 **Serves.** R-189 (guardrails), D-003. **Strength:** strong (the brief and CONVENTIONS).
 
 ## D-074 · Placeholders are wireframes of the intended component (2026-09-29, S07)
@@ -99,14 +99,14 @@ The InvestEngine rows (approach, main case, second case…) are gone. Each part 
 
 ## D-076 · The deck sells Smart Listings; the process is the proof (2026-10-03, S07 follow-up at review's request)
 
-review: "it has to be more of a selling tool than just a pure presentation." The story is now his concept, **Smart Listings** (one base of facts, a strategy per channel, tips with a why, nothing written unseen, every strategy measured), with discovery to measurement told as the proof. Every slide holds real content from the repo; nothing is invented. The title reads "Head of Design case study", not "Listing Management II" (review, 3 Oct). The intro is written in a marketing voice: claims, not descriptions. S15 added `op-goals` (D-990) so Part 6 closes the loop against goals set at the start. 50 slides.
+review: "it has to be more of a selling tool than just a pure presentation." The story is now his concept, **Smart Listings** (one base of facts, a strategy per channel, tips with a why, nothing written unseen, every strategy measured), with discovery to measurement told as the proof. Every slide holds real content from the repo; nothing is invented. The title reads "design concept", not "Smart Listings" . The intro is written in a marketing voice: claims, not descriptions. S15 added `op-goals` (D-990) so Part 6 closes the loop against goals set at the start. 50 slides.
 **Serves.** R-180 to R-189, R-116. **Strength:** review's direction.
 
-**Correction, same day (Antonio):** he worked on **Angle B only** (the intelligent listing) and took it further into Smart Listings with his own spin; he did not work on Angle A (first-time setup). The deck no longer says "A and B as one story": op-brief states the choice and the spin, the import slide is gone, rs-journey is reframed as "where trust breaks" (Everything path), and op-goals and tm-measure lead with Smart Listings metrics, not the setup north star.
+**Correction, same day (designer):** he worked on **Angle B only** (the intelligent listing) and took it further into Smart Listings with his own spin; he did not work on Angle A (first-time setup). The deck no longer says "A and B as one story": op-brief states the choice and the spin, the import slide is gone, rs-journey is reframed as "where trust breaks" (Everything path), and op-goals and tm-measure lead with Smart Listings metrics, not the setup north star.
 
 ## D-077 · One ground, quiet provenance, swift motion (2026-10-03)
 
-The coloured-to-white ground switch read as "tacky" (Antonio); every slide and every cover is white now. Provenance stays on every claim but as quiet text with a glyph (filled: real; hollow: simulated; half: projected; diamond: assumption) in one source line at the foot, not as chips on the wall. Slide changes are a short fade (no lift, no blur), so the deck moves swiftly. The variable TT Norms is loaded first.
+The coloured-to-white ground switch read as "tacky" (designer); every slide and every cover is white now. Provenance stays on every claim but as quiet text with a glyph (filled: real; hollow: simulated; half: projected; diamond: assumption) in one source line at the foot, not as chips on the wall. Slide changes are a short fade (no lift, no blur), so the deck moves swiftly. The variable TT Norms is loaded first.
 **Serves.** R-189, R-183.
 
 ## D-078 · Mockups are the running prototype, floating flat (2026-10-03)
@@ -134,7 +134,7 @@ The slide cap went from 50 to 56 when the Experiments part (`65-experiments`, fo
 
 ## Open questions raised
 
-- **OQ-070** (for S17, Antonio). MASTER-PLAN §7's paths give Short 21 and Standard 41, against the plan's ≈18 and ≈32. At the current `data-min` budgets Standard runs 21.3 min, so the Loom target holds, but the slide count doesn't. Candidates to move from St to E: 8 (research questions), 13 (evidence → insight), 18 (others + PIM), 21 (bathtub), 24 (principles), 26 (how we judged), 33 or 34 (titles or description), 46 (systems).
+- **OQ-070** (for S17). MASTER-PLAN §7's paths give Short 21 and Standard 41, against the plan's ≈18 and ≈32. At the current `data-min` budgets Standard runs 21.3 min, so the walkthrough target holds, but the slide count doesn't. Candidates to move from St to E: 8 (research questions), 13 (evidence → insight), 18 (others + PIM), 21 (bathtub), 24 (principles), 26 (how we judged), 33 or 34 (titles or description), 46 (systems).
 - **OQ-071** (for S02). There are five illustrations for seven covers, so Design reuses *listings together* and Test reuses *conflict resolved*. Two more scenes (a research scene, a test or measure scene) would give every part its own.
-- **OQ-073** (for the plan and S15, Antonio). review's case is Angle B only (3 Oct). CLAUDE.md, MASTER-PLAN and D-001 still say "Angles A and B, gone deep", and S15 chose a setup metric as the programme's north star (K-01, D-991). The deck now leads with B metrics (K-06, K-13/K-15, K-17, K-23) and keeps K-01 in a detail. Update the plan's framing, and decide whether Smart Listings needs its own north star.
+- **OQ-073** (for the plan and S15). review's case is Angle B only (3 Oct). CLAUDE.md, MASTER-PLAN and D-001 still say "Angles A and B, gone deep", and S15 chose a setup metric as the programme's north star (K-01, D-991). The deck now leads with B metrics (K-06, K-13/K-15, K-17, K-23) and keeps K-01 in a detail. Update the plan's framing, and decide whether Smart Listings needs its own north star.
 - **OQ-072** (for S-plan). CONVENTIONS §7 says "six-stage spine with IA folded into Research→Concept". The deck has eight tabs (D-070). Update CONVENTIONS §7, or overrule D-070.

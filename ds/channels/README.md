@@ -10,7 +10,7 @@ Identification only (CONVENTIONS §6.6). Drawn to match how Hostaway renders pla
 | vrbo.svg | Vrbo hatched V | redrawn from HS-48 (simplified) | #0885f2 (sampled) |
 | agoda.svg | Agoda "a" + dots | redrawn from HS-48 (Hostaway shows it greyed when not connected) | #cdcdcd + pastel dots (sampled) |
 | expedia.svg | Expedia mark (square and arrow) | Simple Icons (CC0) path; hex from brandfolder.com/portals/brand-expedia | #191e3b |
-| google.svg | Google "G" | Simple Icons (CC0) path, mono | gray-400 — (not seen as a glyph in the screenshots; "List properties on Google" is a help link, HS-16) |
+| google.svg | Google "G" | Simple Icons (CC0) path, mono | gray-400, (not seen as a glyph in the screenshots; "List properties on Google" is a help link, HS-16) |
 
 States: **connected** = full colour · **not connected / unlisted** = `opacity: var(--color-channel-inactive-opacity)` (HS-16 faded glyphs) · **muted row** = row at `--opacity-row-inactive`.
 

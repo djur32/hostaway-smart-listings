@@ -1,4 +1,4 @@
-/* Visit analytics for the deck (review, 6 Oct): PostHog EU, project 278593 (shared with the digimal.studio site and the
+/* Visit analytics for the deck.
  * prototype). Anonymous, no cookies, Do Not Track respected, no recording. Records page views, page leaves (time on the
  * deck) and one `slide_view` per slide (slide id, index, ms since the previous slide) so time per slide can be read.
  * Off on unknown hosts, and for a browser opened once with ?internal=1 (?internal=0 turns it back on). The token is a
@@ -11,7 +11,7 @@
     if (q === '1') localStorage.setItem(OFF, '1');
     if (q === '0') localStorage.removeItem(OFF);
     if (localStorage.getItem(OFF)) return;
-    if (!/\.digimal\.studio$|\.vercel\.app$/.test(location.hostname)) return;
+    if (!/\.vercel\.app$/.test(location.hostname)) return;
     if (navigator.doNotTrack === '1') return;
   } catch (e) { return; }
 

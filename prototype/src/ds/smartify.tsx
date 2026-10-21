@@ -1,8 +1,8 @@
-/* Smartify — the yellow, user-initiated "refine what's already there" primitive (CLAUDE.md "Design established
+/* Smartify, the yellow, user-initiated "refine what's already there" primitive (CLAUDE.md "Design established
  * patterns"; review relayed, round 2: "tips and recommendations will always appear with a purple thing...
  * customizations/refinements will be in yellow... same icon, but the functionality is a little different").
  *
- * Distinct from Tips (ds/sl3.tsx TipsToggle/TipCard/TipDot — purple, the system proactively pushes a suggestion the
+ * Distinct from Tips (ds/sl3.tsx TipsToggle/TipCard/TipDot, purple, the system proactively pushes a suggestion the
  * host accepts or dismisses): Smartify is host-initiated. The host clicks the orange sparkle next to a free-text
  * field's LABEL and the docked right-hand panel (the Tips slot) opens straight on a composer: type an instruction
  * ("mention the desk") or pick a quick action (Shorten, Summarize, More formal…). The canned rewrite then shows
@@ -13,7 +13,7 @@
  * is a card that appears where the tips appear that allows you to see the original versus the new one".)
  *
  * The result card IS the Tip card (ds/sl3.tsx TipCard, tone="refine") inside the same panel (TipsPanel, tone="refine")
- * — same container, head, title, before/after Diff and footer; only the accent is yellow ("the same
+ *, same container, head, title, before/after Diff and footer; only the accent is yellow ("the same
  * style for the recommendations for the tips as we're using for the change").
  *
  * Shared DS primitive (CONVENTIONS §6.3). Consumed by screens/channel/ListingEditor.tsx's Classic free-text fields
@@ -26,7 +26,7 @@ import { useEffect, useId, useRef, useState, type KeyboardEvent, type ReactNode 
 import { Icon, cx } from './primitives'
 import { Diff, TipCard, TipsPanel } from './sl3'
 
-/** One-line definition in the trigger's tooltip — parallel to the purple dot's (sl3.tsx TIP_DOT_HINT). */
+/** One-line definition in the trigger's tooltip, parallel to the purple dot's (sl3.tsx TIP_DOT_HINT). */
 export const SMARTIFY_HINT = 'Rewrite with AI: describe a change, or pick a quick action'
 
 /** The quick actions offered in the composer ("options… for example summarize, shorten, make more
@@ -44,14 +44,14 @@ export interface SmartifyTriggerProps {
   label: string
   /** Opens (or, when `active`, closes) this field's composer in the docked panel. */
   onOpen: () => void
-  /** Hides the trigger entirely — e.g. the field is still on the Base, or Autopilot has the section read-only. */
+  /** Hides the trigger entirely, e.g. the field is still on the Base, or Autopilot has the section read-only. */
   disabled?: boolean
   /** This field's composer / result is open in the panel: the trigger stays filled, like an active tip dot. */
   active?: boolean
   className?: string
 }
 
-/** The orange sparkle beside a field's label. no floating prompt — clicking opens the side panel
+/** The orange sparkle beside a field's label. no floating prompt, clicking opens the side panel
  *  straight into the composer (type a change, or pick a quick action). Inline elements only, so it can sit in the
  *  label's <p>. */
 export function SmartifyTrigger({ label, onOpen, disabled, active, className }: SmartifyTriggerProps) {
@@ -76,7 +76,7 @@ export interface SmartifyVersion { instruction: string; text: string }
 export interface SmartifyPanelProps {
   /** The field's name, e.g. "Summary". */
   fieldLabel: string
-  /** The field's text when the panel opened — the "before" of every version. */
+  /** The field's text when the panel opened, the "before" of every version. */
   original: string
   /** Empty = the composer is showing (nothing asked yet). */
   versions: SmartifyVersion[]
@@ -92,7 +92,7 @@ export interface SmartifyPanelProps {
   onFollowUp: (instruction: string | null) => void
   onAccept: () => void
   onDismiss: () => void
-  /** Additive (3 Oct, Canvas): render only the card — no TipsPanel wrapper — for a host that already supplies the
+  /** Additive (3 Oct, Canvas): render only the card, no TipsPanel wrapper, for a host that already supplies the
    *  panel and puts the field itself first (screens/canvas/FieldPanel.tsx, opened from its title-row trigger, so the
    *  composer takes focus there too). Classic leaves it unset. */
   embedded?: boolean
@@ -108,7 +108,7 @@ function Composer({ onSend, busy, placeholder, autoFocus }: { onSend: (t: string
     <div className="sy-composer">
       <textarea ref={ref} className="sy-composer__input" rows={2} value={text} placeholder={placeholder} aria-label="Describe the change you want"
         onChange={(e) => setText(e.target.value)} onKeyDown={onKey} disabled={busy} />
-      {/* the send arrow appears only once something is typed — hidden (not just disabled) when empty. */}
+      {/* the send arrow appears only once something is typed, hidden (not just disabled) when empty. */}
       {text.trim() && (
         <button type="button" className="sy-pop__go" aria-label="Rewrite" onClick={send} disabled={busy}>
           <Icon name="arrow-right" size={16} />
@@ -130,7 +130,7 @@ function QuickActions({ onPick, busy, retry, label }: { onPick: (instruction: st
   )
 }
 
-/** The docked panel for one field's rewrite. Opens on the composer — the cursor already in it, quick actions below
+/** The docked panel for one field's rewrite. Opens on the composer, the cursor already in it, quick actions below
  *  ("when you click on that, you already are in the composer and you can type"). Once there is a
  *  version, it becomes the result card (TipCard, tone="refine"): the change, Accept / Dismiss, versions x of n, and
  *  the same quick actions plus a composer to keep refining. Nothing writes the field until Accept. */

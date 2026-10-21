@@ -63,7 +63,7 @@ export function ChannelNav({ overview, shared, channels, smart, openChannel, bac
   // Accordion: one group open at a time. The route decides which, until the host picks another;
   // a new route hands control back to the route. null = the host closed everything.
   // a group is the route's when its own path OR any child's path is the page (Listing base › Pricing lives at /base/pricing,
-  // not under /details — the group closed and lost its active item there)
+  // not under /details, the group closed and lost its active item there)
   const under = (to: string) => loc.pathname === to || loc.pathname.startsWith(`${to}/`)
   const routeKey = shared.find((i) => i.children && (under(i.to) || i.children.some((c) => under(c.to) || c.alsoActive?.(loc.pathname))))?.key
     ?? (loc.pathname.includes('/smart/') ? 'smart'
@@ -141,7 +141,7 @@ export function ChannelNav({ overview, shared, channels, smart, openChannel, bac
  * the same sticky block (`.ch-editor__head`, PageFrame). No separator line under any of it. */
 export function PageHead({ title, lead, titleEnd, property, actions, right, compactTitle, desc, descAction }: {
   title: ReactNode; lead?: ReactNode
-  /** Right next to the title itself, inside the same flex group (e.g. ViewSwitch — third round:
+  /** Right next to the title itself, inside the same flex group (e.g. ViewSwitch, third round:
    *  "next to Listing, not next to the property"), as opposed to `right`, which sits at the row's far end by the switcher. */
   titleEnd?: ReactNode
   property?: Property; actions?: ReactNode; right?: ReactNode
@@ -153,7 +153,7 @@ export function PageHead({ title, lead, titleEnd, property, actions, right, comp
   descAction?: ReactNode
 }) {
   const mobile = useIsMobile()
-  // phones (ds/mobile.md §4): the one phone head — selector, title as the section switcher + Tips, the description, then the page's rows
+  // phones (ds/mobile.md §4): the one phone head, selector, title as the section switcher + Tips, the description, then the page's rows
   if (mobile) return <MobileHead title={title} lead={lead} titleEnd={titleEnd} property={property} actions={actions} right={right} compactTitle={compactTitle}
     sub={desc || descAction ? <>{desc && <p className="h-pagehead__lead">{desc}</p>}{descAction}</> : undefined} />
   return (
@@ -168,8 +168,8 @@ export function PageHead({ title, lead, titleEnd, property, actions, right, comp
   )
 }
 
-/** The property page frame: ONE sticky head — PageHead (title row, description) and, when the page
- *  has them, its tabs or toolbar — over a body that scrolls beneath it; the Tips panel, when open, beside the body.
+/** The property page frame: ONE sticky head, PageHead (title row, description) and, when the page
+ *  has them, its tabs or toolbar, over a body that scrolls beneath it; the Tips panel, when open, beside the body.
  *  The channel editor's frame (`.ch-editor`, ds/v3/ch.css), for pages that have no editor of their own (Overview,
  *  Smart Listings). Phones: one scroller, the head scrolls away (ch.css). */
 export function PageFrame({ head, tabs, panel, children, className }: { head: ReactNode; tabs?: ReactNode; panel?: ReactNode; children: ReactNode; className?: string }) {
@@ -182,7 +182,7 @@ export function PageFrame({ head, tabs, panel, children, className }: { head: Re
 }
 
 export type EditorView = 'classic' | 'canvas'
-/** back next to the page title (PageHead's `right`), not inline in the tab row — reverts
+/** back next to the page title (PageHead's `right`), not inline in the tab row, reverts
  *  the same-day move into `.ch-tabrow` and its "icons off, as an experiment" text-only look. */
 export function ViewSwitch({ value, onChange }: { value: EditorView; onChange: (v: EditorView) => void }) {
   // phones text only, the segmented look at 44px (.h-m-head__end); desktop keeps its icons
@@ -195,7 +195,7 @@ export function ViewSwitch({ value, onChange }: { value: EditorView; onChange: (
 /** Opens and closes the Tips side panel; pressed while the panel is open. The count shows only while the panel is
  *  closed (the open panel has its own x of n and ×). */
 export function TipsToggle({ count, open, onToggle }: { count: number; open?: boolean; onToggle: () => void }) {
-  // once every tip is used up the chip goes — but never under the host's hands: while the panel is open
+  // once every tip is used up the chip goes, but never under the host's hands: while the panel is open
   // it stays (the panel shows its "all done" state), and it disappears when they close the panel
   // phones (ds/mobile.md §4): a purple text button "Tips" at the right of the title row, no count
   const mobile = useIsMobile()
@@ -273,13 +273,13 @@ export function SettingRow({ label, help, state, channel, children, below, hintA
   /** 'set' rows (the channel sets the value itself): why it can't be changed here, in the shared tooltip on the
    *  caption's lock ("🔒 Booking.com only"). Omitted: a plain "{channel} sets this itself" line. */
   lockTip?: string
-  /** Sits right after the label (and its tip dot), e.g. the yellow Smartify trigger (ds/smartify.tsx) — the two AI
+  /** Sits right after the label (and its tip dot), e.g. the yellow Smartify trigger (ds/smartify.tsx), the two AI
    *  indicators read as a pair beside the field's name. */
   labelAddon?: ReactNode
   /** 'toggle': on phones the switch sits right of the label, its caption under it right-aligned (ds/mobile.md §8, images/40).
    *  Desktop keeps the stacked row. */
   layout?: 'toggle'
-  /** false: drop the whole caption row ("ⓘ N channels · Edit per channel"), not just its text — Listing base › Pricing's
+  /** false: drop the whole caption row ("ⓘ N channels · Edit per channel"), not just its text, Listing base › Pricing's
    *  Nightly/Weekend rate rows are the one real-product exception that shows no scope caption at all (base/Pricing.tsx,
    *  concepts/smart-listing/refs/base-pricing/README.md). Every other caller keeps the default. */
   hint?: boolean
@@ -297,7 +297,7 @@ export function SettingRow({ label, help, state, channel, children, below, hintA
    *  spelling "All channels" out. Omit to keep the plain-text caption (e.g. states the pattern doesn't apply to). */
   scopeChannels?: ChannelId[]
   /** 'hub' rows only: where "Edit in Knowledge Hub" inside the tooltip goes. With this, the row drops its own
-   *  always-visible action link — the tooltip already offers it, and repeating it was the extra text review wants gone. */
+   *  always-visible action link, the tooltip already offers it, and repeating it was the extra text review wants gone. */
   hubTo?: string
 }) {
   const s = scopeOf(state, channel)
@@ -388,9 +388,9 @@ export function SettingRow({ label, help, state, channel, children, below, hintA
 /** The short "N channels" caption's tooltip:
  *  names the actual channels in a small dark tooltip, replacing a caption that used to spell them out ("All channels").
  *  A Knowledge-Hub-only field adds a link inside the tooltip to edit there (SettingRow then drops its own separate
- *  action link for the same destination — "reducing text will simplify it").
+ *  action link for the same destination, "reducing text will simplify it").
  *  Not ds/fieldscope.tsx's ValueHover: that compares the Base and every channel's value in a bigger popover on open;
- *  this only names the channels. Light and simple, matching the reference — it names, it doesn't editorialize.
+ *  this only names the channels. Light and simple, matching the reference, it names, it doesn't editorialize.
  *  Phones: no hover, so tap toggles it, the same convention ValueHover already uses. */
 export function CaptionTip({ children, names, hubLink }: { children: ReactNode; names: string[]; hubLink?: { label: string; to: string } }) {
   const [open, setOpen] = useState(false)
@@ -423,7 +423,7 @@ export function CaptionTip({ children, names, hubLink }: { children: ReactNode; 
     </span>
   )
 }
-/** `tip`: why it's locked — the shared tooltip, anchored on the lock icon itself and centred on it. */
+/** `tip`: why it's locked, the shared tooltip, anchored on the lock icon itself and centred on it. */
 /** A value the host can't edit here. The padlock shows only when it can't be changed at all (set by the channel, fixed
  *  when the listing is created: `tip` says why, or `fixed`). A value edited somewhere else (the Listing base, the Knowledge
  *  Hub, another channel's page) reads as non-interactive with no padlock. */
@@ -466,9 +466,9 @@ export function Split({ main, panel }: { main: ReactNode; panel?: ReactNode }) {
   )
 }
 /** The docked right-hand panel. `tone="refine"` is the same panel titled for a Smartify result (yellow accent,
- *  ds/v3/smartify.css) — one panel shape for both AI systems, only the accent differs. */
+ *  ds/v3/smartify.css), one panel shape for both AI systems, only the accent differs. */
 export function TipsPanel({ onClose, children, empty, title = 'Tips', tone = 'tip', icon = 'sparkles', footer }: { onClose: () => void; children?: ReactNode; empty?: ReactNode; title?: string; tone?: TipTone
-  /** null: no icon before the title (a plain side panel, e.g. editing a Knowledge Hub fact — not a recommendation) */
+  /** null: no icon before the title (a plain side panel, e.g. editing a Knowledge Hub fact, not a recommendation) */
   icon?: string | null; footer?: ReactNode }) {
   const mobile = useIsMobile()
   // phones: the side panel becomes a bottom sheet over the page (ds/mobile.md §7); same card inside
@@ -490,7 +490,7 @@ export interface TipCardProps {
   limit?: number
   /** Optional third action, e.g. "Save as draft" on a price tip (CV-07). */
   onDraft?: () => void; draftLabel?: string
-  /** 'refine': the same card as a Smartify result (host-initiated rewrite) — yellow accent instead of purple, nothing
+  /** 'refine': the same card as a Smartify result (host-initiated rewrite), yellow accent instead of purple, nothing
    *  else changes ("the same style for the recommendations for the tips as… for the change"). */
   tone?: TipTone
   /** What the x-of-n steps through, for the arrows' names ("tip" by default; "version" for Smartify attempts). The
@@ -507,8 +507,8 @@ export type TipTone = 'tip' | 'refine'
 export function TipCard(p: TipCardProps) {
   return (
     <article className={cx('h-tip', p.tone === 'refine' && 'h-tip--refine', p.accepted && 'is-accepted')} aria-busy={p.busy || undefined} aria-label={p.type}>
-      {/* The head names the field the tip is about — its category, the same name the field carries on the page
-       *  ("CHECK-IN METHOD DETAILS", "HOUSE MANUAL"), purple caps — and nothing else: no sparkle, no "· Arrival"
+      {/* The head names the field the tip is about, its category, the same name the field carries on the page
+       *  ("CHECK-IN METHOD DETAILS", "HOUSE MANUAL"), purple caps, and nothing else: no sparkle, no "· Arrival"
        *  (it truncated). The tip's own title leads the body. */}
       <div className="h-tip__head">
         <span className="h-tip__type">{p.type}</span>
@@ -534,7 +534,7 @@ export function TipCard(p: TipCardProps) {
             <h4>Why</h4>
             <ul>
               {/* The source is the icon plus its tooltip, not a trailing pill ("remove the chip from
-               *  the type and use a tooltip on the icon instead") — the pill repeated on every bullet was heavier
+               *  the type and use a tooltip on the icon instead"), the pill repeated on every bullet was heavier
                *  than the hint it carried. Uses the product's shared .h-tooltip anchor, like every other tooltip. */}
               {p.why.map((w, i) => {
                 const src = w.source === 'strategy' ? 'Strategy' : w.source === 'hub' ? 'Knowledge Hub' : w.source === 'listing' ? 'Listing base' : 'Inbox'
@@ -557,7 +557,7 @@ export function TipCard(p: TipCardProps) {
           <><span className="h-tip__done"><Icon name="circle-check" />Accepted</span>
             <span className="h-tip__actions">{p.onUndo && <Button kind="ghost" icon="arrow-back-up" onClick={p.onUndo}>Undo</Button>}<Button kind="primary" onClick={p.onNext} disabled={p.idx >= p.total}>Next</Button></span></>
         ) : (
-          // drop the "Also save to the Knowledge Hub" checkbox — a kb-grounded tip (TipDef.kb) now
+          // drop the "Also save to the Knowledge Hub" checkbox, a kb-grounded tip (TipDef.kb) now
           // saves to the Hub automatically on Accept (ChannelTips.tsx), no separate control to remember to tick.
           <span className="h-tip__actions"><Button onClick={p.onDismiss}>Dismiss</Button>{p.onDraft && <Button onClick={p.onDraft}>{p.draftLabel ?? 'Save as draft'}</Button>}<Button kind="primary" onClick={p.onAccept} disabled={p.busy}>Accept</Button></span>
         )}
@@ -588,7 +588,7 @@ const SHORT = 80
 const CONTEXT_WORDS = 6
 /** Unchanged text around an edit, trimmed to just enough context ("you don't have to add the entire
  *  thing… an ellipsis, and simply say what you're adding"). Multi-line text (a bulleted house manual) keeps whole
- *  lines — the one next to the change; prose keeps a few words either side. `at`: where this run sits. */
+ *  lines, the one next to the change; prose keeps a few words either side. `at`: where this run sits. */
 function trimContext(text: string, at: 'start' | 'middle' | 'end'): string {
   if (text.includes('\n')) {
     const lines = text.split('\n')
@@ -603,7 +603,7 @@ function trimContext(text: string, at: 'start' | 'middle' | 'end'): string {
   return words.length > CONTEXT_WORDS * 2 ? `${lead}${words.slice(0, CONTEXT_WORDS).join('')}… ${words.slice(-CONTEXT_WORDS).join('')}` : text
 }
 /** A suggested change. "you don't have to repeat the original text all the time." So:
- *  - short values (a title, a price, a policy name): before and after, stacked — the pair is the clearest read;
+ *  - short values (a title, a price, a policy name): before and after, stacked, the pair is the clearest read;
  *  - an edit that keeps most of the text: the new text ONCE, the added words in green, any removed words struck inline;
  *  - a rewrite or a brand-new text: just the new text, no struck-through copy of the old one.
  *  `note`: one line above it, e.g. that accepting customises the field for this channel only (the Base stays). */

@@ -139,7 +139,7 @@ export function PhotosSheet({ nav }: { nav: SheetNav }) {
           const { shown, hidden } = channelPhotos(c, lib, sl3)
           return (
             <KhChannelLine key={c} channel={c} action={<Link className="h-textlink" to={`${nav.base}/photos?ch=${c}`}>Order and cover</Link>}>
-              {shown.length} photos · Cover: {lib.meta[shown[0]]?.description ?? '—'}{hidden.length ? ` · ${hidden.length} hidden` : ''}
+              {shown.length} photos · Cover: {lib.meta[shown[0]]?.description ?? '-'}{hidden.length ? ` · ${hidden.length} hidden` : ''}
             </KhChannelLine>
           )
         })}

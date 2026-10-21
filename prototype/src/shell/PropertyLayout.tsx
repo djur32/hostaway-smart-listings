@@ -73,7 +73,7 @@ function PropertyFrame() {
   const inSetup = loc.pathname.includes('/smart/')
   const base = `/property/${p.id}`
   // Per-page tip counts for every listing channel, a fixed set of hook calls (hooks can't run in a loop of varying
-  // length); the property's connected channels pick theirs below. tipsFor(c) follows the active property — the
+  // length); the property's connected channels pick theirs below. tipsFor(c) follows the active property, the
   // scenario's own scripted tips, this property's generated ones (data/property-listing.ts propertyTipsFor), or none
   // for the three properties that keep Smart Listings off (data/portfolio.ts SMART_LISTINGS_OFF).
   const pageTips: Record<ListingChannel, PageTips> = {
@@ -87,7 +87,7 @@ function PropertyFrame() {
       id: c,
       // the channel row carries the total while collapsed; open, each page carries its own (ds/sl3.tsx ChannelNav)
       tips: t.listing + t.pricing + t.availability + t.policies,
-      // drop each channel's Overview — Smart Listings › Performance covers that ground now and matters more
+      // drop each channel's Overview, Smart Listings › Performance covers that ground now and matters more
       items: [
         { key: 'listing', label: 'Listing', to: `${base}/ch/${c}/listing`, count: t.listing },
         { key: 'pricing', label: 'Pricing', to: `${base}/ch/${c}/pricing`, count: t.pricing },
@@ -108,7 +108,7 @@ function PropertyFrame() {
       ] },
       // Every Hub page is labelled a Concept (ds/kh-r.tsx KhrFrame). Clean paths open the reframed Hub; iteration R (3 Oct,
       // Content · Workflows · Sources) stays reachable with ?v=r, the older ones with ?v=a…e|s.
-      // Knowledge Hub, reframed: its own job — the questions
+      // Knowledge Hub, reframed: its own job, the questions
       // guests ask. Insights (first, ) · Questions (a question page keeps it marked) · Facts (read from the Listing base) · Sources.
       { key: 'hub', label: 'Knowledge Hub', icon: 'book', to: `${base}/hub/insights`, children: [
         { key: 'insights', label: 'Insights', to: `${base}/hub/insights` },
@@ -127,7 +127,7 @@ function PropertyFrame() {
     ] : null,
   }
   // ≤ 767px (ds/mobile.md §3a): the rail hides. In its place, a section bar above the page names where you are
-  // ("Airbnb › Listing ⌄") and opens the whole rail in a bottom sheet — grouped, scrollable, the current page marked,
+  // ("Airbnb › Listing ⌄") and opens the whole rail in a bottom sheet, grouped, scrollable, the current page marked,
   // the same tip counts. The page head's "···" opens the same sheet (it used to open a right drawer, images/36, which
   // nobody found: ). Any link inside closes it.
   const isMobile = useIsMobile()
@@ -244,7 +244,7 @@ function PropertyFrame() {
 /** Standard page body for screens without the Tips split (padding and max width). `<UnsavedBar/>` as the last child
  *  of `.h-content__inner` (ds/unsaved.tsx, 1 Oct evening rework): sticky to the bottom of THIS column, not the
  *  viewport, so it never covers the rail and the content stays scrollable around it. Screens whose own draft lives
- *  inside something narrower than this column (a `.ch-page`, a PanelStack panel) render their own instead — see
+ *  inside something narrower than this column (a `.ch-page`, a PanelStack panel) render their own instead, see
  *  ListingDetails.tsx, ListingEditor.tsx, screens/pricing/PricingPanels.tsx. */
 export function PageBody({ children, wide }: { children: React.ReactNode; wide?: boolean }) {
   return <div className="h-content" style={{ overflowY: 'auto' }}><div className="h-content__inner" style={wide ? { maxWidth: 'none' } : undefined}>{children}<UnsavedBar /></div></div>

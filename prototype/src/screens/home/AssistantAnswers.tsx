@@ -1,4 +1,4 @@
-/* Arrival & stay › What the assistant answers — "Ask the AI" and "Sources" keep working, reading the same facts as the
+/* Arrival & stay › What the assistant answers, "Ask the AI" and "Sources" keep working, reading the same facts as the
  * listings (one truth, many readers). Replaces "Generate Knowledge Hub" (D-125). SCR-03 · owner S11 · R-081 R-082 · D-125 D-111 */
 import { useState } from 'react'
 import { AskCard, Explainer, Icon } from '../../ds'

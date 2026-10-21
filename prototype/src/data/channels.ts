@@ -1,5 +1,5 @@
 /* Channels as Hostaway shows them (ds/channels/README.md). Marks come from the DS sprite (#ch-*).
- * Limits and write reach: research/market/channel-constraints.md — the numbers the UI enforces before commit. */
+ * Limits and write reach: research/market/channel-constraints.md, the numbers the UI enforces before commit. */
 import type { ChannelId } from './types'
 
 export interface ChannelInfo {
@@ -41,7 +41,7 @@ export const CHANNELS: Record<ChannelId, ChannelInfo> = {
 
 export const channelName = (c: ChannelId) => CHANNELS[c].name
 
-/** "Airbnb", "Airbnb and Booking.com", "Airbnb, Booking.com and Direct" — for a property's own channels, so copy never
+/** "Airbnb", "Airbnb and Booking.com", "Airbnb, Booking.com and Direct", for a property's own channels, so copy never
  *  names a channel it doesn't have. */
 export const channelList = (cs: ChannelId[]) => {
   const n = cs.map(channelName)

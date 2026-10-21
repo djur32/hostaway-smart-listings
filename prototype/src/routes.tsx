@@ -35,7 +35,7 @@ function AccountHome() {
 
 function RouteError() {
   console.error(useRouteError())
-  return <Placeholder scr="—" owner="out of scope" title="This page couldn’t load"><a className="h-textlink" href="/">Back to your property</a></Placeholder>
+  return <Placeholder scr="-" owner="out of scope" title="This page couldn’t load"><a className="h-textlink" href="/">Back to your property</a></Placeholder>
 }
 
 /** Portfolio pages are for portfolios: an account with 5 properties or fewer lands on its home (the Overview links them

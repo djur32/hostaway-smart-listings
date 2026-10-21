@@ -46,7 +46,7 @@ export const USERS: Record<UserId, UserDef> = {
     channels: ['airbnb', 'booking'] },
   priya: { id: 'priya', name: 'Priya', initials: 'P', persona: 'P4', role: 'Just joined Hostaway',
     properties: [PROPERTY_ID],
-    // Priya is a new host on one listing already — no first-time setup anywhere (web or app)
+    // Priya is a new host on one listing already, no first-time setup anywhere (web or app)
     context: 'Just joined from Hostaway with one listing on Airbnb. It is already here, with no setup.', tone: 'priya',
     channels: ['airbnb'] },
 }

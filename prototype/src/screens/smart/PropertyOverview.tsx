@@ -24,14 +24,14 @@ import { useListingChannels } from '../../store/selectors'
 import { useStore, type FieldVisibility, type OvFieldKey } from '../../store/store'
 import { listingName, useSmartDemo } from './shared'
 
-/** One Show / Edit / Don't-show control for the whole category of shared fields (sharedFieldKeys) — after seeing a per-field row for all 19: "nonsense… I just want to basically be able to toggle
+/** One Show / Edit / Don't-show control for the whole category of shared fields (sharedFieldKeys), after seeing a per-field row for all 19: "nonsense… I just want to basically be able to toggle
  *  whether I want non-channel-specific fields to appear to be editable… it should be the same for all, either we
  *  see all of these, none of this, or we could edit them." One control, one value, applied to every qualifying
- *  field at once — no per-field or per-tab breakdown. The store stays per-field (`fieldVisibility:
- *  Partial<Record<OvFieldKey, FieldVisibility>>`, store/store.ts) — this control writes the same value to every key on
+ *  field at once, no per-field or per-tab breakdown. The store stays per-field (`fieldVisibility:
+ *  Partial<Record<OvFieldKey, FieldVisibility>>`, store/store.ts), this control writes the same value to every key on
  *  each change, so the Listing editor's `FieldRow` and Pricing/Availability's `ScopedRow` each read one key.
  *  Reading the current value (3 Oct): the value every written key agrees on; nothing written yet reads as **Edit**,
- *  because that is what unset does on every channel page (normal behaviour — unset never locks anything). It used to
+ *  because that is what unset does on every channel page (normal behaviour, unset never locks anything). It used to
  *  read "Show" while every field stayed editable, which is the mismatch review hit. */
 function FieldVisibilitySection({ keys, value, onChange }: {
   keys: string[]
@@ -91,7 +91,7 @@ export function PropertyOverview() {
   const nickname = ov?.nickname ?? p.nickname
   const sync = ov?.sync ?? true
   const muted = ov?.muted ?? false
-  // Field visibility (every shared field, derived — sharedFields): only once Smart Listings is on and set up, same gate Strategy.tsx uses.
+  // Field visibility (every shared field, derived, sharedFields): only once Smart Listings is on and set up, same gate Strategy.tsx uses.
   const smartReady = on && sl3.setupDone
   const fieldVis = ov?.fieldVisibility ?? {}
   // One control sets every qualifying field's key to the same value (Task: collapse to one control, 1 Oct third round).

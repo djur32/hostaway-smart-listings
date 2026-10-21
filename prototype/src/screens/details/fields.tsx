@@ -35,7 +35,7 @@ export function FieldControl({ def, label, value, onChange, disabled, inputRef, 
     case 'textarea':
       return <textarea ref={inputRef} className="h-textarea" rows={Math.min(8, Math.max(3, Math.ceil(value.length / 72) + 1))} value={value} placeholder={label} disabled={disabled} onChange={(e) => onChange(e.target.value)} aria-label={label} />
     case 'url':
-      // Guest resources: the same link item as the channel pages (ds/fieldscope.tsx LinkField, ) —
+      // Guest resources: the same link item as the channel pages (ds/fieldscope.tsx LinkField, ) -
       // here on the Base it's editable: Copy · Edit · Remove, the input while empty or being edited
       return <LinkField value={value} onChange={onChange} disabled={disabled} label={label} placeholder={`Your ${label.toLowerCase()} URL`} inputRef={inputRef as RefObject<HTMLInputElement | null> | undefined} />
     case 'text':
@@ -77,7 +77,7 @@ function Tags({ value, onChange, disabled, addLabel }: { value: string; onChange
 /** One Base field: label + help, then the control full width. No channel caption: these are the property's facts,
  *  the same for every channel. Fields no connected channel has are hidden.
  *  ("We have the base, and off of the base others can act dissimilarly, but I don't need to see that
- *  here"): the Base shows only shared values and nothing about how a channel differs — a field only one channel has
+ *  here"): the Base shows only shared values and nothing about how a channel differs, a field only one channel has
  *  (Airbnb's checkout tasks) isn't on the Base at all; it lives on that channel's Listing page. */
 export function DetailsField({ def, draft }: { def: FieldDef; draft: BaseDraft }) {
   const chs = useListingChannels()
@@ -90,10 +90,10 @@ export function DetailsField({ def, draft }: { def: FieldDef; draft: BaseDraft }
   // the chevron was, and the reason in the shared tooltip (fixed once the listing is created)
   const fixed = FIXED_FIELDS[def.key]
   // the "N channels" note only where a channel CAN differ: a value that's the same on every channel
-  // by nature (listing-wide, Knowledge Hub, fixed — Property type, Tags, the address, the guest links…) says nothing new
+  // by nature (listing-wide, Knowledge Hub, fixed, Property type, Tags, the address, the guest links…) says nothing new
   const varies = chs.some((c) => def.state[c] === 'inherit' || def.state[c] === 'override')
   const users = varies && !FIXED_FIELDS[def.key] ? baseChannels(def, chs) : []
-  // how many channels use this Base value — information only, the names on hover/focus, no per-channel action
+  // how many channels use this Base value, information only, the names on hover/focus, no per-channel action
   const caption = (
     <div className="h-field-hint">
       <span className="h-field-hint__channels">
@@ -101,7 +101,7 @@ export function DetailsField({ def, draft }: { def: FieldDef; draft: BaseDraft }
       </span>
     </div>
   )
-  // phones (ds/mobile.md §7, ): the same field sheet as every other row — a read-only summary here, the
+  // phones (ds/mobile.md §7, ): the same field sheet as every other row, a read-only summary here, the
   // field itself in a bottom sheet with the page's Discard / Save. Toggles and locked values stay as they are.
   if (mobile && !fixed && !locked && def.kind !== 'toggle') {
     return (
@@ -122,9 +122,9 @@ export function DetailsField({ def, draft }: { def: FieldDef; draft: BaseDraft }
       </div>
       <div className="h-field-row__control">
         {fixed ? (
-          <Locked tip={fixed} label={label}>{draft.value(def) || '—'}</Locked>
-        ) : locked ? <Locked tip={setByWhy(def, on[0], CHANNELS[on[0]].name)} label={label}>{draft.value(def) || '—'}</Locked> : <FieldControl def={def} label={label} value={draft.value(def)} onChange={(v) => draft.set(def, v)} />}
-        {/* how many channels use this Base value — information only, the names on hover/focus, no per-channel action
+          <Locked tip={fixed} label={label}>{draft.value(def) || '-'}</Locked>
+        ) : locked ? <Locked tip={setByWhy(def, on[0], CHANNELS[on[0]].name)} label={label}>{draft.value(def) || '-'}</Locked> : <FieldControl def={def} label={label} value={draft.value(def)} onChange={(v) => draft.set(def, v)} />}
+        {/* how many channels use this Base value, information only, the names on hover/focus, no per-channel action
          *  */}
         {users.length > 0 && def.kind !== 'toggle' && caption}
       </div>

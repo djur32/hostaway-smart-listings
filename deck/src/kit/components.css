@@ -286,7 +286,7 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
                  to exactly three at this measure, in both themes, and a longer one
                  would run into the gap below rather than move anything.
    Widths are px, not ch: `ch` is the width of a "0" in the running face, so 25ch
-   was 713px in Studio and 648px in Lumen — the same line broke differently in each. */
+   was 713px in Studio and 648px in Lumen, the same line broke differently in each. */
 .opener {
   --op-w: 880px;            /* the text column; the opener art starts at x 996 */
   --op-n: 178px;            /* the numeral (300 → 210 → 178: "a little smaller", 2026-09-26) */

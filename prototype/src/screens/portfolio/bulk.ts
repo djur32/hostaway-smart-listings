@@ -76,7 +76,7 @@ export function propose(kind: BulkKind, rows: Row[], setup: BulkSetup, rules: Po
   switch (kind) {
     case 'fee':
       return rows.map((r) => {
-        if (!on(r, ch)) return { row: r, channel: null, now: '—', next: '—', include: false, blocked: `Not on ${CHANNELS[ch].name}` }
+        if (!on(r, ch)) return { row: r, channel: null, now: '-', next: '-', include: false, blocked: `Not on ${CHANNELS[ch].name}` }
         const cur = r.fee(ch)
         const next = setup.feeMode === 'set' ? setup.feeValue : cur.value + setup.feeValue
         const stop = ruleStop(rules, r, ch, 'cleaning-fee', String(next))
@@ -93,7 +93,7 @@ export function propose(kind: BulkKind, rows: Row[], setup: BulkSetup, rules: Po
     case 'conflict': {
       return rows.map((r) => {
         const a = r.fee('airbnb'), b = r.fee('booking')
-        if (!on(r, 'airbnb') || !on(r, 'booking')) return { row: r, channel: null, now: '—', next: '—', include: false, blocked: 'Not on both Airbnb and Booking.com' }
+        if (!on(r, 'airbnb') || !on(r, 'booking')) return { row: r, channel: null, now: '-', next: '-', include: false, blocked: 'Not on both Airbnb and Booking.com' }
         if (a.value === b.value) return { row: r, channel: null, now: `€${a.value} on both`, next: 'No conflict', include: false, why: 'Already the same' }
         const next = setup.resolution === 'keep' ? `Keep €${a.value} · €${b.value}` : setup.resolution === 'airbnb' ? `€${a.value} on both` : setup.resolution === 'booking' ? `€${b.value} on both` : `€${r.group.pricing.cleaningFee} (group) on both`
         const stop = setup.resolution !== 'keep' ? ruleStop(rules, r, 'airbnb', 'cleaning-fee', next) : undefined
@@ -102,7 +102,7 @@ export function propose(kind: BulkKind, rows: Row[], setup: BulkSetup, rules: Po
     }
     case 'titles':
       return rows.map((r, i) => {
-        if (!on(r, ch)) return { row: r, channel: null, now: '—', next: '—', include: false, blocked: `Not on ${CHANNELS[ch].name}` }
+        if (!on(r, ch)) return { row: r, channel: null, now: '-', next: '-', include: false, blocked: `Not on ${CHANNELS[ch].name}` }
         const [name, feat] = feature(r)
         const limit = CHANNELS[ch].titleLimit ?? 50
         const raw = ch === 'vrbo' ? `${name} · ${r.p.area}` : ch === 'booking' ? `${r.p.area} ${name} · ${feat}` : `${name} in ${r.p.area} · ${feat}`
@@ -120,7 +120,7 @@ export function propose(kind: BulkKind, rows: Row[], setup: BulkSetup, rules: Po
     case 'strategy': {
       const st = STRATEGIES.find((x) => x.id === setup.strategy)!
       return rows.map((r) => {
-        if (!on(r, ch)) return { row: r, channel: null, now: '—', next: '—', include: false, blocked: `Not on ${CHANNELS[ch].name}` }
+        if (!on(r, ch)) return { row: r, channel: null, now: '-', next: '-', include: false, blocked: `Not on ${CHANNELS[ch].name}` }
         const family = r.d.tags.includes('Family') || r.d.tags.includes('House')
         const low = (setup.strategy === 'remote' || setup.strategy === 'business') && family
         const [name] = feature(r)

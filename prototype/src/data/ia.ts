@@ -1,5 +1,5 @@
 /* IA-R (ia/recommendation.md §3, D-110): the property rail, the tabs inside each section, and where each canonical
- * group lives. The ONE place the rail is defined — a G3 or OQ-111 change edits this file, not the screens (D-128). */
+ * group lives. The ONE place the rail is defined, a G3 or OQ-111 change edits this file, not the screens (D-128). */
 import type { SectionId } from './types'
 
 export interface RailItem {

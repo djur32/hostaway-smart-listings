@@ -63,7 +63,7 @@ function Status({ ch, propertyId }: { ch: ChannelId; propertyId: string }) {
     <div className="p-grid-2 p-mt4">
       <div>
         <section className="p-card">
-          <div className="p-row p-sb"><b>{listing?.title ?? '—'}</b><Pill kind="managed">{listing?.status ?? 'listed'}</Pill></div>
+          <div className="p-row p-sb"><b>{listing?.title ?? '-'}</b><Pill kind="managed">{listing?.status ?? 'listed'}</Pill></div>
           <div className="p-row p-mt2" style={{ gap: 16 }}>
             <span className="h-small">{listing?.lastPush ? <>Last push {new Date(listing.lastPush).toLocaleString()}</> : 'Not pushed from Hostaway yet'}</span>
             {listing?.pageScore !== undefined && <span className="h-small">Page Score <b>{listing.pageScore}</b> / 100</span>}
@@ -138,7 +138,7 @@ function BookingPreview({ propertyId }: { propertyId: string }) {
   const score = (l.pageScore ?? 72) + PAGE_SCORE_RAISERS.filter((r) => answered(r.questionId)).reduce((n, r) => n + r.points, 0)
   const send: Array<[string, string]> = [
     ['Name', `${l.title}${s.queue.some((q) => q.channel === 'booking' && q.fieldId === 'copy.title') ? ' (change waiting; goes to review)' : ''}`],
-    ['Photos', `${l.photoOrder.length} · main photo: ${s.photos.find((p) => p.id === l.photoOrder[0])?.caption ?? '—'} · smart ordering decides the rest`],
+    ['Photos', `${l.photoOrder.length} · main photo: ${s.photos.find((p) => p.id === l.photoOrder[0])?.caption ?? '-'} · smart ordering decides the rest`],
     ['Facilities', ['amenity.wifi', 'amenity.kitchen', 'amenity.dishwasher', 'amenity.washer', 'amenity.heating'].map(amenityLabel).join(' · ')],
     ['Check-in', projection(f['arrival.checkin_from'], 'booking').text],
     ['Minimum stay', projection(f['avail.min_stay'], 'booking').text],
@@ -150,7 +150,7 @@ function BookingPreview({ propertyId }: { propertyId: string }) {
       <div className="p-col">
         <section className="p-card">
           <div className="p-row p-sb"><div className="p-label">What we send · exact</div><ChannelChip channel="booking" /></div>
-          <table className="h-table p-mt2"><tbody>{send.map(([k, v]) => <tr key={k}><td style={{ width: 140 }} className="h-muted">{k}</td><td>{v === 'Channels disagree' || v === '—' ? <span className="h-muted">Decide in Needs you</span> : v}</td></tr>)}</tbody></table>
+          <table className="h-table p-mt2"><tbody>{send.map(([k, v]) => <tr key={k}><td style={{ width: 140 }} className="h-muted">{k}</td><td>{v === 'Channels disagree' || v === '-' ? <span className="h-muted">Decide in Needs you</span> : v}</td></tr>)}</tbody></table>
         </section>
         <div className="h-guest">
           <div className="h-guest__chrome"><Mark channel="booking" />booking.com/hotel/de/…<span className="h-guest__label"><Icon name="alert-circle" />Written by Booking.com · Approximate</span></div>
@@ -192,8 +192,8 @@ function WhatDiffers({ ch, propertyId }: { ch: ChannelId; propertyId: string }) 
               return (
                 <tr key={f.fieldId}>
                   <td>{field.label}</td>
-                  <td>{f.status === 'conflict' ? <span className="h-hatch h-hatch--cell">Channels disagree</span> : f.value ?? '—'}</td>
-                  <td>{f.status === 'conflict' ? f.observations.find((o) => o.source.kind === ch)?.value ?? '—' : onCh.text}{f.overrides[ch] && <span className="h-caption h-muted"> · kept per channel</span>}</td>
+                  <td>{f.status === 'conflict' ? <span className="h-hatch h-hatch--cell">Channels disagree</span> : f.value ?? '-'}</td>
+                  <td>{f.status === 'conflict' ? f.observations.find((o) => o.source.kind === ch)?.value ?? '-' : onCh.text}{f.overrides[ch] && <span className="h-caption h-muted"> · kept per channel</span>}</td>
                   <td>{f.status === 'conflict' ? <Link className="h-link h-caption" to={`/property/${propertyId}/overview/needs-you`}>Decide</Link> : f.sync[ch] ? <SyncBadge state={f.sync[ch]!} channel={ch} /> : null}</td>
                 </tr>
               )

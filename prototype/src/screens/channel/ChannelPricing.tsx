@@ -43,7 +43,7 @@ const eur = (n: number) => `€${n.toFixed(2)}`
  * D-927: Hostaway's own drill-downs replace the whole screen; ours slide in instead and keep what you
  * came from in view (ds/panels.tsx). Reuses the Calendar's panel content (screens/pricing/PricingPanels.tsx) rather than
  * re-deriving it, since it already reads/writes the same price:* keys this page does. This page's own inline Customize
- * (ScopedRow, above) is unaffected — the panel is a second, independent draft that commits on its own Save, the same way
+ * (ScopedRow, above) is unaffected, the panel is a second, independent draft that commits on its own Save, the same way
  * the Hub, this page and Calendar already all write the same store fields without stepping on each other. */
 type Open = { kind: 'dynamic' } | { kind: 'deposit' } | { kind: 'field'; tab: PriceTab; key: string } | null
 type DVal = { v: string | null | undefined }
@@ -168,7 +168,7 @@ function Pricing({ c }: { c: ListingChannel }) {
   const showNightly = visNightly !== 'hidden'
   const showWeekend = visWeekend !== 'hidden'
 
-  // Tips: usePricingTips (below) builds the list; Accept hands its number to the row's real control here — the value
+  // Tips: usePricingTips (below) builds the list; Accept hands its number to the row's real control here, the value
   // goes into this section's unsaved draft, the input is focused, and nothing changes or is sent until Save (CV-07).
   const propose = (t: PriceTab, key: string, value: string) => {
     const r = rowOf(t, key); const st = r?.state[c]
@@ -220,8 +220,8 @@ function Pricing({ c }: { c: ListingChannel }) {
   }
 
   return (
-    // task 2/4 (same chrome as Listing/Policies, third-round fix): the whole head — title, property switcher and
-    // Tips chip, plus the tab row — stays pinned together in one .ch-editor__head block (sticky), while the
+    // task 2/4 (same chrome as Listing/Policies, third-round fix): the whole head, title, property switcher and
+    // Tips chip, plus the tab row, stays pinned together in one .ch-editor__head block (sticky), while the
     // PanelStack's main content (section head, rows, Dynamic Pricing/Security deposit entry points) scrolls beneath
     // it as a sibling inside Split. Only this outer wrapper moved; the panel-slot mechanism below is unchanged.
     <div className="ch-editor">
@@ -293,7 +293,7 @@ function Pricing({ c }: { c: ListingChannel }) {
  * Gated like every channel tip (screenTips useTipsGate); a hidden or read-only row (Field visibility) has no tip.
  * `propose` is the screen's own Accept for the three draft tips (the rail passes none: it only counts). The money tip
  * (CV-07, Weekly discount) is the scenario property's Airbnb only, unchanged: its Accept is the reviewed commit through
- * commitAndSend that the rest of the case — Canvas, push receipts — already reads. */
+ * commitAndSend that the rest of the case, Canvas, push receipts, already reads. */
 export function usePricingTips(pid: string, c: ListingChannel, propose?: (t: PriceTab, key: string, value: string) => void): ScreenTipDef[] {
   const gate = useTipsGate(c)
   const PRICES = pricesFor(pid)
@@ -326,7 +326,7 @@ export function usePricingTips(pid: string, c: ListingChannel, propose?: (t: Pri
       }, [c], [`price:${PRICE_TIP.field}`], `Tip · ${PRICE_TIP.title}`),
     }] : []
     return [
-      // Base price · Weekend rate — gone when the weekend rate is hidden (or read-only) for this property
+      // Base price · Weekend rate, gone when the weekend rate is hidden (or read-only) for this property
       ...(has('base', 'weekend') && editable('base', 'weekend') && bump > tWeekend ? [{
         id: screenTipId(c, 'pt-weekend'), type: 'Weekend rate', section: 'Base price', title: 'Raise your weekend rate', field: 'row-weekend', tab: 'base',
         main: <Diff from={`€${tWeekend} a night`} to={`€${bump} on Fridays and Saturdays`} note={shared('base', 'weekend')} />,

@@ -35,7 +35,7 @@ export function PhotosTab({ ctx }: { ctx: LensCtx }) {
             return (
               <div key={c} className="khe-chline">
                 <Mark channel={c} /><b>{NAME(c)}</b>
-                <span>{shown.length} photos · cover: {lib.meta[shown[0]]?.description?.toLowerCase() ?? '—'}{hidden.length ? ` · ${hidden.length} hidden` : ''}</span>
+                <span>{shown.length} photos · cover: {lib.meta[shown[0]]?.description?.toLowerCase() ?? '-'}{hidden.length ? ` · ${hidden.length} hidden` : ''}</span>
                 <button type="button" className="h-textlink" onClick={() => ctx.setLens(c)}>Open in the {NAME(c)} lens</button>
               </div>
             )
@@ -54,7 +54,7 @@ export function PhotosTab({ ctx }: { ctx: LensCtx }) {
       <SectionHead title="Photos" desc={`What ${NAME(c)} guests see, in this order.`} />
       <KheField
         caption={own.includes(c) ? <KheScope>Custom for {NAME(c)}<Dot />its own selection and order{hidden.length ? <><Dot />{hidden.length} hidden</> : null}</KheScope> : <KheScope>Uses the Base<Dot />every photo, in the library’s order</KheScope>}>
-        <PhotosRow label={`Photos on ${NAME(c)}`} count={shown.length} desc={`Cover: ${lib.meta[shown[0]]?.description ?? '—'}`} manageTo={`${base}/photos?channel=${c}`} photos={pics(shown)} />
+        <PhotosRow label={`Photos on ${NAME(c)}`} count={shown.length} desc={`Cover: ${lib.meta[shown[0]]?.description ?? '-'}`} manageTo={`${base}/photos?channel=${c}`} photos={pics(shown)} />
       </KheField>
     </div>
   )

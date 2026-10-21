@@ -1,10 +1,10 @@
 /* Photos navigation: how "Manage photos" opens from a channel's
- * Listing › Essentials. Three patterns were compared — A full-screen takeover, B drawer, C tab — and review chose A,
+ * Listing › Essentials. Three patterns were compared, A full-screen takeover, B drawer, C tab, and review chose A,
  * laid out like the real Hostaway "Manage photos" screen, for every channel (Airbnb, Booking.com, Direct), with the
  * photos locked to the channel you came from (no All photos / per-channel switcher).
  * A is the default (no param). B and C stay reachable by URL only (`?photosNav=drawer|tab`) so the comparison can
  * still be demoed; the visible A/B/C switcher that used to sit under the Photos row is gone (exploration concluded).
- * `?photosOpen=1` (A/B only) is the "overlay is open" demo-URL state — the same convention this codebase already uses
+ * `?photosOpen=1` (A/B only) is the "overlay is open" demo-URL state, the same convention this codebase already uses
  * for `?reorder=1`/`?tips=1`/`?smart=on`. Pattern C doesn't use it: it navigates to its own route instead
  * (screens/channel/ListingEditor.tsx handles tab === 'photos').
  * Shells (the full-screen takeover, the PanelStack drawer) live in ./PhotosShells.tsx, which imports PhotosManager
@@ -17,7 +17,7 @@ export const PHOTOS_OPEN_PARAM = 'photosOpen'
 /** Pattern A, the chosen pick (3 Oct): the full-screen takeover, like the real product. */
 const DEFAULT_PATTERN: PhotosNavPattern = 'full'
 
-/** `pattern`: which of the three is live. `open`: the overlay (full/drawer) is open right now — meaningless for
+/** `pattern`: which of the three is live. `open`: the overlay (full/drawer) is open right now, meaningless for
  *  'tab', which is a real route instead of an overlay. */
 export function usePhotosNav() {
   const [params, setParams] = useSearchParams()

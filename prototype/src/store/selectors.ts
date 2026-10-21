@@ -46,8 +46,8 @@ export function projection(f: Fact, channel: ChannelId): { text: string; kind: '
   if (f.overrides[channel]) return { text: f.overrides[channel]!.value, kind: 'override' }
   if (f.sync[channel] === 'channel-managed') return { text: `Managed on ${channel === 'airbnb' ? 'Airbnb' : 'Booking.com'}`, kind: 'channel-owned' }
   const r = field?.reach[channel]
-  if (!r || r === '—' || r === 'N') return { text: 'Not on this channel', kind: 'unsupported' }
-  return { text: f.value ?? '—', kind: 'shared' }
+  if (!r || r === '-' || r === 'N') return { text: 'Not on this channel', kind: 'unsupported' }
+  return { text: f.value ?? '-', kind: 'shared' }
 }
 
 export const factsList = (s: State, ids: string[]) => ids.map((id) => s.facts[id]).filter(Boolean)

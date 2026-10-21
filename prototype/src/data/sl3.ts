@@ -70,7 +70,7 @@ export const FIELDS: FieldDef[] = [
     base: '11 photos in the Knowledge Hub', value: { airbnb: '11 photos · cover: Living room', booking: '9 photos · cover: Bedroom' } },
   { key: 'name', tab: 'essentials', label: 'Property name', help: 'Guests see it in search.', kind: 'text', limit: 50,
     state: { airbnb: 'inherit', booking: 'override', direct: 'inherit' }, base: B, value: { booking: 'Artist Apartment Neukölln · Balcony & Fast Wi-Fi' } },
-  // Booking.com writes its own description from the property's facts — never an editable per-channel text there
+  // Booking.com writes its own description from the property's facts, never an editable per-channel text there
   // (D-032, D-086; via the deck session): 'set' = shown read-only. the caption reads
   // "Booking.com only" beside a lock, and the lock's tooltip says why it can't be changed (`why`)
   { key: 'summary', tab: 'essentials', label: 'Summary', help: 'The property description guests see.', kind: 'textarea', limit: 500,
@@ -93,7 +93,7 @@ export const FIELDS: FieldDef[] = [
   { key: 'languages', tab: 'essentials', label: 'Languages', help: 'Languages your property supports', kind: 'tags', state: { airbnb: 'listing', booking: 'listing', direct: 'listing' }, base: 'English · German · Spanish' },
   // Arrival · Getting inside and setup (the Arrival reference screenshots, research/current-state/review-2026-09-30/)
   // Check-in method and its details are Airbnb's own (the other channels have no field for them, so they
-  // aren't on the Listing base either — the real Hostaway shows them as "1 channel")
+  // aren't on the Listing base either, the real Hostaway shows them as "1 channel")
   { key: 'method', tab: 'arrival', group: 'inside', label: 'Check-in method', kind: 'select', state: { airbnb: 'only' }, base: 'Keypad', value: { airbnb: 'Keypad' } },
   { key: 'method_details', tab: 'arrival', group: 'inside', label: 'Check-in method details', help: 'Any important details for getting inside your place.', kind: 'textarea',
     state: { airbnb: 'only' }, base: 'Enter the code on the keypad by the green street door, then take the stairs to the 4th floor. The flat is the door on the left; the same code opens it. You get the code 24 hours before arrival.', value: { airbnb: 'Enter the code on the keypad by the green street door, then take the stairs to the 4th floor. The flat is the door on the left; the same code opens it. You get the code 24 hours before arrival.' } },
@@ -164,7 +164,7 @@ export const AMENITIES: Array<{ group: string; items: Array<{ name: string; on: 
 /* ---------- tips (renamed from recommendations) ---------- */
 /** Where a WHY bullet's reasoning actually comes from (a target icon + small
  *  "Strategy" pill for market/strategy reasoning, a speech-bubble icon + "Inbox" pill for reasoning grounded in real
- *  guest messages/inquiries) — so a tip never reads as an arbitrary, unsourced AI claim. Classified honestly per
+ *  guest messages/inquiries), so a tip never reads as an arbitrary, unsourced AI claim. Classified honestly per
  *  bullet by its actual wording, not alternated. */
 /** 'hub': the reason is a fact from the property's Knowledge Hub (tips should show facts the Hub holds) */
 export type WhySource = 'strategy' | 'inbox' | 'hub' | 'listing' // listing: a Listing base detail (Wi-Fi is an amenity, audit 4 Oct)
@@ -215,7 +215,7 @@ export const TIPS: TipDef[] = [
    * Amenity tips use the field "amenity:<name>" (the Amenities editor's per-channel key) and write "on". */
   // Airbnb · remote workers
   // On a field that uses the Base: the tip is an Airbnb version, written for how Airbnb guests read it (in the app, at
-  // the door, often late) — not a general fix that belongs on the Base ("just a replacement… more
+  // the door, often late), not a general fix that belongs on the Base ("just a replacement… more
   // customized for Airbnb"). The card shows only the new text and says it creates an Airbnb-only version.
   { id: 't-a-method', channel: 'airbnb', tab: 'arrival', field: 'method_details', type: 'Check-in method details', section: 'Arrival', title: 'Write Airbnb’s own check-in steps',
     from: 'Enter the code on the keypad by the green street door, then take the stairs to the 4th floor. The flat is the door on the left; the same code opens it. You get the code 24 hours before arrival.',

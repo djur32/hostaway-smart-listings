@@ -108,7 +108,7 @@ export function Early({ children = 'Early access' }: { children?: ReactNode }) {
 
 export function AvailCell({ a, why }: { a: Avail; why: string }) {
   const icon = a === 'yes' ? 'circle-check' : a === 'proxy' ? 'adjustments-horizontal' : a === 'n/a' ? 'circle-dashed' : 'x'
-  const label = a === 'yes' ? 'Yes' : a === 'proxy' ? 'Estimated' : a === 'n/a' ? '—' : 'Not shared'
+  const label = a === 'yes' ? 'Yes' : a === 'proxy' ? 'Estimated' : a === 'n/a' ? '-' : 'Not shared'
   return <span className={`h-avail h-avail--${a === 'n/a' ? 'no' : a}`} title={why}><Icon name={icon} />{label}</span>
 }
 
@@ -163,7 +163,7 @@ export function LineChart({ labels, series, comps, markers = [], bands = [], fmt
       {hover !== null && (
         <div className="h-chart__tip" style={{ left: `${(x(hover) / W) * 100}%`, top: `${(T / H) * 100}%` }}>
           <b>Week of {labels[hover]}</b>
-          {series.map((s) => <div key={s.key}>{s.label}: <b>{s.values[hover] === null ? '—' : fmt(s.values[hover] as number)}</b></div>)}
+          {series.map((s) => <div key={s.key}>{s.label}: <b>{s.values[hover] === null ? '-' : fmt(s.values[hover] as number)}</b></div>)}
           {comps && <div>{comps.label}: <b>{fmt(comps.values[hover])}</b></div>}
           {markers.filter((m) => m.i === hover).map((m) => <div key={m.label}>{m.label} went live</div>)}
         </div>

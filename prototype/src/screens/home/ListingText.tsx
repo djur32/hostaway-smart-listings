@@ -1,4 +1,4 @@
-/* SCR-04 · The home › Listing text — the Smart Listing studio (D-123, D-140). Editor first; the preview is a toggle
+/* SCR-04 · The home › Listing text, the Smart Listing studio (D-123, D-140). Editor first; the preview is a toggle
  * (D-124). Lens All = the facts in plain words (R-088) · Airbnb = voice per channel (R-100…R-110) · Booking.com =
  * facts and completeness, no description box (D-032, D-146). Nothing reaches a channel except through Review & push.
  * owner S11 · R-005 R-006 R-100 R-101 R-102 R-103 R-105 R-106 R-107 R-108 R-109 R-110 R-111 R-112 R-113 R-114 R-116

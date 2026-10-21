@@ -1,6 +1,6 @@
 /* Knowledge Hub iteration KH-A · design-system components (concepts/knowledge-hub/KH-A.md). Owned by the KH-A build.
  * The channel matrix: a grouped table whose columns are Base · Airbnb · Booking.com · Direct, its cell states
- * (uses the Base, own value, "—" not on the channel, "Set by"), a dark hover tip, a cell edit popover, citations,
+ * (uses the Base, own value, "-" not on the channel, "Set by"), a dark hover tip, a cell edit popover, citations,
  * the scrolling content-type tab bar, a drawer that slides in beside the table, and the Ask the AI pieces.
  * CSS: ds/v3/kh-a.css (tokens only). */
 import { useEffect, useId, useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react'
@@ -66,7 +66,7 @@ export function KhaAddLink({ label, onClick }: { label: string; onClick: () => v
 
 /* ---------------- cell contents ---------------- */
 export const KhaQuiet = ({ children = 'Uses the Base' }: { children?: ReactNode }) => <span className="kha-quiet">{children}</span>
-export const KhaNone = () => <span className="kha-none" aria-label="Not on this channel">—</span>
+export const KhaNone = () => <span className="kha-none" aria-label="Not on this channel">-</span>
 export function KhaSetBy({ channel }: { channel: ChannelId }) {
   return <span className="kha-setby"><Icon name="lock" size={16} /><span>Set by</span><span className="kha-setby__ch">{CHANNELS[channel].name}</span></span>
 }

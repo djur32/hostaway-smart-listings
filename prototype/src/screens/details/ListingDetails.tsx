@@ -48,8 +48,8 @@ function DetailsPage({ tab }: { tab: ListingTab }) {
   }, [loading, hash])
   return (
     // The channel editor's frame, so the two pages behave identically (third round on this topic:
-    // "everything on top of the tab row should be sticky too"). The WHOLE head — "Listing details" + the Source of
-    // truth badge + the property switcher + the tab row — is one sticky `.ch-editor__head` block, with only the
+    // "everything on top of the tab row should be sticky too"). The WHOLE head, "Listing details" + the Source of
+    // truth badge + the property switcher + the tab row, is one sticky `.ch-editor__head` block, with only the
     // fields scrolling beneath it in `.h-split__main`; see screens/channel/ListingEditor.tsx (Classic) and
     // ds/v3/ch.css. Before this, only `.ch-tabrow` stuck, the head scrolled away under it, and the old
     // `.h-content` padding-top left an 18px gap above the pinned row that content scrolled visibly through.

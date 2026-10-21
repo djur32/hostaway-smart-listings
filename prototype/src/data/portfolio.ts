@@ -1,4 +1,4 @@
-/* The 12-property portfolio (concepts/SCENARIO.md, ) — SCR-05 and the Properties list.
+/* The 12-property portfolio (concepts/SCENARIO.md, ), SCR-05 and the Properties list.
  * Only the scenario property (#1) is modelled in depth; the others are portfolio rows (deep: false). */
 import type { ChannelHealth, ChannelId, OwnerLogEntry, PortfolioGroup, PortfolioRule, PricingStrategy, Property, PropertyDetail } from './types'
 import { PROPERTY_ID, PROPERTY_NAME } from './scenario'
@@ -162,7 +162,7 @@ const LISTING_ORDER: PropertyListingChannel[] = ['airbnb', 'booking', 'direct']
 export const isScenarioProperty = (id: string | undefined | null) => id === PROPERTY_ID
 
 /** Properties that keep Smart Listings OFF by default: the last three in the switcher
- *  dropdown, deliberately left as "before you turn this on" — no setup, no tips. Every other non-scenario property
+ *  dropdown, deliberately left as "before you turn this on", no setup, no tips. Every other non-scenario property
  *  seeds with Smart Listings already on, past setup, with its own per-channel tips (store.ts seedProperty,
  *  data/property-listing.ts propertyTipsFor). . */
 export const SMART_LISTINGS_OFF: readonly string[] = ['schoneberg-balcony', 'treptow-riverside', 'potsdam-lake']

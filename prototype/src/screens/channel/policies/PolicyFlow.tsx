@@ -7,7 +7,7 @@
  * The draft lives in sessionStorage (keyed by property + channel + flow) until Confirm (store: setChannelPolicy), so a
  * reload on any step keeps it and Confirm saves what Review shows (QA B14). Confirm and Cancel clear it.
  * Chrome = the shared full-screen wizard (ds/wizard.tsx, the Strategy wizard's): back · centred title · ×, brand progress
- * line, 800px question column, compact choice cards, Back / Continue footer — every step fits 1440×900 and 1280×800
+ * line, 800px question column, compact choice cards, Back / Continue footer, every step fits 1440×900 and 1280×800
  * without scrolling ("homogenize the UI according to the other ones … no need to have things overflowing"). */
 import { useEffect, useState, type ReactNode } from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'

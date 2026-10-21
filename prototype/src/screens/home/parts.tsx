@@ -18,7 +18,7 @@ export function useCiteRows() {
   const field = useField()
   return (ids: string[]) => ids.filter((id) => facts[id]).map((id) => {
     const label = field(id)?.label ?? id
-    const value = facts[id].value ?? (facts[id].overrides.airbnb?.value ?? '—')
+    const value = facts[id].value ?? (facts[id].overrides.airbnb?.value ?? '-')
     // Custom facts are statements ("Bike storage in the courtyard"): show them once, as "Your fact".
     return value === label || label.includes(value) ? { id, label: 'Your fact', value: label, source: <SourceChip source={facts[id].source} /> }
       : { id, label, value, source: <SourceChip source={facts[id].source} /> }

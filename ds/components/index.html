@@ -11,7 +11,7 @@
 <script src="../icons/sprite.js"></script>
 <script src="./shell.js"></script>
 <style>
-  /* Gallery layout only — tokens, no raw colours */
+  /* Gallery layout only, tokens, no raw colours */
   html, body { margin: 0; }
   body { background: var(--color-surface-secondary); }
   .g { display: grid; grid-template-columns: 240px minmax(0, 1fr); min-height: 100vh; }
@@ -82,7 +82,7 @@
 <div class="g">
 <nav class="g-nav" aria-label="Gallery">
   <h1><span data-hmark></span>DS replica</h1>
-  <p>Hostaway · Listing Management II · case study by review Silva. Not Hostaway's code. S02 · G1 review.</p>
+  <p>Hostaway Smart Listings · independent design concept. Not Hostaway code.</p>
   <div class="g-nav__h">1 · Foundations</div>
   <a href="#colour">Colour</a><a href="#type">Type</a><a href="#space">Space · radius · elevation</a><a href="#icons">Icons</a><a href="#channels">Channel marks</a>
   <div class="g-nav__h">2 · Core (existing)</div>
@@ -107,7 +107,7 @@
   </div>
   <div class="g-block">
     <h3>Colour · roles <span class="g-tag g-tag--existing">existing</span> <span class="g-tag g-tag--new">+ new</span></h3>
-    <p class="g-meta">What each colour does. New roles (AI, channels, sync, provenance) extend the palette — no new hues except channel brand marks.</p>
+    <p class="g-meta">What each colour does. New roles (AI, channels, sync, provenance) extend the palette, no new hues except channel brand marks.</p>
     <div id="roles" class="g-col"></div>
   </div>
 
@@ -148,7 +148,7 @@
 
   <div class="g-block" id="icons">
     <h3>Icons <span class="g-tag g-tag--existing">existing style</span></h3>
-    <p class="g-meta">Outlined, round caps, 1.5 px at 24 px. Open set: Tabler Icons (MIT) — the closest match to Hostaway's glyphs (D-022). Mapping of the icons seen in the product:</p>
+    <p class="g-meta">Outlined, round caps, 1.5 px at 24 px. Open set: Tabler Icons (MIT), the closest match to Hostaway's glyphs (D-022). Mapping of the icons seen in the product:</p>
     <div class="g-icons" id="icon-map"></div>
   </div>
 
@@ -199,7 +199,7 @@
 
   <div class="g-block" id="field-row">
     <h3>Field row <span class="g-tag g-tag--existing">existing</span><span class="g-tag g-tag--hs">HS-22 · 24 · 33</span></h3>
-    <p class="g-meta">Label (+ helper) left · control right (370 px) · "ⓘ N channel(s)" + "Edit per channel" beneath. The atom of today's listing management — and the thing the new Fact row (§3) replaces.</p>
+    <p class="g-meta">Label (+ helper) left · control right (370 px) · "ⓘ N channel(s)" + "Edit per channel" beneath. The atom of today's listing management, and the thing the new Fact row (§3) replaces.</p>
     <div class="h-field-row" style="margin-top:0"><div><p class="h-field-row__label">Check-in method details</p><p class="h-field-row__help">Any important details for getting inside your place.</p></div>
       <div><input class="h-input" placeholder="Check-in method details"><div class="h-field-hint"><span class="h-field-hint__channels"><svg class="h-icon"><use href="#i-info-circle"/></svg>1 channel</span><a class="h-link h-link--neutral">Edit per channel</a></div></div></div>
     <div class="h-field-row"><div><p class="h-field-row__label">Cleaning fee</p><p class="h-field-row__help">Charged once per booking to cover turnover.</p></div>
@@ -229,7 +229,7 @@
 
   <div class="g-block" id="choices">
     <h3>Toggle · radio card · checkbox <span class="g-tag g-tag--existing">existing</span><span class="g-tag g-tag--hs">HS-28 · 35 · 16 · 39</span></h3>
-    <p class="g-meta">Selection is green (success), never raspberry — raspberry means "act", green means "chosen / done".</p>
+    <p class="g-meta">Selection is green (success), never raspberry, raspberry means "act", green means "chosen / done".</p>
     <div class="g-row" style="margin-bottom:20px">
       <label class="h-toggle"><input type="checkbox" aria-label="off"><span class="h-toggle__track"></span><span class="h-toggle__thumb"></span></label>
       <label class="h-toggle"><input type="checkbox" checked aria-label="on"><span class="h-toggle__track"></span><span class="h-toggle__thumb"></span></label>
@@ -245,7 +245,7 @@
 
   <div class="g-block" id="matrix">
     <h3>Per-channel matrix <span class="g-tag g-tag--existing">existing</span><span class="g-tag g-tag--hs">HS-39</span></h3>
-    <p class="g-meta">Instant book: one row per channel, one column per option. The product's only whole-listing-per-channel view today — the precedent for new per-channel grids.</p>
+    <p class="g-meta">Instant book: one row per channel, one column per option. The product's only whole-listing-per-channel view today, the precedent for new per-channel grids.</p>
     <div class="h-matrix"><table><thead><tr><th>Channel</th><th>Automatically accept all<small>Accept all guests</small></th><th>Automatically accept low risk<small>Accept low-risk guests</small></th><th>Review and approve<small>Manually review all booking requests</small></th></tr></thead><tbody>
       <tr><td><span><svg class="h-mark h-mark--14"><use href="#ch-airbnb"/></svg>Airbnb</span></td><td><input class="h-radio" type="radio" name="ib1" aria-label="accept all"></td><td><input class="h-radio" type="radio" name="ib1" aria-label="low risk"></td><td><input class="h-radio" type="radio" name="ib1" checked aria-label="review"></td></tr>
       <tr><td><span><svg class="h-mark h-mark--14"><use href="#ch-booking"/></svg>Booking.com</span></td><td><input class="h-radio" type="radio" name="ib2" checked aria-label="accept all"></td><td><input class="h-radio" type="radio" name="ib2" aria-label="low risk"></td><td><input class="h-radio" type="radio" name="ib2" aria-label="review"></td></tr>
@@ -325,7 +325,7 @@
 
   <div class="g-block" id="ai-existing">
     <h3>AI promo card · trial card · chat bubble <span class="g-tag g-tag--existing">existing</span><span class="g-tag g-tag--hs">HS-30 · 22</span></h3>
-    <p class="g-meta">The lavender "Dynamic Pricing · New" card is Hostaway's existing AI language. Its body colour (#9571c3) is 3.47:1 on the lavender — we keep it for the replica and use --color-ai-text (6.45:1) in new work.</p>
+    <p class="g-meta">The lavender "Dynamic Pricing · New" card is Hostaway's existing AI language. Its body colour (#9571c3) is 3.47:1 on the lavender, we keep it for the replica and use --color-ai-text (6.45:1) in new work.</p>
     <a class="h-ai-card" href="#"><div class="h-ai-card__main"><div class="h-ai-card__title">Dynamic Pricing <span class="h-pill h-pill--new">New</span></div><div class="h-ai-card__body">Included with Host, Pro and Mogul plans. Smarter pricing that adapts to booking trends, so you don't miss out on revenue.</div></div><svg class="h-icon"><use href="#i-chevron-right"/></svg></a>
     <a class="h-ai-card" href="#" style="margin-top:12px"><div class="h-ai-card__main"><div class="h-ai-card__title"><span style="display:inline-flex;gap:6px;align-items:center"><svg class="h-icon h-icon--16" style="color:var(--color-ai-sparkle)"><use href="#i-sparkles"/></svg>Smart titles</span> <span class="h-pill h-pill--new">New</span></div><div class="h-ai-card__body h-ai-card__body--aa">Write a title per channel, grounded in 12 similar listings nearby. You review every change before it goes live.</div></div><svg class="h-icon"><use href="#i-chevron-right"/></svg></a>
     <div class="g-dark" style="margin-top:16px"><div class="h-trial" style="width:240px;margin:0"><p class="h-trial__title">Mogul trial ends in 14 days</p><p class="h-trial__sub">Activate your subscription today.</p><button class="h-trial__cta">Subscribe to a plan</button></div><button class="h-chat-fab" aria-label="Chat" data-hmark style="color:var(--color-text-white)"></button></div>
@@ -380,7 +380,7 @@
     <h3>Fact row · source chips · per-channel projections <span class="g-tag g-tag--new">new</span></h3>
     <p class="g-meta">One canonical fact, its source, and how each channel names it. Replaces "ⓘ 1 channel · Edit per channel" with the actual per-channel outcome.</p>
     <div class="g-row" style="margin-bottom:12px"><span class="h-source"><svg class="h-mark"><use href="#ch-airbnb"/></svg>From Airbnb</span><span class="h-source"><svg class="h-mark"><use href="#ch-booking"/></svg>From Booking.com</span><span class="h-source h-source--you"><svg class="h-icon"><use href="#i-user"/></svg>Added by you</span><span class="h-source h-source--ai"><svg class="h-icon"><use href="#i-sparkles"/></svg>AI-derived</span><span class="h-source h-source--accepted"><svg class="h-icon"><use href="#i-check"/></svg>Accepted</span></div>
-    <div class="h-fact"><div class="h-fact__label">Bathtub<small>Bathroom · amenity</small></div><div class="h-fact__value">Yes — in the main bathroom</div><div class="h-fact__side"><span class="h-source"><svg class="h-mark"><use href="#ch-airbnb"/></svg>From Airbnb</span><button class="h-btn-icon" aria-label="Edit"><svg class="h-icon"><use href="#i-pencil"/></svg></button></div>
+    <div class="h-fact"><div class="h-fact__label">Bathtub<small>Bathroom · amenity</small></div><div class="h-fact__value">Yes, in the main bathroom</div><div class="h-fact__side"><span class="h-source"><svg class="h-mark"><use href="#ch-airbnb"/></svg>From Airbnb</span><button class="h-btn-icon" aria-label="Edit"><svg class="h-icon"><use href="#i-pencil"/></svg></button></div>
       <div class="h-fact__proj"><span><svg class="h-mark"><use href="#ch-airbnb"/></svg>Airbnb: <b>Bathtub</b></span><span><svg class="h-mark"><use href="#ch-booking"/></svg>Booking.com: <b>Bath</b></span><span><svg class="h-mark"><use href="#ch-vrbo"/></svg>Vrbo: <b>Tub</b></span><span><svg class="h-mark"><use href="#ch-hostaway"/></svg>Direct: <b>Bathtub</b></span></div></div>
     <div class="h-fact" id="demo-fact"><div class="h-fact__label">Check-in from<small>Arrival</small></div><div class="h-fact__value" data-val>3:00 PM</div><div class="h-fact__side"><span class="h-source h-source--ai" data-src><svg class="h-icon"><use href="#i-sparkles"/></svg>AI-derived</span></div>
       <div class="h-fact__proj"><span><svg class="h-mark"><use href="#ch-airbnb"/></svg>Airbnb: <b>15:00</b></span><span class="is-differs"><svg class="h-mark"><use href="#ch-booking"/></svg>Booking.com: <b>14:00–22:00</b></span></div>
@@ -462,7 +462,7 @@
   </div>
 
   <div class="g-block" id="seltool">
-    <h3>Selection toolbar — smart editing <span class="g-tag g-tag--new">new</span></h3>
+    <h3>Selection toolbar, smart editing <span class="g-tag g-tag--new">new</span></h3>
     <p class="g-meta">Select text in a description → rewrite · shorten · more factual · change tone · remove · or type an instruction. Uses Hostaway's dark tooltip colour (tooltip-dark).</p>
     <p style="max-width:680px">Our flat is a quiet, sunny <span class="h-highlight">two-room apartment full of art, a short walk from the canal</span> and the best cafés in Reuterkiez.</p>
     <div class="h-seltool"><button class="h-seltool__btn"><svg class="h-icon"><use href="#i-wand"/></svg>Rewrite</button><button class="h-seltool__btn">Shorten</button><button class="h-seltool__btn">More factual</button><button class="h-seltool__btn">Tone <svg class="h-icon" style="width:14px;height:14px"><use href="#i-chevron-down"/></svg></button><button class="h-seltool__btn"><svg class="h-icon"><use href="#i-trash"/></svg>Remove</button><span class="h-seltool__sep"></span><input class="h-seltool__input" placeholder="Tell AI what to change…" aria-label="Instruction"></div>
@@ -571,8 +571,8 @@
   </div>
 
   <div class="g-block" id="ask">
-    <h3>Question card — grounding <span class="g-tag g-tag--new">new</span><span class="g-tag g-tag--hs">D-090 · D-106</span></h3>
-    <p class="g-meta">When the AI can't back a fact from the home's record, it asks instead of asserting — and says what it won't do until you answer. Lavender, never amber: a question isn't an error. Answering creates a fact "Added by you".</p>
+    <h3>Question card, grounding <span class="g-tag g-tag--new">new</span><span class="g-tag g-tag--hs">D-090 · D-106</span></h3>
+    <p class="g-meta">When the AI can't back a fact from the home's record, it asks instead of asserting, and says what it won't do until you answer. Lavender, never amber: a question isn't an error. Answering creates a fact "Added by you".</p>
     <div class="g-grid g-grid--2">
       <div><div class="g-state">Default</div><div class="h-ask"><div class="h-ask__head"><svg class="h-icon"><use href="#i-help-circle"/></svg><span class="h-ask__label">Question from the AI</span><span class="h-channel-chip"><svg class="h-mark"><use href="#ch-booking"/></svg>Booking.com</span></div>
         <div class="h-ask__q">Is there a balcony?</div><div class="h-ask__why">Booking.com lists one; Airbnb doesn't. I won't mention it anywhere until you confirm.</div>
@@ -580,7 +580,7 @@
       <div><div class="g-state">Free answer</div><div class="h-ask"><div class="h-ask__head"><svg class="h-icon"><use href="#i-help-circle"/></svg><span class="h-ask__label">Question from the AI</span></div>
         <div class="h-ask__q">How fast is the Wi-Fi?</div><div class="h-ask__why">Guests search for it; Booking.com also raises your Page Score with it.</div>
         <div class="h-ask__answers"><div class="h-input-group" style="width:180px;height:40px"><input class="h-input" placeholder="e.g. 100" aria-label="Wi-Fi speed"><span class="h-affix h-affix--end">Mbps</span></div><button class="h-btn h-btn--primary h-btn--md">Add</button><button class="h-ask__later">I don't know</button></div></div></div>
-      <div><div class="g-state">Blocking — a channel needs it</div><div class="h-ask h-ask--blocking"><div class="h-ask__head"><svg class="h-icon"><use href="#i-help-circle"/></svg><span class="h-ask__label">Needed to publish</span><span class="h-channel-chip"><svg class="h-mark"><use href="#ch-vrbo"/></svg>Vrbo</span></div>
+      <div><div class="g-state">Blocking, a channel needs it</div><div class="h-ask h-ask--blocking"><div class="h-ask__head"><svg class="h-icon"><use href="#i-help-circle"/></svg><span class="h-ask__label">Needed to publish</span><span class="h-channel-chip"><svg class="h-mark"><use href="#ch-vrbo"/></svg>Vrbo</span></div>
         <div class="h-ask__q">What's the licence number for this home?</div><div class="h-ask__blocks"><svg class="h-icon"><use href="#i-lock"/></svg>Vrbo won't accept the listing without it. Nothing else is held up.</div>
         <div class="h-ask__answers"><input class="h-input" placeholder="Licence number" aria-label="Licence number"><button class="h-btn h-btn--primary h-btn--md">Save</button></div></div></div>
       <div><div class="g-state">Answered → becomes a fact</div><div class="h-ask is-answered"><div class="h-ask__head"><svg class="h-icon"><use href="#i-circle-check"/></svg><span class="h-ask__label">Answered</span></div>
@@ -591,7 +591,7 @@
 
   <div class="g-block" id="guest">
     <h3>Guest-page preview · photo placeholder · mosaic <span class="g-tag g-tag--new">new</span><span class="g-tag g-tag--hs">D-092</span></h3>
-    <p class="g-meta">A channel page as guests see it. Generic chrome + channel mark only. Elements are targets: hover, selected (being edited), changed (pending, with a count). Photos are generated placeholders — never real imagery in concepts.</p>
+    <p class="g-meta">A channel page as guests see it. Generic chrome + channel mark only. Elements are targets: hover, selected (being edited), changed (pending, with a count). Photos are generated placeholders, never real imagery in concepts.</p>
     <div class="g-grid g-grid--2">
       <div class="h-guest"><div class="h-guest__chrome"><svg class="h-mark"><use href="#ch-airbnb"/></svg>airbnb.com/rooms/…<span class="h-guest__label"><svg class="h-icon"><use href="#i-eye"/></svg>As guests see it</span></div>
         <div class="h-guest__body"><div class="h-mosaic"><div class="h-photo h-photo--1">Living room<span class="h-photo__badge">Cover</span></div><div class="h-photo h-photo--2"></div><div class="h-photo h-photo--3"></div><div class="h-photo h-photo--4"></div><div class="h-photo h-photo--5"></div></div>
@@ -619,7 +619,7 @@
   </div>
 
   <div class="g-block" id="steps">
-    <h3>Stepper — sectioned walk-through <span class="g-tag g-tag--new">new</span><span class="g-tag g-tag--hs">D-092 · C1</span></h3>
+    <h3>Stepper, sectioned walk-through <span class="g-tag g-tag--new">new</span><span class="g-tag g-tag--hs">D-092 · C1</span></h3>
     <p class="g-meta">Built on the sub-nav item language. States: to decide (amber) · current · done (green) · to do · skipped. Sections are ordered by stakes: money and rules first.</p>
     <div style="width:280px"><div class="h-steps__count">Booking.com · step 1 of 9</div>
       <ol class="h-steps">
@@ -632,13 +632,13 @@
   </div>
 
   <div class="g-block" id="disabled">
-    <h3>Disabled buttons — the API <span class="g-tag g-tag--existing">existing</span><span class="g-tag g-tag--hs">D-091</span></h3>
+    <h3>Disabled buttons, the API <span class="g-tag g-tag--existing">existing</span><span class="g-tag g-tag--hs">D-091</span></h3>
     <p class="g-meta">Use the <code class="g-code">disabled</code> attribute on &lt;button&gt;. Use <code class="g-code">aria-disabled="true"</code> on links, or when the button must stay focusable to explain why. <code class="g-code">.is-disabled</code> is an alias for static frames. Every variant greys the same way.</p>
     <div class="g-row"><button class="h-btn h-btn--primary" disabled>Save</button><button class="h-btn h-btn--secondary" disabled>Discard changes</button><button class="h-btn h-btn--legacy" disabled>Onboarding assistant</button><button class="h-btn h-btn--ai" disabled><svg class="h-icon h-icon--16"><use href="#i-sparkles"/></svg>Suggest titles</button><a class="h-btn h-btn--primary" aria-disabled="true" href="#">Publish (link)</a><button class="h-btn h-btn--primary h-btn--lg is-disabled">Continue</button></div>
   </div>
 
   <div class="g-block" id="cite">
-    <h3>Grounded sentence — cite <span class="g-tag g-tag--new">new</span><span class="g-tag g-tag--hs">D-141 · D-148 · S11</span></h3>
+    <h3>Grounded sentence, cite <span class="g-tag g-tag--new">new</span><span class="g-tag g-tag--hs">D-141 · D-148 · S11</span></h3>
     <p class="g-meta">Every sentence the AI writes names the facts it uses (count badge). Hover or focus opens them with their source; click selects the sentence for smart editing (<code class="g-code">h-seltool</code>). States: default · active (hover/focus) · selected · changed. An unbacked claim is never a cite: it becomes an <code class="g-code">h-ask</code>.</p>
     <p class="h-md" style="max-width:640px;line-height:1.9">
       <span class="h-cite" tabindex="0">A sunny 48 m² two-room flat in Neukölln, with original paintings on the walls.<span class="h-cite__n">3</span></span>
@@ -678,7 +678,7 @@
 
   <div class="g-block" id="inherit">
     <h3>Inheritance chip <span class="g-tag g-tag--new">new</span><span class="g-tag g-tag--hs">S12</span></h3>
-    <p class="g-meta">D-154. Where a value comes from — group (portfolio) → property → channel — and the way to change it. Hollow dot = inherited; filled raspberry = this property; amber square = one channel.</p>
+    <p class="g-meta">D-154. Where a value comes from, group (portfolio) → property → channel, and the way to change it. Hollow dot = inherited; filled raspberry = this property; amber square = one channel.</p>
     <div class="g-row" style="flex-direction:column;align-items:flex-start;gap:10px">
       <span class="h-inherit"><span class="h-inherit__dot"></span>Inherited from <b>Berlin group</b> · <button class="h-inherit__act">Override</button></span>
       <span class="h-inherit h-inherit--property"><span class="h-inherit__dot"></span>This property · Berlin group: +25% · <button class="h-inherit__act">Reset to Berlin group</button></span>
@@ -698,7 +698,7 @@
     <div class="h-grid-wrap" style="width:640px"><table class="h-grid h-grid--compact"><thead><tr><th></th><th>Property</th><th>Channels · status · strength</th><th>Cleaning fee</th></tr></thead><tbody>
       <tr class="is-selected"><td><input type="checkbox" class="h-checkbox" checked></td><td><b>Kreuzberg Canal Loft</b></td><td><span class="h-strength"><span class="h-ch h-ch--airbnb">A</span><span class="h-strength__bar"><i style="--value:81%"></i></span>81</span> <span class="h-strength is-mid"><span class="h-ch h-ch--booking">B</span>77</span></td><td><span class="h-inherit h-inherit--property"><span class="h-inherit__dot"></span></span> €35</td></tr>
       <tr><td><input type="checkbox" class="h-checkbox"></td><td><b>Friedrichshain Studio</b></td><td><span class="h-strength is-low"><span class="h-ch h-ch--airbnb">A</span><span class="h-strength__bar"><i style="--value:58%"></i></span>58</span></td><td><span class="h-inherit"><span class="h-inherit__dot"></span></span> €30</td></tr>
-      <tr class="is-excluded"><td><input type="checkbox" class="h-checkbox"></td><td><b>Moabit Canal Studio</b></td><td>—</td><td>Not on Booking.com</td></tr>
+      <tr class="is-excluded"><td><input type="checkbox" class="h-checkbox"></td><td><b>Moabit Canal Studio</b></td><td>-</td><td>Not on Booking.com</td></tr>
     </tbody></table></div>
   </div>
 
@@ -837,12 +837,12 @@ document.getElementById('icon-map').innerHTML = ICONS.map(([i, l]) => `<div><svg
 
 /* ── Fidelity frames, scaled ── */
 const FR = [['details-arrival','Details › Arrival · HS-22'],['pricing-base','Pricing › Base price · HS-30'],['security-deposit','Security deposit · HS-35'],['messaging-rules','Messaging rules · HS-48'],['properties-all','Properties › All · HS-16'],['onboarding-count','Onboarding · HS-01'],['knowledge-modal','Knowledge Hub modal · HS-57'],['empty-review-rules','Empty state · HS-49']];
-document.getElementById('frames').innerHTML = FR.map(([f, l]) => `<figure style="margin:0"><img src="../fidelity/${f}--full.png" alt="Screenshot and replica side by side: ${l}" style="width:100%;border:1px solid var(--color-border-card);border-radius:var(--radius-lg)"><figcaption class="h-small h-muted" style="margin-top:6px">${l} — left: Hostaway, right: replica</figcaption></figure>`).join('');
+document.getElementById('frames').innerHTML = FR.map(([f, l]) => `<figure style="margin:0"><img src="../fidelity/${f}--full.png" alt="Screenshot and replica side by side: ${l}" style="width:100%;border:1px solid var(--color-border-card);border-radius:var(--radius-lg)"><figcaption class="h-small h-muted" style="margin-top:6px">${l}, left: Hostaway, right: replica</figcaption></figure>`).join('');
 
 /* ── Inventory ── */
 const INV = [
   ['Existing','App shell · sidebar (expanded/collapsed)','h-app, h-sidebar','HS-22'],['Existing','Property sub-nav · segment sub-nav','h-subnav, h-segnav','HS-22, HS-16'],['Existing','Page header · property switcher','h-page-header, h-switcher','HS-22'],['Existing','Underline tabs','h-tabs, h-tab','HS-22'],['Existing','Section header + Discard/Save','h-section','HS-22, HS-35'],['Existing','Field row + channel hint','h-field-row, h-field-hint','HS-22'],['Existing','Input · select · textarea · affix · search','h-input, h-select, h-input-group','HS-22, 30, 33'],['Existing','Toggle · checkbox · radio · radio card','h-toggle, h-checkbox, h-radio-card','HS-28, 16, 35'],['Existing','Per-channel matrix (Instant book)','h-matrix','HS-39'],['Existing','Buttons (primary, secondary, legacy, lg, text, icon)','h-btn, h-action-green, h-link','HS-22, 35, 48, 01'],['Existing','Pills & badges','h-pill, h-badge-scoped, h-badge-count','HS-16, 21, 30, 35, 48'],['Existing','Filter chip · active filters · toolbar','h-filter-chip, h-filter-row, h-toolbar','HS-48'],['Existing','Table','h-table','HS-48'],['Existing','Property row · selection bar','h-prop-row, h-selection-bar','HS-16'],['Existing','Empty state','h-empty','HS-49, 50, 52'],['Existing','Progress (onboarding/import/KH) · skeleton','h-progress, h-skeleton','HS-01, 15, 41, 17'],['Existing','Modal · dropdown · accordion · KH rows','h-modal, h-menu, h-accordion, h-kh-row','HS-57, 42'],['Existing','AI promo card','h-ai-card','HS-30'],['Existing','Trial card · chat bubble','h-trial, h-chat-fab','HS-22'],['Existing','Calendar day cell','h-cal','HS-32'],['Existing','Onboarding split · choice tile · stats · testimonial','h-onboarding, h-choice-tile','HS-01…05'],['Existing','Connect header · connect status','h-connect-head, h-connect-status','HS-07…15'],
-  ['New','Channel chip · compact letter chip · channel lens','h-channel-chip, h-ch, h-lens','D-023'],['New','Source chip · fact row · projections · provenance line','h-source, h-fact, h-provline','D-024'],['New','Conflict card · conflict hatch · override pin','h-conflict, h-hatch, h-override','D-024'],['New','Import summary','h-import','—'],['New','AI suggestion panel · suggestion · strength meter · refine','h-ai-panel, h-suggestion, h-strength, h-refine','D-020'],['New','AI suggestion card · confidence','h-ai-suggest, h-confidence','D-020'],['New','AI states','h-ai-state, h-skeleton','D-020'],['New','Selection toolbar','h-seltool','D-020'],['New','Strategy chips','h-chips, h-chip','—'],['New','Autonomy dial · autonomy notice','h-autonomy, h-autonomy-notice','D-025'],['New','Diff (inline/split/card) · versions · blame','h-diff, h-diff-split, h-diff-card, h-versions, h-blame','—'],['New','Comps card · insight card','h-comp, h-insight','—'],['New','Health meter','h-health','—'],['New','Coach mark · hotspot · explainer','h-coach, h-hotspot, h-explainer','—'],['New','Persona switcher (demo)','h-persona','—'],['New','Voice sheet','h-voice','—'],['New','Sync state','h-sync','—'],['New','Bulk action bar','h-bulkbar','—'],['New','Provenance chip','h-prov','CONVENTIONS §2'],['New','Toast · tooltip','h-toast, h-tooltip','—'],['New','Question card (grounding)','h-ask','D-090, D-106'],['New','Guest-page preview · target','h-guest, h-guest__target','D-092'],['New','Photo placeholder · mosaic · photo grid','h-photo, h-mosaic, h-photo-grid','D-092'],['New','Conversation bubbles · thread','h-thread, h-msg','D-092'],['New','Stepper','h-steps, h-step','D-092'],['Existing','Disabled API (all buttons)','disabled · aria-disabled · .is-disabled','D-091']];
+  ['New','Channel chip · compact letter chip · channel lens','h-channel-chip, h-ch, h-lens','D-023'],['New','Source chip · fact row · projections · provenance line','h-source, h-fact, h-provline','D-024'],['New','Conflict card · conflict hatch · override pin','h-conflict, h-hatch, h-override','D-024'],['New','Import summary','h-import','-'],['New','AI suggestion panel · suggestion · strength meter · refine','h-ai-panel, h-suggestion, h-strength, h-refine','D-020'],['New','AI suggestion card · confidence','h-ai-suggest, h-confidence','D-020'],['New','AI states','h-ai-state, h-skeleton','D-020'],['New','Selection toolbar','h-seltool','D-020'],['New','Strategy chips','h-chips, h-chip','-'],['New','Autonomy dial · autonomy notice','h-autonomy, h-autonomy-notice','D-025'],['New','Diff (inline/split/card) · versions · blame','h-diff, h-diff-split, h-diff-card, h-versions, h-blame','-'],['New','Comps card · insight card','h-comp, h-insight','-'],['New','Health meter','h-health','-'],['New','Coach mark · hotspot · explainer','h-coach, h-hotspot, h-explainer','-'],['New','Persona switcher (demo)','h-persona','-'],['New','Voice sheet','h-voice','-'],['New','Sync state','h-sync','-'],['New','Bulk action bar','h-bulkbar','-'],['New','Provenance chip','h-prov','CONVENTIONS §2'],['New','Toast · tooltip','h-toast, h-tooltip','-'],['New','Question card (grounding)','h-ask','D-090, D-106'],['New','Guest-page preview · target','h-guest, h-guest__target','D-092'],['New','Photo placeholder · mosaic · photo grid','h-photo, h-mosaic, h-photo-grid','D-092'],['New','Conversation bubbles · thread','h-thread, h-msg','D-092'],['New','Stepper','h-steps, h-step','D-092'],['Existing','Disabled API (all buttons)','disabled · aria-disabled · .is-disabled','D-091']];
 document.getElementById('inv').innerHTML = '<thead><tr><th>Status</th><th>Component</th><th>Classes</th><th>Source / decision</th></tr></thead><tbody>' + INV.map(([s, c, k, r]) => `<tr><td><span class="g-tag ${s === 'New' ? 'g-tag--new' : 'g-tag--existing'}">${s}</span></td><td>${c}</td><td class="g-code">${k}</td><td>${r}</td></tr>`).join('') + '</tbody>';
 
 /* ── Interactions ── */
@@ -860,7 +860,7 @@ const plays = {
     setTimeout(() => { val.textContent = 'Beautiful Artist Apt. in Neukolln'; src.className = 'h-source h-source--ai'; src.innerHTML = '<svg class="h-icon"><use href="#i-sparkles"/></svg>AI suggestion'; f.classList.remove('is-updated'); }, 2600); },
   regen() { const s = document.getElementById('m-regen'); s.innerHTML = '<div class="h-skeleton h-skeleton-line" style="width:90%"></div><div class="h-skeleton h-skeleton-line" style="width:60%"></div>';
     setTimeout(() => { s.innerHTML = '<div class="h-suggestion is-recommended h-crossfade-enter"><div class="h-suggestion__text">Artist loft in Reuterkiez · bathtub &amp; fast Wi-Fi</div></div>'; }, 1200); },
-  conflict() { const s = document.getElementById('m-conflict'); s.innerHTML = '<div class="h-conflict" style="max-height:120px"><div class="h-conflict__head"><svg class="h-icon"><use href="#i-alert-triangle"/></svg>Cleaning fee: €25 vs €30</div></div><div class="h-fact" style="border:0"><div class="h-fact__label">Cleaning fee</div><div class="h-fact__value" data-val>—</div><div></div></div>';
+  conflict() { const s = document.getElementById('m-conflict'); s.innerHTML = '<div class="h-conflict" style="max-height:120px"><div class="h-conflict__head"><svg class="h-icon"><use href="#i-alert-triangle"/></svg>Cleaning fee: €25 vs €30</div></div><div class="h-fact" style="border:0"><div class="h-fact__label">Cleaning fee</div><div class="h-fact__value" data-val>-</div><div></div></div>';
     setTimeout(() => { s.querySelector('.h-conflict').classList.add('is-resolved'); const f = s.querySelector('.h-fact'); f.querySelector('[data-val]').textContent = '€25 · all channels'; f.classList.add('is-updated'); }, 600); },
   sync() { const e = document.getElementById('m-sync'); e.classList.remove('is-pulse'); void e.offsetWidth; e.classList.add('is-pulse'); },
   import() { const s = document.getElementById('m-import'); const rows = [['airbnb', 'Airbnb · 2 listings'], ['booking', 'Booking.com · 1 property'], ['vrbo', 'Vrbo · 1 listing']];

@@ -43,7 +43,7 @@ export const R_FACT_KINDS: Array<{ id: RFactKind; label: string; icon: string }>
 export const kindOf = (id: RFactKind) => R_FACT_KINDS.find((k) => k.id === id)!
 
 /* ---------- where an added fact comes from (KH-NEXT-3.md, "if you add a fact and it comes from somewhere,
- * make sure you can choose that, and you should be able to see where something comes from") — a short fixed list, the
+ * make sure you can choose that, and you should be able to see where something comes from"), a short fixed list, the
  * same vocabulary Sources.tsx already uses for what the AI reads ("Listing details", "Past guest conversations"), not
  * a new subsystem. The host picks one in the Add-fact flow; every fact (seeded or added) shows it via `RFactRow`'s
  * existing `source` prop. ---------- */

@@ -458,7 +458,7 @@ function badgeInner(c) {
   return el;
 }
 /* The case name used to be fitted to the mark above it, so every badge got a different size:
-   "CoPilot AI" landed on the 22px ceiling and "ASISA Vive design system" on the 14px floor.
+   "Smart Listings" landed on the 22px ceiling and "ASISA Vive design system" on the 14px floor.
    review asked for one size across the case studies (27 Sep), so the fit is gone and the size
    is a constant in deck.css. A long name now makes a wider badge rather than smaller type,
    which is the trade he chose. */

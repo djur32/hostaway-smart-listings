@@ -1,18 +1,18 @@
-/* Shared "Tips" treatment for the channel-level screens outside the Listing editor — Pricing, Availability, Booking
+/* Shared "Tips" treatment for the channel-level screens outside the Listing editor, Pricing, Availability, Booking
  * policies ("reasonable recommendations" at the pricing, availability and booking-policy level,
- * like the ones already on the Listing editor — only at the per-channel listing level, never on the property-wide
+ * like the ones already on the Listing editor, only at the per-channel listing level, never on the property-wide
  * Base Pricing/Availability screens, which keep no Tips by design).
  * Reuses the exact Tips chrome the Listing editor already has (ds/sl3.tsx: TipsToggle · Split · TipsPanel · TipCard,
  * ds/panelSlot.ts: useExclusivePanel) instead of inventing a new card or panel shape. The one difference from
  * shell/ChannelTips.tsx is the data behind it: that file drives the real `data/sl3.ts` TIPS dataset, which is
  * field-level and scoped to the Listing editor's own FieldDef model. These three screens have no such field model
  * (Pricing's PriceRow, Availability's AvailField and Policies' PolicyModel are all shaped differently and owned by
- * other sessions) and the ask here is specifically a *new*, screen-scoped set of suggestions — so this hook
+ * other sessions) and the ask here is specifically a *new*, screen-scoped set of suggestions, so this hook
  * owns its own small, local, suggestion list per screen instead of extending the Listing editor's.
  * Accept/Dismiss/Undo write the tip's status to the store (`sl3.tips` through `sl3Tip`, the same map the Listing
  * editor's Tips use), so the property rail's per-page counts (shell/PropertyLayout.tsx) and these screens agree and the
  * status survives navigation (the counts sit on Listing / Pricing / Availability / Booking policies once
- * a channel is open). Accept is still never a silent background write — the only other effect is an optional
+ * a channel is open). Accept is still never a silent background write, the only other effect is an optional
  * `onAccept` (e.g. putting the number into the row's unsaved draft so the "prices always ask you first" rule
  * still holds: Accept hands the number to the real control, it never writes one on its own).
  * Each screen's list is built by an exported hook (ChannelPricing.tsx usePricingTips, Availability.tsx
@@ -42,14 +42,14 @@ export function useTipsGate(c: ListingChannel): boolean {
   return on && done && inPlan
 }
 
-/** How many of `defs` still wait for the host (neither accepted nor dismissed) — the number on the Tips chip and the rail. */
+/** How many of `defs` still wait for the host (neither accepted nor dismissed), the number on the Tips chip and the rail. */
 export function usePendingCount(defs: Array<{ id: string }>): number {
   const st = useStore((s) => s.sl3.tips)
   return useMemo(() => defs.filter((d) => !st[d.id]).length, [defs, st])
 }
 
 /* Field visibility for the tip hooks: the same read as common.tsx useSharedVisibility (Property › Overview's Show / Edit /
- * Don't show on a shared row), for a channel named by argument rather than by the URL — the rail computes every
+ * Don't show on a shared row), for a channel named by argument rather than by the URL, the rail computes every
  * channel's tips from any page. Pass `s.overview?.[pid]?.fieldVisibility` (a stable store reference). */
 const uniformVisibility = (m: Partial<Record<string, FieldVisibility>> | undefined): FieldVisibility | undefined => {
   if (!m) return undefined
@@ -71,15 +71,15 @@ export interface ScreenTipDef {
   section?: string
   title: string
   main: ReactNode
-  /** Each bullet's source (strategy/market reasoning vs. an actual guest inbox reference — ds/sl3.tsx TipCard renders
+  /** Each bullet's source (strategy/market reasoning vs. an actual guest inbox reference, ds/sl3.tsx TipCard renders
    *  the icon + "Strategy"/"Inbox" tag), same shape as the Listing editor's own TipDef.why (data/sl3.ts). */
   why: WhyPoint[]
   /** A real action to pair with Accept (e.g. opening the screen's own Dynamic Pricing / Security deposit panel),
    *  so accepting a money or policy suggestion still hands the actual number to the real control rather than
-   *  writing one silently. Optional — most suggestions here are illustrative only. */
+   *  writing one silently. Optional, most suggestions here are illustrative only. */
   onAccept?: () => void
   /** The screen tab this tip's field lives on, when the screen has tabs. Stepping onto a tip whose field is on
-   *  another tab switches there first, then scrolls — otherwise the field isn't mounted and nothing would happen. */
+   *  another tab switches there first, then scrolls, otherwise the field isn't mounted and nothing would happen. */
   tab?: string
   /** The id of the element this tip is about, so opening or stepping through tips scrolls the form to the row the
    *  suggestion would change ("make sure that the tips always makes the content area travel to
@@ -194,7 +194,7 @@ export function useScreenTips(
       scrolled.current = true
       landed.current = id
       // the column that actually scrolls: on Pricing the PanelStack's own main sits inside Split's main and grows with
-      // its content, so the nearest match isn't always the scroller — walk out to the first one that overflows
+      // its content, so the nearest match isn't always the scroller, walk out to the first one that overflows
       const SC = '.h-split__main, .h-pstack__main'
       let sc = el.closest<HTMLElement>(SC)
       if (!sc) { el.scrollIntoView({ block: 'center', behavior }); return true }
@@ -208,7 +208,7 @@ export function useScreenTips(
       return true
     }
     if (land()) return
-    // arriving with ?tips=1 (or switching tab), the row may not be mounted yet — the screen's brief loading beat
+    // arriving with ?tips=1 (or switching tab), the row may not be mounted yet, the screen's brief loading beat
     // (useBriefLoading) is still up. Try again for a moment rather than silently not travelling.
     let tries = 0
     const timer = window.setInterval(() => { if (land() || ++tries > 20) window.clearInterval(timer) }, 100)
@@ -216,7 +216,7 @@ export function useScreenTips(
   }, [tipsOpen, t?.id, t?.field, t?.tab, curTab, goTo, firstOnTab])
   const chip = <TipsToggle count={pending.length} open={tipsOpen} onToggle={toggle} />
   /** The purple marker beside the thing a tip is about ("you should always have the icon that there's
-   *  a tip available next to the thing that there is a tip for") — same rule as the Listing editor's field rows.
+   *  a tip available next to the thing that there is a tip for"), same rule as the Listing editor's field rows.
    *  Clicking opens the panel on that field's first tip. Returns null when no open tip names this field. */
   const dotFor = (field: string): ReactNode => {
     const mine = pending.filter((d) => d.field === field)
@@ -224,7 +224,7 @@ export function useScreenTips(
     const active = tipsOpen && !!t && t.field === field
     return <TipDot count={mine.length} active={active} hint={TIP_DOT_HINT} onClick={() => { setI(open.indexOf(mine[0])); setTipsOpen(true) }} />
   }
-  /** The same marker as `dotFor`, as SettingRow's own `tips` / `tipActive` / `onTip` props — for rows whose label must
+  /** The same marker as `dotFor`, as SettingRow's own `tips` / `tipActive` / `onTip` props, for rows whose label must
    *  stay a plain string (common.tsx ScopedRow, used by Pricing and Availability), so SettingRow draws the dot right
    *  after the label exactly as it does on the Listing editor. Empty when no pending tip names this field. */
   const rowTip = (field: string): { tips?: number; tipActive?: boolean; onTip?: () => void } => {

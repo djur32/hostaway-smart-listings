@@ -7,11 +7,11 @@
  * this should definitely be in a banner at the bottom, and make sure that all of the content is scrollable... I want
  * this to be at the bottom and only in the area where you're editing." The earlier build pinned a strip to the TOP
  * of the whole viewport, above the sidebar; it's now a plain `position: sticky; bottom` element rendered AS A CHILD
- * of the dirty screen's own scrolling content column — never a fixed/portal element measured against the viewport.
+ * of the dirty screen's own scrolling content column, never a fixed/portal element measured against the viewport.
  * That gets both asks for free: it's exactly as wide as the content column (never the sidebar), and the page keeps
  * scrolling normally since the bar is just the last thing in that scroll container, not pulled out of flow.
  *
- * `<UnsavedBar/>` is still the one component, but it is no longer mounted once at the shell root — nothing in
+ * `<UnsavedBar/>` is still the one component, but it is no longer mounted once at the shell root, nothing in
  * AppShell is "the" content column, every screen builds its own, so the call moves to wherever each screen's
  * scrolling column ends: `shell/AppShell.tsx`'s `Page` and `shell/PropertyLayout.tsx`'s `PageBody` (the two shared
  * wrappers, covering most screens) render it as the last child of `.h-content__inner`; `ListingDetails.tsx` and
@@ -23,17 +23,17 @@
  * `SaveActions` consumers haven't been checked against this list screen-by-screen (SESSION-LOG has the detail).
  *
  * Same registry architecture as the mobile sticky-action-bar in ./mobile.tsx (a module-level subscribable store,
- * put/remove, useSyncExternalStore) — but this one also renders on desktop, where there was no shared sticky
+ * put/remove, useSyncExternalStore), but this one also renders on desktop, where there was no shared sticky
  * mechanism yet. On phones it doesn't build a second bar: it registers into the existing mobile action bar via
  * useMobileActions (ds/mobile.tsx), the same slot Tips/SaveActions already use.
  *
  * Multiple registrations can be dirty at once (e.g. the section's own draft + an open, un-actioned tip). The bar
- * shows ONE shared Discard/Save pair and calls EVERY registered onDiscard/onSave — not just the most recent — because
+ * shows ONE shared Discard/Save pair and calls EVERY registered onDiscard/onSave, not just the most recent, because
  * each registration owns a different draft and only it knows how to drop or commit its own changes; calling just one
  * would silently lose (or leave stranded) whatever the others were holding.
  *
  * CSS: ds/components.css, section "UNSAVED CHANGES". Tokens only. Motion: --dur-drawer/--ease-drawer (ds/motion.md
- * M-20) — "quick, not gradual": the bar mostly just appears, no slide, no bounce. */
+ * M-20), "quick, not gradual": the bar mostly just appears, no slide, no bounce. */
 import { useEffect, useId, useLayoutEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { createPortal } from 'react-dom'
 import { useBlocker } from 'react-router-dom'
@@ -46,7 +46,7 @@ export interface UnsavedEntry {
   id: string
   dirty: boolean
   onDiscard: () => void
-  /** May be async and/or return `false` to signal validation blocked the save (SaveActions' convention) — the entry
+  /** May be async and/or return `false` to signal validation blocked the save (SaveActions' convention), the entry
    *  stays dirty and the bar/dialog don't treat it as saved. */
   onSave: () => unknown
   /** What this registration is ("Essentials", "a tip"): not surfaced in the bar's copy today (one shared pair, no
@@ -57,7 +57,7 @@ export interface UnsavedEntry {
 /* ---------- registry (module-level, same shape as ./mobile's `bar`) ---------- */
 let entries: Map<string, UnsavedEntry> = new Map()
 // useSyncExternalStore requires a stable snapshot reference between emits, so the derived dirty list is cached and
-// only recomputed when the registry itself mutates — not on every render's getSnapshot call (a fresh array each
+// only recomputed when the registry itself mutates, not on every render's getSnapshot call (a fresh array each
 // call looks like a change every time and loops React forever, "Maximum update depth exceeded").
 let dirtyCache: UnsavedEntry[] = []
 const recompute = () => { dirtyCache = [...entries.values()].filter((e) => e.dirty) }
@@ -73,7 +73,7 @@ const registry = {
 
 /** Registers a draft as dirty/clean with the shared bar + navigation guard. Unregisters on unmount. Callbacks may
  *  change every render (kept in a ref, as useMobileActions does); pass `dirty: false` the moment there's nothing to
- *  lose (e.g. right after a save resolves) — the bar/blocker clear themselves as soon as nothing registered is dirty. */
+ *  lose (e.g. right after a save resolves), the bar/blocker clear themselves as soon as nothing registered is dirty. */
 export function useUnsavedChanges({ dirty, onDiscard, onSave, label }: { dirty: boolean; onDiscard: () => void; onSave: () => unknown; label?: string }) {
   const id = useId()
   const cb = useRef({ onDiscard, onSave })
@@ -147,12 +147,12 @@ function SaveToast() {
 }
 
 /* ---------- the dialog (OvDialog: the DS's existing centred-modal/bottom-sheet shell, ds/overview.tsx) ---------- */
-/** Button hierarchy: Keep editing is the quiet way out —
- *  ghost, no border — Discard changes is the destructive-but-reversible-by-not-clicking-it one — outlined danger,
- *  not a solid fill, which read as too final for a confirm dialog — and Save changes stays primary. All three
- *  h-btn--lg (taller — easier to hit correctly on a decision this consequential). */
+/** Button hierarchy: Keep editing is the quiet way out -
+ *  ghost, no border, Discard changes is the destructive-but-reversible-by-not-clicking-it one, outlined danger,
+ *  not a solid fill, which read as too final for a confirm dialog, and Save changes stays primary. All three
+ *  h-btn--lg (taller, easier to hit correctly on a decision this consequential). */
 function UnsavedDialog({ busy, onKeepEditing, onDiscard, onSave }: { busy: boolean; onKeepEditing: () => void; onDiscard: () => void; onSave: () => void }) {
-  // phones: the same footer as every other sheet — the Discard changes | Save changes pair, 50/50;
+  // phones: the same footer as every other sheet, the Discard changes | Save changes pair, 50/50;
   // "Keep editing" is the sheet's own way out (×, scrim, drag down, Esc), so it isn't a third button
   if (useIsMobile()) return (
     <OvDialog title="Unsaved changes" onClose={onKeepEditing}
@@ -178,13 +178,13 @@ function UnsavedDialog({ busy, onKeepEditing, onDiscard, onSave }: { busy: boole
 }
 
 /** How long the bar keeps showing "Discarded" (discarding needs to read as clearly as
- *  saving does) before it disappears — long enough to register, short enough not to block the next edit. */
+ *  saving does) before it disappears, long enough to register, short enough not to block the next edit. */
 const DISCARDED_MS = 1400
 
 /** The sticky-bottom bar (desktop) + the mobile hand-off + the route-change guard + its dialog, all in one.
  *  NOT mounted once globally any more (reworked 1 Oct evening, see this file's docblock): call it as the last child
- *  of whichever scrolling content column the dirty screen owns — `shell/AppShell.tsx`'s `Page`, `shell/
- *  PropertyLayout.tsx`'s `PageBody`, a screen's own `.ch-page`, or a PanelStack panel's `footer` — never inside a
+ *  of whichever scrolling content column the dirty screen owns, `shell/AppShell.tsx`'s `Page`, `shell/
+ *  PropertyLayout.tsx`'s `PageBody`, a screen's own `.ch-page`, or a PanelStack panel's `footer`, never inside a
  *  fixed-position wrapper. Screens otherwise only ever call useUnsavedChanges; this call is what makes the
  *  registered draft actually visible in THAT screen's column. */
 export function UnsavedBar() {
@@ -207,19 +207,19 @@ export function UnsavedBar() {
   }
   const save = async () => { setBusy(true); try { await saveAll(list) } finally { setBusy(false) } }
 
-  // Phones (ds/mobile.md §6): the shell already has one sticky action bar above the tab bar — register into it
+  // Phones (ds/mobile.md §6): the shell already has one sticky action bar above the tab bar, register into it
   // instead of stacking a second bar. useMobileActions no-ops above 767px, so this is a no-op on desktop. Returning
   // 'Discarded' makes the mobile bar flash it the same way it already flashes a string Save returns (ds/mobile.tsx).
   useMobileActions(dirty ? { dirty: true, onDiscard: () => { discardAll(list); return 'Discarded' }, onSave: save, discardLabel: 'Discard changes', saveLabel: 'Save changes' } : null)
 
   // In-app navigation (an actual route/page change) while dirty is blocked; the dialog takes over instead of
-  // navigating. Scoped to the PATHNAME so a same-page search-param update — a tab switch, a filter, Canvas's own
+  // navigating. Scoped to the PATHNAME so a same-page search-param update, a tab switch, a filter, Canvas's own
   // ?select=/?compare=/?tips= (screens/canvas/CanvasView.tsx selects a different field, toggles Live now, opens
-  // Tips, all while a draft may already be dirty) — is never caught by this guard; only actually leaving the page
+  // Tips, all while a draft may already be dirty), is never caught by this guard; only actually leaving the page
   // is. A boolean `useBlocker(dirty)` blocks every transition regardless of destination, which silently broke any
   // same-page interaction once a draft went dirty (confirmed live: Canvas's second field could no longer be
   // selected after the first was accepted) and contradicted Pricing's own documented intent (PricingPanels.tsx:
-  // "switching tabs with unsaved edits drops them" — a tab Link is a transition too, so it needs to go through).
+  // "switching tabs with unsaved edits drops them", a tab Link is a transition too, so it needs to go through).
   // React Router allows ONE blocker at a time, and a page can mount more than one UnsavedBar (the Listing editor and its
   // Manage photos takeover, a screen and a PanelStack footer). Only the first one mounted owns the guard (RouteGuard,
   // below); the others are bars only. The guard reads the shared registry, so whichever bar owns it covers every draft.
@@ -238,10 +238,10 @@ export function UnsavedBar() {
 
   // Pinned to the bottom of the window, across the whole working area ("always at the bottom, not
   // just under the content… it should span the entire thing", Tips panel included). The bar stays where it is in the
-  // tree (so the draft context still finds it), but the pinned bar is portalled to <body> — a transformed ancestor (the
+  // tree (so the draft context still finds it), but the pinned bar is portalled to <body>, a transformed ancestor (the
   // page's entry animation) would otherwise capture `position: fixed` but is drawn `position: fixed`,
   // its left/right taken from the area it belongs to: the editor's split (form + panel), else the whole editor
-  // (a PanelStack page such as Pricing), else the page's content column — never the padded form column. Inside a PanelStack footer (Calendar's night drill-down) it stays inline, as before.
+  // (a PanelStack page such as Pricing), else the page's content column, never the padded form column. Inside a PanelStack footer (Calendar's night drill-down) it stays inline, as before.
   const anchor = useRef<HTMLSpanElement>(null)
   const [box, setBox] = useState<{ left: number; right: number } | null>(null)
   const shown = !isMobile && (dirty || discarded)

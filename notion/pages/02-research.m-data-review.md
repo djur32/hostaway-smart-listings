@@ -1,55 +1,55 @@
-<callout icon="🔭" color="gray_bg">
-	**Method · Planned** · Not run. No Hostaway data was available to me; this is what I'd pull and why. There are no results yet. The "Edit per channel" chart on <mention-page url="https://app.notion.com/p/3eee18af1645818094e8d80d9ddf2acd">Insights</mention-page> is a simulated illustration, not a result.
+<callouticon=🔭 color=gray_bg>
+	**MethodPlanned** · Notrun. NoHostawaydatawasavailabletome; thisiswhatI'dpullandwhy. Therearenoresultsyet. TheEditperchannelcharton<mention-pageurl=https//app.notion.comp3eee18af1645818094e8d80d9ddf2acd>Insights</mention-page> isasimulatedillustrationnotaresult.
 </callout>
-## Why this method
-Data before people. Exports show what hosts actually change and where they get stuck, across thousands of properties, so the interviews can explain a pattern instead of guessing one. The known bias: tickets and sales calls over-represent hosts who had problems, and larger accounts. In-app recruiting for the interviews balances it.
-## What I'd pull
-<table header-row="true">
+## Whythismethod
+Databeforepeople. Exportsshowwhathostsactuallychangeandwheretheygetstuckacrossthousandsofpropertiessotheinterviewscanexplainapatterninsteadofguessingone. Theknownbiasticketsandsalescallsover-representhostswhohadproblemsandlargeraccounts. In-apprecruitingfortheinterviewsbalancesit.
+## WhatI'dpull
+<tableheader-row=true>
 	<tr>
 		<td>Source</td>
-		<td>What, and how much</td>
+		<td>Whatandhowmuch</td>
 		<td>Why</td>
 		<td>Owner</td>
 	</tr>
 	<tr>
-		<td>Support tickets</td>
-		<td>12 months. A random 300 from listing, sync and connection tags, plus 100 untagged to catch mis-tagging. Recoded to one taxonomy, per 100 active properties.</td>
-		<td>Which listing problems cost most: "where do I edit this?", a value that differs per channel, the assistant telling a guest something the listing doesn't say.</td>
-		<td>CS lead</td>
+		<td>Supporttickets</td>
+		<td>12months. Arandom300fromlistingsyncandconnectiontagsplus100untaggedtocatchmis-tagging. Recodedtoonetaxonomyper100activeproperties.</td>
+		<td>WhichlistingproblemscostmostwheredoIeditthis?, avaluethatdiffersperchanneltheassistanttellingaguestsomethingthelistingdoesn'tsay.</td>
+		<td>CSlead</td>
 	</tr>
 	<tr>
-		<td>Sales calls (Gong)</td>
-		<td>618 calls across 457 accounts . All of them for counts; a stratified 60 (15 per portfolio size) listened to at the listing moments, with a second coder on 20%.</td>
-		<td>Whether listing content and per-channel control come up in deals, and at which portfolio sizes.</td>
-		<td>RevOps / Gong owner</td>
+		<td>Salescalls(Gong)</td>
+		<td>618callsacross457accounts. Allofthemforcounts; astratified60(15perportfoliosize) listenedtoatthelistingmomentswithasecondcoderon20%.</td>
+		<td>Whetherlistingcontentandper-channelcontrolcomeupindealsandatwhichportfoliosizes.</td>
+		<td>RevOpsGongowner</td>
 	</tr>
 	<tr>
-		<td>"Edit per channel" usage</td>
-		<td>Every field that offers it today, by portfolio size: the share of multi-channel properties that customise it. An instrumentation audit first.</td>
-		<td>What hosts really keep different per channel, money or words. It sets what tips must cover.</td>
-		<td>Data lead</td>
+		<td>Editperchannelusage</td>
+		<td>Everyfieldthatoffersittodaybyportfoliosizetheshareofmulti-channelpropertiesthatcustomiseit. Aninstrumentationauditfirst.</td>
+		<td>Whathostsreallykeepdifferentperchannelmoneyorwords. Itsetswhattipsmustcover.</td>
+		<td>Datalead</td>
 	</tr>
 	<tr>
-		<td>Knowledge Hub usage</td>
-		<td>Share of properties that generated or edited the Hub, facts in its copy that differ from Details, and guest questions per property with how many the AI answered.</td>
-		<td>How far the Hub's copy drifts from the listing, and how many guest questions go unanswered.</td>
-		<td>Data lead</td>
+		<td>KnowledgeHubusage</td>
+		<td>ShareofpropertiesthatgeneratedoreditedtheHubfactsinitscopythatdifferfromDetailsandguestquestionsperpropertywithhowmanytheAIanswered.</td>
+		<td>HowfartheHub'scopydriftsfromthelistingandhowmanyguestquestionsgounanswered.</td>
+		<td>Datalead</td>
 	</tr>
 	<tr>
-		<td>Public feedback board</td>
-		<td>Listing requests and their votes.</td>
-		<td>Demand nobody prompted. Example: "Ability to update all listing content from Hostaway", 322 votes, In Progress ([feedback.hostaway.com](https://feedback.hostaway.com/p/two-way-sync-of-updates-to-listing-details)).</td>
+		<td>Publicfeedbackboard</td>
+		<td>Listingrequestsandtheirvotes.</td>
+		<td>Demandnobodyprompted. ExampleAbilitytoupdatealllistingcontentfromHostaway322votesInProgress([feedback.hostaway.com](https//feedback.hostaway.comptwo-way-sync-of-updates-to-listing-details)).</td>
 		<td>Me</td>
 	</tr>
 </table>
-Exports arrive with guest names, emails, phones and addresses removed. Researchers never see raw guest data.
-## What I'd look for
-- Which fields do hosts customise per channel most, and is any text field among them?
-- How often does a ticket say the assistant contradicted the listing?
-- How many tickets ask where to edit something, and what do they cost to resolve?
-- Does listing trouble rise with portfolio size in sales calls, and when does it become a reason not to buy?
-- What do hosts ask for on the board without being asked?
-## What it produces
-- Planned: no results yet.
-- The "Edit per channel" chart on <mention-page url="https://app.notion.com/p/3eee18af1645818094e8d80d9ddf2acd">Insights</mention-page> is a simulated illustration, not a result.
-- The findings would set the questions for <mention-page url="https://app.notion.com/p/3eee18af1645819096ffef972af24f70">User interviews</mention-page>.
+Exportsarrivewithguestnamesemailsphonesandaddressesremoved. Researchersneverseerawguestdata.
+## WhatI'dlookfor
+- Whichfieldsdohostscustomiseperchannelmostandisanytextfieldamongthem?
+- Howoftendoesaticketsaytheassistantcontradictedthelisting?
+- Howmanyticketsaskwheretoeditsomethingandwhatdotheycosttoresolve?
+- Doeslistingtroublerisewithportfoliosizeinsalescallsandwhendoesitbecomeareasonnottobuy?
+- Whatdohostsaskforontheboardwithoutbeingasked?
+## Whatitproduces
+- Plannednoresultsyet.
+- TheEditperchannelcharton<mention-pageurl=https//app.notion.comp3eee18af1645818094e8d80d9ddf2acd>Insights</mention-page> isasimulatedillustrationnotaresult.
+- Thefindingswouldsetthequestionsfor<mention-pageurl=https//app.notion.comp3eee18af1645819096ffef972af24f70>Userinterviews</mention-page>.

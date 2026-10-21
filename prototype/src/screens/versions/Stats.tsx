@@ -148,7 +148,7 @@ function Compare({ ch, propertyId }: { ch: ChannelId; propertyId: string }) {
                 <div key={l.id} className="h-health" style={{ gridTemplateColumns: '110px minmax(0, 1fr) 32px', padding: '4px 0' }} title={l.note}>
                   <span className="h-caption">{l.label}</span>
                   {l.editable ? <span className={`h-health__bar${l.score < 50 ? ' is-low' : l.score < 75 ? ' is-mid' : ''}`}><i style={{ ['--value' as string]: `${l.score}%` }} /></span> : <span className="h-caption h-muted">not scored</span>}
-                  <span className="h-caption p-num" style={{ textAlign: 'right' }}>{l.editable ? l.score : '—'}</span>
+                  <span className="h-caption p-num" style={{ textAlign: 'right' }}>{l.editable ? l.score : '-'}</span>
                 </div>
               ))}
             </div>

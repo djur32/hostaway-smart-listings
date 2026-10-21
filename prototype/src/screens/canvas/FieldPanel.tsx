@@ -1,12 +1,12 @@
 /* WS-CV · the Canvas's field panel ("the solution has to be in the sidebar… distinguish what is a tip
  * versus the field itself"). Tapping an area on the replica opens this in the one right-hand slot. 2nd pass (3 Oct):
- *   (b) a field with a tip shows ONLY the tip card — the same purple TipCard as the Tips panel, Accept / Dismiss doing
+ *   (b) a field with a tip shows ONLY the tip card, the same purple TipCard as the Tips panel, Accept / Dismiss doing
  *       what they do there; no field, no Uses the Base / Custom row;
- *   (a) otherwise the field exactly as Classic renders it — Classic's own FieldRow (screens/channel/FieldRow.tsx),
+ *   (a) otherwise the field exactly as Classic renders it, Classic's own FieldRow (screens/channel/FieldRow.tsx),
  *       reading the Canvas draft through the same DraftProvider (scope caption, Customize / Use the Base, visibility,
  *       the one Discard / Save bar);
  *   (c) the orange Rewrite-with-AI card (SmartifyPanel, embedded) under the field only once the trigger on the panel's
- *       title row is clicked (CanvasView renders it from useFieldPanel) — closed by default.
+ *       title row is clicked (CanvasView renders it from useFieldPanel), closed by default.
  * Photos never open a panel (the full-screen Manage photos takeover instead); price lines open ./PricePanel.tsx. */
 import { useState } from 'react'
 import { Diff, SmartifyPanel, TipCard } from '../../ds'

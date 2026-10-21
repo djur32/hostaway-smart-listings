@@ -13,7 +13,7 @@
  * Earlier rounds that still hold: one channel at a time (no All), a one-line page description, no recommendations,
  * chart tooltips inside the plot, Hostaway Metrics card styling (research/current-state/review-2026-10-03-metrics/,
  * ), each chart card with its own settings (Bar / Line, By day / week / month).
- * Data: data/performance.ts — (sample data): scenarioSim for Neukölln, the
+ * Data: data/performance.ts, (sample data): scenarioSim for Neukölln, the
  * generated baselineSim for any other property. Every number, the summary sentence included, is read from it.
  * "When the strategy started" is shared.ts strategyStart (the same date Strategy › channel shows).
  * URL: ?ch=airbnb|booking|direct, ?period=since|last30|last90, ?smart=on. */
@@ -56,15 +56,15 @@ function kpis(ch: ListingChannel, sim: SlSim, m: SlMetrics): Array<{ label: stri
   const conv = sim.channels.includes('direct') && ch === 'direct'
   return [
     { label: 'Occupancy', value: pct(m.occ), foot: `Similar homes ${pct(m.compsOcc)}` },
-    { label: 'Nightly rate (ADR)', value: m.nights ? eur(m.adr) : '—', foot: `Similar homes ${eur(m.compsAdr)}` },
+    { label: 'Nightly rate (ADR)', value: m.nights ? eur(m.adr) : '-', foot: `Similar homes ${eur(m.compsAdr)}` },
     { label: 'RevPAR', value: m.revpar >= 100 ? eur(m.revpar) : `€${m.revpar.toFixed(1)}`, foot: 'Revenue per available night' },
     { label: 'Revenue', value: eur(m.revenue), foot: `${m.bookings} booking${m.bookings === 1 ? '' : 's'} · ${daysText(m.days)}` },
     { label: 'Next 30 nights booked', value: pct(m.pace), foot: `Similar homes ${pct(m.compsPace)}` },
-    { label: 'Lead time', value: m.bookings ? `${Math.round(m.lead)} days` : '—', foot: `Similar homes ${COMPS_LEAD} days` },
+    { label: 'Lead time', value: m.bookings ? `${Math.round(m.lead)} days` : '-', foot: `Similar homes ${COMPS_LEAD} days` },
     conv
-      ? { label: 'Views → bookings', value: m.conversion !== null ? `${(m.conversion * 100).toFixed(1)}%` : '—', foot: `${m.views ?? 0} visits to your site` }
+      ? { label: 'Views → bookings', value: m.conversion !== null ? `${(m.conversion * 100).toFixed(1)}%` : '-', foot: `${m.views ?? 0} visits to your site` }
       : { label: 'Views → bookings', value: 'Not shared', foot: `${chName(ch)} keeps page views`, muted: true },
-    { label: 'Average rating', value: m.rating !== null ? `${m.rating.toFixed(1)} ★` : '—', foot: `${m.reviews} review${m.reviews === 1 ? '' : 's'} · similar homes ${COMPS_RATING}` },
+    { label: 'Average rating', value: m.rating !== null ? `${m.rating.toFixed(1)} ★` : '-', foot: `${m.reviews} review${m.reviews === 1 ? '' : 's'} · similar homes ${COMPS_RATING}` },
   ]
 }
 

@@ -1,5 +1,5 @@
 /* Knowledge Hub, reframed · the page frame every Hub page shares: KhrFrame (title + Concept chip + property switcher,
- * an optional tab row, the Split body) plus the Hub's own actions — Test (the faithful "Ask the AI" preview) and Tips
+ * an optional tab row, the Split body) plus the Hub's own actions, Test (the faithful "Ask the AI" preview) and Tips
  * (the docked right-hand panel, the one tips container). Desktop: at the right end of the tab row, or before the
  * property switcher on a page with no tabs. Phones: next to the title (`.ch-tips-m`, as on Listing).
  * URL states, the same as Listing's: ?tips=1 (panel open) · ?tip=<id> (open on that tip). */

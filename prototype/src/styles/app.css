@@ -121,8 +121,8 @@ body { background: var(--color-bg-app); }
   .p-flow .p-rail > * { scroll-snap-align: start; }
   .p-flow__next { flex-direction: column; align-items: stretch; }
   .p-flow__next .h-btn { height: auto; min-height: var(--m-tap); padding-block: 10px; white-space: normal; }
-  /* readable at arm's length (mobile stress test, 3 Oct): the flow's 12px captions — field labels, legends, "as
-     imported", "Original kept as version 0" — go to 14 on phones; uppercase eyebrows (.p-label) and chips stay 12 */
+  /* readable at arm's length (mobile stress test, 3 Oct): the flow's 12px captions, field labels, legends, "as
+     imported", "Original kept as version 0", go to 14 on phones; uppercase eyebrows (.p-label) and chips stay 12 */
   .p-flow .h-caption, .p-flow .p-legend, .p-flow .h-import__counts { font-size: var(--text-sm); line-height: var(--leading-sm); }
 
   /* p-stack: a table whose rows become cards (name on top, the two channel values side by side, the outcome under) */

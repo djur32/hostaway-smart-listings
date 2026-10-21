@@ -118,7 +118,7 @@ export const M = {
     if (!s) return M.rise(el, o);
     return g().from(s.lines, { yPercent: 108, duration: o.duration ?? d(3), ease: o.ease ?? E.out, stagger: o.stagger ?? stag(1.6), delay: o.delay || 0 });
   },
-  /** words come alive at a human rhythm: blur, lift, land (CoPilot's own motion) */
+  /** words come alive at a human rhythm: blur, lift, land (the assistant's motion) */
   words(el, o = {}) {
     const s = split(el, 'words');
     if (!s) return M.focus(el, o);
@@ -167,7 +167,7 @@ export const M = {
     pristine(el);
     const text = o.text ?? el.textContent;
     if (!window.ScrambleTextPlugin || still()) return g().set(el, { textContent: text });
-    return g().fromTo(el, { textContent: '' }, { duration: o.duration ?? d(3), ease: 'none', scrambleText: { text, chars: o.chars ?? '01/·—<>:', revealDelay: 0.25, speed: 0.6 } });
+    return g().fromTo(el, { textContent: '' }, { duration: o.duration ?? d(3), ease: 'none', scrambleText: { text, chars: o.chars ?? '01/·-<>:', revealDelay: 0.25, speed: 0.6 } });
   },
   /** type a line out, character by character, at a slightly uneven rhythm */
   type(el, o = {}) {

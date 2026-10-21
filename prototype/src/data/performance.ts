@@ -33,9 +33,9 @@ export const AVAILABILITY: Record<MetricId, Partial<Record<ChannelId, { a: Avail
   enquiries: { airbnb: { a: 'yes', why: 'Inbox' }, booking: { a: 'yes', why: 'Inbox' }, vrbo: { a: 'yes', why: 'Inbox' }, direct: { a: 'yes', why: 'Inbox' } },
   views: { airbnb: { a: 'no', why: 'Airbnb shows views only in its own Insights; no API for software' }, booking: { a: 'no', why: 'Extranet analytics only' }, vrbo: { a: 'no', why: 'Not shown to integrated software (Vrbo docs)' }, direct: { a: 'yes', why: 'Your site: every visit' } },
   conversion: { airbnb: { a: 'no', why: 'Needs views' }, booking: { a: 'no', why: 'Needs views' }, vrbo: { a: 'no', why: 'Needs views' }, direct: { a: 'yes', why: 'Your site' } },
-  score: { airbnb: { a: 'no', why: 'Airbnb exposes no numeric score' }, booking: { a: 'yes', why: 'Page Score, Property Scores API' }, vrbo: { a: 'no', why: 'Not exposed to software' }, direct: { a: 'n/a', why: '—' } },
-  rank: { airbnb: { a: 'no', why: 'No channel exposes rank; we don’t scrape' }, booking: { a: 'no', why: 'Same' }, vrbo: { a: 'no', why: 'Same' }, direct: { a: 'n/a', why: '—' } },
-  reviews: { airbnb: { a: 'yes', why: 'Reviews sync' }, booking: { a: 'yes', why: 'Reviews sync' }, vrbo: { a: 'yes', why: 'Reviews sync' }, direct: { a: 'n/a', why: '—' } },
+  score: { airbnb: { a: 'no', why: 'Airbnb exposes no numeric score' }, booking: { a: 'yes', why: 'Page Score, Property Scores API' }, vrbo: { a: 'no', why: 'Not exposed to software' }, direct: { a: 'n/a', why: '-' } },
+  rank: { airbnb: { a: 'no', why: 'No channel exposes rank; we don’t scrape' }, booking: { a: 'no', why: 'Same' }, vrbo: { a: 'no', why: 'Same' }, direct: { a: 'n/a', why: '-' } },
+  reviews: { airbnb: { a: 'yes', why: 'Reviews sync' }, booking: { a: 'yes', why: 'Reviews sync' }, vrbo: { a: 'yes', why: 'Reviews sync' }, direct: { a: 'n/a', why: '-' } },
 }
 export const avail = (m: MetricId, c: ChannelId) => AVAILABILITY[m][c] ?? { a: 'no' as Avail, why: 'Not connected' }
 
@@ -147,7 +147,7 @@ export function switchbackRead(points: WeekPoint[], a: number, b: number, fromWe
     moreWeeks: Math.max(0, weeksNeeded - weeksSoFar), enoughBookings: na >= minPerVariant && nb >= minPerVariant }
 }
 
-/* ---------------- Competitiveness vs comps (D-159) — a heuristic, labelled ---------------- */
+/* ---------------- Competitiveness vs comps (D-159), a heuristic, labelled ---------------- */
 
 const NEIGHBOURHOOD = /neuk(ö|oe|o)lln|reuterkiez|tempelhof|hermannplatz/i
 const COMPS_FEATURES = /desk|workspace|wi-?fi|balcony|art|paint|canal|self check/i
@@ -202,7 +202,7 @@ export function minDetectable(bookingsPerWeek: number, weeks: number, variants =
  *    196/98 on 1 Oct ("I want to pretend that all of the different channels have been running on Smart
  *    Listings for a long time… I want to see different timelines, time ranges, that I can choose among"), so Last 30 /
  *    Last 90 / Since Smart Listings started are genuinely different windows, and so every channel has four versions
- *    that each ran 30 days or more — the minimum Strategy › Versions needs before it will compare a version at all
+ *    that each ran 30 days or more, the minimum Strategy › Versions needs before it will compare a version at all
  *    ("you need to run this for thirty days at least"). SL_START stays exactly SL_DAYS / 2: periodRange('all') in
  *    screens/smart/perf.ts derives the "equal baseline before" window as 2·SL_START − SL_DAYS, so breaking that
  *    symmetry would silently clamp the comparison window and make its label wrong.
@@ -218,11 +218,11 @@ export function minDetectable(bookingsPerWeek: number, weeks: number, variants =
  *    equal window before it, and Airbnb's live version the best of its four, on every seed. (3 Oct: Airbnb's and Booking.com's v1–v3
  *    were made genuinely different strategies; re-checked on Saturday's seed only: Airbnb's live v4 still the best of its
  *    four against similar homes, Booking.com's v2 ahead of its live v4, since-start RevPAR still above the window before.) Earlier versions are not
- *    strictly ordered any more — an early experiment sometimes beats another early one, which is what the "replace
+ *    strictly ordered any more, an early experiment sometimes beats another early one, which is what the "replace
  *    current with this version" action in Strategy › Versions is for.
  *  · Direct is deliberately low-volume (pull 0.2 against 1.0 / 1.3), as a single property's own booking site is: it
  *    takes roughly one booking every seven or eight weeks, so some 30-day windows hold very few or none. That is real,
- *    not a gap to paper over — Strategy › Versions says so instead of inventing numbers.
+ *    not a gap to paper over, Strategy › Versions says so instead of inventing numbers.
  *  · Views and view → booking conversion exist only for Direct (Hostaway's own site), as AVAILABILITY above says.
  * ===================================================================================================================== */
 
@@ -265,7 +265,7 @@ export interface SlSeedVersion { n: number; from: number; plan: SlPlan; mix?: Sl
 const plan = (goal: SlPlan['goal'], audience: SlPlan['audience'], priceMin: number, priceMax: number, mode: SlPlan['mode'] = 'suggest', asks = ['price', 'rules', 'policy']): SlPlan => ({ goal, audience, asks, priceMin, priceMax, mode })
 export const SL_SEED: Record<SlChannel, SlSeedVersion[]> = {
   /* Airbnb and Booking.com: four genuinely different strategies each ("maybe three previous strategies
-   * for Airbnb and Booking.com, so I have more options to choose from") — every pair differs in goal or audience, price
+   * for Airbnb and Booking.com, so I have more options to choose from"), every pair differs in goal or audience, price
    * range and/or Autopilot, and every one carries a short note. v4 is the live demo plan (data/v3-sl.ts DEMO_PLANS) and
    * is unchanged. . Strategy › History shows these under whatever the host saves on top
    * (screens/smart/shared.ts ensureScenarioHistory). */
@@ -374,7 +374,7 @@ function simulate(tl: Timeline, seed: number, chs: SlChannel[], scale = 1, cutof
  * Until now only the scenario listing had versions. Every other property ran `simulate` with an empty timeline, so
  * Strategy › Versions showed one row, "v1 · live since today · Still measuring · 4 weeks more needed", and Performance
  * fell into its just-set-up branch with no period control at all. Each property now gets its own generated history:
- *   · Smart Listings starts on day SL_START for every property — the same day periodRange('all'), the "Smart Listings
+ *   · Smart Listings starts on day SL_START for every property, the same day periodRange('all'), the "Smart Listings
  *     on" chart marker and the equal baseline before it already assume, so none of that has to move;
  *   · three or four versions per channel, every span ≥ MIN_SPAN days, so no row can read "Still measuring";
  *   · goal, audience, price range, who made the change and the notes all vary with the property id, so twelve homes
@@ -382,8 +382,8 @@ function simulate(tl: Timeline, seed: number, chs: SlChannel[], scale = 1, cutof
  *   · only the channels the property actually has (`chs` comes from data/portfolio.ts propertyChannels);
  *   · prices scale with how many guests it sleeps, as the rest of baselineSim already does.
  * The simulation seed is then SEARCHED, not fixed (SL_SEEDS does the same for the scenario listing): the first
- * candidate whose run satisfies the invariants — since-start RevPAR above the equal window before it, and every
- * version window with at least one booked night — is the one kept, so the numbers are plausible on every property
+ * candidate whose run satisfies the invariants, since-start RevPAR above the equal window before it, and every
+ * version window with at least one booked night, is the one kept, so the numbers are plausible on every property
  * and on any weekday the demo is opened. Everything here is . */
 const MIN_SPAN = 36
 const hashOf = (s: string) => [...s].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7)
@@ -461,7 +461,7 @@ export function propertyVersionSeed(pid: string, chs: SlChannel[], guests = 2, v
  *   · since-start RevPAR above the equal window before it (the headline invariant),
  *   · every version's own window, and its trailing 30 days, with at least one booked night on its channel, so no row
  *     has to fall back to "No bookings in this window",
- *   · the live version the best read on its channel and better than the run before Smart Listings — a host who has
+ *   · the live version the best read on its channel and better than the run before Smart Listings, a host who has
  *     been tuning a strategy for months should be running their best one, and it is the row the table bolds.
  *  Earlier versions are deliberately NOT ordered: an early experiment beating a later one is what "Replace current
  *  with this version" exists for. */
@@ -504,7 +504,7 @@ export const altSim = (ch: SlChannel, p: SlPlan, mix?: SlMix | null) =>
   memo(`alt:${ch}:${JSON.stringify(p)}:${JSON.stringify(mix ?? null)}`, () => simulate({ ...toTimeline(SL_SEED, SL_CHS), [ch]: [{ n: 0, from: 0, plan: null }, { n: 9, from: SL_START, plan: p, mix }] }, SL_SEEDS[TODAY_DOW], SL_CHS))
 export interface PropertyHistory { seed: Partial<Record<SlChannel, SlSeedVersion[]>>; sim: SlSim; channels: SlChannel[] }
 const histCache = new Map<string, PropertyHistory>()
-/** Any other property's Smart Listings history AND the calendar that ran under it, together — screens/smart/shared.ts
+/** Any other property's Smart Listings history AND the calendar that ran under it, together, screens/smart/shared.ts
  *  writes the versions into the store and the screens read the numbers from the simulation, and the two must be the
  *  same history. Both the ladder variant and the simulation seed are searched (not fixed) until baselineOk holds, so
  *  the invariants survive whatever weekday the demo is opened on; if nothing satisfies them the first run is still

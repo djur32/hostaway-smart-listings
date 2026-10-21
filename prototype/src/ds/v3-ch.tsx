@@ -12,14 +12,14 @@ import { scrollActiveTab } from './mobile'
 import { useUnsavedChanges } from './unsaved'
 
 /** Underline tabs (Hostaway's h-tabs) whose links carry their own query (e.g. keep `?tips=1` open across tabs).
- *  Listing's 5 tabs and ChannelPricing's 4 always fit the content column, but a longer row — Listing base › Pricing's
- *  6 (base/Pricing.tsx, 1 Oct) — can genuinely overflow it at normal (not just phone) desktop widths, where `.h-tabs`'s
+ *  Listing's 5 tabs and ChannelPricing's 4 always fit the content column, but a longer row, Listing base › Pricing's
+ *  6 (base/Pricing.tsx, 1 Oct), can genuinely overflow it at normal (not just phone) desktop widths, where `.h-tabs`'s
  *  own `overflow-x: auto` already lets the row scroll but gives no visual sign there's more to it, and nothing
  *  scrolled a newly-active tab into view (confirmed: navigating straight to a hidden tab's `?tab=` rendered its
- *  content correctly but left the tab itself scrolled out of sight — not actually reachable by clicking through).
+ *  content correctly but left the tab itself scrolled out of sight, not actually reachable by clicking through).
  *  Fixed generically here, for every QueryTabs caller, not just Pricing: `scrollActiveTab` (ds/mobile.tsx, already
  *  used by the phone-only ScrollTabs) scrolls the newly-active tab into view, but only when `active` itself changes
- *  — NOT on every render (unlike ds/mobile.tsx's own `useActiveTabIntoView`, which re-runs its layout effect on
+ * , NOT on every render (unlike ds/mobile.tsx's own `useActiveTabIntoView`, which re-runs its layout effect on
  *  every render with no dependency array; wired to this component that fights a manual scroll attempt, since the
  *  effect reruns on the scroll-tracking state update below and yanks the row back to the still-active tab before a
  *  reader can ever drag/swipe to a hidden one). A small edge mask-fade (ds/components.css, `.h-tabs.is-faded-*`)
@@ -54,7 +54,7 @@ export function QueryTabs({ items, active }: { items: Array<{ id: string; label:
   )
 }
 
-/** Hostaway's section actions (HS-22) — now delegated to the shared unsaved-changes bar (ds/unsaved.tsx,
+/** Hostaway's section actions (HS-22), now delegated to the shared unsaved-changes bar (ds/unsaved.tsx,
  *  concepts/smart-listing/UNSAVED-PATTERN.md, "I don't want to see Discard changes or Save unless
  *  there are changes"). Nothing renders here while clean; once dirty, the sticky top strip (mounted once in
  *  AppShell) carries Discard/Save for every dirty section at once, and navigating away is guarded. This still
@@ -189,7 +189,7 @@ export function SpecificList({ children }: { children: ReactNode }) {
 }
 
 /** Amenity row (HS-26/27 + CL-07): name, scope, optional note and tag, one trailing action.
- *  `info` is a homogenisation note — a decision taken to reconcile the channels, e.g. Booking.com calling a dedicated
+ *  `info` is a homogenisation note, a decision taken to reconcile the channels, e.g. Booking.com calling a dedicated
  *  workspace a "Desk" ("any decisions that have been made to homogenize the content put in an
  *  i icon with a tooltip for texts like this"). It is the product's shared tooltip (.h-tooltip-anchor + .h-tooltip),
  *  the same anchor the Tips panel's WHY sources use, never a second tooltip style.
@@ -220,13 +220,13 @@ export function AmenityRow({ name, scope, info, note, tag, tone = 'base', action
 }
 
 /** A row in a channel's "Add amenities" drawer: the amenity's name, its
- *  scope on the right — a channel mark when the amenity belongs to one channel, or the words when it is shared — and one
+ *  scope on the right, a channel mark when the amenity belongs to one channel, or the words when it is shared, and one
  *  trailing state icon. Not added = white row with a "+"; added = grey-filled row with a "✓". The whole row is the
  *  toggle (≥ 44px). `opens` marks an amenity that cannot be a one-tap yes because the channel wants structured
  *  sub-attributes with it (Airbnb's parking type / parking access): the row opens a small form instead of toggling, so
  *  it reads as a chevron, not a "+".
  *  Deliberately its own row, not ds/details' AmenityPick: that one is the Listing-details drawer (adds to the Base list,
- *  for every channel) and says "added. Remove" — a channel page never offers to remove anything. */
+ *  for every channel) and says "added. Remove", a channel page never offers to remove anything. */
 export function ChAmenityPick({ name, scope, added, opens, onToggle }: { name: string; scope?: ReactNode; added: boolean; opens?: boolean; onToggle: () => void }) {
   return (
     <button type="button" className={cx('ch-pick', added && 'is-added')} aria-pressed={added}
@@ -268,25 +268,25 @@ export function SectionHead({ title, desc, actions }: { title: ReactNode; desc?:
 
 /* ---------------- NumberField: the one numeric control, product-wide ---------------- */
 /** "when you have these numbers, you always have this type of selector that allows you to go up and
- *  down with the keyboard — make sure that this is available in all of the items that are numbers."
+ *  down with the keyboard, make sure that this is available in all of the items that are numbers."
  *  "All the money values should have the currency
  *  before, then the up and down arrows small, not taking up the whole thing, styled exactly the same. The ones that are
  *  not money but are numbers: the up and down arrows work the same and sit at the same place."
  *
  *  Anatomy (CSS `.h-numfield` in ds/components.css, next to the affix group it extends):
  *    [€ grey box]  value ………… [unit word] [▴▾]  [per-stay grey box]
- *  - `currency` (money): Hostaway's grey start affix, € in semibold — HS-L10 "Extra guest fee", HS-33 "Cleaning fee".
+ *  - `currency` (money): Hostaway's grey start affix, € in semibold, HS-L10 "Extra guest fee", HS-33 "Cleaning fee".
  *    A `unit` of "€"/"$"/"£" is read as a currency too, so every caller gets the currency on the left.
- *  - `unit` (non-money: %, guests, nights): a plain word inside the white field at the right, NOT a grey box —
+ *  - `unit` (non-money: %, guests, nights): a plain word inside the white field at the right, NOT a grey box -
  *    Hostaway's own treatment ("1 guest", "5 %", "4 guests": HS-L10, HS-C06, HS-C10).
  *  - The stepper: two tiny stacked arrows (16px column, light grey, 2px radius) inset 4px from the right edge of the
  *    white field, so it sits in the same spot on every numeric field; like the native spinner in the reference it is
  *    hidden at rest and shows on hover / focus, and is always shown (with bigger targets) on touch screens.
- *  - `per` ("per stay"): Hostaway's grey end affix (HS-33), after the field — the stepper stays inside the white part.
+ *  - `per` ("per stay"): Hostaway's grey end affix (HS-33), after the field, the stepper stays inside the white part.
  *
  *  Deliberately a *string* value with numeric `min`/`max`/`step`: each screen keeps its own parsing, clamping and
  *  storage format (Availability stores "2 nights", Pricing stores a bare decimal), so the control changes no screen's
- *  validation or draft behaviour — the stepper and the Up/Down keys are only more ways to reach the same `onChange`. */
+ *  validation or draft behaviour, the stepper and the Up/Down keys are only more ways to reach the same `onChange`. */
 const CURRENCY = new Set(['€', '$', '£'])
 export function NumberField({
   value, onChange, currency, currencySelect, unit, per, perSelect, label, disabled, invalid, describedBy, inputRef, autoFocus,

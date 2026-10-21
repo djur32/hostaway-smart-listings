@@ -1,6 +1,6 @@
 /* Knowledge Hub · Add a fact (R/AddFact.tsx), round 4 (review, voice 3 Oct): the describe step's "Use voice" button
  * at the top-right of the text box, its simulated "Listening…" state, and the "fill in the form instead" link.
- * Tokens only. Neutral styling throughout — this flow is not a recommendation, so no AI purple. */
+ * Tokens only. Neutral styling throughout, this flow is not a recommendation, so no AI purple. */
 .h-khaf-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); min-width: 0; }
 .h-khaf-head .h-khr-addfact__label { min-width: 0; }
 .h-khaf-voice { flex: none; }

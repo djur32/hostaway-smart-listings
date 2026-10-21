@@ -1,9 +1,9 @@
 /* Property › Shared › Listing base › Availability ("Under Listing base you will have the details,
- * then pricing and availability, the same way that we have it on the channels"). The property-wide stay rules — the
- * rows of Channels › Availability's General and Booking rules tabs (data/availability.ts AVAIL_FIELDS) — as the Base
+ * then pricing and availability, the same way that we have it on the channels"). The property-wide stay rules, the
+ * rows of Channels › Availability's General and Booking rules tabs (data/availability.ts AVAIL_FIELDS), as the Base
  * only. "We have the base, and off of the base others can act dissimilarly, but I don't need to see
- * that here": each row is a plain SettingRow — the Base input, editable straight away, and the informational
- * "ⓘ N channels" caption (N = channels that use the Base; the tooltip names them) — with no action, no link and
+ * that here": each row is a plain SettingRow, the Base input, editable straight away, and the informational
+ * "ⓘ N channels" caption (N = channels that use the Base; the tooltip names them), with no action, no link and
  * nothing about a channel's own value. Saving writes the same `avail:<key>` Base keys the channel page reads (data/
  * property-listing.ts availabilityFor + sl3.base) through useSectionDraft (commitAndSend). Instant book has no Base
  * (each channel supports different options), so it isn't on this page at all. Owner: this session. */
@@ -33,7 +33,7 @@ export function BaseAvailability() {
   const channels = useListingChannels()
   const c0 = channels[0]
   // one shared draft per tab, keyed apart from any channel's own (channel/common's `${c}:${section}`); `c0` only
-  // satisfies the hook's signature — every row below writes the Base (draft.setBase), so sl3.custom[c0] is never touched
+  // satisfies the hook's signature, every row below writes the Base (draft.setBase), so sl3.custom[c0] is never touched
   const draft = useSectionDraft(c0, `base:${tab}`)
   // concepts/smart-listing/UNSAVED-PATTERN.md: nothing shown until dirty, the shared top bar (ds/unsaved.tsx) in
   // place of this screen's own always-visible Discard/Save.
@@ -43,7 +43,7 @@ export function BaseAvailability() {
   const rowOf = (f: AvailField) => rows.find((r) => r.key === f.key) ?? f.row
   const effective = (f: AvailField) => draft.base[keyOf(f)] ?? rowOf(f).base
   // ("We have the base, and off of the base others can act dissimilarly, but I don't need to see that
-  // here"): each row is the Base input and the informational "ⓘ N channels" caption — N = the channels that use the
+  // here"): each row is the Base input and the informational "ⓘ N channels" caption, N = the channels that use the
   // Base (a channel with its own value, e.g. Airbnb's minimum stay, isn't counted), named in the caption's tooltip.
   // Nothing about how another channel differs, no action, no link.
   const savedCustom = useStore((s) => s.sl3.custom)
@@ -89,8 +89,8 @@ export function BaseAvailability() {
   return (
     <DraftProvider value={draft}>
       {/* The same frame as its siblings (base/Pricing.tsx, screens/channel/Availability.tsx, and the reference
-       * composition in screens/channel/ListingEditor.tsx): the WHOLE head — title, property switcher and the tab row
-       * below it — sticks as one `.ch-editor__head` block while only the fields scroll beneath. It used to be a plain
+       * composition in screens/channel/ListingEditor.tsx): the WHOLE head, title, property switcher and the tab row
+       * below it, sticks as one `.ch-editor__head` block while only the fields scroll beneath. It used to be a plain
        * `PageBody` with the tabs inline in the scrolling column, so the head scrolled away and the page behaved
        * unlike every other tabbed listing screen (verification audit, 1 Oct). */}
       <div className="ch-editor">

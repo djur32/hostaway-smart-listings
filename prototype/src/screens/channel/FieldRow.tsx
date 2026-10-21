@@ -4,7 +4,7 @@
  * trigger. Moved here verbatim from ListingEditor.tsx (3 Oct) so the Canvas can render the exact same field in its side
  * panel instead of re-implementing it ("the solution has to be in the sidebar… the same field").
  * It reads the section draft from context (common.tsx DraftProvider/useDraft): Classic passes its useSectionDraft,
- * Canvas an adapter over its own draft — same Discard / Save bar either way. */
+ * Canvas an adapter over its own draft, same Discard / Save bar either way. */
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import {
   Icon, LinkField, Locked, MapBox, SelectBox, SettingRow, SmartifyTrigger, TagBox, TaskList, Toggle, cx, withShortcodes, type ScopeValue,
@@ -18,8 +18,8 @@ import { useProperty } from '../../shell/PropertyLayout'
 import { ChannelPhotosRow } from './Photos'
 import { EverywhereNote, useDraft, useScopedField, viewOf } from './common'
 
-/* ---------------- Smartify (yellow, user-initiated refine — ds/smartify.tsx) ---------------- */
-/** Which fields Smartify can rewrite: EVERY long free-text field (kind 'textarea', on any Listing tab — Summary,
+/* ---------------- Smartify (yellow, user-initiated refine, ds/smartify.tsx) ---------------- */
+/** Which fields Smartify can rewrite: EVERY long free-text field (kind 'textarea', on any Listing tab, Summary,
  *  Description, Check-in method details, House manual, Guest access, Neighbourhood, House rules…), derived from the
  *  field kind so a new long-text field picks it up automatically ("these are all fields that require
  *  you to write more text"), plus the one short single-line field where a rewrite makes sense, Property name.
@@ -28,7 +28,7 @@ const SMARTIFY_SHORT_FIELDS = new Set(['name'])
 export const smartifiable = (def: FieldDef) => def.kind === 'textarea' || SMARTIFY_SHORT_FIELDS.has(def.key)
 
 /** What a field hands Classic when the host asks Smartify for a rewrite. `apply` is the field's own draft write
- *  (useScopedField's write: a channel custom value, or a listing-wide one) — called only on Accept. */
+ *  (useScopedField's write: a channel custom value, or a listing-wide one), called only on Accept. */
 export interface RefineRequest { field: string; label: string; original: string; limit?: number | null; apply: (text: string) => void }
 export interface RefineVersion { instruction: string; text: string; source: string; attempt: number }
 export interface RefineSession extends RefineRequest { versions: RefineVersion[]; idx: number; busy: boolean }
@@ -48,7 +48,7 @@ const variant = (pool: string[], attempt: number, avoid: string) => {
   for (let i = 0; i < pool.length; i++) { const x = pool[(attempt + i) % pool.length]; if (!avoid.includes(x.trim())) return x }
   return pool[attempt % pool.length]
 }
-/** Cut to `max` characters at a word boundary — never mid-word — dropping a dangling separator. */
+/** Cut to `max` characters at a word boundary, never mid-word, dropping a dangling separator. */
 const fitTo = (t: string, max: number) => {
   if (t.length <= max) return t
   const cut = t.slice(0, max + 1)
@@ -68,7 +68,7 @@ function clauseCut(t: string, title: boolean, attempt = 0): string {
   if (!title && /[.!?]$/.test(t) && !/[.!?]$/.test(out)) out = out.replace(/[:;]$/, '') + '.'
   return out
 }
-/** Genuinely shorter: aims for ~70% of the length or less — drops sentences (prose), then trailing clauses/words —
+/** Genuinely shorter: aims for ~70% of the length or less, drops sentences (prose), then trailing clauses/words -
  *  and is always strictly fewer characters than what it was given. */
 function shorten(base: string, attempt: number, title: boolean): string {
   const s = sentencesOf(base)
@@ -152,19 +152,19 @@ export function FieldRow({ def, c, tips, focus, onTip, activeTip, smartify }: {
   // photos: Hostaway's Photos row (header over grid) for this channel; managed on All photos (./Photos.tsx)
   if (def.kind === 'photos') return <div id={`field-${def.key}`}><ChannelPhotosRow c={c} tips={tips} activeTip={activeTip} onTip={onTip} focus={focus} readOnly={readOnly} /></div>
   // 'hidden': the field doesn't render on this channel's page at all (a different axis from show/edit). Applies to
-  // every field kind S10's Overview control now covers (19 fields, not just Tags/Languages) — not gated to one kind.
+  // every field kind S10's Overview control now covers (19 fields, not just Tags/Languages), not gated to one kind.
   if (fieldVis === 'hidden') return null
   // Anything that can't be changed (FIXED_FIELDS: property / room type, the address) isn't on a channel's listing
-  // template at all ("don't show it at the listing template level") — the Base shows it, locked
+  // template at all ("don't show it at the listing template level"), the Base shows it, locked
   if (FIXED_FIELDS[def.key]) return null
 
   const limit = def.key === 'name' ? CHANNELS[c].titleLimit : def.limit
   const over = limit != null && shown.length > limit
   const overBy = over ? shown.length - limit! : 0
   // Autopilot read-only, Base-not-customized, or 'show' (read-only, no per-channel override at all) all mean there's
-  // nothing to refine here yet — Smartify only ever touches a field the host can actually type into right now.
+  // nothing to refine here yet, Smartify only ever touches a field the host can actually type into right now.
   // 'show' (default): plain, read-only, no per-channel override offered, for ANY field kind the Overview control
-  // names — not just Tags/Languages. effDisabled forces every control branch into its disabled/read-only rendering.
+  // names, not just Tags/Languages. effDisabled forces every control branch into its disabled/read-only rendering.
   const plainShow = fieldVis === 'show'
   const effDisabled = disabled || plainShow
   // One AI affordance per field: a tip → the purple dot only (the system's suggestion wins, and a tip
@@ -177,11 +177,11 @@ export function FieldRow({ def, c, tips, focus, onTip, activeTip, smartify }: {
     <p className="ch-field-error" role="alert"><Icon name="alert-triangle" size={16} />{def.label} is {overBy} character{overBy === 1 ? '' : 's'} over {CHANNELS[c].name}’s limit.</p>
   ) : null
 
-  // set by the channel: why it can't be changed here, on both locks — the field's and the caption's
+  // set by the channel: why it can't be changed here, on both locks, the field's and the caption's
   const lockTip = v.state === 'set' ? setByWhy(def, c, CHANNELS[c].name) : undefined
   let control
   if (locked) {
-    control = <Locked tip={lockTip} label={def.label}>{v.value || '—'}</Locked>
+    control = <Locked tip={lockTip} label={def.label}>{v.value || '-'}</Locked>
   } else if (def.kind === 'tasks') {
     control = <TaskList value={shown} disabled={effDisabled} onChange={write} />
   } else if (def.kind === 'textarea') {
@@ -210,7 +210,7 @@ export function FieldRow({ def, c, tips, focus, onTip, activeTip, smartify }: {
     control = <div className={cx('ch-toggle-line', effDisabled && 'is-disabled')}><Toggle checked={yes} label={def.label} disabled={effDisabled} onChange={(x) => write(x ? 'Yes' : 'No')} /><span>{yes ? 'Allowed' : 'Not allowed'}</span></div>
   } else if (def.kind === 'tags') {
     const tags = shown.split(' · ').filter(Boolean)
-    // 'show' (default): all channels, read-only, no per-channel override offered — plain and silent, no lock icon or
+    // 'show' (default): all channels, read-only, no per-channel override offered, plain and silent, no lock icon or
     // tooltip. 'edit' (or any other value): unchanged,
     // today's existing Customize-for-channel flow already covers it (useScopedField/TagBox, same as every other field).
     control = plainShow

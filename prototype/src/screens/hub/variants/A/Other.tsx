@@ -43,10 +43,10 @@ export function Photos({ base, narrow }: { base: string; narrow: boolean }) {
         <KhaHeadRow first="Photos" cols={[<KhaColHead key="b" col="base" sub="The library" />, ...CHS.map((c) => <KhaColHead key={c} col={c} sub={`${per[c].shown.length} shown`} />)]} />
         <KhaRow>
           <KhaCell item><span className="kha-itemname">Cover photo</span></KhaCell>
-          <KhaCell className="kha-cell--base"><span className="kha-cover"><Thumbs keys={lib.base.slice(0, 1)} max={1} /><span className="kha-text">{lib.meta[lib.base[0]]?.description ?? '—'}</span></span></KhaCell>
+          <KhaCell className="kha-cell--base"><span className="kha-cover"><Thumbs keys={lib.base.slice(0, 1)} max={1} /><span className="kha-text">{lib.meta[lib.base[0]]?.description ?? '-'}</span></span></KhaCell>
           {CHS.map((c) => {
             const k = per[c].shown[0]
-            return <KhaCell key={c}>{k === lib.base[0] ? <KhaQuiet /> : <span className="kha-cover"><Thumbs keys={[k]} max={1} /><span className="kha-text">{lib.meta[k]?.description ?? '—'}</span></span>}</KhaCell>
+            return <KhaCell key={c}>{k === lib.base[0] ? <KhaQuiet /> : <span className="kha-cover"><Thumbs keys={[k]} max={1} /><span className="kha-text">{lib.meta[k]?.description ?? '-'}</span></span>}</KhaCell>
           })}
         </KhaRow>
         <KhaRow>

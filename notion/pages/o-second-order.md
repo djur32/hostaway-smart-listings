@@ -1,86 +1,86 @@
-<callout icon="✅" color="gray_bg">
-	**Output · Planned** · What Smart Listings sets off elsewhere in Hostaway, and what I'd do about it. Every effect is : the product isn't shipped, so none is observed.
+<callouticon=✅ color=gray_bg>
+	**OutputPlanned** · WhatSmartListingssetsoffelsewhereinHostawayandwhatI'ddoaboutit. Everyeffectis: theproductisn'tshippedsononeisobserved.
 </callout>
-![How the property record flows through Hostaway. Shared is written once and read by every surface; dashed arrows are new or changed by this proposal. Import, on the left, is the next step on the Roadmap. Today's flows ; proposed flows .](file-upload://3f0e18af-1645-8196-be55-00b2003d97a5)
-## The short version
-- **Shared becomes the record the whole product reads.** Guest replies, pricing, operations and owner statements read the same facts the listings show.
-- **That's the upside and the risk.** A right fact reaches everywhere; so does a wrong one.
-- **Autopilot changes the relationship with the channels.** More writes than "configured once", so rate limits and terms matter.
-- **New words and new patterns** spread to support, sales and the design system, and need an owner.
-- Three effects go to leadership first: blast radius, channel terms, and the comps dataset.
-## The effects
-<table header-row="true">
+![HowthepropertyrecordflowsthroughHostaway. Sharediswrittenonceandreadbyeverysurface; dashedarrowsareneworchangedbythisproposal. ImportontheleftisthenextstepontheRoadmap. Today'sflows; proposedflows.](file-upload//3f0e18af-1645-8196-be55-00b2003d97a5)
+## Theshortversion
+- **Sharedbecomestherecordthewholeproductreads.** Guestrepliespricingoperationsandownerstatementsreadthesamefactsthelistingsshow.
+- **That'stheupsideandtherisk.** Arightfactreacheseverywhere; sodoesawrongone.
+- **Autopilotchangestherelationshipwiththechannels.** Morewritesthanconfiguredoncesoratelimitsandtermsmatter.
+- **Newwordsandnewpatterns** spreadtosupportsalesandthedesignsystemandneedanowner.
+- Threeeffectsgotoleadershipfirstblastradiuschanneltermsandthecompsdataset.
+## Theeffects
+<tableheader-row=true>
 	<tr>
-		<td>What changes elsewhere</td>
+		<td>Whatchangeselsewhere</td>
 		<td>Risk</td>
 		<td>Mitigation</td>
-		<td>Signal to watch</td>
+		<td>Signaltowatch</td>
 	</tr>
 	<tr>
-		<td>**Guest messaging.** Replies read the same facts as the listings, so a reply can't contradict a listing.</td>
-		<td>Blast radius: one wrong fact now reaches every channel and every guest reply at once.</td>
-		<td>Every fact shows its source and how many channels use it. Tips on shared fields say "Applies to every channel". The Knowledge Hub's Test lets the host ask the assistant before guests do.</td>
-		<td>Undo rate; overwrite incidents</td>
+		<td>**Guestmessaging.** Repliesreadthesamefactsasthelistingssoareplycan'tcontradictalisting.</td>
+		<td>Blastradiusonewrongfactnowreacheseverychannelandeveryguestreplyatonce.</td>
+		<td>Everyfactshowsitssourceandhowmanychannelsuseit. TipsonsharedfieldssayAppliestoeverychannel. TheKnowledgeHub'sTestletsthehostasktheassistantbeforeguestsdo.</td>
+		<td>Undorate; overwriteincidents</td>
 	</tr>
 	<tr>
-		<td>**Pricing.** One strategy goal (fill nights, a higher price) now moves words and prices together.</td>
-		<td>Copy and Dynamic Pricing pull in different directions.</td>
-		<td>The strategy is the one place the goal is set. Dynamic Pricing reads the same goal and guardrails. Money always asks, even on Autopilot.</td>
-		<td>Occupancy and revenue per channel; price changes outside guardrails</td>
+		<td>**Pricing.** Onestrategygoal(fillnightsahigherprice) nowmoveswordsandpricestogether.</td>
+		<td>CopyandDynamicPricingpullindifferentdirections.</td>
+		<td>Thestrategyistheoneplacethegoalisset. DynamicPricingreadsthesamegoalandguardrails. MoneyalwaysasksevenonAutopilot.</td>
+		<td>Occupancyandrevenueperchannel; pricechangesoutsideguardrails</td>
 	</tr>
 	<tr>
-		<td>**Support.** Fewer "where do I edit?" and "why did my listing change?"; new "why did Autopilot do this?" and "why does this tip say that?".</td>
-		<td>A new class of tickets replaces the old one.</td>
-		<td>Every change shows its why and its source. CS sees the same view as the host, with macros per tip type. Autopilot stays narrow: text and photo order.</td>
-		<td>Tickets per 100 properties, by category; CSAT</td>
+		<td>**Support.** FewerwheredoIedit? andwhydidmylistingchange?; newwhydidAutopilotdothis? andwhydoesthistipsaythat?.</td>
+		<td>Anewclassofticketsreplacestheoldone.</td>
+		<td>Everychangeshowsitswhyanditssource. CSseesthesameviewasthehostwithmacrospertiptype. Autopilotstaysnarrowtextandphotoorder.</td>
+		<td>Ticketsper100propertiesbycategory; CSAT</td>
 	</tr>
 	<tr>
-		<td>**Sales.** One source of truth and a log of what changed answer security and operations questions in a demo.</td>
-		<td>Mostly upside, if Sales can show it.</td>
-		<td>An exportable change log with who changed what (host, team member, Autopilot). A three-minute demo path for Sales.</td>
-		<td>Sales calls where listing issues block a 25+ deal</td>
+		<td>**Sales.** Onesourceoftruthandalogofwhatchangedanswersecurityandoperationsquestionsinademo.</td>
+		<td>MostlyupsideifSalescanshowit.</td>
+		<td>Anexportablechangelogwithwhochangedwhat(hostteammemberAutopilot). Athree-minutedemopathforSales.</td>
+		<td>Salescallswherelistingissuesblocka25+ deal</td>
 	</tr>
 	<tr>
-		<td>**Channel partners.** Autopilot writes more often than a listing that's "configured once".</td>
-		<td>Rate limits, rejections, or terms against automated content.</td>
-		<td>One batch per channel. At most one text change per channel per week until tested . Back off on rate limits. Pause Autopilot on a channel at any policy notice.</td>
-		<td>Fields rejected per field sent</td>
+		<td>**Channelpartners.** Autopilotwritesmoreoftenthanalistingthat'sconfiguredonce.</td>
+		<td>Ratelimitsrejectionsortermsagainstautomatedcontent.</td>
+		<td>Onebatchperchannel. Atmostonetextchangeperchannelperweekuntiltested. Backoffonratelimits. PauseAutopilotonachannelatanypolicynotice.</td>
+		<td>Fieldsrejectedperfieldsent</td>
 	</tr>
 	<tr>
-		<td>**Legal and trust.** AI writes public copy, per channel.</td>
-		<td>An invented amenity is a liability, and the EU AI Act asks for transparency.</td>
-		<td>Tips use only confirmed facts and cite them. Autopilot never writes money or rules. Booking.com's text is never written. Disclosure wording agreed with Legal before launch.</td>
-		<td>AI copy reverted or complained about</td>
+		<td>**Legalandtrust.** AIwritespubliccopyperchannel.</td>
+		<td>AninventedamenityisaliabilityandtheEUAIActasksfortransparency.</td>
+		<td>Tipsuseonlyconfirmedfactsandcitethem. Autopilotneverwritesmoneyorrules. Booking.com'stextisneverwritten. DisclosurewordingagreedwithLegalbeforelaunch.</td>
+		<td>AIcopyrevertedorcomplainedabout</td>
 	</tr>
 	<tr>
-		<td>**Comps.** Similar homes frame strategies and tips.</td>
-		<td>A moat and a privacy question at once. Listings may also start to sound alike.</td>
-		<td>Aggregates only, with a minimum group size . Never another host's text verbatim. Tips are written from the host's own facts and audience, with alternatives.</td>
-		<td>Tip acceptance vs AI copy reverted; comp groups under the minimum (no measure yet)</td>
+		<td>**Comps.** Similarhomesframestrategiesandtips.</td>
+		<td>Amoatandaprivacyquestionatonce. Listingsmayalsostarttosoundalike.</td>
+		<td>Aggregatesonlywithaminimumgroupsize. Neveranotherhost'stextverbatim. Tipsarewrittenfromthehost'sownfactsandaudiencewithalternatives.</td>
+		<td>TipacceptancevsAIcopyreverted; compgroupsundertheminimum(nomeasureyet)</td>
 	</tr>
 	<tr>
-		<td>**Design system and language.** Six patterns go product-wide (Fact, Source, Inheritance, Tip, Receipt, Autonomy), plus new words: Base, customise, channel only, set by the channel, tip, Autopilot.</td>
-		<td>Each team builds its own version, and hosts learn four.</td>
-		<td>The design system owns the six patterns. A content designer owns one glossary, used in the UI, the help centre and CS macros.</td>
-		<td>Comprehension score; help-centre searches for the new words</td>
+		<td>**Designsystemandlanguage.** Sixpatternsgoproduct-wide(FactSourceInheritanceTipReceiptAutonomy), plusnewwordsBasecustomisechannelonlysetbythechanneltipAutopilot.</td>
+		<td>Eachteambuildsitsownversionandhostslearnfour.</td>
+		<td>Thedesignsystemownsthesixpatterns. AcontentdesignerownsoneglossaryusedintheUIthehelpcentreandCSmacros.</td>
+		<td>Comprehensionscore; help-centresearchesforthenewwords</td>
 	</tr>
 </table>
-## The three to bring to leadership first
-1. **Blast radius** is the honest cost of "facts once". If every fact can't show its source and its reach, one store is more dangerous than two.
-2. **Channel terms** could switch Autopilot off on a channel overnight. Know the answer before marketing Autopilot.
-3. **The comps dataset** is the strategic upside, and it needs Legal on day one, not at launch.
-## How it was made
-Desk work on the prototype: each surface that reads the property record was traced, and each effect was given a mitigation and a measure from <mention-page url="https://app.notion.com/p/3eee18af1645813d9391e336e308e3d7">Goals & KPIs</mention-page>. The open questions go to the people in <mention-page url="https://app.notion.com/p/3eee18af1645814eb37ee21fc7bf4eb5">Stakeholder interviews</mention-page>.
+## Thethreetobringtoleadershipfirst
+1. **Blastradius** isthehonestcostoffactsonce. Ifeveryfactcan'tshowitssourceanditsreachonestoreismoredangerousthantwo.
+2. **Channelterms** couldswitchAutopilotoffonachannelovernight. KnowtheanswerbeforemarketingAutopilot.
+3. **Thecompsdataset** isthestrategicupsideanditneedsLegalondayonenotatlaunch.
+## Howitwasmade
+Deskworkontheprototypeeachsurfacethatreadsthepropertyrecordwastracedandeacheffectwasgivenamitigationandameasurefrom<mention-pageurl=https//app.notion.comp3eee18af1645813d9391e336e308e3d7>Goals& KPIs</mention-page>. Theopenquestionsgotothepeoplein<mention-pageurl=https//app.notion.comp3eee18af1645814eb37ee21fc7bf4eb5>Stakeholderinterviews</mention-page>.
 ---
-**Builds on**
-- <mention-page url="https://app.notion.com/p/3eee18af16458168b8ede129bf1dc3a9">Object model</mention-page>
-- <mention-page url="https://app.notion.com/p/3eee18af1645814fbc15f0a668dc4632">Design system</mention-page>
-- <mention-page url="https://app.notion.com/p/3eee18af1645813da04df010073ed382">Pre-mortem</mention-page>
+**Buildson**
+- <mention-pageurl=https//app.notion.comp3eee18af16458168b8ede129bf1dc3a9>Objectmodel</mention-page>
+- <mention-pageurl=https//app.notion.comp3eee18af1645814fbc15f0a668dc4632>Designsystem</mention-page>
+- <mention-pageurl=https//app.notion.comp3eee18af1645813da04df010073ed382>Pre-mortem</mention-page>
 **Feeds**
-- <mention-page url="https://app.notion.com/p/3eee18af1645818daddff9b46244175c">Roadmap</mention-page>
+- <mention-pageurl=https//app.notion.comp3eee18af1645818daddff9b46244175c>Roadmap</mention-page>
 **Decisions**
-- <mention-page url="https://app.notion.com/p/3eee18af1645813ab697f55d6d253754">KD-02</mention-page>
-- <mention-page url="https://app.notion.com/p/3eee18af16458160a7c1c703fcb2a033">KD-08</mention-page>
-- <mention-page url="https://app.notion.com/p/3eee18af164581b19c66d8d053ea6ab0">KD-12</mention-page>
-**In the prototype**
-- [Knowledge Hub › Sources]()
+- <mention-pageurl=https//app.notion.comp3eee18af1645813ab697f55d6d253754>KD-02</mention-page>
+- <mention-pageurl=https//app.notion.comp3eee18af16458160a7c1c703fcb2a033>KD-08</mention-page>
+- <mention-pageurl=https//app.notion.comp3eee18af164581b19c66d8d053ea6ab0>KD-12</mention-page>
+**Intheprototype**
+- [KnowledgeHub› Sources]

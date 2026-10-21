@@ -255,7 +255,7 @@ export function commitAndSend(fn: () => void, channels: ListingChannel[], keys: 
 }
 
 /** Photos: one receipt per channel whose set, order, cover, captions or room tags changed. */
-const photoLine = (ks: string[], lib: PhotoLib) => `${ks.length} photos · cover: ${lib.meta[ks[0] ?? '']?.description ?? '—'}`
+const photoLine = (ks: string[], lib: PhotoLib) => `${ks.length} photos · cover: ${lib.meta[ks[0] ?? '']?.description ?? '-'}`
 export function photoReceipts(before: { lib: PhotoLib; sl3: PhotoSl3 }, after: { lib: PhotoLib; sl3: PhotoSl3 }, channels: ListingChannel[] = channelsNow(), origin = 'Your edit'): ReceiptInput[] {
   const out: ReceiptInput[] = []
   for (const ch of channels) {

@@ -1,17 +1,17 @@
-/* Knowledge Hub iteration R · the Add-fact flow (R-BRIEF.md "Adding a fact — the flow"; restructured round 3,
- * KH-NEXT-3.md, "The text of the type is really massive when you add a fact — simplify. Maybe describe
+/* Knowledge Hub iteration R · the Add-fact flow (R-BRIEF.md "Adding a fact, the flow"; restructured round 3,
+ * KH-NEXT-3.md, "The text of the type is really massive when you add a fact, simplify. Maybe describe
  * loosely and use AI to refine it: 'I have AC', and it transforms that into an actual fact with the other elements
  * filled in"). The host's own "+ Add a fact" now opens on one plain text box ("Describe the fact"); "Continue" runs a
- * canned AI pass (`guessFact` below — canned keyword rules, not a real model, the same convention as
+ * canned AI pass (`guessFact` below, canned keyword rules, not a real model, the same convention as
  * workflows-data.ts's `bestMatch`/`simulateWorkflow`) that structures it into a type, label, value, category and
  * source, then hands the host the same Category → Type → Value → Applies to → Guest-visible/internal controls as
- * before to confirm or adjust — a confirmation step now, not the first thing the host sees. Editing a previously added
+ * before to confirm or adjust, a confirmation step now, not the first thing the host sees. Editing a previously added
  * fact skips straight to that confirm step (there's no loose description to re-derive it from). A gap's inline "Add a
  * fact" ("Add the answer") is unaffected: it was already a single text box tied to one specific question, which is
- * the simplification this round asks for — it resolves through C's `useKhc` as before (model.ts), not through this
+ * the simplification this round asks for, it resolves through C's `useKhc` as before (model.ts), not through this
  * flow's new AI step.
  *
- * Round 4: two ways in on the first step — describe the fact (type it, or "Use voice", a
+ * Round 4: two ways in on the first step, describe the fact (type it, or "Use voice", a
  * canned dictation that fills the box with a canned sentence for the topic after ~1.5 s), or "I prefer to fill in
  * the form instead", which skips to the blank form. "Continue" still structures the description into the full,
  * prefilled form. The Type picker is a plain DS Dropdown now (the icon tiles were "really, really big"), and so is
@@ -44,7 +44,7 @@ export interface AddFactPrefill {
 const emptyScope: RScope = { type: 'all' }
 
 /* ---------- the canned "AI" pass: a loose description → a guessed type, label and value (canned keyword rules,
- * deterministic, not a real model — see the file header). Each kind only fills the field(s) it owns; the host can
+ * deterministic, not a real model, see the file header). Each kind only fills the field(s) it owns; the host can
  * always switch the type on the confirm step, which blanks back to that kind's own (empty) fields, same as before. ---------- */
 function guessKind(text: string): RFactKind {
   const t = text.toLowerCase()
@@ -67,7 +67,7 @@ function guessTopic(text: string, fallback: RTopicId): RTopicId {
   return bestMatch(text, R_TOPICS, (t) => `${t.label} ${t.desc}`, 0.1)?.item.id ?? fallback
 }
 
-/** What the canned dictation "hears", per topic — sample host speech, not real data. */
+/** What the canned dictation "hears", per topic, sample host speech, not real data. */
 const VOICE_SAMPLES: Record<RTopicId, string> = {
   amenities: 'We have a dishwasher, the tablets are under the kitchen sink.',
   arrival: 'Check-in is from 3 pm, the key box is to the left of the front door.',
@@ -130,7 +130,7 @@ export function AddFact({ prefill, onAdd, onResolveGap, onClose }: {
   }
   useEffect(() => () => window.clearTimeout(voiceTimer.current), [])
 
-  /** "Continue": the canned AI pass — guesses a type, label (and category, when it isn't locked) from the loose
+  /** "Continue": the canned AI pass, guesses a type, label (and category, when it isn't locked) from the loose
    *  description, fills that kind's own value field as best it can, and moves to the confirm step. */
   const runAi = () => {
     const d = desc.trim()
@@ -197,7 +197,7 @@ export function AddFact({ prefill, onAdd, onResolveGap, onClose }: {
     onClose()
   }
 
-  /** "I prefer to fill in the form instead": the second way in — straight to the blank form, no description. */
+  /** "I prefer to fill in the form instead": the second way in, straight to the blank form, no description. */
   const skipToForm = () => {
     stopVoice(); setDesc('')
     // blank, even after a Back from an earlier "Continue" that prefilled the form
@@ -324,7 +324,7 @@ function ValueField({ kind, yn, onYn, text, onText, numN, onNumN, numUnit, onNum
     case 'text': return <textarea className="h-textarea" rows={4} placeholder="Write the fact as you’d want a guest to read it." value={text} onChange={(e) => onText(e.target.value)} />
     case 'number': return (
       <div className="h-khr-addfact__number">
-        {/* NumberField (ds/v3-ch.tsx), the product-wide numeric control: ▲/▼ spinner + Up/Down keys —
+        {/* NumberField (ds/v3-ch.tsx), the product-wide numeric control: ▲/▼ spinner + Up/Down keys -
             replaces the −/+ NumberStepper, which had no keyboard stepping. Same string value as before. */}
         <NumberField label="Amount" value={numN} onChange={(v) => onNumN(v.replace(',', '.').replace(/[^\d.]/g, ''))} inputMode="decimal" decimals={1} max={99999} />
         <input className="h-input" placeholder="Unit (e.g. nights, minutes, €)" value={numUnit} onChange={(e) => onNumUnit(e.target.value)} />
@@ -350,7 +350,7 @@ function ValueField({ kind, yn, onYn, text, onText, numN, onNumN, numUnit, onNum
 }
 
 /** A simple ordered list: one step per line, add/remove rows (same convention as the checkout `TaskList`, without its
- *  fixed presets — these steps are the host's own words). */
+ *  fixed presets, these steps are the host's own words). */
 function StepsEditor({ value, onChange }: { value: string; onChange: (v: string) => void }) {
   const items = value.split('\n')
   const set = (next: string[]) => onChange(next.join('\n'))

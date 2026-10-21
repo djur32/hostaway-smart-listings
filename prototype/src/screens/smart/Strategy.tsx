@@ -1,12 +1,12 @@
 /* Smart Listings › Strategy (V3-SPEC §1 "Strategy management") · WS-SL. Reworked 3 Oct: Setup is gone as a
- * page and everything lives here — "When you go to Strategy you see the strategies in place. You can edit them one by
+ * page and everything lives here, "When you go to Strategy you see the strategies in place. You can edit them one by
  * one; editing takes you to the full-screen wizard. You can remove it, pause it, or change it for a different strategy
  * you've used before … You can add a new strategy." The three side-by-side cards ("doesn't look good when we have three
  * columns") became one full-width row per connected channel, stacked: channel + status · the strategy and a one-line
  * summary · Open / Edit / ⋯ (Pause or Resume, Replace with a new strategy, Remove).
  * A channel without one says so, with Add a strategy. Open goes to the channel's detail (StrategyChannel.tsx): every
  * answer of its current strategy. Numbers stay in Performance.
- * 3 Oct, later: no versions anywhere — no version numbers, no History,
+ * 3 Oct, later: no versions anywhere, no version numbers, no History,
  * no "Replace with a previous strategy". A channel has one current strategy; edit it or replace it in the wizard.
  * SCR: Strategy · R-072 / R-075. URL: ?smart=on seeds the demo strategies. */
 import { useEffect } from 'react'

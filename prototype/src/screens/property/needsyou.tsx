@@ -218,7 +218,7 @@ function MergeEvidence() {
   )
 }
 
-/** v0: each channel's value as imported — kept, visible, restorable (R-004, R-087). */
+/** v0: each channel's value as imported, kept, visible, restorable (R-004, R-087). */
 function Originals({ fact }: { fact?: Fact }) {
   if (!fact) return null
   return (

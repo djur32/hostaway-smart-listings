@@ -2,7 +2,7 @@
  * pick one of the questions guests ask most (the real product lists typical questions the same way, HS-L08); the answer
  * is the one guests get, built only from Listing base facts and answers the host confirmed, with each fact it used
  * shown by reference. When nothing backs (part of) the answer, the preview says so: the AI tells the guest it'll check,
- * and asks the host. It never guesses. Matching is the same bag-of-words as before (R/workflows-data bestMatch) —
+ * and asks the host. It never guesses. Matching is the same bag-of-words as before (R/workflows-data bestMatch) -
  * canned, not a real model. */
 import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'

@@ -18,7 +18,7 @@ import { SHARED_TIP_NOTE } from '../screens/channel/screenTips'
 /* ---------- photo tips: real photos from the active property's library ----------
  * A photo tip names its photos by label, in one of two shapes (data/sl3.ts TipDef.photos, read the same way by Review
  * & push): "living room" = that photo as the cover; "desk #3" = that photo moved to position 3. Each label resolves to
- * a key in the active property's library — the tip's own nowKey/nextKey first, else by key, caption or room tag — so
+ * a key in the active property's library, the tip's own nowKey/nextKey first, else by key, caption or room tag, so
  * every property's tips show its own photos (the old fixed map knew four Neukölln labels and fell back to one image). */
 const parseLabel = (s: string) => { const m = s.match(/^(.*?)\s*#(\d+)$/); return m ? { what: m[1], pos: Number(m[2]) } : { what: s, pos: 0 } }
 const captionOf = (k: string, lib: PhotoLib) => lib.meta[k]?.description || PHOTO_CAPTION[k as PhotoKey] || k
@@ -60,7 +60,7 @@ function Main({ t, picked, channel }: { t: TipDef; picked?: string; channel: Lis
 }
 
 /** A text tip. On a field that uses the Base, accepting writes this channel's own value, so the card says so
- *  and shows the channel's text — not a struck-through Base ("sometimes the tip is just replacing the
+ *  and shows the channel's text, not a struck-through Base ("sometimes the tip is just replacing the
  *  text with a customized one"). Diff itself decides between a before/after pair, one text with the changes marked, or
  *  just the new text. */
 function TextMain({ t, picked, channel }: { t: TipDef; picked?: string; channel: ListingChannel }) {
@@ -70,13 +70,13 @@ function TextMain({ t, picked, channel }: { t: TipDef; picked?: string; channel:
   const state = def ? viewOf(def, channel, custom, base).state : undefined
   const name = CHANNELS[channel].name
   // Uses the Base: accepting gives this channel its own value. Listing-wide: there is no per-channel value to give, so
-  // accepting changes every channel (D-948) — the card says so instead of implying an Airbnb-only change.
+  // accepting changes every channel (D-948), the card says so instead of implying an Airbnb-only change.
   const note = state === 'inherit' ? <>Creates {name}’s own value. The Base stays as it is.</> : state === 'listing' ? <>{SHARED_TIP_NOTE}</> : undefined
   return <Diff from={t.from} to={picked ?? t.to ?? ''} note={note} />
 }
 
 export function useChannelTips(channel: ListingChannel) {
-  const tips = tipsFor(channel) // the active property's tips: the scenario's scripted ones, another property's generated ones (data/property-listing.ts), or [] for the three "off" properties — the panel shows its empty state then
+  const tips = tipsFor(channel) // the active property's tips: the scenario's scripted ones, another property's generated ones (data/property-listing.ts), or [] for the three "off" properties, the panel shows its empty state then
   const st = useStore((s) => s.sl3.tips)
   const open = tips.filter((t) => st[t.id] !== 'dismissed')
   return { all: tips, open, pending: open.filter((t) => st[t.id] !== 'accepted') }

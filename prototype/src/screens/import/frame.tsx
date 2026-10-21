@@ -1,5 +1,5 @@
 /* F-A1 frame · owner S10. The connect flow keeps Hostaway's full-page takeover (HS-07…HS-15: logo ⇄ channel header,
- * progress rule, close) — "keep Hostaway's existing connect screens; the redesign starts right after authorization".
+ * progress rule, close), "keep Hostaway's existing connect screens; the redesign starts right after authorization".
  * Also: the demo-state catalogue for failure and edge states (S10 prompt §3; S14 owns the full matrix, ST-###).
  * D-130 D-137 · R-080 R-020 */
 import { useState, type ReactNode } from 'react'
@@ -66,7 +66,7 @@ export function ConnectFrame({ channel, progress, children, wide }: { channel: C
   )
 }
 
-/** Demo control, clearly labelled — not product UI. Phones: an icon button opening a sheet of the states. */
+/** Demo control, clearly labelled, not product UI. Phones: an icon button opening a sheet of the states. */
 function DemoPicker() {
   const demo = useDemo()
   const setDemo = useStore((s) => s.setDemo)

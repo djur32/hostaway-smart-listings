@@ -1,6 +1,6 @@
-/* Smartify — orange (was yellow until 3 Oct), user-initiated "refine what's already there" (prototype/src/ds/smartify.tsx SmartifyTrigger).
+/* Smartify, orange (was yellow until 3 Oct), user-initiated "refine what's already there" (prototype/src/ds/smartify.tsx SmartifyTrigger).
  * Tokens only (ds/tokens.css --color-ai-refine-*, a dedicated yellow scale). Distinct silhouette from Tips' purple
- * ds/components.css patterns (.h-btn--ai, .h-tipdot, .h-tip) on purpose — the two systems should never read as one. */
+ * ds/components.css patterns (.h-btn--ai, .h-tipdot, .h-tip) on purpose, the two systems should never read as one. */
 
 .sy-wrap { position: relative; display: inline-flex; flex: none; }
 
@@ -34,7 +34,7 @@
 /* ── Smartify (review, 3 Oct): an orange trigger beside the field LABEL opens the docked panel on a composer; the
  * result is the refine-toned Tip card (ds/sl3.tsx TipCard/TipsPanel tone="refine"). Canvas uses the same panel. ── */
 
-/* the trigger beside the label. review, 3 Oct: the tip marker and this one "are not styled the same" — so they are now
+/* the trigger beside the label. review, 3 Oct: the tip marker and this one "are not styled the same", so they are now
  * one shape: a 22px round tint with a 12px sparkle, no border (.h-tipdot, ds/components.css), the hue alone telling
  * them apart (purple tip, orange rewrite). Pressed/open fills solid, as an active tip dot does. Tooltips come from the
  * shared floating layer (ds/tooltipLayer.tsx): above, centred, clear of the content. */
@@ -65,7 +65,7 @@
 .sy-prompt__input::placeholder { color: var(--color-text-faint); }
 .sy-prompt__note { font-size: var(--text-xs); line-height: var(--leading-xs); color: var(--color-text-muted); }
 
-/* the yellow tone of the shared Tip card and panel — accent only, every size/spacing is the Tip card's own */
+/* the yellow tone of the shared Tip card and panel, accent only, every size/spacing is the Tip card's own */
 .h-tips--refine .h-tips__title { color: var(--color-ai-refine-title); }
 .h-tips--refine .h-tips__title .h-icon { color: var(--color-ai-refine-accent); }
 .h-tip--refine { border-color: var(--color-ai-refine-border); }
@@ -102,7 +102,7 @@
  * (.h-root :focus-visible, components.css) would draw a second box inside it */
 .sy-prompt__row .sy-prompt__input:focus-visible, .sy-follow__ask .sy-follow__input:focus-visible { box-shadow: none; border-radius: 0; }
 
-/* the composer the panel opens on (review, 3 Oct: no floating prompt — "you already are in the composer and you can
+/* the composer the panel opens on (review, 3 Oct: no floating prompt, "you already are in the composer and you can
  * type", quick actions below). Same field shape as the follow-up box, two lines tall, Enter sends, Shift+Enter breaks. */
 .sy-compose .h-tip__body { gap: 16px; }
 .sy-composer { display: flex; align-items: flex-end; gap: 6px; padding: 8px 8px 8px 12px; border: 1px solid var(--color-border-secondary); border-radius: var(--radius-md); background: var(--color-surface-primary); }

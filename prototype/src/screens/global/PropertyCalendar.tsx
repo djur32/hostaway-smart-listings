@@ -1,7 +1,7 @@
 /* Property › Calendar (rail › Calendar, /property/:id/calendar) · replicating HS-C01 / HS-32.
  * Rendered inside the property shell (PropertyLayout's rail stays, Calendar stays marked), in the same frame as every
- * other property page: a fixed head — PageHead (title + property switcher), the page description, then the toolbar
- * (Preview dynamic pricing · Layers · Occupancy | Tasks) — and below it two columns that scroll on their own: the
+ * other property page: a fixed head, PageHead (title + property switcher), the page description, then the toolbar
+ * (Preview dynamic pricing · Layers · Occupancy | Tasks), and below it two columns that scroll on their own: the
  * months (Sun–Sat, "Oct 2026" then "Nov 2026"…) and the docked sidebar with Pricing | Availability tabs.
  * Look only, by request ("don't add any functionality, just show what it looks like"): the tabs switch (?panel=), the
  * rest is inert. Prices and the per-night minimum stay are the property's own Base values (usePriceView, saved edits
@@ -26,7 +26,7 @@ export function PropertyCalendar({ p }: { p: Property }) {
   const q = (id: Panel) => { const n = new URLSearchParams(params); n.set('panel', id); return `?${n}` }
   const [layer, setLayer] = useState<'occupancy' | 'tasks'>('occupancy')
   // phones: the docked sidebar becomes a bottom sheet opened from the toolbar; the months take the full width
-  // (ds/mobile.md §7 — "anything … in the form of a sidebar … on mobile has to be a bottom sheet")
+  // (ds/mobile.md §7, "anything … in the form of a sidebar … on mobile has to be a bottom sheet")
   const mobile = useIsMobile()
   const [sheet, setSheet] = useState(false)
   const pv = usePriceView(p.id)

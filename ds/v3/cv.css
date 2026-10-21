@@ -1,6 +1,6 @@
 /* Smart Listing v3 · WS-CV additions (V3-SPEC §2). Tokens only; shared patterns belong in components.css 'Smart Listing v3'.
- * 1 · Canvas chrome (bar, frame, areas, popovers, keep dialog) — Hostaway tokens.
- * 2 · Channel replicas (.cv-ab Airbnb, .cv-bk Booking.com, .cv-dr Direct) — channel colours only inside the replica,
+ * 1 · Canvas chrome (bar, frame, areas, popovers, keep dialog), Hostaway tokens.
+ * 2 · Channel replicas (.cv-ab Airbnb, .cv-bk Booking.com, .cv-dr Direct), channel colours only inside the replica,
  *     as scoped custom properties mapped to DS tokens (memory: channel-previews-replicate-real-pages). */
 
 /* ───────────────────────── 1 · Canvas chrome ───────────────────────── */
@@ -31,7 +31,7 @@
 .cv-page { border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
 .cv-prov { display: flex; align-items: center; gap: 8px; margin: 0; font-size: var(--text-xs); line-height: var(--leading-xs); color: var(--color-text-muted); }
 
-/* areas (review, 3 Oct): the page stays fully readable — never a wash over it, only outlines and one marker, in the
+/* areas (review, 3 Oct): the page stays fully readable, never a wash over it, only outlines and one marker, in the
    colour of the one AI affordance the part has. tip = purple (a tip waits), refine = orange (editable here: Rewrite
    with AI), none = read-only (owned elsewhere): no colour, a neutral outline on hover only. Selected = solid. */
 .cv-area { position: relative; border-radius: var(--radius-sm); outline: 1px dashed transparent; outline-offset: 4px; transition: outline-color var(--dur-1) var(--ease-standard); }
@@ -63,7 +63,7 @@
 .cv-lockpop__note { display: flex; align-items: flex-start; gap: 8px; margin-top: 12px; padding: 8px 10px; border-radius: var(--radius-lg); background: var(--color-ai-surface); color: var(--color-ai-text); font-size: 13px; line-height: 18px; }
 .cv-lockpop__note .h-icon { width: 14px; height: 14px; flex: none; margin-top: 2px; }
 
-/* the side panel (Split's one slot, shared with Tips — D-927): the part's name and ×, then its body — the field panel
+/* the side panel (Split's one slot, shared with Tips, D-927): the part's name and ×, then its body, the field panel
    (screens/canvas/FieldPanel.tsx), CvPhotoPop or CvLockPop, whose own heads are hidden inside it (rules further down).
    Same gutters as the Tips panel (.h-tips__head/__body, components.css + ch.css), so switching between them doesn't jump. */
 .cv-panel { height: 100%; display: flex; flex-direction: column; min-height: 0; overflow-y: auto; overscroll-behavior-y: contain; background: var(--color-surface-primary); }
@@ -78,7 +78,7 @@
 .cv-fp { display: flex; flex-direction: column; gap: 24px; }
 .cv-fp__field:not(.cv-fp__field--labelled) .h-field-row__label { display: none; }
 .cv-fp__field:not(.cv-fp__field--labelled) .h-field-row__head:not(:has(.h-field-row__help)) { display: none; }
-/* review, 3 Oct (2nd pass): "a massive gap between the title… and the actual description" — the panel title is the
+/* review, 3 Oct (2nd pass): "a massive gap between the title… and the actual description", the panel title is the
    field's label, so its help line sits right under it as in a Classic row (label, then help ~4px below): no row
    margin, and the head's bottom padding taken back */
 .cv-fp__field .h-field-row { margin-top: 0; }
@@ -90,7 +90,7 @@
 .cv-bar__toggle { display: inline-flex; align-items: center; gap: 8px; font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-strong); cursor: pointer; white-space: nowrap; }
 .cv-fp__photos { display: flex; flex-direction: column; gap: 8px; }
 .cv-fp__photos .cv-strip__ph { cursor: default; }
-/* Photos panel, roomier (review, 1 Oct 3rd pass: "make it bigger, keep it a panel") — widens the SHARED
+/* Photos panel, roomier (review, 1 Oct 3rd pass: "make it bigger, keep it a panel"), widens the SHARED
    --split-panel-width (ds/components.css .h-split, also used by Tips) only while CvEditPanel's own
    `cv-panel--photos` marker is somewhere inside it, so Tips and any other docked panel keep their usual width.
    :has() scopes this from CanvasView.tsx alone, with no prop plumbing through Split (ds/sl3.tsx, out of scope here). */
@@ -572,7 +572,7 @@
   /* body copy at 14 (Booking.com's own mobile body size); captions stay 12 */
   .cv-bk.is-narrow .cv-bk__loved, .cv-bk.is-narrow .cv-bk__hl p, .cv-bk.is-narrow .cv-bk__note { font-size: 14px; line-height: 20px; }
 
-  /* Direct at phone width: the host's site collapses the way direct-booking sites do — compact header, one full-bleed
+  /* Direct at phone width: the host's site collapses the way direct-booking sites do, compact header, one full-bleed
      photo with "All N photos", one column, the booking card last */
   .cv-dr.is-narrow .cv-dr__head { gap: 12px; padding: 12px 16px; }
   .cv-dr.is-narrow .cv-dr__brand { min-width: 0; font-size: 16px; line-height: 20px; }

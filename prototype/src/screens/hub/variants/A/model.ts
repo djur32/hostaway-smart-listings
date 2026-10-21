@@ -70,7 +70,7 @@ export function tabOfKey(key: string): TabId {
 export type CellState = 'inherit' | 'fixed' | 'own' | 'na' | 'set'
 export interface CellView { state: CellState; text: string; why?: string; editable: boolean }
 export function cellOf(item: KhItem, s: Scope, c: ListingChannel): CellView {
-  if (!s.on.includes(c)) return { state: 'na', text: '—', editable: false }
+  if (!s.on.includes(c)) return { state: 'na', text: '-', editable: false }
   const set = s.set.find((x) => x.c === c)
   if (set) return { state: 'set', text: display(item, set.value), why: set.why, editable: false }
   const own = s.own.find((x) => x.c === c)

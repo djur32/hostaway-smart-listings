@@ -1,5 +1,5 @@
 /* Knowledge Hub, reframed · Insights (KH-REFRAME §4): what guests ask most, what's new this month, and what one
- * channel's guests ask more than another's — so Hostaway, and the host, learn from the Inbox. Built on Smart Listings ›
+ * channel's guests ask more than another's, so Hostaway, and the host, learn from the Inbox. Built on Smart Listings ›
  * Performance's own pieces (PerfKpis, PerfCard, PerfChart, BarMultiple), one chart per card. An insight a tip can act on
  * carries that tip. */
 import { Link } from 'react-router-dom'

@@ -49,7 +49,7 @@
 /* push: the new page comes in from the right, over the old one, which drifts left and dims */
 .is-app[data-nav="push"]::view-transition-old(app-page) { animation-name: app-vt-under-out; }
 .is-app[data-nav="push"]::view-transition-new(app-page) { animation-name: app-vt-over-in; box-shadow: var(--elevation-modal); }
-/* pop: the reverse — the current page slides off to the right, on top; the previous one comes back from the left */
+/* pop: the reverse, the current page slides off to the right, on top; the previous one comes back from the left */
 .is-app[data-nav="pop"]::view-transition-old(app-page) { animation-name: app-vt-over-out; z-index: 1; box-shadow: var(--elevation-modal); }
 .is-app[data-nav="pop"]::view-transition-new(app-page) { animation-name: app-vt-under-in; }
 /* fade: lateral moves (tab bar, Sections sheet) */

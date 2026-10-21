@@ -106,8 +106,8 @@ function AvailabilityPage({ c }: { c: ListingChannel }) {
   }
 
   return (
-    // same chrome as Listing/Policies/Pricing (third-round fix): the whole head — title, property switcher, Tips
-    // chip and the tab row — stays pinned together in one .ch-editor__head block (sticky), while the section's rows
+    // same chrome as Listing/Policies/Pricing (third-round fix): the whole head, title, property switcher, Tips
+    // chip and the tab row, stays pinned together in one .ch-editor__head block (sticky), while the section's rows
     // scroll beneath it as a sibling inside Split. Only this outer wrapper moved; the Tips/Split panel mechanism and
     // the Discard changes / Save bar below are unchanged.
     <div className="ch-editor">
@@ -168,8 +168,8 @@ function InstantBook({ c }: { c: ListingChannel }) {
 
 /* ---------------- Minimum stay per night of the week ---------------- */
 /** rejecting the earlier seven stacked full-width rows ("I don't think it's optimal… create a
- *  different version that is a little more clear"): seven numbers is a *week*, so it reads as a week strip — the same
- *  Mon-first order the Calendar already uses — with each small input directly under its own day label. That removes
+ *  different version that is a little more clear"): seven numbers is a *week*, so it reads as a week strip, the same
+ *  Mon-first order the Calendar already uses, with each small input directly under its own day label. That removes
  *  the dead horizontal gap between a day name on the far left and its input on the far right, and lets you compare
  *  all seven values at a glance instead of scanning down seven rows.
  *
@@ -185,8 +185,8 @@ const PERDAY_DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] as const
  *  break actually starts on, which is what a per-night minimum keys off. */
 const PERDAY_WEEKEND = [4, 5, 6]
 
-/** Per-night minimum stay: "Edit per day" REPLACES the single nights field with the week itself — a value
- *  under each day name, in the field's own place, no box, no title or hint repeated, no "apply to…" shortcuts and no footer —
+/** Per-night minimum stay: "Edit per day" REPLACES the single nights field with the week itself, a value
+ *  under each day name, in the field's own place, no box, no title or hint repeated, no "apply to…" shortcuts and no footer -
  *  and one plain link switches between the two: "Edit per day" / "Use one minimum for every night". The value still lives in
  *  the section draft under its own key. `scope`: 'custom' (a channel's own, default) or 'base' (Listing base). */
 function usePerDay(fallback: string, scope: 'custom' | 'base') {
@@ -202,7 +202,7 @@ function usePerDay(fallback: string, scope: 'custom' | 'base') {
   const hasSaved = typeof saved === 'string' && saved !== ''
   // Switching to "Edit per day" is only a view until a night differs (audit B-2): with nothing saved per day and every
   // night equal to the single minimum, the mode is remembered in the draft's `open` map (never dirty) and no value is
-  // drafted — so no Unsaved bar. Any night that differs drafts the week as a real change; back to all-equal drops it.
+  // drafted, so no Unsaved bar. Any night that differs drafts the week as a real change; back to all-equal drops it.
   const put = (v: string | undefined) => {
     const neutral = v !== undefined && !hasSaved && v.split(',').every((x) => Number(x) === seed)
     if (v === undefined || neutral) {

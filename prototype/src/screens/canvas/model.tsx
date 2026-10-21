@@ -58,7 +58,7 @@ export function livePhotos(ch: ListingChannel, sl3: SL3State, lib: PhotoLib, ctx
 }
 
 /** This channel's own added amenities (data/property-listing.ts addedChannelAmenities) as the page shows them: the
- *  edit view reads the store + draft; the live side the store alone, minus any still waiting to be sent or in review —
+ *  edit view reads the store + draft; the live side the store alone, minus any still waiting to be sent or in review -
  *  the same rule every field follows (liveValue). */
 export function extrasNow(pid: string, ch: ListingChannel, sl3: SL3State, ctx: LiveCtx, live: boolean): AddedChAmenity[] {
   const all = addedChannelAmenities(pid, ch, sl3.custom[ch] as Custom)
@@ -68,13 +68,13 @@ export function extrasNow(pid: string, ch: ListingChannel, sl3: SL3State, ctx: L
 export const amenityAreaOf = (ch: ListingChannel) => cvArea(ch, ch === 'booking' ? 'facilities' : 'amenities')
 
 export interface CvEdit { area: CvAreaDef; key: string; from: string; to: string }
-/** Every part of this channel's page that differs from what's live now (not sent yet, or in review — including a
+/** Every part of this channel's page that differs from what's live now (not sent yet, or in review, including a
  *  local draft that hasn't even reached the store yet, one shared Save, not a commit per popover).
  *  `sl3`/`lib` are the edit view (the real store, with any local draft overlaid); `liveSl3`/`liveLib` (default: the
  *  same) are the real store alone, so "from" always reads the true live side even while editing a draft. */
 export function editsFor(ch: ListingChannel, sl3: SL3State, lib: PhotoLib, ctx: LiveCtx, liveSl3: SL3State = sl3, liveLib: PhotoLib = lib, pid?: string): CvEdit[] {
   const out: CvEdit[] = []
-  // a channel-only amenity added, removed or re-detailed (its sub-options) on this channel — one edit per amenity, on
+  // a channel-only amenity added, removed or re-detailed (its sub-options) on this channel, one edit per amenity, on
   // the page part the amenities render in, so it counts, highlights and reverts ("Keep the live version") like a field
   const area = pid ? amenityAreaOf(ch) : undefined
   if (pid && area) {
@@ -121,7 +121,7 @@ export interface CvCtxValue {
   /** This channel's cancellation policy as Policies has it (facts.ts), and its maximum guests from Pricing. */
   cancel: CancelFacts
   maxGuests: number
-  /** This channel's own added amenities as the page shows them now (live, or your edit) — appended to the inherited
+  /** This channel's own added amenities as the page shows them now (live, or your edit), appended to the inherited
    *  list by each replica page in that page's own wording (chAmenityLine). */
   extras: AddedChAmenity[]
   /** Text for a field as the page should show it now (live, your edit, or the open tip's preview). */
@@ -135,7 +135,7 @@ export interface CvCtxValue {
   /** Opens the field panel of the area a tip belongs to (Airbnb's "Show more" tip dot). */
   openTip: (id: string) => void
   /** "Show only editable sections": every part the host can't change here is left out of the page,
-   *  and so is the page's own chrome around it (buttons, dates, captions) — the columns and the order stay. */
+   *  and so is the page's own chrome around it (buttons, dates, captions), the columns and the order stay. */
   editableOnly: boolean
   /** Can the host change this part here (a field, the photo order, a price line)? Read by Area and the pages. */
   editable: (id: string) => boolean
@@ -144,7 +144,7 @@ const Ctx = createContext<CvCtxValue | null>(null)
 export const CvProvider = ({ value, children }: { value: CvCtxValue; children: ReactNode }) => <Ctx.Provider value={value}>{children}</Ctx.Provider>
 export function useCv() { const c = useContext(Ctx); if (!c) throw new Error('useCv outside CvProvider'); return c }
 
-/** `sl3`/`lib`: the edit view (store + any local unsaved draft overlaid) — what "Your edits" and the popovers read.
+/** `sl3`/`lib`: the edit view (store + any local unsaved draft overlaid), what "Your edits" and the popovers read.
  *  `liveSl3`/`liveLib` (default: the same): the real store alone, for what "Live now" and the edit-diff's "from"
  *  side show, so a local draft never leaks into either before it's actually sent (one shared Save). */
 export function useCvModel(ch: ListingChannel, sl3: SL3State, live: boolean, focusId: string | null, on: boolean, lib: PhotoLib, ctx: LiveCtx, liveSl3: SL3State = sl3, liveLib: PhotoLib = lib, pid?: string) {

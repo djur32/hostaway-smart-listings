@@ -33,7 +33,7 @@ def hs_file(hs):
     return FILES[int(hs.split('-')[1]) - 1]
 
 
-# name, HS, mode, box (x0, y0, x1, y1) full-res px — for "fill" the box centre is used
+# name, HS, mode, box (x0, y0, x1, y1) full-res px, for "fill" the box centre is used
 POINTS = [
     # ── App shell · sidebar
     ('sidebar.bg',                    'HS-22', 'fill', (20, 1400, 40, 1420)),

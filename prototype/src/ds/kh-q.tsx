@@ -1,16 +1,16 @@
 /* Knowledge Hub, reframed · its new patterns, added to the design
  * system before any screen uses them. CSS: ds/v3/kh-q.css. Tokens only. Built from patterns the prototype already has:
- *   · KqQuestionRow — the Sources/Questions table row (KhrSourceItem's shape): the coverage icon, the question, one meta
+ *   · KqQuestionRow, the Sources/Questions table row (KhrSourceItem's shape): the coverage icon, the question, one meta
  *     line with how often guests asked and on which channel, a trailing tip indicator (TipDot) and a chevron. The whole
  *     row opens the question (list → detail).
- *   · KqFactRef — a fact shown BY REFERENCE: its label and value, then where it lives ("Listing base · Location") as a
+ *   · KqFactRef, a fact shown BY REFERENCE: its label and value, then where it lives ("Listing base · Location") as a
  *     text link to that field. Read-only: there is no pencil, the field is edited where it lives.
- *   · KqConversation — one guest message behind a question: who, channel, month, the words, and who replied.
- *   · KqHold — the faithful-answer note: nothing backs (part of) the answer, so the AI tells the guest it'll check and
+ *   · KqConversation, one guest message behind a question: who, channel, month, the words, and who replied.
+ *   · KqHold, the faithful-answer note: nothing backs (part of) the answer, so the AI tells the guest it'll check and
  *     asks the host. Warning tone, the product's own `.h-khr-gapnote` family.
- *   · KqReceipt — the line a tip leaves once accepted: where the fact went and which channels it was sent to.
- *   · KqInsight — one insight in a list: an icon, a sentence, a quiet line, an action at the end.
- *   · KqWhere — the tip's destination choice (the Listing base, or one channel's description), the tip card's own
+ *   · KqReceipt, the line a tip leaves once accepted: where the fact went and which channels it was sent to.
+ *   · KqInsight, one insight in a list: an icon, a sentence, a quiet line, an action at the end.
+ *   · KqWhere, the tip's destination choice (the Listing base, or one channel's description), the tip card's own
  *     radio rows (`.h-tip__alt`), so it reads as part of the same container. */
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
@@ -40,7 +40,7 @@ export function KqQuestionRow({ state, question, meta, badge, tip, active, onOpe
   )
 }
 
-/** "Asked 9 times · Airbnb 2 · Booking.com 6 · Direct 1" — counts in plain words, never logos in circles. */
+/** "Asked 9 times · Airbnb 2 · Booking.com 6 · Direct 1", counts in plain words, never logos in circles. */
 export function KqCounts({ total, parts }: { total: number; parts: Array<{ label: string; n: number }> }) {
   if (!total) return <span className="h-kq-counts">Not asked yet</span>
   return (

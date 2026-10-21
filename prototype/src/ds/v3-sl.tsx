@@ -84,7 +84,7 @@ export function SlModePill({ mode, paused }: { mode: 'suggest' | 'autopilot'; pa
 /* ---------- setup: in-page horizontal stepper ----------
  * "I'd like the setup of the Smart Listings to be done through a stepper. But not through a dedicated page… you can
  * have a horizontal stepper, but don't make it the way that it is now, and adapt everything to the page that we have."
- * So: no bordered get-started card (.h-wizard) on this screen — the normal PageHead + content column, one compact row
+ * So: no bordered get-started card (.h-wizard) on this screen, the normal PageHead + content column, one compact row
  * of numbered steps under it, and the current step's content below. Completed steps are links back. */
 export interface SlStep { id: string; label: string }
 

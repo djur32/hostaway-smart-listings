@@ -1,7 +1,7 @@
-/* Knowledge Hub iteration R — the entry (concepts/knowledge-hub/KH-NEXT.md, concepts/knowledge-hub/R-BRIEF.md).
- * no Overview any more — `/hub` opens Content (the nine topics); a topic is its own page with
+/* Knowledge Hub iteration R, the entry (concepts/knowledge-hub/KH-NEXT.md, concepts/knowledge-hub/R-BRIEF.md).
+ * no Overview any more, `/hub` opens Content (the nine topics); a topic is its own page with
  * Questions · Facts tabs and the Test panel docked beside them; Workflows and Sources render their own page frame.
- * Every page is a Concept (ds/kh-r.tsx KhrFrame). No `?v=` needed — `/hub` (and `?v=r`) render this. */
+ * Every page is a Concept (ds/kh-r.tsx KhrFrame). No `?v=` needed, `/hub` (and `?v=r`) render this. */
 import { Navigate, useSearchParams } from 'react-router-dom'
 import { useProperty } from '../../../shell/PropertyLayout'
 import { Overview } from './R/Overview'

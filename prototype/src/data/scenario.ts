@@ -162,7 +162,7 @@ export function seedFacts(): Record<string, Fact> {
     const sync: Fact['sync'] = {}
     for (const c of BOTH) {
       const r = f.reach[c]
-      sync[c] = f.visibility !== 'public' || !r || r === '—' || r === 'N' ? 'not-published' : 'in-sync'
+      sync[c] = f.visibility !== 'public' || !r || r === '-' || r === 'N' ? 'not-published' : 'in-sync'
     }
     out[fieldId] = {
       fieldId,
@@ -363,5 +363,5 @@ export function seedVersions(): Version[] {
   ]
 }
 
-/** Import arithmetic (SCENARIO.md) — for S10's "what we found". */
+/** Import arithmetic (SCENARIO.md), for S10's "what we found". */
 export const IMPORT_COUNTS = { read: 142, identical: 116, perChannelByDesign: 1, toDecide: 4, channelOwned: 1, onlyOne: 9, empty: 11 }

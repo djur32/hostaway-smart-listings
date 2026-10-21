@@ -47,7 +47,7 @@ const climbs = (f: PropertyProfile) => f.type !== 'House' && noLift(f) && /floor
 
 /* ---------- tips: generated per property (Smart Listings should default to on, with real
  * suggestions, for every property except the last three in the switcher) ---------- */
-/** "n of total" evidence numbers, varied per property/channel so tips don't all read as the same copy (—
+/** "n of total" evidence numbers, varied per property/channel so tips don't all read as the same copy (-
  *  the scenario's own "17 of 24 similar homes" style lines, data/sl3.ts TIPS, aren't touched). */
 function nOf(seed: number, lo: number, hi: number, totalLo: number, totalHi: number) {
   const n = lo + (seed % (hi - lo))
@@ -109,7 +109,7 @@ const PHOTO_TIPS: Record<string, Partial<Record<ListingChannel, PhotoTipSpec>>> 
 
 /** Tips for one connected channel, grounded in the property's own profile and imported listing text
  *  (data/property-seeds.ts listingSeed). Mirrors the scenario's own TIPS shapes (data/sl3.ts) at a lighter density:
- *  Airbnb — name, summary, (photos), check-in details, getting around, (an amenity), house rules; Booking.com —
+ *  Airbnb, name, summary, (photos), check-in details, getting around, (an amenity), house rules; Booking.com -
  *  description, (photos), interaction, directions, (an amenity), house rules. Every tab gets some, and each keeps
  *  long-text fields without a tip. Several land on fields that use the Base (check-in details, getting around,
  *  interaction, Booking.com house rules). */
@@ -209,7 +209,7 @@ function tipsForChannel(p: Property, f: PropertyProfile, seed: Record<string, Fi
 }
 /** Every tip a property has, across its Smart Listings channels (data/property-seeds.ts smartChannelsFor). The
  *  scenario property's own scripted TIPS (data/sl3.ts) are untouched; this only covers the other properties Smart
- *  Listings defaults to on for (data/portfolio.ts smartListingsDefaultOn) — none for the three "off" ones. . */
+ *  Listings defaults to on for (data/portfolio.ts smartListingsDefaultOn), none for the three "off" ones. . */
 export const propertyTipsFor = memo((pid: string): TipDef[] => {
   const p = propertyById(pid)
   const f = profileOf(pid)
@@ -258,7 +258,7 @@ export const amenityDefaultOn = (pid: string, ch: ListingChannel, name: string) 
  * and "come up with a few for each channel".
  * The Base list (the Knowledge Hub's one list, AMENITIES / amenitiesFor above, and the shared catalogue every channel
  * can satisfy, data/details.ts AMENITY_CATALOG) already covers everything the channels have in common. What is left per
- * channel is the vocabulary only that channel has a field for — so that, and only that, is what a channel's "Add
+ * channel is the vocabulary only that channel has a field for, so that, and only that, is what a channel's "Add
  * amenities" offers. Deliberately disjoint from AMENITY_CATALOG: a name in there is shared, so it belongs to the Base.
  * Vocabulary is each channel's real wording (Airbnb's amenity list, Booking.com's facility list); which ones this
  * property has is like every other sample value in this prototype.
@@ -273,7 +273,7 @@ export interface ChOnlyAmenity {
   group: string
   /** Grouped single choices the channel asks for before it will take the amenity. */
   options?: ChOptionGroup[]
-  /** Its line icon on the channel's guest page (Canvas) and in the Knowledge Hub — from the Tabler sprite we ship. */
+  /** Its line icon on the channel's guest page (Canvas) and in the Knowledge Hub, from the Tabler sprite we ship. */
   icon?: string
 }
 const CHANNEL_ONLY: Record<ListingChannel, ChOnlyAmenity[]> = {
@@ -300,7 +300,7 @@ const CHANNEL_ONLY: Record<ListingChannel, ChOnlyAmenity[]> = {
     { name: 'Invoice provided', group: 'Services', icon: 'file-text' },
   ],
   // Direct bookings is the host's own site: there is no external catalogue to satisfy, so it gets the fewest, and what
-  // it gets is what a host might choose to advertise there. Its sub-options carry no channel mark for the same reason —
+  // it gets is what a host might choose to advertise there. Its sub-options carry no channel mark for the same reason -
   // the wording is the host's, not a channel enum to match.
   direct: [
     { name: 'Welcome basket', group: 'Services', icon: 'heart-handshake', options: [
@@ -338,7 +338,7 @@ export function addedChannelAmenities(pid: string, c: ListingChannel, custom: Re
     }),
   }))
 }
-/** How the channel's own guest page words an added amenity with its sub-options — each page's real pattern:
+/** How the channel's own guest page words an added amenity with its sub-options, each page's real pattern:
  *  Airbnb (and the host's own site) put the detail after an en dash ("Fast wifi – 245 Mbps"); Booking.com puts it in
  *  brackets after the facility ("Airport shuttle (free)"). No picks: just the name. */
 export function chAmenityLine(c: ListingChannel, a: AddedChAmenity): string {
@@ -363,7 +363,7 @@ export const reviewStats = memo((pid: string): ReviewStats => {
 
 /* ---------- channel overview (data/v3-ch CHANNEL_META for Neukölln) ---------- */
 const HOST = currentUser().name // the signed-in account manages every property it holds (D-160)
-const daysAgo = (n: number | null | undefined) => (n == null ? '—' : n === 0 ? 'Today' : `${plural(n, 'day')} ago`)
+const daysAgo = (n: number | null | undefined) => (n == null ? '-' : n === 0 ? 'Today' : `${plural(n, 'day')} ago`)
 export function channelMetaFor(pid: string, c: ListingChannel): ChannelMeta {
   if (isScenarioProperty(pid)) return CHANNEL_META[c]
   const p = propertyById(pid)

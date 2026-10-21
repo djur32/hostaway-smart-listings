@@ -44,7 +44,7 @@ const DIFFS: Array<{ what: string; airbnb?: string; booking?: string; both?: str
   { what: 'Title', airbnb: 'Beautiful Artist Apt…', booking: 'Artist Apartment Neukölln…', then: 'Different on purpose: kept per channel' },
   { what: 'Description', airbnb: '1,020 characters, yours', booking: 'Uses the Airbnb text', then: 'Becomes the Base description; write one for Booking.com any time' }, // v3: editable per channel (QA B19)
   { what: 'Photo order', airbnb: 'tested order, 18', booking: 'smart ordering by Booking.com', then: 'Kept per channel; Booking.com may reorder', p2: true },
-  { what: 'Highlighted amenities', airbnb: 'Workspace 6th', booking: '—', then: 'Airbnb only', p2: true },
+  { what: 'Highlighted amenities', airbnb: 'Workspace 6th', booking: '-', then: 'Airbnb only', p2: true },
   { what: 'Empty on both', both: 'Wi-Fi speed, quiet hours, first aid kit, registration number… (11)', then: 'Asked as questions; answer now or later' },
 ]
 

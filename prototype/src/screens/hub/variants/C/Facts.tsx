@@ -69,8 +69,8 @@ function Control({ item, value, write }: { item: KhItem; value: string; write: (
     case 'tasks': return <TaskList value={value} onChange={write} />
     case 'money': case 'percent': case 'guests':
       // Knowledge Hub R renders its fact rows through this Control (R/Overview.tsx imports FactRow from here), so this
-      // is R's live numeric input — changed for R; C itself is a frozen exploration.
-      // NumberField (ds/v3-ch.tsx): the product-wide numeric control — the ▲/▼ spinner plus Up/Down (PageUp/PageDown ×10)
+      // is R's live numeric input, changed for R; C itself is a frozen exploration.
+      // NumberField (ds/v3-ch.tsx): the product-wide numeric control, the ▲/▼ spinner plus Up/Down (PageUp/PageDown ×10)
       // on the input ("make sure that this is available in all of the items that are numbers"). Same
       // sanitising and the same write() as before, so the draft/Save path is unchanged; the unit sits at the end, as on
       // the channel Pricing screen the same values come from.
@@ -159,7 +159,7 @@ function AmenityFact({ hub, name, editing, onEdit, note, sub, actionOverride }: 
   const off = chs.filter((c) => !on.includes(c))
   const every = on.length === chs.length && chs.length > 0
   // exception-only (S10 QA, 1 Oct): the value column already says Listed/Not listed, so the scope column stays blank
-  // unless some channels disagree — no "All channels"/"No channel lists it" restating what the value just said.
+  // unless some channels disagree, no "All channels"/"No channel lists it" restating what the value just said.
   const scope = on.length === 0 || every ? undefined : `Not on ${names(off)}`
   const isOn = (c: ListingChannel) => draft[c] ?? hub.amenityOn(name, c)
   const save = () => {
@@ -216,7 +216,7 @@ function PolicyFact({ kind, base, editing, onEdit, actionOverride }: { kind: 'ca
 /** One fact row. `note` is shown while editing ("Also used in 3 other answers"). */
 export function FactRow({ hub, fact, editing, onEdit, note, sub, base, actionOverride }: {
   hub: Hub; fact: FactRef; editing: boolean; onEdit: (v: boolean) => void; note?: ReactNode; sub?: ReactNode; base: string
-  /** replaces the pencil (the Knowledge Hub topic table's ··· menu — ) */
+  /** replaces the pencil (the Knowledge Hub topic table's ··· menu, ) */
   actionOverride?: ReactNode
 }) {
   const [shown, setShown] = useState(false)
@@ -235,7 +235,7 @@ export function FactRow({ hub, fact, editing, onEdit, note, sub, base, actionOve
   const label = fact.label ?? pairs[0].it!.label
   return (
     <KhcFact dataKey={k0} label={label}
-      value={masked ? <span className="h-khc-mask">{text}<button type="button" className="h-khc-eye" aria-label={shown ? 'Hide the password' : 'Show the password'} onClick={() => setShown(!shown)}><Icon name={shown ? 'eye-off' : 'eye'} /></button></span> : text || '—'}
+      value={masked ? <span className="h-khc-mask">{text}<button type="button" className="h-khc-eye" aria-label={shown ? 'Hide the password' : 'Show the password'} onClick={() => setShown(!shown)}><Icon name={shown ? 'eye-off' : 'eye'} /></button></span> : text || '-'}
       sub={sub} scope={<Caption hub={hub} keys={fact.keys} />}
       action={!editing && (actionOverride ?? <IconButton icon="pencil" label={`Edit ${label}`} onClick={() => onEdit(true)} />)}
       editor={editing && <Editor hub={hub} keys={fact.keys} note={note} onDone={() => onEdit(false)} />} />

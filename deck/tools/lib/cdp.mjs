@@ -119,7 +119,7 @@ const CHROME = process.env.CHROME || '/Applications/Google Chrome.app/Contents/M
 export async function launchChrome() {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'cdp-chrome-'));
   const proc = spawn(CHROME, [
-    '--headless=new', '--remote-debugging-port=0', `--user-data-dir=${dir}`, '--hide-scrollbars', '--no-first-run',
+    '--headless=new', '--no-sandbox', '--remote-debugging-port=0', `--user-data-dir=${dir}`, '--hide-scrollbars', '--no-first-run',
     '--no-default-browser-check', '--disable-extensions', '--disable-background-networking', '--disable-component-update',
     '--disable-sync', '--mute-audio', '--force-color-profile=srgb', '--disable-renderer-backgrounding',
     '--disable-background-timer-throttling', '--disable-backgrounding-occluded-windows',

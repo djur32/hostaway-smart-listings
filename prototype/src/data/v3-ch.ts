@@ -70,7 +70,7 @@ export const TAB_DESC: Record<ListingTab, string> = {
 /* ---------- channel overview ---------- */
 export interface ChannelMeta {
   connection: string; account: string; synced: string; live: string; liveSub: string
-  /** `null`: no performance numbers for this property yet; the overview shows a neutral "—". */
+  /** `null`: no performance numbers for this property yet; the overview shows a neutral "-". */
   kpis: { occ: number; adr: number; stay: number; revpar: number; occDelta: string; adrDelta: string; stayDelta: string; revparDelta: string; down?: Array<'adr'> } | null
   /** Values the channel owns: shown, never editable (V3-SPEC §1). */
   owned: Array<[string, string]>

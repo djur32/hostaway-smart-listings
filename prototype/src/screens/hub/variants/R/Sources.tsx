@@ -4,7 +4,7 @@
  * other properties have none yet); Reviews is a stub row, "Not enabled", with no live data. The add options and the
  * ··· menu are UI only. "N sources" counts every row shown.
  * Rewired: the page renders its own KhrFrame; both section titles sit OUTSIDE their tables
- * (`.h-khr2-sechead`); every row — source or add option — is the same KhrSourceItem shape: name, then one
+ * (`.h-khr2-sechead`); every row, source or add option, is the same KhrSourceItem shape: name, then one
  * "{desc} · {meta}" line, equal top/bottom padding, status and ··· centred; an add option is that row as a whole-row
  * button with a trailing "Add". */
 import { useState } from 'react'

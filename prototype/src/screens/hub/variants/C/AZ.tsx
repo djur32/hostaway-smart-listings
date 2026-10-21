@@ -51,7 +51,7 @@ export function EverythingAZ({ hub, group, onGroup, base, edit, onEdit }: {
             return (
               <div key={c} className="h-khc-fact">
                 <span className="h-khc-fact__label">{CHANNELS[c].name}</span>
-                <span className="h-khc-fact__value">{shown.length} photos{hidden.length ? ` · ${hidden.length} hidden` : ''}<small>Cover: {lib.meta[shown[0]]?.description ?? '—'}</small></span>
+                <span className="h-khc-fact__value">{shown.length} photos{hidden.length ? ` · ${hidden.length} hidden` : ''}<small>Cover: {lib.meta[shown[0]]?.description ?? '-'}</small></span>
                 <span className="h-khc-fact__scope"><Link className="h-textlink" to={`${base}/ch/${c}/listing/essentials`}>Open</Link></span>
                 <span />
               </div>

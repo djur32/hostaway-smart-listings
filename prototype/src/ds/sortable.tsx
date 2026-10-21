@@ -10,7 +10,7 @@
  * click on the item, its checkbox or its buttons still works); touch drags only from an element marked
  * `data-drag-handle` (the grip, `touch-action: none`), so a finger on a photo still scrolls the page.
  * Items are measured once when a drag starts (grid cells keep their place while their content moves), so the target
- * slot is the cell nearest the pointer — stable while the others animate (FLIP, --dur-2 / --ease-standard) and while
+ * slot is the cell nearest the pointer, stable while the others animate (FLIP, --dur-2 / --ease-standard) and while
  * the scroll parent auto-scrolls near its edges. Escape cancels. Keyboard reorder stays the screen's own job. */
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type PointerEvent as RPointerEvent, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'

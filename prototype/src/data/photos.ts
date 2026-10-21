@@ -192,7 +192,7 @@ export function reorderLib(lib: PhotoLib, sl3: PhotoSl3, scope: ListingChannel |
   const { hidden } = channelPhotos(scope, lib, sl3)
   return { ...lib, order: { ...lib.order, [scope]: [...keys, ...without(hidden, keys)] } }
 }
-/** Cover comes purely from order (the first shown photo), never from this edit — so a plain field update never moves
+/** Cover comes purely from order (the first shown photo), never from this edit, so a plain field update never moves
  * a photo's position; re-order it instead (ReorderGrid, Photos.tsx) to change a channel's cover. */
 export function editLib(lib: PhotoLib, _sl3: PhotoSl3, key: string, e: PhotoEdit): PhotoLib {
   const perChannel = e.perChannel && Object.keys(e.perChannel).length ? e.perChannel : undefined

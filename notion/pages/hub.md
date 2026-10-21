@@ -1,42 +1,42 @@
-<callout icon="✨" color="purple_bg">
-	**Head of Design case study for Hostaway · Smart Listings.** How a host could keep one listing right on every channel without repeating work, and get AI suggestions that say why. This is the condensed record: eight short sections, each split into how it was done and what came out of it.
+<callouticon=✨ color=purple_bg>
+	**HeadofDesigncasestudyforHostawaySmartListings.** HowahostcouldkeeponelistingrightoneverychannelwithoutrepeatingworkandgetAIsuggestionsthatsaywhy. Thisisthecondensedrecordeightshortsectionseachsplitintohowitwasdoneandwhatcameoutofit.
 </callout>
-![Smart Listings on an Airbnb listing: the field uses the Base or is customised for Airbnb, and the Tips panel shows one suggestion with its why. Live prototype; sample data .](file-upload://3eee18af-1645-81fc-b4a6-00b261b299be)
-## The solution in one paragraph
-Listing details live once, in the **Listing base** (the Details, Pricing and Availability every channel lists). The **Knowledge Hub** reads those details without copying them, adds what they don't say (the situations behind a rule, such as what a host does when X, Y or Z happens), and learns from guests' questions in the inbox. Each **channel** (Airbnb, Booking.com, Direct) has its own pages, where a field **uses the Base**, is **customised for that channel**, exists **only on that channel** (Airbnb's check-in method), or is **set by the channel** and can't be changed (Booking.com writes its own description). **Smart Listings** is opt-in: a **strategy per channel** turns into **tips** on that channel's pages, each with its *why* and its sources. It isn't a new AI: it is Hostaway's own **The assistant**, expanded from answering questions to working on the listing, with the same sparkle and the same purple. The host accepts or dismisses them, previews the result on a **Canvas** of the real guest page, and checks in **Performance** whether the strategy worked. Start with <mention-page url="https://app.notion.com/p/3eee18af164581828521eb27e3e50737">Solution overview</mention-page>, or open the prototype: [website]() · [phone app]().
-## The story in six steps
-1. **Today the Knowledge Hub repeats the listing and has no job of its own.** Its copy drifts and the assistant answers guests from it. No screen shows one listing on one channel, and "Edit per channel" is scattered across the forms. → <mention-page url="https://app.notion.com/p/3eee18af16458127800cde5c8b1017c8">01 · Discovery</mention-page>
-2. **Each channel plays by its own rules.** Limits differ, and Booking.com writes its own description. → <mention-page url="https://app.notion.com/p/3eee18af1645818c859bcd3115fce28e">Channel constraints</mention-page>
-3. **Hosts vary money and stay rules per channel far more than words.** So tips must cover pricing, availability and policies, and a channel's own voice is a choice, not a default. → <mention-page url="https://app.notion.com/p/3eee18af164581e3a9faf5f1f8e138f3">02 · Research</mention-page>
-4. **Facts once; each channel holds only what differs.** A channel-first menu: Shared first, then one group per channel. → <mention-page url="https://app.notion.com/p/3eee18af164581329bede8618280f79b">03 · Information architecture</mention-page>
-5. **A strategy per channel turns into tips with their why,** in context, decided by the host. The tips are the assistant reaching into the listing, not a second assistant to learn. → <mention-page url="https://app.notion.com/p/3eee18af164581b690aecaa695cf08a7">04 · Concepts</mention-page> · <mention-page url="https://app.notion.com/p/3eee18af1645810bb3b3c9d7bf2ab924">05 · Design</mention-page>
-6. **Next: test it with hosts, measure it, then import and optimisation over time.** → <mention-page url="https://app.notion.com/p/3eee18af1645813d9675c3b09fcf3546">06 · Test & measure</mention-page> · <mention-page url="https://app.notion.com/p/3eee18af1645813ea2e7d6c6dbf87ddf">07 · Systems & next</mention-page>
-## How to read this
+![SmartListingsonanAirbnblistingthefieldusestheBaseoriscustomisedforAirbnbandtheTipspanelshowsonesuggestionwithitswhy. Liveprototype; sampledata.](file-upload//3eee18af-1645-81fc-b4a6-00b261b299be)
+## Thesolutioninoneparagraph
+Listingdetailsliveonceinthe**Listingbase** (theDetailsPricingandAvailabilityeverychannellists). The**KnowledgeHub** readsthosedetailswithoutcopyingthemaddswhattheydon'tsay(thesituationsbehindarulesuchaswhatahostdoeswhenXYorZhappens), andlearnsfromguests' questionsintheinbox. Each**channel** (AirbnbBooking.comDirect) hasitsownpageswhereafield**usestheBase**, is**customisedforthatchannel**, exists**onlyonthatchannel** (Airbnb'scheck-inmethod), oris**setbythechannel** andcan'tbechanged(Booking.comwritesitsowndescription). **SmartListings** isopt-ina**strategyperchannel** turnsinto**tips** onthatchannel'spageseachwithits*why* anditssources. Itisn'tanewAIitisHostaway'sown**Theassistant**, expandedfromansweringquestionstoworkingonthelistingwiththesamesparkleandthesamepurple. Thehostacceptsordismissesthempreviewstheresultona**Canvas** oftherealguestpageandchecksin**Performance** whetherthestrategyworked. Startwith<mention-pageurl=https//app.notion.comp3eee18af164581828521eb27e3e50737>Solutionoverview</mention-page>, oropentheprototype[website] · [phoneapp].
+## Thestoryinsixsteps
+1. **TodaytheKnowledgeHubrepeatsthelistingandhasnojobofitsown.** Itscopydriftsandtheassistantanswersguestsfromit. NoscreenshowsonelistingononechannelandEditperchannelisscatteredacrosstheforms. → <mention-pageurl=https//app.notion.comp3eee18af16458127800cde5c8b1017c8>01Discovery</mention-page>
+2. **Eachchannelplaysbyitsownrules.** LimitsdifferandBooking.comwritesitsowndescription. → <mention-pageurl=https//app.notion.comp3eee18af1645818c859bcd3115fce28e>Channelconstraints</mention-page>
+3. **Hostsvarymoneyandstayrulesperchannelfarmorethanwords.** Sotipsmustcoverpricingavailabilityandpoliciesandachannel'sownvoiceisachoicenotadefault. → <mention-pageurl=https//app.notion.comp3eee18af164581e3a9faf5f1f8e138f3>02Research</mention-page>
+4. **Factsonce; eachchannelholdsonlywhatdiffers.** Achannel-firstmenuSharedfirstthenonegroupperchannel. → <mention-pageurl=https//app.notion.comp3eee18af164581329bede8618280f79b>03Informationarchitecture</mention-page>
+5. **Astrategyperchannelturnsintotipswiththeirwhy** incontextdecidedbythehost. Thetipsaretheassistantreachingintothelistingnotasecondassistanttolearn. → <mention-pageurl=https//app.notion.comp3eee18af164581b690aecaa695cf08a7>04Concepts</mention-page> · <mention-pageurl=https//app.notion.comp3eee18af1645810bb3b3c9d7bf2ab924>05Design</mention-page>
+6. **Nexttestitwithhostsmeasureitthenimportandoptimisationovertime.** → <mention-pageurl=https//app.notion.comp3eee18af1645813d9675c3b09fcf3546>06Test& measure</mention-page> · <mention-pageurl=https//app.notion.comp3eee18af1645813ea2e7d6c6dbf87ddf>07Systems& next</mention-page>
+## Howtoreadthis
 <columns>
 	<column>
-		### The process
-		<page url="https://app.notion.com/p/3eee18af164581e28fddc912dc332953">00 · Brief & scope</page>
-		<page url="https://app.notion.com/p/3eee18af16458127800cde5c8b1017c8">01 · Discovery</page>
-		<page url="https://app.notion.com/p/3eee18af164581e3a9faf5f1f8e138f3">02 · Research</page>
-		<page url="https://app.notion.com/p/3eee18af164581329bede8618280f79b">03 · Information architecture</page>
-		<page url="https://app.notion.com/p/3eee18af164581b690aecaa695cf08a7">04 · Concepts</page>
-		<page url="https://app.notion.com/p/3eee18af1645810bb3b3c9d7bf2ab924">05 · Design</page>
-		<page url="https://app.notion.com/p/3eee18af1645813d9675c3b09fcf3546">06 · Test & measure</page>
-		<page url="https://app.notion.com/p/3eee18af1645813ea2e7d6c6dbf87ddf">07 · Systems & next</page>
+		### Theprocess
+		<pageurl=https//app.notion.comp3eee18af164581e28fddc912dc332953>00Brief& scope</page>
+		<pageurl=https//app.notion.comp3eee18af16458127800cde5c8b1017c8>01Discovery</page>
+		<pageurl=https//app.notion.comp3eee18af164581e3a9faf5f1f8e138f3>02Research</page>
+		<pageurl=https//app.notion.comp3eee18af164581329bede8618280f79b>03Informationarchitecture</page>
+		<pageurl=https//app.notion.comp3eee18af164581b690aecaa695cf08a7>04Concepts</page>
+		<pageurl=https//app.notion.comp3eee18af1645810bb3b3c9d7bf2ab924>05Design</page>
+		<pageurl=https//app.notion.comp3eee18af1645813d9675c3b09fcf3546>06Test& measure</page>
+		<pageurl=https//app.notion.comp3eee18af1645813ea2e7d6c6dbf87ddf>07Systems& next</page>
 	</column>
 	<column>
 		### Decisions
-		<database url="https://app.notion.com/p/bdf268a39a0b413896f5084bd66df2e6" inline="false" data-source-url="collection://4dcc1615-04d1-4b25-9571-e24fe723cfe3">Decision log</database>
-		Twenty key decisions, each rolling up the detailed records behind it.
-		### Icons and status
-		🔭 marks a method, ✅ an output. The first line of every page gives its status:
-		**Done**: real work on real sources (the brief, the product, public docs, the prototype).
-		**Sampled**: a labelled sample standing in for research I'd run with real hosts. It is not evidence.
-		**Planned**: not run. The page says how I'd run it.
+		<databaseurl=https//app.notion.compbdf268a39a0b413896f5084bd66df2e6inline=falsedata-source-url=collection//4dcc1615-04d1-4b25-9571-e24fe723cfe3>Decisionlog</database>
+		Twentykeydecisionseachrollingupthedetailedrecordsbehindit.
+		### Iconsandstatus
+		🔭 marksamethod✅ anoutput. Thefirstlineofeverypagegivesitsstatus
+		**Done**: realworkonrealsources(thebrieftheproductpublicdocstheprototype).
+		**Sampled**: alabelledsamplestandinginforresearchI'drunwithrealhosts. Itisnotevidence.
+		**Planned**: notrun. ThepagesayshowI'drunit.
 	</column>
 </columns>
-Each section page opens with what the stage found, then two columns: **Methods** and **Outputs**. Every output has its own page and links back to what it builds on. Charts, quotes and numbers carry a provenance label: .
+Eachsectionpageopenswithwhatthestagefoundthentwocolumns**Methods** and**Outputs**. Everyoutputhasitsownpageandlinksbacktowhatitbuildson. Chartsquotesandnumberscarryaprovenancelabel.
 ## Links
-- **Prototype:** [website]() · [phone app]()
-- **Deck:** [hostaway-case-deck.digimal.studio]() · press N on any slide to open its page here
-- **Loom:** not recorded yet
+- **Prototype** [website] · [phoneapp]
+- **Deck** [hostaway-case-deck.digimal.studio] · pressNonanyslidetoopenitspagehere
+- **Loom** notrecordedyet

@@ -125,7 +125,7 @@ export function CanvasView({ channel, tab }: { channel: ListingChannel; tab?: Li
     if (v === (sl3.base[k] ?? fallback ?? FIELD_BASE(k))) delete b[k]; else b[k] = v
     return { ...d, base: b }
   }), [patchDraft, sl3])
-  /** A field's draft (and its kept "Use the Base" text) dropped — e.g. after accepting a tip on it, so the field shows
+  /** A field's draft (and its kept "Use the Base" text) dropped, e.g. after accepting a tip on it, so the field shows
    *  the accepted value rather than an older unsaved edit. */
   const dropDraft = (k: string) => patchDraft((d) => {
     const c = { ...d.custom }, b = { ...d.base }
@@ -223,8 +223,8 @@ export function CanvasView({ channel, tab }: { channel: ListingChannel; tab?: Li
 
   const m = useCvModel(channel, draftSl3, live, tipsOpen ? focusId : null, on, draftLib, liveCtx, sl3, lib, p.id)
 
-  /** tip (purple) › editable here (orange) › read-only (no colour). A field the host can't change here — owned by the
-   *  Knowledge Hub or the channel, Autopilot on, or set by Field visibility — has no colour unless a tip waits on it. */
+  /** tip (purple) › editable here (orange) › read-only (no colour). A field the host can't change here, owned by the
+   *  Knowledge Hub or the channel, Autopilot on, or set by Field visibility, has no colour unless a tip waits on it. */
   const toneOf = (a: CvAreaDef): CvTone => {
     // photos and price lines are edited outside the panel's AI (the photos takeover, Pricing's rows): orange, no tip
     if (a.field === 'photos' || priceKeysFor(channel, a.id)) return autopilot ? 'none' : 'refine'
@@ -233,8 +233,8 @@ export function CanvasView({ channel, tab }: { channel: ListingChannel; tab?: Li
     if (autopilot) return 'none'
     const st = fieldStateNow(channel, a.field, draftSl3)
     if (st === 'hub' || st === 'set' || st === 'linked') return 'none'
-    // a field on the Base (or a listing-wide one not opened yet) isn't editable as it stands — Customize / Edit for all
-    // channels comes first — so, like Classic's rule (no Rewrite icon on a Base field), it gets no orange; the panel
+    // a field on the Base (or a listing-wide one not opened yet) isn't editable as it stands, Customize / Edit for all
+    // channels comes first, so, like Classic's rule (no Rewrite icon on a Base field), it gets no orange; the panel
     // still opens on it with the Customize action
     if (st === 'inherit' || st === 'listing') return 'none'
     if (fieldVis?.[a.field] === 'show' || fieldVis?.[a.field] === 'hidden') return 'none'
@@ -415,7 +415,7 @@ export function CanvasView({ channel, tab }: { channel: ListingChannel; tab?: Li
         edits={edits} onKeep={() => setKeep(true)}
         left={<label className="cv-bar__toggle"><Toggle checked={editableOnly} label="Show only editable sections" onChange={(v) => set({ editable: v ? '1' : null })} />Show only editable sections</label>} />
       <CvFrame url={content.url[channel]} note={note} live={live}>
-        {/* no dimming, ever ("make sure the content is readable") — outlines and markers only */}
+        {/* no dimming, ever ("make sure the content is readable"), outlines and markers only */}
         <div className="cv-layer" ref={layerRef} onClick={() => selected && select(null)}>
           <div className="cv-stage" ref={stageRef}>
             <div className="cv-page" ref={pageRef} style={{ width: L.width, zoom: L.zoom }}>

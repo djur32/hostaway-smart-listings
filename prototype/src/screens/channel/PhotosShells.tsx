@@ -1,7 +1,7 @@
-/* The two overlay shells for the photos-navigation exploration (screens/channel/photosNav.tsx) — Pattern A (a true
+/* The two overlay shells for the photos-navigation exploration (screens/channel/photosNav.tsx), Pattern A (a true
  * full-screen takeover, portaled over everything including the sidebar) and Pattern B (PanelStack's own slide-in
- * drawer, widened to fit a photo grid). Both host the exact same <PhotosManager/> (./Photos.tsx) — only the frame
- * around it differs — and both route every close trigger (X, Escape, PanelStack's own back/spine) through
+ * drawer, widened to fit a photo grid). Both host the exact same <PhotosManager/> (./Photos.tsx), only the frame
+ * around it differs, and both route every close trigger (X, Escape, PanelStack's own back/spine) through
  * PhotosManager's `requestClose`, so a dirty draft is never silently dropped (see Photos.tsx's own docblock).
  * Pattern C (the tab) needs no shell: it's a real route, handled directly in ListingEditor.tsx. */
 import { useEffect, useRef, useState, type ReactNode } from 'react'
@@ -12,17 +12,17 @@ import { PHOTO_CH_NAME } from '../../data/photos'
 import type { ListingChannel } from '../../data/sl3'
 
 /** How long the takeover's exit fade+scale runs before it unmounts: `--dur-drawer` (160ms, the same token Split and
- *  PanelStack slide with) plus a frame of slack — the exact idiom Split's SPLIT_EXIT_MS / PanelStack's EXIT_MS
+ *  PanelStack slide with) plus a frame of slack, the exact idiom Split's SPLIT_EXIT_MS / PanelStack's EXIT_MS
  *  already use (ds/sl3.tsx, ds/panels.tsx), so the overlay stays mounted for its own exit instead of cutting. */
 const TAKEOVER_EXIT_MS = 200
 
-/** Pattern A — full-screen takeover, the chosen pick for every channel (3 Oct), laid out like the real Hostaway
- *  "Manage photos" screen (HS-L04): a full-width top bar — bordered square back-chevron on the left,
- *  "Manage photos" centred, bordered square × on the right, a divider under it — then a centred container (about
+/** Pattern A, full-screen takeover, the chosen pick for every channel (3 Oct), laid out like the real Hostaway
+ *  "Manage photos" screen (HS-L04): a full-width top bar, bordered square back-chevron on the left,
+ *  "Manage photos" centred, bordered square × on the right, a divider under it, then a centred container (about
  *  two-thirds of a desktop viewport) holding the H1 + subtitle with Re-order photos / Add, the count row and the
  *  5-column grid. Unlike the real screen, there is no All photos / per-channel switcher: it's locked to `channel`.
  *  Animates in/out with a fade + slight scale (CSS `h-photos-takeover-in`/`-out`, ds/v3/ch.css) using the drawer
- *  tokens — never an instant swap. Stays mounted through its own exit (the same "leaving" idiom Split/PanelStack use)
+ *  tokens, never an instant swap. Stays mounted through its own exit (the same "leaving" idiom Split/PanelStack use)
  *  so the fade is visible. */
 /** `channel` unset = Listing base: the Base's photos, no switcher (PhotosManager baseOnly). */
 export function PhotosFullTakeover(p: { open: boolean; onClose: () => void; channel?: ListingChannel }) {
@@ -61,10 +61,10 @@ function PhotosTakeover({ open, onClose, channel }: { open: boolean; onClose: ()
   const photosRef = useRef<PhotosManagerHandle>(null)
   const [mounted, setMounted] = useState(open)
   const [leaving, setLeaving] = useState(false)
-  // "adjusting state during render" (React's own sanctioned pattern — the exact idiom Split/PanelStack already use,
+  // "adjusting state during render" (React's own sanctioned pattern, the exact idiom Split/PanelStack already use,
   // ds/sl3.tsx's Split and ds/panels.tsx's PanelStack): a plain ref mutated in the render body looks equivalent but
   // is impure, and silently breaks under StrictMode's dev-only double-render (the throwaway first pass mutates the
-  // ref, so the real committed pass sees no change and never calls setMounted) — confirmed live, that's why this
+  // ref, so the real committed pass sees no change and never calls setMounted), confirmed live, that's why this
   // uses useState for `prevOpen` instead.
   const [prevOpen, setPrevOpen] = useState(open)
   if (prevOpen !== open) {
@@ -76,7 +76,7 @@ function PhotosTakeover({ open, onClose, channel }: { open: boolean; onClose: ()
     const t = setTimeout(() => { setMounted(false); setLeaving(false) }, TAKEOVER_EXIT_MS)
     return () => clearTimeout(t)
   }, [leaving])
-  // every close trigger (back, ×, Escape) asks PhotosManager first — it already knows whether the draft is dirty
+  // every close trigger (back, ×, Escape) asks PhotosManager first, it already knows whether the draft is dirty
   const guardedClose = () => { if (photosRef.current) photosRef.current.requestClose(); else onClose() }
   useEffect(() => {
     if (!mounted) return
@@ -117,12 +117,12 @@ function PhotosTakeover({ open, onClose, channel }: { open: boolean; onClose: ()
   )
 }
 
-/** Pattern B — a PanelStack drawer (D-927's existing drill-down slide, ds/panels.tsx), reused as-is rather than
+/** Pattern B, a PanelStack drawer (D-927's existing drill-down slide, ds/panels.tsx), reused as-is rather than
  *  rebuilt: one level, "Manage photos", widened past its usual narrow rail (`.ch-photos-pstack`, ds/v3/ch.css) so a
- *  photo grid has room, sliding in over the Essentials column — which stays mounted and visible (narrowed), not
- *  dimmed away — and sliding back out to restore it exactly. PanelStack already claims the single shared side-panel
+ *  photo grid has room, sliding in over the Essentials column, which stays mounted and visible (narrowed), not
+ *  dimmed away, and sliding back out to restore it exactly. PanelStack already claims the single shared side-panel
  *  slot (useExclusivePanel('pstack', …) inside panels.tsx itself), so opening this automatically force-closes Tips
- *  the same way Pricing/Canvas's own drill-downs already do — no new conflict logic needed here. */
+ *  the same way Pricing/Canvas's own drill-downs already do, no new conflict logic needed here. */
 export function PhotosDrawerHost({ open, onClose, main, panel, channel }: { open: boolean; onClose: () => void; main: ReactNode; panel?: ReactNode; channel: ListingChannel }) {
   const photosRef = useRef<PhotosManagerHandle>(null)
   const guardedClose = () => { if (photosRef.current) photosRef.current.requestClose(); else onClose() }

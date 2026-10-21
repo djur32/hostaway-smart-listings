@@ -19,10 +19,10 @@
 | Content top padding | 24 px | `--content-padding-top` |
 | Tap target, minimum | 44 × 44 (nav rows, icon buttons, "···", ×) | `--m-tap` |
 | Safe areas | top `env(safe-area-inset-top)`, bottom `env(safe-area-inset-bottom)`; the tab bar and sheets add them | `--m-safe-top`, `--m-safe-bottom` |
-| Horizontal page scroll | never. `.p-frame` clips, `.h-content` hides x-overflow; wide things scroll **inside** their own box | — |
-| Media | `img`, `video`, `iframe` max-width 100% | — |
-| Tables | `.h-table` becomes a block that scrolls sideways inside its container | — |
-| Scrollbars | none on tab rails; thin elsewhere | — |
+| Horizontal page scroll | never. `.p-frame` clips, `.h-content` hides x-overflow; wide things scroll **inside** their own box |, |
+| Media | `img`, `video`, `iframe` max-width 100% |, |
+| Tables | `.h-table` becomes a block that scrolls sideways inside its container |, |
+| Scrollbars | none on tab rails; thin elsewhere |, |
 
 ### Type (the real app sets type larger than desktop)
 
@@ -44,16 +44,16 @@ Desktop keeps 24/500 for the page title (review's rule); only the phone uses the
 │ .h-content (scrolls)          │  page head (§4) · tabs · sections
 │   16 px gutters               │
 │                               │
-├──────────────────────────────┤  .h-m-dock — ONE of:
+├──────────────────────────────┤  .h-m-dock, ONE of:
 │ .h-m-tabbar                   │    Home · Inbox · Calendar · Properties · Menu  (58 + safe area)
-│   — or, while there is        │
+│  , or, while there is        │
 │ .h-m-actionbar                │    Discard | Save, a photo selection, Re-order Cancel | Save
-│   something to act on         │    (12 + 48 + 12 + safe area, top border) — it REPLACES the tab bar
+│   something to act on         │    (12 + 48 + 12 + safe area, top border), it REPLACES the tab bar
 └──────────────────────────────┘
 ```
 
 - The global sidebar (`.h-sidebar`) and the property rail (`.h-proplayout__rail`) are hidden. `AppShell` renders `.h-m-dock` (display: none above the breakpoint) as the last row of `.p-frame`: the action slot, then the tab bar. Because the dock is a **grid row**, not `position: fixed`, the page's scroller ends above it: nothing ever hides behind the bar and no screen needs bottom padding for it.
-- **Tab bar** (`MobileTabBar`, `.h-m-tabbar`): Home → `/home` (the Hostaway mark as its icon), Inbox → `/inbox`, Calendar → `/calendar`, **Properties** (active on every property page; replaced Metrics), **Menu** → the Menu drawer. Home, Inbox and Calendar are inert in the case study. Active = raspberry icon on a light-pink pill (`--color-m-tab-active-bg`) + raspberry label (`aria-current="page"`). No hover states.
+- **Tab bar** (`MobileTabBar`, `.h-m-tabbar`): Home → `/home` (the Hostaway mark as its icon), Inbox → `/inbox`, Calendar → `/calendar`, **Properties** (active on every property page; replaced Metrics), **Menu** → the Menu drawer. Home, Inbox and Calendar are inert in the concept. Active = raspberry icon on a light-pink pill (`--color-m-tab-active-bg`) + raspberry label (`aria-current="page"`). No hover states.
 - **Menu drawer**: Getting started (badge), Properties, Guest experience, Direct bookings, Devices, Operations, Search, Settings, then **Act as** (the account switch that lives in the sidebar footer on desktop). Getting started is hidden for Priya, who has no setup.
 - **Property sections** (§3a): on any page under `/property/:id`, the **page title itself** ("Listing ⌄") opens the property's sections in a bottom sheet; once the title has scrolled away, the **compact top bar** does.
 - **Discard / Save replaces the tab bar** (review, 4 Oct: "never stacked above it, never overlapping content"). The action bar shows only while there is something to act on: a dirty Discard / Save pair, or a page's own bar content (`MobileActionBar`: a photo selection "1 selected on Airbnb · Clear · Hide on Airbnb", Re-order Cancel / Save order). While it shows, the dock hides the tab bar (`.h-m-dock:has(> .h-m-actionbar:not(.is-empty)) > .h-m-tabbar`) and the bar carries the bottom safe area. A clean pair shows nothing (the tab bar stays). The dock is a grid row, so the page's scroller ends above whichever is shown and the last field is always reachable. The "Saved" / "Discarded" flash floats above the dock, it never takes a row.
@@ -103,7 +103,7 @@ There is one vertical scroller per screen, and it sits between the page head's t
 ### Action bar sizing
 Buttons share the width equally by default. Add `is-hug` to a short secondary (e.g. "Clear", "Skip for now") so it keeps its content width, and `.h-m-actionbar--compact` for long labels.
 
-## 4 · Page head — one pattern for every property page (review, 4 Oct: "homogenize all of these decisions")
+## 4 · Page head, one pattern for every property page (review, 4 Oct: "homogenize all of these decisions")
 
 ```
 ┌──────────────────────────────┐
@@ -111,7 +111,7 @@ Buttons share the width equally by default. Add `is-hug` to a short secondary (e
 │ [A] Listing ⌄          ✧ Tips│  (b) title = section switcher (+ lead: channel mark / back ‹) · Tips on the right
 │ [Classic | Canvas]           │  (c) the page's segmented control, left, on its own row
 │ Autopilot is on · Turn off…  │      any other page row (actions, filters)
-│ Essentials  Arrival  Locat…  │  (d) the page's tabs — scroll sideways, no tap focus box
+│ Essentials  Arrival  Locat…  │  (d) the page's tabs, scroll sideways, no tap focus box
 └──────────────────────────────┘
 ```
 
@@ -131,30 +131,30 @@ Buttons share the width equally by default. Add `is-hug` to a short secondary (e
 
 | Component | Props | Classes | Use |
 |---|---|---|---|
-| `useIsMobile()` | — | — | `true` at ≤ 767px |
-| `useIsTablet()` | — | — | `true` at 768–1023px; **shell only** (AppShell, PropertyLayout, §3b) |
+| `useIsMobile()` |, |, | `true` at ≤ 767px |
+| `useIsTablet()` |, |, | `true` at 768–1023px; **shell only** (AppShell, PropertyLayout, §3b) |
 | `OvMenu` (ds/overview.tsx) | `label, items: { label, onSelect }[]` | `h-ov-menu`, phone: `h-m-menu`, `h-ov-menu__sheetitem`, `is-danger` | every "⋯" row menu; on phones an **action sheet** (see §7) |
 | `MobileTabBar` | `items: MobileTab[]` (`key, label, icon (name or node), to? / onClick?, expanded?`), `active` | `h-m-tabbar`, `__item`, `__icon`, `__label` | shell only |
 | `MobileDrawer` | `open, onClose, title, label?, overTabBar = true, children` | `h-m-layer(--above-tabbar)`, `h-m-scrim`, `h-m-drawer`, `__head`, `__title`, `__body`, `h-close` (the outlined ×; `h-m-close` retired 4 Oct) | kept for flows outside the shell; the shell's navigation is in sheets now (Menu, property sections) |
 | `MobileSectionBar` | `label, group?, icon?, onOpen, expanded?` | `h-m-sectionbar`, … | **tablet only** now (§3b); phones use the title (§3a, §4) |
 | `MobileHead` (shell) | `title, lead?, titleEnd?, property?, actions?, right?, sub?, compactTitle?` | `h-m-head`, `__titlerow`, `__lead`, `__title(.is-switch)`, `__titlebtn`, `__text`, `__last`, `__chev`, `__tips`, `__row`, `__sub` | the one phone page head (§4); PageHead / PageHeader render it |
 | `HeadTips` (shell) | `children, className?` | portal into `h-m-head__tips`; desktop `.ch-tips-m` | the page's Tips (and Hub's Test) on the title row |
-| compact bar | — | `h-m-compactbar(.is-on)`, `__btn`, `__label`; `.h-proplayout__main.is-condensed` | rendered by `PropertyLayout` (§3a) |
-| `useInSheet()` / `InSheetProvider` | — | — | true inside `BottomSheet` and PanelStack's phone sheet: a field row there edits in place (no sheet in a sheet) |
-| `navCurrent` (sl3) | `(nav, pathname, search?)` | — | the rail's current leaf `{ group?, label, icon?, channel? }` |
+| compact bar |, | `h-m-compactbar(.is-on)`, `__btn`, `__label`; `.h-proplayout__main.is-condensed` | rendered by `PropertyLayout` (§3a) |
+| `useInSheet()` / `InSheetProvider` |, |, | true inside `BottomSheet` and PanelStack's phone sheet: a field row there edits in place (no sheet in a sheet) |
+| `navCurrent` (sl3) | `(nav, pathname, search?)` |, | the rail's current leaf `{ group?, label, icon?, channel? }` |
 | `MobilePageHead` | `title, switcher?, onMore?, moreLabel?` | `h-m-pagehead`, `__row`, `__title`, `__switcher`, `h-m-more` | page heads outside PageHead/PageHeader |
-| `MobileMoreButton` / `PropertyMenuButton` | `onClick, label?, expanded?` / — | `h-m-more` | the "···" |
+| `MobileMoreButton` / `PropertyMenuButton` | `onClick, label?, expanded?` /, | `h-m-more` | the "···" |
 | `ScrollTabs` | `children, label?` | `h-tabs h-m-scrolltabs` | tab rails |
 | `MobileActionBar` (alias `StickyActionBar`) | `children` | portals into `h-m-actionbar__target` | custom bar content |
 | `useMobileActions` | `{ dirty, onDiscard, onSave, discardLabel?, saveLabel? } \| null` | `h-m-actionbar`, `h-m-actionbar__btn` | the standard Discard / Save |
 | `MobileSaveButtons` | `dirty, onDiscard, onSave, discardLabel?, saveLabel?` | `h-btn--secondary/--primary h-m-actionbar__btn` | the pair, inside `MobileActionBar` |
-| `MobileActionSlot` | — | `h-m-actionbar` (`.is-empty` hides it) | mounted by `AppShell`; a flow outside the shell may mount its own |
+| `MobileActionSlot` |, | `h-m-actionbar` (`.is-empty` hides it) | mounted by `AppShell`; a flow outside the shell may mount its own |
 | `BottomSheet` | `open, title, onClose, fullScreen?, footer?, label?, className?, navigation?, pageSave?, children` (`navigation`: any link inside closes it; `pageSave`: no `footer` → the page's registered Discard / Save while dirty, either button closes the sheet) | `h-m-sheet(--full)`, `__grip`, `__head`, `__title`, `__body`, `__foot` (3+ actions wrap: the first gets its own row) | see §7 |
 | `MobileSheetSaveButtons` | `className?, onDone?` | `h-m-sheet__foot` | the registered Discard / Save pair while dirty, for a sheet that covers the shell's bar (PanelStack, Canvas, the field sheet) |
 | `TopToast` | `open, message, onDismiss, dismissLabel = "Dismiss"` | `h-m-toast`, `__msg`, `__dismiss` | validation the host must read ("The cleaning fee must not exceed €627.73 for Airbnb.") |
-| `MobileShellProvider` / `useMobileShell()` | `{ openPropertyMenu? }` | — | `PropertyLayout` provides it; opens the property sections sheet |
+| `MobileShellProvider` / `useMobileShell()` | `{ openPropertyMenu? }` |, | `PropertyLayout` provides it; opens the property sections sheet |
 
-**Close and back (review, 4 Oct: "same size and the same rounded corners").** Every × and ‹ icon button on phones is one box: **44 × 44, `--radius-md`**, the outlined close look (white, 1px `--color-close-border`, `--elevation-button`), a 24px glyph at 1.5px — in sheets and drawers (`h-close`), the takeover top bars (Manage photos `h-photos-takeover__btn`, the wizard `h-wz__iconbtn`) and page-head backs (`.h-m-head__lead > .h-btn-icon`). `h-close--sm` (inside chips and toasts) keeps its small box with a 44px hit area.
+**Close and back (review, 4 Oct: "same size and the same rounded corners").** Every × and ‹ icon button on phones is one box: **44 × 44, `--radius-md`**, the outlined close look (white, 1px `--color-close-border`, `--elevation-button`), a 24px glyph at 1.5px, in sheets and drawers (`h-close`), the takeover top bars (Manage photos `h-photos-takeover__btn`, the wizard `h-wz__iconbtn`) and page-head backs (`.h-m-head__lead > .h-btn-icon`). `h-close--sm` (inside chips and toasts) keeps its small box with a 44px hit area.
 
 **Photo tiles:** the select box and the edit pencil (or drag grip) are the same 36 × 36, `--radius-md`, raised, each with a 44px hit area.
 
@@ -175,7 +175,7 @@ Buttons share the width equally by default. Add `is-hug` to a short secondary (e
 
 ## 7 · Sheet, full page or drawer?
 
-### The field sheet — every "open to edit" on phones (review, 4 Oct)
+### The field sheet, every "open to edit" on phones (review, 4 Oct)
 On phones a setting row is a **read-only summary**; editing happens in a bottom sheet, the Canvas field sheet's pattern:
 
 ```
@@ -190,7 +190,7 @@ On phones a setting row is a **read-only summary**; editing happens in a bottom 
 └──────────────────────────────┘
 ```
 
-- **Implemented once, in `SettingRow`** (sl3): every row built on it — the Listing editor's `FieldRow`, Pricing / Availability's `ScopedRow`, Pricing's `BaseRow` / `ChannelRow`, Listing base › Pricing and Availability, and (phones only) `DetailsField` — gets it. Screens add nothing.
+- **Implemented once, in `SettingRow`** (sl3): every row built on it, the Listing editor's `FieldRow`, Pricing / Availability's `ScopedRow`, Pricing's `BaseRow` / `ChannelRow`, Listing base › Pricing and Availability, and (phones only) `DetailsField`, gets it. Screens add nothing.
 - **Opens on:** a tap on the field (an overlay over the inert summary), or a tap on the caption action ("Customize for Airbnb", "Edit for all channels", "Use the Base"…: the action runs, then the sheet opens on its result with the opposite action in reach), or a tap on a link under the field ("Edit per day": the week opens in the sheet).
 - **Footer:** the page's registered Discard / Save (`pageSave`), shown once something is unsaved; Save or Discard also closes the sheet. × / scrim / drag down closes it and keeps the draft (the dock then shows Discard / Save in place of the tab bar).
 - **Not a sheet:** toggles (one tap, inline, images/40), locked rows (set by the channel, Knowledge Hub, linked), read-only rows (Autopilot, field visibility "Show": `sheet={false}`), and any row already inside a sheet (`useInSheet()`: Canvas's field sheet, the Calendar's PanelStack sheet). Never a sheet in a sheet.
@@ -202,9 +202,9 @@ On phones a setting row is a **read-only summary**; editing happens in a bottom 
 | **Bottom sheet** (`BottomSheet`) | a short, focused task or reading tied to the current page; the page stays in context behind it; ≤ ~1.5 screens of content | Tips for this section, "Edit per channel" for one field, a picker with ≤ 10 options, a confirm with a note |
 | **Full-screen sheet** (`BottomSheet fullScreen`) | a complex edit that needs the whole screen but still returns to where you were: several fields, its own Save | editing a channel override set, an amenity with details, a policy's configure step when it isn't already a route |
 | **Full page** (a route) | the task has its own URL, several steps, or is shared/linked; Back must work | Import, Smart Listings setup, Booking policies › Configure, All photos |
-| **Navigation sheet** (`BottomSheet navigation`) | lists of places to go, opened from the bottom like every other mobile panel (review, 3 Oct) | Menu, property sections (§3a) |
+| **Navigation sheet** (`BottomSheet navigation`) | lists of places to go, opened from the bottom like every other mobile panel  | Menu, property sections (§3a) |
 | **Action sheet** (`OvMenu` on phones) | a "⋯" row menu: a few actions on one thing | Strategy rows, Overview channel rows, Export calendar › More options |
-| **Drawer** (`MobileDrawer`) | navigation for a flow outside the shell that has no sheet | — |
+| **Drawer** (`MobileDrawer`) | navigation for a flow outside the shell that has no sheet |, |
 | **Top toast** (`TopToast`) | a validation or a result that blocks nothing but must be read; dismissed by the host | fee limit exceeded, "Saved on 2 channels" |
 
 **Action sheets (every "⋯" row menu, `OvMenu`).** On phones the desktop dropdown (which could open off-screen beside a left-aligned ⋯) becomes a bottom sheet: titled with what it acts on ("More actions for Airbnb" → "Airbnb"), one 52px row per action (`h-m-menu__item h-ov-menu__sheetitem`, medium weight), destructive actions (labels starting Delete / Remove) in error red (`is-danger`, `--color-text-error`), no separate Cancel (grip, scrim, × and Esc close it). Choosing a row closes the sheet first, then runs the action. iOS action sheet / Material modal bottom sheet. Desktop keeps the dropdown with ↑ ↓ Home End.
@@ -266,6 +266,6 @@ The tab bar never moves (its own transition name); the action bar cross-fades. M
 
 **A7 · Press and feedback.** Buttons, chips and the switcher scale to .97 and dim on press; tab bar icons scale to .88; rows (sections sheet, menu, action sheets) highlight grey. No hover-only affordance. Toasts sit at the top under the status bar (the real app's validation toast); the save toast and the account-switch toast stay at the bottom over the dock. Discard / Save takes the tab bar's place (§3).
 
-**A8 · Switching account (Menu › Act as).** The switch keeps you on the property page you're on when the next account has that property (phones and app; desktop keeps each account's start page), so it never lands on Properties' Groups / Rules / Activity — those, and the Overview's Portfolio links, are out of reach on phones (the property is the feature). The confirmation is the DS toast, compact: "(M) You're now Marta" over the role line, 3 s, a tap dismisses it (toasts on phones never pause on a tap).
+**A8 · Switching account (Menu › Act as).** The switch keeps you on the property page you're on when the next account has that property (phones and app; desktop keeps each account's start page), so it never lands on Properties' Groups / Rules / Activity, those, and the Overview's Portfolio links, are out of reach on phones (the property is the feature). The confirmation is the DS toast, compact: "(M) You're now Marta" over the role line, 3 s, a tap dismisses it (toasts on phones never pause on a tap).
 
 **Unchanged in app mode:** the tab bar (Home, Inbox, Calendar inert · Properties navigates · Menu opens a sheet), the page head (§4) and its Sections sheet, Discard / Save in place of the tab bar, the field sheet (§7), every screen's own phone layout.

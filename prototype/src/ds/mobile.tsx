@@ -350,13 +350,13 @@ export function MobileActionSlot() {
   const ref = (el: HTMLDivElement | null) => { if (target !== el) { target = el; emit() } }
   // onSave may return a confirmation ("Saved · sent to Airbnb"): show it briefly above the bar, like desktop's quiet
   // "Saved". onDiscard flashes the same way (discarding needs to read as clearly as saving
-  // does) when it returns a string ('Discarded', the shared bar's own convention — ds/unsaved.tsx's useMobileActions call).
+  // does) when it returns a string ('Discarded', the shared bar's own convention, ds/unsaved.tsx's useMobileActions call).
   const [flash, setFlash] = useState<string | null>(null)
   useEffect(() => { if (!flash) return; const t = setTimeout(() => setFlash(null), 2400); return () => clearTimeout(t) }, [flash])
   const save = (e: SaveEntry) => () => { const r = e.onSave(); if (typeof r === 'string' && r) setFlash(r) }
   const discard = (e: SaveEntry) => () => { const r = e.onDiscard(); if (typeof r === 'string' && r) setFlash(r) }
-  // the bar shows only while there is something to act on — unsaved changes (a dirty Discard / Save)
-  // or a page's own content (photo selection, Re-order) — and then it REPLACES the tab bar (ds/components.css: the dock
+  // the bar shows only while there is something to act on, unsaved changes (a dirty Discard / Save)
+  // or a page's own content (photo selection, Re-order), and then it REPLACES the tab bar (ds/components.css: the dock
   // hides the tab bar while the bar is shown; the bar carries the safe area). A clean pair shows nothing.
   const shown = !!top && (top.kind === 'portal' || top.dirty)
   return (

@@ -11,10 +11,10 @@ export function PhotosRow({ label = 'Photos', count, desc = 'Manage photos and a
   label?: ReactNode; count: number; desc?: ReactNode; manageTo: string; photos: Array<{ key: string; src: string; alt: string }>; max?: number; extra?: ReactNode
   /** After the count, e.g. the channel badge when this channel has its own order. */
   after?: ReactNode
-  /** Intercepts "Manage photos" (and "+n more") instead of letting the Link navigate — e.g. opening an in-page
+  /** Intercepts "Manage photos" (and "+n more") instead of letting the Link navigate, e.g. opening an in-page
    *  overlay rather than a route change (screens/channel/photosNav.tsx's full-screen/drawer patterns, Airbnb only).
    *  `manageTo` still renders as the href (middle-click / open-in-new-tab / no-JS keep working); omit for today's
-   *  plain route navigation (Booking.com, Direct, and the standalone /photos route — all unaffected). */
+   *  plain route navigation (Booking.com, Direct, and the standalone /photos route, all unaffected). */
   onManage?: (e: MouseEvent) => void
 }) {
   // Thumbnails keep one size (the closed-panel size); a narrower column fits fewer per row. At most two rows:

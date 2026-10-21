@@ -58,7 +58,7 @@ export function Dashboard() {
           <section className="p-card">
             <div className="p-row p-sb p-hny"><div><b>Needs you</b> <span className="h-caption h-muted">· {items.length} {items.length === 1 ? 'item' : 'items'}, covering {plural(new Set(items.flatMap((i) => i.rows.map((r) => r.p.id))).size, 'property', 'properties')}</span></div><Link className="h-btn h-btn--primary" to="/home/needs-you" style={{ textDecoration: 'none' }}>Open</Link></div>
           </section>
-          <Placeholder scr="—" owner="out of scope" title="Today: arrivals, departures, messages" />
+          <Placeholder scr="-" owner="out of scope" title="Today: arrivals, departures, messages" />
         </div>
       ) : (
         <div className="p-mt4">
@@ -106,7 +106,7 @@ export function OutOfScope({ title }: { title: string }) {
   return (
     <Page>
       <PageHeader title={title} />
-      <Placeholder scr="—" owner="out of scope" title={`${title} is unchanged`}>It works as it does today, and reads the same property record where it uses property facts.</Placeholder>{/* outside Angles A and B (MASTER-PLAN §4) */}
+      <Placeholder scr="-" owner="out of scope" title={`${title} is unchanged`}>It works as it does today, and reads the same property record where it uses property facts.</Placeholder>{/* outside Angles A and B (MASTER-PLAN §4) */}
     </Page>
   )
 }

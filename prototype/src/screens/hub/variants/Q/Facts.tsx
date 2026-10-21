@@ -1,5 +1,5 @@
 /* Knowledge Hub, reframed · Facts (KH-REFRAME §1, "Facts are read, not copied"): what the AI can read to answer guests,
- * by Hostaway's nine topics — each one a reference to where it lives ("Listing base · Location", a link to that field),
+ * by Hostaway's nine topics, each one a reference to where it lives ("Listing base · Location", a link to that field),
  * never a second copy and never edited here. Answers the host confirmed (no Listing base field holds them) say so.
  * the topics are clustered as cards (iteration R's topic grid); a card opens that topic's full view.
  * `?topic=<id>` (old /hub/<topic> links, Canvas's "Open in Knowledge Hub") opens that topic directly. */

@@ -17,7 +17,7 @@ import { useAccount } from './useAccount'
 /** After switching account (D-161): say who you are now and what this account holds. Not demo chrome: a real account
  *  switch confirms itself the same way. Shown once, on the page the switch landed on. */
 function SwitchedToast({ user, summary, onClose }: { user: UserDef; summary: string; onClose: () => void }) {
-  // phones: the DS toast, compact — two lines, gone after 3 s, a tap dismisses it — never a big dark
+  // phones: the DS toast, compact, two lines, gone after 3 s, a tap dismisses it, never a big dark
   // block over the property selector
   if (useIsMobile()) return <Toast dock icon={null} duration={3000} onClose={onClose} closable={false} title={<span className="p-row" style={{ gap: 8, flexWrap: 'nowrap' }}><AccountAvatar user={user} size={24} />You’re now {user.name}</span>}>{user.role}</Toast>
   return (
@@ -157,7 +157,7 @@ export function AppShell() {
   }, [isMobile, pathname, search])
   const tabs: MobileTab[] = [
     // Properties replaces Metrics and is the only tab that navigates (straight to the property);
-    // Home, Inbox and Calendar are shown but inert — those parts aren't rebuilt in this concept
+    // Home, Inbox and Calendar are shown but inert, those parts aren't rebuilt in this concept
     { key: 'home', label: 'Home', icon: <HostawayMark />, inert: true },
     { key: 'inbox', label: 'Inbox', icon: 'mail', inert: true },
     { key: 'calendar', label: 'Calendar', icon: 'calendar', inert: true },

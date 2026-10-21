@@ -1,4 +1,4 @@
-/* prototype/src/ds — React ports of the Hostaway DS replica (../../ds). Shared by every screen owner.
+/* prototype/src/ds, React ports of the Hostaway DS replica (../../ds). Shared by every screen owner.
  * Change a component here only with a note in plan/SESSION-LOG.md (ownership map, prototype/README.md). */
 export * from './primitives'
 export * from './record'
@@ -10,7 +10,7 @@ export * from './studio' // S11: Cite, ReorderList, Band, AutonomyControl (ds/co
 export * from './s12' // S12: Guide, Term, InheritChip, ReturnChip, Strength, Early, LineChart, AvailCell, Confidence (§10e, D-150…D-159)
 export * from './sl3' // Smart Listing v3 (V3-SPEC §2): ChannelNav, PageHead, SettingRow, TipsPanel, TipCard, WizardStep, OptionTile…
 export * from './v3-ch'
-export * from './smartify' // Smartify (yellow AI-refine, user-initiated): SmartifyTrigger — distinct from Tips (purple, ./sl3)
+export * from './smartify' // Smartify (yellow AI-refine, user-initiated): SmartifyTrigger, distinct from Tips (purple, ./sl3)
 export * from './v3-cv'
 export * from './v3-sl'
 export * from './charts' // WS-SL: StackedColumns, BandChart, GroupedColumns, BarMultiple, ChartLegend, ChartTable (ds/v3/sl.css › charts)

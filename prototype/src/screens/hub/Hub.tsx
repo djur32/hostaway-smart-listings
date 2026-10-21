@@ -36,7 +36,7 @@ import { VariantR } from './variants/R'
 import { VariantQ } from './variants/Q'
 
 /** The route: the chosen iteration (?v=a…e, s), or iteration R with no `?v=` at all (the converged direction,
- *  concepts/knowledge-hub/R-BRIEF.md "Routing"): `/hub` and `?v=r` render R directly, tab/sub and all — R owns its own
+ *  concepts/knowledge-hub/R-BRIEF.md "Routing"): `/hub` and `?v=r` render R directly, tab/sub and all, R owns its own
  *  topic routes (`/hub/:category`) and isn't translated through the old iterations' query-string states below.
  *  `/hub/:tab` deep links for the older iterations (Canvas locks, "Open in Knowledge Hub") name a shared section id;
  *  iterations A–E keep their place in the query string, so the path param is translated once into that iteration's own
@@ -324,7 +324,7 @@ function Control({ item, value, write }: { item: KhItem; value: string; write: (
     case 'map': return <MapBox label={value} />
     case 'tasks': return <KhTasks tasks={parseTasks(value)} catalog={CHECKOUT_TASKS} onChange={(t) => write(formatTasks(t))} />
     case 'money': case 'percent': case 'guests':
-      // NumberField (ds/v3-ch.tsx): the product-wide numeric control — the ▲/▼ spinner plus Up/Down (PageUp/PageDown ×10)
+      // NumberField (ds/v3-ch.tsx): the product-wide numeric control, the ▲/▼ spinner plus Up/Down (PageUp/PageDown ×10)
       // on the input ("make sure that this is available in all of the items that are numbers"). Same
       // sanitising and the same write() as before, so the draft/Save path is unchanged; the unit sits at the end, as on
       // the channel Pricing screen the same values come from.
@@ -374,7 +374,7 @@ function PhotosSection({ base, chs }: { base: string; chs: ListingChannel[] }) {
           const { shown, hidden } = channelPhotos(c, lib, sl3)
           return (
             <KhChannelLine key={c} channel={c} action={<Link className="h-textlink" to={`${base}/ch/${c}/listing/essentials`}>Open in {NAME(c)} listing</Link>}>
-              {shown.length} photos · Cover: {lib.meta[shown[0]]?.description ?? '—'}{hidden.length ? ` · ${hidden.length} hidden` : ''}
+              {shown.length} photos · Cover: {lib.meta[shown[0]]?.description ?? '-'}{hidden.length ? ` · ${hidden.length} hidden` : ''}
             </KhChannelLine>
           )
         })}

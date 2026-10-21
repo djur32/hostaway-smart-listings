@@ -1,8 +1,8 @@
 /* Knowledge Hub iteration R · model. Wraps C's `useHub()` (the real per-property data: questions, gaps, sources, facts,
  * coverage) and groups its questions into the nine topics; adds a small property-keyed store for facts the host types
- * through the Add-fact flow (typed, scoped — these don't exist in the static FIELDS/KH_CUSTOM data). A gap's own "Add a
+ * through the Add-fact flow (typed, scoped, these don't exist in the static FIELDS/KH_CUSTOM data). A gap's own "Add a
  * fact" still resolves through C's `useKhc` (the existing mechanism, so `hub.cov()` keeps working) rather than a third
- * parallel store — see the report for why. */
+ * parallel store, see the report for why. */
 import { useMemo } from 'react'
 import { LISTING_TABS, TIPS, tipsFor, type ListingChannel } from '../../../../data/sl3'
 import { channelList } from '../../../../data/channels'
@@ -33,7 +33,7 @@ export interface RFact {
   /** Overrides the kind's icon (a channel-only amenity carries its own). */
   icon?: string
 }
-/** `source` (round 3, KH-NEXT-3.md): the host's own pick from `R_FACT_SOURCES` (AddFact.tsx) — no more hardcoded
+/** `source` (round 3, KH-NEXT-3.md): the host's own pick from `R_FACT_SOURCES` (AddFact.tsx), no more hardcoded
  *  "Added by you", so a fact actually shows where it came from, not just that it was added. */
 export type RFactInput = Pick<RFact, 'topic' | 'kind' | 'label' | 'value' | 'scope' | 'visibility' | 'source'>
 interface RFactsState { facts: Record<string, RFact> }
@@ -53,7 +53,7 @@ export function rScopeLabel(scope: RScope, chs: ListingChannel[]): string | null
   return channelList(included)
 }
 
-/* ---------- resolving a gap from "Add a fact" (reuses C's useKhc — the existing gap-fill mechanism) ---------- */
+/* ---------- resolving a gap from "Add a fact" (reuses C's useKhc, the existing gap-fill mechanism) ---------- */
 export function resolveGapFact(g: Gap, text: string, scope: RScope) {
   const st = useStore.getState()
   const uses: UseWho[] = scope.type === 'all' ? g.uses.map((u) => u.who) : (['ai', ...(scope.channels ?? [])] as UseWho[])
@@ -68,7 +68,7 @@ export const dismissGap = (id: string) => useKhc.getState().dismiss(id)
  * tackling this [the gap]". A gap is matched to a Smart Listings tip only when they genuinely share the same
  * missing fact: the tip's own `field` (data/sl3.ts TipDef.field, e.g. "neighbourhood") has to be one of the exact fact
  * keys the gap's question already cites (`hub.facts(q)`, the same FactRef keys C's FactRow reads/writes). Tips also
- * need `kb: true` (TIPS flags it relevant to/grounded in the Knowledge Hub). This is deliberately strict — most gaps
+ * need `kb: true` (TIPS flags it relevant to/grounded in the Knowledge Hub). This is deliberately strict, most gaps
  * (parking, early check-in, city tax, the hair dryer, mid-stay cleaning) cite fields no tip touches, so they get no
  * cross-reference and render exactly as before; only "Which supermarket is open on Sunday?" and "Where can we eat late
  * in the evening?" share the `neighbourhood` field with the airbnb tip "Lead with the Feld and the canal" (t-a-neigh). */
@@ -119,11 +119,11 @@ export function useR(): R {
       scope: { type: 'all' }, visibility: 'guest', source: 'From Listing details', editable: false,
     }
     /* Channel-only amenities (data/property-listing.ts CHANNEL_ONLY): an amenity added on ONE channel's Amenities tab,
-       from that channel's own catalogue ("Record player" on Airbnb). It's a real fact about the property, so the Hub —
-       the one place that holds every fact with where it's used — lists it under Amenities, scoped to that channel
+       from that channel's own catalogue ("Record player" on Airbnb). It's a real fact about the property, so the Hub -
+       the one place that holds every fact with where it's used, lists it under Amenities, scoped to that channel
        ("Only on Airbnb", the same exception caption every scoped fact here uses) and pointing back to where it's
        managed. Never a Base amenity row: no per-channel toggles, since no other channel has a field for it. Saved state
-       only — an unsaved add on the channel page isn't a fact yet. */
+       only, an unsaved add on the channel page isn't a fact yet. */
     const channelAmenities: RFact[] = hub.chs.flatMap((c) => addedChannelAmenities(pid, c, custom[c]).map((a): RFact => ({
       id: `chonly-${c}-${a.name}`, topic: 'amenities', kind: 'text', label: a.name, value: a.picks.length ? a.picks.join(' · ') : 'Listed',
       scope: { type: 'one', channels: [c] }, visibility: 'guest', source: `Added on ${NAME(c)} · from its own amenity list`, editable: false,
@@ -131,7 +131,7 @@ export function useR(): R {
     })))
     const topics: RTopicView[] = R_TOPICS.map((t) => {
       const qs = [...(byTopic.get(t.id) ?? [])].sort((a, b) => (b.asked ?? 0) - (a.asked ?? 0))
-      // every fact-ref used by the topic's questions, in first-seen order — but drop a single-key ref (e.g. f('checkin')
+      // every fact-ref used by the topic's questions, in first-seen order, but drop a single-key ref (e.g. f('checkin')
       // in a-early) once a richer ref already covers that key (the a-instr/a-time pair "Check-in from · until"), so the
       // same field doesn't show twice under one topic
       const seen: FactRef[] = []

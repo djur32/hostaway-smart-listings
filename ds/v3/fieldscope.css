@@ -34,7 +34,7 @@
   font: inherit; font-size: var(--text-md); color: var(--color-text-strong); text-align: left; cursor: pointer;
   transition: border-color var(--dur-1) var(--ease-standard), box-shadow var(--dur-1) var(--ease-standard);
 }
-/* no hover change on a dropdown trigger (review, 3 Oct) — only its focus/open ring */
+/* no hover change on a dropdown trigger (review, 3 Oct), only its focus/open ring */
 /* open or focused = the same grey ring as the inputs (HS-A01 / images 12–13); --shadow-focus-neutral lands with the S10 input pass */
 .h-dropdown__trigger:focus-visible, .h-dropdown.is-open .h-dropdown__trigger { outline: none; border-color: var(--color-border-input); box-shadow: var(--shadow-focus-neutral); }
 .h-dropdown__trigger.is-placeholder .h-dropdown__value { color: var(--color-text-faint); }
@@ -92,8 +92,8 @@
   .h-dropdown__option { min-height: var(--m-tap); padding: 0 16px; }
 }
 
-/* Guest resources link item (ds/fieldscope.tsx LinkField, review 3 Oct): once a URL is in, it reads as an item —
- * link glyph, the address (opens in a new tab), Copy · Edit · Remove — the input's own height and border, so swapping
+/* Guest resources link item (ds/fieldscope.tsx LinkField, review 3 Oct): once a URL is in, it reads as an item -
+ * link glyph, the address (opens in a new tab), Copy · Edit · Remove, the input's own height and border, so swapping
  * between the two never shifts the row. Read-only: Copy only, the address in the muted text colour. */
 .h-linkitem { display: flex; align-items: center; gap: 10px; min-height: var(--field-height); padding: 0 6px 0 12px; border: 1px solid var(--color-border-input); border-radius: var(--radius-sm); background: var(--color-surface-primary); }
 .h-linkitem__icon { flex: none; width: 18px; height: 18px; color: var(--color-text-muted); }

@@ -1,6 +1,6 @@
 /* Knowledge Hub, reframed · Tips: a frequent or unanswered question becomes a tip, in the one tips container (TipsPanel
- * + TipCard, the same contract as every channel page: the field it's about, the change, why — with the questions behind
- * it as sources —, Accept or Dismiss, then Accepted → Undo or Next, and a receipt).
+ * + TipCard, the same contract as every channel page: the field it's about, the change, why, with the questions behind
+ * it as sources -, Accept or Dismiss, then Accepted → Undo or Next, and a receipt).
  * Accept writes the fact into the Listing base (Listing details), so every channel that uses the field and the guest AI
  * answer with it; when most asks come from one channel, the tip also offers saying it only in that channel's
  * description. Receipts go through the same commit path as every edit (screens/push/changes.ts). */
