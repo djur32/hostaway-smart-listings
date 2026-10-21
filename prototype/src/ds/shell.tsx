@@ -60,7 +60,7 @@ export function Sidebar({ active, collapsed: hostCollapsed, onToggle, persona, o
   return (
     <aside className={`h-sidebar${collapsed ? ' is-collapsed' : ''}`}>
       <div className="h-sidebar__brand">
-        <Link to={home} className="h-logo" style={{ color: 'inherit', textDecoration: 'none' }}>{LOGO}<span className="h-logo__word">hostaway</span></Link>
+        <Link to={home} className="h-logo" style={{ color: 'inherit', textDecoration: 'none' }}><span className="h-logo__mark">{LOGO}</span><img className="h-logo__img" src="/hostaway-logo.svg" alt="hostaway" /></Link>
         <button className="h-sidebar__collapse" aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'} onClick={toggle}>
           <Icon name={collapsed ? 'arrow-bar-to-right' : 'arrow-bar-to-left'} size={24} />
         </button>

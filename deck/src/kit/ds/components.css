@@ -3365,3 +3365,7 @@ body.is-sorting, body.is-sorting * { cursor: grabbing !important; user-select: n
 @media (max-width: 767px) {
   .h-m-head__titlerow:has(> .h-m-head__end) .h-m-head__title { white-space: nowrap; flex: 0 0 auto; }
 }
+.h-logo__img { display: block; height: 26px; width: auto; }
+.h-logo__mark { display: none; }
+.h-sidebar.is-collapsed .h-logo__img { display: none; }
+.h-sidebar.is-collapsed .h-logo__mark { display: inline-flex; }

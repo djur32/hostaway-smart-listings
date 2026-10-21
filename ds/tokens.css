@@ -262,8 +262,8 @@
   /* ────────────────────────────  2 · ROLES  ──────────────────────────── */
 
   /* ── App shell · sidebar (HS-22) ─────────────────────────────────────── */
-  --color-sidebar-bg: var(--color-night-darker);                /* Hostaway ink #202030 (read from hostaway.com) */
-  --color-sidebar-item-active-bg: #34344a;                      /* derived: ink #202030 lifted · "Properties" */
+  --color-sidebar-bg: #123c46;                /* Hostaway ink #202030 (read from hostaway.com) */
+  --color-sidebar-item-active-bg: #1f5460;                      /* derived: ink #202030 lifted · "Properties" */
   --color-sidebar-item-hover-bg: rgba(255, 255, 255, .06);     /*, hover not captured */
   --color-sidebar-text: var(--color-text-white);                /* #ffffff */
   --color-sidebar-icon: var(--color-night-lighter);             /* #b8c1cb · icons, collapse, footer glyphs */

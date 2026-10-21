@@ -211,7 +211,7 @@ const R = (typeof window !== 'undefined' && window.__DECK_ROOT__) || '../';
    with its tail. For identification only: the deck is a design concept for Hostaway, not Hostaway's
    own (the title and the close say so). */
 const BRAND_MARK = `<svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#ch-hostaway"/></svg>`;
-const BRAND = `${BRAND_MARK}<span class="brand-word">hostaway</span>`;   
+const BRAND = `<img class="brand-logo" src="${R}assets/logos/hostaway-wordmark.svg" alt="hostaway">`;   
 function buildChrome() {
   const bar = document.createElement('header');
   bar.className = 'appbar';
