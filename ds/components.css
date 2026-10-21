@@ -3365,3 +3365,5 @@ body.is-sorting, body.is-sorting * { cursor: grabbing !important; user-select: n
   .h-m-head__titlerow:has(> .h-m-head__end) .h-m-head__title { white-space: nowrap; flex: 0 0 auto; }
 }
 .h-logo__mark { display: inline-flex; }
+.h-chat-fab { background: transparent; box-shadow: var(--shadow-md); overflow: visible; }
+.h-chat-fab img { width: 48px !important; height: 48px !important; border-radius: 50% !important; object-fit: cover; }
