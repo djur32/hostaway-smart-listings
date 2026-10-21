@@ -71,7 +71,7 @@ function Control({ item, value, write }: { item: KhItem; value: string; write: (
       // Knowledge Hub R renders its fact rows through this Control (R/Overview.tsx imports FactRow from here), so this
       // is R's live numeric input — changed for R; C itself is a frozen exploration.
       // NumberField (ds/v3-ch.tsx): the product-wide numeric control — the ▲/▼ spinner plus Up/Down (PageUp/PageDown ×10)
-      // on the input (review, 1 Oct: "make sure that this is available in all of the items that are numbers"). Same
+      // on the input ("make sure that this is available in all of the items that are numbers"). Same
       // sanitising and the same write() as before, so the draft/Save path is unchanged; the unit sits at the end, as on
       // the channel Pricing screen the same values come from.
       return (
@@ -216,7 +216,7 @@ function PolicyFact({ kind, base, editing, onEdit, actionOverride }: { kind: 'ca
 /** One fact row. `note` is shown while editing ("Also used in 3 other answers"). */
 export function FactRow({ hub, fact, editing, onEdit, note, sub, base, actionOverride }: {
   hub: Hub; fact: FactRef; editing: boolean; onEdit: (v: boolean) => void; note?: ReactNode; sub?: ReactNode; base: string
-  /** replaces the pencil (the Knowledge Hub topic table's ··· menu — review, 3 Oct) */
+  /** replaces the pencil (the Knowledge Hub topic table's ··· menu — ) */
   actionOverride?: ReactNode
 }) {
   const [shown, setShown] = useState(false)

@@ -277,12 +277,12 @@
 .nx-sk-c { transform: translateX(-50%); white-space: nowrap; }
 
 /* ── cl-thanks: the close, on the aubergine brand plate (4 Oct; kit/hc.css .hc-brand) ──────
-   One word, centred on the plate; the lockup on the plate's bottom inset; the marks at its corners. */
+   A short statement, centred on the plate; the lockup on the plate's bottom inset; the marks at its corners. */
 @layer slides {
 .s[data-id="cl-thanks"] > .s-body { margin-bottom: 0; }
 .cl-thanks__art .hc-brand__plate { left: 0; right: 0; top: 0; bottom: 0; border-radius: 0; }   /* full screen; the enter grows it from the window (70-next.js) */
 .cl-thanks { justify-content: center; align-items: center; padding-bottom: 30px; }
-.cl-thanks .cl-thanks__t { font-size: 280px; letter-spacing: -0.05em; }
+.cl-thanks .cl-thanks__t { font-size: 132px; letter-spacing: -0.04em; text-align: center; }
 .cl-thanks__ln { display: block; overflow: hidden; padding-bottom: 0.16em; margin-bottom: -0.16em; }
 .cl-thanks__ln > span { display: block; }
 .cl-thanks__lockup { position: absolute; left: 0; right: 0; bottom: 20px; width: max-content; margin-inline: auto; --lockup: 40px; }

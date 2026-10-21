@@ -1,6 +1,6 @@
 /* Smart Listing v3 · WS-CV design-system additions (CSS in ds/v3/cv.css). Screens import from '../../ds'.
  * The Canvas puts the channel's real guest page inside Smart Listing (CV-00…CV-09).
- * review, 3 Oct: nothing is edited ON the page any more — "the solution has to be in the sidebar". The replica stays
+ * nothing is edited ON the page any more — "the solution has to be in the sidebar". The replica stays
  * fully readable (no dimming, no inline inputs, no floating prompts); each part of it is a CvArea that only carries an
  * outline and one small marker, in the colour of the one AI affordance it has:
  *   tip     — purple (the field has a tip waiting; the marker is the same 22px TipDot as Classic's field label)
@@ -128,7 +128,7 @@ export function CvLockPop({ title, text, link, note }: { title: string; text: st
 export function CvPhotoPop({ title, scope, saves, order, src, caption, suggest, onAccept, onClose, start, ai = true, askHint = 'e.g. put the desk photo in the first five' }: {
   title: string; scope: ReactNode; saves: ReactNode; order: string[]; src: (k: string) => string; caption: (k: string) => string
   suggest: (ask: string) => { order: string[]; why: string }; onAccept: (order: string[]) => void; onClose: () => void; start?: string
-  /** "Describe the change" (simulated AI). `false`: pick the cover by hand only. */
+  /** "Describe the change" (canned AI). `false`: pick the cover by hand only. */
   ai?: boolean
   askHint?: string
 }) {
@@ -161,7 +161,7 @@ export function CvPhotoPop({ title, scope, saves, order, src, caption, suggest, 
           <p className="cv-edit__hint">Click a photo to make it the cover. The library stays in the Knowledge Hub.</p>
           {strip(draft)}
           <div className="cv-edit__meta"><span>{saves}</span><span>{order.length} photos</span></div>
-          {/* review, 1 Oct: the refine input is a compact, opt-in chip — never a large box standing open under the
+          {/* the refine input is a compact, opt-in chip — never a large box standing open under the
               content. Collapsed it's a single small trigger; opened it's one line. */}
           {ai && (aiOpen ? (
             <div className="cv-edit__askrow cv-edit__askrow--solo">

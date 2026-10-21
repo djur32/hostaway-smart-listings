@@ -18,7 +18,7 @@
 
    THE GROUNDS
      white   content slides (the product's content area)
-     blush   onboarding's pale pink: quieter slides, the title and the close
+     blush   onboarding's pale orange: quieter slides, the title and the close
      aubergine  the sidebar's ground: stage openers, set the way the sidebar is set
    A slide picks one with data-ground="white|blush|aubergine" (default white).
 
@@ -123,11 +123,11 @@
 [data-theme="hostaway"] {
   --c1: var(--color-bg-app);          /* white      */
   --c2: var(--color-text-primary);    /* ink        */
-  --c3: var(--color-action-primary);  /* raspberry  */
-  --c4: var(--color-sidebar-bg);      /* aubergine  */
+  --c3: var(--color-action-primary);  /* orange     */
+  --c4: var(--color-sidebar-bg);      /* ink        */
 
   --bg:          var(--color-bg-app);
-  --bg-2:        var(--color-onboarding-bg);            /* blush                       */
+  --bg-2:        var(--color-onboarding-bg);            /* pale orange                */
   --surface:     var(--color-bg-app);
   --surface-2:   var(--color-bg-subtle);                /* affixes, the selection bar  */
   --ink:         var(--color-text-primary);
@@ -138,7 +138,7 @@
   --line-2:      var(--color-border-primary);
 
   --accent:      var(--color-action-primary);
-  --accent-ink:  var(--color-primary-700);              /* raspberry as small text, AA */
+  --accent-ink:  var(--color-primary-700);              /* orange as small text, AA   */
   --accent-soft: var(--color-primary-50);
   --accent-wash: var(--color-bg-brand-primary);
   --hover-ring:  var(--color-border-primary);
@@ -162,14 +162,14 @@
   --dark-hi:       var(--gradient-sidebar-highlight);     /* the "Getting started" pill */
   --on-dark:       var(--color-sidebar-text);
   --on-dark-2:     color-mix(in oklab, var(--color-sidebar-text) 78%, var(--color-sidebar-bg));
-  --on-dark-3:     var(--color-sidebar-icon);             /* grape: the sidebar's icons and quiet text */
+  --on-dark-3:     var(--color-sidebar-icon);             /* the sidebar's icons and quiet text */
   --on-dark-line:  var(--color-sidebar-divider);
 
-  /* AI: the product's lavender card, extended (never another product's AI look) */
+  /* AI: the product's teal card, extended (never another product's AI look) */
   --ai-bg:      var(--color-ai-surface);
   --ai-bg-2:    var(--color-ai-surface-subtle);
   --ai-line:    var(--color-ai-border);
-  --ai-ink:     var(--color-ai-text);                   /* AA on the surface (legacy grape fails) */
+  --ai-ink:     var(--color-ai-text);                   /* AA on the surface (legacy teal fails) */
   --ai-accent:  var(--color-ai-accent);
   --ai-title:   var(--color-ai-title);
   --ai-sparkle: var(--color-ai-sparkle);
@@ -182,8 +182,8 @@
   --ch-google:  var(--color-channel-google);
   --ch-direct:  var(--color-channel-direct);
 
-  /* charts: one hue that argues (raspberry), one that contrasts (aubergine), greys for
-     everything else. Lavender is for AI only, green for "good" only. */
+  /* charts: one hue that argues (orange), one that contrasts (ink), greys for
+     everything else. Teal is for AI only, green for "good" only. */
   --data-1: var(--color-action-primary);
   --data-2: var(--color-sidebar-bg);
   --data-3: var(--color-gray-500);

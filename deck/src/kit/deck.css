@@ -105,7 +105,7 @@ html:not(.js) .s { position: relative; visibility: visible; height: var(--canvas
   transition: opacity var(--dur-2) var(--ease-io), transform var(--dur-2) var(--ease-io);
 }
 .appbar button:focus-visible, .hints button:focus-visible { outline: 1.5px solid var(--accent); outline-offset: 6px; border-radius: 2px; }
-/* the digimal.studio mark alone, large: the eight bars, no wordmark (review, 2026-09-25) */
+/* the brand mark (review, 2026-09-25) */
 .appbar__brand { justify-self: start; display: inline-flex; align-items: center; color: var(--ink); cursor: pointer; }
 .brand-mark { display: block; flex: none; height: 46px; width: auto; aspect-ratio: 195 / 183; fill: currentColor; transition: fill var(--dur-1) var(--ease-io); }
 .appbar__brand:hover .brand-mark { fill: var(--accent); }
@@ -144,7 +144,7 @@ html:not(.js) .s { position: relative; visibility: visible; height: var(--canvas
 .more-sheet__shots { color: var(--ink-3); }
 .more-sheet__shots:hover { color: var(--ink); }
 /* ── the hints: bottom right, floating over the content, no container ─────── */
-/* Jump · Next · Keys as plain text on the stage itself, below every slide's content box
+/* Jump · Next as plain text on the stage itself, below every slide's content box
    (--pad-bottom is 132px and .s-foot ends at its top edge), on the chrome's inset. */
 .hints {
   position: absolute; z-index: 5; right: var(--chrome-x); bottom: var(--chrome-bottom);
@@ -152,22 +152,8 @@ html:not(.js) .s { position: relative; visibility: visible; height: var(--canvas
   font-family: var(--font-mono); font-size: var(--t-micro); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3);
   transition: opacity var(--dur-2) var(--ease-io), transform var(--dur-2) var(--ease-io);
 }
-/* the byline: the same row, the same size as the hints. On the cover it is parked at the
-   content's left edge (--who-dx, measured by the engine) and slides home on the first press. */
-/* ── the byline: bottom left, the whole talk long ──────────────────────────── */
-/* On the cover it is the slide's own, set large; from the second slide it scales down in
-   place, on the same baseline as the hints, and stays in the corner. Only the scale changes,
-   so the name grows out of and back into the same left edge. */
-.byline {
-  position: absolute; z-index: 5; left: var(--chrome-x); bottom: var(--chrome-bottom); margin: 0;
-  transform-origin: left bottom; transform: scale(1);
-  font-family: var(--font-mono); font-size: var(--t-micro); font-weight: 500; letter-spacing: 0.1em;
-  line-height: 1; text-transform: uppercase; color: var(--ink-3); white-space: nowrap; pointer-events: none;
-  transition: transform var(--dur-3) var(--ease-io), opacity var(--dur-2) var(--ease-io);
-}
-.stage[data-cover="1"] .byline { transform: scale(1.75); }
-.stage[data-chrome="none"] .byline { opacity: 0; }
-.stage.is-booting .byline { transition: none; }
+/* the byline is retired: nothing mounts it, and an old one stays hidden */
+.byline { display: none !important; }
 .hint { display: inline-flex; align-items: baseline; gap: 7px; color: var(--ink-3); font: inherit; letter-spacing: inherit; text-transform: inherit; transition: color var(--dur-1) var(--ease-io); }
 .hint kbd { font: inherit; letter-spacing: 0.02em; color: var(--ink-2); }
 /* Neither Geist Mono nor Inter has ⌘, so it falls back to the system face, whose ⌘ is small and

@@ -3,8 +3,8 @@
  * reads and writes the same store keys as the channel screens: FIELDS keys, `price:*`, `avail:*`, `amenity:<name>`
  * ('on'/'off' per channel, the ListingEditor's keys) and `policy:instant`. Only the amenity list is richer than
  * data/sl3.ts AMENITIES: items that exist there keep its per-channel defaults; the rest come from the Paper frame KH-A1.
- * Content is (the case study's sample property). Channel vocabularies and matches are an until
- * checked against research/market/raw/amenities-crosswalk.md. */
+ * Content is the sample property. Channel vocabularies and matches are approximations of each channel's own
+ * amenity list. */
 import { AMENITIES, type ListingChannel } from '../../../../data/sl3'
 import type { KhItem } from '../../../../data/v3-kh'
 import { isScenarioProperty } from '../../../../data/portfolio'

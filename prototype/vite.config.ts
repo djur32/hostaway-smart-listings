@@ -1,4 +1,4 @@
-// Hospitable · Listing Management II — prototype (S09 scaffold, D-128).
+// Hostaway Smart Listings: prototype build config.
 // The design system is imported from ../ds (one source of truth, CONVENTIONS §6); never copied here.
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
@@ -13,13 +13,13 @@ const appHead = {
     const base = process.env.PROTO_BASE ?? '/'
     return html
       .replace('content="width=device-width, initial-scale=1"', 'content="width=device-width, initial-scale=1, viewport-fit=cover"')
-      .replace(/<title>[^<]*<\/title>/, '<title>Hospitable</title>')
+      .replace(/<title>[^<]*<\/title>/, '<title>Hostaway</title>')
       .replace('</head>', [
         `<link rel="manifest" href="${base}pwa/root.webmanifest" />`,
         `<link rel="apple-touch-icon" sizes="180x180" href="${base}pwa/apple-touch-icon.png" />`,
         '<meta name="apple-mobile-web-app-capable" content="yes" />',
         '<meta name="mobile-web-app-capable" content="yes" />',
-        '<meta name="apple-mobile-web-app-title" content="Hospitable" />',
+        '<meta name="apple-mobile-web-app-title" content="Hostaway" />',
         '<meta name="apple-mobile-web-app-status-bar-style" content="default" />',
         '</head>',
       ].join('\n    '))

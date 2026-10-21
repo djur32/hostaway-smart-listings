@@ -1,4 +1,4 @@
-/* Account defaults (review, 4 Oct: "have the platform default to Dana, set up already for her and Callum, activated,
+/* Account defaults ("have the platform default to Dana, set up already for her and Callum, activated,
  * with a different field-visibility setting for each; for Callum don't show any non-channel-specific field").
  * Dana and Callum open the demo listing with Smart Listings on and past setup, strategies and tips in place, and
  * Property › Overview's Field visibility already set: Dana Edit (every shared field editable on every channel),

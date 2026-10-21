@@ -1,4 +1,4 @@
-/* Smart Listings › Performance · WS-SL. Reworked 3 Oct over several rounds of review's feedback the same day. The last
+/* Smart Listings › Performance · WS-SL. Reworked 3 Oct over several rounds of the feedback the same day. The last
  * round overrides every earlier one where they differ ("these last changes are the ones that have to override all of
  * the other ones"):
  *   · no versions: no strategy picker, no per-version pages (old URLs redirect, routes.tsx), nothing numbered;
@@ -13,7 +13,7 @@
  * Earlier rounds that still hold: one channel at a time (no All), a one-line page description, no recommendations,
  * chart tooltips inside the plot, Hostaway Metrics card styling (research/current-state/review-2026-10-03-metrics/,
  * ), each chart card with its own settings (Bar / Line, By day / week / month).
- * Data: data/performance.ts — (labelled in the case study, not on screen): scenarioSim for Neukölln, the
+ * Data: data/performance.ts — (sample data): scenarioSim for Neukölln, the
  * generated baselineSim for any other property. Every number, the summary sentence included, is read from it.
  * "When the strategy started" is shared.ts strategyStart (the same date Strategy › channel shows).
  * URL: ?ch=airbnb|booking|direct, ?period=since|last30|last90, ?smart=on. */
@@ -218,7 +218,7 @@ function measure(sim: SlSim, ch: ListingChannel, from: number, to: number, id: C
 /** The section line's words for the charts' default grouping (S-1: the copy follows the bars, not "every day"). */
 const STEP: Record<PerfGrouping, string> = { day: 'day by day', week: 'week by week', month: 'month by month' }
 const GROUPED: Record<PerfGrouping, string> = { day: 'one bar a day', week: 'one bar a week', month: 'one bar a month' }
-/** By day up to ~10 days a side, by week up to ~3 months, by month beyond (review: a month or so groups by week). */
+/** By day up to ~10 days a side, by week up to ~3 months, by month beyond. */
 const defaultGrouping = (len: number): PerfGrouping => (len <= 10 ? 'day' : len <= 92 ? 'week' : 'month')
 const groupingsFor = (len: number): PerfGrouping[] => [...(len <= 92 ? ['day' as const] : []), ...(len >= 8 ? ['week' as const] : []), ...(len >= 45 ? ['month' as const] : [])]
 

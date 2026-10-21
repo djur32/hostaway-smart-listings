@@ -57,7 +57,7 @@ export function PropertiesList() {
     <Page wide>
       <PageHeader title="Properties" right={<Link className="h-btn h-btn--primary h-props__connect" to="/import">Connect a channel</Link>} />
       {/* Groups, Rules and Activity are about many properties: they appear once an account has more than one (D-162) */}
-      {/* phones (review, 4 Oct): out of the case study's reach — the property is the feature */}
+      {/* phones: out of this concept's reach — the property is the feature */}
       {rows.length > 1 && !mobile && <div className="p-mt4"><Tabs items={PROPERTIES_TABS} /></div>}
       {rows.length === 0 ? (
         <div className="p-mt6">

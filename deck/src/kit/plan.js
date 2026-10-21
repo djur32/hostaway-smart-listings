@@ -10,7 +10,7 @@
 
    Nothing here decides what a slide means. Every slide carries, next to its
    data-id in src/slides/*.html:
-     data-part   open · discovery · research · ia · concept · design · test · next · close · appendix
+     data-part   open · discovery · research · ia · concept · design · test · experiments · next · close · appendix
      data-path   S · St · E
    A part at depth "St" shows its S and St slides; at "E", all of them.
    Always in, whatever the plan: stage openers (.s--opener), the close, and a
@@ -41,6 +41,7 @@ export const ROWS = [
   { k: 'concept',   nm: 'Concept',           note: 'Seven directions through the same listing screens, and how two became one.' },
   { k: 'design',    nm: 'Design',            note: 'Smart Listings in the running prototype: Base, Hub, channels, strategy, tips, receipts, performance.' },
   { k: 'test',      nm: 'Testing',    note: 'What the test changed, and how we would know it works.' },
+  { k: 'experiments', nm: 'Experiments',   note: 'The experiments I would run, how each is set up, and how I would read the result.' },
   { k: 'next',      nm: 'Next steps',    note: 'What else this touches, what comes after, the story to tell.' },
 ];
 

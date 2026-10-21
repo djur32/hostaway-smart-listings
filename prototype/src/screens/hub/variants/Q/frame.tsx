@@ -29,7 +29,7 @@ export function useTipsParam(owner = false) {
 
 export function HubFrame({ kq, title, desc, lead, back, tabs, test, tips = true, add, children }: {
   kq: KQ; title: ReactNode; desc?: ReactNode; back?: { to: string; label: string }
-  /** the page's count heading ("48 questions"); the actions sit at its right end (review, 4 Oct) */
+  /** the page's count heading ("48 questions"); the actions sit at its right end */
   lead?: ReactNode
   /** the page's tabs (QueryTabs); the actions never sit in the tab row */
   tabs?: ReactNode
@@ -50,9 +50,9 @@ export function HubFrame({ kq, title, desc, lead, back, tabs, test, tips = true,
   const tipsBtn = showTips ? <TipsToggle count={pending} open={tp.open} onToggle={tp.toggle} /> : null
   const mobile = useIsMobile()
   const has = !!(testBtn || tipsBtn || add)
-  // phones (review, 4 Oct): the actions on their own line under the title, never in the tab row
+  // phones: the actions on their own line under the title, never in the tab row
   const mActions = has ? <div className="h-kq-mactions">{testBtn}{tipsBtn}{add}</div> : undefined
-  // desktop (review, 4 Oct): Test · Tips · the primary Add at the top level, one line: at the right of the count
+  // desktop: Test · Tips · the primary Add at the top level, one line: at the right of the count
   // heading when the page has one, else of the description, else before the property switcher. Never in the tab row.
   const actions = has ? <span className="h-kq-actions">{testBtn}{tipsBtn}{add}</span> : null
   const at = mobile || !has ? 'none' : lead ? 'lead' : desc ? 'desc' : 'head'

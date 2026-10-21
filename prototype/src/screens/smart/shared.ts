@@ -47,7 +47,7 @@ export function seedSmartOn() {
   }
 }
 
-/* ---------- the other properties' history (1 Oct · review, repeated: "I want to pretend that all of the different
+/* ---------- the other properties' history (1 Oct · "I want to pretend that all of the different
  * channels have been running on Smart Listings for a long time") ----------
  * data/performance.ts generates a per-property history (propertyVersionSeed) and baselineSim simulates against it.
  * This is the other half: writing those versions into the store, so Strategy's cards and Performance's Versions table
@@ -81,7 +81,7 @@ export function seedPropertyHistory(pid: string, channels: ListingChannel[]) {
   if (seeded && !st.smartHistory) st.setSmartHistory(true)
 }
 
-/* ---------- the scenario property's past strategies, on every path (review, 3 Oct: "I don't have the possibility to
+/* ---------- the scenario property's past strategies, on every path ("I don't have the possibility to
  * choose which other strategy I'm using… fill this up at least for Beautiful Artist Apt. in Neukölln") ----------
  * . ?smart=on wrote SL_SEED (data/performance.ts) as the History, but the first-use wizard saved v1 with
  * nothing under it, so History was empty and "Replace with a previous strategy" offered nothing. This puts the seeded
@@ -129,7 +129,7 @@ export function ensureScenarioHistory(only?: ListingChannel[], opts: { evenIfEmp
 }
 
 /**
- * URL states for screenshots and the Loom (headless profiles start empty):
+ * URL states for screenshots and demos (headless profiles start empty):
  *   ?smart=on   Smart Listings on with the demo strategies (Airbnb on Autopilot, Booking.com and Direct with tips only)
  *   ?smart=off  Smart Listings off, setup and versions cleared (the Overview toggle is off)
  * Without a param nothing is seeded: Smart Listings is off for every host until they turn it on (Overview toggle → Setup).
@@ -210,8 +210,8 @@ export function syncVersions(channels: ListingChannel[] = LISTING_CHANNELS) {
 
 /* ---------- Strategy management (3 Oct: Setup removed; Strategy lists, the full-screen wizard creates and edits) ----------
  * A channel "has a strategy" when it has a plan and is in sl3.channels. One current strategy per channel, edited or
- * replaced through the wizard. Saves are still recorded internally as versions (they drive the simulated numbers), but
- * nothing in the UI lists, numbers or restores them (review, 3 Oct). Remove takes the channel out of sl3.channels and
+ * replaced through the wizard. Saves are still recorded internally as versions (they drive the sample numbers), but
+ * nothing in the UI lists, numbers or restores them. Remove takes the channel out of sl3.channels and
  * drops its live plan. */
 export type StrategyState = 'live' | 'paused' | 'none'
 export const hasStrategy = (sl3: SL3State, c: ListingChannel) => !!sl3.plans[c] && sl3.channels.includes(c)
@@ -262,7 +262,7 @@ export function removeStrategy(c: ListingChannel) {
     return { sl3: { ...st.sl3, plans, channels: st.sl3.channels.filter((x) => x !== c), paused: { ...st.sl3.paused, [c]: false }, groups: ungroup(st.sl3.groups, [c]) } }
   })
 }
-/** When the channel's current strategy started (ISO date). Versions stay internal (review, 3 Oct: "remove the versions
+/** When the channel's current strategy started (ISO date). Versions stay internal ("remove the versions
  *  from the concept of the strategy"): a channel has one strategy, and an edit is still that strategy. So this is the
  *  start of the latest saved version that has run for at least two weeks, which keeps an edit made today from resetting
  *  "since your strategy started" to an empty window (the data can't tell an edit from a replacement). A

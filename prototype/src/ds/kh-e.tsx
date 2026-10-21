@@ -1,7 +1,7 @@
 /* Knowledge Hub iteration KH-E · design-system components (concepts/knowledge-hub/KH-E.md). Owned by the KH-E build.
  * CSS: ds/v3/kh-e.css (tokens only). The lens is a comparison over one shared Base, never navigation: these pieces only
  * show whose values you are looking at and where a value comes from.
- * Rules (review, 30 Sep): captions are plain text (no logo circles); the channel Mark sits on the lens segments and in
+ * Rules: captions are plain text (no logo circles); the channel Mark sits on the lens segments and in
  * headers; action links are black, underlined, medium; no change markers; the drawer slides in from the right while the
  * form column narrows in step (no separator line). */
 import { useEffect, useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react'

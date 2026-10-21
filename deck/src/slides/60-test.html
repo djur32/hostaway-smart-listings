@@ -1,15 +1,15 @@
-<!-- 60-test · Test & measure · content (4 Oct, Notion v2): no host has used Smart Listings yet, so the part is the programme, benchmarked against today with a bar written before each step (Test plan, KD-18), and how I'd know it worked: the Intro's five goals (op-goals), two trust checks and Notion's four guardrails (Goals & KPIs), with the Pre-mortem behind a door. review kept KD-19 (4 Oct): time to adjust is the north star, satisfaction the trust check beside it, the five goals what it should move. No results are shown: the part talks only about the plan (review, 4 Oct: the simulated rehearsals are removed from the deck and Notion). tm-measure is the KPI tree: each of the five goals with its KPI, the riskiest assumption it puts to the test (dc-risks: H-09, H-04, H-15, plus H-10 and H-03) and the study that checks it. -->
+<!-- 60-test · Test and measure · the measurement design of the concept (plan/EXPERIMENTS.md). tm-test is the test ladder: six steps, each with a bar written before it runs. tm-measure is the metric tree: one north star, adoption, quality, outcome and guardrails, each tied to an experiment. Nothing here ran. The Experiments part follows with the framework, the portfolio, the readout and the rollout. -->
 
-<section class="s" data-id="tm-test" data-title="How real hosts test it next" data-stage="5" data-part="test" data-path="St" data-angle="both" data-min="0.8" data-req="R-170 R-173" data-ground="white">
+<section class="s" data-id="tm-test" data-title="The test ladder" data-stage="5" data-part="test" data-path="St" data-angle="both" data-min="0.8" data-req="R-170 R-173" data-ground="white">
   <template class="hc-cover-tpl" data-stage="5">
-    <header class="hc-cover" aria-label="Testing">
+    <header class="hc-cover" aria-label="Test and measure">
       <div class="opener">
-        <div class="opener__top"><h2 class="opener__name">Testing</h2></div>
-        <p class="opener__vision">Do hosts understand it and trust it? And how would I know it works?</p>
+        <div class="opener__top"><h2 class="opener__name">Test and measure</h2></div>
+        <p class="opener__vision">Do hosts understand it and trust it? And how is it measured?</p>
         <div class="opener__foot">
           <p class="opener__methods"><span class="opener__k">Methods</span><span>Benchmark test</span><span>Usability testing</span><span>A/B testing</span></p>
           <div class="opener__out"><p class="opener__k">Outputs</p>
-            <p class="opener__outrow"><span class="hc-mark" data-mark="planned"></span><span class="opener__outs"><span>Test plan</span><span>Goals & KPIs</span><span>Pre-mortem</span></span></p>
+            <p class="opener__outrow"><span class="hc-mark" data-mark="planned"></span><span class="opener__outs"><span>Test ladder</span><span>Metric tree</span><span>Pre-mortem</span></span></p>
           </div>
         </div>
       </div>
@@ -17,9 +17,9 @@
     </header>
   </template>
   <header class="s-head">
-    <p class="eyebrow" data-a="rise"><span>Testing</span><span>Test plan</span></p>
-    <h2 class="h2" data-a="rise" data-at="0.05">Real hosts test it next, against today’s product</h2>
-    <p class="hc-msg" data-a="rise" data-at="0.12">Nothing is tested with real hosts yet. Six steps follow, each with a bar set before it runs.</p>
+    <p class="eyebrow" data-a="rise"><span>Test and measure</span><span>Test ladder</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Every test step has a bar, set before it runs</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Six steps, each measured against today’s product.</p>
   </header>
   <div class="s-body">
     <div class="tm-prog">
@@ -32,16 +32,16 @@
         <li class="tm-step" data-tint="mint" data-a="rise" data-at="0.4"><span class="tm-line__dot"><svg><use href="#i-microphone"/></svg></span><b>Usability, 2 rounds</b><span class="tm-step__d">Think-aloud, 8 hosts a round</span>
           <p class="tm-bar" data-a="rise" data-beat="1" data-at="0.25"><svg><use href="#i-target"/></svg><span>Time to adjust ≤ 75</span></p></li>
         <li class="tm-step" data-tint="butter" data-a="rise" data-at="0.5"><span class="tm-line__dot"><svg><use href="#i-git-compare"/></svg></span><b>A/B test</b><span class="tm-step__d">Today against channel-first</span>
-          <p class="tm-bar" data-a="rise" data-beat="1" data-at="0.35"><svg><use href="#i-target"/></svg><span>Faster. No task loses over 10 points</span></p></li>
+          <p class="tm-bar" data-a="rise" data-beat="1" data-at="0.35"><svg><use href="#i-target"/></svg><span>Success +10 pts, time not worse</span></p></li>
         <li class="tm-step" data-tint="mint" data-a="rise" data-at="0.6"><span class="tm-line__dot"><svg><use href="#i-users"/></svg></span><b>Pilot, six weeks</b><span class="tm-step__d">30 accounts, a private Slack</span>
           <p class="tm-bar" data-a="rise" data-beat="1" data-at="0.45"><svg><use href="#i-target"/></svg><span>≥ 80% satisfied</span></p></li>
-        <li class="tm-step" data-tint="blush" data-a="rise" data-at="0.7"><span class="tm-line__dot"><svg><use href="#i-rocket"/></svg></span><b>Staged rollout</b><span class="tm-step__d">With 10% held out</span>
-          <p class="tm-bar" data-a="rise" data-beat="1" data-at="0.55"><svg><use href="#i-target"/></svg><span>Beats the holdout</span></p></li>
+        <li class="tm-step" data-tint="blush" data-a="rise" data-at="0.7"><span class="tm-line__dot"><svg><use href="#i-rocket"/></svg></span><b>Staged rollout</b><span class="tm-step__d">1% to 50%, 5% held out</span>
+          <p class="tm-bar" data-a="rise" data-beat="1" data-at="0.55"><svg><use href="#i-target"/></svg><span>Guardrails hold</span></p></li>
       </ol>
       <p class="tm-note" data-a="rise" data-beat="1" data-at="0.75"><svg><use href="#i-shield-check"/></svg>Same tasks at every step, so results compare. Accessibility gates each one.</p>
     </div>
   </div>
-  <template class="more" data-more="probes" data-title="What I’d ask, and what a missed bar decides" data-label="Probes and bars">
+  <template class="more" data-more="probes" data-title="What the sessions ask, and what a missed bar decides" data-label="Probes and bars">
     <div class="more__panel" data-title="Probes">
       <ol class="tm-probes" data-a="stagger" data-s="2">
         <li data-tint="blush"><span class="tm-tile"><svg><use href="#i-map-pin"/></svg></span><div><p class="tm-probes__k">Where facts live</p><p class="tm-probes__q">Where does this fact live? What happens on Airbnb if you change it here?</p></div></li>
@@ -54,114 +54,105 @@
       <ol class="tm-miss" data-a="stagger" data-s="1.4">
         <li data-tint="butter"><span class="tm-tile"><svg><use href="#i-sitemap"/></svg></span><b class="tm-miss__s">Tree test</b><span class="tm-miss__bar">Under 70%</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Rework the labels before round 1</span></li>
         <li data-tint="mint"><span class="tm-tile"><svg><use href="#i-microphone"/></svg></span><b class="tm-miss__s">Usability, round 2</b><span class="tm-miss__bar">Time to adjust above 75</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">No pilot until it passes</span></li>
-        <li data-tint="butter"><span class="tm-tile"><svg><use href="#i-git-compare"/></svg></span><b class="tm-miss__s">A/B test</b><span class="tm-miss__bar">Not faster</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Add record-first as a third arm</span></li>
+        <li data-tint="butter"><span class="tm-tile"><svg><use href="#i-git-compare"/></svg></span><b class="tm-miss__s">A/B test</b><span class="tm-miss__bar">Gain under 10 pts</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Add record-first as a third arm</span></li>
         <li data-tint="mint"><span class="tm-tile"><svg><use href="#i-users"/></svg></span><b class="tm-miss__s">Pilot</b><span class="tm-miss__bar">Under 80% satisfied</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Two more weeks with fixes, or leave a segment out</span></li>
         <li data-tint="blush"><span class="tm-tile"><svg><use href="#i-rocket"/></svg></span><b class="tm-miss__s">Rollout</b><span class="tm-miss__bar">An overwrite, or a silent rejection</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Roll back</span></li>
         <li data-tint="blush"><span class="tm-tile"><svg><use href="#i-shield-check"/></svg></span><b class="tm-miss__s">Accessibility</b><span class="tm-miss__bar">Severity 3 or worse</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Blocks the next step</span></li>
       </ol>
     </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>My test plan: every bar is written before its step runs</span><span class="more-link" data-more="probes">The probes and the bars</span></p></div>
-  <aside class="notes"><p>To be clear about evidence: no real host has tested Smart Listings yet. So this is the plan, and every bar is written before its step runs.</p><p>It starts with today’s product. Forty hosts do the same tasks, so better means better than today. Then a tree test of three menus. Two think-aloud rounds of eight hosts. An A/B test of today against channel-first. A six-week pilot with a private Slack. And a staged rollout, with ten percent held out.</p><p>[Press] Each step has its bar. Seventy percent on the channel tasks. Time to adjust at seventy-five or less. Faster, with no task losing ten points. Eighty percent satisfied. And beating the holdout. Accessibility gates every step. The probes, and what a missed bar decides, are one click away. About 45 seconds.</p></aside>
+  <div class="s-foot"><p class="hc-src"><span>Every bar is written before its step runs</span><span class="more-link" data-more="probes">The probes and the bars</span></p></div>
+  <aside class="notes"><p>This is the test design. Every bar is written before its step runs, so nobody can move the goalposts after seeing a result.</p><p>It starts with today’s product. Forty hosts do the same tasks, so better means better than today. Then a tree test of three menus, two think-aloud rounds of eight hosts, a comparison of today against channel-first, a six-week pilot, and a staged rollout with five percent held out.</p><p>[Press] Each step has its bar. Seventy percent on the channel tasks. Time to adjust at seventy-five or less. Task success up ten points with time not worse. Eighty percent satisfied. Guardrails holding. Accessibility gates every step.</p><p>I considered one big launch test instead. I rejected it, because a failure there cannot say which part failed. The constraint is that the same tasks run at every step, so the results compare. The probes, and what a missed bar decides, are one click away. About 45 seconds.</p></aside>
 </section>
 
-<!-- tm-measure v3 (review, 4 Oct): the KPI tree speaks to the goals and the riskiest assumptions from the start. Each of op-goals' five
-     goals carries its KPI, the assumption it puts to the test (dc-risks: H-09 trust in AI tips, H-04 who wants a voice per channel,
-     H-15 what Autopilot may touch, plus H-10 for bookings) and the study that checks it (tm-test). The north star (KD-19) leads.
-     Goal plates: the icon top right without a badge tile, the number bottom left. The detail draws the same tree by bet. -->
-<section class="s" data-id="tm-measure" data-title="How I’d know it worked" data-stage="5" data-part="test" data-path="St" data-angle="B" data-min="0.8" data-req="R-019 R-171 R-172" data-ground="white">
+<!-- tm-measure: the metric tree from plan/EXPERIMENTS.md. The north star leads, four cards carry the branches (adoption, quality, outcome, guardrails). Each names the bet it tests and the experiment that moves it. The detail draws the same tree and the kill criteria, and gives the reasoning. -->
+<section class="s" data-id="tm-measure" data-title="How I measure it" data-stage="5" data-part="test" data-path="St" data-angle="B" data-min="0.8" data-req="R-019 R-171 R-172" data-ground="white">
   <header class="s-head">
-    <p class="eyebrow" data-a="rise"><span>Testing</span><span>Goals & KPIs</span></p>
-    <h2 class="h2" data-a="rise" data-at="0.05">Every goal tests one of my bets</h2>
-    <p class="hc-msg" data-a="rise" data-at="0.12">The goals I set at the start, each with its KPI and test.</p>
+    <p class="eyebrow" data-a="rise"><span>Test and measure</span><span>Metric tree</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">One metric tree, four branches</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Each branch has a metric, a bet and an experiment.</p>
   </header>
   <div class="s-body">
     <div class="tm-kt">
       <div class="tm-star" data-a="rise" data-at="0.16">
         <p class="tm-star__k"><svg><use href="#i-clock"/></svg>North star</p>
-        <p class="tm-ns">Time to adjust ≤ 60<small>today = 100</small></p>
-        <p class="tm-star__by"><svg><use href="#i-git-compare"/></svg>Benchmark, A/B</p>
-        <p class="tm-star__k tm-star__k--trust"><svg><use href="#i-heart-handshake"/></svg>Trust check</p>
-        <p class="hc-chip">Satisfied ≥ 80%</p>
+        <p class="tm-ns">Strategy-aligned fields on every active channel</p>
+        <p class="tm-star__by"><svg><use href="#i-git-compare"/></svg>Moved by E1 to E7</p>
+        <p class="tm-star__k tm-star__k--trust"><svg><use href="#i-heart-handshake"/></svg>Rule</p>
+        <p class="hc-chip">Written before launch</p>
       </div>
       <div class="tm-kgrid">
-        <p class="tm-kgrid__l" style="grid-row: 3" data-a="fade" data-at="0.3">KPI</p>
+        <p class="tm-kgrid__l" style="grid-row: 3" data-a="fade" data-at="0.3">Metric</p>
         <p class="tm-kgrid__l" style="grid-row: 4" data-a="fade" data-beat="1">Bet</p>
-        <p class="tm-kgrid__l" style="grid-row: 5" data-a="fade" data-beat="1" data-at="0.1">Test</p>
+        <p class="tm-kgrid__l" style="grid-row: 5" data-a="fade" data-beat="1" data-at="0.1">Experiment</p>
         <article class="tm-goal" data-tint="blush" data-a="rise" data-at="0.22">
-          <div class="tm-goal__plate"><svg class="tm-goal__i"><use href="#i-trending-up"/></svg><p class="tm-goal__v">+7<small>%</small></p></div>
-          <h3 class="tm-goal__t">More bookings and requests</h3>
-          <p class="tm-goal__kpi">Bookings per listing</p>
-          <p class="tm-goal__bet" data-a="rise" data-beat="1" data-at="0.05"><span class="hc-id">H-10</span><span>Channel copy sells</span></p>
-          <p class="tm-goal__test" data-a="rise" data-beat="1" data-at="0.15"><svg><use href="#i-rocket"/></svg><span>Rollout vs holdout</span></p>
-        </article>
-        <article class="tm-goal" data-tint="butter" data-a="rise" data-at="0.29">
-          <div class="tm-goal__plate"><svg class="tm-goal__i"><use href="#i-rocket"/></svg><p class="tm-goal__v">25<small>%</small></p></div>
+          <div class="tm-goal__plate"><svg class="tm-goal__i"><use href="#i-rocket"/></svg><p class="tm-goal__v">+8<small>pts</small></p></div>
           <h3 class="tm-goal__t">Hosts adopt it</h3>
-          <p class="tm-goal__kpi">Properties with a strategy</p>
-          <p class="tm-goal__bet is-risk" data-a="rise" data-beat="1" data-at="0.08"><span class="hc-id">H-04</span><span>A voice per channel</span></p>
-          <p class="tm-goal__test" data-a="rise" data-beat="1" data-at="0.18"><svg><use href="#i-users"/></svg><span>Pilot, per segment</span></p>
+          <p class="tm-goal__kpi">Listings with a tailored field</p>
+          <p class="tm-goal__bet is-risk" data-a="rise" data-beat="1" data-at="0.05"><span class="hc-id">H-04</span><span>A voice per channel</span></p>
+          <p class="tm-goal__test" data-a="rise" data-beat="1" data-at="0.15"><svg><use href="#i-users"/></svg><span>E1 · Strategy per channel</span></p>
+        </article>
+        <article class="tm-goal" data-tint="lavender" data-a="rise" data-at="0.29">
+          <div class="tm-goal__plate"><svg class="tm-goal__i"><use href="#i-sparkles"/></svg><p class="tm-goal__v">+5<small>pts</small></p></div>
+          <h3 class="tm-goal__t">Tips earn their place</h3>
+          <p class="tm-goal__kpi">Tip acceptance rate</p>
+          <p class="tm-goal__bet is-risk" data-a="rise" data-beat="1" data-at="0.08"><span class="hc-id">H-09</span><span>Trust in AI tips</span></p>
+          <p class="tm-goal__test" data-a="rise" data-beat="1" data-at="0.18"><svg><use href="#i-microphone"/></svg><span>E2 · Tips with a why</span></p>
         </article>
         <article class="tm-goal" data-tint="mint" data-a="rise" data-at="0.36">
-          <div class="tm-goal__plate"><svg class="tm-goal__i"><use href="#i-refresh"/></svg><p class="tm-goal__v">50<small>%</small></p></div>
-          <h3 class="tm-goal__t">Hosts keep refining</h3>
-          <p class="tm-goal__kpi">Adopters acting monthly</p>
-          <p class="tm-goal__bet is-risk" data-a="rise" data-beat="1" data-at="0.11"><span class="hc-id">H-09</span><span>Trust in AI tips</span></p>
-          <p class="tm-goal__test" data-a="rise" data-beat="1" data-at="0.21"><svg><use href="#i-users"/></svg><span>Pilot, six weeks</span></p>
+          <div class="tm-goal__plate"><svg class="tm-goal__i"><use href="#i-trending-up"/></svg><p class="tm-goal__v">−25<small>%</small></p></div>
+          <h3 class="tm-goal__t">Edits get faster</h3>
+          <p class="tm-goal__kpi">Time to finish a description</p>
+          <p class="tm-goal__bet" data-a="rise" data-beat="1" data-at="0.11"><span class="hc-id">H-10</span><span>Channel copy sells</span></p>
+          <p class="tm-goal__test" data-a="rise" data-beat="1" data-at="0.21"><svg><use href="#i-refresh"/></svg><span>E3 · Rewrite per channel</span></p>
         </article>
-        <article class="tm-goal" data-tint="lavender" data-a="rise" data-at="0.43">
-          <div class="tm-goal__plate"><svg class="tm-goal__i"><use href="#i-sparkles"/></svg><p class="tm-goal__v">40<small>%</small></p></div>
-          <h3 class="tm-goal__t">Tips earn their place</h3>
-          <p class="tm-goal__kpi">Acceptance rate</p>
-          <p class="tm-goal__bet is-risk" data-a="rise" data-beat="1" data-at="0.14"><span class="hc-id">H-09</span><span>Trust in AI tips</span></p>
-          <p class="tm-goal__test" data-a="rise" data-beat="1" data-at="0.24"><svg><use href="#i-microphone"/></svg><span>Usability rounds</span></p>
-        </article>
-        <article class="tm-goal" data-tint="butter" data-a="rise" data-at="0.5">
-          <div class="tm-goal__plate"><svg class="tm-goal__i"><use href="#i-heart-handshake"/></svg><p class="tm-goal__v">−10<small>%</small></p></div>
-          <h3 class="tm-goal__t">Fewer losses, less support</h3>
-          <p class="tm-goal__kpi">Tickets per 100 properties</p>
-          <p class="tm-goal__bet is-risk" data-a="rise" data-beat="1" data-at="0.17"><span class="hc-id">H-15</span><span>What Autopilot may touch</span></p>
-          <p class="tm-goal__test" data-a="rise" data-beat="1" data-at="0.27"><svg><use href="#i-rocket"/></svg><span>Rollout vs holdout</span></p>
+        <article class="tm-goal" data-tint="butter" data-a="rise" data-at="0.43">
+          <div class="tm-goal__plate"><svg class="tm-goal__i"><use href="#i-shield-check"/></svg><p class="tm-goal__v">&lt;8<small>%</small></p></div>
+          <h3 class="tm-goal__t">Nothing gets worse</h3>
+          <p class="tm-goal__kpi">Undo rate, as a bound</p>
+          <p class="tm-goal__bet is-risk" data-a="rise" data-beat="1" data-at="0.14"><span class="hc-id">H-15</span><span>What Autopilot may touch</span></p>
+          <p class="tm-goal__test" data-a="rise" data-beat="1" data-at="0.24"><svg><use href="#i-rocket"/></svg><span>E6 · Autopilot setting</span></p>
         </article>
       </div>
     </div>
   </div>
-  <template class="more" data-more="tree" data-title="The KPI tree, by the bet each goal tests" data-label="The KPI tree">
-    <div class="more__panel" data-title="KPI tree">
+  <template class="more" data-more="tree" data-title="The metric tree, and why it is shaped this way" data-label="The metric tree">
+    <div class="more__panel" data-title="Metric tree">
       <div class="hc-tree tm-tree">
-        <div class="hc-tree__root" data-tint="blush"><p class="hc-tree__k">North star · Benchmark, then A/B</p><p class="hc-tree__v">Time to adjust ≤ 60</p></div>
+        <div class="hc-tree__root" data-tint="blush"><p class="hc-tree__k">North star · Experiments E1 to E7</p><p class="hc-tree__v">Strategy-aligned fields on every active channel</p></div>
         <div class="hc-tree__row" style="--n: 4" data-a="stagger" data-s="1.4">
-          <div class="hc-tree__node" data-tint="lavender"><p class="hc-tree__k"><span class="tm-rank">1</span>H-09 · Trust in AI tips</p><ul><li><b>40%</b> of tips accepted</li><li><b>50%</b> keep refining</li></ul><p class="tm-tree__t"><svg><use href="#i-microphone"/></svg>Usability, then pilot</p></div>
-          <div class="hc-tree__node" data-tint="blush"><p class="hc-tree__k"><span class="tm-rank">2</span>H-04 · A voice per channel</p><ul><li><b>25%</b> adopt it</li></ul><p class="tm-tree__t"><svg><use href="#i-users"/></svg>Pilot, by host type</p></div>
-          <div class="hc-tree__node" data-tint="butter"><p class="hc-tree__k"><span class="tm-rank">3</span>H-15 · What Autopilot may touch</p><ul><li><b>−10%</b> listing tickets</li><li>Undo <b>≤ 5%</b></li></ul><p class="tm-tree__t"><svg><use href="#i-rocket"/></svg>Pilot, then rollout</p></div>
-          <div class="hc-tree__node" data-tint="mint"><p class="hc-tree__k">H-10 · Copy per channel sells</p><ul><li><b>+7%</b> bookings and requests</li></ul><p class="tm-tree__t"><svg><use href="#i-rocket"/></svg>Rollout vs holdout</p></div>
+          <div class="hc-tree__node" data-tint="blush"><p class="hc-tree__k">Adoption</p><ul><li>Hosts who set a strategy</li><li>Tips shown, accepted</li></ul><p class="tm-tree__t"><svg><use href="#i-users"/></svg>E1, E2</p></div>
+          <div class="hc-tree__node" data-tint="lavender"><p class="hc-tree__k">Quality</p><ul><li>Fields tailored per channel</li><li>Violations per 100 tips</li></ul><p class="tm-tree__t"><svg><use href="#i-microphone"/></svg>E2, E3</p></div>
+          <div class="hc-tree__node" data-tint="mint"><p class="hc-tree__k">Outcome</p><ul><li>Booking conversion per channel</li><li>Time to finish an edit</li></ul><p class="tm-tree__t"><svg><use href="#i-refresh"/></svg>E3, E5</p></div>
+          <div class="hc-tree__node" data-tint="butter"><p class="hc-tree__k">Guardrails</p><ul><li>Undo rate, tickets</li><li>Active editors, load time</li></ul><p class="tm-tree__t"><svg><use href="#i-eye"/></svg>Watched daily</p></div>
         </div>
       </div>
-      <div class="tm-guards" data-a="rise" data-at="0.6"><p class="tm-guards__k"><svg><use href="#i-shield-check"/></svg>Guardrails</p><p class="hc-chip">No unsupported AI claims</p><p class="hc-chip">Wrong-channel edits ≤ 10%</p><p class="hc-chip">Rejections ≤ 2%, never silent</p></div>
-      <p class="hc-src"><span>Targets at 90 days, set before any data. The pilot sets the real ones</span><span>Bets ranked by importance against evidence</span></p>
+      <div class="tm-guards" data-a="rise" data-at="0.6"><p class="tm-guards__k"><svg><use href="#i-shield-check"/></svg>Kill criteria</p><p class="hc-chip">A guardrail past its bound 2 days running</p><p class="hc-chip">Undo above 15% of applied tips</p><p class="hc-chip">Any channel-rule violation live</p></div>
+      <p class="hc-src"><span>Bounds and minimum effects are fixed before launch</span></p>
     </div>
-    <div class="more__panel" data-title="Projected">
-      <figure class="hc-chart tm-proj" data-chart="line">
-        <script type="application/json">{ "title": "Projected indices, expected case", "x": ["M0","M1","M2","M3","M4","M5","M6","M7","M8","M9","M10","M11","M12"], "series": [{ "name": "Time to adjust", "values": [100,100,73,73,66.2,64,61.8,59.5,57.2,55,55,55,55], "hi": true }, { "name": "Listing tickets", "values": [100,100,100,100,85,85,81.2,80,78.8,77.5,76.2,75,75] }], "min": 50, "max": 100, "ticks": 5, "w": 1400, "h": 460 }</script>
-        <figcaption class="hc-chart__cap"><span>Months after launch, today = 100, lower is better, expected case</span></figcaption>
-      </figure>
+    <div class="more__panel" data-title="Why this tree">
+      <div class="tm-why" data-a="stagger" data-s="1.4">
+        <div data-tint="blush"><p class="tm-why__k">Rationale</p><p class="tm-why__t">One north star keeps every experiment pointed the same way.</p></div>
+        <div data-tint="butter"><p class="tm-why__k">Alternative</p><p class="tm-why__t">Revenue per listing. Rejected, because it moves slowly and hides which change helped.</p></div>
+        <div data-tint="mint"><p class="tm-why__k">Constraint</p><p class="tm-why__t">The host account is the unit, because a host’s listings share tips.</p></div>
+      </div>
     </div>
   </template>
-  <template class="more" data-more="fail" data-title="Imagine it shipped and failed" data-label="How it could fail">
+  <template class="more" data-more="fail" data-title="Imagine it failed" data-label="How it could fail">
     <div class="more__panel" data-title="Pre-mortem">
       <div class="tm-pm">
         <p class="tm-pm__h"><span></span><span>What went wrong</span><span>Early signal</span><span>What I’d do</span></p>
         <ol class="tm-pm__rows" data-a="stagger" data-s="1.4">
           <li data-tint="blush"><span class="tm-tile"><svg><use href="#i-alert-triangle"/></svg></span><b class="tm-pm__w">It overwrote a value a host had tuned</b><span class="tm-pm__sig"><svg><use href="#i-eye"/></svg>Overwrites, undo rate</span><span class="tm-pm__do">Any one stops the rollout</span></li>
           <li data-tint="butter"><span class="tm-tile"><svg><use href="#i-sitemap"/></svg></span><b class="tm-pm__w">Hosts don’t get channel-first</b><span class="tm-pm__sig"><svg><use href="#i-eye"/></svg>Comprehension, wrong-channel edits</span><span class="tm-pm__do">Rework labels, then test record-first</span></li>
-          <li data-tint="lavender"><span class="tm-tile"><svg><use href="#i-sparkles"/></svg></span><b class="tm-pm__w">The AI says something untrue</b><span class="tm-pm__sig"><svg><use href="#i-eye"/></svg>AI copy reverted</span><span class="tm-pm__do">Over 10%, that tip type stops</span></li>
+          <li data-tint="lavender"><span class="tm-tile"><svg><use href="#i-sparkles"/></svg></span><b class="tm-pm__w">The AI says something untrue</b><span class="tm-pm__sig"><svg><use href="#i-eye"/></svg>AI copy undone</span><span class="tm-pm__do">Over 15%, that tip type stops</span></li>
           <li data-tint="mint"><span class="tm-tile"><svg><use href="#i-cloud-x"/></svg></span><b class="tm-pm__w">Channels reject what Hostaway sends</b><span class="tm-pm__sig"><svg><use href="#i-eye"/></svg>Rejections, never silent</span><span class="tm-pm__do">Autopilot off there. Tips stay</span></li>
           <li data-tint="butter"><span class="tm-tile"><svg><use href="#i-eye-off"/></svg></span><b class="tm-pm__w">Hosts ignore it</b><span class="tm-pm__sig"><svg><use href="#i-eye"/></svg>Opt-in, tips accepted</span><span class="tm-pm__do">Stop investing in Autopilot</span></li>
         </ol>
-        <p class="hc-src"><span>Ordered by how much each would hurt. Every threshold is written before any data</span></p>
+        <p class="hc-src"><span>Ordered by how much each would hurt. Every threshold is written before launch</span></p>
       </div>
     </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>Targets at 90 days, set before any data. The pilot sets the real ones</span><span>The bets, from my assumptions map</span><span class="more-link" data-more="tree">The KPI tree</span><span class="more-link" data-more="fail">How it could fail</span></p></div>
-  <aside class="notes"><p>Here is how I’d know it worked, tied back to where I started. One north star: time to adjust. That’s how long a host takes to make a real change correctly. Today’s product sets 100 in the benchmark. The target is 60 or less. Satisfaction at 80 percent is the trust check beside it.</p><p>Under it are the five goals from the start, each with its KPI. Bookings per listing up seven percent. A quarter of properties with a strategy. Half of adopters acting every month. Forty percent of tips accepted. And ten percent fewer tickets.</p><p>[Press] And each goal tests one of my riskiest bets. Trust in AI tips sits under acceptance and refining. Usability testing, then the pilot, check it. Who wants a voice per channel sits under adoption, read per host type in the pilot. What Autopilot may touch sits under losses, read against the holdout. If a bet fails, the goal shows it first. About 45 seconds.</p></aside>
+  <div class="s-foot"><p class="hc-src"><span>Minimum effects are set before launch</span><span class="more-link" data-more="tree">The metric tree</span><span class="more-link" data-more="fail">How it could fail</span></p></div>
+  <aside class="notes"><p>This is how the concept is measured. One north star: listings with a strategy-aligned field on every active channel. A host who sets a strategy and ends up with fields that match each channel has done what the product is for.</p><p>Under it sit four branches. Adoption, measured by hosts who set a strategy and tips accepted. Quality, measured by fields tailored per channel and by violations per 100 applied tips. Outcome, measured by booking conversion per channel and time to finish an edit. And guardrails: undo rate, tickets, active editors, listing views and load time.</p><p>[Press] Each branch names the bet it tests and the experiment that moves it. Strategy per channel moves adoption. Tips with a why moves acceptance. Per-channel rewrite moves edit time. Autopilot is held to an undo rate under eight percent. The numbers on the cards are the smallest changes worth shipping, not results.</p><p>I considered revenue per listing as the north star and rejected it, because it moves slowly and cannot say which change helped. The constraint is that the host account is the unit, since a host’s listings share tips. About 45 seconds.</p></aside>
 </section>

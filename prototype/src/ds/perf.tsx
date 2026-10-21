@@ -2,7 +2,7 @@
  * review-2026-10-03-metrics/: 08 equal-height bordered filter controls, 07 the widget card (a meta row
  * with small settings buttons, a divider, title + one-line definition, then the chart), 01/05/06 bars with rounded tops,
  * grey axis labels and light gridlines. CSS: ds/v3/perf.css (tokens only).
- * 3 Oct, later (review, overriding earlier rounds): no comparison mode and no versions. Cards carry no series colours
+ * 3 Oct, later: no comparison mode and no versions. Cards carry no series colours
  * and no "vs" values. Charts carry exactly two series on one timeline: the stretch BEFORE the strategy started (neutral
  * grey, dashed when drawn as a line) and the period since (the brand colour), with a marker where the strategy started.
  *   PerfToolbar   the controls row: the channel on the left, the labelled period control flush right, one height
@@ -21,7 +21,7 @@ const cx = (...c: Array<string | false | null | undefined>) => c.filter(Boolean)
 export function PerfToolbar({ children, label = 'Filters' }: { children: ReactNode; label?: string }) {
   return <div className="sl-perf-bar" role="group" aria-label={label}>{children}</div>
 }
-/** A control with its own small label to its left, on the control's line (review, 3 Oct: "the period needs a title"). */
+/** A control with its own small label to its left, on the control's line ("the period needs a title"). */
 export function PerfField({ label, children }: { label: string; children: ReactNode }) {
   return <div className="sl-perf-field"><span className="sl-perf-field__label" aria-hidden="true">{label}</span>{children}</div>
 }

@@ -131,7 +131,7 @@ function registerPlugins() {
 
 /* ════════════════════════════════════════════════════════ THE STAGE ═══ */
 function fit() {
-  /* The box the stage has to fill is .viewport, not the window: on digimal.studio the deck
+  /* The box the stage has to fill is .viewport, not the window: on a wide embed the deck
      runs under the site's header and over its folio, and the viewport is inset to leave room
      for both (the original deck's web bundle; not part of this copy). It is position: fixed, so like the layout viewport it
      does not move under a pinch zoom, which innerWidth does. */
@@ -191,9 +191,9 @@ function applyGlyphs(scope) {
 }
 
 /* ════════════════════════════════════════════════════ THE APP CHROME ═══ */
-/* One bar, no dock. Left: the digimal.studio mark alone (no wordmark), large, its left edge
+/* One bar, no dock. Left: the Hostaway mark and wordmark, its left edge
    on the content's left edge; a button back to the first slide. Middle: Intro and the six
-   stages. Right: the status as plain text. The three hints (Jump, Next, Keys) float at the
+   stages. Right: the status as plain text. The two hints (Jump, Next) float at the
    bottom right of the stage, outside the bar and outside the content box: plain text, no
    container. Slides carry their own lens (eyebrow) and source lines. */
 /* The way back from a jump. A door that leads to another slide is a detour off the route,
@@ -208,10 +208,10 @@ const BACK_MARK = `<svg class="brand-mark brand-mark--back" viewBox="0 0 46 46" 
 const R = (typeof window !== 'undefined' && window.__DECK_ROOT__) || '../';
 
 /* Hostaway's mark, from the design system's sprite (ds/channels/hostaway.svg, S02): the "o"
-   with its tail. For identification only: the deck is a case study for Hostaway, not Hostaway's
+   with its tail. For identification only: the deck is a design concept for Hostaway, not Hostaway's
    own (the title and the close say so). */
 const BRAND_MARK = `<svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#ch-hostaway"/></svg>`;
-const BRAND = `${BRAND_MARK}<span class="brand-word">hostaway</span>`;   // what this is moved to the byline (review, 3 Oct)
+const BRAND = `${BRAND_MARK}<span class="brand-word">hostaway</span>`;   
 function buildChrome() {
   const bar = document.createElement('header');
   bar.className = 'appbar';
@@ -228,16 +228,6 @@ function buildChrome() {
   const hints = document.createElement('div');
   hints.className = 'hints';
   hints.innerHTML = `<button type="button" class="hint" data-hint="jump"><kbd><span class="hint__cmd">⌘</span>K</kbd>Jump</button><button type="button" class="hint" data-hint="next"><kbd>→</kbd>Next</button>`;
-  /* Keys (and Notion, kit/hc.js) open on hover, right above their own hint; ? pins Keys open; any
-     click closes both, and a closed pop stays shut until the pointer leaves (review, 4 Oct) */
-  const shut = () => hints.querySelectorAll('.hint-wrap').forEach((w) => { w.classList.remove('is-open'); if (w.matches(':hover')) w.classList.add('is-shut'); });
-  document.addEventListener('click', shut, true);
-  hints.addEventListener('mouseleave', (e) => { const w = e.target.closest?.('.hint-wrap'); w?.classList.remove('is-shut'); }, true);
-  hints.querySelectorAll('.hint-wrap').forEach((w) => w.addEventListener('mouseleave', () => w.classList.remove('is-shut')));
-  // the byline holds the bottom left corner for the whole talk. On the cover it is set large,
-  // as the slide's own; from the second slide on it scales down in place and stays there.
-  const who = document.createElement('p');
-  who.className = 'byline'; who.innerHTML = '<b class="byline__name">review Silva</b><span class="byline__role">Head of Design <i>·</i> Case Study</span>';
   const badge = document.createElement('aside');
   badge.className = 'casebadge';                     // whose story this is: filled by paintBadge()
   stage.classList.add('is-booting');                 // first chrome state lands without a transition
@@ -245,7 +235,7 @@ function buildChrome() {
   layer.className = 'more-layer'; layer.hidden = true;
   layer.innerHTML = `<div class="more-layer__scrim"></div><section class="more-sheet" role="dialog" aria-modal="true" aria-labelledby="more-title" tabindex="-1">${SHEET_INNER}</section>`;
   layer.querySelector('.more-sheet__title').id = 'more-title';
-  stage.append(bar, hints, who, badge, layer);
+  stage.append(bar, hints, badge, layer);
 
   /* The atmosphere belongs to the window, not to the stage. The stage is 1920x1080 and a
      window of another shape leaves a band beside or under it; with the ground inside the
@@ -413,7 +403,7 @@ function paintChrome() {
     tab.classList.toggle('is-on', st === n); tab.classList.toggle('is-done', p === 1 && st !== n);
   });
   stage.querySelector('.appbar__folio').textContent = `${String(cur + 1).padStart(2, '0')} / ${slides.length}`;
-  document.title = `${s.dataset.title || 'Slide'} · Smart Listings · Head of Design Case Study`;
+  document.title = `${s.dataset.title || 'Slide'} · Hostaway · Smart Listings`;
   document.querySelectorAll('.palette__it').forEach((b) => b.classList.toggle('is-on', +b.dataset.i === cur));
 }
 
@@ -1404,7 +1394,7 @@ function moreKey(e) {
   if (key === 'ArrowRight' || key === 'PageDown' || (key === ' ' && !onButton)) { e.preventDefault(); moreStep(1); return true; }
   if (key === 'ArrowLeft' || key === 'PageUp') { e.preventDefault(); moreStep(-1); return true; }
   if (key === 'Enter' || key === ' ') return true;                   // a focused control inside the sheet takes it
-  if (/^[nNfFcCtT?]$/.test(key)) return false;                       // Notion, full screen, clock, keys: still yours
+  if (/^[nNfFcCtT?]$/.test(key)) return false;                       // full screen, clock: still yours
   e.preventDefault(); return true;                                   // nothing else moves the deck under a detail
 }
 
@@ -1440,7 +1430,7 @@ function buildPalette() {
     const items = slides.map((s, i) => [s, i]).filter(([s]) => +(s.dataset.stage || 0) === n);
     if (!items.length) return '';
     return `<section class="palette__g"><h3>${name}</h3>${items.map(([s, i]) => `
-      <button class="palette__it" data-i="${i}" data-search="${(s.dataset.title + ' ' + (s.dataset.notion || '') + ' ' + (s.dataset.req || '') + ' ' + name).toLowerCase()}">
+      <button class="palette__it" data-i="${i}" data-search="${(s.dataset.title + ' ' + ' ' + (s.dataset.req || '') + ' ' + name).toLowerCase()}">
         <span class="num">${String(i + 1).padStart(2, '0')}</span><span>${s.dataset.title || s.dataset.id}</span>${s.dataset.path ? `<em class="palette__path" data-path="${s.dataset.path}">${s.dataset.path}</em>` : ''}
       </button>`).join('')}</section>`;
   }).join('');
@@ -1522,7 +1512,6 @@ function lbKey(e) {
   return false;
 }
 const closeLightbox = () => { const lb = document.querySelector('.lightbox'); if (lb) lb.hidden = true; lbSet = []; lbAt = 0; };
-const toggleKeys = () => { const w = stage?.querySelector('.hint-wrap--keys'); if (w) { w.classList.remove('is-shut'); w.classList.toggle('is-open'); } };
 
 /* ════════════════════════════════════════════════════════════ INPUT ═══ */
 function wireInput() {
@@ -1555,7 +1544,6 @@ function wireInput() {
     else if (key === 'End') go(slides.length - 1);
     else if (/^[0-7]$/.test(key)) { const i = slides.findIndex((s) => +(s.dataset.stage || 0) === +key); if (i >= 0) go(i); }   // 0 is Intro
     else if (key === 'o' || key === 'O' || key === 'g') openPalette();
-    else if (key === 'n' || key === 'N') window.dispatchEvent(new CustomEvent('deck:notion', { detail: { slide: slides[cur] } }));   // kit/hc.js opens it
     else if (key === 'l' || key === 'L') toggleShots();
     else if (key === 'm' || key === 'M') openSlideMore();
     else if (key === 'c' || key === 'C') { clockShown = !clockShown; clockTick(); }

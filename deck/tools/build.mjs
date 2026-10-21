@@ -4,7 +4,7 @@
 
      node tools/build.mjs            → src/pages/hostaway.html, index.html (a redirect)
      node tools/build.mjs --quiet    → same, warnings only
-     Exit code 1 when the lint finds an ERROR (more than 50 slides, a raw colour).
+     Exit code 1 when the lint finds an ERROR (more than 56 slides, a raw colour).
 
    First it syncs the design system's tokens (ds/tokens.css, S02) into
    src/kit/ds/tokens.css (tools/sync-ds.mjs).
@@ -48,7 +48,7 @@ const atmosJs = fs.readdirSync(path.join(SRC, 'kit/atmos')).filter((f) => f.ends
 const warnings = [], errors = [];
 const warn = (file, msg) => warnings.push(`  ${file}: ${msg}`);
 const fail = (file, msg) => errors.push(`  ${file}: ${msg}`);
-const SLIDE_LIMIT = 50;                          // R-185: the Everything path never runs past 50
+const SLIDE_LIMIT = 56;                          // the Everything path never runs past 56 (was 50 before the Experiments part, see DECISIONS.md)
 
 /* ── assemble ───────────────────────────────────────────────────────────── */
 let slidesHtml = '';
@@ -89,7 +89,7 @@ for (const [theme, scheme] of [['hostaway', 'light']]) {
 if (suffix || kit) { const r = lint(); return { files, warnings: r, errors }; }
 
 /* ── the landing page: one theme, so it only forwards (keeping any #slide) ── */
-fs.writeFileSync(path.join(SRC, 'pages/index.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><title>Smart Listings · Head of Design Case Study</title><link rel="icon" href="data:,"><script>location.replace('hostaway.html' + location.search + location.hash)</script><meta http-equiv="refresh" content="0; url=hostaway.html"></head><body></body></html>\n`);
+fs.writeFileSync(path.join(SRC, 'pages/index.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><title>Hostaway · Smart Listings</title><link rel="icon" href="data:,"><script>location.replace('hostaway.html' + location.search + location.hash)</script><meta http-equiv="refresh" content="0; url=hostaway.html"></head><body></body></html>\n`);
 { const w = lint(); return { files, warnings: w, errors }; }
 
 /* ── lint ───────────────────────────────────────────────────────────────── */
@@ -147,9 +147,9 @@ const shotsDir = path.join(SRC, 'assets/shots');
 const REQUIRED = ['data-id', 'data-title', 'data-stage', 'data-min'];
 /* The Hostaway contract (CONTRACT.md §2): every slide says which part of the story it is,
    which path keeps it (S Short · St Standard · E Everything), which angle it serves (A, B,
-   both, none), which requirements it answers and where it lives in Notion. */
+   both, none), and which requirements it answers. */
 const CASE_ATTRS = ['data-part', 'data-path', 'data-angle', 'data-req'];
-const PARTS = ['open', 'discovery', 'research', 'ia', 'concept', 'design', 'test', 'next', 'close', 'appendix'];
+const PARTS = ['open', 'discovery', 'research', 'ia', 'concept', 'design', 'test', 'experiments', 'next', 'close', 'appendix'];
 let slideCount = 0, bookends = 0;
 for (const f of parts) {
   const html = fs.readFileSync(path.join(slidesDir, f), 'utf8').replace(/<!--[\s\S]*?-->/g, '');
@@ -159,10 +159,9 @@ for (const f of parts) {
     const id = (attrs.match(/data-id="([^"]+)"/) || [])[1] || '(no id)';
     for (const r of REQUIRED) if (!attrs.includes(r + '=')) warn(f, `${id} missing ${r}`);
     if (!kit) {
-      // the bookends (the opening plate and the closing "Thanks.", data-bookend) frame the talk; R-185 counts the content slides
+      // the bookends (the opening plate and the closing "Thanks.", data-bookend) frame the talk; the limit counts the content slides
       if (!/\bdata-bookend\b/.test(attrs)) slideCount++; else bookends++;
       for (const r of CASE_ATTRS) if (!attrs.includes(r + '=')) warn(f, `${id} missing ${r}`);
-      if (!/\b]+"/.test(attrs)) warn(f, `${id} has no data-notion: every slide is backed by a Notion page (R-186)`);
       const part = attr(attrs, 'data-part'), pth = attr(attrs, 'data-path'), ang = attr(attrs, 'data-angle');
       if (part && !PARTS.includes(part)) warn(f, `${id} data-part="${part}" is not one of ${PARTS.join(', ')}`);
       if (pth && !/^(S|St|E)$/.test(pth)) warn(f, `${id} data-path="${pth}" must be S, St or E`);
@@ -222,7 +221,7 @@ for (const f of parts) {
     for (const m of body.matchAll(/data-logo="([^"]+)"/g)) if (!fs.existsSync(path.join(SRC, 'assets/logos', m[1] + '.svg'))) warn(f, `${id} missing logo ${m[1]}`);
   }
 }
-if (!kit && !only && slideCount > SLIDE_LIMIT) fail('deck', `${slideCount} slides: the limit is ${SLIDE_LIMIT} (R-185). Cut, or move one into a detail (<template class="more">)`);
+if (!kit && !only && slideCount > SLIDE_LIMIT) fail('deck', `${slideCount} slides: the limit is ${SLIDE_LIMIT}. Cut, or move one into a detail (<template class="more">)`);
 /* Every custom property the kit, the themes and the slide parts define between them. A var() on
    anything outside this set is a typo that fails silently at runtime. Properties a rule sets on
    itself count too, which is why the slide parts are read here as well as the kit. */

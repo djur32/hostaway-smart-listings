@@ -1,4 +1,4 @@
-/* Knowledge Hub, reframed (plan/notion-v2/deck-review/KH-REFRAME.md, review 4 Oct) — the entry. The Hub has its own
+/* Knowledge Hub, reframed  — the entry. The Hub has its own
  * job now: it learns from the questions guests ask. Questions · Insights · Facts (read from the Listing base) · Sources,
  * plus the tips a gap becomes. `/hub` (and `?v=q`) render this; iteration R stays reachable with `?v=r`.
  * Routes: /hub → /hub/questions · /hub/questions/:id · /hub/insights · /hub/facts · /hub/sources.

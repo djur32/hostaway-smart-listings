@@ -13,7 +13,7 @@ import type { WhyPoint } from '../data/sl3'
 
 /* ---------- property menu: Overview · Shared · Channels · Smart Listings ---------- */
 /** `tips` = the channel's pending tips in total, shown on the channel row while it is collapsed; each item's `count` =
- *  that page's own pending tips, shown on the item once the channel is open (review, 3 Oct: "once you open the
+ *  that page's own pending tips, shown on the item once the channel is open ("once you open the
  *  channels, the number of open tips should not be at the channels level, but at the smaller elements"). */
 export interface NavChannel { id: ChannelId; tips?: number; items: Array<{ key: string; label: string; to: string; trail?: ReactNode; count?: number }> }
 export interface NavLinkItem { key: string; label: string; icon: string; to: string; external?: boolean; trail?: ReactNode
@@ -60,10 +60,10 @@ export function ChannelNav({ overview, shared, channels, smart, openChannel, bac
   const loc = useLocation()
   // All photos (/photos?back=<channel>) belongs to that channel's Listing: keep the channel open and Listing marked
   const photosOf = loc.pathname.endsWith('/photos') ? new URLSearchParams(loc.search).get('back') : null
-  // Accordion (review, 30 Sep): one group open at a time. The route decides which, until the host picks another;
+  // Accordion: one group open at a time. The route decides which, until the host picks another;
   // a new route hands control back to the route. null = the host closed everything.
   // a group is the route's when its own path OR any child's path is the page (Listing base › Pricing lives at /base/pricing,
-  // not under /details — review, 3 Oct: the group closed and lost its active item there)
+  // not under /details — the group closed and lost its active item there)
   const under = (to: string) => loc.pathname === to || loc.pathname.startsWith(`${to}/`)
   const routeKey = shared.find((i) => i.children && (under(i.to) || i.children.some((c) => under(c.to) || c.alsoActive?.(loc.pathname))))?.key
     ?? (loc.pathname.includes('/smart/') ? 'smart'
@@ -93,7 +93,7 @@ export function ChannelNav({ overview, shared, channels, smart, openChannel, bac
   )
   return (
     <nav className="h-chnav" aria-label="Property">
-      {/* review, 4 Oct: Back does nothing (the case study has no properties list to return to) */}
+      {/* Back does nothing (the concept has no properties list to return to) */}
       <span className="h-subnav__back is-inert" aria-disabled="true"><Icon name="chevron-left" size={16} />{backLabel}</span>
       {item(overview)}
       <div className="h-chnav__group">Shared</div>
@@ -135,13 +135,13 @@ export function ChannelNav({ overview, shared, channels, smart, openChannel, bac
 }
 
 /* ---------- page head: row 1 title + switcher, row 2 the page description, row 3 actions ----------
- * One head for every property page (review, 4 Oct: "make sure they all follow the same structure… the description is
+ * One head for every property page ("make sure they all follow the same structure… the description is
  * always integrated in the sticky header"): [title (+ chips) … property selector] · the page's description (+ its
  * action, e.g. Tips or Add strategy, at the right of that line) · any other page row. The page's tabs follow it inside
  * the same sticky block (`.ch-editor__head`, PageFrame). No separator line under any of it. */
 export function PageHead({ title, lead, titleEnd, property, actions, right, compactTitle, desc, descAction }: {
   title: ReactNode; lead?: ReactNode
-  /** Right next to the title itself, inside the same flex group (e.g. ViewSwitch — review, 1 Oct, third round:
+  /** Right next to the title itself, inside the same flex group (e.g. ViewSwitch — third round:
    *  "next to Listing, not next to the property"), as opposed to `right`, which sits at the row's far end by the switcher. */
   titleEnd?: ReactNode
   property?: Property; actions?: ReactNode; right?: ReactNode
@@ -168,7 +168,7 @@ export function PageHead({ title, lead, titleEnd, property, actions, right, comp
   )
 }
 
-/** The property page frame (review, 4 Oct): ONE sticky head — PageHead (title row, description) and, when the page
+/** The property page frame: ONE sticky head — PageHead (title row, description) and, when the page
  *  has them, its tabs or toolbar — over a body that scrolls beneath it; the Tips panel, when open, beside the body.
  *  The channel editor's frame (`.ch-editor`, ds/v3/ch.css), for pages that have no editor of their own (Overview,
  *  Smart Listings). Phones: one scroller, the head scrolls away (ch.css). */
@@ -182,10 +182,10 @@ export function PageFrame({ head, tabs, panel, children, className }: { head: Re
 }
 
 export type EditorView = 'classic' | 'canvas'
-/** review, 1 Oct, third round: back next to the page title (PageHead's `right`), not inline in the tab row — reverts
+/** back next to the page title (PageHead's `right`), not inline in the tab row — reverts
  *  the same-day move into `.ch-tabrow` and its "icons off, as an experiment" text-only look. */
 export function ViewSwitch({ value, onChange }: { value: EditorView; onChange: (v: EditorView) => void }) {
-  // phones (Coordinator, 4 Oct): text only, the segmented look at 44px (.h-m-head__end); desktop keeps its icons
+  // phones text only, the segmented look at 44px (.h-m-head__end); desktop keeps its icons
   const mobile = useIsMobile()
   return <Segmented label="View" value={value} onChange={onChange} items={[
     { id: 'classic', label: mobile ? 'Classic' : <><Icon name="list-details" size={16} />Classic</> },
@@ -195,11 +195,11 @@ export function ViewSwitch({ value, onChange }: { value: EditorView; onChange: (
 /** Opens and closes the Tips side panel; pressed while the panel is open. The count shows only while the panel is
  *  closed (the open panel has its own x of n and ×). */
 export function TipsToggle({ count, open, onToggle }: { count: number; open?: boolean; onToggle: () => void }) {
-  // review, 3 Oct: once every tip is used up the chip goes — but never under the host's hands: while the panel is open
+  // once every tip is used up the chip goes — but never under the host's hands: while the panel is open
   // it stays (the panel shows its "all done" state), and it disappears when they close the panel
-  // phones (ds/mobile.md §4): a purple text button "Tips" at the right of the title row, no count (review, 4 Oct)
+  // phones (ds/mobile.md §4): a purple text button "Tips" at the right of the title row, no count
   const mobile = useIsMobile()
-  // phones (review, 4 Oct): no Tips button on any screen; a tip is opened from its own dot on the field
+  // phones: no Tips button on any screen; a tip is opened from its own dot on the field
   if (mobile || (!count && !open)) return null
   return <Button kind="ai" icon="sparkles" className={mobile ? 'h-m-tipsbtn' : undefined} aria-pressed={!!open} aria-label={open ? 'Close tips' : `Open tips${count ? `, ${count} open` : ''}`} onClick={onToggle}>{count && !open && !mobile ? `Tips · ${count}` : 'Tips'}</Button>
 }
@@ -236,7 +236,7 @@ export function StateTag({ state, channel, text }: { state: FieldState; channel?
   return <span className={cx('h-state', `h-state--${state}`)}><Icon name={STATE[state][0]} />{text ?? STATE[state][1](channel)}</span>
 }
 /** The purple tip indicator. `hint`: a one-line definition in the shared hover/focus tooltip (.h-tooltip), so the dot
- *  explains itself (review, 3 Oct: "when you hover on the tip… a brief definition of what it means"). Opt-in: Canvas
+ *  explains itself ("when you hover on the tip… a brief definition of what it means"). Opt-in: Canvas
  *  also uses the dot for counts that aren't field tips, where the field definition would be wrong. */
 export function TipDot({ count = 1, active, onClick, hint }: { count?: number; active?: boolean; onClick?: () => void; hint?: string }) {
   const tipId = useId()
@@ -256,7 +256,7 @@ export function scopeOf(state: FieldState, channel?: ChannelId): { scope: string
     case 'listing': return { scope: 'All channels', action: 'Edit for all channels' }
     case 'hub': return { scope: 'All channels', action: 'Edit in Knowledge Hub' }
     case 'linked': return { scope: 'All channels', action: 'Open' }
-    case 'set': return { scope: `${name} only` } // beside a lock whose tooltip says why (review, 4 Oct)
+    case 'set': return { scope: `${name} only` } // beside a lock whose tooltip says why
     case 'only': return { scope: `${name} only` }
     default: return { scope: `${name}`, action: undefined }
   }
@@ -266,7 +266,7 @@ export function scopeOf(state: FieldState, channel?: ChannelId): { scope: string
  *  The control itself carries the editability: Base values render in the DS disabled state (DS.md "Field row"). */
 export function SettingRow({ label, help, state, channel, children, below, hintAction, tips, tipActive, onTip, onAction, actionLabel, scope, focus, values, hoverOpen, layout, scopeChannels, hubTo, hint = true, labelAddon, lockTip, sheet = true }: {
   label: ReactNode; help?: ReactNode; state: FieldState; channel?: ChannelId; children: ReactNode
-  /** Phones (ds/mobile.md §7, review 4 Oct): the row is a read-only summary and the field opens in a bottom sheet
+  /** Phones (ds/mobile.md §7, ): the row is a read-only summary and the field opens in a bottom sheet
    *  (tap the field or its caption action). false: the row has nothing to edit (read-only, Autopilot, field visibility
    *  "Show"), so it stays a plain row. Rows inside a sheet, toggles and locked / Hub / linked rows never use a sheet. */
   sheet?: boolean
@@ -288,12 +288,12 @@ export function SettingRow({ label, help, state, channel, children, below, hintA
   /** an action at the right of the caption line (e.g. the per-day switch) */
   hintAction?: ReactNode
   tips?: number; tipActive?: boolean; onTip?: () => void; onAction?: () => void; actionLabel?: string; scope?: string; focus?: boolean
-  /** The values behind the field (Base and channel), shown when hovering the scope caption (review, 30 Sep). */
+  /** The values behind the field (Base and channel), shown when hovering the scope caption. */
   values?: ScopeValue[]
   /** Demo URL state (?hover=<field>): the hover starts open for screenshots. */
   hoverOpen?: boolean
   /** The channels a 'listing'/'hub' value actually applies to (the property's own, not a fixed "all"): turns the
-   *  caption into a short "N channels" that names them on hover/tap (review, 1 Oct, second round; ref 15) instead of
+   *  caption into a short "N channels" that names them on hover/tap instead of
    *  spelling "All channels" out. Omit to keep the plain-text caption (e.g. states the pattern doesn't apply to). */
   scopeChannels?: ChannelId[]
   /** 'hub' rows only: where "Edit in Knowledge Hub" inside the tooltip goes. With this, the row drops its own
@@ -308,7 +308,7 @@ export function SettingRow({ label, help, state, channel, children, below, hintA
   // the tooltip's own link replaces the row's separate "Edit in Knowledge Hub" action (less text on screen at once)
   const action = tipNames && hubLink ? undefined : (actionLabel ?? s.action)
   const mobile = useIsMobile()
-  // set by the channel (review, 4 Oct): "🔒 Booking.com only", the lock in place of ⓘ, and the reason in the shared
+  // set by the channel: "🔒 Booking.com only", the lock in place of ⓘ, and the reason in the shared
   // tooltip (.h-tooltip-anchor → ds/tooltipLayer.tsx: above it on hover, on keyboard focus, on a tap). The caption is the
   // trigger, as the "ⓘ N channels" caption is (CaptionTip); on phones it takes the same 44px tap area (--tap).
   const why = state === 'set' ? lockTip ?? `${channel ? CHANNELS[channel].name : 'The channel'} sets this itself, so it can’t be edited here.` : undefined
@@ -352,7 +352,7 @@ export function SettingRow({ label, help, state, channel, children, below, hintA
             </span>
             {action && onAction && <button type="button" className="h-field-hint__action"
               onClick={where === 'row' && sheetable ? () => { onAction(); openSheet() } : onAction}>{action}</button>}
-            {/* a per-row switch (e.g. "Edit per day") sits at the right of the caption line, not below it (review, 4 Oct) */}
+            {/* a per-row switch (e.g. "Edit per day") sits at the right of the caption line, not below it */}
             {hintAction}
           </div>
   )
@@ -385,10 +385,10 @@ export function SettingRow({ label, help, state, channel, children, below, hintA
     </div>
   )
 }
-/** The short "N channels" caption's tooltip (review, 1 Oct, second clarification round, ref 15-channels-tooltip.png):
+/** The short "N channels" caption's tooltip:
  *  names the actual channels in a small dark tooltip, replacing a caption that used to spell them out ("All channels").
  *  A Knowledge-Hub-only field adds a link inside the tooltip to edit there (SettingRow then drops its own separate
- *  action link for the same destination — review: "reducing text will simplify it").
+ *  action link for the same destination — "reducing text will simplify it").
  *  Not ds/fieldscope.tsx's ValueHover: that compares the Base and every channel's value in a bigger popover on open;
  *  this only names the channels. Light and simple, matching the reference — it names, it doesn't editorialize.
  *  Phones: no hover, so tap toggles it, the same convention ValueHover already uses. */
@@ -423,10 +423,10 @@ export function CaptionTip({ children, names, hubLink }: { children: ReactNode; 
     </span>
   )
 }
-/** `tip`: why it's locked — the shared tooltip, anchored on the lock icon itself and centred on it (review, 3 Oct). */
+/** `tip`: why it's locked — the shared tooltip, anchored on the lock icon itself and centred on it. */
 /** A value the host can't edit here. The padlock shows only when it can't be changed at all (set by the channel, fixed
  *  when the listing is created: `tip` says why, or `fixed`). A value edited somewhere else (the Listing base, the Knowledge
- *  Hub, another channel's page) reads as non-interactive with no padlock (review, 4 Oct). */
+ *  Hub, another channel's page) reads as non-interactive with no padlock. */
 export function Locked({ children, tip, label, fixed = false }: { children: ReactNode; tip?: string; label?: string; fixed?: boolean }) {
   return (
     <div className="h-locked">{children}
@@ -491,7 +491,7 @@ export interface TipCardProps {
   /** Optional third action, e.g. "Save as draft" on a price tip (CV-07). */
   onDraft?: () => void; draftLabel?: string
   /** 'refine': the same card as a Smartify result (host-initiated rewrite) — yellow accent instead of purple, nothing
-   *  else changes (review, 3 Oct: "the same style for the recommendations for the tips as… for the change"). */
+   *  else changes ("the same style for the recommendations for the tips as… for the change"). */
   tone?: TipTone
   /** What the x-of-n steps through, for the arrows' names ("tip" by default; "version" for Smartify attempts). The
    *  stepper hides when there are no onPrev/onNext handlers (a Smartify result with a single version). */
@@ -509,7 +509,7 @@ export function TipCard(p: TipCardProps) {
     <article className={cx('h-tip', p.tone === 'refine' && 'h-tip--refine', p.accepted && 'is-accepted')} aria-busy={p.busy || undefined} aria-label={p.type}>
       {/* The head names the field the tip is about — its category, the same name the field carries on the page
        *  ("CHECK-IN METHOD DETAILS", "HOUSE MANUAL"), purple caps — and nothing else: no sparkle, no "· Arrival"
-       *  (review, 3 Oct: it truncated). The tip's own title leads the body. */}
+       *  (it truncated). The tip's own title leads the body. */}
       <div className="h-tip__head">
         <span className="h-tip__type">{p.type}</span>
         {(p.onPrev || p.onNext) && <span className="h-tip__nav">
@@ -533,7 +533,7 @@ export function TipCard(p: TipCardProps) {
           <div className="h-tip__why">
             <h4>Why</h4>
             <ul>
-              {/* The source is the icon plus its tooltip, not a trailing pill (review, 1 Oct: "remove the chip from
+              {/* The source is the icon plus its tooltip, not a trailing pill ("remove the chip from
                *  the type and use a tooltip on the icon instead") — the pill repeated on every bullet was heavier
                *  than the hint it carried. Uses the product's shared .h-tooltip anchor, like every other tooltip. */}
               {p.why.map((w, i) => {
@@ -557,7 +557,7 @@ export function TipCard(p: TipCardProps) {
           <><span className="h-tip__done"><Icon name="circle-check" />Accepted</span>
             <span className="h-tip__actions">{p.onUndo && <Button kind="ghost" icon="arrow-back-up" onClick={p.onUndo}>Undo</Button>}<Button kind="primary" onClick={p.onNext} disabled={p.idx >= p.total}>Next</Button></span></>
         ) : (
-          // review, 1 Oct: drop the "Also save to the Knowledge Hub" checkbox — a kb-grounded tip (TipDef.kb) now
+          // drop the "Also save to the Knowledge Hub" checkbox — a kb-grounded tip (TipDef.kb) now
           // saves to the Hub automatically on Accept (ChannelTips.tsx), no separate control to remember to tick.
           <span className="h-tip__actions"><Button onClick={p.onDismiss}>Dismiss</Button>{p.onDraft && <Button onClick={p.onDraft}>{p.draftLabel ?? 'Save as draft'}</Button>}<Button kind="primary" onClick={p.onAccept} disabled={p.busy}>Accept</Button></span>
         )}
@@ -586,7 +586,7 @@ function wordDiff(a: string, b: string): DiffPart[] {
 }
 const SHORT = 80
 const CONTEXT_WORDS = 6
-/** Unchanged text around an edit, trimmed to just enough context (review, 3 Oct: "you don't have to add the entire
+/** Unchanged text around an edit, trimmed to just enough context ("you don't have to add the entire
  *  thing… an ellipsis, and simply say what you're adding"). Multi-line text (a bulleted house manual) keeps whole
  *  lines — the one next to the change; prose keeps a few words either side. `at`: where this run sits. */
 function trimContext(text: string, at: 'start' | 'middle' | 'end'): string {
@@ -602,7 +602,7 @@ function trimContext(text: string, at: 'start' | 'middle' | 'end'): string {
   if (at === 'end') return words.length > CONTEXT_WORDS ? `${lead}${words.slice(0, CONTEXT_WORDS).join('').trimEnd()}…` : text
   return words.length > CONTEXT_WORDS * 2 ? `${lead}${words.slice(0, CONTEXT_WORDS).join('')}… ${words.slice(-CONTEXT_WORDS).join('')}` : text
 }
-/** A suggested change. review, 3 Oct: "you don't have to repeat the original text all the time." So:
+/** A suggested change. "you don't have to repeat the original text all the time." So:
  *  - short values (a title, a price, a policy name): before and after, stacked — the pair is the clearest read;
  *  - an edit that keeps most of the text: the new text ONCE, the added words in green, any removed words struck inline;
  *  - a rewrite or a brand-new text: just the new text, no struck-through copy of the old one.

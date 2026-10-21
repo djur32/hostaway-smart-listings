@@ -57,7 +57,7 @@ export function PanelStack({ main, panels, onBack, onClose, label = 'Details', r
 
   const n = panels.length
   const [drag, setDrag] = useState<{ y0: number; dy: number } | null>(null)
-  // the single right-side-panel slot (review 1 Oct, item 3): open claims it; losing it to Tips/Split closes this stack
+  // the single right-side-panel slot: open claims it; losing it to Tips/Split closes this stack
   // the same way its own "×" does (ds/panelSlot.ts).
   useExclusivePanel('pstack', n > 0, onClose)
   const levels: Level[] = [
@@ -127,7 +127,7 @@ export function PanelStack({ main, panels, onBack, onClose, label = 'Details', r
         <div className="h-pstack__main">{main}</div>
         {live}
         {levels.length > 0 && createPortal(
-          // a bottom sheet (ds/mobile.md §7; review, 3 Oct: every sidebar interaction is a bottom sheet on phones):
+          // a bottom sheet (ds/mobile.md §7; every sidebar interaction is a bottom sheet on phones):
           // scrim + one sheet frame that rises from the bottom; drill-downs slide inside it from the right, with
           // "‹ {previous title}" from level 1 on. The grip drags the whole sheet down to close.
           <div className={cx('h-pstack-m', n === 0 && 'is-closing')} ref={layer}>

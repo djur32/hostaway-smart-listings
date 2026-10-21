@@ -21,7 +21,7 @@ const ROUTES: Array<{ label: string; path: string; group?: string }> = [
 ]
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, '')
 
-/** Home-indicator safe area, simulated inside the frame (an iframe reports env(safe-area-inset-bottom) = 0). */
+/** Home-indicator safe area, emulated inside the frame (an iframe reports env(safe-area-inset-bottom) = 0). */
 function simulateSafeArea(e: React.SyntheticEvent<HTMLIFrameElement>) {
   try { e.currentTarget.contentDocument?.documentElement.style.setProperty('--m-safe-bottom', '20px') } catch { /* cross-origin: leave it */ }
 }

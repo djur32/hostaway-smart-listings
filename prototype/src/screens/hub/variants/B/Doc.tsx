@@ -323,7 +323,7 @@ function Control({ f, value, write }: { f: BFact; value: string; write: (v: stri
     case 'tasks': return <KhTasks tasks={parseTasks(value)} catalog={[...CHECKOUT_PRESETS, 'Additional requests']} onChange={(t) => write(formatTasks(t))} />
     case 'money': case 'percent': case 'guests':
       return (
-        // NumberField (ds/v3-ch.tsx), review 3 Oct: € before the value, the unit as a plain word, the shared small arrows
+        // NumberField (ds/v3-ch.tsx), € before the value, the unit as a plain word, the shared small arrows
         <div className="h-khnum"><NumberField label={it.label} value={value} onChange={(v) => write(v.replace(/[^0-9.]/g, ''))}
           currency={it.kind === 'money' ? '€' : undefined} unit={it.kind === 'percent' ? '%' : it.kind === 'guests' ? 'guests' : undefined}
           decimals={it.kind === 'money' ? 2 : 0} max={it.kind === 'percent' ? 100 : 99999} /></div>

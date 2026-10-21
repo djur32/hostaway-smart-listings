@@ -139,7 +139,7 @@ function AirbnbStudio({ propertyId }: { propertyId: string }) {
           return (
             <div className="h-insight p-mt3"><Icon name="bulb" /><div>
               <div className="h-insight__text"><b>{st.label}:</b> {st.effect} {fit.reason}</div>
-              <div className="h-caption h-muted" style={{ marginTop: 4 }}>{st.comps.count} similar listings lead with it · {Math.round(st.comps.occupancy * 100)}% booked · ADR €{st.comps.adr} · Sample market data</div>
+              <div className="h-caption h-muted" style={{ marginTop: 4 }}>{st.comps.count} similar listings lead with it · {Math.round(st.comps.occupancy * 100)}% booked · ADR €{st.comps.adr} · Sample data</div>
               <div className="h-insight__foot">
                 <span className="h-caption">Price: {st.pricing.text}</span>
                 <Link className="h-link h-caption" to={`/property/${propertyId}/pricing/${st.pricing.tab}`}>Open Pricing</Link>
@@ -214,7 +214,7 @@ function AirbnbStudio({ propertyId }: { propertyId: string }) {
               <div className="p-label">Highlights · Airbnb</div>
               <AutonomyControl value={s.studio.autonomy['airbnb.highlights'] ?? 'suggest'} onChange={(v) => s.setAutonomy('airbnb', 'highlights', v)} scope="highlights on Airbnb" />
             </div>
-            <p className="h-caption h-muted" style={{ margin: '6px 0 8px' }}>The amenities your listing leads with. Airbnb orders its full amenities page itself. <span title="OQ-140">Assumption: the lead order is honoured</span>.</p>
+            <p className="h-caption h-muted" style={{ margin: '6px 0 8px' }}>The amenities your listing leads with. Airbnb orders its full amenities page itself.</p>
             {hlSug && (
               <div className="p-mt2" style={{ marginBottom: 10 }}>
                 <SuggestionCard s={hlSug} onDismiss={() => s.dismissSuggestion(hlSug.id)} onAccept={() => {

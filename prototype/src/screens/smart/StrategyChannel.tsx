@@ -1,7 +1,7 @@
 /* Smart Listings › Strategy › {channel} · WS-SL, 3 Oct (new internal screen per channel: "when you open one you see all
  * of the details of everything you checked, laid out well").
  * Current strategy: every wizard answer as a definition list, with Edit / Pause or Resume / ⋯ (Replace with a new
- * strategy, Remove). 3 Oct, later (review, overriding earlier asks): no versions — the History section, version numbers
+ * strategy, Remove). 3 Oct, later: no versions — the History section, version numbers
  * and "Use this strategy" are gone. A channel has one current strategy; the head says when it started (shared.ts
  * strategyStart, the same date Performance reads from). Numbers stay in Performance.
  * SCR: Strategy › channel · R-072 / R-075. URL: /property/:id/smart/strategy/:channel. */

@@ -4,12 +4,11 @@
      op-how   one slide that plays as two (review: "rewire it and make it more dynamic").
               Both parts are live HTML, drawn once at load from the JSON their figures carry.
               entry   the six stage plates wipe up, nothing under them yet
-              → 1     the methods wipe in under each stage, row by row, and their marks grow;
-                      the legend rolls up beside the headline
+              → 1     the methods wipe in under each stage, row by row, and their marks grow
               → 2     part 1 slides up and out of the stage's mask as part 2 slides up into it;
                       eyebrow, headline and message roll to "How I'd agentify it"; the column
                       heads and Me arrive, the raspberry line draws down, Discovery and Research run
-              → 3     Concept and Design run          → 4   Testing and Next steps run
+              → 3     Concept and Design run          → 4   Testing and Systems run
               A row runs: the stage name wipes in, what goes in wipes in, the wires draw to the
               skill, the skill pops, the wire draws to my gate, the gate pops on the raspberry
               line with its question, and the last wire draws to what comes out.
@@ -39,15 +38,14 @@ function icon(id) {
   const u = document.createElementNS(SVGNS, 'use'); u.setAttribute('href', `#${id}`); s.append(u);
   return s;
 }
-const MARK_WORD = { produced: 'Done', sampled: 'Sampled', planned: 'Planned' };
 
 /** part 1: the six plates in row one, each stage's methods under it (chips carry their row and column) */
 function drawProcess(fig, data) {
   const st = data.stages;
   const heads = st.map((s) => h('div', { class: 'op-proc__h', 'data-tint': 'blush' }, h('span', { class: 'op-proc__i' }, icon(s.icon)), h('b', {}, s.name)));
   const lists = st.map((s, c) => h('ul', { class: 'op-proc__ms', 'aria-label': `${s.name} methods` },
-    s.methods.map(([name, mark], r) => h('li', { class: 'op-m', 'data-mark': mark, 'data-r': r, 'data-c': c, title: MARK_WORD[mark] },
-      h('span', {}, name), h('span', { class: 'op-sr' }, ` (${MARK_WORD[mark]})`)))));
+    s.methods.map(([name, mark], r) => h('li', { class: 'op-m', 'data-mark': mark, 'data-r': r, 'data-c': c },
+      h('span', {}, name)))));
   fig.append(...heads, ...lists);
 }
 
@@ -132,7 +130,6 @@ Deck.define('op-how', {
     g().set(api.qa('.op-roll__b'), { yPercent: 115, y: 0 });
     g().set(api.q('.op-proc'), { ...RISE });
     g().set(api.q('.op-flow'), { yPercent: 105, y: 0 });
-    g().set(api.qa('.op-key .hc-mark'), { yPercent: 130, y: 0 });
     g().set(api.qa('.op-m'), { clipPath: SHUT.right, '--on': 0 });
     g().set(api.qa('.op-flow path'), { strokeDashoffset: 1 });
     g().set(api.qa('.op-flow__hd, .op-flow__st, .op-flow__ask'), { clipPath: SHUT.text });
@@ -146,7 +143,6 @@ Deck.define('op-how', {
     (api) => {
       const at = (i, el) => T(+el.dataset.r * 0.12 + +el.dataset.c * 0.035);
       return api.tl()
-        .fromTo(api.qa('.op-key .hc-mark'), { yPercent: 130, y: 0 }, { ...RISE, duration: d(2), ease: E.out, stagger: T(0.06), immediateRender: false }, 0)
         .fromTo(api.qa('.op-m'), { clipPath: SHUT.right }, { clipPath: OPEN.right, duration: d(2), ease: E.out, stagger: at, immediateRender: false }, 0)
         .fromTo(api.qa('.op-m'), { '--on': 0 }, { '--on': 1, duration: d(1), ease: E.out, stagger: at, immediateRender: false }, T(0.3));
     },
@@ -155,7 +151,6 @@ Deck.define('op-how', {
       const tl = api.tl()
         .fromTo(api.q('.op-proc'), { ...RISE }, { yPercent: -105, y: 0, duration: d(3), ease: E.io, immediateRender: false }, 0)
         .fromTo(api.q('.op-flow'), { yPercent: 105, y: 0 }, { ...RISE, duration: d(3), ease: E.io, immediateRender: false }, 0)
-        .fromTo(api.qa('.op-key .hc-mark'), { ...RISE }, { yPercent: -130, y: 0, duration: d(2), ease: E.io, stagger: T(0.04), immediateRender: false }, 0)
         .fromTo(api.qa('.op-roll__a'), { ...RISE }, { yPercent: -115, y: 0, duration: d(2), ease: E.io, stagger: T(0.06), immediateRender: false }, T(0.05))
         .fromTo(api.qa('.op-roll__b'), { yPercent: 115, y: 0 }, { ...RISE, duration: d(2), ease: E.io, stagger: T(0.06), immediateRender: false }, T(0.05))
         .fromTo(api.qa('.op-flow__hd'), { clipPath: SHUT.text }, { clipPath: OPEN.text, duration: d(2), ease: E.out, stagger: T(0.08), immediateRender: false }, T(0.75))
@@ -164,7 +159,7 @@ Deck.define('op-how', {
     },
     // 3 · Concept and Design
     (api) => runRows(api.tl(), api, 1, 0),
-    // 4 · Testing and Next steps
+    // 4 · Testing and Systems
     (api) => runRows(api.tl(), api, 2, 0),
   ],
 });

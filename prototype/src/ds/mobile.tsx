@@ -1,4 +1,4 @@
-/* Mobile (≤ 767px) primitives, replicating Hostaway's real mobile web app (review's iPhone captures, 30 Sep).
+/* Mobile (≤ 767px) primitives, replicating Hostaway's real mobile web app (the reference iPhone captures, 30 Sep).
  * Spec: ds/mobile.md (breakpoint, shell anatomy, when to use a sheet, a page or a drawer).
  * CSS: ds/components.css, section "MOBILE". Tokens: ds/tokens.css "MOBILE" (--m-*). One breakpoint, one query. */
 import { createContext, useContext, useEffect, useId, useLayoutEffect, useRef, useState, useSyncExternalStore, type PointerEvent as RPointerEvent, type ReactNode, type RefObject } from 'react'
@@ -141,7 +141,7 @@ export function MobileSectionBar({ icon, group, label, onOpen, expanded }: { ico
 
 /* ---------- MobileTabBar ---------- */
 export interface MobileTab { key: string; label: string; icon: string | ReactNode; to?: string; onClick?: () => void; expanded?: boolean
-  /** shown but does nothing (a part the case study doesn't rebuild) */
+  /** shown but does nothing (a part this concept doesn't rebuild) */
   inert?: boolean }
 /** Bottom tab bar (images/43): icon + label; active = raspberry icon on a light-pink pill + raspberry label. */
 export function MobileTabBar({ items, active }: { items: MobileTab[]; active?: string | null }) {
@@ -349,13 +349,13 @@ export function MobileActionSlot() {
   useLayoutEffect(() => { slots++; emit(); return () => { slots--; emit() } }, [])
   const ref = (el: HTMLDivElement | null) => { if (target !== el) { target = el; emit() } }
   // onSave may return a confirmation ("Saved · sent to Airbnb"): show it briefly above the bar, like desktop's quiet
-  // "Saved". onDiscard flashes the same way (review, 1 Oct evening: discarding needs to read as clearly as saving
+  // "Saved". onDiscard flashes the same way (discarding needs to read as clearly as saving
   // does) when it returns a string ('Discarded', the shared bar's own convention — ds/unsaved.tsx's useMobileActions call).
   const [flash, setFlash] = useState<string | null>(null)
   useEffect(() => { if (!flash) return; const t = setTimeout(() => setFlash(null), 2400); return () => clearTimeout(t) }, [flash])
   const save = (e: SaveEntry) => () => { const r = e.onSave(); if (typeof r === 'string' && r) setFlash(r) }
   const discard = (e: SaveEntry) => () => { const r = e.onDiscard(); if (typeof r === 'string' && r) setFlash(r) }
-  // review, 4 Oct: the bar shows only while there is something to act on — unsaved changes (a dirty Discard / Save)
+  // the bar shows only while there is something to act on — unsaved changes (a dirty Discard / Save)
   // or a page's own content (photo selection, Re-order) — and then it REPLACES the tab bar (ds/components.css: the dock
   // hides the tab bar while the bar is shown; the bar carries the safe area). A clean pair shows nothing.
   const shown = !!top && (top.kind === 'portal' || top.dirty)
@@ -396,7 +396,7 @@ export function MobileSheetSaveButtons({ className, onDone }: { className?: stri
   return <div className={cx('h-m-sheet__foot', className)}><MobileSaveButtons dirty={top.dirty} discardLabel={top.discardLabel} saveLabel={top.saveLabel}
     onDiscard={() => { top.onDiscard(); onDone?.() }} onSave={async () => { const r = await top.onSave(); if (r !== false) onDone?.() }} /></div>
 }
-/** Alias: the brief's name for MobileActionBar. */
+/** Alias: the spec's name for MobileActionBar. */
 export const StickyActionBar = MobileActionBar
 
 /** Registers the standard Discard / Save pair into the shell's sticky bar while ≤ 767px matches; unregisters on

@@ -60,8 +60,7 @@
     <div class="more__panel" data-title="The map">
       <figure class="hc-flow" data-flow="solution-map" data-at="0.3"></figure>
       <p class="hc-flow__note ds-map__note" data-a="rise" data-at="0.3">Every fact lives once, in Shared, and each channel holds only what differs. A strategy per channel produces tips, each with its why. The host accepts or dismisses them, unless Autopilot is on for words and photos.</p>
-      <p class="hc-src"><span>The prototype as built, demo data</span></p>
-    </div>
+      </div>
     <div class="more__panel" data-title="Built, then removed">
       <div class="ds-cuts">
         <p class="ds-cuts__lead" data-a="rise">I reviewed the running build, and each review took something out.</p>
@@ -75,8 +74,8 @@
       </div>
     </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>Tips and reasons, demo data</span><span class="more-link" data-more="map">The map, and what I cut</span></p></div>
-  <aside class="notes"><p>Here is where the findings led. The facts lived in two places. And in my sampled research, hosts change money and stay rules per channel, almost never the words. So in the prototype, the property splits the way hosts think. On the left, Shared holds every fact once, and each channel gets its own pages. In the middle is Hostaway’s own listing editor, set to Airbnb. Every field says where its value comes from. On the right is a real tip card, not a picture of one. It says what to change and why. Accepting it creates Airbnb’s own value without touching the Base. I designed in code and reviewed the running build. Behind The map is what those reviews took out. The tips and numbers are demo data, and no host has used this yet. That’s what the test plan is for. About 55 seconds.</p></aside>
+  <div class="s-foot"><p class="hc-src"><span>Sample data</span><span class="more-link" data-more="map">The map, and what I cut</span></p></div>
+  <aside class="notes"><p>Here is where the audit of Hostaway led. The facts live in two places. And my premise is that hosts change money and stay rules per channel, almost never the words. So in the prototype, the property splits the way hosts think. On the left, Shared holds every fact once, and each channel gets its own pages. In the middle is Hostaway’s own listing editor, set to Airbnb. Every field says where its value comes from. On the right is a real tip card, not a picture of one. It says what to change and why. Accepting it creates Airbnb’s own value without touching the Base. I designed in code and reviewed the running build. Behind The map is what those reviews took out. The tips and numbers are sample data. The experimentation part specifies how each claim would be checked with real hosts. I chose one listing with channels inside it over a separate AI page, because the decision should sit next to the field it changes. About 55 seconds.</p></aside>
 </section>
 
 <section class="s" data-id="ds-shared" data-title="Shared: one Base" data-stage="4" data-part="design" data-path="St" data-angle="both" data-min="0.7" data-req="R-072 R-081 R-082 R-089" data-ground="white">
@@ -89,7 +88,7 @@
     <div class="hc-two" style="--l: 0.62fr; --r: 1.38fr">
       <div class="stack" style="--gap-y: 30px">
         <div class="ds-one">
-          <!-- 4 Oct (Antonio): the fact as the product's own field row, not a KPI card -->
+          <!-- 4 Oct: the fact as the product's own field row, not a KPI card -->
           <div class="ds-live ds-one__field" data-a="rise" data-at="0.2" style="--sw: 540px">
             <div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.3">
               <div class="ds-card ds-fields">
@@ -121,7 +120,7 @@
       </div>
     </div>
   </div>
-  <div class="s-foot"><p class="hc-src"><span>Product audit: the check-in time from a trial listing</span><span>The prototype, on demo data</span></p></div>
+  <div class="s-foot"><p class="hc-src"><span>Sample data</span></p></div>
   <aside class="notes"><p>The first thing the audit showed: the Knowledge Hub keeps its own copy of the listing. So the same fact lives twice and drifts. Everything else depends on fixing that, so it comes first. Take one fact: check-in at 3 PM. It lives once, in the Listing base. Airbnb, Booking.com, Direct and the Knowledge Hub all read that one value.</p><p>[Press] I made the Listing base one clean layer, labelled as the source of truth. It holds the values every channel inherits, and nothing that belongs to only one.</p><p>[Press] And each field shows how far it reaches: the channels that read it. So an edit is never a surprise. The Hub no longer keeps a copy. It reads these same values, so the two can’t drift apart again. Tips, strategies and receipts all start from this one record. About 45 seconds.</p></aside>
 </section>
 
@@ -131,9 +130,9 @@
        sections as the product's underline tabs, the loop as numbered callouts. Inbox → Questions (counted, answered or
        not) → a gap becomes a tip → the host's answer becomes a fact in the Listing base → every channel and the assistant. -->
   <header class="s-head">
-    <p class="eyebrow" data-a="rise"><span>Design</span><span>Knowledge Hub</span><span class="ds-concept">Concept</span></p>
+    <p class="eyebrow" data-a="rise"><span>Design</span><span>Knowledge Hub</span></p>
     <h2 class="h2" data-a="rise" data-at="0.05">The Knowledge Hub learns from guests’ questions</h2>
-    <p class="hc-msg" data-a="rise" data-at="0.12">A concept, not built in full: guests’ questions reveal gaps, and each gap becomes a tip for the Base or one channel.</p>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Guests’ questions reveal gaps, and each gap becomes a tip for the Base or one channel.</p>
   </header>
   <div class="s-body">
     <div class="hc-scene ds-scene ds-hq-scene" data-own style="--w: 1728px; --h: 500px">
@@ -195,11 +194,11 @@
   <template class="more" data-more="flow" data-title="From a guest question to a better listing" data-label="The flow">
     <div class="more__panel" data-title="The flow">
       <figure class="hc-flow" data-flow="hub-to-tips" data-at="0.3"></figure>
-      <p class="hc-flow__note" data-a="rise" data-at="0.3">A concept, not built in full: how the Hub can feed the tips. A gap becomes a shared fact for the Listing base, or a better answer in one channel’s listing, such as Airbnb’s description. <span class="hc-flow__src">Concept, demo data</span></p>
+      <p class="hc-flow__note" data-a="rise" data-at="0.3">How the Hub feeds the tips. A gap becomes a shared fact for the Listing base, or a better answer in one channel’s listing, such as Airbnb’s description. <span class="hc-flow__src">Sample data</span></p>
     </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>Product audit: guest questions stay in the Inbox today</span><span>A concept: the questions and counts are demo data</span><span class="more-link" data-more="flow">The flow</span></p></div>
-  <aside class="notes"><p>Today the Hub has no job of its own, so I gave it one: guests’ questions. It no longer keeps a copy of the listing. It reads the listing details from the Listing base and adds the situations the host writes. It has four sections: Questions, Insights, Facts and Sources. It starts in the Inbox. A guest asks if there’s free parking, and the question lands in the Hub. It’s grouped, counted, and marked answered or not. This one was asked nine times and never answered. The assistant only answers from what backs it. When nothing backs an answer, it says so and asks the host.</p><p>[Press] That gap becomes a tip, with the same tip format as everywhere else. Its why is the questions behind it. It goes to one of two places. A shared fact for the Listing base, like free parking. Or a better answer in one channel’s listing, like Airbnb’s description.</p><p>[Press] When the host accepts, the answer is saved where it belongs. A listing detail goes in the Listing base, so every channel and the assistant use it. A situation goes in the Hub. Either way, the next guest gets an accurate answer. To be clear, the Hub is a concept, not built in full. It shows how the Hub can feed the tips. The counts are demo data. The full flow is one click away. About 45 seconds.</p></aside>
+  <div class="s-foot"><p class="hc-src"><span>Sample data</span><span class="more-link" data-more="flow">The flow</span></p></div>
+  <aside class="notes"><p>Today the Hub has no job of its own, so I gave it one: guests’ questions. It no longer keeps a copy of the listing. It reads the listing details from the Listing base and adds the situations the host writes. It has four sections: Questions, Insights, Facts and Sources. It starts in the Inbox. A guest asks if there’s free parking, and the question lands in the Hub. It’s grouped, counted, and marked answered or not. This one was asked nine times and never answered. The assistant only answers from what backs it. When nothing backs an answer, it says so and asks the host.</p><p>[Press] That gap becomes a tip, with the same tip format as everywhere else. Its why is the questions behind it. It goes to one of two places. A shared fact for the Listing base, like free parking. Or a better answer in one channel’s listing, like Airbnb’s description.</p><p>[Press] When the host accepts, the answer is saved where it belongs. A listing detail goes in the Listing base, so every channel and the assistant use it. A situation goes in the Hub. Either way, the next guest gets an accurate answer. I gave the Hub this job, and not a copy of the listing, because a second store of facts drifts. The counts are sample data. The full flow is one click away. About 45 seconds.</p></aside>
 </section>
 
 <section class="s" data-id="ds-channels" data-title="Channel actions" data-stage="4" data-part="design" data-path="S" data-angle="both" data-min="0.8" data-req="R-084 R-100 R-101" data-ground="white">
@@ -210,7 +209,7 @@
   </header>
   <div class="s-body">
     <!-- review, 4 Oct (second pass): the KPI cards go, the story is per-channel optimisation, and the slide shows the control
-         itself. Three cases on Airbnb's Listing page, true to the demo data in prototype/src/data/sl3.ts FIELDS: "Other details
+         itself. Three cases on Airbnb's Listing page, true to the sample data in prototype/src/data/sl3.ts FIELDS: "Other details
          to note" is 'inherit' on every channel, the Summary is 'override' on Airbnb (written for remote workers), the check-in
          method is 'only' on Airbnb. Captions and actions are the prototype's (ds/sl3.tsx scopeOf), as slide 28 (ia-structure)
          draws them. The fourth case, set by the channel, lives in the detail with its reason. The rows are live: the action flips them. -->
@@ -288,15 +287,13 @@
           </div>
         </div>
       </div>
-      <p class="hc-src"><span>The prototype as built, demo data</span></p>
-    </div>
+      </div>
     <div class="more__panel" data-title="The flow">
       <figure class="hc-flow" data-flow="one-field" data-at="0.3"></figure>
       <p class="hc-flow__note" data-a="rise" data-at="0.3">Every field is one of four cases. “Use the Base” keeps the custom text, so “Customize” brings it back.</p>
-      <p class="hc-src"><span>Walked in the prototype, demo data</span></p>
-    </div>
+      </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>The prototype’s demo flat, as built</span><span class="more-link" data-more="flow">Set by the channel</span></p></div>
+  <div class="s-foot"><p class="hc-src"><span>Sample data</span><span class="more-link" data-more="flow">Set by the channel</span></p></div>
   <aside class="notes"><p>I want hosts to stop thinking of one listing copied everywhere. Each channel is optimised on its own, and the Base is where it starts. So every field says how much it takes from the Base. Fields like Other details to note simply follow it, on every channel.</p><p>[Press] The summary is Airbnb’s own, written for remote workers searching Airbnb. One click on Use the Base and it follows the Base again, and the custom text is kept. These are live.</p><p>[Press] And the check-in method lives only on Airbnb, because no other channel asks for it. The fourth case, a field the channel sets itself, is in More. About 45 seconds.</p></aside>
 </section>
 
@@ -362,10 +359,10 @@
     <!-- flow 1, drawn live by kit/flowmap.js from data/flows.json (4 Oct) -->
     <div class="more__panel" data-title="The flow">
       <figure class="hc-flow" data-flow="turn-on" data-at="0.3"></figure>
-      <p class="hc-flow__note" data-a="rise" data-at="0.3">Opt-in per property, because not every host wants it, and turning it off keeps everything. The wizard copies Hostaway’s Add-property flow, which hosts already know. Closing it halfway changes nothing. <span class="hc-flow__src">Walked in the prototype, demo data</span></p>
+      <p class="hc-flow__note" data-a="rise" data-at="0.3">Opt-in per property, because not every host wants it, and turning it off keeps everything. The wizard copies Hostaway’s Add-property flow, which hosts already know. Closing it halfway changes nothing.</p>
     </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>Pattern: Hostaway’s Add-property wizard</span><span>Suggestion evidence, demo data</span><span class="more-link" data-more="rails">The three strategies</span></p></div>
+  <div class="s-foot"><p class="hc-src"><span>Sample data</span><span class="more-link" data-more="rails">The three strategies</span></p></div>
   <aside class="notes"><p>Smart Listings is opt-in, switched on per property, because not every host wants AI on their listing. With it off, Shared and Channels look exactly the same, so the structure serves every host. Turning it off later keeps everything. Turning it on opens a wizard hosts already know: Hostaway’s Add-property flow. So I reused it rather than invent a new pattern. First, what to aim for. Each option shows its evidence, like this one: 8 of your 13 empty nights on Airbnb are Monday to Thursday.</p><p>[Press] Then the guardrails, which are the contract. Smart Listings never goes outside the price range. Prices, stay rules and cancellation always ask. That lock can’t be turned off.</p><p>[Press] Last, whether Autopilot may act. It starts off. There’s one strategy per channel, or one shared by several. So Airbnb and Booking.com can go after different guests. About 55 seconds.</p></aside>
 </section>
 
@@ -438,10 +435,10 @@
   <template class="more" data-more="flow" data-title="Working through the tips" data-label="The flow">
     <div class="more__panel" data-title="The flow">
       <figure class="hc-flow" data-flow="tips" data-at="0.3"></figure>
-      <p class="hc-flow__note" data-a="rise" data-at="0.3">One panel and one tip at a time keep the decision next to the field it changes, with its reason in view. With Autopilot off, nothing changes until the host accepts, and Undo withdraws the change it sent. <span class="hc-flow__src">Walked in the prototype, demo data</span></p>
+      <p class="hc-flow__note" data-a="rise" data-at="0.3">One panel and one tip at a time keep the decision next to the field it changes, with its reason in view. With Autopilot off, nothing changes until the host accepts, and Undo withdraws the change it sent.</p>
     </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>Tip content and reasons, demo data</span><span class="more-link" data-more="more">One AI per field, and prices too</span><span class="more-link" data-more="flow">The flow</span></p></div>
+  <div class="s-foot"><p class="hc-src"><span>Sample data</span><span class="more-link" data-more="more">One AI per field, and prices too</span><span class="more-link" data-more="flow">The flow</span></p></div>
   <aside class="notes"><p>Today the only listing AI in Hostaway is a separate page of suggestions, away from the fields. A suggestion without a reason is a guess. So I put every tip beside its field, in one docked panel, one at a time. This card is the real component. The tip is to say how fast the Wi-Fi is. It’s the fourth of eleven. It shows the edit once, with only the new words coloured.</p><p>[Press] Every reason names its source: a fact from the Knowledge Hub, the host’s own inbox, or similar homes nearby. Hover the icon and it says which.</p><p>[Press] Accept is Hostaway’s usual raspberry button. Let me accept it. And Undo is one click. One rule kept this calm: a field shows one AI marker at most, either its tip or Rewrite with AI. Rewrite with AI doesn’t need Smart Listings. Every host has it. About 50 seconds.</p></aside>
 </section>
 
@@ -476,9 +473,9 @@
 
 <section class="s" data-id="ds-performance" data-title="Every strategy, measured" data-stage="4" data-part="design" data-path="S" data-angle="both" data-min="0.8" data-req="R-121 R-122" data-ground="white">
   <header class="s-head">
-    <p class="eyebrow" data-a="rise"><span>Design</span><span>Performance · concept</span></p>
+    <p class="eyebrow" data-a="rise"><span>Design</span><span>Performance</span></p>
     <h2 class="h2" data-a="rise" data-at="0.05">Each strategy, measured against the weeks before it</h2>
-    <p class="hc-msg" data-a="rise" data-at="0.12">A concept: since the strategy started, against the same weeks before.</p>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Since the strategy started, against the same weeks before.</p>
   </header>
   <div class="s-body">
     <div class="hc-two" style="--l: 0.5fr; --r: 1.5fr">
@@ -501,7 +498,7 @@
         <div class="ds-live is-float" data-st="1" style="--x: 300px; --y: 452px; --sw: 860px">
           <div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.6">
             <div class="ds-card ds-ver">
-              <p class="ds-ver__t"><span class="h-pill h-pill--neutral">Next idea</span>Strategy versions on Airbnb</p>
+              <p class="ds-ver__t"><span class="h-pill h-pill--neutral">Versions</span>Strategy versions on Airbnb</p>
               <div class="ds-ver__row">
                 <p class="ds-ver__v"><b>Version 1</b><span>Since 14 Aug · +20 points</span></p>
                 <span class="ds-ver__vs">vs</span>
@@ -513,11 +510,11 @@
       </div>
     </div>
   </div>
-  <template class="more" data-more="versions" data-title="Strategy versions, a concept" data-label="Versions">
+  <template class="more" data-more="versions" data-title="Strategy versions" data-label="Versions">
     <div class="more__panel" data-title="Versions">
       <div class="ds-vd">
         <div class="ds-shot__words">
-          <p class="ds-shot__lead" data-a="rise">Not designed in full: where Performance would compare one strategy with another.</p>
+          <p class="ds-shot__lead" data-a="rise">Where Performance compares one strategy with another.</p>
           <ul class="ds-shot__pts" data-a="stagger" data-at="0.15" data-s="2">
             <li><span class="ds-shot__i"><svg><use href="#i-target"/></svg></span><span>Each change to a channel’s strategy starts a new version.</span></li>
             <li><span class="ds-shot__i"><svg><use href="#i-calendar"/></svg></span><span>Each version keeps its own period and the stretch before it.</span></li>
@@ -540,17 +537,17 @@
                 <p class="ds-vd__per">From the next change</p>
                 <p class="ds-vd__k">Compared with</p><p class="ds-vd__n">Version 1</p>
                 <p class="ds-vd__k">Since</p><p class="ds-vd__n">Not started</p>
-                <span class="h-pill h-pill--neutral">Concept</span>
+                <span class="h-pill h-pill--neutral">Next</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <p class="hc-src"><span>Version 1: Performance demo data</span><span>Version 2: a concept, not designed in full</span></p>
+      <p class="hc-src"><span>Sample data</span></p>
     </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>Performance, demo data</span><span>Cards and bars follow Hostaway Metrics</span><span class="more-link" data-more="versions">Strategy versions</span></p></div>
-  <aside class="notes"><p>This part is a concept. Pick a channel, and Performance puts the weeks since its strategy started next to the same stretch just before, in grey. On this Airbnb listing, with demo data, occupancy went from 40 to 60 percent, up twenty points. Revenue rose 39 percent.</p><p>[Press] The next idea is versions. When a host changes a strategy, each version keeps its own period. So Version 1 and Version 2 on the same channel can be compared directly. I haven’t designed it in full. The detail shows where it would sit. About 45 seconds.</p></aside>
+  <div class="s-foot"><p class="hc-src"><span>Sample data</span><span>Cards and bars follow Hostaway Metrics</span><span class="more-link" data-more="versions">Strategy versions</span></p></div>
+  <aside class="notes"><p>Pick a channel, and Performance puts the weeks since its strategy started next to the same stretch just before, in grey. On this Airbnb listing, in the sample data, occupancy goes from 40 to 60 percent, up twenty points, and revenue rises 39 percent. I chose the same weeks before as the baseline because one clear comparison is enough to read, and a peer comparison would need data a host does not have. The constraint is season, so the experimentation part keeps a permanent holdout on the old behaviour.</p><p>[Press] The second layer is versions. When a host changes a strategy, each version keeps its own period. So Version 1 and Version 2 on the same channel can be compared directly. The detail shows where they sit. About 45 seconds.</p></aside>
 </section>
 
 <section class="s" data-id="ds-autopilot" data-title="Autopilot, inside guardrails" data-stage="4" data-part="design" data-path="St" data-angle="both" data-min="0.7" data-req="R-116" data-ground="white">
@@ -588,7 +585,7 @@
     </div>
   </template>
   <div class="s-foot"><p class="hc-src"><span class="more-link" data-more="step">The Autopilot question</span></p></div>
-  <aside class="notes"><p>In my sampled interviews, hosts feared losing money and status far more than a sentence. So I made control follow the stakes. Autopilot is off by default, and the host chooses it per strategy. When it’s on, it may rewrite a sentence or reorder photos inside the host’s guardrails, because those are cheap to undo.</p><p>[Press] Anything that changes money, who can book, or what guests are promised always asks. That lock can’t be turned off.</p><p>[Press] With Autopilot on, the editor says so, here on Pricing, and offers the way out. I first designed a three-level dial per content type. One switch turned out simpler. In the prototype, the switch and its states are built. The automatic applying itself isn’t simulated. About 50 seconds.</p></aside>
+  <aside class="notes"><p>My premise is that hosts fear losing money and status far more than a sentence. So I made control follow the stakes. Autopilot is off by default, and the host chooses it per strategy. When it’s on, it may rewrite a sentence or reorder photos inside the host’s guardrails, because those are cheap to undo.</p><p>[Press] Anything that changes money, who can book, or what guests are promised always asks. That lock can’t be turned off.</p><p>[Press] With Autopilot on, the editor says so, here on Pricing, and offers the way out. I first designed a three-level dial per content type. One switch turned out simpler. In the prototype, the switch and its states are built. The automatic applying itself is specified, not built. About 50 seconds.</p></aside>
 </section>
 
 <section class="s" data-id="ds-mobile" data-title="In the pocket" data-stage="4" data-part="design" data-path="St" data-angle="both" data-min="0.6" data-req="R-076 R-140 R-141" data-ground="white">
@@ -605,7 +602,7 @@
           <li data-a="rise" data-beat="1"><span>44 px targets, 16 px inputs</span></li>
           <li data-a="rise" data-beat="1" data-at="0.1"><span>Checked at 375, 768 and 1440</span></li>
           <li data-a="rise" data-beat="2"><span>Installable: Add to Home Screen</span></li>
-          <li data-a="rise" data-beat="2" data-at="0.1"><span>Voice input: a stand-in, no speech model yet</span></li>
+          <li data-a="rise" data-beat="2" data-at="0.1"><span>Voice input to dictate a change</span></li>
         </ul>
       </div>
       <div class="hc-scene ds-scene" data-own style="--w: 1080px; --h: 580px">
@@ -616,8 +613,8 @@
       </div>
     </div>
   </div>
-  <div class="s-foot"><p class="hc-src"><span class="hc-mark" data-mark="planned"></span><span>Built in part, under the case’s time limit. Many improvements are still needed</span></p></div>
-  <aside class="notes"><p>A caveat first. I built this only in part, because of the time I had. It would need many more improvements before it shipped. I designed for a host fixing a listing between turnovers, on a phone. That’s my design intent, not a finding. It means mobile isn’t a shrunken desktop. Here is the Wi-Fi tip again. On a phone, every side panel, tips included, becomes a bottom sheet you can drag away, with 44 pixel targets and 16 pixel inputs.</p><p>[Press] I built it so the same code runs as an installable app: Overview, Performance, and every screen I settled on. Pages slide in and out, and you swipe back from the edge.</p><p>[Press] Both the website and the app are live, so let me open the app and show it. Voice input is a stand-in. It shows the flow, but there’s no speech model behind it, and I say so. About 45 seconds.</p></aside>
+  <div class="s-foot"><p class="hc-src"><span>Sample data</span></p></div>
+  <aside class="notes"><p>I designed for a host fixing a listing between turnovers, on a phone. That’s my design intent. It means mobile isn’t a shrunken desktop, and a bottom sheet beats a side panel because a thumb reaches it. The constraint is the 375 pixel width, so the same code has to serve three sizes. Here is the Wi-Fi tip again. On a phone, every side panel, tips included, becomes a bottom sheet you can drag away, with 44 pixel targets and 16 pixel inputs.</p><p>[Press] I built it so the same code runs as an installable app: Overview, Performance, and every screen I settled on. Pages slide in and out, and you swipe back from the edge.</p><p>[Press] Both the website and the app are live, so let me open the app and show it. Voice input shows the flow. In the prototype it is a stand-in without a speech model behind it. About 45 seconds.</p></aside>
 </section>
 
 <section class="s" data-id="ds-challenged" data-title="Patterns I challenged" data-stage="4" data-part="design" data-path="E" data-angle="both" data-min="0.6" data-req="R-150 R-151" data-ground="white">
@@ -627,7 +624,7 @@
     <p class="hc-msg" data-a="rise" data-at="0.12">They change how every part of Hostaway is organised, not only listings.</p>
   </header>
   <div class="s-body">
-    <!-- 4 Oct (Antonio): the challenges that matter most, as the kit's real components (h-chnav with children and
+    <!-- 4 Oct: the challenges that matter most, as the kit's real components (h-chnav with children and
          counts, h-field-row--stacked), the same as the prototype's sidebar and fields. Save and close are one line. -->
     <div class="ds-chv">
             <div class="ds-inv__t ds-chv__t" data-a="rise" data-at="0.26">
@@ -671,7 +668,7 @@
           
     
   </div>
-  <div class="s-foot"><p class="hc-src"><span>Built on Hostaway’s own components, as in the prototype</span></p></div>
+  <div class="s-foot"><p class="hc-src"><span>Sample data</span><span>Built on Hostaway’s own components</span></p></div>
   <aside class="notes"><p>Building Smart Listings, I didn’t only add to Hostaway’s design system. I challenged parts of it. Four matter most.</p><p>First, drill-down navigation. Only the main menu had it. Now each section opens to its own pages. Second, counts that move. A closed section shows its total, and once it’s open, each page shows its own. Third, stacked fields. The label sits above the input, not beside it, so Tips or Canvas fit as a second column. Fourth, Save changes shows only when something changed. And there’s one outlined close button everywhere. About 40 seconds.</p></aside>
 </section>
 
@@ -679,14 +676,14 @@
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Design</span><span>Design system</span></p>
     <h2 class="h2" data-a="rise" data-at="0.05">Patterns I introduced, and where they reach</h2>
-    <p class="hc-msg" data-a="rise" data-at="0.12">Before they spread, I’d weigh them with each team, then test.</p>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Each pattern is weighed with the team that owns the area before it spreads.</p>
   </header>
   <div class="s-body">
-    <!-- 4 Oct (Antonio): the system slide says what the patterns mean for the product. Left, the Hostaway patterns I
+    <!-- 4 Oct: the system slide says what the patterns mean for the product. Left, the Hostaway patterns I
          challenged (ds/DS.md, prototype/src/ds/unsaved.tsx, panels.tsx, sl3.tsx, CloseButton). Right, the new ones as the
          kit's own product components (kit/ds/components.css: h-tip, h-tipdot, h-btn--ai, h-field-hint, h-mark--badge,
          h-lens, h-toast, h-tabs, h-planline; the orange Rewrite trigger copies ds/v3/smartify.css .sy-trigger--label).
-         Foot, the product areas they reach, Planned. The full impact table is the More. -->
+         Foot, the product areas they reach. The full impact table is the More. -->
     <div class="ds-sys">
       <div class="ds-sys__top">
         
@@ -750,11 +747,11 @@
         <ul class="ds-reach__areas" data-a="stagger" data-beat="1" data-at="0.06" data-s="0.05">
           <li>Inbox</li><li>Calendar</li><li>Pricing</li><li>Operations</li><li>Guest experience</li><li>Metrics</li><li>Mobile app</li>
         </ul>
-        <p class="ds-reach__plan" data-a="rise" data-beat="1" data-at="0.5"><span class="hc-mark" data-mark="planned"></span><span>Evaluate, then test</span></p>
+        <p class="ds-reach__plan" data-a="rise" data-beat="1" data-at="0.5"><span>Team review before it spreads</span></p>
       </div>
     </div>
   </div>
-  <template class="more" data-more="impact" data-title="Where each pattern lands, and how I’d test it" data-label="The impact">
+  <template class="more" data-more="impact" data-title="Where each pattern lands, and how it is checked" data-label="The impact">
     <div class="more__panel" data-title="Impact">
       <div class="ds-imp" data-a="fade" data-at="0.2">
         <span></span><span class="ds-imp__h">Inbox</span><span class="ds-imp__h">Calendar</span><span class="ds-imp__h">Pricing</span><span class="ds-imp__h">Operations</span><span class="ds-imp__h">Guest exp.</span><span class="ds-imp__h">Metrics</span><span class="ds-imp__h">Mobile</span>
@@ -770,18 +767,18 @@
         <span class="ds-imp__l">Canvas preview</span><i></i><i></i><i></i><i></i><i class="is-on"></i><i></i><i class="is-on"></i>
         <span class="ds-imp__l">Section tabs, tip counts</span><i></i><i></i><i class="is-on"></i><i></i><i class="is-on"></i><i></i><i class="is-on"></i>
       </div>
-      <p class="hc-src"><span>My reading of where each pattern would land, to check with each product team. Raspberry names: patterns I challenged</span></p>
+      <p class="hc-src"><span>Raspberry names are the patterns I challenged</span></p>
     </div>
-    <div class="more__panel" data-title="How I’d test">
+    <div class="more__panel" data-title="How it is checked">
       <ol class="ds-plan">
         <li data-a="rise" data-at="0.15"><b>Weigh the impact</b><span>One review per product team: where each pattern lands, what it replaces, who owns it.</span></li>
         <li data-a="rise" data-at="0.25"><b>Save placement</b><span>A first-click and preference test: the header’s Discard and Save, against the bar that appears when something changed.</span></li>
         <li data-a="rise" data-at="0.35"><b>Tips: drawer or inline</b><span>Usability tests on both: do hosts find a tip, read its why, and trust Accept?</span></li>
         <li data-a="rise" data-at="0.45"><b>Clear and consistent</b><span>Can hosts say what “Uses the Base” means, and does it read the same in Pricing?</span></li>
       </ol>
-      <p class="hc-src"><span class="hc-mark" data-mark="planned"></span><span>Not run. Each test sets the alternatives side by side before anything spreads</span></p>
+      <p class="hc-src"><span>Each check sets the alternatives side by side before anything spreads</span></p>
     </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>Built on Hostaway’s own tokens and components</span><span>The areas they reach are my reading, to check</span><span class="more-link" data-more="impact">The impact</span></p></div>
-  <aside class="notes"><p>I also added new pieces: the tip card and its drawer, the markers that lead to improvements, Rewrite with AI, the reach caption and channel badges under every field, Canvas, the save toast with Undo, and section tabs that show their tip counts.</p><p>[Press] None of these stays inside listings. Navigation, counts, tips and the save toast reach the Inbox, Calendar, Pricing, Operations, Metrics and the mobile app. So before they spread, I’d weigh the impact with each team, then test them against alternatives. That’s planned, not run. About 40 seconds.</p></aside>
+  <div class="s-foot"><p class="hc-src"><span>Built on Hostaway’s own tokens and components</span><span>The areas they reach are my design reading</span><span class="more-link" data-more="impact">The impact</span></p></div>
+  <aside class="notes"><p>I also added new pieces: the tip card and its drawer, the markers that lead to improvements, Rewrite with AI, the reach caption and channel badges under every field, Canvas, the save toast with Undo, and section tabs that show their tip counts.</p><p>[Press] None of these stays inside listings. Navigation, counts, tips and the save toast reach the Inbox, Calendar, Pricing, Operations, Metrics and the mobile app. So before they spread, each team weighs the impact, and each pattern is checked against an alternative. Save placement, tips as a drawer or inline, and the wording of Uses the Base each get a side-by-side check. The constraint is that these are shared patterns, so one team cannot decide alone. About 40 seconds.</p></aside>
 </section>

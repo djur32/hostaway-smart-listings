@@ -1,4 +1,4 @@
-/* Demo URL params (S10) — for screenshots, the Loom and reviewers. Not product behaviour.
+/* Demo URL params (S10) — for screenshots and demos. Not product behaviour.
  *   ?persona=P1…P4      view as a persona (same as the sidebar switcher)
  *   ?seed=decided       resolve every Needs-you decision with its recommendation (or first option)
  *   ?seed=live          …and push, so receipts exist

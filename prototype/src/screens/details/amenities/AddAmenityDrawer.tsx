@@ -3,8 +3,8 @@
  * of each channel that carries it), and at the right end "+" (not added, white row) or a check (added, grey row).
  * A tap toggles the row and saves it right away (adding = every channel that has a field for it; the check takes it off
  * again) and sends it. While a save is in flight the row's icon turns and the footer reads "Updating…" until every save
- * settles, then "Done". Closing (×, Done, Esc, backdrop) only closes: everything is already saved (review, 1 Oct).
- * The save latency is simulated (600–900 ms). The tap target is the whole row (≥ 44px on phones).
+ * settles, then "Done". Closing (×, Done, Esc, backdrop) only closes: everything is already saved.
+ * The save latency is emulated (600–900 ms). The tap target is the whole row (≥ 44px on phones).
  * Desktop: a right drawer that slides in subtly. Phones: a full-screen sheet. */
 import { useEffect, useRef, useState } from 'react'
 import { AmenityPick, Button, DetailsDrawer, FiltersButton, Icon, useIsMobile, type AmenityScope } from '../../../ds'

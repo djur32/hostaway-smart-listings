@@ -74,7 +74,7 @@ export interface State {
   overview?: Record<string, OverviewSettings>
   /** Smart Listings has a performance history to compare (additive, QA B17): true for the ?smart=on demo, false after a first setup. */
   smartHistory?: boolean
-  /** Knowledge Hub state for this property (review, 1 Oct): 'none' = never generated (a few properties start here),
+  /** Knowledge Hub state for this property: 'none' = never generated (a few properties start here),
    *  'generating' = the creation process is running, 'ready' (or missing) = the Hub exists. */
   kb?: KbState
   /** Multi-property (QA B01/B02): the property whose slices (PROPERTY_SLICES) sit at the top level of this state. */
@@ -102,7 +102,7 @@ export interface OverviewSettings {
   fieldVisibility?: Partial<Record<OvFieldKey, FieldVisibility>>
 }
 /** A field key from any fields ledger that isn't inherently channel-specific — today data/sl3.ts FIELDS' 'languages'
- *  and 'tags'. Kept as a plain string (not a closed two-value union): review, 1 Oct third round, this setting isn't
+ *  and 'tags'. Kept as a plain string (not a closed two-value union): third round, this setting isn't
  *  just for Languages/Tags — it can apply to pricing, availability and other global fields later. Which fields
  *  actually show the control today is FIELD_VIS_KEYS (screens/smart/PropertyOverview.tsx), a plain array — adding a
  *  field there (e.g. a future base/Pricing.tsx key) is a one-line change, not a type change here. */
@@ -262,7 +262,7 @@ function initial(persona: PersonaId = 'P1'): State {
   const d = PERSONAS[persona]
   return {
     persona,
-    smartListings: false, // opt-in for every persona (review, 30 Sep): the Overview toggle turns it on; ?smart=on for demos
+    smartListings: false, // opt-in for every persona: the Overview toggle turns it on; ?smart=on for demos
     prefs: { previewOn: d.previewOn, needsYouMode: d.needsYouMode, compsOpen: d.compsOpen, voiceMode: d.voiceMode },
     facts: seedFacts(),
     decisions: seedDecisions(),
@@ -292,7 +292,7 @@ function initial(persona: PersonaId = 'P1'): State {
 
 /** A property's slices on its first visit. The scenario property starts as before (initial()); the others get their
  *  light seed (data/property-seeds.ts): own photo library, default policies, and — per data/portfolio.ts
- *  smartListingsDefaultOn (review, 1 Oct voice note) — Smart Listings already on, past setup, with a strategy per
+ *  smartListingsDefaultOn — Smart Listings already on, past setup, with a strategy per
  *  channel and real tips waiting, EXCEPT the three properties that deliberately stay off (the "before you turn this
  *  on" demonstration). Past setup (not just switched on): setupDone true and a Plan per channel, the same shape
  *  Setup.tsx's finish() would leave behind, so Overview/Strategy/Performance don't redirect to Setup or show a
@@ -688,7 +688,7 @@ setConnectedReader(() => useStore.getState().setup.connected)
 useStore.subscribe((s, prev) => { if (s.activeProperty !== prev.activeProperty) applyPropertyData(s.activeProperty) })
 
 
-/* Autopilot is off by default everywhere (review, 5 Oct): a saved session that still has it on is switched to tips-only
+/* Autopilot is off by default everywhere: a saved session that still has it on is switched to tips-only
  * once, so its fields are editable. Applies to the active property and every parked one. */
 try {
   const KEY = 'hostaway-autopilot-off'

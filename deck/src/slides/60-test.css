@@ -1,6 +1,6 @@
 /* 60-test · tokens only; classes prefixed tm-. */
 @layer slides {
-/* ── tm-test · the programme as a line of six studies; under each, the bar written before it runs ── */
+/* ── tm-test · the test ladder as a line of six steps; under each, the bar written before it runs ── */
 .tm-prog { display: grid; gap: 40px; }
 .tm-line { position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 22px; margin: 0; padding: 0; list-style: none; }
 /* the rail runs from the first dot's centre to the last one's */
@@ -19,8 +19,8 @@
 .tm-note { display: flex; align-items: center; gap: 12px; margin: 0; font: var(--w-medium) 20px / 1.3 var(--font-ui); color: var(--ink-2); }
 .tm-note svg { flex: none; width: 24px; height: 24px; fill: none; stroke: var(--good-ink); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
 
-/* ── tm-measure · the KPI tree on the wall (review, 4 Oct): the north star, then the five goals from op-goals as columns.
-   Each column reads down: the goal's plate and name, its KPI, the riskiest assumption it tests, the study that checks it.
+/* ── tm-measure · the metric tree on the wall: the north star, then four branches as columns.
+   Each column reads down: the branch's plate and name, its metric, the bet it tests, the experiment that moves it.
    Rows line up across the columns (subgrid); a label column names them once. ── */
 .tm-kt { display: grid; gap: 30px; }
 .tm-star { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 14px; }
@@ -32,7 +32,7 @@
 .tm-ns small { font: var(--w-medium) 18px / 1.2 var(--font-ui); color: var(--on-dark); }
 .tm-star__by { display: inline-flex; align-items: center; gap: 10px; margin: 0; font: var(--w-medium) 20px / 1.2 var(--font-ui); color: var(--ink-2); }
 .tm-star__by svg { color: var(--ink-3); }
-.tm-kgrid { display: grid; grid-template-columns: 186px repeat(5, minmax(0, 1fr)); grid-template-rows: auto auto auto auto auto; column-gap: 20px; }
+.tm-kgrid { display: grid; grid-template-columns: 186px repeat(4, minmax(0, 1fr)); grid-template-rows: auto auto auto auto auto; column-gap: 20px; }
 .tm-kgrid__l { grid-column: 1; align-self: center; margin: 0; font: var(--w-head) 18px / 1.2 var(--font-ui); color: var(--ink-3); }
 /* a goal card: the feature card's tinted plate (the icon top right, no badge tile; the number bottom left, review 4 Oct), then three rows on white */
 .tm-goal { grid-row: 1 / span 5; display: grid; grid-template-rows: subgrid; min-width: 0; overflow: hidden; border-radius: 30px; background: var(--bg); box-shadow: inset 0 0 0 1.5px var(--line); }
@@ -44,7 +44,7 @@
 .tm-goal__kpi { align-self: center; margin: 0; padding: 4px 24px 14px; font-size: 20px; line-height: 1.32; color: var(--ink-2); text-wrap: pretty; }
 .tm-goal__bet, .tm-goal__test { display: flex; align-items: center; gap: 10px; margin: 0; padding: 14px 24px; border-top: 1.5px solid var(--line); font: var(--w-medium) 20px / 1.28 var(--font-ui); color: var(--ink); }
 .tm-goal__bet .hc-id { flex: none; }
-.tm-goal__bet.is-risk .hc-id { background: var(--accent-soft); border-color: transparent; color: var(--accent-ink); }   /* one of the three riskiest, dc-risks */
+.tm-goal__bet.is-risk .hc-id { background: var(--accent-soft); border-color: transparent; color: var(--accent-ink); }   
 .tm-goal__test { padding-bottom: 20px; color: var(--ink-2); }
 .tm-goal__test svg { flex: none; width: 22px; height: 22px; fill: none; stroke: var(--ink-3); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
 /* guardrails: a row of chips (the KPI tree's detail) */
@@ -70,7 +70,7 @@
 .tm-tree__t { display: flex; align-items: center; gap: 10px; margin: 6px 0 0; padding-top: 14px; border-top: 1.5px solid var(--tint-line, var(--line)); font: var(--w-medium) 21px / 1.25 var(--font-ui); color: var(--ink-2); }
 .tm-tree__t svg { flex: none; width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
 .more__panel > .tm-guards { margin-top: 10px; }
-/* what I would ask: four questions as cards, each with the part of the design it probes */
+/* what the sessions ask: four questions as cards, each with the part of the design it probes */
 .tm-probes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 0; padding: 0; list-style: none; }
 .tm-probes li { display: flex; align-items: center; gap: 26px; min-height: 236px; padding: 32px 36px 34px 30px; border-radius: 30px; background: var(--bg); box-shadow: 0 0 0 1px var(--line); }
 .tm-probes__k { margin: 0 0 10px; font: var(--w-head) 22px / 1.2 var(--font-ui); color: var(--tint-ink); }
@@ -100,7 +100,9 @@
 .tm-pm__sig svg { flex: none; width: 22px; height: 22px; fill: none; stroke: var(--tint-ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .tm-pm__do { font: var(--w-medium) 23px / 1.3 var(--font-ui); color: var(--ink); text-wrap: pretty; }
 
-/* the projection at card size: axis and series names at reading size */
-.tm-proj .t-axis { font-size: 19px; }
-.tm-proj .t-label { font-size: 22px; }
+/* why the tree is shaped this way: rationale, alternative, constraint as three rows */
+.tm-why { display: grid; gap: 16px; }
+.tm-why > div { display: grid; grid-template-columns: 260px minmax(0, 1fr); align-items: center; gap: 28px; padding: 26px 34px; border-radius: 26px; background: var(--tint-plate); }
+.tm-why__k { margin: 0; font: var(--w-head) 26px / 1.2 var(--font-display); letter-spacing: -0.01em; color: var(--tint-title); }
+.tm-why__t { margin: 0; font: var(--w-medium) 28px / 1.32 var(--font-ui); color: var(--ink); text-wrap: pretty; }
 }

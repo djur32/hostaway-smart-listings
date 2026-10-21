@@ -1,4 +1,4 @@
-/* Demo mode (QA B08, review's rule "no demo chrome on screens"). Demo-only controls (the import "Demo state" picker,
+/* Demo mode (QA B08, the rule "no demo chrome on screens"). Demo-only controls (the import "Demo state" picker,
  * "Show at 200 properties", the sidebar / Menu persona box, Reset, the persona toast) render only in demo mode.
  *   ?demo=1          turns demo mode on for this tab (sessionStorage), until
  *   ?demo=0          turns it off.

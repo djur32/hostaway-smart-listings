@@ -17,7 +17,7 @@ export * from './charts' // WS-SL: StackedColumns, BandChart, GroupedColumns, Ba
 export * from './v3-kh'
 export * from './photos' // Photos (Hostaway replica): PhotosRow, PhotoTile, CoverPill, PhotosFilter, Banner, CheckCard, SheetModal
 export * from './sortable' // Drag to reorder (Hostaway replica, 3 Oct): useSortable, DragGhost, arrayMove (.h-drag-grip, .h-drop-placeholder)
-export * from './fieldscope' // ChannelBadge, ValueHover, Dropdown (fourth review)
+export * from './fieldscope' // ChannelBadge, ValueHover, Dropdown
 export * from './overview' // Property › Overview real replica: Chip, Tip, OvSection, StatusSelect, ListingRow, Opportunities (WS-SL)
 export * from './kh-a'
 export * from './kh-b'

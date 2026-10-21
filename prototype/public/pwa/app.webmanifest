@@ -1,7 +1,7 @@
 {
-  "name": "Hospitable",
-  "short_name": "Hospitable",
-  "description": "Hospitable · Listing Management II (case-study prototype, app mode)",
+  "name": "Hostaway",
+  "short_name": "Hostaway",
+  "description": "Hostaway Smart Listings concept (app mode)",
   "id": "../app/",
   "start_url": "../app/",
   "scope": "../app/",

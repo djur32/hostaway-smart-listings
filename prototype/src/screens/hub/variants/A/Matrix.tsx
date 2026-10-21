@@ -162,7 +162,7 @@ function Control({ item, value, onChange, disabled, autoFocus }: { item: KhItem;
     case 'tasks': return <TaskList value={value} onChange={set} disabled={disabled} />
     case 'money': case 'percent': case 'guests':
       return (
-        // NumberField (ds/v3-ch.tsx), review 3 Oct: € before the value, the unit as a plain word, the shared small arrows
+        // NumberField (ds/v3-ch.tsx), € before the value, the unit as a plain word, the shared small arrows
         <div className="kha-num"><NumberField label={item.label} value={value} disabled={disabled} autoFocus={autoFocus}
           onChange={(v) => set(v.replace(/[^0-9.]/g, ''))} currency={item.kind === 'money' ? '€' : undefined}
           unit={item.kind === 'percent' ? '%' : item.kind === 'guests' ? 'guests' : undefined} decimals={item.kind === 'money' ? 2 : 0}

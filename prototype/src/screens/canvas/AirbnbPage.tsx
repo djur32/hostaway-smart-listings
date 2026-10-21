@@ -74,8 +74,8 @@ export function AirbnbPage({ narrow }: { narrow: boolean }) {
             </Area>
 
             <Area id="host" className="cv-ab__host">
-              <span className="cv-ab__av cv-ab__av--lg">A</span>
-              <span><b>Hosted by Antonio</b><small>Superhost · 2 years hosting</small></span>
+              <span className="cv-ab__av cv-ab__av--lg">J</span>
+              <span><b>Hosted by Jonas</b><small>Superhost · 2 years hosting</small></span>
             </Area>
 
             <Area id="highlights" className="cv-ab__hl">
@@ -174,11 +174,11 @@ export function AirbnbPage({ narrow }: { narrow: boolean }) {
           <h2 className="cv-ab__h2">Meet your host</h2>
           <Area id="meet" className="cv-ab__meet">
             <div className="cv-ab__hostcard">
-              <span className="cv-ab__hostid"><span className="cv-ab__av cv-ab__av--xl">A<i><Icon name="shield-check" size={16} /></i></span><b>Antonio</b><small><Icon name="sparkles" size={16} />Superhost</small></span>
+              <span className="cv-ab__hostid"><span className="cv-ab__av cv-ab__av--xl">J<i><Icon name="shield-check" size={16} /></i></span><b>Jonas</b><small><Icon name="sparkles" size={16} />Superhost</small></span>
               <span className="cv-ab__hoststats"><span><b>{count}</b><small>Reviews</small></span><span><b>{rating}★</b><small>Rating</small></span><span><b>2</b><small>Years hosting</small></span></span>
             </div>
             <div className="cv-ab__hostinfo">
-              <b>review is a Superhost</b>
+              <b>Jonas is a Superhost</b>
               <p>Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.</p>
               <b>Host details</b>
               <p>Response rate: 100%<br />Responds within an hour</p>

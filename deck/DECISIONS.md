@@ -20,7 +20,7 @@ One line each: what, and why.
 | ⌘K / `O` jump palette | `kit/engine.js` | Now searches by part, title, `D-###`/`I-##` in `data-notion`, and `R-###`. |
 | Personalise (`V`): Short, Standard, Everything | `kit/plan.js`, `kit/plan.css` | It maps straight onto MASTER-PLAN §7's S / St / E. It was re-keyed from the InvestEngine rows to parts × depth (D-075). |
 | Presenter window (`P`): notes, next slide, a clock that tracks drift | `kit/engine.js` | This is the Loom's script. The clock budgets from each slide's `data-min`. |
-| The detail layer ("a layer below the slide") | `kit/engine.js`, `kit/deck.css` | It's the natural home for "In Notion" deep dives. It stays in the talk without costing a slide against the 50 limit. |
+| The detail layer ("a layer below the slide") | `kit/engine.js`, `kit/deck.css` | It's the natural home for deep dives. It stays in the talk without costing a slide against the 56 limit. |
 | Primitives: rows, KPIs, rails, doors, connectors, glyphs, tags | `kit/components.css`, `kit/links.js`, `kit/glyphs.js` | They're content-agnostic and restyle through tokens. |
 | Screenshot lightbox (click any screen, → through the set) | `kit/engine.js` | The 7 × 5 concept grid opens its frames with it. |
 | The live-embed mechanics ("Open live", poster on the wall) | `kit/engine.js` → `kit/hc.js` `.hc-live` | They're re-pointed from Figma to the prototype (localhost:5174 locally, `/prototype` when deployed). |
@@ -123,11 +123,12 @@ review: mention how the work was agentified, "don't talk too much about this but
 
 ## Lint (tools/build.mjs), added by S07
 
+The slide cap went from 50 to 56 when the Experiments part (`65-experiments`, four slides) was added, plus two slides of headroom.
+
 | Rule | Level |
 |---|---|
-| More than **50** slides in the deck | **error** (exit 1) |
+| More than **56** slides in the deck | **error** (exit 1) |
 | A raw colour (`#hex`, `rgb()`, `hsl()`, `oklch()`) in a slide or in any kit stylesheet (only `src/kit/ds/*` may hold one) | **error** |
-| A slide without `data-notion` | warning |
 | A slide without `data-part`, `data-path`, `data-angle` or `data-req`, or with a value outside the allowed set | warning |
 | A `--color-*`, `--font-*` or `--radius-*` the deck asks for that the synced ds/tokens.css doesn't define | warning |
 

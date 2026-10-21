@@ -28,7 +28,7 @@ export function bestMatch<T>(text: string, items: T[], bagOf: (item: T) => strin
 
 /* ---------- chips: reservation data + the three actions a step can take ---------- */
 export type ActionKind = 'message' | 'task' | 'handoff'
-/** A simulated step's own kind: one of the three actions, or 'note' when the step is an internal check with no action
+/** A sample step's own kind: one of the three actions, or 'note' when the step is an internal check with no action
  *  chip (e.g. "Check whether another guest checks out that morning") — not something the guest sees. */
 export type StepKind = ActionKind | 'note'
 export interface ChipDef { token: string; label: string; icon: string; kind: 'data' | 'action' }
@@ -162,7 +162,7 @@ export function workflowList(pid: string, items: Record<string, Workflow>): Work
 export interface SimStep { action: StepKind; text: string }
 export interface SimResult { matched: boolean; steps: SimStep[] }
 const URGENT = new Set(['now', 'urgent', 'asap', 'immediately', 'emergency', 'right away'])
-/** Runs `wf`'s own steps against a simulated opening message: resolves every step's chips with `data`, and notes
+/** Runs `wf`'s own steps against a sample opening message: resolves every step's chips with `data`, and notes
  *  (but doesn't block on) whether the message actually sounds like what the workflow is meant to catch. */
 export function simulateWorkflow(wf: Workflow, message: string, data: Record<string, string>): SimResult {
   const relevance = scoreAgainst(message, `${wf.title} ${wf.trigger}`)

@@ -87,7 +87,7 @@ function PropertyFrame() {
       id: c,
       // the channel row carries the total while collapsed; open, each page carries its own (ds/sl3.tsx ChannelNav)
       tips: t.listing + t.pricing + t.availability + t.policies,
-      // review, 1 Oct: drop each channel's Overview — Smart Listings › Performance covers that ground now and matters more
+      // drop each channel's Overview — Smart Listings › Performance covers that ground now and matters more
       items: [
         { key: 'listing', label: 'Listing', to: `${base}/ch/${c}/listing`, count: t.listing },
         { key: 'pricing', label: 'Pricing', to: `${base}/ch/${c}/pricing`, count: t.pricing },
@@ -100,7 +100,7 @@ function PropertyFrame() {
   const nav: ComponentProps<typeof ChannelNav> = {
     overview: { key: 'overview', label: 'Overview', icon: 'layout-sidebar-left-expand', to: `${base}/overview` },
     shared: [
-      // "Listing base" (review, 1 Oct): Details, Pricing and Availability as property-wide pages, grouped like a channel's own
+      // "Listing base": Details, Pricing and Availability as property-wide pages, grouped like a channel's own
       { key: 'base', label: 'Listing base', icon: 'file-text', to: `${base}/details`, children: [
         { key: 'details', label: 'Details', to: `${base}/details`, end: true, alsoActive: (path) => path.startsWith(`${base}/details/`) },
         { key: 'base-pricing', label: 'Pricing', to: `${base}/base/pricing` },
@@ -108,8 +108,8 @@ function PropertyFrame() {
       ] },
       // Every Hub page is labelled a Concept (ds/kh-r.tsx KhrFrame). Clean paths open the reframed Hub; iteration R (3 Oct,
       // Content · Workflows · Sources) stays reachable with ?v=r, the older ones with ?v=a…e|s.
-      // Knowledge Hub, reframed (review, 4 Oct · plan/notion-v2/deck-review/KH-REFRAME.md): its own job — the questions
-      // guests ask. Insights (first, review 4 Oct) · Questions (a question page keeps it marked) · Facts (read from the Listing base) · Sources.
+      // Knowledge Hub, reframed: its own job — the questions
+      // guests ask. Insights (first, ) · Questions (a question page keeps it marked) · Facts (read from the Listing base) · Sources.
       { key: 'hub', label: 'Knowledge Hub', icon: 'book', to: `${base}/hub/insights`, children: [
         { key: 'insights', label: 'Insights', to: `${base}/hub/insights` },
         { key: 'questions', label: 'Questions', to: `${base}/hub/questions`, alsoActive: (path) => path === `${base}/hub` || path.startsWith(`${base}/hub/questions/`) },
@@ -129,7 +129,7 @@ function PropertyFrame() {
   // ≤ 767px (ds/mobile.md §3a): the rail hides. In its place, a section bar above the page names where you are
   // ("Airbnb › Listing ⌄") and opens the whole rail in a bottom sheet — grouped, scrollable, the current page marked,
   // the same tip counts. The page head's "···" opens the same sheet (it used to open a right drawer, images/36, which
-  // nobody found: review, 3 Oct). Any link inside closes it.
+  // nobody found: ). Any link inside closes it.
   const isMobile = useIsMobile()
   // 768–1023 (ds/mobile.md §3b): the same section bar; it opens the desktop rail itself as a slide-over from the left
   // (scrim behind it), so main keeps the full width beside the icon-only global sidebar.
@@ -186,7 +186,7 @@ function PropertyFrame() {
   // never on screen together (ds/mobile.md §7: never nest a sheet in a sheet; mobile audit H-12)
   const [props, setProps] = useState(false)
   const propsTimer = useRef<ReturnType<typeof setTimeout>>(undefined)
-  // review, 4 Oct: Properties opens ON TOP of Sections (own scrim above the first); choosing a property closes only the
+  // Properties opens ON TOP of Sections (own scrim above the first); choosing a property closes only the
   // top sheet and leaves Sections open underneath, now showing the new property
   const openProperties = () => setProps(true)
   useEffect(() => () => clearTimeout(propsTimer.current), [])
@@ -229,7 +229,7 @@ function PropertyFrame() {
         <>
         {/* titled "Sections": the selector right under the title names the property (mobile audit H-16) */}
         <BottomSheet open={menu} onClose={() => setMenu(false)} title="Sections" label={`${p.name} · sections`} className="h-m-navsheet" navigation>
-          {/* the property selector leads the sheet (review, 4 Oct): full width, same control as the page head. It never
+          {/* the property selector leads the sheet: full width, same control as the page head. It never
               opens a sheet on this sheet (ds/mobile.md §7, H-12): Sections closes first, then Properties opens. */}
           <div className="h-m-navsheet__prop"><span className="h-m-navsheet__label">Property</span><PropertySwitcher property={p} onOpenSheet={openProperties} /></div>
           <ChannelNav {...nav} backLabel="All properties" />

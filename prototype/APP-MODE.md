@@ -1,4 +1,4 @@
-# App mode · the prototype as Hostaway's mobile app
+# App mode · the prototype as an installable mobile app
 
 Two environments from one codebase:
 

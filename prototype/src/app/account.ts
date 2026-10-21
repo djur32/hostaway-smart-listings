@@ -1,11 +1,11 @@
 /* Act as another account (S12 follow-up, 3 Oct · D-161). Each account has its own saved prototype: every store and draft
  * the app persists (sessionStorage, plus the Knowledge Hub's localStorage stores) is parked under the account when you
- * leave it and restored when you come back, so switching never loses anyone's work (review: "make sure we don't lose
+ * leave it and restored when you come back, so switching never loses anyone's work ("make sure we don't lose
  * any information"). Dana's saved world is simply what this tab already had: today's prototype, untouched.
  *
  * A switch reloads the page into the next account's start page, the way a real account switch does: every store then
  * rehydrates from that account's own storage, with no store having to know about accounts.
- * `?as=dana|callum|marta|priya` switches from a link (for the Loom and reviewers). */
+ * `?as=dana|callum|marta|priya` switches from a link (for demos and screenshots). */
 import { APP_MODE, ROUTER_BASENAME } from './mode'
 import { USERS, USER_KEY, currentUserId, type UserId } from '../data/users'
 import { PROPERTY_ID } from '../data/scenario'
@@ -29,13 +29,13 @@ function clearAccountKeys() {
   for (const k of Object.keys(localStorage)) if (k.startsWith('hostaway') && !tabOnly(k)) localStorage.removeItem(k)
 }
 
-/** Where an account starts: the property Overview, for every account (review, 3 Oct; Priya has her listing, 4 Oct). */
+/** Where an account starts: the property Overview, for every account. */
 export function landingFor(u: UserId, _hasProperties = true): string {
   return `/property/${USERS[u].properties[0] ?? PROPERTY_ID}/overview`
 }
 
 /** The page to land on after switching: the property page you're on when the next account has that property too
- *  (review, 4 Oct: switching keeps you on the property, never on Properties' groups, rules or activity), else its start. */
+ *  (switching keeps you on the property, never on Properties' groups, rules or activity), else its start. */
 function stayOrLand(next: UserId, hasProps: boolean): string {
   const base = ROUTER_BASENAME === '/' ? '' : ROUTER_BASENAME
   const path = window.location.pathname.startsWith(base) ? window.location.pathname.slice(base.length) || '/' : window.location.pathname

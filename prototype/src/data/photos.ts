@@ -62,7 +62,7 @@ export interface PhotoLib {
   /** The visible order last mirrored into sl3.custom[ch]['photos.order'] (what Canvas reads). */
   mirror: Partial<Record<ListingChannel, string>>
   /** "Use the Base" per channel: the channel shows the Base set in the Base order. Its own order and hidden photos are
-   *  kept, so "Customize" brings them back (review 30 Sep). */
+   *  kept, so "Customize" brings them back. */
   useBase?: Partial<Record<ListingChannel, boolean>>
 }
 

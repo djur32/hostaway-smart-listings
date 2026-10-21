@@ -55,7 +55,7 @@ export function QueryTabs({ items, active }: { items: Array<{ id: string; label:
 }
 
 /** Hostaway's section actions (HS-22) — now delegated to the shared unsaved-changes bar (ds/unsaved.tsx,
- *  concepts/smart-listing/UNSAVED-PATTERN.md, review 1 Oct: "I don't want to see Discard changes or Save unless
+ *  concepts/smart-listing/UNSAVED-PATTERN.md, "I don't want to see Discard changes or Save unless
  *  there are changes"). Nothing renders here while clean; once dirty, the sticky top strip (mounted once in
  *  AppShell) carries Discard/Save for every dirty section at once, and navigating away is guarded. This still
  *  registers the draft (`useUnsavedChanges`); the confirmation is the shared save toast (ds/unsaved.tsx, 4 Oct), with
@@ -107,8 +107,7 @@ export function TagBox({ tags, onAdd, onRemove, addLabel = 'Add tag', disabled }
 }
 
 /** A map placeholder with the pin (HS-25 "Pin location"). */
-/** The pin map. Unlike the address (locked), the pin can be nudged: an "Edit" button on the map (review, 3 Oct, as on
- *  Hostaway's own map); editing the pin itself isn't modelled in the prototype. */
+/** The pin map. Unlike the address (locked), the pin can be nudged: an "Edit" button on the map; editing the pin itself isn't modelled in the prototype. */
 export function MapBox({ label, disabled, onEdit }: { label: string; disabled?: boolean; onEdit?: () => void }) {
   return (
     <div className={cx('ch-map', disabled && 'is-disabled')} role="img" aria-label={`Map: ${label}`}>
@@ -145,7 +144,7 @@ export function SummaryCard({ eyebrow, title, children, foot }: { eyebrow: React
   )
 }
 
-/** Plain-text scope captions (review 30 Sep: neutral text, no colours, icons or change markers). */
+/** Plain-text scope captions (neutral text, no colours, icons or change markers). */
 const SCOPE_TEXT: Partial<Record<FieldState, (ch: string) => string>> = {
   override: (ch) => `Custom for ${ch}`, only: (ch) => `${ch} only`, channel: (ch) => `Only on ${ch}`, inherit: () => 'Uses the Base',
   listing: () => 'All channels', set: (ch) => `Set by ${ch}`, hub: () => 'Knowledge Hub', linked: () => 'From another section',
@@ -191,7 +190,7 @@ export function SpecificList({ children }: { children: ReactNode }) {
 
 /** Amenity row (HS-26/27 + CL-07): name, scope, optional note and tag, one trailing action.
  *  `info` is a homogenisation note — a decision taken to reconcile the channels, e.g. Booking.com calling a dedicated
- *  workspace a "Desk" (review, 1 Oct round 4: "any decisions that have been made to homogenize the content put in an
+ *  workspace a "Desk" ("any decisions that have been made to homogenize the content put in an
  *  i icon with a tooltip for texts like this"). It is the product's shared tooltip (.h-tooltip-anchor + .h-tooltip),
  *  the same anchor the Tips panel's WHY sources use, never a second tooltip style.
  *  `side` is the phone form of the action (ds/mobile.md §8, images/38–39): a separate square icon button to the right of
@@ -220,7 +219,7 @@ export function AmenityRow({ name, scope, info, note, tag, tone = 'base', action
   )
 }
 
-/** A row in a channel's "Add amenities" drawer (review, 1 Oct round 4, reference screenshots): the amenity's name, its
+/** A row in a channel's "Add amenities" drawer: the amenity's name, its
  *  scope on the right — a channel mark when the amenity belongs to one channel, or the words when it is shared — and one
  *  trailing state icon. Not added = white row with a "+"; added = grey-filled row with a "✓". The whole row is the
  *  toggle (≥ 44px). `opens` marks an amenity that cannot be a one-tap yes because the channel wants structured
@@ -268,9 +267,9 @@ export function SectionHead({ title, desc, actions }: { title: ReactNode; desc?:
 }
 
 /* ---------------- NumberField: the one numeric control, product-wide ---------------- */
-/** review, 1 Oct: "when you have these numbers, you always have this type of selector that allows you to go up and
+/** "when you have these numbers, you always have this type of selector that allows you to go up and
  *  down with the keyboard — make sure that this is available in all of the items that are numbers."
- *  review, 3 Oct, with two crops of Hostaway's real money input: "All the money values should have the currency
+ *  "All the money values should have the currency
  *  before, then the up and down arrows small, not taking up the whole thing, styled exactly the same. The ones that are
  *  not money but are numbers: the up and down arrows work the same and sit at the same place."
  *
@@ -301,7 +300,7 @@ export function NumberField({
   unit?: ReactNode
   /** a grey end box after the field ("per stay", HS-33) */
   per?: ReactNode
-  /** the end box as a dropdown (Hostaway's Fees: "per stay ⌄", review 3 Oct) / the currency box as a dropdown ("€ ⌄") */
+  /** the end box as a dropdown (Hostaway's Fees: "per stay ⌄", ) / the currency box as a dropdown ("€ ⌄") */
   perSelect?: { value: string; options: string[]; onChange: (v: string) => void }
   currencySelect?: { value: string; options: string[]; onChange: (v: string) => void }
   label: string
@@ -353,7 +352,7 @@ export function NumberField({
       <input ref={setRef} className="h-input" inputMode={inputMode} value={value} aria-label={label} disabled={disabled} autoFocus={autoFocus}
         aria-invalid={invalid || undefined} aria-describedby={describedBy}
         onChange={(e) => onChange(e.target.value)} onKeyDown={onKeyDown}
-        // a number field is never left empty (review, 3 Oct: "if it's zero, put zero"): leaving it blank sets the minimum
+        // a number field is never left empty ("if it's zero, put zero"): leaving it blank sets the minimum
         onBlur={() => { if (!disabled && value.trim() === '') onChange(fmt(clamp(min))) }} />
       {word != null && <span className="h-numfield__unit">{word}</span>}
       {/* aria-hidden + tabIndex -1: the input already takes Up/Down, so these are a pointer affordance only and would

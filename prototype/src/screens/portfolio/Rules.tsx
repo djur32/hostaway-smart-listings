@@ -43,7 +43,7 @@ export function Rules() {
     from === 'fee' ? { channel: (q.get('channel') as ChannelId) ?? 'booking', field: 'cleaning-fee', scope: 'Berlin', picked: ['band'] }
       : from === 'titles' ? { channel: (q.get('channel') as ChannelId) ?? 'booking', field: 'title', scope: 'All properties', picked: ['superlatives', 'area'] }
         : from === 'strategy' ? { channel: 'airbnb', field: 'description', scope: 'Berlin', picked: ['transport'] }
-          : { channel: 'booking', field: 'description', scope: 'Berlin', picked: ['under', 'transport'] } // review's example, verbatim
+          : { channel: 'booking', field: 'description', scope: 'Berlin', picked: ['under', 'transport'] }
   const [channel, setChannel] = useState<ChannelId | 'all'>(pre.channel)
   const [scope, setScope] = useState(pre.scope)
   const [field, setField] = useState<Field>(pre.field)

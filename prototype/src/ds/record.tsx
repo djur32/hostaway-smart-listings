@@ -1,4 +1,4 @@
-/* Record patterns (S02 §10, D-023/D-024): source chip, sync state, override pin, fact row, provenance line.
+/* Record patterns (S02 §10, D-023/D-024): source chip, sync state, override pin, fact row, source line.
  * Used by every kind section (The home, Arrival & stay, Rules & booking, Pricing) — one fact-row pattern, one lens. */
 import type { ReactNode } from 'react'
 import { CHANNELS } from '../data/channels'

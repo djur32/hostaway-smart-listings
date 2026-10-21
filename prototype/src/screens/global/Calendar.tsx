@@ -32,7 +32,7 @@ function whereOf(from: string) {
   return t ? `${r.label} · ${t}` : r.label
 }
 
-/** `inProperty`: the property rail's Calendar (/property/:id/calendar, review 30 Sep: a normal link, not an external jump).
+/** `inProperty`: the property rail's Calendar (/property/:id/calendar, a normal link, not an external jump).
  *  Same calendar, scoped to that property, inside the property layout: no return chip and no property picker. */
 export function CalendarPage({ inProperty }: { inProperty?: boolean } = {}) {
   const [q] = useSearchParams()
@@ -43,7 +43,7 @@ export function CalendarPage({ inProperty }: { inProperty?: boolean } = {}) {
   const from = inProperty ? null : q.get('from')
   const showChip = !!(p && from && from.startsWith(`/property/${p.id}`))
   const rows = buildRows(s)
-  // review, 3 Oct: the property's Calendar is its own page in the property frame (HS-C01: months + docked sidebar)
+  // the property's Calendar is its own page in the property frame (HS-C01: months + docked sidebar)
   if (inProperty && p) return <PropertyCalendar p={p} />
   const row = p ? rows.find((r) => r.p.id === p.id) : undefined
   const price = (i: number, r: Row) => {

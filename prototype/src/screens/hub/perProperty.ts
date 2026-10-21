@@ -1,4 +1,4 @@
-/* Knowledge Hub · multi-property (QA B01/B02, review: "each property has its own separate data, modelled lightly, the
+/* Knowledge Hub · multi-property (QA B01/B02, "each property has its own separate data, modelled lightly, the
  * same on mobile and desktop"). Every Hub iteration (A–E, S) reads the active property through this file:
  *   · its listing channels (store/selectors useListingChannels; `hubChannels()` for code outside a component),
  *   · its items (`hubItems(pid)`: data/v3-kh khItems(), read at call time so S10's patched FIELDS show, with the

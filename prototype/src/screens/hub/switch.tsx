@@ -1,4 +1,4 @@
-/* Knowledge Hub iterations (review, 30 Sep: "four or five different iterations, and a dropdown to select which one to open").
+/* Knowledge Hub iterations ("four or five different iterations, and a dropdown to select which one to open").
  * ?v=a…e picks one; the choice is remembered for the session. Paper: "Hostaway v2" › KH · Knowledge Hub directions. */
 import { useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'

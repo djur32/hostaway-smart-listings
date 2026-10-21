@@ -1,4 +1,4 @@
-/* Channels › {channel} › Booking policies › Configure: a full-page step flow (Hostaway replica, review's screens 15–21).
+/* Channels › {channel} › Booking policies › Configure: a full-page step flow (Hostaway replica, the reference screens 15–21).
  * Routes (outside the app shell, like the import flow):
  *   /property/:id/ch/:channel/policies/configure/:step   cancellation · Airbnb: policy → non-refundable → review · Direct: policy → review
  *   /property/:id/ch/:channel/policies/long-term/:step   Airbnb long-term stays (28+ nights): policy → review
@@ -8,7 +8,7 @@
  * reload on any step keeps it and Confirm saves what Review shows (QA B14). Confirm and Cancel clear it.
  * Chrome = the shared full-screen wizard (ds/wizard.tsx, the Strategy wizard's): back · centred title · ×, brand progress
  * line, 800px question column, compact choice cards, Back / Continue footer — every step fits 1440×900 and 1280×800
- * without scrolling (review, 3 Oct: "homogenize the UI according to the other ones … no need to have things overflowing"). */
+ * without scrolling ("homogenize the UI according to the other ones … no need to have things overflowing"). */
 import { useEffect, useState, type ReactNode } from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import { NumberField, Pill, TopToast, useIsMobile, Wizard, WizardChoice, WizardChoices, WizardFoot, WizardQuestion, WizardSummary } from '../../../ds'
@@ -136,7 +136,7 @@ function Flow({ c, flow, steps, step, page, draftKey }: { c: ListingChannel; flo
               <p className="h-wz-label" id="nr-pct">Discount percentage</p>
               <div className="h-pct-field">
                 {/* NumberField (ds/v3-ch.tsx): the shared stepper + Up/Down keys every numeric field now has
-                    (review, 1 Oct). Same 0–100 clamp and same `pctBad` error as before. */}
+                   . Same 0–100 clamp and same `pctBad` error as before. */}
                 <NumberField label="Discount percentage" value={String(nr.pct)} unit="%" min={1} max={99} invalid={pctBad} describedBy="nr-pct-hint"
                   onChange={(next) => setDraft({ ...draft, nonRefundable: { ...nr, pct: Math.max(0, Math.min(100, Math.round(Number(next.replace(/\D/g, '')) || 0))) } })} />
                 off the standard rate

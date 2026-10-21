@@ -1,15 +1,15 @@
-<!-- 70-next · Systems & next, and the close · content (4 Oct, Notion v2): the story I'd hand Marketing, what Smart Listings sets off (Second-order effects: blast radius first) and what comes next (Roadmap: test and harden it, then import on the same Base, then optimisation over time; five kill criteria written before any result), and the first week. Field model per the deck's four cases (review, 4 Oct); the story card is On Airbnb, so it shows the three that occur there, and the channel-only example is Airbnb's check-in method, as in the prototype (prototype/src/data/sl3.ts). The fourth, set by the channel (Booking.com's description, behind a lock), is in the notes. Nothing here is observed: it is a plan, labelled as one. -->
+<!-- 70-next · Systems and handoff, and the close. The story I tell hosts, what Smart Listings sets off (second-order effects: blast radius first), the horizons of the service map, the five kill criteria written before launch, the handoff week, and the close. Field model per the four cases; the story card is On Airbnb, so it shows the three that occur there, and the channel-only example is Airbnb's check-in method, as in the prototype. The fourth, set by the channel (Booking.com's description, behind a lock), is in the notes. -->
 
 <section class="s" data-id="nx-story" data-title="The story, and the product" data-stage="6" data-part="next" data-path="St" data-angle="both" data-min="0.7" data-req="R-116 R-190" data-ground="white">
   <template class="hc-cover-tpl" data-stage="6">
-    <header class="hc-cover" aria-label="Next steps">
+    <header class="hc-cover" aria-label="Systems and handoff">
       <div class="opener">
-        <div class="opener__top"><h2 class="opener__name">Next steps</h2></div>
-        <p class="opener__vision">How would I tell it, what else does it change, and what comes after it?</p>
+        <div class="opener__top"><h2 class="opener__name">Systems and handoff</h2></div>
+        <p class="opener__vision">How do I tell it, what else does it change, and how does it hand off?</p>
         <div class="opener__foot">
-          <p class="opener__methods"><span class="opener__k">Methods</span><span>Systems mapping</span><span>Roadmapping</span><span>Pilot</span><span>Staged rollout</span></p>
+          <p class="opener__methods"><span class="opener__k">Methods</span><span>Systems mapping</span><span>Horizons</span><span>Kill criteria</span><span>Handoff</span></p>
           <div class="opener__out"><p class="opener__k">Outputs</p>
-            <p class="opener__outrow"><span class="hc-mark" data-mark="planned"></span><span class="opener__outs"><span>Second-order effects</span><span>Roadmap</span><span>Where it falls short</span><span>Smart Listings across Hostaway</span></span></p>
+            <p class="opener__outrow"><span class="hc-mark" data-mark="planned"></span><span class="opener__outs"><span>Second-order effects</span><span>Horizons</span><span>Open edges</span><span>Smart Listings across Hostaway</span></span></p>
           </div>
         </div>
       </div>
@@ -17,12 +17,12 @@
     </header>
   </template>
   <header class="s-head">
-    <p class="eyebrow" data-a="rise"><span>Next steps</span><span>Story and product</span></p>
+    <p class="eyebrow" data-a="rise"><span>Systems and handoff</span><span>Story and product</span></p>
     <h2 class="h2" data-a="rise" data-at="0.05">“Your listings, handled. And you still have the last word.”</h2>
   </header>
   <div class="s-body">
     <div class="stack" style="--gap-y: 22px">
-      <p class="nx-lvl" data-a="rise" data-at="0.14"><span class="nx-lvl__n">1</span>What I’d tell hosts</p>
+      <p class="nx-lvl" data-a="rise" data-at="0.14"><span class="nx-lvl__n">1</span>What hosts hear</p>
       <div class="hc-features nx-features" style="--n: 3" data-a="stagger" data-at="0.18">
         <article class="hc-feature" data-tint="blush">
           <div class="hc-feature__plate"><span class="hc-badge">One Base</span>
@@ -59,35 +59,41 @@
         </article>
       </div>
       <div class="nx-lvl2" data-a="rise" data-beat="1">
-      <p class="nx-lvl"><span class="nx-lvl__n">2</span>Where I’d take the product</p>
+      <p class="nx-lvl"><span class="nx-lvl__n">2</span>Where the product goes</p>
       <div class="nx-dir">
         <ul class="nx-dir__l">
           <li><svg><use href="#i-home"/></svg>The property around one Base</li>
           <li><svg><use href="#i-sparkles"/></svg>The assistant wherever the listing goes</li>
           <li><svg><use href="#i-topology-star-3"/></svg>Smart Listings across Hostaway</li>
         </ul>
-        <p class="nx-dir__n">Mapped next<svg><use href="#i-arrow-right"/></svg></p>
+        <p class="nx-dir__n">Mapped on the next slide<svg><use href="#i-arrow-right"/></svg></p>
       </div>
       </div>
     </div>
   </div>
-  <div class="s-foot"><p class="hc-src"><span>The assistant: hostaway.com</span><span>The product direction is a plan</span></p></div>
-  <aside class="notes"><p>This slide works on two levels. First, what I’d tell hosts: your listings, handled, and you still have the last word. Your facts live once. Every channel gets tips tuned to its own strategy, from the assistant, the assistant hosts already know. The assistant can apply tips within your guardrails, but money always asks, and every change gets a receipt. [Press] Second, where I’d take the product. This isn’t a feature launch. It reorganises the property around one Base. It puts the assistant wherever the listing is used. And it makes Smart Listings a capability across Hostaway. The next slide shows where it spreads.</p></aside>
+  <template class="more" data-more="why" data-title="Why this story, what I rejected, what limits it" data-label="Why this story">
+    <div class="more__panel" data-title="Why this story">
+      <div class="nx-run" data-a="stagger" data-s="1">
+        <div><p class="nx-lab"><svg><use href="#i-help-circle"/></svg>Rationale</p><p class="nx-txt">Hosts care about two promises: their facts once, and the last word. The story leads with both.</p></div>
+        <div><p class="nx-lab"><svg><use href="#i-git-compare"/></svg>Alternative</p><p class="nx-txt">A feature tour. Rejected, because it describes screens and not what changes for the host.</p></div>
+        <div><p class="nx-lab"><svg><use href="#i-lock"/></svg>Constraint</p><p class="nx-txt">Money always asks, so the story never promises hands-off pricing.</p></div>
+      </div>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span class="more-link" data-more="why">Why this story</span></p></div>
+  <aside class="notes"><p>This slide works on two levels. First, what hosts hear: your listings, handled, and you still have the last word. Your facts live once. Every channel gets tips tuned to its own strategy, from the assistant. The assistant can apply tips within your guardrails, but money always asks, and every change gets a receipt.</p><p>[Press] Second, where the product goes. This is not a feature launch. It reorganises the property around one Base, puts the assistant wherever the listing is used, and makes Smart Listings a capability across Hostaway. The next slide shows where it spreads.</p><p>I considered telling it as a feature tour and rejected it, because a tour describes screens and not what changes for the host. The constraint is that money always asks, so the story never promises hands-off pricing. About 40 seconds.</p></aside>
 </section>
 
 <section class="s" data-id="nx-roadmap" data-title="Smart Listings, across Hostaway" data-stage="6" data-part="next" data-path="St" data-angle="both" data-min="1.2" data-req="R-156 R-191" data-ground="white">
-  <!-- The service map (4 Oct, review: "a visual that shows how this implementation affects other future implementations and the product at large").
-       Flows from research/systems/product-map.md (1 to 18); horizons from roadmap.md and the Notion Roadmap page. Built = in the prototype, on sample data.
-       The four lines of work review named (comps per channel, a deeper Knowledge Hub, Performance over time, tips beyond the listing) are dashed: implied, not built.
-       Geometry and motion: 70-next.js. -->
+  <!-- The service map: how this design affects other areas and the product at large. Core = in the prototype, on sample data. The four lines of work (comps per channel, a deeper Knowledge Hub, Performance over time, tips beyond the listing) are dashed: implied, not drawn. Geometry and motion: 70-next.js. -->
   <header class="s-head">
-    <p class="eyebrow" data-a="rise"><span>Next steps</span><span>Service map</span></p>
+    <p class="eyebrow" data-a="rise"><span>Systems and handoff</span><span>Service map</span></p>
     <h2 class="h2" data-a="rise" data-at="0.05">Smart Listings is a system, not a screen</h2>
     <p class="hc-msg" data-a="rise" data-at="0.12">Facts kept once and one kind of tip can reach every part of Hostaway.</p>
-    <p class="s-legend nx-key" data-a="rise" data-at="0.16" aria-label="Legend"><span data-k><i class="nx-k is-built" aria-hidden="true"></i>Built</span><span data-k><i class="nx-k is-next" aria-hidden="true"></i>Next</span><span data-k><i class="nx-k is-later" aria-hidden="true"></i>Later</span><span data-k><i class="nx-k is-implied" aria-hidden="true"></i>Implied, not built</span></p>
+    <p class="s-legend nx-key" data-a="rise" data-at="0.16" aria-label="Legend"><span data-k><i class="nx-k is-built" aria-hidden="true"></i>Core</span><span data-k><i class="nx-k is-next" aria-hidden="true"></i>Extends</span><span data-k><i class="nx-k is-later" aria-hidden="true"></i>Reach</span><span data-k><i class="nx-k is-implied" aria-hidden="true"></i>Implied</span></p>
   </header>
   <div class="s-body">
-    <figure class="nx-map" data-w="1728" data-h="596" role="img" aria-label="Service map. At the centre, Smart Listings over Shared: the Listing base and the Knowledge Hub. Built: tips and the Base reach Airbnb, Booking.com and Direct sites. The guest assistant in the Inbox reads the same listing details, plus the host's own notes. Metrics sends results back. Next: Import fills the Base once. Implied and not built: similar homes per channel, Performance over time, a deeper Knowledge Hub, tips in the Calendar and in the Inbox. Later: receipts reach owner statements, strategy goals reach Dynamic Pricing, typed facts feed Google, the Guidebook, Operations, Devices and the API.">
+    <figure class="nx-map" data-w="1728" data-h="596" role="img" aria-label="Service map. At the centre, Smart Listings over Shared: the Listing base and the Knowledge Hub. Core: tips and the Base reach Airbnb, Booking.com and Direct sites. The guest assistant in the Inbox reads the same listing details, plus the host's own notes. Metrics sends results back. Extends: Import fills the Base once. Implied: similar homes per channel, Performance over time, a deeper Knowledge Hub, tips in the Calendar and in the Inbox. Reach: receipts reach owner statements, strategy goals reach Dynamic Pricing, typed facts feed Google, the Guidebook, Operations, Devices and the API.">
       <div class="nx-sh" data-node="shared"><p class="nx-sh__k">Shared</p></div>
       <div class="nx-sl" data-node="sl"><span class="nx-sl__i"><svg><use href="#i-sparkles"/></svg></span><span class="nx-sl__tx"><b>Smart Listings</b><span>strategy · tips · the assistant</span></span></div>
       <div class="nx-n nx-n--in" data-node="lb"><span class="nx-n__i"><svg><use href="#i-home"/></svg></span><span class="nx-n__t">Listing base</span></div>
@@ -113,9 +119,9 @@
       <div class="nx-n" data-node="dv" data-ring="3" data-y="457" data-w="162"><span class="nx-n__i"><svg><use href="#i-lock"/></svg></span><span class="nx-n__t">Devices</span></div>
       <div class="nx-n" data-node="api" data-ring="3" data-y="532" data-w="184"><span class="nx-n__i"><svg><use href="#i-topology-star-3"/></svg></span><span class="nx-n__t">API · MCP</span></div>
 
-      <p class="nx-ring" data-ring="1" data-y="578"><span>Built</span></p>
-      <p class="nx-ring" data-ring="2" data-y="578"><span>Next</span></p>
-      <p class="nx-ring" data-ring="3" data-y="578"><span>Later</span></p>
+      <p class="nx-ring" data-ring="1" data-y="578"><span>Core</span></p>
+      <p class="nx-ring" data-ring="2" data-y="578"><span>Extends</span></p>
+      <p class="nx-ring" data-ring="3" data-y="578"><span>Reach</span></p>
 
       <i class="nx-e" data-e="sl>ch" data-st="built" data-y0="150"><span>tips · the Base</span></i>
       <i class="nx-e" data-e="me>sl" data-st="built" data-y1="212"><span>results</span></i>
@@ -137,15 +143,15 @@
     </figure>
   </div>
 
-  <template class="more" data-more="gaps" data-title="Where it falls short: comps, the Knowledge Hub, tips" data-label="Falls short">
+  <template class="more" data-more="gaps" data-title="Open edges: comps, the Knowledge Hub, tips" data-label="Open edges">
     <div class="more__panel" data-title="Comps and the Hub">
       <div class="nx-gap" data-a="stagger" data-s="0.7">
         <div class="nx-gap__r is-h"><span></span>
           <div class="nx-gap__hd" data-tint="butter"><span class="nx-tile"><svg><use href="#i-home-2"/></svg></span><h3>Similar homes, per channel</h3><span class="nx-imp">Implied</span></div>
           <div class="nx-gap__hd" data-tint="blush"><span class="nx-tile"><svg><use href="#i-book"/></svg></span><h3>A deeper Knowledge Hub</h3><span class="nx-imp">Concept</span></div>
         </div>
-        <div class="nx-gap__r"><p class="nx-lab"><svg><use href="#i-eye"/></svg>Now</p><p class="nx-txt">Sample figures behind tips and Performance</p><p class="nx-txt">Questions and insights: a concept</p></div>
-        <div class="nx-gap__r"><p class="nx-lab"><svg><use href="#i-circle-dashed"/></svg>Missing</p><ul class="nx-chips is-gap"><li>Real data per channel</li><li>Legal terms</li></ul><ul class="nx-chips is-gap"><li>Real Inbox questions</li><li>Faithful answers only</li><li>Knows its workflows</li></ul></div>
+        <div class="nx-gap__r"><p class="nx-lab"><svg><use href="#i-eye"/></svg>Now</p><p class="nx-txt">Sample data behind tips and Performance</p><p class="nx-txt">Questions and insights: a concept</p></div>
+        <div class="nx-gap__r"><p class="nx-lab"><svg><use href="#i-circle-dashed"/></svg>Needs</p><ul class="nx-chips is-gap"><li>Real data per channel</li><li>Legal terms</li></ul><ul class="nx-chips is-gap"><li>Real Inbox questions</li><li>Faithful answers only</li><li>Knows its workflows</li></ul></div>
         <div class="nx-gap__r"><p class="nx-lab"><svg><use href="#i-list-details"/></svg>How</p><p class="nx-txt">Define “similar” with Data. Aggregates, never another host’s text</p><p class="nx-txt">Count Inbox questions. Answer only from the Listing base and confirmed Hub facts. Gaps become tips</p></div>
         <div class="nx-gap__r"><p class="nx-lab"><svg><use href="#i-users"/></svg>With</p><ul class="nx-chips is-team"><li>Data</li><li>Legal</li><li>Integrations</li></ul><ul class="nx-chips is-team"><li>AI and ML</li><li>CS</li><li>Data</li></ul></div>
         <div class="nx-gap__r"><p class="nx-lab"><svg><use href="#i-target"/></svg>Worked if</p><p class="nx-txt">Tips citing similar homes accepted, not reverted</p><p class="nx-txt">Fewer questions left open</p></div>
@@ -183,7 +189,7 @@
     </div>
   </template>
 
-  <template class="more" data-more="perf" data-title="Where it falls short: Performance" data-label="Performance">
+  <template class="more" data-more="perf" data-title="Open edge: Performance" data-label="Performance">
     <div class="more__panel" data-title="Over time">
       <div class="nx-perf">
         <figure class="nx-sketch" data-a="rise">
@@ -206,13 +212,13 @@
           </div>
         </figure>
         <div class="nx-rows" data-a="stagger" data-s="1">
-          <div><p class="nx-lab"><svg><use href="#i-circle-check"/></svg>Built</p><p class="nx-txt">One channel against the same days before. Eight cards, four charts</p></div>
-          <div><p class="nx-lab"><svg><use href="#i-circle-dashed"/></svg>Missing</p><ul class="nx-chips is-gap"><li>Strategy periods</li><li>A fair baseline</li><li>“Not enough data yet”</li></ul></div>
+          <div><p class="nx-lab"><svg><use href="#i-circle-check"/></svg>Specified</p><p class="nx-txt">One channel against the same days before. Eight cards, four charts</p></div>
+          <div><p class="nx-lab"><svg><use href="#i-circle-dashed"/></svg>Needs</p><ul class="nx-chips is-gap"><li>Strategy periods</li><li>A fair baseline</li><li>“Not enough data yet”</li></ul></div>
           <div><p class="nx-lab"><svg><use href="#i-chart-line"/></svg>Measure</p><ul class="nx-chips"><li>Bookings and requests</li><li>Nights booked ahead</li><li>Views → bookings</li><li>Rating</li></ul></div>
           <div><p class="nx-lab"><svg><use href="#i-eye"/></svg>Show</p><p class="nx-txt">Periods as bands, applied tips as dots, similar homes as the season</p></div>
         </div>
       </div>
-      <p class="hc-src"><span>A sketch with made-up weeks, to show the idea, not data</span></p>
+      <p class="hc-src"><span>Sample data</span></p>
     </div>
     <div class="more__panel" data-title="Acted on">
       <div class="nx-act">
@@ -232,22 +238,22 @@
     </div>
   </template>
 
-  <template class="more" data-more="road" data-title="The roadmap, with the four lines of work placed" data-label="Roadmap">
+  <template class="more" data-more="road" data-title="The horizons, with the four lines of work placed" data-label="Horizons">
     <div class="more__panel" data-title="Now, next, later">
       <div class="hc-features nx-road" style="--n: 3" data-a="stagger" data-s="1.4">
         <article class="hc-feature" data-tint="blush">
-          <div class="hc-feature__plate"><span class="hc-badge">Now</span>
+          <div class="hc-feature__plate"><span class="hc-badge">Core</span>
             <div class="hc-feature__halo"><div class="hc-mini">
-              <p class="hc-mini__r"><span class="hc-mini__l">Test programme</span><span class="hc-mini__s"><svg><use href="#i-users"/></svg>Hosts</span></p>
+              <p class="hc-mini__r"><span class="hc-mini__l">Experiment portfolio</span><span class="hc-mini__s"><svg><use href="#i-users"/></svg>Design</span></p>
               <p class="hc-mini__r"><span class="hc-mini__l">Per-field confirmation</span><span class="hc-mini__s"><svg><use href="#i-cloud-check"/></svg>Integrations</span></p>
               <p class="hc-mini__r"><span class="hc-mini__l">AI checked offline</span><span class="hc-mini__s is-ai"><svg><use href="#i-sparkles"/></svg>AI and ML</span></p>
               <p class="hc-mini__r"><span class="hc-mini__l">Performance events</span><span class="hc-mini__s"><svg><use href="#i-database"/></svg>Data</span></p>
             </div></div>
           </div>
-          <div class="hc-feature__body"><h3 class="hc-feature__t">Test and harden it</h3><p class="hc-feature__d">Real hosts first</p></div>
+          <div class="hc-feature__body"><h3 class="hc-feature__t">Specify and harden it</h3><p class="hc-feature__d">Experiments gate each change</p></div>
         </article>
         <article class="hc-feature" data-tint="butter">
-          <div class="hc-feature__plate"><span class="hc-badge">Next</span>
+          <div class="hc-feature__plate"><span class="hc-badge">Extends</span>
             <div class="hc-feature__halo"><div class="hc-mini">
               <p class="hc-mini__r"><span class="hc-mini__l">Import and setup</span><span class="hc-mini__s"><svg><use href="#i-cloud-upload"/></svg>Same Base</span></p>
               <p class="hc-mini__r"><span class="hc-mini__l">Similar homes</span><span class="hc-mini__s nx-imp">Implied</span></p>
@@ -255,18 +261,18 @@
               <p class="hc-mini__r"><span class="hc-mini__l">A deeper Knowledge Hub</span><span class="hc-mini__s nx-imp">Implied</span></p>
             </div></div>
           </div>
-          <div class="hc-feature__body"><h3 class="hc-feature__t">Import, and what it implies</h3><p class="hc-feature__d">North star: confirmed live in 7 days</p></div>
+          <div class="hc-feature__body"><h3 class="hc-feature__t">Import, and what it implies</h3><p class="hc-feature__d">Same Base, one new way in</p></div>
         </article>
         <article class="hc-feature" data-tint="mint">
-          <div class="hc-feature__plate"><span class="hc-badge">Later</span>
+          <div class="hc-feature__plate"><span class="hc-badge">Reach</span>
             <div class="hc-feature__halo"><div class="hc-mini">
-              <p class="hc-mini__r"><span class="hc-mini__l">Sequential tests</span><span class="hc-mini__s is-ok"><svg><use href="#i-git-compare"/></svg>Measured</span></p>
+              <p class="hc-mini__r"><span class="hc-mini__l">Sequential tests</span><span class="hc-mini__s is-ok"><svg><use href="#i-git-compare"/></svg>Per stage</span></p>
               <p class="hc-mini__r"><span class="hc-mini__l">The assistant widens</span><span class="hc-mini__s is-ai"><svg><use href="#i-sparkles"/></svg>Where it helps</span></p>
               <p class="hc-mini__r"><span class="hc-mini__l">Tips everywhere</span><span class="hc-mini__s is-ai"><svg><use href="#i-sparkles"/></svg>One contract</span></p>
               <p class="hc-mini__r"><span class="hc-mini__l">Typed facts</span><span class="hc-mini__s"><svg><use href="#i-topology-star-3"/></svg>API</span></p>
             </div></div>
           </div>
-          <div class="hc-feature__body"><h3 class="hc-feature__t">Optimise, then go wide</h3><p class="hc-feature__d">After the tests</p></div>
+          <div class="hc-feature__body"><h3 class="hc-feature__t">Optimise, then go wide</h3><p class="hc-feature__d">Once each rule is met</p></div>
         </article>
       </div>
       <div class="nx-reuse" data-a="stagger" data-s="0.8">
@@ -299,39 +305,39 @@
           <article class="nx-fx__r" data-tint="blush"><span class="nx-tile"><svg><use href="#i-message-circle"/></svg></span><div><h3 class="nx-fx__t">New support questions</h3><p class="nx-fx__d">Fewer “where do I edit?” tickets, more “why did the assistant change this?”</p></div></article>
         </div>
       </div>
-      <p class="hc-src"><span>Effects I expect. None observed, because nothing has shipped</span></p>
+      <p class="hc-src"><span>Effects the design anticipates</span></p>
     </div>
     <div class="more__panel" data-title="Kill criteria">
       <div class="nx-kill">
         <p class="nx-kill__h"><span></span><span>If this happens</span><span>Threshold</span><span>What I’d do</span></p>
         <ol class="nx-kill__rows" data-a="stagger" data-s="1.4">
           <li data-tint="butter"><span class="nx-tile"><svg><use href="#i-map-pin"/></svg></span><b class="nx-kill__w">Hosts can’t say where facts live</b><span class="nx-kill__t">Under 4 of 5, after two rounds</span><span class="nx-kill__do">Revisit the menu</span></li>
-          <li data-tint="blush"><span class="nx-tile"><svg><use href="#i-git-compare"/></svg></span><b class="nx-kill__w">Text varies per channel as often as money</b><span class="nx-kill__t">In real override data</span><span class="nx-kill__do">Per-channel text by default</span></li>
+          <li data-tint="blush"><span class="nx-tile"><svg><use href="#i-git-compare"/></svg></span><b class="nx-kill__w">Text varies per channel as often as money</b><span class="nx-kill__t">In override data</span><span class="nx-kill__do">Per-channel text by default</span></li>
           <li data-tint="mint"><span class="nx-tile"><svg><use href="#i-eye-off"/></svg></span><b class="nx-kill__w">It’s ignored, or tips aren’t trusted</b><span class="nx-kill__t">Under target, two quarters</span><span class="nx-kill__do">Stop investing in automatic tips</span></li>
-          <li data-tint="lavender"><span class="nx-tile"><svg><use href="#i-sparkles"/></svg></span><b class="nx-kill__w">AI copy reverted, or a channel strike</b><span class="nx-kill__t">Over 10%, or any strike</span><span class="nx-kill__do">Pause automatic tips for everyone</span></li>
+          <li data-tint="lavender"><span class="nx-tile"><svg><use href="#i-sparkles"/></svg></span><b class="nx-kill__w">AI copy undone, or a channel strike</b><span class="nx-kill__t">Over 15% undone, or any strike</span><span class="nx-kill__do">Pause automatic tips for everyone</span></li>
           <li data-tint="butter"><span class="nx-tile"><svg><use href="#i-file-text"/></svg></span><b class="nx-kill__w">Terms forbid automated updates</b><span class="nx-kill__t">Any channel</span><span class="nx-kill__do">Automatic tips off there. Tips stay</span></li>
         </ol>
       </div>
-      <p class="hc-src"><span>Thresholds set before any result</span></p>
+      <p class="hc-src"><span>Thresholds are set before launch</span></p>
     </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>Built: in the prototype, on sample data</span><span>Next and later: my plan, nothing measured</span><span class="more-link" data-more="gaps">Where it falls short</span><span class="more-link" data-more="perf">Performance</span><span class="more-link" data-more="road">Roadmap</span><span class="more-link" data-more="effects">What it sets off</span></p></div>
-  <aside class="notes"><p>Smart Listings only pays off as a system, not a screen. In the middle is what I built: Shared, which is the Listing base and the Knowledge Hub that reads it, with Smart Listings on top. The inner ring is in the prototype. Tips and the Base reach Airbnb, Booking.com and Direct. The guest assistant answers from the same facts. And results come back as Performance.</p><p>The next ring is where the build falls short, and I want to name it. Four lines of work are implied but not built. One: similar homes for each channel. Two: a deeper Knowledge Hub whose job is guests’ questions. It collects them from the Inbox, answers only from facts, shows what guests ask, turns gaps into tips, and knows which messages and tasks use each fact. Three: Performance a host can act on over time. Four: tips beyond the listing, in the Calendar and the Inbox first, all with one tip format. Import joins here, on the same Base.</p><p>The outer ring is later. Pricing reads the strategy’s goals. Owner statements read the receipts. And the Base’s facts and the Hub’s answers and insights feed the Guidebook, Operations, Devices, Google and the API. How I’d run each line of work is one click away. About 70 seconds.</p></aside>
+  <div class="s-foot"><p class="hc-src"><span class="more-link" data-more="gaps">Open edges</span><span class="more-link" data-more="perf">Performance</span><span class="more-link" data-more="road">Horizons</span><span class="more-link" data-more="effects">What it sets off</span></p></div>
+  <aside class="notes"><p>Smart Listings only pays off as a system, not a screen. In the middle is Shared, which is the Listing base and the Knowledge Hub that reads it, with Smart Listings on top. The inner ring is the core, drawn in the prototype on sample data. Tips and the Base reach Airbnb, Booking.com and Direct. The guest assistant answers from the same facts. And results come back as Performance.</p><p>The next ring extends it, and I name the open edges. Four lines of work are implied but not drawn. One: similar homes for each channel. Two: a deeper Knowledge Hub whose job is guests’ questions. It answers only from facts, shows what guests ask, turns gaps into tips, and knows which messages and tasks use each fact. Three: Performance a host can act on over time. Four: tips beyond the listing, in the Calendar and the Inbox first, all with one tip format. Import joins here, on the same Base.</p><p>The outer ring is reach. Pricing reads the strategy’s goals. Owner statements read the receipts. And the Base’s facts and the Hub’s answers feed the Guidebook, Operations, Devices, Google and the API.</p><p>I chose rings over a list because the order of dependence matters more than the date. The constraint is that every ring reuses the same fact, source and tip patterns. How each line of work runs is one click away. About 70 seconds.</p></aside>
 </section>
 
-<section class="s" data-id="cl-monday" data-title="What I'd do on Monday" data-stage="6" data-part="close" data-path="S" data-angle="none" data-min="0.75" data-req="R-191 R-013 R-189" data-ground="white">
+<section class="s" data-id="cl-monday" data-title="The handoff week" data-stage="6" data-part="close" data-path="S" data-angle="none" data-min="0.75" data-req="R-191 R-013 R-189" data-ground="white">
   <header class="s-head">
-    <p class="eyebrow" data-a="rise"><span>Close</span></p>
-    <h2 class="h2" data-a="rise" data-at="0.05">On Monday, I’d swap simulation for real answers</h2>
-    <p class="hc-msg" data-a="rise" data-at="0.12">Four things, one week. Every team gets its questions in writing. Friday’s readout decides what changes.</p>
+    <p class="eyebrow" data-a="rise"><span>Handoff</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">One week to hand the design to every team</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Four handoff packs. Every team gets its questions in writing, and Friday’s readout fixes owners.</p>
   </header>
   <div class="s-body">
     <div class="cl-plan">
       <ol class="cl-four" data-a="stagger" data-at="0.2" data-s="1">
-        <li><b class="cl-n">1</b><span>Benchmark today’s product</span></li>
-        <li><b class="cl-n">2</b><span>Ten stakeholder interviews</span></li>
-        <li><b class="cl-n">3</b><span>60 sales calls, two coders</span></li>
-        <li><b class="cl-n">4</b><span>Ticket and edit data</span></li>
+        <li><b class="cl-n">1</b><span>Design spec and prototype</span></li>
+        <li><b class="cl-n">2</b><span>Channel rules and tip contract</span></li>
+        <li><b class="cl-n">3</b><span>Experiment portfolio</span></li>
+        <li><b class="cl-n">4</b><span>Events, flags and kill switch</span></li>
       </ol>
       <div class="cl-week">
         <div class="cl-week__rows" data-a="mask" data-at="0.45">
@@ -345,37 +351,31 @@
           <span class="cl-lane" style="--r: 8">Legal</span>
           <span class="cl-lane is-hosts" style="--r: 9">Hosts</span>
         </div>
-        <p class="cl-c" style="--c: 2; --r: 2" data-a="rise" data-at="0.6"><b class="cl-n">2</b>Kick-off. Questions out</p>
-        <p class="cl-c" style="--c: 2; --r: 3" data-a="rise" data-at="0.66"><b class="cl-n">2</b>Owners and roadmap</p>
-        <p class="cl-c" style="--c: 2; --r: 6" data-a="rise" data-at="0.72"><b class="cl-n">4</b>Data access</p>
-        <p class="cl-c" style="--c: 3; --r: 2" data-a="rise" data-beat="1"><b class="cl-n">1</b>Benchmark set up</p>
+        <p class="cl-c" style="--c: 2; --r: 2" data-a="rise" data-at="0.6"><b class="cl-n">1</b>Kick-off. Spec walk-through</p>
+        <p class="cl-c" style="--c: 2; --r: 3" data-a="rise" data-at="0.66"><b class="cl-n">3</b>Owners for E1 to E7</p>
+        <p class="cl-c" style="--c: 2; --r: 6" data-a="rise" data-at="0.72"><b class="cl-n">4</b>Event list agreed</p>
+        <p class="cl-c" style="--c: 3; --r: 2" data-a="rise" data-beat="1"><b class="cl-n">1</b>Prototype handed over</p>
         <p class="cl-c" style="--c: 3; --r: 4" data-a="rise" data-beat="1" data-at="0.08"><b class="cl-n">2</b>What each channel accepts</p>
         <p class="cl-c" style="--c: 3; --r: 5" data-a="rise" data-beat="1" data-at="0.16"><b class="cl-n">2</b>What feeds the Hub</p>
-        <p class="cl-c" style="--c: 3; --r: 6" data-a="rise" data-beat="1" data-at="0.24"><b class="cl-n">2</b>Overrides, signals</p>
-        <p class="cl-c" style="--c: 3; --r: 7" data-a="rise" data-beat="1" data-at="0.32"><b class="cl-n">4</b>400 tickets</p>
-        <p class="cl-c is-host" style="--c: 3; --r: 9" data-a="rise" data-beat="1" data-at="0.4"><b class="cl-n">1</b>Recruiting with Marketing</p>
-        <p class="cl-c" style="--c: 4; --r: 2" data-a="rise" data-beat="2"><b class="cl-n">3</b>60 calls coded</p>
-        <p class="cl-c" style="--c: 4; --r: 6" data-a="rise" data-beat="2" data-at="0.08"><b class="cl-n">4</b>Usage exports</p>
-        <p class="cl-c is-host" style="--c: 4 / span 2; --r: 9" data-a="mask" data-beat="2" data-at="0.16"><b class="cl-n">1</b>Benchmark: 40 unmoderated, 5 moderated</p>
-        <p class="cl-c" style="--c: 5; --r: 2" data-a="rise" data-beat="3"><b class="cl-n">4</b>Tickets, edits read</p>
+        <p class="cl-c" style="--c: 3; --r: 6" data-a="rise" data-beat="1" data-at="0.24"><b class="cl-n">4</b>Metric definitions</p>
+        <p class="cl-c" style="--c: 3; --r: 7" data-a="rise" data-beat="1" data-at="0.32"><b class="cl-n">4</b>Ticket tags for guardrails</p>
+        <p class="cl-c is-host" style="--c: 3; --r: 9" data-a="rise" data-beat="1" data-at="0.4"><b class="cl-n">3</b>Audiences per experiment</p>
+        <p class="cl-c" style="--c: 4; --r: 2" data-a="rise" data-beat="2"><b class="cl-n">3</b>Hypotheses, MDEs, rules</p>
+        <p class="cl-c" style="--c: 4; --r: 6" data-a="rise" data-beat="2" data-at="0.08"><b class="cl-n">3</b>Sample sizes computed</p>
+        <p class="cl-c is-host" style="--c: 4 / span 2; --r: 9" data-a="mask" data-beat="2" data-at="0.16"><b class="cl-n">3</b>Test ladder: tasks and bars set</p>
+        <p class="cl-c" style="--c: 5; --r: 2" data-a="rise" data-beat="3"><b class="cl-n">4</b>Flag and kill switch spec</p>
         <p class="cl-c" style="--c: 5; --r: 7" data-a="rise" data-beat="3" data-at="0.08"><b class="cl-n">2</b>What needs a person</p>
         <p class="cl-c" style="--c: 5; --r: 8" data-a="rise" data-beat="3" data-at="0.16"><b class="cl-n">2</b>AI copy, channel terms</p>
-        <div class="cl-read" data-tint="blush" style="--c: 6; --r: 2 / span 7" data-a="pop" data-beat="4"><b class="cl-read__t">Readout</b><span class="cl-read__d">One page to every team: what I learned, what changes</span></div>
-        <p class="cl-c is-host" style="--c: 6; --r: 9" data-a="rise" data-beat="4" data-at="0.2"><b class="cl-n">1</b>Round 1 booked: 8 hosts</p>
+        <div class="cl-read" data-tint="blush" style="--c: 6; --r: 2 / span 7" data-a="pop" data-beat="4"><b class="cl-read__t">Readout</b><span class="cl-read__d">One page to every team: owners, dates, open questions</span></div>
+        <p class="cl-c is-host" style="--c: 6; --r: 9" data-a="rise" data-beat="4" data-at="0.2"><b class="cl-n">3</b>Usability round 1 scheduled</p>
       </div>
     </div>
   </div>
-  <div class="s-foot"><p class="hc-src"><span>My plan, not run. Sizes from the research plan and the test plan</span></p></div>
-  <aside class="notes"><p>Everything I’ve shown is designed and built, and the evidence about hosts is sampled. So on Monday I’d start making it real, with four things: a benchmark of today’s product, ten interviews with Hostaway’s own teams, the sales calls tagged properly, and the ticket and edit data. Monday is the kick-off with the Head of Product and the listing team. Every owner gets their open questions in writing. [Press] Tuesday, Integrations tells me what each channel accepts. AI and ML tell me what feeds the Knowledge Hub. Data tells me how often hosts override fields. [Press] Wednesday, sixty calls get tagged, checked by a second person, and the benchmark runs on today’s product. [Press] Thursday, CS and Legal. [Press] Friday, a one-page readout to every team, and round one of usability testing is booked with hosts.</p></aside>
+  <aside class="notes"><p>The design hands off in one week, in four packs: the design spec and prototype, the channel rules and tip contract, the experiment portfolio, and the events, flags and kill switch. Monday is the kick-off with product and the listing team. Every owner gets their open questions in writing. [Press] Tuesday, Integrations confirms what each channel accepts. AI and ML confirm what feeds the Knowledge Hub. Data fixes the metric definitions. [Press] Wednesday, hypotheses, minimum effects and decision rules are written for all seven experiments, and Data computes the sample sizes. [Press] Thursday, CS and Legal review the guardrails, the AI copy and the channel terms. [Press] Friday, a one-page readout to every team with owners, dates and open questions.</p><p>I chose a week of short, named handoffs over one long review, because each team can answer its own questions in a day. The constraint is that every experiment needs an owner before it can start. About 45 seconds.</p></aside>
 </section>
 
-<section class="s" data-id="cl-thanks" data-title="Thanks." data-stage="6" data-part="close" data-path="S" data-angle="none" data-min="0.15" data-req="R-189" data-ground="white" data-chrome="none" data-chrome-late="1" data-cover="1" data-bookend>
-  <!-- cl-thanks (4 Oct): the close. review: "a thank you to close. Something simple but meaningful, a little playful,
-       not super playful … The last one has to be 'Thanks.' That's it." The aubergine brand plate (kit/hc.css .hc-brand),
-       set like research/references/hostaway-marketing/brand-working-at.png: the word centred, the marks at the
-       plate's corners, the lockup on the bottom inset. A bookend: not counted against the 50 (R-185).
-       Motion (70-next.js): the plate settles, the word rises out of its mask, the rings and strokes draw, the blob and
-       the dots scale in. -->
+<section class="s" data-id="cl-thanks" data-title="Smart Listings" data-stage="6" data-part="close" data-path="S" data-angle="none" data-min="0.15" data-req="R-189" data-ground="white" data-chrome="none" data-chrome-late="1" data-cover="1" data-bookend>
+  <!-- cl-thanks: the close, a short statement on the aubergine brand plate (kit/hc.css .hc-brand), set like the cover plate: the words centred, the marks at the plate's corners, the lockup on the bottom inset. A bookend: not counted against the 50. Motion (70-next.js): the plate settles, the words rise out of their mask, the rings and strokes draw, the blob and the dots scale in. -->
   <div class="art art--full hc-brand cl-thanks__art" aria-hidden="true">
     <div class="hc-brand__plate">
       <i class="hc-brand__band" style="--x: -260px; --y: 260px; --w: 1700px; --h: 560px; --r: -22deg"></i>
@@ -392,8 +392,8 @@
     </div>
   </div>
   <div class="s-body cl-thanks">
-    <h2 class="hc-brand__t cl-thanks__t"><span class="cl-thanks__ln"><span>Thanks.</span></span></h2>
+    <h2 class="hc-brand__t cl-thanks__t"><span class="cl-thanks__ln"><span>Your listings, handled.</span></span><span class="cl-thanks__ln"><span>You keep the last word.</span></span></h2>
     <p class="hc-lockup cl-thanks__lockup"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#ch-hostaway"/></svg>hostaway</p>
   </div>
-  <aside class="notes"><p>That’s it. Thank you for your time, and for a brief I really enjoyed. I’d love to hear your questions, and what you’d push on first. About 10 seconds.</p></aside>
+  <aside class="notes"><p>Your listings, handled, and you keep the last word. That is the whole idea, and the rest of the deck is how it is designed, tested and measured. About 10 seconds.</p></aside>
 </section>

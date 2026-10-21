@@ -5,20 +5,10 @@
    declarative motion pass (data-a) reads the slides.
 
    What it does, once, at load:
-     · every slide gets an "In Notion ↗" link in its foot (resolved below)
-     · .hc-id tags become links when Notion knows the ID
-     · .hc-prov chips, .hc-mark output marks and .hc-signal meters get their words and bars
+     · .hc-signal meters and channel chips get their bars and marks
      · .hc-chart[data-chart] draws its chart from JSON (inline or data-src)
      · .hc-browser / .hc-phone get their chrome; .hc-live gets "Open live"
      · .hc-illo loads its illustration, or shows the quiet placeholder
-   and it answers N (open this slide in Notion; the engine dispatches deck:notion).
-
-   NOTION LINKS (src/data/notion-links.json; S17 fills "ids" from plan/NOTION.md)
-     a slide:  the first of its data-notion IDs that has a URL in "ids", else the first
-               page key in data-notion ("02-research"), else its data-notion-page, else
-               its part's page ("parts").
-     an ID:    "ids"[ID], else the database its prefix lives in ("prefixes").
-     nothing:  "Notion page pending", dashed, not a link.
 
    CHARTS  <figure class="hc-chart" data-chart="bar|funnel|matrix|journey|line|svg">
              <script type="application/json">{…}</script>   (or data-src="charts/x.json",
@@ -35,116 +25,18 @@ const SVGNS = 'http://www.w3.org/2000/svg';
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const json = (url) => fetch(url).then((r) => (r.ok ? r.json() : null)).catch(() => null);
 
-/* ── provenance words (CONVENTIONS §2) ────────────────────────────────────── */
-export const PROV = {
-  brief:      { label: 'From the brief',   full: 'stated in Hostaway\'s brief' },
-  product:    { label: 'Hostaway today', full: 'observed in the product' },
-  public:     { label: 'Public source',    full: 'a public source' },
-  simulated:  { label: 'Simulated',        full: 'generated to show the method, grounded in real signals' },
-  projected:  { label: 'Projected',        full: 'a forecast or target' },
-  assumption: { label: 'Assumption',       full: 'a belief to validate' },
-};
-/* what became of an output (the covers' Outputs, D-072): made here, made from a simulated sample,
-   or what I'd make with real access. Colours: produced = real, sampled = simulated, planned = gray. */
-export const MARK = {
-  produced: { label: 'Done',     full: 'Done in this case, on real sources' },   // the deck's words: Done · Sampled · Planned (4 Oct)
-  sampled:  { label: 'Sampled',  full: 'Made from a simulated sample, standing in for real research' },
-  planned:  { label: 'Planned',  full: 'What I would produce with real access; not produced under the case\'s constraints' },
-};
 const STRENGTH = { strong: 'Strong', moderate: 'Moderate', weak: 'Weak', hypothesis: 'Hypothesis' };
 
-/* ═══════════════════════════════════════════════════════════════ NOTION ══ */
-let LINKS = { slides: {}, lists: {}, details: {}, panels: {}, covers: {}, chips: {}, pages: {}, databases: {}, parts: {}, prefixes: {}, ids: {} };
-export function idUrl(id) {
-  if (LINKS.ids?.[id]) return LINKS.ids[id];
-  const pre = (id.match(/^([A-Z]+)-?\d/) || [])[1];
-  const db = pre && LINKS.prefixes?.[pre];
-  return (db && LINKS.databases?.[db]?.url) || '';
-}
-export function slideUrl(s) {
-  /* the condensed workspace first (review, 4 Oct: "link every slide to something related in here"):
-     data/notion-links.json "slides" maps a slide id to its page in Hostaway · Smart Listings */
-  const own = LINKS.slides?.[s.dataset?.id];
-  if (own?.url) return { url: own.url, what: own.title || s.dataset.id };
-  const ids = (s.dataset.notion || '').split(/[\s,]+/).filter(Boolean);
-  for (const id of ids) if (LINKS.ids?.[id]) return { url: LINKS.ids[id], what: id };
-  for (const id of ids) if (LINKS.pages?.[id]) return { url: LINKS.pages[id], what: id };   // a page key: "02-research"
-  const page = s.dataset.notionPage || LINKS.parts?.[s.dataset.part] || '';
-  if (page && LINKS.pages?.[page]) return { url: LINKS.pages[page], what: page };
-  return { url: '', what: page || ids[0] || '' };
-}
-function notionFoot(s) {
-  if (s.querySelector(':scope > .s-foot .hc-notion, :scope .hc-notion[data-auto]')) return;
-  if (s.hasAttribute('data-no-notion')) return;
-  const { url, what } = slideUrl(s);
-  const a = document.createElement(url ? 'a' : 'span');
-  a.className = 'hc-notion' + (url ? '' : ' is-pending'); a.dataset.auto = '';
-  if (!url) return;                                  // no page for this slide: no link (3 Oct, "remove where it doesn't apply")
-  a.href = url; a.target = '_blank'; a.rel = 'noopener'; a.title = `Open ${what} in Notion (N)`; a.textContent = 'Notion';
-  let foot = s.querySelector(':scope > .s-foot');
-  if (!foot) {
-    foot = document.createElement('div'); foot.className = 's-foot hc-foot';
-    s.insertBefore(foot, s.querySelector(':scope > aside.notes'));        // before the notes, else last
-  }
-  foot.append(a);
-}
-/* A foot that shows nothing (only the Notion link, now in the hint row, or a detail's hidden
-   build marker) gives its height back: hidden, so the body centres in the whole space
+/* A foot that shows nothing (only a detail's hidden build marker) gives its height back: hidden, so the body centres in the whole space
    (review, 3 Oct: "we have more available space at the bottom … centred to that space"). */
 function quietFoot(s) {
   const f = s.querySelector(':scope > .s-foot'); if (!f) return;
   const doors = new Set([...s.querySelectorAll('template[data-more]')].map((t) => t.dataset.more));
-  const c = f.cloneNode(true); c.querySelectorAll('.hc-notion, .more-link').forEach((n) => { if (n.matches('.hc-notion') || doors.has(n.dataset.more)) n.remove(); });
+  const c = f.cloneNode(true); c.querySelectorAll('.more-link').forEach((n) => { if (doors.has(n.dataset.more)) n.remove(); });
   if (!c.textContent.trim() && !c.querySelector('img, svg, video, canvas')) f.hidden = true;
 }
-function idLinks(scope) {
-  scope.querySelectorAll('span.hc-id').forEach((el) => {
-    const id = el.textContent.trim(), url = idUrl(id); if (!url) return;
-    const a = document.createElement('a');
-    a.className = el.className; a.href = url; a.target = '_blank'; a.rel = 'noopener'; a.title = `${id} in Notion`; a.textContent = id;
-    el.replaceWith(a);
-  });
-}
-let MORE_OPEN = null, MORE_PANEL = '';   // "slide-id/detail-id" and the panel's title while a detail is open (notionHint)
-/* while a part's cover is up (the first beat of its first slide), N goes to the part's section page */
-const coverUp = (s) => !!s?.querySelector?.(':scope > .hc-cover') && !(+s.dataset.beat > 0);
-function hereUrl(s) {
-  const detail = MORE_OPEN && (LINKS.panels?.[MORE_PANEL] || LINKS.details?.[MORE_OPEN] || LINKS.details?.[MORE_OPEN.replace(/\/[^/]*$/, '/*')]);
-  if (detail?.url) return { url: detail.url, what: detail.title || '' };
-  const cov = coverUp(s) && LINKS.covers?.[s.dataset.part];
-  if (cov?.url) return { url: cov.url, what: cov.title || '' };
-  return slideUrl(s);
-}
-/* every page worth opening from here: a detail's or a cover's own page, else the slide's list
-   (data/notion-links.json "lists", at most four), else its one page */
-function hereLinks(s) {
-  const one = hereUrl(s);
-  const detail = MORE_OPEN && (LINKS.panels?.[MORE_PANEL] || LINKS.details?.[MORE_OPEN] || LINKS.details?.[MORE_OPEN.replace(/\/[^/]*$/, '/*')]);
-  if (detail?.url || (coverUp(s) && LINKS.covers?.[s.dataset.part]?.url)) return one.url ? [{ url: one.url, label: one.what }] : [];
-  const list = LINKS.lists?.[s?.dataset?.id];
-  if (list?.length) return list.slice(0, 4).map((x) => ({ url: x.url, label: x.label || x.title, kind: x.kind || '' }));
-  return one.url ? [{ url: one.url, label: one.what }] : [];
-}
-function openNotion(s) {
-  const here = s || document.querySelector('.s.is-current') || document.body;
-  const links = hereLinks(here);
-  if (links.length > 1) { const w = document.querySelector('.hint-wrap--notion'); if (w) { w.classList.remove('is-shut'); w.classList.toggle('is-open'); } return; }
-  const url = links[0]?.url;
-  if (url) window.open(url, '_blank', 'noopener');
-}
-
 /* ═════════════════════════════════════════════════════════ SMALL PIECES ══ */
 function chips(scope) {
-  scope.querySelectorAll('.hc-prov').forEach((el) => {
-    const p = PROV[el.dataset.prov]; if (!p) { console.warn('[hc] unknown data-prov', el.dataset.prov, el); return; }
-    if (!el.textContent.trim()) el.textContent = p.label;
-    el.title ||= p.full; el.setAttribute('aria-label', p.full);
-  });
-  scope.querySelectorAll('.hc-mark[data-mark]').forEach((el) => {
-    const m = MARK[el.dataset.mark]; if (!m) { console.warn('[hc] unknown data-mark', el.dataset.mark, el); return; }
-    if (!el.textContent.trim()) el.textContent = m.label;
-    el.title ||= m.full;
-  });
   // channel chips carry the design system's marks (sprite: #ch-airbnb …); the dot stays as the fallback
   scope.querySelectorAll('.hc-ch[data-ch]').forEach((el) => {
     const mark = el.dataset.ch === 'direct' ? 'hostaway' : el.dataset.ch;         // Direct is Hostaway's own "o"
@@ -301,16 +193,6 @@ function covers(scope) {
     set('.opener__name', 'rise', '0.1'); set('.opener__vision', 'rise', '0.18');
     set('.opener__methods', 'stagger', '0.28'); set('.opener__out', 'rise', '0.4');
     const m = c.querySelector('.opener__methods'); if (m) m.dataset.s = '0.5';
-    /* every method and output opens its own Notion page (review, 4 Oct; data/notion-links.json "chips") */
-    const map = LINKS.chips?.[part] || {};
-    c.querySelectorAll('.opener__methods > span:not(.opener__k), .opener__outs > span').forEach((sp) => {
-      const hit = map[sp.textContent.trim()]; if (!hit?.url) return;
-      const a = document.createElement('a');
-      for (const at of sp.attributes) a.setAttribute(at.name, at.value);
-      a.classList.add('is-link'); a.href = hit.url; a.target = '_blank'; a.rel = 'noopener';
-      a.title = `${hit.label || hit.title} in Notion`;
-      a.append(...sp.childNodes); sp.replaceWith(a);
-    });
   }
 }
 
@@ -512,13 +394,13 @@ window.addEventListener('deck:fit', () => { fitScenes(document); });
 
 /* ═════════════════════════════════════════════════════════════════ BOOT ══ */
 export function prepare(scope = document) {
-  covers(scope); doodles(scope); chips(scope); frames(scope); lives(scope); illos(scope); idLinks(scope); flows(scope);
+  covers(scope); doodles(scope); chips(scope); frames(scope); lives(scope); illos(scope); flows(scope);
   return charts(scope);
 }
 /* the engine calls this on a detail panel as it opens (engine.js mountPanel) */
 window.__hcPrepare = (p) => { prepare(p); };
 
-[LINKS, EMBEDS, ILLOS, COVERS] = await Promise.all([json(`${R}data/notion-links.json`).then((x) => x || LINKS), json(`${R}data/embeds.json`).then((x) => x || {}),
+[EMBEDS, ILLOS, COVERS] = await Promise.all([json(`${R}data/embeds.json`).then((x) => x || {}),
   json(`${R}assets/illustrations/index.json`).then((x) => (Array.isArray(x) ? x : [])), json(`${R}data/covers.json`).then((x) => x || {})]);
 await flowsReady;                                    // a detail draws its diagram the moment it opens
 await prepare(document);
@@ -539,81 +421,7 @@ function bindSentenceStarts(s) {
     for (let n = w.nextNode(); n; n = w.nextNode()) n.nodeValue = n.nodeValue.replace(/([.?!:]) (\S+) /g, '$1 $2\u00a0');
   });
 }
-document.querySelectorAll('.deck > .s').forEach((s) => { bindSentenceStarts(s); soToFoot(s); notionFoot(s); quietFoot(s); });
-/* Notion lives in the hint row, next to Jump (review, 3 Oct): one link that follows the current slide,
-   hidden where a slide has no page. The per-slide foot links stay in the DOM (N and print read them), hidden. */
-(function notionHint() {
-  let a = null, wrap = null, pop = null;
-  const ensure = () => {
-    if (a?.isConnected) return a;
-    const hints = document.querySelector('.hints'); if (!hints) return null;
-    wrap = document.createElement('span'); wrap.className = 'hint-wrap hint-wrap--notion'; wrap.hidden = true;
-    a = document.createElement('a');
-    a.className = 'hint hint--notion'; a.target = '_blank'; a.rel = 'noopener';
-    a.innerHTML = '<kbd>N</kbd>Notion';                 // no arrow (review, 4 Oct)
-    pop = document.createElement('div'); pop.className = 'hint-pop npop'; pop.setAttribute('role', 'menu'); pop.setAttribute('aria-label', 'Open in Notion');
-    wrap.append(a, pop); hints.prepend(wrap);
-    /* with several pages the hint is only the door to its list: a click closes, never navigates */
-    a.addEventListener('click', (e) => { if (wrap.classList.contains('has-many')) e.preventDefault(); });
-    wrap.addEventListener('mouseleave', () => wrap.classList.remove('is-shut'));
-    return a;
-  };
-  const esc = (t) => String(t || '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
-  const sync = (slide) => {
-    const el = ensure(); if (!el) return;
-    let links = slide ? hereLinks(slide) : [];
-    if (!links.length) { const f = slide?.querySelector('.hc-notion[data-auto]'); if (f?.href) links = [{ url: f.href, label: f.title }]; }
-    wrap.hidden = !links.length; wrap.classList.remove('is-open');
-    if (!links.length) { el.removeAttribute('href'); return; }
-    el.href = links[0].url;
-    const many = links.length > 1;
-    wrap.classList.toggle('has-many', many);
-    el.title = many ? '' : (links[0].label ? `Open ${links[0].label} in Notion (N)` : 'Open in Notion (N)');
-    pop.innerHTML = many ? links.map((l) => `<a class="npop__it" role="menuitem" href="${esc(l.url)}" target="_blank" rel="noopener"><span class="npop__t">${esc(l.label)}</span><span class="npop__k">${esc(l.kind)}</span></a>`).join('') : '';
-  };
-  window.addEventListener('deck:beat', () => sync(document.querySelector('.deck > .s.is-current')));
-  window.addEventListener('deck:slide', (e) => sync(e.detail?.slide));
-  /* an open detail can point somewhere narrower ("details": "slide-id/detail-id" → page) */
-  window.addEventListener('deck:more', (e) => {
-    const d = e.detail || {}; if (d.print) return;
-    const slide = d.slide instanceof Element ? d.slide : document.querySelector('.deck > .s.is-current');
-    MORE_OPEN = d.open ? `${slide?.dataset.id}/${d.id}` : null;
-    MORE_PANEL = (d.open && (d.panel?.dataset?.title || d.panel?.getAttribute?.('data-title'))) || '';
-    sync(slide);
-  });
-  const first = () => sync(document.querySelector('.deck > .s.is-current') || null);
-  // the hint row is built by boot(), after this module has run: wait for it
-  let tries = 0;
-  const wait = () => { if (document.querySelector('.hints')) { first(); return; } if (tries++ < 60) setTimeout(wait, 100); };
-  wait();
-})();
-/* The prototype lives in the hint row too, left of Notion (review, 4 Oct): a solid dark chip, "Website" or "Mobile"
-   by the deployed project it opens, on slides whose data-proto names the exact screen they show (route and query).
-   It replaces the white "Open the website" pill that sat in the foot and pushed the source line right. */
-(function protoHint() {
-  let a = null;
-  const ensure = () => {
-    if (a?.isConnected) return a;
-    const hints = document.querySelector('.hints'); if (!hints) return null;
-    a = document.createElement('a'); a.className = 'hint hint--proto'; a.target = '_blank'; a.rel = 'noopener'; a.hidden = true;
-    hints.prepend(a);
-    return a;
-  };
-  const sync = (slide) => {
-    const el = ensure(); if (!el) return;
-    const url = slide?.dataset?.proto || '';
-    el.hidden = !url || coverUp(slide);
-    if (!url) { el.removeAttribute('href'); return; }
-    const mobile = /-mobile(\.|-)/.test(new URL(url, location.href).hostname);
-    el.href = url; el.textContent = mobile ? 'Mobile' : 'Website';
-    el.title = mobile ? 'Open this screen on the mobile site' : 'Open this screen on the website';
-  };
-  window.addEventListener('deck:beat', () => sync(document.querySelector('.deck > .s.is-current')));
-  window.addEventListener('deck:slide', (e) => sync(e.detail?.slide));
-  let tries = 0;
-  const wait = () => { if (document.querySelector('.hints')) { sync(document.querySelector('.deck > .s.is-current')); return; } if (tries++ < 60) setTimeout(wait, 100); };
-  wait();
-})();
+document.querySelectorAll('.deck > .s').forEach((s) => { bindSentenceStarts(s); soToFoot(s); quietFoot(s); });
 document.fonts.ready.then(() => {
   /* lay every slide out once (hidden slides skip layout), so each fits and balances before it is shown */
   document.documentElement.classList.add('is-measuring');
@@ -621,7 +429,6 @@ document.fonts.ready.then(() => {
   document.documentElement.classList.remove('is-measuring');
 });
 
-addEventListener('deck:notion', (e) => openNotion(e.detail?.slide));
 document.addEventListener('click', (e) => {
   const go = e.target instanceof Element && e.target.closest('.hc-live__go');
   if (go) { e.stopPropagation(); goLive(go.closest('.hc-live')); }

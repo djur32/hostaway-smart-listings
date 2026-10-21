@@ -1,26 +1,25 @@
 /* ============================================================================
-   70 · NEXT STEPS · the service map (4 Oct).
+   70 · SYSTEMS AND HANDOFF · the service map.
 
-   review, 4 Oct: "In the deck I want a service map: a visual that shows how this
-   implementation affects other future implementations and the product at large."
+   The service map: a visual that shows how this design affects other areas and the product at large.
 
      nx-roadmap   Smart Listings and Shared at the centre, the product areas on three
-                  rings around them: Built (in the prototype), Next, Later. Each wire says
+                  rings around them: Core (in the prototype), Extends, Reach. Each wire says
                   what flows (facts, tips, goals, results, receipts) and is drawn in its
                   status: solid, dashed raspberry, dotted. The four lines of work the build
-                  implies but doesn't do sit on the Next ring with a dashed raspberry outline.
+                  implies but doesn't do sit on the Extends ring with a dashed raspberry outline.
 
    The words live in the HTML (70-next.html): nodes are .nx-n[data-node] with data-ring and
    data-y (and data-w), wires are .nx-e[data-e="from>to"] whose text is the wire's label.
    This module only places them: a node's x is read off its ring (an ellipse around the hub),
    and every wire is computed from the boxes. It runs at import, before the engine boots, so
-   the geometry is part of the HTML the engine snapshots, and motion off, print and the Notion
+   the geometry is part of the HTML the engine snapshots, and motion off, print and the static
    render (qa/svcmap/render.mjs) all show the finished map.
 
    Motion (enter): the hub pops, then each ring as a ladder: its band draws, its wires draw from
    their source, a node pops (at full colour, from a little smaller) as its wire reaches it, and
    the labels pop as the wire passes. Nothing fades and nothing is dimmed. Settles in about 2 s.
-   Sources: research/systems/product-map.md (flows 1 to 18), roadmap.md, the Notion Roadmap page.
+   Source: research/systems/product-map.md (flows 1 to 18).
    ========================================================================= */
 import { Deck } from '../kit/engine.js';
 import { motionScale } from '../kit/motion.js';
@@ -209,14 +208,14 @@ Deck.define('nx-roadmap', {
   },
 });
 
-/* ── cl-thanks: the close on the brand plate (4 Oct). The plate settles (a slight scale), the word rises out of its
+/* ── cl-thanks: the close on the brand plate (4 Oct). The plate settles (a slight scale), the words rise out of their
    mask, the lockup scales in, the blob and the dots scale in from nothing; the rings and strokes draw themselves
    (data-a="draw"). Nothing fades. The CSS rests on the final state, so motion off and print show the finished plate. */
 Deck.define('cl-thanks', {
   enter(api) {
     const plate = api.q('.hc-brand__plate'); if (!plate) return null;
     const k = K();
-    // 4 Oct (Antonio): the close is the cover in reverse. It starts as the windowed plate (the same inset as every
+    // The close is the cover in reverse. It starts as the windowed plate (the same inset as every
     // plate under the bar), grows to full screen, and then the chrome leaves (deck.css, data-chrome-late).
     const py = parseFloat(getComputedStyle(plate).getPropertyValue('--plate-y')) || 76;
     return api.tl()

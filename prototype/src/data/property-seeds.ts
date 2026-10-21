@@ -1,4 +1,4 @@
-/* Light per-property seeds (QA B01/B02; review: "model them lightly"). .
+/* Light per-property seeds (QA B01/B02; "model them lightly"). .
  * Neukölln (PROPERTY_ID) stays the deep, scripted scenario: its data lives in data/sl3.ts, data/v3-ch.ts, data/v3-cv.ts
  * and data/v3-kh.ts, untouched. Every other property in PORTFOLIO gets a short, factual profile here, and from it:
  *   · the imported listing (each field's Base value, plus a channel's own value where the field is per channel),
@@ -125,7 +125,7 @@ export const PROFILES: Record<string, PropertyProfile> = {
 }
 export const profileOf = (pid: string): PropertyProfile | undefined => PROFILES[pid]
 
-/** Properties whose Knowledge Hub has never been generated (review, 1 Oct: "3 or 4 of the existing properties should
+/** Properties whose Knowledge Hub has never been generated ("3 or 4 of the existing properties should
  *  have no knowledge base"). Their Hub opens on the real empty state and runs the creation process (refs kh-next/01–02). */
 export const NO_KNOWLEDGE_BASE: readonly string[] = ['charlottenburg-classic', 'moabit-studio', 'treptow-riverside', 'potsdam-lake']
 

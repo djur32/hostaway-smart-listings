@@ -53,7 +53,7 @@
    2026-09-25). The appendix isn't in the navigation, so it keeps its A1…A14 label. */
 .s:not([data-stage="8"]) .eyebrow__stage { display: none; }
 html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before { content: none; }
-.eyebrow > * + :not(.prov)::before {
+.eyebrow > * + *::before {
   content: ""; display: inline-block; width: 18px; height: 1px; background: var(--ink-4);
   vertical-align: middle; margin-right: 20px; transform: translateY(-2px);
 }
@@ -424,18 +424,6 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
 .device__frame > .vid { aspect-ratio: 786 / 1704; object-fit: cover; object-position: top; border-radius: var(--r-phone); }
 .shot > .vid { border-radius: var(--r-2); box-shadow: 0 0 0 1px var(--shot-ring), var(--shadow-1); }
 
-/* ── provenance: where a thing on the wall comes from ─────────────────────
-   record        from the case, as published
-   recon         a real method, its visual rebuilt (as the portfolio does)
-   plan          the method designed onto this project: how I'd run it     */
-.prov { display: inline-flex; align-items: center; gap: 8px; height: 26px; padding: 0 12px 0 10px; border-radius: var(--r-pill);
-  border: 1px solid var(--line); font: 500 12px / 1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); white-space: nowrap; }
-.prov::before { content: ""; width: 9px; height: 9px; border-radius: 50%; flex: none; }
-.prov--record::before { background: var(--accent); }
-.prov--recon::before  { background: linear-gradient(90deg, var(--accent) 50%, transparent 50%); box-shadow: inset 0 0 0 1.5px var(--accent); }
-.prov--plan::before   { box-shadow: inset 0 0 0 1.5px var(--ink-3); }
-.prov--plan { border-style: dashed; }
-
 /* ── coverage: the brief's own list for a stage, each item with its evidence ── */
 .cover { display: grid; border-top: var(--hair) solid var(--line-2); }
 .cover__i { display: grid; grid-template-columns: minmax(0, 300px) 190px minmax(0, 1fr) 28px; gap: var(--s-3); align-items: center;
@@ -751,7 +739,7 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
 .tag--plan { border-style: dashed; color: var(--ink-3); }
 
 /* .artefact · what a study left behind: a small drawing (data-glyph, kit/glyphs.js),
-   a title and a fact. data-p="rec" or "recon" puts the provenance dot in its corner.
+   a title and a fact.
    .artefacts--sm lays each card flat (drawing left, words right) for dense rows. */
 .artefacts { display: flex; flex-wrap: wrap; gap: 12px; }
 .artefact { position: relative; display: grid; gap: 4px; align-content: start; width: var(--art-w, 184px); padding: 14px 16px 16px; border-radius: var(--r-2); border: var(--hair) solid var(--line); background: var(--surface); }

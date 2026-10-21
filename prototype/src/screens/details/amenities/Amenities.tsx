@@ -1,6 +1,6 @@
 /* Listing details › Amenities (ref 05): "Amenities" + "Add amenity", then the property's amenities by category. Each row is
  * a bordered card with separate square buttons: a trash for every amenity, a pencil for the ones with details (Washer,
- * parking…). No channel labels (review, 3 Oct: "We have the base, and off of the base others can act dissimilarly,
+ * parking…). No channel labels ("We have the base, and off of the base others can act dissimilarly,
  * but I don't need to see that here"): the 1 Oct "Not on Booking.com" exception flag is no longer shown on the Base. No Discard / Save here, as in
  * the real tab: adding, removing and editing details save (and send) right away, with the quiet confirmation. */
 import { useState } from 'react'

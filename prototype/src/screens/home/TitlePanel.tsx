@@ -70,7 +70,7 @@ export function TitlePanel({ channel, strategy, onClose }: { channel: ChannelId;
                 <div className="h-suggestion__refine">
                   {CHIPS.map((c) => <button key={c} className="h-refine-chip" onClick={(e) => { e.stopPropagation(); refine(c, o) }}><Icon name="wand" />{c}</button>)}
                 </div>
-                {/* The answer to a refine sits under the option it refines, not below the list (seen in S11 review). */}
+                {/* The answer to a refine sits under the option it refines, not below the list. */}
                 <div onClick={(e) => e.stopPropagation()}>
                   {note && <div className="h-ai-state h-ai-state--generating p-mt2"><Icon name="sparkles" /><div>{note}</div></div>}
                   {q && q.status !== 'answered' && <div className="p-mt2"><AskCard q={q} onAnswer={(a) => { s.answerQuestion(q.id, a); setAskId(null); setNote('Added to your home. Try the instruction again.') }} onLater={() => { s.deferQuestion(q.id); setAskId(null) }} /></div>}

@@ -1,4 +1,4 @@
-/* Drag to reorder (Hostaway replica, review 3 Oct: "Right now there is no dragging behaviour… It just isn't working").
+/* Drag to reorder (Hostaway replica, "Right now there is no dragging behaviour… It just isn't working").
  * Hostaway's own drag-to-reorder list (two screenshots review shared 3 Oct): a 6-dot grip on each
  * item, a light grey rounded square under it on hover with a grab hand; while dragging, the item follows the pointer
  * and the slot it will land in is a same-size placeholder with a light brand-tint fill and a 1px dashed brand-tint

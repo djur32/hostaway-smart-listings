@@ -16,7 +16,7 @@ import type { ListingChannel } from '../../data/sl3'
  *  already use (ds/sl3.tsx, ds/panels.tsx), so the overlay stays mounted for its own exit instead of cutting. */
 const TAKEOVER_EXIT_MS = 200
 
-/** Pattern A — full-screen takeover, review's pick for every channel (3 Oct), laid out like the real Hostaway
+/** Pattern A — full-screen takeover, the chosen pick for every channel (3 Oct), laid out like the real Hostaway
  *  "Manage photos" screen (HS-L04): a full-width top bar — bordered square back-chevron on the left,
  *  "Manage photos" centred, bordered square × on the right, a divider under it — then a centred container (about
  *  two-thirds of a desktop viewport) holding the H1 + subtitle with Re-order photos / Add, the count row and the
@@ -29,7 +29,7 @@ export function PhotosFullTakeover(p: { open: boolean; onClose: () => void; chan
   return useIsMobile() ? <PhotosSheet {...p} /> : <PhotosTakeover {...p} />
 }
 
-/** Phones: Manage photos is a full-screen bottom sheet (ds/mobile.md §7, review 5 Oct: every side panel is a sheet),
+/** Phones: Manage photos is a full-screen bottom sheet (ds/mobile.md §7, every side panel is a sheet),
  *  not a takeover with its own bar. Its close × goes through PhotosManager's dirty check like the desktop back / ×.
  *  The shell's dock (Discard / Save, Cancel / Save order, the selection bar) is lifted above the sheet and the sheet
  *  stops at its top edge (ds/v3/m-drawers.css); sheets opened from inside (Edit photo, Add photos, the unsaved

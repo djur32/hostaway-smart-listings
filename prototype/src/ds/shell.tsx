@@ -20,7 +20,7 @@ const LOGO = (
 )
 export const HostawayMark = () => LOGO
 
-/** Hostaway's chat bubble, always at the bottom right of the app shell (review, 3 Oct: "present at all times except in
+/** Hostaway's chat bubble, always at the bottom right of the app shell ("present at all times except in
  *  full-screen flows", and no behaviour — it opens nothing). Full-screen flows (the strategy wizard, the policy flow) are
  *  routes outside the shell, and the photos takeover covers it, so mounting it in AppShell is exactly that. */
 export function ChatFab({ docked }: { /** phones: rendered inside .h-m-dock, so it rides 16 above the tab bar or the Discard / Save bar, whichever is on top */ docked?: boolean } = {}) {
@@ -37,7 +37,7 @@ export function Sidebar({ active, collapsed: hostCollapsed, onToggle, persona, o
   home?: string
   /** Getting started's badge: the steps left in this account's setup. */
   gettingStarted?: number
-  /** Priya's account has no first-time setup (review, 4 Oct) */
+  /** Priya's account has no first-time setup */
   gettingStartedHidden?: boolean
 }) {
   const [open, setOpen] = useState(false)
@@ -67,10 +67,10 @@ export function Sidebar({ active, collapsed: hostCollapsed, onToggle, persona, o
       </div>
       <ul className="h-nav">
         {/* QA B25: Search opens the properties search; Getting started opens the connect flow (first-time setup starts there) */}
-        {/* review, 3 Oct: only Properties navigates (straight to the property); every other global item is shown but
-         * inert — the case study doesn't rebuild those parts. Getting started is inert too and loses its highlight (review, 3 Oct: "we don't want to do anything with that"). */}
+        {/* only Properties navigates (straight to the property); every other global item is shown but
+         * inert — this concept doesn't rebuild those parts. Getting started is inert too and loses its highlight ("we don't want to do anything with that"). */}
         <li><span className="h-nav__item is-inert" aria-disabled="true"><Icon name="search" /><span className="h-label">Search<span className="h-nav__kbd">⌘K</span></span></span></li>
-        {/* review, 4 Oct: Priya has no first-time setup, so Getting started is hidden for her account */}
+        {/* Priya has no first-time setup, so Getting started is hidden for her account */}
         {!gettingStartedHidden && <li><span className="h-nav__item is-inert" aria-disabled="true"><Icon name="trending-up" />{gettingStarted > 0 && <span className="h-nav__badge">{gettingStarted}</span>}<span className="h-label">Getting started</span></span></li>}
         <li className="h-nav__sep" aria-hidden="true" />
         {SIDEBAR.map((i) => (
@@ -111,7 +111,7 @@ export function Sidebar({ active, collapsed: hostCollapsed, onToggle, persona, o
       <div className="h-sidebar__footer">
         {account ?? <span className="h-avatar">AS</span>}
         <Icon name="sparkles" /><Icon name="heart-handshake" /><Icon name="help-circle" /><Icon name="sitemap" />
-        {/* review, 4 Oct: Settings is inert like the rest of the global chrome */}
+        {/* Settings is inert like the rest of the global chrome */}
         <Icon name="settings" />
       </div>
     </aside>
@@ -148,10 +148,10 @@ const Thumb = ({ p }: { p: Property }) => {
 }
 
 /** Property switcher (page head, top right): bordered trigger, no shadow; the menu opens under it at exactly its width,
- *  one 48px row per property with its photo (review 30 Sep; real menus: images/13, 23). */
+ *  one 48px row per property with its photo. */
 const STATUS_TEXT: Record<Property['status'], string> = { 'in-sync': 'In sync', 'needs-you': 'Needs you', 'sync-failed': 'Sync failed' }
 /** Property switcher (page head, top right): bordered trigger, no shadow; the menu opens under it at exactly its width,
- *  one 48px row per property with its photo (review 30 Sep; real menus: images/13, 23).
+ *  one 48px row per property with its photo.
  *  Phones (ds/mobile.md §4): the first thing on every property page, full width; tapping it opens a bottom sheet of the
  *  account's properties (photo, name, area · status, a check on the current one). `withMore` is kept for callers and
  *  ignored: the phones' "···" is gone (the page title opens the Sections sheet now). */
@@ -178,7 +178,7 @@ export function PropertiesSheet({ property, open, onClose, onPick }: { property:
 }
 
 /** QA B23: switching property keeps the section you're on (Listing, a Hub tab, Photos, Pricing?tab=…), not just Overview —
- *  except a channel section (/ch/<channel>/…) the target property doesn't have connected (review, 1 Oct: switching away
+ *  except a channel section (/ch/<channel>/…) the target property doesn't have connected (switching away
  *  from Booking.com to a property with no Booking.com shouldn't land on a dead Booking.com route — go to its Overview). */
 function useSameSection() {
   const nav = useNavigate()
@@ -257,7 +257,7 @@ export function PropertySwitcher({ property, onOpenSheet }: { property: Property
   )
 }
 
-/* ---------- the phones' page head (ds/mobile.md §4, review 4 Oct: one pattern for every property page) ----------
+/* ---------- the phones' page head (ds/mobile.md §4, one pattern for every property page) ----------
  * Top to bottom: the property selector (full width) · the title, which IS the section switcher (title + ⌄ opens the
  * Sections sheet; the separate section bar and the "···" are gone) with Tips at the right of the same row · the page's
  * own rows (Classic | Canvas, then anything else) · the page's tabs follow it. PageHead and PageHeader render this at
@@ -278,7 +278,7 @@ export function MobileHead({ title, lead, titleEnd, property, actions, right, su
   return (
     <HeadTipsSlot.Provider value={slot}>
       <header className="h-m-head">
-        {/* the property is picked in the Sections sheet, not on the page (review, 4 Oct); a page with no sheet keeps the selector */}
+        {/* the property is picked in the Sections sheet, not on the page; a page with no sheet keeps the selector */}
         {property && !openPropertyMenu && <PropertySwitcher property={property} />}
         <div className="h-m-head__titlerow">
           {lead && <span className="h-m-head__lead">{lead}</span>}

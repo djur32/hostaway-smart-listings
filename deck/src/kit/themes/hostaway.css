@@ -22,7 +22,7 @@
 :is(.label, .micro, .src, .kpi__s, .pull cite, .shot figcaption, .device figcaption, .device__cap,
     .embed__bar, .embed figcaption, .embed__go, .opener__k, .more-sheet__k, .more-sheet__ctl, .more-sheet__seg,
     .more-sheet__hint, .more-sheet__close, .palette__g h3, .plan__two em, .appbar, .appbar__back, .hints,
-    .lightbox__cap, .keys, .rows__n, .prov, .cover__i, .legend) {
+    .lightbox__cap, .keys, .rows__n, .cover__i, .legend) {
   text-transform: none; letter-spacing: 0;
 }
 .label { font-weight: var(--w-medium); color: var(--ink-3); }
@@ -90,17 +90,16 @@
 .appbar__folio::before { color: var(--ink-4); }
 .stage:not(.clock-on) .appbar__folio::before { content: none; }
 
-/* ────────────────────────────────────────────── hints and the byline ── */
-/* One quiet row at the foot of every slide (review, 3 Oct: "align … keys, next, jump … and
-   review Silva"): the byline on the left and Jump · Next · Keys on the right share one centre
-   line, one size and one colour. Personalising is gone from the deck (3 Oct). */
-.hints, .byline {
+/* ────────────────────────────────────────────── hints ── */
+/* One quiet row at the foot of every slide: Jump · Next on the right, one centre line, one size,
+   one colour. Keyboard shortcuts still work, they are not advertised. */
+.hints {
   bottom: var(--chrome-bottom); height: 32px; display: flex; align-items: center;
   font-family: var(--font-ui); font-size: 18px; font-weight: var(--w-medium); line-height: 1;
   color: var(--ink-3); letter-spacing: 0;
 }
 /* the hints a size up and dimmed: a light grey that darkens under the pointer (review, 3 Oct);
-   the byline keeps its grey, it is a name, not a control */
+   */
 .hints { gap: 26px; }
 .hint { display: inline-flex; align-items: center; gap: 9px; color: var(--color-gray-400); line-height: 1; transition: color var(--dur-1) var(--ease-io); }
 /* keys drawn the way the product draws "⌘K" in its search field: a small quiet cap */
@@ -112,10 +111,7 @@
 .hint__cmd { position: static; top: 0; font-size: 15px; line-height: 1; margin-right: 1px; }
 .hint:hover { color: var(--ink); }
 .hint:hover kbd { color: var(--ink-2); border-color: var(--color-gray-300); }
-/* the prototype door (kit/hc.css .hint--proto) is dark aubergine: its text stays white at rest, hover and focus (4 Oct) */
-.hint.hint--proto, .hint.hint--proto:hover, .hint.hint--proto:focus-visible { color: var(--color-text-white); }
-/* Keys and Notion open as pops right above their own hint, on hover (review, 4 Oct: "it's very far off
-   from the actual keys … make it hover based … any tap closes it"). One ground, one hairline, one shadow:
+/* a hint can carry a pop right above it, on hover. One ground, one hairline, one shadow:
    the pop is white whatever is behind it. A transparent bridge keeps the hover alive on the way up. */
 .hint-wrap { position: relative; display: inline-flex; align-items: center; }
 .hint-pop {
@@ -131,28 +127,8 @@
 .hint-wrap.is-shut > .hint-pop { display: none; }
 .hint-wrap:hover > .hint, .hint-wrap.is-open > .hint { color: var(--ink); }
 .hint-wrap:hover > .hint kbd, .hint-wrap.is-open > .hint kbd { color: var(--ink-2); border-color: var(--color-gray-300); }
-/* the Notion pop: at most four pages, each its title and what it is */
-.npop { min-width: 340px; padding: 10px; gap: 2px; }
-.hint-wrap:not(.has-many) > .npop { display: none; }
-.npop__it { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 18px; padding: 10px 14px; border-radius: 12px;
-  color: var(--ink); text-decoration: none; }
-.npop__it:hover, .npop__it:focus-visible { background: var(--plate-quiet); outline: none; }
-.npop__t { font: var(--w-medium) 17px / 1.3 var(--font-ui); color: var(--ink); white-space: normal; max-width: 300px; }
-.npop__k { font: var(--w-medium) 14px / 1.3 var(--font-ui); color: var(--color-gray-500); }
 /* a detail open: the hint row steps away with the slide (its keys showed through the scrim) */
 .stage.is-more .hints { visibility: hidden; }
-
-/* the byline: small capitals in the secondary grey, the quietest thing on the wall */
-.byline {
-  transform: none !important;
-  font-size: 14px; font-weight: var(--w-head); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3);
-  gap: 14px;
-}
-/* who, then what this is: the role left the top bar for the byline (review, 3 Oct) */
-.byline__name { font-weight: inherit; }
-.byline__role { padding-left: 14px; border-left: var(--hair) solid var(--color-gray-300); font-weight: var(--w-medium); line-height: 18px; }
-.byline__role i { font-style: normal; margin: 0 6px; }
-.stage[data-cover="1"] .byline { transform: none; }
 
 /* ─────────────────────────────────────────────────────── the grounds ── */
 /* One ground for the whole talk (review, 3 Oct: the jump from a coloured slide to a white one
@@ -163,10 +139,9 @@
 
 /* ───────────────────────────────────────────────── eyebrow and lens ── */
 /* sentence case, medium, secondary; the separators are the product's middle dot */
-/* the eyebrow is set like the footer's byline: caps, tracked, with a middle dot the size of the caps (review, 4 Oct:
-   "all caps, the same way as Head of Design · Case study", and "the dot is really small") */
+/* the eyebrow is set in caps, tracked, with a middle dot the size of the caps (review, 4 Oct: "the dot is really small") */
 .eyebrow { font-family: var(--font-ui); font-size: 15px; font-weight: var(--w-head); letter-spacing: 0.12em; text-transform: uppercase; gap: 0; color: var(--ink-3); line-height: 1; }
-.eyebrow > * + :not(.prov):not(.hc-prov):not(.hc-id)::before {
+.eyebrow > * + :not(.hc-id)::before {
   content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 50%; margin: 0 12px 0 calc(12px - 0.12em); transform: none; background: var(--ink-3);   /* equal space each side (the caps' tracking adds 0.12em after "Research") */
   vertical-align: calc(0.36em - 3px);   /* the dot's centre at the middle of the caps (a font's middle dot sat high) */
 }

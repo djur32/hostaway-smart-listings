@@ -28,7 +28,7 @@ export const topicLabel = (id: RTopicId) => R_TOPICS.find((t) => t.id === id)!.l
 export const topicIcon = (id: RTopicId) => R_TOPICS.find((t) => t.id === id)!.icon
 export const topicDesc = (id: RTopicId) => R_TOPICS.find((t) => t.id === id)!.desc
 
-/* ---------- the fact-type taxonomy (review, revision: "different types of facts… added in a way that is meaningful") ---------- */
+/* ---------- the fact-type taxonomy ---------- */
 export type RFactKind = 'yesno' | 'text' | 'number' | 'time' | 'steps' | 'contact' | 'place' | 'link'
 export const R_FACT_KINDS: Array<{ id: RFactKind; label: string; icon: string }> = [
   { id: 'yesno', label: 'Yes / No', icon: 'circle-check' },
@@ -42,7 +42,7 @@ export const R_FACT_KINDS: Array<{ id: RFactKind; label: string; icon: string }>
 ]
 export const kindOf = (id: RFactKind) => R_FACT_KINDS.find((k) => k.id === id)!
 
-/* ---------- where an added fact comes from (KH-NEXT-3.md, review: "if you add a fact and it comes from somewhere,
+/* ---------- where an added fact comes from (KH-NEXT-3.md, "if you add a fact and it comes from somewhere,
  * make sure you can choose that, and you should be able to see where something comes from") — a short fixed list, the
  * same vocabulary Sources.tsx already uses for what the AI reads ("Listing details", "Past guest conversations"), not
  * a new subsystem. The host picks one in the Add-fact flow; every fact (seeded or added) shows it via `RFactRow`'s
@@ -50,7 +50,7 @@ export const kindOf = (id: RFactKind) => R_FACT_KINDS.find((k) => k.id === id)!
 export const R_FACT_SOURCES = ['Told by the host', 'From a past guest conversation', 'From the listing', 'From a guidebook or document'] as const
 export type RFactSource = typeof R_FACT_SOURCES[number]
 
-/** A plain time list for the "Time" fact type (half-hour steps; no native time input, review's rule). */
+/** A plain time list for the "Time" fact type (half-hour steps; no native time input, the rule). */
 export const R_TIME_OPTIONS: string[] = (() => {
   const out: string[] = []
   for (let h = 6; h <= 23; h++) for (const m of [0, 30]) {
@@ -63,7 +63,7 @@ export const R_TIME_OPTIONS: string[] = (() => {
 
 /* ---------- question → topic remap (C/data.ts QUESTIONS + C/generic.ts genericQuestions ids) ----------
  * Suggested by R-BRIEF.md, adjusted where the content reads better elsewhere (noted inline). "Every question belongs to
- * exactly one topic" (Antonio). `p-week` is dropped outright (date-specific); `p-tomorrow` is reworded and re-answered
+ * exactly one topic". `p-week` is dropped outright (date-specific); `p-tomorrow` is reworded and re-answered
  * below, not dropped. */
 const QUESTION_TOPIC: Record<string, RTopicId> = {
   // amenities
@@ -92,7 +92,7 @@ const QUESTION_TOPIC: Record<string, RTopicId> = {
   // wifi/internet
   'a-wifi': 'wifi',
 }
-/** Dropped outright (review, 1 Oct: "don't talk about specific weeks"). */
+/** Dropped outright ("don't talk about specific weeks"). */
 export const DROPPED_QUESTIONS = new Set(['p-week'])
 /** Reworded away from a relative-to-today phrasing ("book for tomorrow" depends on when you ask). */
 export const REWORDED_TEXT: Record<string, string> = { 'p-tomorrow': 'How much notice do you need before a booking?' }
@@ -107,12 +107,12 @@ export const answerFor = (q: Question, r: Reader, c: ListingChannel): Answer => 
 /** Every question R shows: has a topic, isn't dropped. */
 export const rQuestions = (qs: Question[]) => qs.filter((q) => !DROPPED_QUESTIONS.has(q.id) && topicOf(q.id))
 
-/* ---------- the Contact topic's seed fact (review: "seed 1 new Contact-type fact… build it from profile data") ----------
+/* ---------- the Contact topic's seed fact ----------
  * No phone/email field exists anywhere in the data model (deterministic per property, not randomised, so it
  * reads the same every time). The name is real data (data/portfolio.ts detailOf().owner). */
 export function hostContactOf(pid: string): { name: string; phone: string; email: string } {
   const owner = detailOf(pid).owner
-  const name = owner === 'You' ? currentUser().name : owner // the signed-in host (audit, 4 Oct: it said Antonio)
+  const name = owner === 'You' ? currentUser().name : owner // the signed-in host
   let seed = 0
   for (const ch of pid) seed = (seed * 31 + ch.charCodeAt(0)) >>> 0
   const digits = String(2_000_000 + (seed % 7_999_999)).padStart(7, '0')

@@ -4,14 +4,14 @@
 /* ── ia-objects · the model as live nodes, wired (kit/links.js) ─────────────
    One colour meaning on the wall and in its detail (review, 4 Oct: "make the backgrounds
    meaningful"): blush soft plate + raspberry ring = a new object Hostaway lacks today;
-   white + gray hairline = from the brief, or exists today. Nothing else is tinted. */
+   white + gray hairline = exists today. Nothing else is tinted. */
 .ia-map { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: auto auto; column-gap: 92px; row-gap: 56px; align-items: stretch; width: 100%; max-width: 1660px; margin: 0 auto; }
 .ia-node { display: flex; flex-direction: column; gap: 10px; padding: 26px 28px 28px; border-radius: var(--r-3); background: var(--bg);
   box-shadow: 0 0 0 1px var(--line), 0 18px 40px -26px color-mix(in oklab, var(--color-sidebar-bg) 34%, transparent); }
 .ia-node__t { font: var(--w-head) 32px / 1.1 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
 .ia-node__d { font-size: 22px; line-height: 1.38; color: var(--ink-2); text-wrap: pretty; }
 .ia-node.is-new { background: var(--color-primary-50); box-shadow: 0 0 0 2px var(--accent), 0 18px 40px -26px color-mix(in oklab, var(--color-sidebar-bg) 34%, transparent); }
-/* the brief's open question sits in the gap the projection will fill, above the dashed wire */
+/* the open question sits in the gap the projection will fill, above the dashed wire */
 .ia-gap { justify-self: center; align-self: center; margin-bottom: 104px; text-align: center; font: var(--w-medium) 18px / 1.3 var(--font-ui); color: var(--ink-3); }
 /* how to read it, under Source and Property; the key on the same left edge, at the row's foot */
 .ia-read { display: flex; flex-direction: column; justify-content: space-between; gap: 28px; padding-right: 24px; }

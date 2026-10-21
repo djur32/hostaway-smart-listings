@@ -1,4 +1,4 @@
-/* Property › Calendar (rail › Calendar, /property/:id/calendar) · review, 3 Oct, replicating HS-C01 / HS-32.
+/* Property › Calendar (rail › Calendar, /property/:id/calendar) · replicating HS-C01 / HS-32.
  * Rendered inside the property shell (PropertyLayout's rail stays, Calendar stays marked), in the same frame as every
  * other property page: a fixed head — PageHead (title + property switcher), the page description, then the toolbar
  * (Preview dynamic pricing · Layers · Occupancy | Tasks) — and below it two columns that scroll on their own: the
@@ -26,7 +26,7 @@ export function PropertyCalendar({ p }: { p: Property }) {
   const q = (id: Panel) => { const n = new URLSearchParams(params); n.set('panel', id); return `?${n}` }
   const [layer, setLayer] = useState<'occupancy' | 'tasks'>('occupancy')
   // phones: the docked sidebar becomes a bottom sheet opened from the toolbar; the months take the full width
-  // (ds/mobile.md §7 — review, 3 Oct: "anything … in the form of a sidebar … on mobile has to be a bottom sheet")
+  // (ds/mobile.md §7 — "anything … in the form of a sidebar … on mobile has to be a bottom sheet")
   const mobile = useIsMobile()
   const [sheet, setSheet] = useState(false)
   const pv = usePriceView(p.id)
@@ -50,18 +50,18 @@ export function PropertyCalendar({ p }: { p: Property }) {
   return (
     <div className="ch-editor">
       <div className="ch-editor__head">
-        {/* phones: Occupancy | Tasks sits beside the title, like Classic | Canvas on Listing (review, 4 Oct) */}
+        {/* phones: Occupancy | Tasks sits beside the title, like Classic | Canvas on Listing */}
         <div className="ch-page"><PageHead title="Calendar" property={p}
           titleEnd={mobile ? <Segmented label="Show" value={layer} onChange={setLayer} items={[{ id: 'occupancy', label: 'Occupancy' }, { id: 'tasks', label: 'Tasks' }]} /> : undefined} desc={mobile
           ? 'Each night’s price and minimum stay.'
           : 'Each night’s price and minimum stay. The property’s pricing and availability settings are on the right.'} /></div>
         <div className="h-calp__bar" role="toolbar" aria-label="Calendar view">
-          {/* Occupancy | Tasks on the left, Preview and Layers pushed to the far right (review, 3 Oct) */}
+          {/* Occupancy | Tasks on the left, Preview and Layers pushed to the far right */}
           {!mobile && <Segmented label="Show" value={layer} onChange={setLayer} items={[{ id: 'occupancy', label: 'Occupancy' }, { id: 'tasks', label: 'Tasks' }]} />}
           <span className="h-calp__bar-spacer" />
           {/* look only (no handler): drawn without hover or a pointer, so they don't read as broken (cal.css .h-calp__inert).
-            * Desktop: the pair sits in a group exactly as wide as the sidebar's content, so Preview's left edge is the
-            * sidebar's left edge (review, 4 Oct). Phones keep them as direct toolbar children (their own order rules). */}
+            * Desktop: the pair sits in a group exactly as wide as the sidebar's content, so Pthe left edge is the
+            * sidebar's left edge. Phones keep them as direct toolbar children (their own order rules). */}
           {!mobile && (() => {
             const tools = <>
               <Button kind="ai" icon="eye" className="h-calp__inert" tabIndex={-1}>Preview dynamic pricing</Button>
@@ -79,7 +79,7 @@ export function PropertyCalendar({ p }: { p: Property }) {
         {!mobile && <aside className="h-calp__side" aria-label="Property settings">{side}</aside>}
       </div>
       {mobile && <BottomSheet open={sheet} title="Pricing & availability" onClose={() => setSheet(false)}><div className="h-calp__side h-calp__side--sheet">
-        {/* phones: Preview and Layers live with the settings they belong to, not in the page head (review, 4 Oct: too much info) */}
+        {/* phones: Preview and Layers live with the settings they belong to, not in the page head (too much info) */}
         <div className="h-calp__sheettools">
           <Button kind="ai" icon="eye" className="h-calp__inert" tabIndex={-1}>Preview dynamic pricing</Button>
           <Button icon="stack-2" className="h-calp__inert" tabIndex={-1}>Layers <span className="h-calp__count">2</span></Button>
@@ -131,7 +131,7 @@ function Month({ first, today, nightly, weekend, minStay, stays }: { first: Date
   )
 }
 
-/** Look only (review, 3 Oct): the Base rates are shown read-only, in Hostaway's own field, with where to change them;
+/** Look only: the Base rates are shown read-only, in Hostaway's own field, with where to change them;
  *  the drill-down rows are the real stack's rows without the drill-down (no pointer or hover, cal.css). */
 function PricingSide({ pv, nightly, weekend }: { pv: ReturnType<typeof usePriceView>; nightly: number; weekend: number }) {
   const b = (tab: Parameters<typeof pv.baseOf>[0], key: string) => pv.baseOf(tab, key)

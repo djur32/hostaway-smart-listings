@@ -24,8 +24,7 @@ import { useListingChannels } from '../../store/selectors'
 import { useStore, type FieldVisibility, type OvFieldKey } from '../../store/store'
 import { listingName, useSmartDemo } from './shared'
 
-/** One Show / Edit / Don't-show control for the whole category of shared fields (sharedFieldKeys) — review, 1 Oct
- *  third round, after seeing a per-field row for all 19: "nonsense… I just want to basically be able to toggle
+/** One Show / Edit / Don't-show control for the whole category of shared fields (sharedFieldKeys) — after seeing a per-field row for all 19: "nonsense… I just want to basically be able to toggle
  *  whether I want non-channel-specific fields to appear to be editable… it should be the same for all, either we
  *  see all of these, none of this, or we could edit them." One control, one value, applied to every qualifying
  *  field at once — no per-field or per-tab breakdown. The store stays per-field (`fieldVisibility:
@@ -127,9 +126,9 @@ export function PropertyOverview() {
       outcome: ['Fewer Questions', 'Higher Performance'], onSetUp: () => nav(`${base}/ch/airbnb/listing/essentials`) },
   ] as Opportunity[]).filter((o) => !dismissed.includes(o.id) && connected.includes(o.channel as ListingChannel))
 
-  // review, 3 Oct: no opportunities accordion on this page and "Review opportunities" is a plain label (nothing on click)
+  // no opportunities accordion on this page and "Review opportunities" is a plain label (nothing on click)
   /* QA B16: on before any setup = go to Setup; it turns on when Setup finishes (Setup.tsx finish()). Off keeps the setup,
-   * so turning it on again restores the same strategies; turning it off asks first and says so (review, 1 Oct). */
+   * so turning it on again restores the same strategies; turning it off asks first and says so. */
   const [confirmOff, setConfirmOff] = useState(false)
   const toggleSmart = (v: boolean) => {
     if (v && !sl3.setupDone) { nav(`${base}/smart/wizard?entry=first&from=overview`); return }
@@ -156,7 +155,7 @@ export function PropertyOverview() {
           <hr className="h-ov-divider" />
         </>}
 
-        {/* phones (review, 4 Oct): Groups, Rules and Activity are out of the case study's reach */}
+        {/* phones: Groups, Rules and Activity are out of this concept's reach */}
         {portfolio && !mobile && <>
           <OvSection title="Portfolio"
             desc={`One of your ${acct.properties.length} properties · ${groupById(portfolio.groupId).name} group · ${portfolio.owner === 'You' ? 'self-managed' : `owner ${portfolio.owner}`}`}
@@ -205,7 +204,7 @@ export function PropertyOverview() {
 
         <hr className="h-ov-divider" />
 
-        {/* review, 1 Oct: title, one line, the toggle. The strategies live under Smart Listings in the rail. */}
+        {/* title, one line, the toggle. The strategies live under Smart Listings in the rail. */}
         <OvSection title="Smart Listings"
           desc={firstTimer ? 'A strategy for each channel, and tips to improve every part of the listing. Available once first-time setup is done.' : 'A strategy for each channel, and tips to improve every part of the listing.'}
           action={firstTimer ? <Link className="h-textlink" to={`${base}/overview/needs-you`}>Finish first-time setup</Link> : <>

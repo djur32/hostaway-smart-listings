@@ -1,6 +1,6 @@
 /* WS-KH / WS-CH · channel changes: what was sent to each channel, and what is still waiting.
  *
- * Save = the commit (review, 30 Sep; QA A08). Saving a section in a channel editor (Listing, Pricing, Availability,
+ * Save = the commit. Saving a section in a channel editor (Listing, Pricing, Availability,
  * Photos, a Canvas popover, accepting a tip) writes the store AND sends that channel's saved changes straight away:
  * one receipt per change (channel, field, from → to, time), "Sent" for a moment, then "Live" (or "In review" for a
  * Booking.com name or description). Nothing sits in a silent queue.
@@ -297,7 +297,7 @@ export const ago = (t: number, now = Date.now()) => {
 }
 export const clockTime = (t: number) => { const d = new Date(t); return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}` }
 
-/* ---------- demo seed (?seed=tips): a realistic waiting list for screenshots and the Loom. . ----------
+/* ---------- demo seed (?seed=tips): a realistic waiting list for screenshots and demos. . ----------
  * The scenario property's (Neukölln) only: its tips and its Direct name. Other properties ignore ?seed=tips. */
 export const SEED_BASE: Record<string, string> = { checkout: '10:00 AM' }
 export const SEED_TIPS: Array<{ id: string; kb?: boolean }> = [{ id: 't-a-name', kb: true }, { id: 't-a-photos' }, { id: 't-a-summary' }, { id: 't-b-directions', kb: true }, { id: 't-b-photos' }, { id: 't-a-neigh', kb: true }]

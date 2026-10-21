@@ -1,6 +1,6 @@
 /* Strategy actions with their confirmations · WS-SL, 3 Oct. Used by Strategy (the channel rows) and the channel detail.
  * Pause and Remove each confirm in a dialog that says plainly what happens; Resume doesn't need one. (Putting back an
- * earlier strategy is gone with versions, review 3 Oct: edit or replace through the wizard instead.)
+ * earlier strategy is gone with versions, edit or replace through the wizard instead.)
  * Every action can be undone from the confirmation line: undo restores the strategy slice as it was (plans, channels,
  * pauses, sharing, the internal save record, mixes), so nothing is lost. */
 import { useState, type ReactNode } from 'react'

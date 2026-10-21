@@ -10,7 +10,7 @@ import { hubChannels, isScenarioActive } from '../../perProperty'
 const PER_CHANNEL = new Set(['override', 'inherit'])
 const clip = (v: string) => (v.length > 28 ? '' : ` · ${v}`)
 
-/** The caption's words: plain text, no channel logo (review, 30 Sep). */
+/** The caption's words: plain text, no channel logo. */
 export function captionOf(item: KhItem, s: Scope): { text: string; lock?: boolean } {
   if (s.only) return { text: `${NAME[s.only]} only` }
   const own = s.own.filter((o) => o.orig !== 'only')
@@ -100,7 +100,7 @@ export function Control({ item, value, write, disabled }: { item: KhItem; value:
     case 'tasks': return <TaskList value={value} onChange={w} disabled={disabled} />
     case 'money': case 'percent': case 'guests':
       return (
-        // NumberField (ds/v3-ch.tsx), review 3 Oct: € before the value, the unit as a plain word, the shared small arrows
+        // NumberField (ds/v3-ch.tsx), € before the value, the unit as a plain word, the shared small arrows
         <NumberField label={item.label} value={value} disabled={disabled} onChange={(v) => w(v.replace(/[^0-9.]/g, ''))}
           currency={item.kind === 'money' ? '€' : undefined} decimals={item.kind === 'money' ? 2 : 0} max={item.kind === 'percent' ? 100 : 99999}
           unit={item.kind === 'percent' ? '%' : item.kind === 'guests' ? (value === '1' ? 'guest' : 'guests') : undefined} />

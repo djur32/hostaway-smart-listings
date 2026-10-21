@@ -35,33 +35,33 @@
   --color-gray-900: #191b1f;
   --color-gray-950: #121417;
 
-  /* Primary · raspberry (brand) */
-  --color-primary-25: #fff8f9;
-  --color-primary-50: #fff0f2;
-  --color-primary-100: #ffe4e7;
-  --color-primary-200: #fdced5;
-  --color-primary-300: #fca5b4;
-  --color-primary-400: #f9738c;
-  --color-primary-500: #f24167;
-  --color-primary-600: #e1295a;
-  --color-primary-700: #bc1445;
-  --color-primary-800: #9d1440;
-  --color-primary-900: #87143d;
-  --color-primary-950: #4b061c;
+  /* Primary · Hostaway orange (brand). 500 = the logo fill #fd6300; 600 = the site button #b94d00 (white text 5.09:1) */
+  --color-primary-25: #fff7f2;
+  --color-primary-50: #fff1e8;
+  --color-primary-100: #ffeadd;
+  --color-primary-200: #ffd9c2;
+  --color-primary-300: #ffb98f;
+  --color-primary-400: #ff7a45;
+  --color-primary-500: #fd6300;
+  --color-primary-600: #b94d00;
+  --color-primary-700: #9c4000;
+  --color-primary-800: #7a3200;
+  --color-primary-900: #5e2700;
+  --color-primary-950: #3d1a00;
 
-  /* Secondary · grape (AI, plans, shell) */
-  --color-secondary-25: #fcf8ff;
-  --color-secondary-50: #faf5ff;
-  --color-secondary-100: #f2e6fe;
-  --color-secondary-200: #e9dafb;
-  --color-secondary-300: #d6c2f7;
-  --color-secondary-400: #b18ce2;
-  --color-secondary-500: #936acd;
-  --color-secondary-600: #8155be;
-  --color-secondary-700: #6b41a4;
-  --color-secondary-800: #4c3172;
-  --color-secondary-900: #321e52;
-  --color-secondary-950: #1a0a33;
+  /* Secondary · Hostaway teal (AI tips, plans). 400/600/800 read from hostaway.com; the other steps are derived (plan/BRAND.md) */
+  --color-secondary-25: #f6fcfb;
+  --color-secondary-50: #ecf9f7;
+  --color-secondary-100: #daf3ef;
+  --color-secondary-200: #b6e6df;
+  --color-secondary-300: #7fd3cb;
+  --color-secondary-400: #04b5b1;
+  --color-secondary-500: #049a97;
+  --color-secondary-600: #008380;
+  --color-secondary-700: #0b6e6b;
+  --color-secondary-800: #216359;
+  --color-secondary-900: #174a42;
+  --color-secondary-950: #0c2e29;
 
   /* Success */
   --color-success-25: #f8fcfb;
@@ -70,7 +70,7 @@
   --color-success-200: #b5e4d1;
   --color-success-300: #8dd1b5;
   --color-success-400: #6abf9c;
-  --color-success-500: #1d9e7a;
+  --color-success-500: #059669;
   --color-success-600: #188668;
   --color-success-700: #126e56;
   --color-success-800: #0c5745;
@@ -151,22 +151,22 @@
   --color-orange-900: #772917;
   --color-orange-950: #511c10;
 
-  /* Named hues (legacy palette, still used across the app) */
-  --color-grape: #9571c3;
-  --color-grape-lighter: #f6f0ff;
-  --color-grape-darker: #230b41;
-  --color-raspberry: #f69db4;
-  --color-raspberry-lighter: #fce6ec;
-  --color-raspberry-darker: #ed3c6a;
+  /* Named hues. Legacy names kept so every var() still resolves; values are now Hostaway: grape = teal, raspberry = orange tints, smoke/night = neutral + ink (plan/BRAND.md) */
+  --color-grape: #04b5b1;
+  --color-grape-lighter: #ecf9f7;
+  --color-grape-darker: #0c2e29;
+  --color-raspberry: #ffb98f;
+  --color-raspberry-lighter: #ffeadd;
+  --color-raspberry-darker: #b94d00;
   --color-grass: #afead2;
   --color-grass-lighter: #ebf9f3;
   --color-grass-darker: #47c693;
-  --color-smoke: #e5e2e9;
-  --color-smoke-lighter: #f8f7f9;
-  --color-smoke-darker: #d0cdd4;
-  --color-night: #5c576a;
-  --color-night-lighter: #b3afbb;
-  --color-night-darker: #17141c;
+  --color-smoke: #e5e7eb;
+  --color-smoke-lighter: #f5f5f5;
+  --color-smoke-darker: #d9d9d9;
+  --color-night: #465262;
+  --color-night-lighter: #b8c1cb;
+  --color-night-darker: #202030;
   --color-lemon: #ffdd6d;
   --color-lemon-lighter: #fff2c6;
   --color-lemon-darker: #ffc74c;
@@ -180,9 +180,9 @@
 
   /* Hostaway semantic tokens (verbatim) */
   --color-bg-blue-secondary: #f0f9ff;
-  --color-bg-brand-primary: #fff8f9;
-  --color-bg-brand-primary-secondary: #fff0f2;
-  --color-bg-brand-solid: var(--color-primary-500);              /* the main red, #f24167 (review, 3 Oct) */
+  --color-bg-brand-primary: #fff7f2;
+  --color-bg-brand-primary-secondary: #fff1e8;
+  --color-bg-brand-solid: var(--color-primary-600);              /* Hostaway orange fill with white text, #b94d00 (5.09:1) */
   --color-bg-disabled-subtle: #f9fafb;
   --color-bg-error-secondary: #ffeeeb;
   --color-bg-error-solid: #c02619;
@@ -190,23 +190,23 @@
   --color-bg-orange-secondary: #fef6ee;
   --color-bg-overlay: rgba(0, 0, 0, .1);
   --color-bg-quarternary: #414347;
-  --color-bg-secondary-brand-primary: #fcf8ff;
-  --color-bg-secondary-brand-secondary: #f7f0ff;
-  --color-bg-secondary-brand-solid: #8155be;
+  --color-bg-secondary-brand-primary: #f6fcfb;
+  --color-bg-secondary-brand-secondary: #ecf9f7;
+  --color-bg-secondary-brand-solid: #008380;
   --color-bg-success-primary: #f8fcfb;
   --color-bg-success-secondary: #f0faf5;
   --color-bg-success-solid: #188668;
   --color-bg-warning-secondary: #fff9e5;
   --color-bg-warning-solid: #b54708;
-  --color-border-bold: #53575b;
-  --color-border-brand: #f24167;
-  --color-border-brand-subtle: #ffe4e7;
+  --color-border-bold: #465262;
+  --color-border-brand: #fd6300;
+  --color-border-brand-subtle: #ffeadd;
   --color-border-error-subtle: #ffe1dc;
-  --color-border-primary: #d3d6da;
+  --color-border-primary: #d9d9d9;
   --color-border-quaternary: #f3f4f6;
-  --color-border-secondary: #e6e7ea;
+  --color-border-secondary: #e5e7eb;
   --color-border-secondary-alt: rgba(0, 0, 0, .05);
-  --color-border-secondary-brand-subtle: #f2e6fe;
+  --color-border-secondary-brand-subtle: #daf3ef;
   --color-border-secondary-on-dark: rgba(255, 255, 255, .1);
   --color-border-success-subtle: #dcf2e8;
   --color-border-tertiary: #e5e7eb;
@@ -215,22 +215,22 @@
   --color-surface-inverted: #414347;
   --color-surface-primary: #ffffff;
   --color-surface-secondary: #f9fafb;
-  --color-surface-tertiary: #f8f7f9;
-  --color-text-brand-primary: var(--color-primary-500);          /* the main red, #f24167 */
-  --color-text-brand-secondary: #8155be;
-  --color-text-disabled: #70747b;
+  --color-surface-tertiary: #f5f5f5;
+  --color-text-brand-primary: var(--color-primary-600);          /* orange text on white, #b94d00 (5.09:1) */
+  --color-text-brand-secondary: #008380;
+  --color-text-disabled: #6f6f6f;
   --color-text-error: #c02619;
   --color-text-error-primary: #c02619;
   --color-text-inverted: #ffffff;
-  --color-text-placeholder: #70747b;
-  --color-text-primary: #191b1f;
+  --color-text-placeholder: #6f6f6f;
+  --color-text-primary: #262626;
   --color-text-primary-dark: #f3f4f6;
-  --color-text-quaternary: #70747b;
-  --color-text-secondary: #53575b;   /* review 1 Oct: body / supporting text is only #191b1f (primary) or #53575b (muted); was #414347 */
+  --color-text-quaternary: #6f6f6f;
+  --color-text-secondary: #465262;   /* review 1 Oct: body / supporting text is only #191b1f (primary) or #53575b (muted); was #414347 */
   --color-text-secondary-dark: #e6e7ea;
   --color-text-secondary-hover: #3b3c40;
   --color-text-success-primary: #188668;
-  --color-text-tertiary: #53575b;
+  --color-text-tertiary: #465262;
   --color-text-tertiary-hover: #414347;
   --color-text-warning-primary: #b54708;
   --color-text-white: #ffffff;
@@ -255,7 +255,7 @@
   --shadow-md: 0 4px 6px -1px rgba(10, 13, 18, .1), 0 2px 4px -2px rgba(10, 13, 18, .06);
   --shadow-floating: 0 4px 6px -2px rgba(10, 13, 18, .05), 0 12px 16px -4px rgba(10, 13, 18, .1);
   --shadow-overlay: 0 8px 8px -4px rgba(10, 13, 18, .04), 0 20px 24px -4px rgba(10, 13, 18, .1), 0 0 0 1px var(--color-border-secondary);
-  --shadow-focus-brand: 0 0 0 4px rgba(225, 41, 90, .16);
+  --shadow-focus-brand: 0 0 0 4px rgba(253, 99, 0, .16);
   --shadow-focus-success: 0 0 0 4px rgba(24, 134, 104, .16);
   /* focused text field / select trigger (review's capture 30 Sep): grey border kept, 2px white gap, 2px gray-300 ring */
   --shadow-focus-neutral: 0 0 0 2px var(--color-surface-primary), 0 0 0 4px var(--color-gray-300);
@@ -263,45 +263,45 @@
   /* ────────────────────────────  2 · ROLES  ──────────────────────────── */
 
   /* ── App shell · sidebar (HS-22) ─────────────────────────────────────── */
-  --color-sidebar-bg: var(--color-secondary-950);              /* #1a0a33 ΔE0 */
-  --color-sidebar-item-active-bg: var(--color-secondary-900);  /* #321e52 ΔE0 · "Properties" */
+  --color-sidebar-bg: var(--color-night-darker);                /* Hostaway ink #202030 (read from hostaway.com) */
+  --color-sidebar-item-active-bg: #34344a;                      /* derived: ink #202030 lifted · "Properties" */
   --color-sidebar-item-hover-bg: rgba(255, 255, 255, .06);     /* — hover not captured */
   --color-sidebar-text: var(--color-text-white);                /* #ffffff */
-  --color-sidebar-icon: var(--color-grape);                     /* #9571c3 ΔE0 · icons, collapse, footer glyphs */
+  --color-sidebar-icon: var(--color-night-lighter);             /* #b8c1cb · icons, collapse, footer glyphs */
   --color-sidebar-divider: var(--color-border-secondary-on-dark);
-  --color-sidebar-badge: var(--color-primary-500);              /* "4" on Getting started · #e1295a ΔE0 */
-  --gradient-sidebar-highlight: linear-gradient(90deg, #331e53 0%, #5f3a94 100%); /* "Getting started" · sampled x=15…240 css */
-  --gradient-sidebar-card: linear-gradient(90deg, #331e53 0%, #6b41a4 100%);      /* trial card · ends at secondary-700 */
-  --color-sidebar-card-cta: var(--color-secondary-600);         /* "Subscribe to a plan" · #8155be ΔE0 */
+  --color-sidebar-badge: var(--color-primary-600);              /* "4" on Getting started · #b94d00, white text */
+  --gradient-sidebar-highlight: linear-gradient(90deg, #2c2c40 0%, #7a3200 100%); /* "Getting started" · ink to dark orange */
+  --gradient-sidebar-card: linear-gradient(90deg, #2c2c40 0%, #b94d00 100%);      /* trial card · ends at primary-600 */
+  --color-sidebar-card-cta: var(--color-primary-600);           /* "Subscribe to a plan" · #b94d00, white text */
 
   /* ── Property sub-nav rail (HS-22) ───────────────────────────────────── */
   --color-subnav-bg: var(--color-surface-primary);
-  --color-subnav-border: var(--color-border-primary);           /* #d3d6da ΔE0 */
-  --color-subnav-text: var(--color-text-primary);               /* #191b1f */
-  --color-subnav-text-active: var(--color-raspberry-darker);    /* #ed3c6a ΔE0.4 · "Details" */
+  --color-subnav-border: var(--color-border-primary);           /* #d9d9d9 */
+  --color-subnav-text: var(--color-text-primary);               /* #262626 */
+  --color-subnav-text-active: var(--color-raspberry-darker);    /* #b94d00 · "Details" */
   --color-subnav-icon: var(--color-smoke-darker);               /* #d0cdd4 ΔE0.4 */
   --color-link-back: var(--color-raspberry-darker);             /* "‹ Back" */
 
   /* ── Page & text ─────────────────────────────────────────────────────── */
   --color-bg-app: var(--color-surface-primary);                 /* content area is white */
   --color-bg-subtle: var(--color-surface-secondary);            /* #f9fafb · affixes, selection bar */
-  --color-text-strong: var(--color-text-primary);               /* #191b1f · titles, labels, values */
+  --color-text-strong: var(--color-text-primary);               /* #262626 · titles, labels, values */
   --color-text-muted: var(--color-text-tertiary);               /* #53575b · descriptions, tab labels, "1 channel" */
   --color-text-faint: var(--color-gray-400);                    /* #a0a5ab · placeholders, unlisted text */
   --color-text-disabled-ui: var(--color-gray-500);              /* #70747b · disabled button label */
-  --color-text-table-header: var(--color-night-lighter);        /* #b3afbb ΔE0 (HS-48) */
-  --color-text-calendar-muted: var(--color-night);              /* #5c576a (HS-32) */
+  --color-text-table-header: var(--color-night-lighter);        /* #b8c1cb (HS-48) */
+  --color-text-calendar-muted: var(--color-night);              /* #465262 (HS-32) */
 
   /* ── Borders & dividers ─────────────────────────────────────────────── */
-  --color-border-input: var(--color-border-primary);            /* #d3d6da ΔE0 · inputs, tab rail, tiles */
-  --color-border-card: var(--color-border-secondary);           /* #e6e7ea ΔE0 · radio cards, secondary buttons, empty-state card */
+  --color-border-input: var(--color-border-primary);            /* #d9d9d9 · inputs, tab rail, tiles */
+  --color-border-card: var(--color-border-secondary);           /* #e5e7eb · radio cards, secondary buttons, empty-state card */
   --color-border-divider: var(--color-smoke);                   /* #e5e2e9 ΔE0 · table rows, accordions */
   --color-border-ai: var(--color-smoke-darker);                 /* #d0cdd4 ΔE0.4 · Dynamic Pricing card */
 
   /* ── Actions ─────────────────────────────────────────────────────────── */
-  --color-action-primary: var(--color-primary-500);             /* Save, tab underline · #e1295a ΔE0 */
+  --color-action-primary: var(--color-primary-600);             /* Save · #b94d00, white text 5.09:1 */
   --color-action-primary-hover: var(--color-primary-700);       /* — hover not captured; next step of the scale */
-  --color-action-primary-legacy: var(--color-raspberry-darker); /* #ed3c6a · "Onboarding assistant", "Add amenity", "Configure", "Contact support" (older surfaces) */
+  --color-action-primary-legacy: var(--color-raspberry-darker); /* #b94d00 · "Onboarding assistant", "Add amenity", "Configure", "Contact support" (older surfaces) */
   --color-action-secondary-bg: var(--color-surface-primary);
   --color-action-secondary-border: var(--color-border-secondary);
   --color-action-secondary-hover-bg: var(--color-smoke-lighter);/* button__secondary:hover */
@@ -319,19 +319,19 @@
   --color-close-hover-border: var(--color-border-input);          /* #d3d6da · = h-btn--secondary:hover */
   --color-close-on-dark-border: var(--color-gray-500);            /* NEW · the toast's × on --color-bg-inverted */
   --color-close-on-dark-hover-bg: var(--color-alpha-white-10);    /* NEW */
-  --color-link-brand: var(--color-primary-500);                 /* underlined "Security deposit overview" · #f24167 ΔE0 */
+  --color-link-brand: var(--color-primary-600);                 /* underlined "Security deposit overview" · #b94d00 */
   --color-link-neutral: var(--color-gray-700);                  /* underlined "Review opportunities", "Edit per channel" · #414347 ΔE0 */
   --color-link-action: var(--color-link-neutral);                /* .h-link/.h-textlink rest, e.g. "Customize for Airbnb", "Use the Base" · #414347 ΔE0 (review, 1 Oct) */
   --color-link-action-hover: var(--color-gray-900);               /* .h-link/.h-textlink hover · #191b1f ΔE0 — body-text tokens are untouched, this is link/button text only */
-  --color-tab-underline: var(--color-primary-500);              /* 2px · #e1295a ΔE0 */
-  --color-floating-chat: var(--color-raspberry-darker);         /* bottom-right chat bubble · #ed3c6a */
+  --color-tab-underline: var(--color-primary-500);              /* 2px · #fd6300 */
+  --color-floating-chat: var(--color-raspberry-darker);         /* bottom-right chat bubble · #b94d00 */
   --color-notification-dot: var(--color-error-500);             /* chat bubble dot */
 
   /* ── Selection & form state ─────────────────────────────────────────── */
   --color-control-checked: var(--color-success-500);            /* checkbox (mdc) · #1d9e7a — HS-16 row is at 50% opacity */
   --color-control-radio: var(--color-success-600);              /* selected radio · #188668 ΔE0 */
   --color-focus-ring: var(--shadow-focus-neutral);              /* every keyboard focus ring is neutral grey (review, 1 Oct · QA B05); never brand pink or success green */
-  --color-dropdown-option-active-text: var(--color-secondary-700); /* "Amenities" in topic select · #6b41a4 ΔE0.6 */
+  --color-dropdown-option-active-text: var(--color-secondary-700); /* "Amenities" in topic select · #0b6e6b */
   --color-dropdown-option-active-bg: var(--color-gray-100);
   --color-scrim: rgba(0, 0, 0, .32);                            /* modal backdrop: 173/255 over white, 18/26 over sidebar → α≈.32 (Material default) */
   --opacity-row-inactive: .5;                                   /* unlisted/muted rows: #191b1f @ .5 = #8c8d8f exactly */
@@ -342,28 +342,28 @@
   --pill-recommended-text: var(--color-success-600);            /* #188668 ΔE0 */
   --pill-lead-bg: var(--color-success-25);                      /* "Lead listing" — same recipe as Recommended */
   --pill-lead-text: var(--color-success-600);
-  --pill-managed-bg: var(--color-secondary-600);                /* "Fully managed" · #8155be ΔE0, white text */
+  --pill-managed-bg: var(--color-secondary-600);                /* "Fully managed" · #008380, white text */
   --pill-new-bg: var(--color-primary-50);                       /* "New" (review, 3 Oct ref): the brighter Hostaway red on its light tint */
   --pill-new-border: var(--color-primary-100);
-  --pill-new-text: var(--color-primary-500);                    /* #f24167 */
+  --pill-new-text: var(--color-primary-700);                    /* #9c4000 on #fff1e8 */
   --pill-unlisted-bg: var(--color-gray-25);                     /* #fcfcfd ΔE0.4 */
   --pill-unlisted-border: var(--color-gray-200);
   --pill-unlisted-text: var(--color-gray-400);
   --badge-scoped-bg: var(--color-grass-darker);                 /* "Scoped" · #47c693 ΔE0 (badge-grass) */
-  --badge-count-bg: var(--color-raspberry-darker);              /* "All" · #ed3c6a (.badge) */
+  --badge-count-bg: var(--color-raspberry-darker);              /* "All" · #b94d00 (.badge) */
   --chip-filter-bg: var(--color-smoke-lighter);                 /* "Properties : Beautiful…" · #f8f7f9 ΔE0 */
   --chip-filter-text: var(--color-gray-400);
 
   /* ── Existing AI language (HS-30 Dynamic Pricing card) ──────────────── */
-  --color-ai-surface: var(--color-grape-lighter);               /* #f6f0ff ΔE0 */
+  --color-ai-surface: var(--color-grape-lighter);               /* #ecf9f7 */
   --color-ai-surface-hover: var(--color-secondary-100);         /* NEW · tip dot hover, parallel to --color-ai-refine-surface-hover */
   --color-ai-surface-subtle: var(--color-secondary-25);         /* NEW · lighter tint for large panels */
   --color-ai-border: var(--color-border-ai);
   --color-ai-border-strong: var(--color-secondary-300);         /* NEW · selected / focused AI element */
-  --color-ai-title: var(--color-grape-darker);                  /* #230b41 ΔE0 */
-  --color-ai-text-legacy: var(--color-grape);                   /* #9571c3 ΔE0 — 3.47:1 on the surface — fails AA for body copy */
-  --color-ai-text: var(--color-secondary-700);                  /* NEW · #6b41a4 — 6.45:1 on #f6f0ff, passes AA for body copy */
-  --color-ai-accent: var(--color-secondary-600);                /* NEW · #8155be — AI glyphs, meters, "AI-derived" chip */
+  --color-ai-title: var(--color-grape-darker);                  /* #0c2e29 */
+  --color-ai-text-legacy: var(--color-grape);                   /* #04b5b1, fails AA for body copy: glyphs only */
+  --color-ai-text: var(--color-secondary-700);                  /* NEW · #0b6e6b, 5.6:1 on the surface, passes AA for body copy */
+  --color-ai-accent: var(--color-secondary-600);                /* NEW · #008380 · AI glyphs, meters, "AI-derived" chip */
   --color-ai-sparkle: var(--color-grape);                       /* sparkle glyph, as in the sidebar footer */
 
   /* ── NEW · Smartify — orange AI-refine (ds/v3/smartify.css, prototype/src/ds/smartify.tsx) ──────
@@ -387,7 +387,7 @@
   --color-channel-booking: #273b7d;                             /* sampled ΔE0 vs the "B." glyph */
   --color-channel-booking-dot: #0896ff;                         /* — the "." in B. (too small to sample) */
   --color-channel-vrbo: #0885f2;                                /* sampled */
-  --color-channel-direct: var(--color-raspberry-darker);        /* Hostaway "o" mark */
+  --color-channel-direct: var(--color-primary-500);              /* Hostaway mark #fd6300 */
   --color-channel-expedia: #191e3b;                             /* Expedia navy, Simple Icons (CC0) from Expedia's brand portal — identification only */
   --color-channel-google: var(--color-gray-400);                /* — rendered mono/faded in lists */
   --color-channel-inactive-opacity: .35;                        /* faded glyphs on unconnected channels (HS-16) */
@@ -439,12 +439,12 @@
   --prov-assumption-bg: var(--color-gray-100);   --prov-assumption-text: var(--color-gray-700);
   /* NEW · Listing details: the property's source of truth (SourceOfTruthBanner). Same family as one step quieter */
   --prov-truth-bg: var(--color-success-25);      --prov-truth-text: var(--color-success-700);   --prov-truth-border: var(--color-success-100);
-  /* NEW · Listing details: the "+" that adds an amenity (Add amenity drawer). Raspberry tint = act, quieter than the primary */
+  /* NEW · Listing details: the "+" that adds an amenity (Add amenity drawer). Orange tint = act, quieter than the primary */
   --color-amenity-add-bg: var(--color-primary-50);   --color-amenity-add-bg-hover: var(--color-primary-100);   --color-amenity-add-icon: var(--color-primary-500);
 
   /* ── Onboarding & import (HS-01…15) ─────────────────────────────────── */
-  --color-onboarding-bg: var(--color-bg-brand-primary);         /* blush #fff8f9 ΔE0 */
-  --color-onboarding-progress: var(--color-primary-500);        /* 3px · #f24167 ΔE0 */
+  --color-onboarding-bg: var(--color-bg-brand-primary);         /* blush #fff7f2 */
+  --color-onboarding-progress: var(--color-primary-500);        /* 3px · #fd6300 */
   --color-onboarding-track: var(--color-gray-200);              /* 1px */
   --color-onboarding-stat-icon: var(--color-primary-500);
   --color-import-progress: var(--color-grass-darker);           /* 8px bar "100%" · #47c693 ΔE0.2 */
@@ -452,10 +452,10 @@
   --color-kh-progress: var(--color-grass-darker);               /* 4px bar + "Researching property details…" */
 
   /* ── Illustration palette (HS-06, HS-31) ────────────────────────────── */
-  --color-illo-figure: var(--color-primary-500);                /* #f24167 ΔE0 */
-  --color-illo-figure-alt: var(--color-raspberry-darker);       /* HS-31 figure #ed3c6a */
+  --color-illo-figure: var(--color-primary-500);                /* #fd6300 */
+  --color-illo-figure-alt: var(--color-raspberry-darker);       /* HS-31 figure #b94d00 */
   --color-illo-shade: var(--color-primary-200);                 /* folds/shadows on the figure */
-  --color-illo-line: var(--color-grape-darker);                 /* #230b41 ΔE0 · outline strokes, ground line */
+  --color-illo-line: var(--color-night-darker);                 /* #202030 · outline strokes, ground line */
   --color-illo-cloud: var(--color-gray-100);                    /* #f3f4f6 ΔE0 */
   --color-illo-accent: var(--color-grape);                      /* NEW · AI touches in new illustrations */
 

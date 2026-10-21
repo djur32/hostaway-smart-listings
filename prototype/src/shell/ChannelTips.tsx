@@ -60,7 +60,7 @@ function Main({ t, picked, channel }: { t: TipDef; picked?: string; channel: Lis
 }
 
 /** A text tip. On a field that uses the Base, accepting writes this channel's own value, so the card says so
- *  and shows the channel's text — not a struck-through Base (review, 3 Oct: "sometimes the tip is just replacing the
+ *  and shows the channel's text — not a struck-through Base ("sometimes the tip is just replacing the
  *  text with a customized one"). Diff itself decides between a before/after pair, one text with the changes marked, or
  *  just the new text. */
 function TextMain({ t, picked, channel }: { t: TipDef; picked?: string; channel: ListingChannel }) {
@@ -109,7 +109,7 @@ export function ChannelTips({ channel, focusId, onFocus, onClose }: { channel: L
         alts={alts} picked={pick[t.id]} onPick={(k) => setPick({ ...pick, [t.id]: k })}
         onGenerate={t.alts ? () => act.more(t.id) : undefined}
         onAccept={() => {
-          // a kb-grounded tip (TipDef.kb) saves to the Knowledge Hub automatically on Accept (review, 1 Oct: no
+          // a kb-grounded tip (TipDef.kb) saves to the Knowledge Hub automatically on Accept (no
           // separate "Also save to the Knowledge Hub" checkbox to remember to tick)
           const apply = () => { act.tip(t.id, 'accepted'); if (t.kb) act.kb(t.id, true); if (t.to || picked) act.custom(channel, t.field, picked ?? t.to ?? '') }
           if (t.photos) commitPhotosAndSend(apply, [channel], `Tip · ${t.title}`)

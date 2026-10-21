@@ -1,7 +1,7 @@
 /* KH-B · "+ Add a fact to <Section>": inline at the end of the section. The section sets the type, the host fills in
  * two or three things, and "Where will this be used?" previews the text in each destination (AI replies, Airbnb,
  * Booking.com) before Add fact. Where a fact lands on each channel is unverified against the channels' APIs
- * (documented as in concepts/knowledge-hub/KH-B.md; no provenance labels on screen). */
+ * (documented as in concepts/knowledge-hub/KH-B.md; no source labels on screen). */
 import { useState, type ReactNode } from 'react'
 import { Button, ChannelBadge, Dropdown, Icon, KhbAddCard, NumberField, KhbDest, KhbLabeled, KhbTypePicker } from '../../../../ds'
 import type { ListingChannel } from '../../../../data/sl3'

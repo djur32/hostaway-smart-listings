@@ -1,5 +1,5 @@
 /* Smart Listing v3 · WS-KH data: the Knowledge Hub as the one place that holds everything about the property (KH2,
- * review's review 30 Sep: "centralize all of the information in here", pricing and availability included), and
+ * the "centralize all of the information in here", pricing and availability included), and
  * Review & push. scenario content (concepts/SCENARIO.md); screen structure (HS-21…HS-47,
  * HS-A01…A03, HS-L01…L11); channel rules (research/market/channel-constraints.md).
  *

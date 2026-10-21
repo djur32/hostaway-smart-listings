@@ -2,8 +2,8 @@
  * One calm document with a sticky anchor bar (scroll-spy), read-mode facts with plain-text scope captions, a channel
  * hover card (Base vs the channel's own value, with "Use the Base" / "Edit X's version"), amenity chips, the sources strip,
  * the inline "Add a fact" card with "Where will this be used?" previews, and the "Test your AI" drawer and its answer.
- * CSS: ds/v3/kh-b.css (tokens only). Rules (review, 30 Sep): captions are plain text, no channel logo in a circle;
- * the channel Mark only in identity spots (chips, card heads); panels slide in like a drawer; no provenance footers. */
+ * CSS: ds/v3/kh-b.css (tokens only). Rules: captions are plain text, no channel logo in a circle;
+ * the channel Mark only in identity spots (chips, card heads); panels slide in like a drawer; no source footers. */
 import { useEffect, useId, useLayoutEffect, useRef, useState, type ReactNode, type Ref } from 'react'
 import { CloseButton, Icon, Mark, cx } from './primitives'
 import { ChannelBadge } from './fieldscope'

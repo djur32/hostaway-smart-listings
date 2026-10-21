@@ -1,5 +1,5 @@
 /* KH-C · one journey stage: the questions guests ask, most asked first. Each shows the answer the AI gives now, its
- * coverage and provenance; expanding one shows the facts behind it as small editable rows. */
+ * coverage and sources; expanding one shows the facts behind it as small editable rows. */
 import { useState } from 'react'
 import {
   Button, Icon, KhcAnswer, KhcFacts, KhcLabel, KhcProv, KhcQuestion, KhcQuestions, Segmented, type KhcState,

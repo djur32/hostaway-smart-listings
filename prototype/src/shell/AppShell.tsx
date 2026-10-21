@@ -1,4 +1,4 @@
-/* The global frame: Hostaway sidebar + content + the one provenance line (CONVENTIONS §2: "the footer says so once"). */
+/* The global frame: Hostaway sidebar + content + the one footer line (CONVENTIONS §2: "the footer says so once"). */
 import { useEffect, useState } from 'react'
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom'
 import { AccountAvatar, AccountMenu, BottomSheet, ChatFab, HostawayMark, Icon, IconSprite, MobileActionSlot, MobileTabBar, Sidebar, Toast, UnsavedBar, scrollActiveTab, useIsMobile, useIsTablet, useMode, type MobileTab } from '../ds'
@@ -17,7 +17,7 @@ import { useAccount } from './useAccount'
 /** After switching account (D-161): say who you are now and what this account holds. Not demo chrome: a real account
  *  switch confirms itself the same way. Shown once, on the page the switch landed on. */
 function SwitchedToast({ user, summary, onClose }: { user: UserDef; summary: string; onClose: () => void }) {
-  // phones (review, 4 Oct): the DS toast, compact — two lines, gone after 3 s, a tap dismisses it — never a big dark
+  // phones: the DS toast, compact — two lines, gone after 3 s, a tap dismisses it — never a big dark
   // block over the property selector
   if (useIsMobile()) return <Toast dock icon={null} duration={3000} onClose={onClose} closable={false} title={<span className="p-row" style={{ gap: 8, flexWrap: 'nowrap' }}><AccountAvatar user={user} size={24} />You’re now {user.name}</span>}>{user.role}</Toast>
   return (
@@ -93,7 +93,7 @@ function MobileMenu({ persona, onPersona, onReset, demo, accounts, gettingStarte
     <nav aria-label="Menu">
       <ul className="h-m-menu">
         {!gettingStartedHidden && <li><span className="h-m-menu__item is-inert" aria-disabled="true"><Icon name="trending-up" />Getting started<span className="h-m-menu__badge">4</span></span></li>}
-        {/* only Properties navigates (review, 3 Oct); the rest is shown, inert */}
+        {/* only Properties navigates; the rest is shown, inert */}
         {items.map((i) => (
           <li key={i.key}><span className="h-m-menu__item is-inert" aria-disabled="true"><Icon name={i.icon} />{i.label}</span></li>
         ))}
@@ -156,8 +156,8 @@ export function AppShell() {
     return () => ts.forEach(clearTimeout)
   }, [isMobile, pathname, search])
   const tabs: MobileTab[] = [
-    // review, 3 Oct: Properties replaces Metrics and is the only tab that navigates (straight to the property);
-    // Home, Inbox and Calendar are shown but inert — those parts aren't rebuilt in the case study
+    // Properties replaces Metrics and is the only tab that navigates (straight to the property);
+    // Home, Inbox and Calendar are shown but inert — those parts aren't rebuilt in this concept
     { key: 'home', label: 'Home', icon: <HostawayMark />, inert: true },
     { key: 'inbox', label: 'Inbox', icon: 'mail', inert: true },
     { key: 'calendar', label: 'Calendar', icon: 'calendar', inert: true },
@@ -183,7 +183,7 @@ export function AppShell() {
         <MobileTabBar items={tabs} active={menu ? 'menu' : mobileTab(pathname)} />
       </div>
       {isMobile && (
-        // the Menu opens from the bottom, like every other mobile panel (review, 3 Oct)
+        // the Menu opens from the bottom, like every other mobile panel
         <BottomSheet open={menu} onClose={() => setMenu(false)} title="Menu">
           <MobileMenu persona={persona} onPersona={(p) => { onPersona(p); setMenu(false) }} onReset={() => { onReset(); setMenu(false) }} demo={demo} gettingStartedHidden={acct.gettingStartedHidden}
             accounts={<MobileAccounts user={acct.user} users={acct.users} summary={acct.summary} />} />

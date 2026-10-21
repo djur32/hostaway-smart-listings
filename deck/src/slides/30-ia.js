@@ -1,7 +1,7 @@
 /* ============================================================================
    30 · INFORMATION ARCHITECTURE · the part's motion (3 Oct, dynamic pass).
 
-     ia-objects    the brief's two objects, a dashed gap between them; on the beat the
+     ia-objects    the two objects Hostaway has today, a dashed gap between them; on the beat the
                    four new objects land in the gap and around it, and the wires draw
                    (4 Oct: the reading sentence and the "New" key line rise on the same beat,
                    declaratively; blush means new, on the wall and in the detail)

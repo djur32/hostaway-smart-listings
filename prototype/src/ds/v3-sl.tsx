@@ -81,7 +81,7 @@ export function SlModePill({ mode, paused }: { mode: 'suggest' | 'autopilot'; pa
 
 /* ---------- setup wizard parts ---------- */
 
-/* ---------- setup: in-page horizontal stepper (review, 1 Oct voice note) ----------
+/* ---------- setup: in-page horizontal stepper ----------
  * "I'd like the setup of the Smart Listings to be done through a stepper. But not through a dedicated page… you can
  * have a horizontal stepper, but don't make it the way that it is now, and adapt everything to the page that we have."
  * So: no bordered get-started card (.h-wizard) on this screen — the normal PageHead + content column, one compact row
@@ -90,13 +90,13 @@ export interface SlStep { id: string; label: string }
 
 /* ---------- plan card: setup summary (Done) and Strategy ---------- */
 
-/** Column-visibility menu (Strategy › Versions table, review 1 Oct voice note): a trigger + checklist on the shared
+/** Column-visibility menu (Strategy › Versions table, voice note): a trigger + checklist on the shared
  *  .h-menu popover pattern (ds/components.css, used by the property switcher and the persona menu). Generic by design
  *  so any table that wants show/hide columns can reuse it, per CONVENTIONS "new patterns go to the DS first". */
 export interface ColumnDef { id: string; label: string }
 
 /* ---------- performance ---------- */
-/** The page's one quiet provenance line (V3-SPEC §5: label sample data once, in the page footer). */
+/** The page's one quiet source line (V3-SPEC §5: label sample data once, in the page footer). */
 export function SlPageNote({ children }: { children: ReactNode }) {
   return <p className="sl-pagenote">{children}</p>
 }

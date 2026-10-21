@@ -269,7 +269,7 @@ function Discounts({ row, lens }: { row: Row; lens: ChannelId | 'all' }) {
             <div className="h-ai-suggest__why"><Icon name="sparkles" size={16} />From your “{st.label}” listing strategy · {st.pricing.text}</div>
             <div className="p-pad">
               <div className="h-small">Weekly discount <span className="h-diff"><del>{wk.value}%</del> <ins>15%</ins></span> on every channel this home is on</div>
-              <div className="h-caption h-muted p-mt2">6 similar remote-work listings nearby book 83% of nights; they give 15% for a week (Sample market data). A suggestion: nothing changes until you accept.</div>
+              <div className="h-caption h-muted p-mt2">6 similar remote-work listings nearby book 83% of nights. They give 15% for a week. A suggestion: nothing changes until you accept. Sample data</div>
               <div className="p-row p-mt3"><Button kind="primary" size="md" onClick={() => { s.setPropertyOverride(row.p.id, 'weeklyDiscount', 15); setDone(true) }}>Accept 15%</Button><Button size="md" kind="ghost" onClick={() => setDone(true)}>Not now</Button></div>
             </div>
           </div>

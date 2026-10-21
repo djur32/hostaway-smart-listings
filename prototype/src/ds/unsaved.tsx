@@ -1,4 +1,4 @@
-/* Unsaved-changes bar + navigation guard (concepts/smart-listing/UNSAVED-PATTERN.md, review 1 Oct: "I don't want to
+/* Unsaved-changes bar + navigation guard (concepts/smart-listing/UNSAVED-PATTERN.md, "I don't want to
  * see Discard changes or Save unless there are changes for me to validate"). Replaces the always-visible, always-
  * disabled Discard/Save pair that section-editing screens used to render: nothing shows while every draft is clean;
  * the moment any draft goes dirty, a bar appears and in-app navigation is guarded.
@@ -33,7 +33,7 @@
  * would silently lose (or leave stranded) whatever the others were holding.
  *
  * CSS: ds/components.css, section "UNSAVED CHANGES". Tokens only. Motion: --dur-drawer/--ease-drawer (ds/motion.md
- * M-20) — "quick, not gradual" (review, 1 Oct): the bar mostly just appears, no slide, no bounce. */
+ * M-20) — "quick, not gradual": the bar mostly just appears, no slide, no bounce. */
 import { useEffect, useId, useLayoutEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { createPortal } from 'react-dom'
 import { useBlocker } from 'react-router-dom'
@@ -88,7 +88,7 @@ const useDirtyEntries = () => useSyncExternalStore(registry.subscribe, registry.
 
 const discardAll = (list: UnsavedEntry[]) => { for (const e of list) e.onDiscard() }
 
-/* ---------- the save toast (review, 4 Oct: "When you click Save … I want to see a toast, on mobile and desktop, that
+/* ---------- the save toast ("When you click Save … I want to see a toast, on mobile and desktop, that
  * shows the progress was saved, that all of those changes were made. And give the option to undo.") ----------
  * Every Save from the bar, the phone's action bar or the leave-page dialog ends in the shared Toast (./toast): "Changes
  * saved" over what changed and where it went ("3 changes · sent to Airbnb, Booking.com and Direct"), with Undo, which
@@ -147,12 +147,12 @@ function SaveToast() {
 }
 
 /* ---------- the dialog (OvDialog: the DS's existing centred-modal/bottom-sheet shell, ds/overview.tsx) ---------- */
-/** Button hierarchy (review, 1 Oct evening, correcting his own first draft): Keep editing is the quiet way out —
+/** Button hierarchy: Keep editing is the quiet way out —
  *  ghost, no border — Discard changes is the destructive-but-reversible-by-not-clicking-it one — outlined danger,
  *  not a solid fill, which read as too final for a confirm dialog — and Save changes stays primary. All three
  *  h-btn--lg (taller — easier to hit correctly on a decision this consequential). */
 function UnsavedDialog({ busy, onKeepEditing, onDiscard, onSave }: { busy: boolean; onKeepEditing: () => void; onDiscard: () => void; onSave: () => void }) {
-  // phones (review, 4 Oct): the same footer as every other sheet — the Discard changes | Save changes pair, 50/50;
+  // phones: the same footer as every other sheet — the Discard changes | Save changes pair, 50/50;
   // "Keep editing" is the sheet's own way out (×, scrim, drag down, Esc), so it isn't a third button
   if (useIsMobile()) return (
     <OvDialog title="Unsaved changes" onClose={onKeepEditing}
@@ -177,7 +177,7 @@ function UnsavedDialog({ busy, onKeepEditing, onDiscard, onSave }: { busy: boole
   )
 }
 
-/** How long the bar keeps showing "Discarded" (review, 1 Oct evening: discarding needs to read as clearly as
+/** How long the bar keeps showing "Discarded" (discarding needs to read as clearly as
  *  saving does) before it disappears — long enough to register, short enough not to block the next edit. */
 const DISCARDED_MS = 1400
 
@@ -193,7 +193,7 @@ export function UnsavedBar() {
   const isMobile = useIsMobile()
   const [busy, setBusy] = useState(false)
   // "Discarded": kept visible in the bar's own slot for a beat after the list goes clean from a discard, so
-  // Discard reads as clearly as Save's own quiet "Saved" note does (review, 1 Oct evening) instead of the bar
+  // Discard reads as clearly as Save's own quiet "Saved" note does instead of the bar
   // just silently vanishing the instant it's clicked.
   const [discarded, setDiscarded] = useState(false)
   const discardedTimer = useRef<number | undefined>(undefined)
@@ -225,7 +225,7 @@ export function UnsavedBar() {
   // below); the others are bars only. The guard reads the shared registry, so whichever bar owns it covers every draft.
   const ownsGuard = useGuardOwner()
 
-  // Closing the tab / reloading: best-effort, gated on the same registry (nice-to-have per the brief).
+  // Closing the tab / reloading: best-effort, gated on the same registry (nice-to-have).
   useEffect(() => {
     const onBeforeUnload = (e: BeforeUnloadEvent) => {
       if (!registry.anyDirty()) return
@@ -236,7 +236,7 @@ export function UnsavedBar() {
     return () => window.removeEventListener('beforeunload', onBeforeUnload)
   }, [])
 
-  // Pinned to the bottom of the window, across the whole working area (review, 3 Oct: "always at the bottom, not
+  // Pinned to the bottom of the window, across the whole working area ("always at the bottom, not
   // just under the content… it should span the entire thing", Tips panel included). The bar stays where it is in the
   // tree (so the draft context still finds it), but the pinned bar is portalled to <body> — a transformed ancestor (the
   // page's entry animation) would otherwise capture `position: fixed` but is drawn `position: fixed`,

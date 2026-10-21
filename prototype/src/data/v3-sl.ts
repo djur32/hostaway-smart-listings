@@ -95,7 +95,7 @@ export const MIX_ROWS = {
   minStay: { label: 'Minimum stay', line: '9 of your 13 empty nights sit between two bookings.', items: [{ id: '1', label: '1 night' }, { id: '2', label: '2 nights' }, { id: '3', label: '3 nights +' }] },
   policy: { label: 'Cancellation', line: '15 of 24 similar homes use Moderate.', items: [{ id: 'flexible', label: 'Flexible' }, { id: 'moderate', label: 'Moderate' }, { id: 'firm', label: 'Firm' }] },
 } as const
-/** Audience step (review, 3 Oct: "if I tap on any of these, I should see what the configuration is"): the price,
+/** Audience step ("if I tap on any of these, I should see what the configuration is"): the price,
  *  minimum stay and cancellation each audience starts from. defaults for the Neukölln scenario — remote
  *  workers: long stays, flexible cancel; city-break couples: 2-night weekends, priced like similar homes; Let Smart
  *  Listings decide: its recommended mix; `custom` (the host describes the guests): the neutral default. */
@@ -147,10 +147,10 @@ export const AUTOPILOT_DEFINITION =
 export const FIRST_TIPS: Record<ListingChannel, number> = { airbnb: 6, booking: 3, direct: 1 }
 
 /* ---------- demo seed (?smart=on, or a persona that starts with Smart Listings on) ----------
- * Three genuinely different strategies (review, 1 Oct): each channel has its own goal, audience, price range and
+ * Three genuinely different strategies: each channel has its own goal, audience, price range and
  * Autopilot setting. They are the live versions of the history in data/performance.ts › SL_SEED. */
 export const DEMO_PLANS: Partial<Record<ListingChannel, Plan>> = {
-  airbnb: { goal: 'fill', audience: 'remote', asks: ['price', 'rules', 'policy'], priceMin: 40, priceMax: 90, mode: 'suggest' }, // Autopilot is off by default everywhere (review, 5 Oct): fields stay editable
+  airbnb: { goal: 'fill', audience: 'remote', asks: ['price', 'rules', 'policy'], priceMin: 40, priceMax: 90, mode: 'suggest' }, // Autopilot is off by default everywhere: fields stay editable
   booking: { goal: 'earn', audience: 'couples', asks: ['price', 'rules', 'policy', 'title'], priceMin: 55, priceMax: 130, mode: 'suggest' },
   direct: { goal: 'balance', audience: 'auto', asks: ['price', 'rules', 'policy'], priceMin: 42, priceMax: 85, mode: 'suggest' },
 }
@@ -228,7 +228,7 @@ export const useSlLocal = create<SlLocal>()(persist((set) => ({
 
 /* ---------- the strategy wizard (screens/smart/StrategyWizard.tsx, 3 Oct) ----------
  * Full-screen, Hostaway's Add-property layout. Copy is short on purpose: one line under a question at most, and never
- * a reference to another page (review, 3 Oct). */
+ * a reference to another page. */
 export const WIZARD_INTRO = [
   { icon: 'target', title: 'Pick a goal for each channel', line: 'Fill empty nights, earn more per night, or a balance.' },
   { icon: 'users', title: 'Choose who it’s for', line: 'The guests you want to attract on each channel.' },

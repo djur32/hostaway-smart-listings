@@ -1,4 +1,4 @@
-/* Booking policies (Hostaway replica of the Airbnb "Booking policies" page and its Configure flow, review's screens 14–21).
+/* Booking policies (Hostaway replica of the Airbnb "Booking policies" page and its Configure flow, the reference screens 14–21).
  * CSS: ds/components.css section "BOOKING POLICIES" · DS.md row "Booking policies". */
 import type { ReactNode } from 'react'
 

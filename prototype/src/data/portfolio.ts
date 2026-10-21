@@ -161,7 +161,7 @@ const LISTING_ORDER: PropertyListingChannel[] = ['airbnb', 'booking', 'direct']
 /** True only for the deep, scripted property (Neukölln): import story, tips, comps, Hub facts. */
 export const isScenarioProperty = (id: string | undefined | null) => id === PROPERTY_ID
 
-/** Properties that keep Smart Listings OFF by default (review, 1 Oct voice note): the last three in the switcher
+/** Properties that keep Smart Listings OFF by default: the last three in the switcher
  *  dropdown, deliberately left as "before you turn this on" — no setup, no tips. Every other non-scenario property
  *  seeds with Smart Listings already on, past setup, with its own per-channel tips (store.ts seedProperty,
  *  data/property-listing.ts propertyTipsFor). . */

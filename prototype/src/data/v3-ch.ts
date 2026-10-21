@@ -17,7 +17,7 @@ export const EXTRA_FIELDS: FieldDef[] = [
 ]
 
 /** V3-SPEC §1: Essentials is complete. Neighbourhood and Getting around stay in Location, as in Hostaway today (HS-25). */
-/** Fields nobody edits after the listing exists (review, 3 Oct): the disabled field with a lock and this reason, on the
+/** Fields nobody edits after the listing exists: the disabled field with a lock and this reason, on the
  *  Base and on every channel. wording. The pin keeps its own Edit (it can be nudged). */
 const LOCATION_FIXED = 'The address is set when the listing is created and can’t be changed afterwards.'
 export const FIXED_FIELDS: Record<string, string> = {
@@ -105,12 +105,12 @@ export const CHANNEL_META: Record<ListingChannel, ChannelMeta> = {
 }
 
 /* ---------- pricing (HS-30, HS-33, HS-L10, HS-L11) ---------- */
-/** How a fee is charged (review, 3 Oct, from Hostaway's Fees tab): which rows let the host pick the basis ("per stay",
+/** How a fee is charged: which rows let the host pick the basis ("per stay",
  *  "per guest", "per night"…) and which also pick the currency. Cleaning is always once per stay. Kept as ordinary Base
  *  keys `price:<key>@unit` / `price:<key>@cur` in the section draft, so they save with the rest. */
 export const FEE_BASES: Record<string, { options: string[]; dflt: string; currency?: boolean }> = {
   linens: { options: ['per guest', 'per stay'], dflt: 'per stay' },
-  resort: { options: ['per stay', 'per guest', 'per night', 'per guest per night'], dflt: 'per stay' }, // a fixed € on every fee row (review, 6 Oct); the currency picker was dropped
+  resort: { options: ['per stay', 'per guest', 'per night', 'per guest per night'], dflt: 'per stay' }, // a fixed € on every fee row; the currency picker was dropped
   management: { options: ['per stay', 'per guest', 'per night', 'per guest per night'], dflt: 'per stay' },
   community: { options: ['per stay', 'per guest', 'per night', 'per guest per night'], dflt: 'per stay' },
   pet: { options: ['per stay', 'per night', 'per pet per stay', 'per pet per night'], dflt: 'per pet per stay' },
@@ -131,7 +131,7 @@ export const PRICES: Record<PriceTab, PriceRow[]> = {
   occupancy: [
     { key: 'included', label: 'Guests included', help: 'Guests included in the nightly rate.', unit: 'guests', base: 1, state: { airbnb: 'inherit', booking: 'inherit', direct: 'inherit' } },
     { key: 'extra', label: 'Extra guest fee', help: 'Per extra guest, per night.', unit: '€', base: 10, state: { airbnb: 'inherit', booking: 'inherit', direct: 'inherit' } },
-    { key: 'max', label: 'Maximum occupancy', help: 'The most guests a booking can have.', unit: 'guests', base: 2, state: { airbnb: 'inherit', booking: 'inherit', direct: 'inherit' } }, // editable, and per channel (review, 3 Oct)
+    { key: 'max', label: 'Maximum occupancy', help: 'The most guests a booking can have.', unit: 'guests', base: 2, state: { airbnb: 'inherit', booking: 'inherit', direct: 'inherit' } }, // editable, and per channel
   ],
   fees: [
     { key: 'cleaning', label: 'Cleaning fee', help: 'Charged once per stay to cover cleaning between guests.', unit: '€', base: 25, state: { airbnb: 'inherit', booking: 'override', direct: 'inherit' }, value: { booking: 30 } },
@@ -145,7 +145,7 @@ export const PRICES: Record<PriceTab, PriceRow[]> = {
     { key: 'community', label: 'Community fee', help: 'Charged by the building or community for shared spaces.', unit: '€', base: 0, state: { airbnb: 'inherit', booking: 'inherit', direct: 'inherit' } },
   ],
   discounts: [
-    // review, 3 Oct: Weekly and Monthly, each a Base value that Airbnb and Direct use and that Booking.com sets for itself
+    // Weekly and Monthly, each a Base value that Airbnb and Direct use and that Booking.com sets for itself
     // (its own value, edited on Booking.com's page; its Genius deals aren't mentioned on the Base). Replaces the earlier
     // "monthly is Airbnb-only" and the "Booking.com sets it" lock.
     { key: 'weekly', label: 'Weekly discount', help: 'Applies for any stays of 7 nights or longer.', unit: '%', base: 5, state: { airbnb: 'inherit', booking: 'override', direct: 'inherit' }, value: { booking: 10 } },

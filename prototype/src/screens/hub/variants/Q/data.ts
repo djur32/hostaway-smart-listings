@@ -1,4 +1,4 @@
-/* Knowledge Hub, reframed (plan/notion-v2/deck-review/KH-REFRAME.md, review 4 Oct) · sample Inbox data.
+/* Knowledge Hub, reframed  · sample Inbox data.
  * throughout: the scenario property's guest questions are C's 47 clusters (C/data.ts, "312 conversations,
  * last 12 months"), grouped into Hostaway's nine Knowledge Hub topics by R's map (R/data.ts topicOf). This file adds
  * what the reframe needs on top of them, and nothing else:
@@ -7,7 +7,7 @@
  *   · one new question this month, shaped like the real "Ask the AI" example (HS-L08, wheelchair access),
  *   · the tips a gap becomes: which Listing base field the answer goes into and the words it adds. Every added sentence
  *     comes from the demo property's own data (C/data.ts GAPS drafts, data/v3-kh.ts KH_CUSTOM); none is new.
- * No provenance chrome in the UI (review: "nobody cares about that"); it lives here. */
+ * No source chrome in the UI; it lives here. */
 import type { ListingChannel, WhyPoint } from '../../../../data/sl3'
 import { f, one, type Question } from '../C/data'
 import type { RTopicId } from '../R/data'

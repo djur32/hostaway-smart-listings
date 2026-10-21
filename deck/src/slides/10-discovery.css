@@ -163,6 +163,7 @@
 /* how I mapped it: a lead line, four KPI cards at a size that fills the card, the source line */
 .dc-how { display: grid; gap: 40px; align-content: center; min-height: 100%; }
 .dc-how__lead { margin: 0; font: var(--w-head) 38px / 1.2 var(--font-display); letter-spacing: -0.015em; color: var(--color-sidebar-bg); text-wrap: balance; }
+.dc-note { margin: 0; max-width: 1280px; font: var(--w-medium) 34px / 1.4 var(--font-display); letter-spacing: -0.01em; color: var(--ink); text-wrap: pretty; }
 .dc-how .hc-stats { --stat-v: 96px; gap: 24px; }
 .dc-how .hc-stat { padding: 30px 34px 32px; }
 .dc-how .hc-stat__k { margin-bottom: 14px; font-size: 24px; }
@@ -251,7 +252,7 @@
   background: var(--accent); color: var(--on-accent); font: var(--w-head) 21px / 1 var(--font-ui); }
 .dc-so__k svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .dc-so b { color: var(--ink); font-weight: var(--w-head); }
-/* dc-signals · the planned data analysis (5 Oct): each question sits on its source card, numbered in Notion's order */
+/* dc-signals · the data analysis (5 Oct): each question sits on its source card, numbered in Notion's order */
 .dc-plan { margin: 0; display: grid; gap: 18px; }
 .dc-plan__list { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
 .dc-plan__row { display: grid; grid-template-columns: 330px 40px minmax(0, 1fr); align-items: center; gap: 0 18px; padding: 16px 28px 16px 16px; border-radius: 26px; background: var(--bg); box-shadow: 0 0 0 1px var(--line); }
@@ -270,7 +271,7 @@
 
 /* ── the heuristic a finding breaks (4 Oct, review: "use the same names we have in the Notion page") ──
    The kit's compact tag (.hc-mark's pill and hairline): the heuristic's name as the Heuristic evaluation page
-   writes it, then its severity on Nielsen's 0 to 4 scale (one evaluator, so the foot carries an Assumption chip).
+   writes it, then its severity on Nielsen's 0 to 4 scale (one evaluator, so the foot says so).
    4 fills in raspberry ink, 3 is the blush, 2 and below stay gray. */
 .dc-he { display: inline-flex; align-items: center; gap: 10px; height: 36px; padding: 0 5px 0 15px; border-radius: var(--r-pill);
   background: var(--bg); box-shadow: inset 0 0 0 1px var(--line-2);

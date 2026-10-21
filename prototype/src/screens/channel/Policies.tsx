@@ -1,5 +1,5 @@
-/* Channels › {channel} › Booking policies (Hostaway replica of the Airbnb page, review's screen 14.png). Owner WS-CH.
- * Same frame as Listing / Pricing / Availability (review, 3 Oct: "the Listing should be the reference point for
+/* Channels › {channel} › Booking policies (Hostaway replica of the Airbnb page, the reference screen 14.png). Owner WS-CH.
+ * Same frame as Listing / Pricing / Availability ("the Listing should be the reference point for
  * everything"): title + switcher, the tab row with Tips at its right end (its border is the divider), an h2 with one
  * line, then the content in the 640px form column. One tab, "Cancellation policies" — Hostaway's own (* HS-47 `Screenshot 2026-09-29 at 13.54.55.png`): a single tab holding the cancellation card and, on Airbnb, the
  * "Long-term stays (28+ nights)" card. No invented sections.
@@ -31,7 +31,7 @@ export function Policies() {
 }
 
 /** The DS small button (`.h-btn` default = --button-height-sm, 32px; there is no `--sm` modifier), as on Hostaway's
- *  page — not the 40px `--md` the cards used to carry (review, 3 Oct: "the small buttons are 32 pixels high"). */
+ *  page — not the 40px `--md` the cards used to carry ("the small buttons are 32 pixels high"). */
 function Configure({ to, what }: { to: string; what: string }) {
   return <Link to={to} className="h-btn h-btn--primary" aria-label={`Configure ${what}`}>Configure</Link>
 }
@@ -101,7 +101,7 @@ function PolicyPage({ c }: { c: ListingChannel }) {
                 action={<a className="h-btn h-btn--secondary" href="https://admin.booking.com" target="_blank" rel="noreferrer">Open Extranet</a>} />
             )}
           </div>
-          {/* a quiet line under the cards, like Photos' "add" note — not the lilac AI box it used to be (review, 3 Oct) */}
+          {/* a quiet line under the cards, like Photos' "add" note — not the lilac AI box it used to be */}
           {active && !autopilot && <p className="ch-polcards__note"><Icon name="info-circle" size={16} />Smart Listings never changes your {name} policies on its own. It can suggest a change, and you decide.</p>}
         </div>
       } panel={tipsPanel} />
@@ -110,11 +110,11 @@ function PolicyPage({ c }: { c: ListingChannel }) {
 }
 
 /* ---------- Booking policies tips (shared by this screen and the property rail's per-page count) ----------
- * review, relayed: "reasonable recommendations" at the booking-policy level, the same chip/panel/card the Listing
+ * "reasonable recommendations" at the booking-policy level, the same chip/panel/card the Listing
  * editor already has (screenTips.tsx) — grounded in this channel's own policy model. Booking.com (model
  * 'extranet') owns none of these in Hostaway, so it gets none here either — the panel shows its honest empty state
  * rather than a suggestion with nowhere to apply it. At most two, one per card, each with its card's id as `field` so
- * its TipDot sits right after that card's title (review, 3 Oct: the tip icon goes "next to the thing that there is a
+ * its TipDot sits right after that card's title (the tip icon goes "next to the thing that there is a
  * tip for", as on the Listing editor). The old "Offer a non-refundable rate" tip was dropped to keep the page to one
  * suggestion per card. Gated like every channel tip (screenTips useTipsGate). Accept only marks the tip: a policy is
  * changed through its own Configure flow, never by a tip. */

@@ -2,7 +2,7 @@
  * label, help, the control, the scope caption (Uses the Base · Customize for {channel} / Custom for {channel} · Use the
  * Base / N channels · Edit for all channels), field visibility, the purple tip dot and the orange Rewrite-with-AI
  * trigger. Moved here verbatim from ListingEditor.tsx (3 Oct) so the Canvas can render the exact same field in its side
- * panel instead of re-implementing it (review, 3 Oct: "the solution has to be in the sidebar… the same field").
+ * panel instead of re-implementing it ("the solution has to be in the sidebar… the same field").
  * It reads the section draft from context (common.tsx DraftProvider/useDraft): Classic passes its useSectionDraft,
  * Canvas an adapter over its own draft — same Discard / Save bar either way. */
 import { useNavigate, useSearchParams } from 'react-router-dom'
@@ -21,7 +21,7 @@ import { EverywhereNote, useDraft, useScopedField, viewOf } from './common'
 /* ---------------- Smartify (yellow, user-initiated refine — ds/smartify.tsx) ---------------- */
 /** Which fields Smartify can rewrite: EVERY long free-text field (kind 'textarea', on any Listing tab — Summary,
  *  Description, Check-in method details, House manual, Guest access, Neighbourhood, House rules…), derived from the
- *  field kind so a new long-text field picks it up automatically (review, 3 Oct: "these are all fields that require
+ *  field kind so a new long-text field picks it up automatically ("these are all fields that require
  *  you to write more text"), plus the one short single-line field where a rewrite makes sense, Property name.
  *  Tags/Languages are chip lists, not free text, so a typed instruction has no single string to rewrite. */
 const SMARTIFY_SHORT_FIELDS = new Set(['name'])
@@ -34,7 +34,7 @@ export interface RefineVersion { instruction: string; text: string; source: stri
 export interface RefineSession extends RefineRequest { versions: RefineVersion[]; idx: number; busy: boolean }
 export interface SmartifyCtl { field: string | null; open: (req: RefineRequest) => void }
 
-/* copy for the canned rewrites below (CONVENTIONS §2: every listing value in this prototype is simulated,
+/* copy for the canned rewrites below (CONVENTIONS §2: every listing value in this prototype is sample content,
  * under the prototype's one footer disclosure). Variants let "Try again" produce a genuinely different version. */
 const WARM = ["You'll feel right at home here.", "We can't wait to welcome you.", 'Settle in and make yourself at home.']
 const DETAIL = ['Everything you need for a comfortable stay is ready when you arrive.', 'We share check-in details and a few favourite local spots before you arrive.', "Ask us anything before or during your stay and we'll help."]
@@ -145,7 +145,7 @@ export function FieldRow({ def, c, tips, focus, onTip, activeTip, smartify }: {
   // def.key, not hardcoded to those two). Primitive read, no object built in the selector (selector discipline).
   // No `?? 'show'` fallback: an unset key means this field is not managed by that control at all, and must keep its
   // normal Base/Customize-for-channel behaviour. Defaulting unset → 'show' locked EVERY field in the editor that
-  // nobody had explicitly configured (review, 1 Oct: "nothing is editable… these will always be editable, even if
+  // nobody had explicitly configured ("nothing is editable… these will always be editable, even if
   // you decide not to show the ones that are shared"). Only an explicit 'show'/'hidden' changes how a field renders.
   const fieldVis = useStore((s) => s.overview?.[p.id]?.fieldVisibility?.[def.key])
 
@@ -155,7 +155,7 @@ export function FieldRow({ def, c, tips, focus, onTip, activeTip, smartify }: {
   // every field kind S10's Overview control now covers (19 fields, not just Tags/Languages) — not gated to one kind.
   if (fieldVis === 'hidden') return null
   // Anything that can't be changed (FIXED_FIELDS: property / room type, the address) isn't on a channel's listing
-  // template at all (review, 3 Oct: "don't show it at the listing template level") — the Base shows it, locked
+  // template at all ("don't show it at the listing template level") — the Base shows it, locked
   if (FIXED_FIELDS[def.key]) return null
 
   const limit = def.key === 'name' ? CHANNELS[c].titleLimit : def.limit
@@ -167,7 +167,7 @@ export function FieldRow({ def, c, tips, focus, onTip, activeTip, smartify }: {
   // names — not just Tags/Languages. effDisabled forces every control branch into its disabled/read-only rendering.
   const plainShow = fieldVis === 'show'
   const effDisabled = disabled || plainShow
-  // One AI affordance per field (review, 3 Oct): a tip → the purple dot only (the system's suggestion wins, and a tip
+  // One AI affordance per field: a tip → the purple dot only (the system's suggestion wins, and a tip
   // shows even on a Base field); else editable → the yellow Smartify trigger; else (Uses the Base, Autopilot
   // read-only, field visibility "Show" = read-only, locked) → nothing.
   const smartifyOn = smartifiable(def) && !tips?.length && !locked && !effDisabled
@@ -177,7 +177,7 @@ export function FieldRow({ def, c, tips, focus, onTip, activeTip, smartify }: {
     <p className="ch-field-error" role="alert"><Icon name="alert-triangle" size={16} />{def.label} is {overBy} character{overBy === 1 ? '' : 's'} over {CHANNELS[c].name}’s limit.</p>
   ) : null
 
-  // set by the channel: why it can't be changed here, on both locks — the field's and the caption's (review, 4 Oct)
+  // set by the channel: why it can't be changed here, on both locks — the field's and the caption's
   const lockTip = v.state === 'set' ? setByWhy(def, c, CHANNELS[c].name) : undefined
   let control
   if (locked) {
@@ -211,7 +211,7 @@ export function FieldRow({ def, c, tips, focus, onTip, activeTip, smartify }: {
   } else if (def.kind === 'tags') {
     const tags = shown.split(' · ').filter(Boolean)
     // 'show' (default): all channels, read-only, no per-channel override offered — plain and silent, no lock icon or
-    // tooltip (review, dropping an earlier padlock treatment for this case). 'edit' (or any other value): unchanged,
+    // tooltip. 'edit' (or any other value): unchanged,
     // today's existing Customize-for-channel flow already covers it (useScopedField/TagBox, same as every other field).
     control = plainShow
       ? <TagBox tags={tags} disabled addLabel={def.key === 'languages' ? 'Add language' : 'Add tag'} />
@@ -241,7 +241,7 @@ export function FieldRow({ def, c, tips, focus, onTip, activeTip, smartify }: {
   )
 }
 
-/** Hover on the scope caption: the Base and what each channel has, this channel marked in use (review, 30 Sep). */
+/** Hover on the scope caption: the Base and what each channel has, this channel marked in use. */
 function useScopeValues(def: FieldDef, c: ListingChannel, cur: { value: string; state: string }): ScopeValue[] | undefined {
   const custom = useStore((s) => s.sl3.custom)
   const base = useStore((s) => s.sl3.base)

@@ -1,7 +1,7 @@
 /* WS-CV · Canvas data (V3-SPEC §1 "Listing editor", frames CV-00…CV-09).
  * What each part of the channel's guest page is, who owns it and where it is changed: research in CV-00
  * (research/market/channel-constraints.md), except where V3-SPEC §1 overrides it (the Booking.com description is
- * editable per channel). Every value on the replicas (reviews, scores, prices, host stats) is . */
+ * editable per channel). Every value on the replicas is . */
 import type { FieldState } from '../ds/sl3'
 import { FIELDS, tipsFor, type ListingChannel, type ListingTab } from './sl3'
 
@@ -128,7 +128,7 @@ export const PHOTO_TIP_ORDER: Record<string, PhotoKey[]> = {
 export const PHOTO_KEY = 'photos.order'
 export const photoTipFor = (ch: ListingChannel) => tipsFor(ch).find((t) => t.field === 'photos')
 
-/* ---------- "Describe the change" (simulated AI: canned, deterministic rewrites) ---------- */
+/* ---------- "Describe the change" (canned AI: canned, deterministic rewrites) ---------- */
 export const QUICK_ASKS = ['Shorter', 'Warmer', 'More factual', 'Rewrite'] as const
 export interface CvRewrite { text: string; flag?: string }
 /** Rewrites per field; "Try again" walks the list. Each one uses only Knowledge Hub facts unless flagged.

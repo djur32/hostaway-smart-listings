@@ -1,4 +1,4 @@
-/* One policy on Channels › {channel} › Booking policies (review, 3 Oct: "the content needs a better layout").
+/* One policy on Channels › {channel} › Booking policies ("the content needs a better layout").
  * Hostaway's own card (HS-47, `Screenshot 2026-09-29 at 13.54.55.png`) carries the same content — an
  * optional "Long-term stays (28+ nights)" heading, the policy name, its text, the Non-refundable line, Configure — but
  * with two different title scales, a 28px leading on 14px text and Configure centred on the card. Here every card has
@@ -19,7 +19,7 @@ export function PolicyCard({ id, eyebrow, title, dot, body, meta, action, readOn
   readOnly?: boolean
 }) {
   return (
-    // review, 3 Oct ("fix, layout doesn't work as is"): two columns — the text stack on the left (eyebrow, title +
+    // ("fix, layout doesn't work as is"): two columns — the text stack on the left (eyebrow, title +
     // its dot, body, meta) and Configure, a secondary button, pinned to the card's top-right whatever sits above the title
     <section id={id} className={`ch-polcard${readOnly ? ' ch-polcard--readonly' : ''}`} aria-labelledby={`${id}-title`}>
       <div className="ch-polcard__main">

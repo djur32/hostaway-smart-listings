@@ -43,7 +43,7 @@ export const useRFacts = createPropertyStore('hostaway-kh-r-facts', (): RFactsSt
   update: (id: string, patch: RFactInput) => set((s) => (s.facts[id] ? { facts: { ...s.facts, [id]: { ...s.facts[id], ...patch } } } : {})),
 }))
 
-/** Only when the scope isn't the entire property (review's exception-based rule, same as Listing details). */
+/** Only when the scope isn't the entire property (the exception-based rule, same as Listing details). */
 export function rScopeLabel(scope: RScope, chs: ListingChannel[]): string | null {
   if (scope.type === 'all' || !scope.channels?.length) return null
   if (scope.type === 'one') return `Only on ${NAME(scope.channels[0])}`
@@ -65,7 +65,7 @@ export const dismissGap = (id: string) => useKhc.getState().dismiss(id)
 
 /* ---------- cross-referencing a gap to an AI suggestion elsewhere (Agent R-overview2, KH-NEXT-2.md "Overview, rebuilt")
  * "this has to be related to suggestions, where you're adding facts from the Knowledge Hub, and that's how we justify
- * tackling this [the gap]" (Antonio). A gap is matched to a Smart Listings tip only when they genuinely share the same
+ * tackling this [the gap]". A gap is matched to a Smart Listings tip only when they genuinely share the same
  * missing fact: the tip's own `field` (data/sl3.ts TipDef.field, e.g. "neighbourhood") has to be one of the exact fact
  * keys the gap's question already cites (`hub.facts(q)`, the same FactRef keys C's FactRow reads/writes). Tips also
  * need `kb: true` (TIPS flags it relevant to/grounded in the Knowledge Hub). This is deliberately strict — most gaps
@@ -163,9 +163,9 @@ export function useR(): R {
 
 export { questionLabel }
 
-/** The Smart Listing tips that touch the facts a question's answer uses (review, 3 Oct: editing a question shows "how
+/** The Smart Listing tips that touch the facts a question's answer uses (editing a question shows "how
  *  that is related" to the recommendations). Looser than tipForGap: any listing tip whose `field` is one of the
- *  question's fact keys, not only the `kb` ones; at most three. Only tips still waiting for the host (audit K-1, 3 Oct):
+ *  question's fact keys, not only the `kb` ones; at most three. Only tips still waiting for the host:
  *  the active property's tips (tipsFor), for channels whose Tips panel is open (the same gate as the rail's counts,
  *  screens/channel/screenTips.tsx useTipsGate), neither accepted nor dismissed. Open lands on that tip (`?tip=<id>`). */
 export interface TipGate { tips: Record<string, 'accepted' | 'dismissed'>; open: (c: ListingChannel) => boolean }

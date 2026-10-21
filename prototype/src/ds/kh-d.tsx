@@ -12,7 +12,7 @@
  * - KhdAddBox: search-or-add in one box ("Add amenity, e.g. Air conditioning · Adds to all channels").
  * - KhdFlag: "Channels disagree: Balcony" with two plain answers.
  * - KhdAmenityRow: an amenity, where it's listed (All channels / Marks + names), expandable into "Listed on" checkboxes.
- * Rules (review, 30 Sep): captions are plain text (no channel logo); Marks only in identity spots. */
+ * Rules: captions are plain text (no channel logo); Marks only in identity spots. */
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import { CloseButton, Icon, Mark, cx } from './primitives'
 import { BottomSheet, useIsMobile } from './mobile'

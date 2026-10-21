@@ -1,6 +1,6 @@
 /* Knowledge Hub iteration KH-C · Guest questions first (concepts/knowledge-hub/KH-C.md). CSS: ds/v3/kh-c.css (tokens only).
  * Journey tabs with gap counts, the ask box with "Answer as [channel]", coverage state (Answered · Partly answered ·
- * Not answered), question rows with the AI's answer and the facts behind it, provenance, coverage meters, and the side
+ * Not answered), question rows with the AI's answer and the facts behind it, sources, coverage meters, and the side
  * panel (Sources, Gaps) that slides in beside the content like a drawer. Captions are plain text; the channel Mark only
  * appears where a channel is the subject (a guest message, "Answer as", where a fact will be used). */
 import { useEffect, useRef, useState, type ReactNode } from 'react'

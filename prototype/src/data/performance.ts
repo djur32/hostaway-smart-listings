@@ -191,7 +191,7 @@ export function minDetectable(bookingsPerWeek: number, weeks: number, variants =
 }
 
 /* =====================================================================================================================
- * Smart Listings › Performance (WS-SL, 1 Oct · review's "much more development" review). Everything below is .
+ * Smart Listings › Performance (WS-SL). Everything below is sample data.
  *
  * A reservation-level dataset for the scenario listing (Beautiful Artist Apt. in Neukölln, sleeps 2), so every number on
  * Performance and Strategy › Versions derives from the same bookings and can't disagree: occupancy, ADR, RevPAR, revenue,
@@ -199,7 +199,7 @@ export function minDetectable(bookingsPerWeek: number, weeks: number, variants =
  *
  *  · 400 days of history (≈ 57 weeks) ending yesterday; day SL_DAYS is today. Smart Listings went live on day SL_START
  *    (≈ 29 weeks ago), so "since Smart Listings started" has an equal ≈ 29-week baseline before it. Extended from
- *    196/98 on 1 Oct (review: "I want to pretend that all of the different channels have been running on Smart
+ *    196/98 on 1 Oct ("I want to pretend that all of the different channels have been running on Smart
  *    Listings for a long time… I want to see different timelines, time ranges, that I can choose among"), so Last 30 /
  *    Last 90 / Since Smart Listings started are genuinely different windows, and so every channel has four versions
  *    that each ran 30 days or more — the minimum Strategy › Versions needs before it will compare a version at all
@@ -230,17 +230,17 @@ export const SL_DAYS = 400
 export const SL_START = 200
 const SL_AHEAD = 60
 const SL_CHS: SlChannel[] = ['airbnb', 'booking', 'direct']
-/** One tuned seed per weekday of "today" (Mon = 0), so the simulated weekends fall on real Fridays and Saturdays. */
+/** One tuned seed per weekday of "today" (Mon = 0), so the sample weekends fall on real Fridays and Saturdays. */
 const SL_SEEDS = [1187, 737, 1177, 752, 1299, 693, 244]
 const SL_K = 0.2
 
 const midnight = (d: Date) => new Date(d.getFullYear(), d.getMonth(), d.getDate())
 const TODAY = midnight(new Date())
 const TODAY_DOW = (TODAY.getDay() + 6) % 7
-/** Calendar date of simulated day d (day SL_DAYS = today). Calendar arithmetic, safe across clock changes. */
+/** Calendar date of sample day d (day SL_DAYS = today). Calendar arithmetic, safe across clock changes. */
 export const slDate = (d: number) => new Date(TODAY.getFullYear(), TODAY.getMonth(), TODAY.getDate() - (SL_DAYS - d))
 export const slIso = (d: number) => { const x = slDate(d); return `${x.getFullYear()}-${String(x.getMonth() + 1).padStart(2, '0')}-${String(x.getDate()).padStart(2, '0')}` }
-/** The simulated day of an ISO date (yyyy-mm-dd). Today = SL_DAYS. */
+/** The sample day of an ISO date (yyyy-mm-dd). Today = SL_DAYS. */
 export const slDayOf = (iso: string) => { const [y, m, dd] = iso.split('-').map(Number); return SL_DAYS - Math.round((TODAY.getTime() - new Date(y, m - 1, dd).getTime()) / 864e5) }
 export const slFmt = (d: number) => slDate(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })
 /** 0 = Monday. */
@@ -264,7 +264,7 @@ export const slIsPeak = peak
 export interface SlSeedVersion { n: number; from: number; plan: SlPlan; mix?: SlMix | null; by: 'setup' | 'you' | 'autopilot' | 'recommendation'; note?: string }
 const plan = (goal: SlPlan['goal'], audience: SlPlan['audience'], priceMin: number, priceMax: number, mode: SlPlan['mode'] = 'suggest', asks = ['price', 'rules', 'policy']): SlPlan => ({ goal, audience, asks, priceMin, priceMax, mode })
 export const SL_SEED: Record<SlChannel, SlSeedVersion[]> = {
-  /* Airbnb and Booking.com: four genuinely different strategies each (review, 3 Oct: "maybe three previous strategies
+  /* Airbnb and Booking.com: four genuinely different strategies each ("maybe three previous strategies
    * for Airbnb and Booking.com, so I have more options to choose from") — every pair differs in goal or audience, price
    * range and/or Autopilot, and every one carries a short note. v4 is the live demo plan (data/v3-sl.ts DEMO_PLANS) and
    * is unchanged. . Strategy › History shows these under whatever the host saves on top
@@ -297,7 +297,7 @@ const BASE: Record<SlChannel, { pull: number; stay: number; rate: number; lead: 
   booking: { pull: 1.3, stay: 2.3, rate: 50, lead: 12, cancel: 0.14, minStay: 3 },
   direct: { pull: 0.2, stay: 4.2, rate: 44, lead: 30, cancel: 0.03, minStay: 2 },
 }
-/** How a strategy changes the listing's behaviour on a channel (the model behind every simulated number). */
+/** How a strategy changes the listing's behaviour on a channel (the model behind every sample number). */
 function behaviour(ch: SlChannel, s: Span, scale: number) {
   const b = BASE[ch]
   const out = { pull: b.pull * 0.82, stay: b.stay, minStay: b.minStay, rate: b.rate * scale, wkndPrem: 1.2, lead: b.lead, cancel: b.cancel, min: 38 * scale, max: 95 * scale, weekdayBoost: 1 }
@@ -369,7 +369,7 @@ function simulate(tl: Timeline, seed: number, chs: SlChannel[], scale = 1, cutof
 }
 
 
-/* ---------- a Smart Listings history for every OTHER property (1 Oct · review, repeated: "I want to pretend that all
+/* ---------- a Smart Listings history for every OTHER property (1 Oct · "I want to pretend that all
  * of the different channels have been running on Smart Listings for a long time") ----------
  * Until now only the scenario listing had versions. Every other property ran `simulate` with an empty timeline, so
  * Strategy › Versions showed one row, "v1 · live since today · Still measuring · 4 weeks more needed", and Performance
@@ -492,7 +492,7 @@ const cache = new Map<string, SlSim>()
 const memo = (key: string, make: () => SlSim) => { const hit = cache.get(key); if (hit) return hit; const s = make(); cache.set(key, s); return s }
 /** The scenario listing with its Smart Listings history. */
 export const scenarioSim = () => memo('scenario', () => simulate(toTimeline(SL_SEED, SL_CHS), SL_SEEDS[TODAY_DOW], SL_CHS))
-/** Same period last year (3 Oct, review: compare a strategy "against something", e.g. last year). a second,
+/** Same period last year (3 Oct, compare a strategy "against something", e.g. last year). a second,
  *  deterministic run of the same calendar with no strategy on any channel (Smart Listings didn't exist a year ago), its
  *  own seed, and rates 6% lower. Day d of this dataset stands for day d one year earlier (364 days, so weekdays line
  *  up); similar homes' demand curve is the same, so the "vs similar homes" adjustment still holds. Every day is complete

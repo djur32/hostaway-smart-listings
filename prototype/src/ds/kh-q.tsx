@@ -1,4 +1,4 @@
-/* Knowledge Hub, reframed (plan/notion-v2/deck-review/KH-REFRAME.md, 4 Oct) · its new patterns, added to the design
+/* Knowledge Hub, reframed · its new patterns, added to the design
  * system before any screen uses them. CSS: ds/v3/kh-q.css. Tokens only. Built from patterns the prototype already has:
  *   · KqQuestionRow — the Sources/Questions table row (KhrSourceItem's shape): the coverage icon, the question, one meta
  *     line with how often guests asked and on which channel, a trailing tip indicator (TipDot) and a chevron. The whole

@@ -58,9 +58,6 @@ try {
       const brand = document.querySelector('.appbar__brand');
       brand?.dispatchEvent(new MouseEvent('click', { bubbles: true, detail: 1 })); await wait(300);
       if (!brand || D.current !== 0) bad.push('brand logo click went to ' + (brand ? at().dataset.id : 'nothing: no .appbar__brand'));
-      // every slide carries its way into Notion (kit/hc.js), a link or an honest "pending"
-      const noLink = D.slides.filter((s) => !s.querySelector('.hc-notion')).map((s) => s.dataset.id);
-      if (noLink.length) bad.push('no "In Notion" link on ' + noLink.slice(0, 5).join(', ') + (noLink.length > 5 ? '…' : ''));
       // a part opens under its cover (D-072), on aubergine, and → lifts it
       const first = D.slides.findIndex((s) => s.dataset.stage === '1');
       if (first >= 0) {

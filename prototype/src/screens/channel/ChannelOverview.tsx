@@ -1,9 +1,9 @@
 /* Channels › {channel} › Overview (V3-SPEC §1, NV-4a content area). Owner WS-CH.
  * The channel's status (last sync = the last change sent, since Save sends: QA A08, with a standing link to "Changes
- * sent"), a Status row (Online/Offline, not a "Listed" chip on the title: review 1 Oct), a strategy card, 1–2
+ * sent"), a Status row (Online/Offline, not a "Listed" chip on the title: ), a strategy card, 1–2
  * meaningful tips (performance/gap-tied, each with its expected effect and one action — not a bare open-tips count:
- * review 1 Oct), a small performance strip, and one list of everything about the listing on this channel (merged
- * "specific to" + "set by": review 1 Oct, no more two sections for two origins). No "Recent changes" list (review 1
+ * ), a small performance strip, and one list of everything about the listing on this channel (merged
+ * "specific to" + "set by": ). No "Recent changes" list (review 1
  * Oct — reachable from the last-sync line only). No channel selector: the channel is chosen in the menu.
  * URL states: ?smart=on|off
  * Multi-property (QA B01/B02): the meta, prices and amenities are the active property's (data/property-listing.ts); the
@@ -69,7 +69,7 @@ function Overview({ c }: { c: ListingChannel }) {
     : { value: meta.synced, sub: 'Everything you saved is live' }
   const applied = scenario ? AUTOPILOT_LOG.filter((x) => x.channel === c && x.state === 'applied').length : 0
 
-  // Meaningful tips only (review 1 Oct): up to 2, money/performance-tied ones first, each with its own expected
+  // Meaningful tips only: up to 2, money/performance-tied ones first, each with its own expected
   // effect (why[0]) and one action — not a bare "N open" count. Nothing shown when there's nothing worth surfacing.
   const meaningfulTips = useMemo(() => [...pending].sort((a, b) => Number(!!b.money) - Number(!!a.money)).slice(0, 2), [pending])
 
@@ -97,7 +97,7 @@ function Overview({ c }: { c: ListingChannel }) {
       if (st === 'override') rows.push({ key: r.key, label: r.label, sub: 'Availability', value: typeof cv === 'string' ? cv : r.value?.[c] ?? r.base, state: 'override', to: `${base$}/availability`, toLabel: 'Edit' })
     }
     for (const o of meta.only) rows.push({ key: o.label, label: o.label, sub: o.sub, value: o.value, state: 'channel', to: `${base$}/${o.to}`, toLabel: 'Edit' })
-    // "Set by {channel}" folded in here too (review 1 Oct): one list for everything about this listing on this
+    // "Set by {channel}" folded in here too: one list for everything about this listing on this
     // channel, not two sections split by where a value comes from.
     for (const [k, v] of meta.owned) rows.push({ key: k, label: k, sub: `${name} decides this`, value: v, state: 'set' as const, to: '', toLabel: '' })
     return rows
@@ -118,15 +118,15 @@ function Overview({ c }: { c: ListingChannel }) {
 
           <StatusStrip items={[
             { label: 'Connection', value: meta.connection, sub: meta.account, ok: true },
-            // the last-sync line is the one standing way to "Changes sent" now that Recent changes is gone (review 1 Oct)
-            { label: 'Last sync', value: sync.value, sub: sync.sub }, // no "See all changes" link (review, 3 Oct: remove it everywhere)
-            // Status, not a "Listed" chip on the title (review 1 Oct): Online/Offline, from the property Overview's listed toggle (QA B15)
+            // the last-sync line is the one standing way to "Changes sent" now that Recent changes is gone
+            { label: 'Last sync', value: sync.value, sub: sync.sub }, // no "See all changes" link (remove it everywhere)
+            // Status, not a "Listed" chip on the title: Online/Offline, from the property Overview's listed toggle (QA B15)
             listedHere ? { label: 'Status', value: 'Online', sub: meta.liveSub, ok: true } : { label: 'Status', value: 'Offline', sub: 'Guests can’t search or book', ok: false },
           ]} />
 
           <div className="ch-cards">
             {on ? (
-              // 1–2 meaningful tips, each with its own expected effect and one action; nothing shown when none qualify (review 1 Oct)
+              // 1–2 meaningful tips, each with its own expected effect and one action; nothing shown when none qualify
               meaningfulTips.map((t) => (
                 <SummaryCard key={t.id} eyebrow={<><Icon name="sparkles" size={16} />Tip</>} title={t.title}
                   foot={<Link className="h-link" to={`${base$}/listing/${tabOfField(t.field)}?tip=${t.id}`}>Review</Link>}>
@@ -164,7 +164,7 @@ function Overview({ c }: { c: ListingChannel }) {
           </div>
 
           <div>
-            {/* one list for everything about this listing on this channel, with a neutral heading (review 1 Oct: drop
+            {/* one list for everything about this listing on this channel, with a neutral heading (drop
                the "specific to / set by" framing entirely, not just merge the two sections under one of those names).
                Per-row scope captions ("Set by Airbnb" etc.) stay — they're what tells the host what they can't edit. */}
             <SectionHead title={`On ${name}`}

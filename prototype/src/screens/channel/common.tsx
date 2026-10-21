@@ -19,7 +19,7 @@ export function useChannel(): ListingChannel | null {
   return isListingChannel(channel) ? channel : null
 }
 
-/** Demo URL states for screenshots and the Loom (not product behaviour):
+/** Demo URL states for screenshots and demos (not product behaviour):
  *  ?smart=on|off   Smart Listings on or off     ?accept=<tipId>   that tip already accepted
  *  ?autopilot=1|0  this channel's strategy runs on Autopilot (editor read-only) or Suggest */
 export function useChannelDemoParams(c: ListingChannel | null) {
@@ -104,7 +104,7 @@ export function discardCustom(c: ListingChannel, keys: string[]) {
 
 /* ---------- section draft: Hostaway's "Discard changes / Save" (DS.md "Field row") ----------
  * Every edit inside a section (typing, Customize for {channel}, Use the Base, amenity add/remove, listing-wide edits)
- * stays local until Save. Save is the commit (review, 30 Sep; QA A08): it writes the store (sl3Custom / sl3Base) and
+ * stays local until Save. Save is the commit: it writes the store (sl3Custom / sl3Base) and
  * sends the change to the channel right away, one receipt per change (screens/push/changes.ts); a listing-wide edit
  * goes to every channel that uses it. Discard drops it. The draft belongs to one section (channel + tab): leaving the
  * tab drops unsaved edits. No "save as draft" here. */
@@ -152,7 +152,7 @@ export function useSectionDraft(c: ListingChannel, section: string, opts: { read
   return {
     c, custom, base,
     readOnly: !!opts.readOnly,
-    // dirty only when something REAL differs from what's saved (review, 3 Oct: Customize → Use the Base again is "no
+    // dirty only when something REAL differs from what's saved (Customize → Use the Base again is "no
     // change"): the `@stash` entry "Use the Base" keeps for a later Customize is bookkeeping, never a change
     dirty: Object.keys(d.custom).some((k) => !k.endsWith('@stash')) || Object.keys(d.base).length > 0,
     isOpen: (k) => !!d.open[k],
@@ -236,7 +236,7 @@ export function useScopedField(def: FieldDef, c: ListingChannel, opts: { customi
       disabled = true
       actionLabel = opts.customizeLabel ?? `Customize for ${name}`
       // Customize brings back the channel's own text if it had one (kept under `<key>@stash` by "Use the Base")
-      // (a kept value that is empty is never brought back: a field never opens empty — review, 3 Oct)
+      // (a kept value that is empty is never brought back: a field never opens empty — )
       onAction = () => {
         const kept = d.custom?.[stashKey(def.key)]
         const next = typeof kept === 'string' && kept.trim() !== '' ? kept : opts.customizeFrom ?? v.value
@@ -257,7 +257,7 @@ export function useScopedField(def: FieldDef, c: ListingChannel, opts: { customi
       break
     case 'override':
       actionLabel = 'Use the Base'
-      // review 30 Sep: switching to the Base never loses the custom text. It is kept (stash) so Customize restores it.
+      // switching to the Base never loses the custom text. It is kept (stash) so Customize restores it.
       // A row that started custom goes back with `null`; one customized since goes back by dropping the entry.
       onAction = () => {
         if (v.value.trim() !== '') d.setCustom(stashKey(def.key), v.value); d.setCustom(def.key, origin === 'override' ? null : undefined)
@@ -344,7 +344,7 @@ export function ScopedRow({ c, k, label, help, orig, baseValue, chValue, setBy, 
     <SettingRow label={label} help={help} state={f.v.state} channel={c}
       tips={show ? undefined : tips} tipActive={!show && tipActive} onTip={show ? undefined : onTip}
       actionLabel={show ? undefined : f.actionLabel} onAction={show ? undefined : f.onAction} hint={!show}
-      lockTip={f.v.state === 'set' ? setBy : undefined} /* "🔒 {channel} only", the reason in the lock's tooltip (review, 4 Oct) */
+      lockTip={f.v.state === 'set' ? setBy : undefined} /* "🔒 {channel} only", the reason in the lock's tooltip */
       below={f.everywhere || after ? <>{f.everywhere && <EverywhereNote c={c} />}{after}</> : undefined} hintAction={show ? undefined : hintAction}
       scopeChannels={channels} hubTo={hubTo} sheet={!show && !(f.disabled && !f.onAction)}>
       {control(f.shown, show ? noop : f.write, f.locked, f.disabled || show, { input: f.inputRef, select: f.selectRef })}

@@ -2,7 +2,7 @@
  * INT-1…INT-4 pseudonyms: Marta, Dana, Callum, Priya; people, persona types). No surnames, emails
  * or photos are made up: first name, the persona, and what their account holds.
  *
- * Dana is today's account, kept exactly as built (review, 3 Oct: "the current one is the default"). Each account keeps
+ * Dana is today's account, kept exactly as built ("the current one is the default"). Each account keeps
  * its own saved prototype state (app/account.ts), so switching never loses anyone's work. Accounts change WHAT you own
  * and the DEFAULTS and GUIDANCE you get (D-150), never what the product can do. */
 import type { PersonaId } from './types'
@@ -46,7 +46,7 @@ export const USERS: Record<UserId, UserDef> = {
     channels: ['airbnb', 'booking'] },
   priya: { id: 'priya', name: 'Priya', initials: 'P', persona: 'P4', role: 'Just joined Hostaway',
     properties: [PROPERTY_ID],
-    // review, 4 Oct: Priya is a new host on one listing already — no first-time setup anywhere (web or app)
+    // Priya is a new host on one listing already — no first-time setup anywhere (web or app)
     context: 'Just joined from Hostaway with one listing on Airbnb. It is already here, with no setup.', tone: 'priya',
     channels: ['airbnb'] },
 }
@@ -65,7 +65,7 @@ export function currentUserId(): UserId {
 }
 export const currentUser = (): UserDef => USERS[currentUserId()]
 
-/** What an account owns right now. Priya already has her one listing (review, 4 Oct: no setup). */
+/** What an account owns right now. Priya already has her one listing (no setup). */
 export function propertiesOf(u: UserDef, _setupConnected: readonly string[]): string[] {
   return u.properties
 }

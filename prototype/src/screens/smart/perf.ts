@@ -1,5 +1,5 @@
-/* Smart Listings › Performance: formatting for screens reading the simulated dataset (data/performance.ts).
- * 3 Oct (Antonio): versions, the comparison mode and their helpers (version rows, recommendations from comparing
+/* Smart Listings › Performance: formatting for screens reading the sample dataset (data/performance.ts).
+ * 3 Oct: versions, the comparison mode and their helpers (version rows, recommendations from comparing
  * versions, alternative-strategy estimates) were removed; what is left is plain formatting. */
 import { SL_DAYS, slFmt } from '../../data/performance'
 

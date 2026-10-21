@@ -1,4 +1,4 @@
-/* WS-CV · the Canvas's price panel (review, 3 Oct, 2nd pass: "the cleaning fee, if you can change it directly from
+/* WS-CV · the Canvas's price panel ("the cleaning fee, if you can change it directly from
  * here, that would be great; the pricing per night, this is something you might be able to change"). The booking
  * card's nightly line and cleaning fee open this in the one right-hand slot: Pricing's own rows (screens/channel/
  * common.tsx ScopedRow + ds NumberField), with the same Uses the Base / Custom / Edit for all channels actions and

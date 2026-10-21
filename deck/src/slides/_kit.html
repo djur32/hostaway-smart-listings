@@ -3,7 +3,7 @@
      Build and look:  node tools/build.mjs --kit  →  src/pages/kit-hostaway.html
      Shoot:           node tools/shoot.mjs --kit --scale 0.5 --out qa/kit
      Copy the markup, not the words. The data in these charts is EXAMPLE DATA: it only
-     shows the layout. Real data comes from Notion and research/charts (CONTRACT.md §6).
+     shows the layout. A chart or figure with example numbers carries the neutral caption "Sample data" (CONTRACT.md §6).
      The InvestEngine templates are parked in _origin/slides/_kit-origin.html.
      ═══════════════════════════════════════════════════════════════════════════ -->
 
@@ -21,7 +21,7 @@
       <p class="hc-ph__from">S17 fills from <span class="hc-id">S05</span> research/synthesis/insights.md</p>
     </div>
   </div>
-  <aside class="notes"><p>Every slide: eyebrow (part, provenance, IDs), headline, one-line message, one artefact, and the Notion link the kit adds to the foot.</p></aside>
+  <aside class="notes"><p>Every slide: eyebrow (part, IDs), headline, one-line message, one artefact.</p></aside>
 </section>
 
 <!-- 2 · a part's cover (the first beat of the part's first slide; press → to lift it) -->
@@ -48,21 +48,20 @@
 </section>
 
 <!-- 3 · the small pieces -->
-<section class="s" data-id="kit-chips" data-title="Kit · Provenance, IDs, signal, channels, AI" data-stage="1" data-min="0.5" data-ground="white">
+<section class="s" data-id="kit-chips" data-title="Kit · IDs, signal, channels, AI" data-stage="1" data-min="0.5" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>The small pieces</span></p>
-    <h2 class="h2" data-a="lines" data-at="0.1">Where every claim comes from</h2>
+    <h2 class="h2" data-a="lines" data-at="0.1">The small pieces</h2>
   </header>
   <div class="s-body">
     <div class="stack" style="--gap-y: 40px" data-a="rise" data-at="0.3">
-      <p class="chips"></p>
-      <p class="chips"><span class="hc-id">D-001</span><span class="hc-id">I-04</span><span class="hc-id">INT-3</span><span class="hc-id">R-031</span><span class="hc-notion" data-no-auto>Notion page pending</span></p>
+      <p class="chips"><span class="hc-id">D-001</span><span class="hc-id">I-04</span><span class="hc-id">INT-3</span><span class="hc-id">R-031</span></p>
       <p class="chips" style="gap: 32px"><span class="hc-signal" data-strength="strong"></span><span class="hc-signal" data-strength="moderate"></span><span class="hc-signal" data-strength="weak"></span><span class="hc-signal" data-strength="hypothesis"></span></p>
       <p class="chips"><span class="hc-ch" data-ch="airbnb">Airbnb</span><span class="hc-ch" data-ch="booking">Booking.com</span><span class="hc-ch" data-ch="vrbo">Vrbo</span><span class="hc-ch" data-ch="direct">Direct</span><span class="hc-ch" data-ch="google">Google</span></p>
       <div class="hc-ai hc-ai--sparkle" style="max-width: 1000px"><p class="hc-ai__t">Smart Listings <span class="hc-new">New</span></p><p class="hc-ai__b">The product's own AI card, at wall size: lavender, never another product's AI look.</p></div>
     </div>
   </div>
-  <aside class="notes"><p>Chips fill their own words from data-prov. Simulated reads "Illustrative" on the wall. IDs become links when notion-links.json knows them.</p></aside>
+  <aside class="notes"><p>IDs, signal meters, channel chips and the AI card.</p></aside>
 </section>
 
 <!-- 4 · quote cards -->
@@ -83,7 +82,7 @@
       </figure>
     </div>
   </div>
-  <aside class="notes"><p>Persona avatar, the words, the interview and timestamp, and the provenance chip. Simulated quotes always say Illustrative.</p></aside>
+  <aside class="notes"><p>Persona avatar, the words, the interview and timestamp.</p></aside>
 </section>
 
 <!-- 5 · bar chart (horizontal, sorted) -->
@@ -260,7 +259,7 @@
   <aside class="notes"><p>hc-grid with --cols. A cell holds an img data-shot (click to zoom) or shows its data-label while empty. is-pick outlines a finalist, is-dim quietens the rest. The real grid is seven rows.</p></aside>
 </section>
 
-<!-- 14 · decision card, with an "In Notion" deep dive one layer below -->
+<!-- 14 · decision card, with a deep dive one layer below -->
 <section class="s" data-id="kit-decision" data-title="Kit · Decision card" data-stage="4" data-min="0.5" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Decision</span></p>
@@ -276,11 +275,11 @@
   </div>
   <template class="more" data-more="why" data-title="The evidence behind D-001">
     <div class="more__panel" data-title="Evidence">
-      <p class="lead">A detail is a layer below the slide: a deep dive that stays in the talk, with its way into Notion.</p>
+      <p class="lead">A detail is a layer below the slide: a deep dive that stays in the talk.</p>
       <p class="chips"><span class="hc-id">D-001</span></p>
     </div>
   </template>
-  <aside class="notes"><p>hc-decision. The detail layer (template class more) is the "In Notion" deep dive on the wall.</p></aside>
+  <aside class="notes"><p>hc-decision. The detail layer (template class more) is the deep dive on the wall.</p></aside>
 </section>
 
 <!-- 15 · problem → response → screen -->
@@ -339,7 +338,7 @@
   <div class="s-body">
     <figure class="hc-flow" data-flow="tips" data-at="0.3"></figure>
   </div>
-  <aside class="notes"><p>figure.hc-flow with data-flow naming a diagram in data/flows.json, and data-variant="notion" draws the Notion variant (deck is the default). Node kinds: start, step, screen (with a glyph), ai, decision (who: host is raspberry), end, root. Plates are groups with a tint. "only": "deck" or "notion" keeps a node or a branch to one variant. The renderer sets data-a="flow", and data-still turns the motion off. Notion PNGs: node qa/diagrams/render.mjs.</p></aside>
+  <aside class="notes"><p>figure.hc-flow with data-flow naming a diagram in data/flows.json, and data-variant="notion" draws the document variant (deck is the default). Node kinds: start, step, screen (with a glyph), ai, decision (who: host is raspberry), end, root. Plates are groups with a tint. "only": "deck" or "notion" keeps a node or a branch to one variant. The renderer sets data-a="flow", and data-still turns the motion off. Notion PNGs: node qa/diagrams/render.mjs.</p></aside>
 </section>
 
 <section class="s" data-id="kit-brand" data-title="Kit · The brand plate" data-stage="0" data-part="open" data-min="0.2" data-ground="white" data-chrome="min">

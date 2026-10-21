@@ -1,11 +1,9 @@
 /* ============================================================================
    HC · the Hostaway case's own components (S07). Templates: src/slides/_kit.html.
-   Behaviour (charts, Notion links, frames, the concept grid): kit/hc.js.
+   Behaviour (charts, frames, the concept grid): kit/hc.js.
 
-     .hc-prov        provenance chip: ("Illustrative") · 
-     .hc-id          an ID tag (D-012, I-04, INT-3); a link when Notion knows it
-     .hc-notion      "In Notion ↗" (every slide gets one in its foot, automatically)
-     .hc-quote       a quote card: persona, words, INT-# and time, provenance
+     .hc-id          an ID tag (D-012, I-04, INT-3)
+     .hc-quote       a quote card: persona, words
      .hc-chart       a chart frame fed by JSON: bar · funnel · matrix · journey ·
                      line (before/after) · svg (an imported dendrogram)
      .hc-kpi         a KPI tile        .hc-signal   a signal-strength meter
@@ -25,65 +23,20 @@
 
 @layer components {
 
-/* ── provenance, one colour per kind (3 Oct, late) ─────────────────────────
-   review: the kinds were coloured on one slide and grey on the others. One colour per kind,
-   the same everywhere (footer chips, legends, the covers' Outputs), built from ds tokens:
-     Real        --prov-real   / --prov-real-bg     green  (success-700 / -50)   brief · product · public
-     Simulated   --prov-sim    / --prov-sim-bg      orange (orange-700 / -50)   never purple: lavender/purple means AI
-     Projected   --prov-proj   / --prov-proj-bg     blue   (blue-700 / -50)
-     Assumption  --prov-assume / --prov-assume-bg   gray   (gray-700 / -50)     a design call, not yet tested
-   The -700 inks pass AA on white and on their own -bg. The glyph still tells the kind without
-   colour: ● real (filled) · ○ simulated (hollow) · ◐ projected · ◇ assumption.
-   A slide's sources sit in its foot as one line (.hc-src), the chip names the kind. */
+/* ── the quiet plate ────────────────────────────────────────────────────────
+   Provenance chips (.hc-prov) and output marks (.hc-mark) are retired: the only label the
+   concept keeps is the neutral caption "Sample data". Old markup renders nothing. */
 :root {
   /* the quiet gray plate behind cards, rows and chips. Gray-50 read as white on the wall (review, 4 Oct: "the light gray is too light") */
   --plate-quiet: var(--color-gray-100);
-  --prov-real:   var(--color-success-700);   --prov-real-bg:   var(--color-success-50);
-  --prov-sim:    var(--color-orange-700);    --prov-sim-bg:    var(--color-orange-50);
-  --prov-proj:   var(--color-blue-700);      --prov-proj-bg:   var(--color-blue-50);
-  --prov-assume: var(--color-gray-700);      --prov-assume-bg: var(--plate-quiet);
-  --prov-plan:   var(--color-gray-600);      --prov-plan-line: var(--color-gray-400);   /* a planned output: neutral */
 }
-.hc-prov {
-  display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; vertical-align: baseline;
-  font: var(--w-medium) 15px / 1.2 var(--font-ui); letter-spacing: 0; color: var(--prov-c, var(--ink-3));
-}
-.hc-prov:is([data-prov="brief"], [data-prov="product"], [data-prov="public"]) { --prov-c: var(--prov-real); }
-.hc-prov[data-prov="simulated"]  { --prov-c: var(--prov-sim); }
-.hc-prov[data-prov="projected"]  { --prov-c: var(--prov-proj); }
-.hc-prov[data-prov="assumption"] { --prov-c: var(--prov-assume); }
-.hc-prov::before { content: ""; width: 8px; height: 8px; border-radius: 50%; flex: none; background: currentColor; }
-.hc-prov[data-prov="simulated"]::before { background: none; box-shadow: inset 0 0 0 1.4px currentColor; }
-.hc-prov[data-prov="projected"]::before { background: linear-gradient(90deg, currentColor 50%, transparent 50%); box-shadow: inset 0 0 0 1.4px currentColor; }
-.hc-prov[data-prov="assumption"]::before { width: 7px; height: 7px; border-radius: 1px; transform: rotate(45deg); background: none; box-shadow: inset 0 0 0 1.4px currentColor; }
-.hc-prov--sm { font-size: 13px; gap: 6px; }
-.hc-prov--sm::before { width: 6px; height: 6px; }
-/* on the aubergine ground the -700 inks are too dark: the chips go back to the quiet on-dark text */
-.s[data-ground="aubergine"] .hc-prov { --prov-c: var(--on-dark-2); }
-
-/* ── what became of an output (the covers' Outputs) ────────────────────────
-   <span class="hc-mark" data-mark="produced|sampled|planned"></span>   (the word fills itself)
-   produced: made in this case (the real colours) · sampled: made from a simulated sample
-   (the simulated colours) · planned: what I'd make with real access, not made here (gray outline). */
-.hc-mark {
-  display: inline-flex; align-items: center; gap: 7px; height: 30px; padding: 0 12px 0 10px; border-radius: var(--r-pill);
-  font: var(--w-head) 15px / 1 var(--font-ui); letter-spacing: 0; white-space: nowrap; vertical-align: middle;
-  color: var(--mark-c, var(--ink-3)); background: var(--mark-bg, transparent);
-  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--mark-c, var(--ink-3)) 22%, transparent);
-}
-.hc-mark::before { content: ""; width: 8px; height: 8px; border-radius: 50%; flex: none; background: currentColor; }
-.hc-mark[data-mark="produced"] { --mark-c: var(--prov-real); --mark-bg: var(--prov-real-bg); }
-.hc-mark[data-mark="sampled"]  { --mark-c: var(--prov-sim);  --mark-bg: var(--prov-sim-bg); }
-.hc-mark[data-mark="sampled"]::before { background: none; box-shadow: inset 0 0 0 1.4px currentColor; }
-.hc-mark[data-mark="planned"]  { --mark-c: var(--prov-plan); --mark-bg: var(--bg); box-shadow: none; border: 1.5px dashed var(--prov-plan-line); padding: 0 10.5px 0 8.5px; }
-.hc-mark[data-mark="planned"]::before { background: none; box-shadow: inset 0 0 0 1.4px currentColor; }
-/* the source line: kind, then what it is */
+.hc-prov, .hc-mark { display: none !important; }
+/* the source line */
 .hc-src { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px; font-size: 15px; line-height: 1.4; color: var(--ink-3); max-width: 1400px; }   /* centred: an inline-flex chip's baseline is its dot, so baseline let the words ride high (review, 4 Oct) */
 .hc-src > * { line-height: 1.4; }
-.hc-src > span:not(.hc-prov) { color: var(--ink-3); }
-.hc-src .hc-prov + span::before { content: ""; }
+.hc-src > span { color: var(--ink-3); }
 
-/* ── IDs and the Notion link ───────────────────────────────────────────── */
+/* ── IDs ───────────────────────────────────────────── */
 .hc-id {
   display: inline-flex; align-items: center; height: 24px; padding: 0 7px; border-radius: var(--r-1);
   background: var(--plate-quiet); border: var(--hair) solid var(--line);
@@ -91,25 +44,6 @@
 }
 a.hc-id:hover { color: var(--ink); border-color: var(--line-2); }
 .hc-ids { display: inline-flex; flex-wrap: wrap; gap: 6px; }
-/* "Notion ↗": a plain text link in the foot, only where a page exists for the slide */
-.hc-notion { display: inline-flex; align-items: center; gap: 6px; font: var(--w-medium) 15px / 1 var(--font-ui); color: var(--ink-3); white-space: nowrap; }
-.hc-notion::after { content: "↗"; font-size: 14px; }
-a.hc-notion:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
-.hc-notion.is-pending { display: none; }
-.s-foot .hc-notion, .hc-foot .hc-notion { display: none; }   /* moved to the hint row, next to Jump (kit/hc.js notionHint) */
-.hint--notion { text-decoration: none; }
-.hint--notion[hidden] { display: none; }
-html.is-print .hint--notion { display: none; }
-/* the prototype door (kit/hc.js protoHint): solid ink, the height of a key cap, so it reads before the grey hints */
-.hint.hint--proto { height: 28px; padding: 0 12px 0 14px; gap: 7px; border-radius: var(--r-1); background: var(--color-sidebar-bg);
-  color: var(--color-text-white); font: var(--w-medium) 16px / 1 var(--font-ui); text-decoration: none; }
-.hint.hint--proto::after { content: "↗"; font-size: 15px; }
-/* the text stays white at rest, hover and focus: the generic .hint:hover ink would otherwise win on the dark chip (4 Oct) */
-.hint.hint--proto, .hint.hint--proto:hover, .hint.hint--proto:focus-visible { color: var(--color-text-white); }
-.hint.hint--proto:hover { background: var(--color-secondary-900); }
-.hint.hint--proto:focus-visible { outline: 2px solid var(--color-text-white); outline-offset: 2px; }
-.hint--proto[hidden] { display: none; }
-html.is-print .hint--proto { display: none; }
 .hc-foot { display: flex; align-items: baseline; gap: var(--s-3); }
 
 /* ── channel chip ───────────────────────────────────────────────────────── */
@@ -160,7 +94,6 @@ html.is-print .hint--proto { display: none; }
 .hc-quote__who { color: var(--ink-2); }
 .hc-quote__who b { font-weight: var(--w-head); }
 .hc-quote__t { font: 500 14px / 1 var(--font-code); color: var(--ink-3); }
-.hc-quote .hc-prov { margin-left: auto; }
 .hc-quote--lg blockquote { font-size: 44px; line-height: 1.2; }
 .hc-quotes { display: grid; grid-template-columns: repeat(var(--n, 2), minmax(0, 1fr)); gap: var(--s-4); align-items: start; }
 /* the persona avatar: an initial on the persona's tint (P1…P4) */
@@ -208,7 +141,6 @@ html.is-print .hint--proto { display: none; }
 /* a chart's caption reads as the slide's source line (.hc-src): 15 px, quiet ink, the chip first and on the left
    (review, 4 Oct). Inside a detail, engine.js lifts it into the panel's one source line at the card's bottom left. */
 .hc-chart__cap { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 4px 18px; font-size: 15px; line-height: 1.4; color: var(--ink-3); }
-.hc-chart__cap .hc-prov { order: -1; margin-left: 0; }
 .hc-chart text { font-family: var(--font-ui); fill: var(--ink-2); }
 .hc-chart .t-label { font-size: 18px; fill: var(--ink-2); }
 .hc-chart .t-value { font-size: 18px; font-weight: 600; fill: var(--ink); font-variant-numeric: tabular-nums; }
@@ -416,9 +348,7 @@ html.is-print .hint--proto { display: none; }
   color: var(--ink); font: var(--w-medium) 18px / 1 var(--font-ui);
   box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent), 0 10px 22px -14px color-mix(in oklab, var(--color-sidebar-bg) 40%, transparent);
 }
-/* the outputs: chips in the same style as the methods, one text colour (review, 3 Oct: "too complex,
-   produced / sampled / planned doesn't look great here"). The status stays, quietly: a small dot inside
-   each chip (filled green: produced · hollow orange: sampled · dashed gray ring: planned). */
+/* the outputs: chips in the same style as the methods, one text colour, a small brand dot inside each chip */
 .hc-cover .opener__out { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .hc-cover .opener__out .opener__k { flex-basis: 100%; margin: 0 0 2px; }
 .hc-cover .opener__outrow, .hc-cover .opener__outs { display: contents; }
@@ -428,9 +358,7 @@ html.is-print .hint--proto { display: none; }
   color: var(--ink); font: var(--w-medium) 18px / 1 var(--font-ui); letter-spacing: 0; white-space: nowrap;
   box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent), 0 10px 22px -14px color-mix(in oklab, var(--color-sidebar-bg) 40%, transparent);
 }
-.hc-cover .opener__outs > :is(span, a)::before { content: ""; width: 9px; height: 9px; border-radius: 50%; flex: none; background: var(--prov-real); }
-.hc-cover .opener__outrow:has(> [data-mark="sampled"]) .opener__outs > :is(span, a)::before { background: transparent; box-shadow: inset 0 0 0 2px var(--prov-sim); }
-.hc-cover .opener__outrow:has(> [data-mark="planned"]) .opener__outs > :is(span, a)::before { background: transparent; border: 1.5px dashed var(--prov-plan-line); width: 8px; height: 8px; }
+.hc-cover .opener__outs > :is(span, a)::before { content: ""; width: 9px; height: 9px; border-radius: 50%; flex: none; background: var(--accent); }
 
 /* the art: the part's drawing, big (about 62% of the slide's height), standing on the plate and
    cropped by its bottom edge like hostaway.com's mascots (references 08, 10); doodles around it.
@@ -450,7 +378,7 @@ html.is-print .hint--proto { display: none; }
 /* the drawing's own "///" strokes, in the cover's stroke tone (kit/hc.js inlineIllo, DOODLE_TONES) */
 .hc-cover { --cover-stroke: var(--color-secondary-500); }
 .hc-cover[data-strokes="raspberry"] { --cover-stroke: var(--color-primary-500); }
-.hc-cover[data-strokes="aubergine"] { --cover-stroke: var(--color-secondary-800); }
+.hc-cover[data-strokes="aubergine"] { --cover-stroke: var(--color-night-darker); }
 .hc-cover .hc-illo__stroke { stroke: var(--cover-stroke); }
 .hc-cover .hc-illo.is-missing { background: none; }
 .hc-cover .hc-illo.is-missing::after { color: var(--ink-3); }
@@ -624,7 +552,6 @@ html.is-print .s > .hc-cover { display: none; }
          .hc-stat__k            optional · the label, what the number is ("Occupancy")
          .hc-stat__v            the value; data-a="count" counts its first text node; <small> for a unit or "of 28"
          .hc-stat__l            optional · the quiet foot line: against what, from where ("Similar homes 60%")
-         .hc-prov / any block   rides under it
 
    [data-tint] on the card or an ancestor changes the key ink (never lavender: that means AI).
    --stat-v sets the value's size (50 px). Old markup (no __k) reads value first, then the line.
@@ -642,7 +569,6 @@ html.is-print .s > .hc-cover { display: none; }
 .hc-stat__v { margin: 0; font: var(--w-head) var(--stat-v, 50px) / 1.1 var(--font-ui); letter-spacing: -0.01em; font-variant-numeric: tabular-nums; color: var(--ink); white-space: nowrap; }
 .hc-stat__v small { margin-left: 6px; font-size: 0.4em; font-weight: var(--w-medium); letter-spacing: 0; color: var(--ink-3); }
 .hc-stat__l { margin: auto 0 0; padding-top: 12px; font-size: var(--t-small); line-height: 1.4; color: var(--ink-3); text-wrap: pretty; }
-.hc-stat .hc-prov { margin-top: 10px; align-self: flex-start; }
 /* the key stat: the product's way, the number in brand ink on the same white card */
 .hc-stat.is-key .hc-stat__v { color: var(--st-ink); }
 /* on the aubergine ground the card stays a white card */
@@ -827,7 +753,7 @@ html.is-print .s > .hc-cover { display: none; }
    kit/hc.js draws the SVG; data-a="draw" on the span draws it in. The ring sways a few degrees. */
 .hc-doodle { display: inline-block; width: var(--size, 120px); height: var(--size, 120px); pointer-events: none; --doodle: var(--color-primary-500); }
 .hc-doodle[data-tone="purple"] { --doodle: var(--color-secondary-500); }
-.hc-doodle[data-tone="aubergine"] { --doodle: var(--color-secondary-800); }
+.hc-doodle[data-tone="aubergine"] { --doodle: var(--color-night-darker); }
 .hc-doodle[data-tone="yellow"] { --doodle: var(--color-yellow-300); }
 .hc-doodle[data-tone="mint"]   { --doodle: var(--color-success-400); }
 .hc-doodle svg { display: block; width: 100%; height: 100%; overflow: visible; }
@@ -984,32 +910,9 @@ html.is-print :is(.hc-pillar__i svg, .hc-doodle, .hc-idle, .hc-idle-2, .is-drift
   .hc-flow__src { display: inline-flex; align-items: baseline; gap: 8px; margin-left: 10px; font-size: var(--t-small); color: var(--ink-3); white-space: nowrap; }
 }
 
-/* covers: methods and outputs open their Notion page (kit/hc.js covers) */
-.hc-cover a.is-link { text-decoration: none; cursor: pointer; transition: box-shadow var(--dur-1) var(--ease-io), color var(--dur-1) var(--ease-io); }
-.hc-cover a.is-link:hover, .hc-cover a.is-link:focus-visible { color: var(--accent-ink); outline: none;
-  box-shadow: 0 0 0 1.5px var(--color-primary-300), 0 10px 22px -14px color-mix(in oklab, var(--color-sidebar-bg) 40%, transparent); }
 /* every slide laid out once at boot, so hidden ones can be measured (kit/hc.js) */
 html.is-measuring .deck > .s { content-visibility: visible !important; }
 
-/* a cover chip that opens Notion shows the external-link arrow on hover, sliding in (review, 4 Oct).
-   The chip never changes width, so nothing ever re-wraps (review, 4 Oct: "no wrap change ever"): the arrow
-   is out of flow, and the hover moves 8px of padding from the left to the right, where the arrow sits.
-   The two paddings always add up to the chip's 36px. */
-.hc-cover .opener a.is-link {
-  position: relative; display: inline-flex; align-items: center;
-  transition: box-shadow var(--dur-1) var(--ease-io), color var(--dur-1) var(--ease-io),
-              padding var(--dur-1) var(--ease-out, ease);
-}
-.hc-cover .opener a.is-link::after {
-  content: ""; position: absolute; top: 50%; right: 9px; width: 16px; height: 16px; margin-top: -8px; background: currentColor;
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M7 17 17 7M9 7h8v8'/></svg>") center / 16px 16px no-repeat;
-          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M7 17 17 7M9 7h8v8'/></svg>") center / 16px 16px no-repeat;
-  clip-path: inset(0 100% 0 0); transform: translate(-6px, 4px);
-  transition: clip-path var(--dur-1) var(--ease-out, ease), transform var(--dur-2) var(--ease-out, ease);
-}
-.hc-cover .opener a.is-link:is(:hover, :focus-visible) { padding-left: 10px; padding-right: 26px; }
-.hc-cover .opener a.is-link:is(:hover, :focus-visible)::after { clip-path: inset(0); transform: translate(0, 0); }
-@media (prefers-reduced-motion: reduce) { .hc-cover .opener a.is-link, .hc-cover .opener a.is-link::after { transition: none; } }
 
 /* a foot that carries a "So →" strip stacks it over the source line (kit/hc.js soToFoot) */
 .s-foot.has-so { flex-direction: column; align-items: flex-start; justify-content: flex-end; gap: 14px; }
@@ -1035,7 +938,7 @@ html.is-measuring .deck > .s { content-visibility: visible !important; }
 }
 .hc-brand__band {
   position: absolute; left: var(--x); top: var(--y); width: var(--w, 1400px); height: var(--h, 640px); border-radius: 50%;
-  background: color-mix(in oklab, var(--color-secondary-900) 62%, var(--color-sidebar-bg)); transform: rotate(var(--r, -24deg));
+  background: color-mix(in oklab, var(--color-sidebar-item-active-bg) 62%, var(--color-sidebar-bg)); transform: rotate(var(--r, -24deg));
 }
 .hc-brand__at { position: absolute; left: var(--x); top: var(--y); }
 .hc-brand .hc-doodle { --doodle-w: 9; }

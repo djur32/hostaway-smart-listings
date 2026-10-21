@@ -4,7 +4,7 @@
  * over") → "Edit knowledge". Matching is the same bag-of-words idea as KH-C's old ask box (C.tsx `match()`), reused via
  * `bestMatch` (./workflows-data) — canned, not a real model (R-BRIEF: "the point is the UI pattern").
  * Mounted/unmounted by someone else's R.tsx; this file owns its own drawer (DetailsDrawer), so it works wherever
- * it's dropped. Available from Overview and every category page per the brief — the trigger button lives in R.tsx. */
+ * it's dropped. Available from Overview and every category page per the spec — the trigger button lives in R.tsx. */
 import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button, DetailsDrawer, Empty, KhrAnswer, KhrAsk, KhrSourceRow } from '../../../../ds'
@@ -102,7 +102,7 @@ function TestContent({ t, plain }: { t: ReturnType<typeof useTest>; plain?: bool
   )
 }
 
-/** Test, from a topic page's tab bar (review, 3 Oct: "instead of Ask a question, just say Test", in a drawer like
+/** Test, from a topic page's tab bar ("instead of Ask a question, just say Test", in a drawer like
  *  Add question / Add a fact, available from Questions and Facts; no sparkles, no purple). "Ask another question"
  *  clears the box and the answer so the host can try a different one. */
 export function TestDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {

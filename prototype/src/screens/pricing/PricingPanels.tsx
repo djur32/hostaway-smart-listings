@@ -1,4 +1,4 @@
-/* Calendar › a night › the property's pricing, as a PanelStack (D-927, review 1 Oct). Owner: this session (Calendar).
+/* Calendar › a night › the property's pricing, as a PanelStack (D-927, ). Owner: this session (Calendar).
  * Mirrors the real Calendar's night detail (HS-C11/C12) and its pricing drill-downs (HS-C01 rail; HS-C02…C10, C13–C15),
  * but every drill-down slides in beside the one you came from instead of replacing it (ds/panels.tsx).
  *   level 1  the night: date, price and where it comes from, prices with markup per channel, stays, rule set, sections
@@ -11,7 +11,7 @@
  * store actions as Channels › Pricing (ChannelPricing.tsx), read through viewOf. Save commits and sends straight away
  * (commitAndSend, one receipt per channel that changed). Security deposit and Dynamic Pricing have no store: read-only,
  * with "Open in Pricing". The edits of a section are one draft (Discard / Save on its level 2 and level 3); leaving the
- * section drops it. Sample values are except where the HS-C captures show review's real listing. */
+ * section drops it. Sample values are except where the HS-C captures show the real listing. */
 import { useEffect, useState, type ReactNode } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Icon, Locked, Mark, NumberField, PanelLink, Pill, SettingRow, UnsavedBar, cx, type FieldState, type StackPanel } from '../../ds'
@@ -144,7 +144,7 @@ export function usePriceEditor({ pid, section }: { pid: string; section: string 
 
 export function usePricingPanels({ pid, row, night, path, setPath, onDraft }: {
   pid: string; row: Row; night: Night | null; path: string[]; setPath: (p: string[]) => void
-  /** Reports the open section's live dirty/save/discard every render (review, 1 Oct: no permanent Discard/Save —
+  /** Reports the open section's live dirty/save/discard every render (no permanent Discard/Save —
    *  a host page wires this into the shared `useUnsavedChanges` top bar instead of this hook's own footer). */
   onDraft?: (d: { dirty: boolean; save: () => void; discard: () => void }) => void
 }): StackPanel[] {
@@ -190,7 +190,7 @@ const clean = (v: string) => v.replace(',', '.').replace(/[^0-9.]/g, '')
 export function Amount({ r, value, onChange, disabled, label, per, basis }: { r: PriceRow; value: string; onChange?: (v: string) => void; disabled?: boolean; label: string; per?: string
   /** a fee's basis and currency as dropdowns ("per stay ⌄", "€ ⌄"), kept as `price:<key>@unit` / `@cur` Base keys */
   basis?: { unit: string; onUnit: (v: string) => void; cur: string; onCur: (v: string) => void } }) {
-  // NumberField (ds/v3-ch.tsx), review 3 Oct: € in the grey box before the value, %/guests as Hostaway's plain
+  // NumberField (ds/v3-ch.tsx), € in the grey box before the value, %/guests as Hostaway's plain
   // unit word, "per stay" as the grey end box, and the shared small arrows. Same clean() and onChange as before.
   const money = r.unit === '€'
   return (
@@ -298,14 +298,14 @@ function SectionPanel({ s, ed, row, night }: { s: Section; ed: Editor; row: Row;
   }
 }
 
-/** A price row, Listing's exact two-state pattern (review, 1 Oct: "either use the Base, which you cannot edit, or
+/** A price row, Listing's exact two-state pattern ("either use the Base, which you cannot edit, or
  *  you change it for Airbnb specifically... it has to be literally the same"): the Base value (editable here, reaches
  *  every channel that uses it unless it has its own), then one row per connected channel — "Uses the Base" (disabled)
  *  with "Customize for {channel}", or a channel's own editable value with "Use the Base" to revert. Stacked, one
  *  channel at a time, never a multi-column comparison. No "Edit per channel": every channel's row is just here. */
 export function BaseRow({ ed, tab, r, label, help, per, baseOnly }: {
   ed: Editor; tab: PriceTab; r: PriceRow; label?: ReactNode; help?: ReactNode; per?: string
-  /** Listing base › Pricing (screens/base/Pricing.tsx, review 3 Oct: "We have the base, and off of the base others
+  /** Listing base › Pricing (screens/base/Pricing.tsx, "We have the base, and off of the base others
    *  can act dissimilarly, but I don't need to see that here"): just the Base input and the informational "ⓘ N
    *  channels" caption (N = the channels that use the Base; its tooltip names them). No per-channel rows, no channel
    *  marks, no actions or links; a row only some channels have isn't shown at all. The Calendar's drill-down keeps
@@ -335,7 +335,7 @@ export function BaseRow({ ed, tab, r, label, help, per, baseOnly }: {
   if (baseOnly) {
     if (onlyOne) return null // a channel's own field (e.g. Airbnb's monthly discount): not on the Base at all
     const users = chans.filter((c) => { const st = pv.view(c, tab, r.key)!.state; return st === 'inherit' || st === 'listing' })
-    // "N channels" only where a channel can differ (review, 3 Oct); a value the same everywhere by nature says nothing new
+    // "N channels" only where a channel can differ; a value the same everywhere by nature says nothing new
     const varies = chans.some((c) => { const o = pv.view(c, tab, r.key)!.orig; return o === 'inherit' || o === 'override' })
     return (
       <SettingRow label={label ?? r.label} help={help ?? r.help} state="listing" scopeChannels={varies ? users : undefined} hint={varies}>
@@ -345,7 +345,7 @@ export function BaseRow({ ed, tab, r, label, help, per, baseOnly }: {
       </SettingRow>
     )
   }
-  // Calendar: a field only one channel has is that channel's own (review, 3 Oct: Airbnb's monthly discount is edited
+  // Calendar: a field only one channel has is that channel's own (Airbnb's monthly discount is edited
   // on Channels › Airbnb › Pricing only, "don't allow it elsewhere"): shown read-only, with Open in Pricing
   if (onlyOne) {
     return <>{chans.map((c) => (
@@ -381,7 +381,7 @@ function ChannelRow({ ed, tab, r, c, help }: { ed: Editor; tab: PriceTab; r: Pri
   let actionLabel: string | undefined, onAction: (() => void) | undefined
   if (st === 'inherit') {
     actionLabel = `Customize for ${CH_NAME[c]}`
-    // brings back the channel's own value if "Use the Base" kept one (review 30 Sep: switching never loses work)
+    // brings back the channel's own value if "Use the Base" kept one (switching never loses work)
     onAction = () => { const kept = pv.sl3.custom[c]?.[stashKey(k)]; ed.setCustom(c, k, typeof kept === 'string' ? kept : v.value) }
   } else if (st === 'override') {
     actionLabel = 'Use the Base'
@@ -414,7 +414,7 @@ function BasePanel({ ed }: { ed: Editor }) {
 function MarkupsPanel({ ed, night }: { ed: Editor; night: Night }) {
   const { pv } = ed
   const rate = pv.baseOf('base', isWeekendNight(night.date) ? 'weekend' : 'nightly')
-  // review, 1 Oct evening: "pricing markup — make it specific, remove Custom for Airbnb / Use the Base, that's
+  // "pricing markup — make it specific, remove Custom for Airbnb / Use the Base, that's
   // obviously not necessary." A markup only ever exists per channel (there's no shared Base value to inherit), so
   // this one field skips SettingRow's Base/Customize chrome entirely: a plain label+help+input per channel.
   return (

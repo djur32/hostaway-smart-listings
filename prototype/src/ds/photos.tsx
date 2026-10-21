@@ -9,7 +9,7 @@ import type { ChannelId } from '../data/types'
 /** Essentials › Photos: "Photos (n)", description, "Manage photos" link, five thumbnails and "+n more". */
 export function PhotosRow({ label = 'Photos', count, desc = 'Manage photos and add details.', manageTo, photos, max = 5, extra, after, onManage }: {
   label?: ReactNode; count: number; desc?: ReactNode; manageTo: string; photos: Array<{ key: string; src: string; alt: string }>; max?: number; extra?: ReactNode
-  /** After the count, e.g. the channel badge when this channel has its own order (review, 30 Sep). */
+  /** After the count, e.g. the channel badge when this channel has its own order. */
   after?: ReactNode
   /** Intercepts "Manage photos" (and "+n more") instead of letting the Link navigate — e.g. opening an in-page
    *  overlay rather than a route change (screens/channel/photosNav.tsx's full-screen/drawer patterns, Airbnb only).
@@ -18,7 +18,7 @@ export function PhotosRow({ label = 'Photos', count, desc = 'Manage photos and a
   onManage?: (e: MouseEvent) => void
 }) {
   // Thumbnails keep one size (the closed-panel size); a narrower column fits fewer per row. At most two rows:
-  // when the tiles don't fit, fewer photos show and the last tile is "+n more" (review, 30 Sep).
+  // when the tiles don't fit, fewer photos show and the last tile is "+n more".
   const grid = useRef<HTMLDivElement>(null)
   const [cols, setCols] = useState(max + 1)
   useLayoutEffect(() => {
@@ -29,7 +29,7 @@ export function PhotosRow({ label = 'Photos', count, desc = 'Manage photos and a
     ro.observe(el); read()
     return () => ro.disconnect()
   }, [])
-  // ONE row only (review 30 Sep, replacing the two-row rule): fewer tiles + "+n more" when the column narrows
+  // ONE row only: fewer tiles + "+n more" when the column narrows
   const tiles = Math.min(max + 1, cols)
   const fitsAll = Math.min(photos.length, count) <= tiles && count <= tiles
   const shown = photos.slice(0, fitsAll ? tiles : Math.min(max, tiles - 1))

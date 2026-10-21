@@ -28,7 +28,7 @@ export function SourcesPage() {
         <span className="h-khr2-sechead__aside">{guide ? 4 : 3} sources</span>
       </div>
       <div className="h-khr2-table">
-        {/* the whole row is the link (review, 4 Oct): no "Open" text, the row itself goes to the Listing base */}
+        {/* the whole row is the link: no "Open" text, the row itself goes to the Listing base */}
         <Link to={`${base}/details`} className="h-khr2-src-link" aria-label="Listing base">
           <KhrSourceItem icon="file-text" name="Listing base" desc="Details, Pricing and Availability · read, never copied" meta="always current"
             action={<Pill kind="recommended">Connected</Pill>} />

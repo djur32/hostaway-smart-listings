@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Hostaway Smart Listings: hi-fi prototype. Consumes ../ds/*. Sample data is illustrative.",
+  "description": "Hostaway Smart Listings: an independent design concept as a hi-fi prototype. Consumes ../ds/*. Uses sample data.",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

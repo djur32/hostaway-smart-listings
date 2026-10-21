@@ -1,4 +1,4 @@
-/* Booking policies per channel (Hostaway's Airbnb "Booking policies" page and its Configure flow, review's screens 14–21).
+/* Booking policies per channel (Hostaway's Airbnb "Booking policies" page and its Configure flow, the reference screens 14–21).
  * Airbnb wording is copied from the real flow. Booking.com and Direct follow research/market/channel-constraints.md
  * (Cancellation rows): Booking.com policies live in the Extranet (read-only here); Direct is native to Hostaway.
  * Direct option wording is ours. Current values are the scenario's. */

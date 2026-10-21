@@ -69,7 +69,7 @@ export const amenityAreaOf = (ch: ListingChannel) => cvArea(ch, ch === 'booking'
 
 export interface CvEdit { area: CvAreaDef; key: string; from: string; to: string }
 /** Every part of this channel's page that differs from what's live now (not sent yet, or in review — including a
- *  local draft that hasn't even reached the store yet, review 1 Oct: one shared Save, not a commit per popover).
+ *  local draft that hasn't even reached the store yet, one shared Save, not a commit per popover).
  *  `sl3`/`lib` are the edit view (the real store, with any local draft overlaid); `liveSl3`/`liveLib` (default: the
  *  same) are the real store alone, so "from" always reads the true live side even while editing a draft. */
 export function editsFor(ch: ListingChannel, sl3: SL3State, lib: PhotoLib, ctx: LiveCtx, liveSl3: SL3State = sl3, liveLib: PhotoLib = lib, pid?: string): CvEdit[] {
@@ -134,7 +134,7 @@ export interface CvCtxValue {
   select: (id: string | null) => void
   /** Opens the field panel of the area a tip belongs to (Airbnb's "Show more" tip dot). */
   openTip: (id: string) => void
-  /** "Show only editable sections" (review, 3 Oct): every part the host can't change here is left out of the page,
+  /** "Show only editable sections": every part the host can't change here is left out of the page,
    *  and so is the page's own chrome around it (buttons, dates, captions) — the columns and the order stay. */
   editableOnly: boolean
   /** Can the host change this part here (a field, the photo order, a price line)? Read by Area and the pages. */
@@ -146,7 +146,7 @@ export function useCv() { const c = useContext(Ctx); if (!c) throw new Error('us
 
 /** `sl3`/`lib`: the edit view (store + any local unsaved draft overlaid) — what "Your edits" and the popovers read.
  *  `liveSl3`/`liveLib` (default: the same): the real store alone, for what "Live now" and the edit-diff's "from"
- *  side show, so a local draft never leaks into either before it's actually sent (review 1 Oct: one shared Save). */
+ *  side show, so a local draft never leaks into either before it's actually sent (one shared Save). */
 export function useCvModel(ch: ListingChannel, sl3: SL3State, live: boolean, focusId: string | null, on: boolean, lib: PhotoLib, ctx: LiveCtx, liveSl3: SL3State = sl3, liveLib: PhotoLib = lib, pid?: string) {
   return useMemo(() => {
     const tips = on ? tipsFor(ch).filter((t) => !sl3.tips[t.id]) : []
@@ -169,7 +169,7 @@ export function useCvModel(ch: ListingChannel, sl3: SL3State, live: boolean, foc
 }
 
 /** Wraps one part of a replica page: an outline and a marker in its tone, and a tap opens its panel. Nothing on the
- *  page itself is ever swapped for an input (review, 3 Oct): the page stays exactly as guests see it. */
+ *  page itself is ever swapped for an input: the page stays exactly as guests see it. */
 export function Area({ id, children, inline, className, style }: { id: string; children: ReactNode; inline?: boolean; className?: string; style?: CSSProperties }) {
   const c = useCv()
   const a = cvArea(c.channel, id)

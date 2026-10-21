@@ -1,10 +1,10 @@
-/* Per-property content for the channel screens (QA B01/B02; review: "each property has its own separate data, modelled
+/* Per-property content for the channel screens (QA B01/B02; "each property has its own separate data, modelled
  * lightly", the same on mobile and desktop). .
  * Neukölln (the scenario property) keeps its scripted constants: data/sl3.ts (amenities, tips), data/v3-ch.ts
  * (CHANNEL_META, PRICES) and data/v3-cv.ts (the replica pages' reviews, scores, prices). Every other property gets plain
  * values derived from its portfolio row (data/portfolio.ts PORTFOLIO + DETAIL) and its light profile
  * (data/property-seeds.ts PROFILES): amenities on all its channels, channel overview meta, default prices, the
- * content of its Airbnb / Booking.com / Direct pages in Canvas, and (review, 1 Oct voice note) its own generated
+ * content of its Airbnb / Booking.com / Direct pages in Canvas, and its own generated
  * Smart Listings tips for every property that defaults to Smart Listings on.
  * Also registers both tips rules (data/sl3.ts setTipScope / setExtraTips): the scenario's scripted TIPS while it's
  * active, this file's own propertyTipsFor() for every other property, none for the three "off" ones
@@ -45,7 +45,7 @@ const noLift = (f: PropertyProfile) => !/lift/.test(f.floor) || /no lift/.test(f
 /** An upper-floor flat without a lift (guests climb stairs). */
 const climbs = (f: PropertyProfile) => f.type !== 'House' && noLift(f) && /floor/.test(f.floor) && !/ground/.test(f.floor)
 
-/* ---------- tips: generated per property (review, 1 Oct voice note: Smart Listings should default to on, with real
+/* ---------- tips: generated per property (Smart Listings should default to on, with real
  * suggestions, for every property except the last three in the switcher) ---------- */
 /** "n of total" evidence numbers, varied per property/channel so tips don't all read as the same copy (—
  *  the scenario's own "17 of 24 similar homes" style lines, data/sl3.ts TIPS, aren't touched). */
@@ -60,7 +60,7 @@ const CH_LABEL: Record<ListingChannel, string> = { airbnb: 'Airbnb', booking: 'B
 const registerPhotoOrders = (tips: TipDef[]) => { for (const t of tips) if (t.photos?.order && !PHOTO_TIP_ORDER[t.id]) PHOTO_TIP_ORDER[t.id] = t.photos.order as PhotoKey[] }
 registerPhotoOrders(TIPS)
 
-/** Hand-written photo tips (review, 3 Oct: "how it would look when we have recommendations for the photos"), one per
+/** Hand-written photo tips ("how it would look when we have recommendations for the photos"), one per
  *  channel on a few properties. Each one only re-orders photos the property already has (data/property-seeds.ts
  *  PROFILES photos), starting from the order it imported on that channel (Airbnb follows the library; Booking.com
  *  leads with the second photo). Labels follow TipDef.photos: "bedroom #3" = moved to 3rd, otherwise the new cover.
@@ -253,7 +253,7 @@ export const amenityDefaultOn = (pid: string, ch: ListingChannel, name: string) 
   !!amenitiesFor(pid).flatMap((g) => g.items).find((i) => i.name === name)?.on.includes(ch)
 
 /* ---------- channel-only amenities: each channel's own catalogue ----------
- * review, 1 Oct (round 4): "you could also have 'add amenities' but add only Airbnb-specific amenities, which are not
+ * (round 4): "you could also have 'add amenities' but add only Airbnb-specific amenities, which are not
  * exactly the same as the ones for booking or Hostaway (base)… add only the ones that are specific to Airbnb here",
  * and "come up with a few for each channel".
  * The Base list (the Knowledge Hub's one list, AMENITIES / amenitiesFor above, and the shared catalogue every channel

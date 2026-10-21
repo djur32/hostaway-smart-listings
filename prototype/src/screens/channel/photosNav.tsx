@@ -1,4 +1,4 @@
-/* Photos navigation (review, 1 Oct voice note → decided 3 Oct): how "Manage photos" opens from a channel's
+/* Photos navigation: how "Manage photos" opens from a channel's
  * Listing › Essentials. Three patterns were compared — A full-screen takeover, B drawer, C tab — and review chose A,
  * laid out like the real Hostaway "Manage photos" screen, for every channel (Airbnb, Booking.com, Direct), with the
  * photos locked to the channel you came from (no All photos / per-channel switcher).
@@ -14,7 +14,7 @@ import { useSearchParams } from 'react-router-dom'
 export type PhotosNavPattern = 'full' | 'drawer' | 'tab'
 export const PHOTOS_NAV_PARAM = 'photosNav'
 export const PHOTOS_OPEN_PARAM = 'photosOpen'
-/** Pattern A, review's pick (3 Oct): the full-screen takeover, like the real product. */
+/** Pattern A, the chosen pick (3 Oct): the full-screen takeover, like the real product. */
 const DEFAULT_PATTERN: PhotosNavPattern = 'full'
 
 /** `pattern`: which of the three is live. `open`: the overlay (full/drawer) is open right now — meaningless for
