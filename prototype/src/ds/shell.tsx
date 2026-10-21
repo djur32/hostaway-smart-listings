@@ -12,12 +12,7 @@ import type { PersonaId, Property } from '../data/types'
 import { Icon, cx } from './primitives'
 import { BottomSheet, ScrollTabs, useIsMobile, useIsNarrowDesktop, useMobileShell } from './mobile'
 
-const LOGO = (
-  <svg viewBox="0 0 24 26" aria-hidden="true">
-    <circle cx="12" cy="10" r="7.2" fill="none" stroke="currentColor" strokeWidth="4" />
-    <rect x="5.6" y="21" width="12.8" height="4.2" rx="2.1" fill="currentColor" />
-  </svg>
-)
+const LOGO = <img src="/hostaway-icon.png" alt="" width={28} height={28} style={{ borderRadius: 6, display: 'block' }} />
 export const HostawayMark = () => LOGO
 
 /** Hostaway's chat bubble, always at the bottom right of the app shell ("present at all times except in
@@ -60,7 +55,7 @@ export function Sidebar({ active, collapsed: hostCollapsed, onToggle, persona, o
   return (
     <aside className={`h-sidebar${collapsed ? ' is-collapsed' : ''}`}>
       <div className="h-sidebar__brand">
-        <Link to={home} className="h-logo" style={{ color: 'inherit', textDecoration: 'none' }}><span className="h-logo__mark">{LOGO}</span><img className="h-logo__img" src="/hostaway-logo.svg" alt="hostaway" /></Link>
+        <Link to={home} className="h-logo" style={{ color: 'inherit', textDecoration: 'none' }}><span className="h-logo__mark">{LOGO}</span></Link>
         <button className="h-sidebar__collapse" aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'} onClick={toggle}>
           <Icon name={collapsed ? 'arrow-bar-to-right' : 'arrow-bar-to-left'} size={24} />
         </button>

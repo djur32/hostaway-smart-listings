@@ -179,4 +179,4 @@
 .shot img { border-radius: var(--r-2); box-shadow: 0 0 0 1px var(--shot-ring), var(--shadow-1); }
 
 } /* @layer themes */
-.brand-logo { display: block; height: 34px; width: auto; flex: none; }
+

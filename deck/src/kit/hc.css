@@ -933,8 +933,8 @@ html.is-measuring .deck > .s { content-visibility: visible !important; }
    .hc-brand__t (display), .hc-brand__d, and the lockup .hc-lockup (the mark and the wordmark, white). */
 @layer components {
 .hc-brand__plate {
-  position: absolute; left: 40px; right: 40px; top: var(--plate-y); bottom: var(--plate-y); overflow: hidden;
-  border-radius: 48px; background: var(--color-sidebar-bg);
+  position: absolute; inset: 0; overflow: hidden;
+  border-radius: 0; background: var(--color-sidebar-bg);
 }
 .hc-brand__band {
   position: absolute; left: var(--x); top: var(--y); width: var(--w, 1400px); height: var(--h, 640px); border-radius: 50%;
