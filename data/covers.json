@@ -1,0 +1,34 @@
+{
+  "_note": "Each part's cover (kit/hc.js covers()): the drawing (assets/illustrations/<name>.svg; a name not in index.json yet falls back to the template's own data-illo) and the plate's tint (blush · lavender · butter · mint, hc.css [data-tint]). Keyed by data-part, so renumbering the stages never moves a cover. Order here is talk order. \"flip\": true mirrors a drawing whose figure stands at its right edge, so the oversized figure lands next to the words.",
+  "parts": {
+    "discovery": {
+      "illo": "listings-together",
+      "tint": "blush"
+    },
+    "research": {
+      "illo": "research-listening",
+      "tint": "lavender",
+      "flip": true
+    },
+    "concept": {
+      "illo": "concept-directions",
+      "tint": "butter"
+    },
+    "design": {
+      "illo": "ai-writing-per-channel",
+      "tint": "lavender"
+    },
+    "test": {
+      "illo": "test-measuring",
+      "tint": "mint"
+    },
+    "next": {
+      "illo": "nothing-lost-versions",
+      "tint": "blush"
+    },
+    "ia": {
+      "illo": "one-fact-many-channels",
+      "tint": "butter"
+    }
+  }
+}

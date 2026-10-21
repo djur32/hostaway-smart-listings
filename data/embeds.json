@@ -1,0 +1,12 @@
+{
+  "_note": "The live prototype, for .hc-live (kit/hc.js). On localhost the deck opens `local` (the prototype's Vite dev server, S09); anywhere else `deployed` (the same Vercel project, D-005). Each .hc-live names its route with data-route=\"/studio\". An empty base shows the poster only.",
+  "prototype": {
+    "local": "http://localhost:5174",
+    "deployed": "",
+    "title": "Smart Listings · prototype"
+  },
+  "app": {
+    "deployed": "",
+    "title": "Smart Listings · mobile app"
+  }
+}
