@@ -344,5 +344,32 @@
   ],
   "w": 1440,
   "h": 900
+ },
+ {
+  "name": "app-overview-phone",
+  "path": "/app",
+  "w": 393,
+  "h": 784,
+  "scale": 1.5,
+  "mobile": true,
+  "settle": 3000
+ },
+ {
+  "name": "app-tips-phone",
+  "path": "/app/property/neukolln/ch/airbnb/listing/essentials?smart=on&tip=t-a-space",
+  "w": 393,
+  "h": 784,
+  "scale": 1.5,
+  "mobile": true,
+  "settle": 3000
+ },
+ {
+  "name": "app-perf-phone",
+  "path": "/app/property/neukolln/smart/performance?smart=on",
+  "w": 393,
+  "h": 784,
+  "scale": 1.5,
+  "mobile": true,
+  "settle": 3000
  }
 ]
