@@ -1,7 +1,7 @@
 {
-  "name": "hospitable-deck",
+  "name": "hostaway-deck",
   "private": true,
-  "description": "Hospitable case-study deck. A detached copy of process-deck; no connection to digimal.studio.",
+  "description": "Hostaway Smart Listings design concept deck.",
   "type": "module",
   "scripts": {
     "build": "node tools/build.mjs",

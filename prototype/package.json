@@ -1,9 +1,9 @@
 {
-  "name": "hospitable-prototype",
+  "name": "hostaway-prototype",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Hospitable · Listing Management II — hi-fi prototype (S09 scaffold). Consumes ../ds/*. Sample data is illustrative (SIMULATED).",
+  "description": "Hostaway Smart Listings: hi-fi prototype. Consumes ../ds/*. Sample data is illustrative.",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
