@@ -27,7 +27,7 @@
 .tm-star__k { display: inline-flex; align-items: center; gap: 10px; width: 186px; margin: 0; font: var(--w-head) 20px / 1 var(--font-ui); color: var(--accent-ink); }
 .tm-star__k--trust { width: auto; margin-left: 26px; }
 .tm-star__k svg, .tm-star__by svg { flex: none; width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
-.tm-ns { display: inline-flex; align-items: baseline; gap: 14px; margin: 0; padding: 12px 26px 13px; border-radius: var(--r-pill); background: var(--color-sidebar-bg);
+.tm-ns { display: inline-flex; align-items: baseline; gap: 14px; margin: 0; padding: 12px 26px 13px; border-radius: var(--r-pill); background: var(--deck-ink);
   font: var(--w-head) 25px / 1.2 var(--font-ui); color: var(--on-dark); white-space: nowrap; }
 .tm-ns small { font: var(--w-medium) 18px / 1.2 var(--font-ui); color: var(--on-dark); }
 .tm-star__by { display: inline-flex; align-items: center; gap: 10px; margin: 0; font: var(--w-medium) 20px / 1.2 var(--font-ui); color: var(--ink-2); }

@@ -331,7 +331,7 @@ a.hc-id:hover { color: var(--ink); border-color: var(--line-2); }
 .hc-cover .opener__n { display: none; }                  /* no "Part N of 6" (review, 3 Oct); hc.js drops it too */
 .hc-cover .opener__name {
   margin: 0; max-width: 800px; font-family: var(--font-display); font-size: 128px; font-weight: var(--w-head);
-  line-height: 0.95; letter-spacing: -0.04em; color: var(--tint-title, var(--color-sidebar-bg)); text-wrap: balance;
+  line-height: 0.95; letter-spacing: -0.04em; color: var(--tint-title, var(--deck-ink)); text-wrap: balance;
 }
 .hc-cover .opener__vision {
   margin-top: 30px; max-width: 740px; font-family: var(--font-display); font-size: 34px; font-weight: var(--w-text);
@@ -346,7 +346,7 @@ a.hc-id:hover { color: var(--ink); border-color: var(--line-2); }
 .hc-cover .opener__methods > :is(span, a):not(.opener__k) {         /* Hostaway's white chips, floating on the plate */
   height: 44px; padding: 0 18px; border: 0; border-radius: var(--r-pill); background: var(--bg);
   color: var(--ink); font: var(--w-medium) 18px / 1 var(--font-ui);
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent), 0 10px 22px -14px color-mix(in oklab, var(--color-sidebar-bg) 40%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--deck-ink) 6%, transparent), 0 10px 22px -14px color-mix(in oklab, var(--deck-ink) 40%, transparent);
 }
 /* the outputs: chips in the same style as the methods, one text colour, a small brand dot inside each chip */
 .hc-cover .opener__out { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
@@ -356,7 +356,7 @@ a.hc-id:hover { color: var(--ink); border-color: var(--line-2); }
 .hc-cover .opener__outs > :is(span, a) {
   display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 18px; border-radius: var(--r-pill); background: var(--bg);
   color: var(--ink); font: var(--w-medium) 18px / 1 var(--font-ui); letter-spacing: 0; white-space: nowrap;
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent), 0 10px 22px -14px color-mix(in oklab, var(--color-sidebar-bg) 40%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--deck-ink) 6%, transparent), 0 10px 22px -14px color-mix(in oklab, var(--deck-ink) 40%, transparent);
 }
 .hc-cover .opener__outs > :is(span, a)::before { content: ""; width: 9px; height: 9px; border-radius: 50%; flex: none; background: var(--accent); }
 
@@ -443,10 +443,10 @@ html.is-print .s > .hc-cover { display: none; }
   position: absolute; left: var(--x, 0); top: var(--y, 0); width: var(--sw, 80%); margin: 0;
   border-radius: var(--scr-r, 14px); overflow: hidden; background: var(--bg);
   box-shadow:
-    0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 7%, transparent),
-    0 2px 4px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent),
-    0 22px 44px -14px color-mix(in oklab, var(--color-sidebar-bg) 22%, transparent),
-    0 60px 110px -34px color-mix(in oklab, var(--color-sidebar-bg) 26%, transparent);
+    0 0 0 1px color-mix(in oklab, var(--deck-ink) 7%, transparent),
+    0 2px 4px color-mix(in oklab, var(--deck-ink) 6%, transparent),
+    0 22px 44px -14px color-mix(in oklab, var(--deck-ink) 22%, transparent),
+    0 60px 110px -34px color-mix(in oklab, var(--deck-ink) 26%, transparent);
 }
 .hc-scr > img { display: block; width: 100%; height: auto; }
 .hc-scr--crop { aspect-ratio: var(--ar, 4 / 3); }
@@ -465,15 +465,15 @@ html.is-print .s > .hc-cover { display: none; }
 @media (prefers-reduced-motion: reduce) { .hc-device.is-float { animation: none; } }
 /* a browser window placed on a scene; .is-fade lets its bottom dissolve into the backdrop (a hero crop) */
 .hc-scene > .hc-browser { position: absolute; left: var(--x, 0); top: var(--y, 0); z-index: 1;
-  box-shadow: 0 0 0 1px var(--line-2), 0 30px 60px -20px color-mix(in oklab, var(--color-sidebar-bg) 24%, transparent), 0 80px 140px -40px color-mix(in oklab, var(--color-sidebar-bg) 22%, transparent); }
+  box-shadow: 0 0 0 1px var(--line-2), 0 30px 60px -20px color-mix(in oklab, var(--deck-ink) 24%, transparent), 0 80px 140px -40px color-mix(in oklab, var(--deck-ink) 22%, transparent); }
 .hc-scene > .hc-browser.is-fade { -webkit-mask-image: linear-gradient(to bottom, black 78%, transparent); mask-image: linear-gradient(to bottom, black 78%, transparent); }
-.hc-scene > .hc-scr.is-front { z-index: 3; box-shadow: 0 0 0 1px var(--line-2), 0 40px 80px -24px color-mix(in oklab, var(--color-sidebar-bg) 28%, transparent); }
+.hc-scene > .hc-scr.is-front { z-index: 3; box-shadow: 0 0 0 1px var(--line-2), 0 40px 80px -24px color-mix(in oklab, var(--deck-ink) 28%, transparent); }
 /* a callout pinned on the scene */
 .hc-callout {
   position: absolute; left: var(--x, 0); top: var(--y, 0); z-index: 4; display: inline-flex; align-items: center; gap: 10px;
   padding: 12px 18px; border-radius: var(--r-pill); background: var(--bg); white-space: nowrap;
   font: var(--w-medium) 18px / 1 var(--font-ui); color: var(--ink);
-  box-shadow: 0 0 0 1px var(--line), 0 12px 28px -10px color-mix(in oklab, var(--color-sidebar-bg) 30%, transparent);
+  box-shadow: 0 0 0 1px var(--line), 0 12px 28px -10px color-mix(in oklab, var(--deck-ink) 30%, transparent);
 }
 .hc-callout::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); flex: none; }
 .hc-callout--ai::before { background: var(--ai-accent); }
@@ -522,7 +522,7 @@ html.is-print .s > .hc-cover { display: none; }
 /* ── before and after ───────────────────────────────────────────────────── */
 .hc-vs { display: grid; grid-template-columns: minmax(0, 1fr) 72px minmax(0, 1fr); gap: 0; align-items: stretch; }
 .hc-vs__c { display: grid; gap: 18px; align-content: start; padding: 32px 36px; border-radius: var(--r-3); background: var(--plate-quiet); }
-.hc-vs__c.is-new { background: var(--bg); box-shadow: 0 0 0 1px var(--line), 0 24px 48px -24px color-mix(in oklab, var(--color-sidebar-bg) 24%, transparent); }
+.hc-vs__c.is-new { background: var(--bg); box-shadow: 0 0 0 1px var(--line), 0 24px 48px -24px color-mix(in oklab, var(--deck-ink) 24%, transparent); }
 .hc-vs__k { font: var(--w-head) 17px / 1 var(--font-ui); color: var(--ink-3); }
 .hc-vs__c.is-new .hc-vs__k { color: var(--accent-ink); }
 .hc-vs__arrow { display: grid; place-items: center; color: var(--ink-4); font: 400 34px / 1 var(--font-ui); }
@@ -616,7 +616,7 @@ html.is-print .s > .hc-cover { display: none; }
 /* ── a picture of something drawn (an SVG or PNG from the research), framed ── */
 .hc-figure { margin: 0; display: grid; gap: 12px; }
 .hc-figure > img { display: block; width: auto; max-width: 100%; height: auto; max-height: var(--fig-h, 430px); margin: 0 auto; border-radius: var(--r-2); }
-.hc-figure--card { padding: 22px; border-radius: var(--r-3); background: var(--bg); box-shadow: 0 0 0 1px var(--line), 0 24px 48px -28px color-mix(in oklab, var(--color-sidebar-bg) 22%, transparent); }
+.hc-figure--card { padding: 22px; border-radius: var(--r-3); background: var(--bg); box-shadow: 0 0 0 1px var(--line), 0 24px 48px -28px color-mix(in oklab, var(--deck-ink) 22%, transparent); }
 .hc-figure figcaption { font-size: 15px; color: var(--ink-3); }
 
 /* the slide's two halves: words left, picture right */
@@ -640,7 +640,7 @@ html.is-print .s > .hc-cover { display: none; }
      --tint-line   a line icon        --tint-title / --tint-body  headline and copy on the plate */
 [data-tint="blush"], .hc-tint--blush {
   --tint-plate: var(--color-primary-100); --tint-halo: var(--color-primary-200); --tint-soft: var(--color-primary-50);
-  --tint-ink: var(--color-primary-700); --tint-line: var(--color-primary-600); --tint-title: var(--color-sidebar-bg); --tint-body: var(--ink-2);
+  --tint-ink: var(--color-primary-700); --tint-line: var(--color-primary-600); --tint-title: var(--deck-ink); --tint-body: var(--ink-2);
 }
 [data-tint="lavender"], .hc-tint--lavender {
   --tint-plate: var(--color-secondary-100); --tint-halo: var(--color-secondary-200); --tint-soft: var(--color-secondary-50);
@@ -648,11 +648,11 @@ html.is-print .s > .hc-cover { display: none; }
 }
 [data-tint="butter"], .hc-tint--butter {
   --tint-plate: var(--color-warning-100); --tint-halo: var(--color-warning-200); --tint-soft: var(--color-warning-50);
-  --tint-ink: var(--color-orange-700); --tint-line: var(--color-orange-600); --tint-title: var(--color-sidebar-bg); --tint-body: var(--ink-2);
+  --tint-ink: var(--color-orange-700); --tint-line: var(--color-orange-600); --tint-title: var(--deck-ink); --tint-body: var(--ink-2);
 }
 [data-tint="mint"], .hc-tint--mint {
   --tint-plate: var(--color-success-100); --tint-halo: var(--color-success-200); --tint-soft: var(--color-success-50);
-  --tint-ink: var(--color-success-700); --tint-line: var(--color-success-600); --tint-title: var(--color-sidebar-bg); --tint-body: var(--ink-2);
+  --tint-ink: var(--color-success-700); --tint-line: var(--color-success-600); --tint-title: var(--deck-ink); --tint-body: var(--ink-2);
 }
 
 /* ── the pill badge ("Hostaway exclusive") ──────────────────────────────── */
@@ -669,7 +669,7 @@ html.is-print .s > .hc-cover { display: none; }
 .hc-chip {
   display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 10px 20px; border-radius: var(--r-pill);
   background: var(--bg); color: var(--ink); font: var(--w-medium) 19px / 1.25 var(--font-ui); white-space: nowrap;
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 7%, transparent), 0 14px 30px -16px color-mix(in oklab, var(--color-sidebar-bg) 45%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--deck-ink) 7%, transparent), 0 14px 30px -16px color-mix(in oklab, var(--deck-ink) 45%, transparent);
 }
 .hc-chip__i { flex: none; width: 22px; height: 22px; fill: none; stroke: var(--tint-line, var(--accent)); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
 .hc-chip--q { border-radius: 16px; padding: 14px 22px; white-space: normal; }
@@ -820,7 +820,7 @@ html.is-print :is(.hc-pillar__i svg, .hc-doodle, .hc-idle, .hc-idle-2, .is-drift
   /* a node: the product's card */
   .hc-flow__n { position: absolute; box-sizing: border-box; display: flex; align-items: center; gap: 14px; padding: 12px 20px;
     border: 1px solid var(--color-gray-200); border-radius: 16px; background: var(--surface); color: var(--ink);
-    box-shadow: 0 1px 2px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent), 0 14px 30px -20px color-mix(in oklab, var(--color-sidebar-bg) 45%, transparent); }
+    box-shadow: 0 1px 2px color-mix(in oklab, var(--deck-ink) 6%, transparent), 0 14px 30px -20px color-mix(in oklab, var(--deck-ink) 45%, transparent); }
   .hc-flow__tx { display: grid; gap: 4px; min-width: 0; flex: 1 1 auto; align-content: center; }
   .hc-flow__t { display: flex; align-items: center; gap: 10px; font: var(--w-head) 22px / 1.2 var(--font-ui); letter-spacing: -0.01em; color: inherit; text-wrap: balance; }
   .hc-flow__s { font: var(--w-text) 20px / 1.28 var(--font-ui); color: var(--ink-3); text-wrap: pretty; }
@@ -830,7 +830,7 @@ html.is-print :is(.hc-pillar__i svg, .hc-doodle, .hc-idle, .hc-idle-2, .is-drift
   .hc-flow__i { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
 
   /* the start: the product's aubergine; the end: a mint stadium with a check */
-  .hc-flow__n--start, .hc-flow__n--root { background: var(--color-sidebar-bg); border-color: var(--color-sidebar-bg); color: var(--color-text-white); }
+  .hc-flow__n--start, .hc-flow__n--root { background: var(--deck-ink); border-color: var(--deck-ink); color: var(--color-text-white); }
   .hc-flow__n--start { border-radius: 999px; padding: 12px 30px; }
   .hc-flow__n--start .hc-flow__s, .hc-flow__n--root .hc-flow__s { color: var(--on-dark-2); }
   .hc-flow__n--root { justify-content: center; text-align: center; }
@@ -860,7 +860,7 @@ html.is-print :is(.hc-pillar__i svg, .hc-doodle, .hc-idle, .hc-idle-2, .is-drift
   /* a screen: a tiny UI glyph of the product's frame (page · wizard · docked panel · drawer) */
   .hc-flow__g { width: 48px; height: 36px; flex: none; }
   .hc-flow__g .g-frame { fill: var(--surface); stroke: var(--color-gray-300); stroke-width: 1.2; }
-  .hc-flow__g .g-rail { fill: var(--color-sidebar-bg); }
+  .hc-flow__g .g-rail { fill: var(--deck-ink); }
   .hc-flow__g .g-line { fill: var(--color-gray-200); }
   .hc-flow__g .g-bar { fill: var(--accent); }
   .hc-flow__g .g-card { fill: var(--color-gray-100); stroke: var(--color-gray-300); stroke-width: 1; }

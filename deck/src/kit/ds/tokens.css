@@ -263,15 +263,15 @@
   /* ────────────────────────────  2 · ROLES  ──────────────────────────── */
 
   /* ── App shell · sidebar (HS-22) ─────────────────────────────────────── */
-  --color-sidebar-bg: #123c46;                /* Hostaway ink #202030 (read from hostaway.com) */
-  --color-sidebar-item-active-bg: #1f5460;                      /* derived: ink #202030 lifted · "Properties" */
-  --color-sidebar-item-hover-bg: rgba(255, 255, 255, .06);     /*, hover not captured */
-  --color-sidebar-text: var(--color-text-white);                /* #ffffff */
-  --color-sidebar-icon: var(--color-night-lighter);             /* #b8c1cb · icons, collapse, footer glyphs */
-  --color-sidebar-divider: var(--color-border-secondary-on-dark);
+  --color-sidebar-bg: #e8dfcc;                /* sand */
+  --color-sidebar-item-active-bg: #d3c5a6;                  /* darker sand, text 10:1 */
+  --color-sidebar-item-hover-bg: rgba(29, 27, 22, .06);
+  --color-sidebar-text: #1d1b16;                  /* ink on sand, 13:1 */
+  --color-sidebar-icon: #4a4436;                  /* 7:1 on sand */
+  --color-sidebar-divider: rgba(29, 27, 22, .14);
   --color-sidebar-badge: var(--color-primary-600);              /* "4" on Getting started · #b94d00, white text */
-  --gradient-sidebar-highlight: linear-gradient(90deg, #2c2c40 0%, #7a3200 100%); /* "Getting started" · ink to dark orange */
-  --gradient-sidebar-card: linear-gradient(90deg, #2c2c40 0%, #b94d00 100%);      /* trial card · ends at primary-600 */
+  --gradient-sidebar-highlight: linear-gradient(90deg, #f3e3c4 0%, #f5c48d 100%);
+  --gradient-sidebar-card: linear-gradient(90deg, #f3e3c4 0%, #f5c48d 100%);
   --color-sidebar-card-cta: var(--color-primary-600);           /* "Subscribe to a plan" · #b94d00, white text */
 
   /* ── Property sub-nav rail (HS-22) ───────────────────────────────────── */

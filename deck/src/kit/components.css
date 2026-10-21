@@ -623,7 +623,7 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
   /* the platform's secondary button (ds .h-btn--secondary: white, the action-secondary hairline, strong text) at wall size,
      the same edge as the close X (review, 4 Oct: "use exactly the same outline as the platform, everywhere") */
   border: 1.5px solid var(--color-action-secondary-border); border-radius: 12px; background: var(--color-action-secondary-bg, var(--bg));
-  box-shadow: var(--elevation-button, 0 1px 2px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent));
+  box-shadow: var(--elevation-button, 0 1px 2px color-mix(in oklab, var(--deck-ink) 6%, transparent));
   font: var(--w-medium) 19px / 1 var(--font-ui); letter-spacing: 0; text-transform: none; color: var(--ink); white-space: nowrap; cursor: pointer;
   transition: border-color var(--dur-1) var(--ease-io), color var(--dur-1) var(--ease-io);
 }

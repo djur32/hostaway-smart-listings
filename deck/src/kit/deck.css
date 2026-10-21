@@ -291,7 +291,7 @@ html.is-presenter body { overflow: auto; background: var(--bg); color: var(--ink
 .lightbox img { max-width: 78vw; max-height: 80vh; object-fit: contain; box-shadow: var(--shadow-2); cursor: default; }
 /* every zoomed screen sits on a white card, so a phone's transparent edges and soft matte never show against the scrim,
    and no rectangle is drawn around a transparent image (review, 4 Oct: the phone zoomed with a white box and ragged edges) */
-.lightbox img { box-sizing: content-box; padding: 28px; background: var(--bg); border-radius: 28px !important; box-shadow: 0 30px 80px -30px color-mix(in oklab, var(--color-sidebar-bg) 55%, transparent); max-height: calc(80vh - 56px); }
+.lightbox img { box-sizing: content-box; padding: 28px; background: var(--bg); border-radius: 28px !important; box-shadow: 0 30px 80px -30px color-mix(in oklab, var(--deck-ink) 55%, transparent); max-height: calc(80vh - 56px); }
 .lightbox__cap { position: absolute; bottom: 2.4vh; left: 0; right: 0; text-align: center; color: var(--on-dark); font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; opacity: .8; }
 
 /* ── the detail layer: a card where the content was (engine.js DETAILS) ─────────
@@ -313,11 +313,11 @@ html.is-presenter body { overflow: auto; background: var(--bg); color: var(--ink
 :root { --more-btn-h: 48px; }                  /* More and the panels' control share one height */
 .more-layer { position: absolute; inset: 0; z-index: 60; }
 .more-layer[hidden] { display: none; }
-.more-layer__scrim { position: absolute; inset: 0; background: color-mix(in oklab, var(--color-sidebar-bg) 38%, transparent); }
+.more-layer__scrim { position: absolute; inset: 0; background: color-mix(in oklab, var(--deck-ink) 38%, transparent); }
 /* the scrim lives on the stage, so the window's bands beside a letterboxed stage take the same wash
    (review, 3 Oct: "careful, there is a wide stripe on each side") */
 .viewport > .atmos { transition: box-shadow var(--dur-2) var(--ease-io); }
-.viewport:has(> .stage.is-dim) > .atmos { box-shadow: inset 0 0 0 100vmax color-mix(in oklab, var(--color-sidebar-bg) 38%, transparent); }
+.viewport:has(> .stage.is-dim) > .atmos { box-shadow: inset 0 0 0 100vmax color-mix(in oklab, var(--deck-ink) 38%, transparent); }
 .stage.is-dim { background: var(--bg); }   /* one wash colour: the stage's own scrim over white, the same as the bands (review, 4 Oct) */
 /* while its content is thrown, the slide rides above the layer on a transparent ground: the pieces
    fly over the scrim and the card (never seen through a card still fading up), and once they are
@@ -369,7 +369,7 @@ html.is-presenter body { overflow: auto; background: var(--bg); color: var(--ink
      a thin strong X), at wall size (review, 4 Oct: "the X with an outline, everywhere") */
   border: 1.5px solid var(--color-close-border, var(--color-gray-200)); border-radius: 12px;
   background: var(--color-close-bg, var(--bg)); color: var(--color-close-icon, var(--ink)); cursor: pointer;
-  box-shadow: var(--elevation-button, 0 1px 2px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent));
+  box-shadow: var(--elevation-button, 0 1px 2px color-mix(in oklab, var(--deck-ink) 6%, transparent));
   transition: background-color var(--dur-1) var(--ease-io), border-color var(--dur-1) var(--ease-io);
 }
 .more-sheet__close:hover { background: var(--color-close-hover-bg, var(--color-gray-50)); border-color: var(--color-close-hover-border, var(--color-gray-300)); }
@@ -463,13 +463,13 @@ html.is-print .more-page .more-sheet__body { padding-bottom: 48px; }
 }
 
 /* the presenter link, shown only when the browser blocked the notes window (engine.js openPresenter) */
-.pv-open { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 1000; display: flex; align-items: center; gap: 14px; padding: 12px 12px 12px 20px; border-radius: 14px; background: var(--color-sidebar-bg); color: var(--color-text-white); font: var(--w-medium) 16px / 1.2 var(--font-ui); box-shadow: 0 12px 32px -12px color-mix(in oklab, var(--color-sidebar-bg) 60%, transparent); }
+.pv-open { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 1000; display: flex; align-items: center; gap: 14px; padding: 12px 12px 12px 20px; border-radius: 14px; background: var(--deck-ink); color: var(--color-text-white); font: var(--w-medium) 16px / 1.2 var(--font-ui); box-shadow: 0 12px 32px -12px color-mix(in oklab, var(--deck-ink) 60%, transparent); }
 .pv-open a { padding: 8px 14px; border-radius: 10px; background: var(--color-primary-500); color: var(--color-text-white); text-decoration: none; font-weight: var(--w-head); }
 .pv-open button { border: 0; background: none; color: inherit; font-size: 20px; line-height: 1; cursor: pointer; padding: 4px 8px; }
 
 /* the how-to-move hint over the cover (engine.js navHint) */
 .navhint { position: fixed; left: 50%; bottom: 7vh; z-index: 90; display: flex; align-items: center; gap: 14px; padding: 12px 22px 12px 14px;
-  border-radius: 999px; background: var(--color-surface-primary); color: var(--color-sidebar-bg); font: 500 16px/1.2 var(--font-sans, inherit);
+  border-radius: 999px; background: var(--color-surface-primary); color: var(--deck-ink); font: 500 16px/1.2 var(--font-sans, inherit);
   box-shadow: 0 12px 36px rgba(0,0,0,.28); transform: translate(-50%, 0); animation: navhint-in .55s cubic-bezier(.2,.8,.2,1) both; pointer-events: none; }
 .navhint.is-out { animation: navhint-out .45s ease both; }
 .navhint__keys { display: flex; gap: 6px; }

@@ -51,6 +51,7 @@
 
   /* Hostaway sets everything in one family (TT Norms, review's licensed files, S02 D-093; replaces the Figtree stand-in).
      Mono is only for IDs and codes (D-012, INT-3, R-031), never for labels. */
+  --deck-ink: #1d1b16;                  /* text and shadow ink on white slides */
   --font-display: var(--font-sans);
   --font-text:    var(--font-sans);
   --font-ui:      var(--font-sans);
@@ -124,7 +125,7 @@
   --c1: var(--color-bg-app);          /* white      */
   --c2: var(--color-text-primary);    /* ink        */
   --c3: var(--color-action-primary);  /* orange     */
-  --c4: var(--color-sidebar-bg);      /* ink        */
+  --c4: var(--deck-ink);      /* ink        */
 
   --bg:          var(--color-bg-app);
   --bg-2:        var(--color-onboarding-bg);            /* pale orange                */
@@ -143,8 +144,8 @@
   --accent-wash: var(--color-bg-brand-primary);
   --hover-ring:  var(--color-border-primary);
   --on-accent:   var(--color-text-white);
-  --signal:      var(--color-sidebar-bg);
-  --signal-ink:  var(--color-sidebar-bg);
+  --signal:      var(--deck-ink);
+  --signal-ink:  var(--deck-ink);
   --signal-soft: var(--color-ai-surface);
   --good:        var(--color-success-500);
   --good-ink:    var(--color-success-700);
@@ -157,11 +158,11 @@
   --on-stamp:    var(--color-text-white);
 
   /* the dark ground: stage openers, set the way the product sets its sidebar */
-  --dark:          var(--color-sidebar-bg);
+  --dark:          var(--deck-ink);
   --dark-2:        var(--color-sidebar-item-active-bg);
   --dark-hi:       var(--gradient-sidebar-highlight);     /* the "Getting started" pill */
   --on-dark:       var(--color-sidebar-text);
-  --on-dark-2:     color-mix(in oklab, var(--color-sidebar-text) 78%, var(--color-sidebar-bg));
+  --on-dark-2:     color-mix(in oklab, var(--color-sidebar-text) 78%, var(--deck-ink));
   --on-dark-3:     var(--color-sidebar-icon);             /* the sidebar's icons and quiet text */
   --on-dark-line:  var(--color-sidebar-divider);
 
@@ -185,7 +186,7 @@
   /* charts: one hue that argues (orange), one that contrasts (ink), greys for
      everything else. Teal is for AI only, green for "good" only. */
   --data-1: var(--color-action-primary);
-  --data-2: var(--color-sidebar-bg);
+  --data-2: var(--deck-ink);
   --data-3: var(--color-gray-500);
   --data-4: var(--color-gray-300);
   --data-muted: var(--color-gray-100);
@@ -207,7 +208,7 @@
   /* the product's raised and overlay shadows, as the wall needs them */
   --shadow-1:  var(--shadow-raised);
   --shadow-2:  var(--shadow-overlay);
-  --scrim:     color-mix(in oklab, var(--color-sidebar-bg) 64%, transparent);
+  --scrim:     color-mix(in oklab, var(--deck-ink) 64%, transparent);
 
   --thread:    var(--color-border-primary);
   --thread-o:  0;               /* the thread is retired: the product has no such line */

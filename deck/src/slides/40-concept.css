@@ -101,7 +101,7 @@
 .cn-from__h--to { color: var(--color-secondary-700); }
 /* the rounds as solid badges (review, 4 Oct: "more prominent"): aubergine ink, white words; the result in the AI's lavender.
    The same badge rides at the end of the eyebrow on cn-grid (round one) and cn-judged (round two). */
-.cn-round { display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: var(--r-pill); background: var(--color-sidebar-bg);
+.cn-round { display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: var(--r-pill); background: var(--deck-ink);
   color: var(--color-text-white); font: var(--w-head) 19px / 1 var(--font-ui); letter-spacing: 0.01em; text-transform: none; white-space: nowrap; }
 .cn-round--to { background: var(--color-secondary-100); color: var(--ai-ink); }
 .cn-from__h:has(> .cn-round) { margin: 0 0 -2px; }
@@ -150,7 +150,7 @@
 
 /* cn-principles · floors and choices: the seven as tiles, floors on blush */
 .cn-floors__lead { margin: 0; font: var(--w-medium) 32px / 1.3 var(--font-display); letter-spacing: -0.01em; color: var(--ink-2); text-wrap: balance; }
-.cn-floors__lead b { font-weight: var(--w-head); color: var(--color-sidebar-bg); }
+.cn-floors__lead b { font-weight: var(--w-head); color: var(--deck-ink); }
 .cn-floors { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 16px; margin: 12px 0 0; padding: 0; list-style: none; }
 .cn-floors li { display: grid; grid-template-rows: auto 1fr auto; gap: 14px; min-height: 320px; padding: 24px 22px 22px; border-radius: 26px; background: var(--bg); box-shadow: 0 0 0 1px var(--line); }
 .cn-floors li.is-floor { background: var(--color-primary-100); box-shadow: none; }
@@ -179,7 +179,7 @@
 /* cn-grid · the scores: two matrices on one grid, the chosen pair in raspberry on top, the other five quieter below */
 .cn-heat { gap: 6px; }
 .cn-heat .hc-chart { gap: 0; }
-.cn-heat__lead { margin: 0 0 18px; max-width: 58ch; font: var(--w-head) 30px / 1.25 var(--font-display); letter-spacing: -0.01em; color: var(--color-sidebar-bg); text-wrap: balance; }
+.cn-heat__lead { margin: 0 0 18px; max-width: 58ch; font: var(--w-head) 30px / 1.25 var(--font-display); letter-spacing: -0.01em; color: var(--deck-ink); text-wrap: balance; }
 .cn-heat__rest .m-cell { fill: var(--data-2); }
 .cn-heat .t-axis { font-size: 19px; }
 .cn-heat__pair .t-axis { font-size: 20px; fill: var(--ink-2); }
@@ -189,7 +189,7 @@
 
 
 /* cn-judged · same flow, same rules: the eight steps as a rail, the rules as tiles */
-.cn-flow__lead { margin: 0; font: var(--w-head) 32px / 1.25 var(--font-display); letter-spacing: -0.01em; color: var(--color-sidebar-bg); text-wrap: balance; }
+.cn-flow__lead { margin: 0; font: var(--w-head) 32px / 1.25 var(--font-display); letter-spacing: -0.01em; color: var(--deck-ink); text-wrap: balance; }
 .cn-flow { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 0; margin: 26px 0 34px; padding: 0; list-style: none; }
 .cn-flow li { display: inline-flex; align-items: center; height: 50px; padding: 0 20px; border-radius: var(--r-pill); background: var(--plate-quiet); box-shadow: 0 0 0 1px var(--line);
   font: var(--w-medium) 21px / 1 var(--font-ui); color: var(--ink); white-space: nowrap; }
@@ -204,7 +204,7 @@
 .cn-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 0; padding: 0; list-style: none; }
 .cn-steps li { display: grid; align-content: start; gap: 16px; min-height: 360px; padding: 32px 32px 34px; border-radius: 30px; background: var(--bg); box-shadow: 0 0 0 1px var(--line); }
 .cn-steps li.is-key { background: var(--color-primary-100); box-shadow: none; }
-.cn-steps__n { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--color-sidebar-bg); color: var(--on-dark); font: var(--w-head) 24px / 1 var(--font-display); }
+.cn-steps__n { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--deck-ink); color: var(--on-dark); font: var(--w-head) 24px / 1 var(--font-display); }
 .cn-steps li.is-key .cn-steps__n { background: var(--accent-ink); color: var(--on-accent); }
 .cn-steps__t { margin: 8px 0 0; font: var(--w-head) 32px / 1.2 var(--font-display); letter-spacing: -0.012em; color: var(--ink); text-wrap: balance; }
 .cn-steps__d { margin: 0; font-size: 24px; line-height: 1.4; color: var(--ink-2); text-wrap: pretty; }

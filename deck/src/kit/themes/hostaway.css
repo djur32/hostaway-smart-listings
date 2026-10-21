@@ -118,7 +118,7 @@
   position: absolute; right: -14px; bottom: calc(100% + 18px); z-index: 20; display: none;
   min-width: 300px; padding: 18px 22px; border-radius: 18px; background: var(--bg);
   border: var(--hair) solid var(--color-gray-200);
-  box-shadow: 0 22px 48px -20px color-mix(in oklab, var(--color-sidebar-bg) 30%, transparent);
+  box-shadow: 0 22px 48px -20px color-mix(in oklab, var(--deck-ink) 30%, transparent);
   font: var(--w-medium) 17px / 1.5 var(--font-ui); color: var(--ink-2);
   text-transform: none; letter-spacing: 0; white-space: nowrap; cursor: default;
 }

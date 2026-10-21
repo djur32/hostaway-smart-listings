@@ -41,34 +41,6 @@
 .nx-reuse { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 26px 0 0; }
 .nx-reuse__k { margin-right: 8px; font: var(--w-head) 19px / 1.2 var(--font-ui); color: var(--ink-2); }
 
-/* ── cl-monday · four things to do, then the first week as swimlanes: me, the teams I ask, hosts ── */
-.s[data-id="cl-monday"] .s-body { justify-content: center; }
-.cl-plan { display: grid; gap: 26px; width: 100%; }
-.cl-four { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin: 0; padding: 0; list-style: none; }
-.cl-four li { display: flex; align-items: center; gap: 14px; height: 68px; padding: 0 22px 0 18px; border-radius: 20px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--color-gray-200);
-  font: var(--w-head) 23px / 1.2 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
-.cl-n { display: grid; place-items: center; flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--color-primary-50); box-shadow: inset 0 0 0 1px var(--color-primary-200);
-  font: var(--w-head) 15px / 1 var(--font-ui); color: var(--accent-ink); }
-/* the week: a label column and five days; every lane a hairline row, mine on a blush wash */
-.cl-week { position: relative; display: grid; grid-template-columns: 140px repeat(5, minmax(0, 1fr)); grid-template-rows: 34px repeat(8, 54px); column-gap: 14px; }
-.cl-week__rows { display: contents; }
-.cl-week > *, .cl-week__rows > * { grid-column: var(--c, 1); grid-row: var(--r, 1); }
-.cl-day { align-self: start; font: var(--w-head) 18px / 1 var(--font-ui); letter-spacing: 0.02em; color: var(--ink-3); padding-left: 4px; }
-.cl-lane { grid-column: 1 / -1; display: flex; align-items: center; margin: 0; padding-left: 16px; border-top: 1px solid var(--color-gray-200);
-  font: var(--w-medium) 20px / 1 var(--font-ui); color: var(--ink-2); }
-.cl-lane.is-me { border-radius: 14px; border-top-color: transparent; background: var(--color-primary-50); font-weight: var(--w-head); color: var(--accent-ink); }
-.cl-lane.is-me + .cl-lane { border-top-color: transparent; }
-.cl-lane.is-hosts { border-bottom: 1px solid var(--color-gray-200); font-weight: var(--w-head); color: var(--ink); }
-.cl-c { align-self: center; display: flex; align-items: center; gap: 10px; min-width: 0; height: 42px; margin: 0; padding: 0 14px 0 7px; border-radius: 12px;
-  background: var(--surface); box-shadow: inset 0 0 0 1px var(--color-gray-200), 0 6px 16px -12px color-mix(in oklab, var(--color-sidebar-bg) 40%, transparent);
-  font: var(--w-medium) 20px / 1 var(--font-ui); color: var(--ink); white-space: nowrap; }
-.cl-c.is-host { padding-left: 14px; box-shadow: inset 0 0 0 1.5px var(--color-primary-300); }
-.cl-c.is-host .cl-n { margin-left: -7px; }
-.cl-four .cl-n { width: 34px; height: 34px; font-size: 17px; }
-.cl-read { align-self: stretch; display: grid; align-content: center; gap: 10px; margin: 0 0 6px; padding: 0 26px; border-radius: 22px; background: var(--tint-plate); }
-.cl-read__t { font: var(--w-head) 30px / 1.1 var(--font-display); letter-spacing: -0.012em; color: var(--tint-title); }
-.cl-read__d { font: var(--w-text) 21px / 1.4 var(--font-ui); color: var(--tint-body); text-wrap: pretty; }
-
 /* ── nx-roadmap detail, panel 1 · blast radius drawn (one fact, every surface it reaches), then three effects ── */
 .nx-fx { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 24px; align-items: stretch; }
 .nx-blast { display: grid; grid-template-rows: auto 1fr; min-width: 0; border-radius: 32px; overflow: hidden; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
@@ -144,7 +116,7 @@
 .nx-e[data-st="next"] > span { color: var(--accent-ink); border-color: var(--color-primary-200); }
 /* the cards: the product's card, an icon tile tinted by ring, the name */
 .nx-n { position: absolute; box-sizing: border-box; display: flex; align-items: center; gap: 12px; padding: 0 18px 0 11px; border: 1px solid var(--color-gray-200); border-radius: 16px;
-  background: var(--surface); box-shadow: 0 1px 2px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent), 0 12px 26px -18px color-mix(in oklab, var(--color-sidebar-bg) 45%, transparent); }
+  background: var(--surface); box-shadow: 0 1px 2px color-mix(in oklab, var(--deck-ink) 6%, transparent), 0 12px 26px -18px color-mix(in oklab, var(--deck-ink) 45%, transparent); }
 .nx-n__t { min-width: 0; font: var(--w-head) 21px / 1.15 var(--font-ui); letter-spacing: -0.01em; color: var(--ink); white-space: nowrap; }
 .nx-n__i { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: 10px; background: var(--color-gray-100); color: var(--color-gray-600); }
 .nx-n__i svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
@@ -230,7 +202,7 @@
 .nx-sk-comps { fill: none; stroke: var(--color-gray-400); stroke-width: 2.5; stroke-dasharray: 8 7; stroke-linecap: round; }
 .nx-sk-before { fill: none; stroke: var(--color-gray-500); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
 .nx-sk-since { fill: none; stroke: var(--accent); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
-.nx-sk-start { stroke: var(--color-sidebar-bg); stroke-width: 2; }
+.nx-sk-start { stroke: var(--deck-ink); stroke-width: 2; }
 .nx-sk-dot { fill: var(--surface); stroke: var(--accent); stroke-width: 3; }
 .nx-sk-l { position: absolute; transform: translate(-50%, 0); margin: 0; white-space: nowrap; font: var(--w-medium) 18px / 1.15 var(--font-ui); color: var(--ink-2); }
 .nx-sk-l.is-l { transform: none; }
@@ -261,7 +233,7 @@
 .nx-road .hc-feature__plate { place-items: start stretch; min-height: 0; padding: 30px 30px 32px; align-content: start; }
 .nx-road .hc-feature__plate > .hc-badge { position: static; transform: none; justify-self: start; margin-bottom: 26px; }
 .nx-road .hc-feature__halo { padding: 0; background: none; }
-.nx-road .hc-feature__halo > * { border-radius: 18px; box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent); }
+.nx-road .hc-feature__halo > * { border-radius: 18px; box-shadow: 0 0 0 1px color-mix(in oklab, var(--deck-ink) 6%, transparent); }
 
 /* the key: every swatch centred on its word's line, one height for all four */
 .nx-key [data-k] { display: inline-flex; align-items: center; gap: 10px; line-height: 1; }

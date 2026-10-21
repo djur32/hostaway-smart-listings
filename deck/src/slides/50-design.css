@@ -25,9 +25,9 @@
 /* a live card floats like the captures around it (the same shadow recipe as .hc-scr) */
 .ds-live .ds-card {
   box-shadow:
-    0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 5%, transparent),
-    0 18px 36px -14px color-mix(in oklab, var(--color-sidebar-bg) 22%, transparent),
-    0 50px 90px -34px color-mix(in oklab, var(--color-sidebar-bg) 24%, transparent);
+    0 0 0 1px color-mix(in oklab, var(--deck-ink) 5%, transparent),
+    0 18px 36px -14px color-mix(in oklab, var(--deck-ink) 22%, transparent),
+    0 50px 90px -34px color-mix(in oklab, var(--deck-ink) 24%, transparent);
 }
 .ds-ui [hidden] { display: none !important; }
 .ds-ui button { font-family: inherit; }
@@ -261,10 +261,10 @@
 .ds-shot__fig { --fig-h: 636px; margin: 0; }
 .ds-shot__fig > img { height: var(--fig-h); width: auto; max-width: none; border-radius: 16px;
   box-shadow:
-    0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 8%, transparent),
-    0 22px 44px -14px color-mix(in oklab, var(--color-sidebar-bg) 20%, transparent); }
+    0 0 0 1px color-mix(in oklab, var(--deck-ink) 8%, transparent),
+    0 22px 44px -14px color-mix(in oklab, var(--deck-ink) 20%, transparent); }
 .ds-shot__words { display: grid; gap: 28px; align-content: center; justify-items: start; }
-.ds-shot__lead { margin: 0; font: var(--w-head) 34px / 1.22 var(--font-display); letter-spacing: -0.015em; color: var(--color-sidebar-bg); text-wrap: pretty; }
+.ds-shot__lead { margin: 0; font: var(--w-head) 34px / 1.22 var(--font-display); letter-spacing: -0.015em; color: var(--deck-ink); text-wrap: pretty; }
 .ds-shot__chips { display: flex; flex-wrap: wrap; gap: 12px; margin: 0; }
 .ds-shot__chips .hc-chip { font-size: 24px; min-height: 56px; padding: 12px 22px; }
 .ds-shot__chips .hc-chip__i { width: 26px; height: 26px; }
@@ -297,10 +297,10 @@
 /* what the design reviews took out (ds-solution › The map, and what I cut, DECISIONS §17): a row of cards, each name
    struck through by a raspberry line that draws itself (data-a="rule"). Nothing is dimmed: the line says it. */
 .ds-cuts { display: grid; gap: 40px; align-content: center; }
-.ds-cuts__lead { margin: 0; font: var(--w-head) 34px / 1.22 var(--font-display); letter-spacing: -0.015em; color: var(--color-sidebar-bg); text-wrap: pretty; }
+.ds-cuts__lead { margin: 0; font: var(--w-head) 34px / 1.22 var(--font-display); letter-spacing: -0.015em; color: var(--deck-ink); text-wrap: pretty; }
 .ds-cuts__row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; margin: 0; padding: 0; list-style: none; }
 .ds-cut { display: grid; grid-template-rows: auto auto 1fr auto; gap: 16px; padding: 28px 26px 26px; border-radius: 28px; background: var(--bg);
-  box-shadow: 0 0 0 1px var(--line), 0 22px 44px -26px color-mix(in oklab, var(--color-sidebar-bg) 22%, transparent); }
+  box-shadow: 0 0 0 1px var(--line), 0 22px 44px -26px color-mix(in oklab, var(--deck-ink) 22%, transparent); }
 .ds-cut__i { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 16px; background: var(--color-gray-100); color: var(--ink-2); }
 .ds-cut__i svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .ds-cut__t { margin: 0; font: var(--w-head) 30px / 1.2 var(--font-display); letter-spacing: -0.012em; color: var(--ink); white-space: nowrap; }

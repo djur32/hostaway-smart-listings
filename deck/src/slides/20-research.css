@@ -2,10 +2,10 @@
 @layer slides {
 /* a fifth tint for the persona that wears the product's sky blue (P2); lavender stays for AI */
 .rs-sky { --tint-plate: var(--color-blue-100); --tint-halo: var(--color-blue-200); --tint-soft: var(--color-blue-50);
-  --tint-ink: var(--color-blue-700); --tint-line: var(--color-blue-600); --tint-title: var(--color-sidebar-bg); --tint-body: var(--ink-2); }
+  --tint-ink: var(--color-blue-700); --tint-line: var(--color-blue-600); --tint-title: var(--deck-ink); --tint-body: var(--ink-2); }
 /* a small white icon disc on a plate, stroked in the plate's line colour */
 .rs-ico { display: inline-grid; place-items: center; flex: none; width: 64px; height: 64px; border-radius: 20px; background: var(--bg); color: var(--tint-line, var(--accent));
-  box-shadow: 0 10px 24px -14px color-mix(in oklab, var(--color-sidebar-bg) 40%, transparent); }
+  box-shadow: 0 10px 24px -14px color-mix(in oklab, var(--deck-ink) 40%, transparent); }
 .rs-ico svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ── rs-method · five steps: the question, who and what I'd check, what is already public, and the rule ── */
@@ -50,7 +50,7 @@
 
 /* ── rs-quotes · three big quotes on strong grounds (reference 09) ── */
 .rs-qs { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; align-items: start; }
-.rs-q { --q-bg: var(--color-sidebar-bg); position: relative; margin: 0; display: grid; grid-template-rows: 1fr auto; gap: 40px; min-height: 460px; padding: 46px 44px 38px;
+.rs-q { --q-bg: var(--deck-ink); position: relative; margin: 0; display: grid; grid-template-rows: 1fr auto; gap: 40px; min-height: 460px; padding: 46px 44px 38px;
   border-radius: 36px; background: var(--q-bg); color: var(--on-dark); }
 .rs-q:nth-of-type(2) { --q-bg: var(--color-primary-700); margin-top: 44px; }
 .rs-q:nth-of-type(3) { --q-bg: var(--color-success-700); margin-top: 88px; }
@@ -121,7 +121,7 @@
 .rs-chs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
 .rs-chc { position: relative; display: grid; grid-template-rows: auto 1fr; min-width: 0; border-radius: 30px; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
 .rs-chc__plate { position: relative; display: grid; border-radius: 30px 30px 0 0; justify-items: center; align-content: center; gap: 14px; height: 240px; padding-top: 34px; background: var(--plate-quiet); }
-.rs-chc__mark { display: grid; place-items: center; width: 84px; height: 84px; border-radius: 26px; background: var(--bg); box-shadow: 0 10px 24px -14px color-mix(in oklab, var(--color-sidebar-bg) 40%, transparent); }
+.rs-chc__mark { display: grid; place-items: center; width: 84px; height: 84px; border-radius: 26px; background: var(--bg); box-shadow: 0 10px 24px -14px color-mix(in oklab, var(--deck-ink) 40%, transparent); }
 .rs-chc__mark svg { width: 46px; height: 46px; }
 .rs-chc__n { font: var(--w-head) 24px / 1.1 var(--font-display); color: var(--ink); }
 .rs-chc__body { display: grid; gap: 10px; align-content: start; padding: 22px 24px 26px; }
@@ -159,8 +159,8 @@
 .rs-ui { flex: none; }
 .rs-ui .rs-card { border-radius: var(--radius-lg); background: var(--color-surface-primary);
   box-shadow:
-    0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent),
-    0 14px 30px -14px color-mix(in oklab, var(--color-sidebar-bg) 20%, transparent); }
+    0 0 0 1px color-mix(in oklab, var(--deck-ink) 6%, transparent),
+    0 14px 30px -14px color-mix(in oklab, var(--deck-ink) 20%, transparent); }
 .rs-ui .rs-card__head { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--color-border-divider);
   font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-strong); }
 .rs-ui .rs-card__head b { font-weight: var(--font-weight-semibold); }
@@ -295,7 +295,7 @@
 .rs-syn__dot { width: 14px; height: 14px; flex: none; border-radius: 50%; }
 .rs-syn__dot--m, .syn-av--m { background: var(--color-primary-700); }
 .rs-syn__dot--d, .syn-av--d { background: var(--color-warning-700); }
-.rs-syn__dot--c, .syn-av--c { background: var(--color-sidebar-bg); }
+.rs-syn__dot--c, .syn-av--c { background: var(--deck-ink); }
 .rs-syn__dot--p, .syn-av--p { background: var(--color-action-primary); }
 .rs-syn__dot--r, .syn-av--r { background: var(--color-success-700); }
 .rs-syn__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: start; }

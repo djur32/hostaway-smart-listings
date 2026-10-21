@@ -7,10 +7,10 @@
    white + gray hairline = exists today. Nothing else is tinted. */
 .ia-map { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: auto auto; column-gap: 92px; row-gap: 56px; align-items: stretch; width: 100%; max-width: 1660px; margin: 0 auto; }
 .ia-node { display: flex; flex-direction: column; gap: 10px; padding: 26px 28px 28px; border-radius: var(--r-3); background: var(--bg);
-  box-shadow: 0 0 0 1px var(--line), 0 18px 40px -26px color-mix(in oklab, var(--color-sidebar-bg) 34%, transparent); }
+  box-shadow: 0 0 0 1px var(--line), 0 18px 40px -26px color-mix(in oklab, var(--deck-ink) 34%, transparent); }
 .ia-node__t { font: var(--w-head) 32px / 1.1 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
 .ia-node__d { font-size: 22px; line-height: 1.38; color: var(--ink-2); text-wrap: pretty; }
-.ia-node.is-new { background: var(--color-primary-50); box-shadow: 0 0 0 2px var(--accent), 0 18px 40px -26px color-mix(in oklab, var(--color-sidebar-bg) 34%, transparent); }
+.ia-node.is-new { background: var(--color-primary-50); box-shadow: 0 0 0 2px var(--accent), 0 18px 40px -26px color-mix(in oklab, var(--deck-ink) 34%, transparent); }
 /* the open question sits in the gap the projection will fill, above the dashed wire */
 .ia-gap { justify-self: center; align-self: center; margin-bottom: 104px; text-align: center; font: var(--w-medium) 18px / 1.3 var(--font-ui); color: var(--ink-3); }
 /* how to read it, under Source and Property; the key on the same left edge, at the row's foot */
@@ -49,8 +49,8 @@
 /* ── ia-structure · the property menu, live (ds h-chnav), and what flows through it ── */
 .ia-st { display: grid; grid-template-columns: 262px minmax(0, 1fr); column-gap: 360px; align-items: start; min-height: 536px;   /* the final menu's height, so nothing re-centres as it grows */ width: 100%; max-width: 1720px; margin: 0 auto; }
 .ia-rail { position: relative; width: 262px; border-radius: 18px; background: var(--color-subnav-bg);
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 8%, transparent), 0 2px 4px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent),
-    0 22px 44px -14px color-mix(in oklab, var(--color-sidebar-bg) 22%, transparent), 0 60px 110px -34px color-mix(in oklab, var(--color-sidebar-bg) 22%, transparent); }
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--deck-ink) 8%, transparent), 0 2px 4px color-mix(in oklab, var(--deck-ink) 6%, transparent),
+    0 22px 44px -14px color-mix(in oklab, var(--deck-ink) 22%, transparent), 0 60px 110px -34px color-mix(in oklab, var(--deck-ink) 22%, transparent); }
 .ia-rail__ui { --subnav-item-height: 34px; }
 .ia-rail .h-chnav { min-height: 0; padding: 8px 12px 10px 12px; border-right: 0; background: transparent; }
 .ia-rail .h-chnav__group { padding: 12px 12px 5px; }
@@ -69,7 +69,7 @@
 .ia-grp--ch .ia-grp__tag { color: var(--accent-ink); }
 .ia-r--sl { position: relative; }
 .ia-sl-tag { position: absolute; left: calc(100% + 40px); top: 50%; translate: 0 -50%; display: inline-flex; align-items: center; gap: 10px; padding: 9px 16px; border-radius: var(--r-pill); background: var(--bg); white-space: nowrap;
-  font: var(--w-medium) 17px / 1 var(--font-ui); color: var(--ink); box-shadow: 0 0 0 1px var(--line), 0 12px 28px -10px color-mix(in oklab, var(--color-sidebar-bg) 30%, transparent); }
+  font: var(--w-medium) 17px / 1 var(--font-ui); color: var(--ink); box-shadow: 0 0 0 1px var(--line), 0 12px 28px -10px color-mix(in oklab, var(--deck-ink) 30%, transparent); }
 .ia-sl-tag::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--ai-accent); flex: none; }
 
 .ia-st__side { display: grid; gap: 56px; align-content: start; padding-top: 16px; }
@@ -77,7 +77,7 @@
 /* what each channel takes from the Base (review, 4 Oct): one bar per channel, a segment per case, the count inside it */
 .ia-reach [data-s="base"] { --seg: var(--color-gray-200); --seg-ink: var(--ink-2); }
 .ia-reach [data-s="own"]  { --seg: var(--color-orange-500); --seg-ink: var(--on-dark); }
-.ia-reach [data-s="only"] { --seg: var(--color-sidebar-bg); --seg-ink: var(--on-dark); }
+.ia-reach [data-s="only"] { --seg: var(--deck-ink); --seg-ink: var(--on-dark); }
 .ia-reach [data-s="set"]  { --seg: var(--color-gray-500); --seg-ink: var(--on-dark); }
 .ia-reach__key { display: flex; flex-wrap: wrap; gap: 10px 28px; margin: 0 0 22px; padding: 0; list-style: none; }
 .ia-reach__key li { display: inline-flex; align-items: center; gap: 10px; font: var(--w-medium) 19px / 1.2 var(--font-ui); color: var(--ink-2); }
@@ -125,7 +125,7 @@
 
 /* the tiny sidebar: a white frame, a rail of bars and a page of lines */
 .ia-nm { position: relative; display: grid; grid-template-columns: 96px minmax(0, 1fr); width: 240px; height: 164px; overflow: hidden; border-radius: 14px; background: var(--bg);
-  box-shadow: 0 0 0 1px var(--line), 0 14px 28px -18px color-mix(in oklab, var(--color-sidebar-bg) 40%, transparent); }
+  box-shadow: 0 0 0 1px var(--line), 0 14px 28px -18px color-mix(in oklab, var(--deck-ink) 40%, transparent); }
 .ia-nm__rail { display: flex; flex-direction: column; gap: 9px; padding: 14px 10px 12px 12px; border-right: 1px solid var(--line); background: var(--color-gray-50); }
 .ia-nm__rail--tight { gap: 7px; }
 .ia-nm__main { display: flex; flex-direction: column; gap: 10px; padding: 16px 14px; }
@@ -150,7 +150,7 @@
 .ia-nm__drawer .ia-nm__l { background: color-mix(in oklab, var(--ai-accent) 40%, var(--bg)); }
 
 .ia-so { display: flex; align-items: center; gap: 16px; margin: 0; padding: 16px 24px; border-radius: 24px; background: var(--plate-quiet); font: var(--w-medium) 24px / 1.3 var(--font-ui); color: var(--ink); }
-.ia-so b { display: inline-flex; align-items: center; flex: none; height: 40px; padding: 0 18px; border-radius: var(--r-pill); background: var(--color-sidebar-bg); color: var(--on-dark); font: var(--w-head) 19px / 1 var(--font-ui); }
+.ia-so b { display: inline-flex; align-items: center; flex: none; height: 40px; padding: 0 18px; border-radius: var(--r-pill); background: var(--deck-ink); color: var(--on-dark); font: var(--w-head) 19px / 1 var(--font-ui); }
 
 /* the detail · Channel-first as two bands: Shared (once, for every channel) and Channel-specific (each channel's own pages) */
 .ia-cf { display: grid; gap: 24px; }
@@ -177,7 +177,7 @@
 .ia-cf__pg span { white-space: nowrap; }
 .ia-src { display: flex; align-items: center; gap: 12px; margin: 22px 0 0; font: var(--w-medium) 18px / 1.3 var(--font-ui); color: var(--ink-3); }
 .ia-was { display: grid; gap: 36px; }
-.ia-was__lead { margin: 0; font: var(--w-head) 46px / 1.2 var(--font-display); letter-spacing: -0.015em; color: var(--color-sidebar-bg); text-wrap: balance; }
+.ia-was__lead { margin: 0; font: var(--w-head) 46px / 1.2 var(--font-display); letter-spacing: -0.015em; color: var(--deck-ink); text-wrap: balance; }
 .ia-was__cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .ia-was__c { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 10px 30px; padding: 40px 44px; border-radius: 30px; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
 .ia-was__c .ia-tile { grid-row: 1 / span 3; }
@@ -234,7 +234,7 @@
 /* ── ia-structure detail · the cost on the left (and the test it calls for), the three moves that answer it on the right ── */
 .ia-cost { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 64px; align-items: center; }
 .ia-cost__l { display: grid; gap: 36px; align-content: center; }
-.ia-cost__lead { margin: 0; font: var(--w-head) 40px / 1.16 var(--font-display); letter-spacing: -0.015em; color: var(--color-sidebar-bg); text-wrap: balance; }
+.ia-cost__lead { margin: 0; font: var(--w-head) 40px / 1.16 var(--font-display); letter-spacing: -0.015em; color: var(--deck-ink); text-wrap: balance; }
 .ia-cost__next { display: grid; gap: 12px; justify-items: start; padding: 26px 30px 28px; border-radius: 28px; background: var(--color-warning-100); }
 .ia-cost__next p { margin: 0; font-size: 24px; line-height: 1.42; color: var(--ink-2); text-wrap: pretty; }
 .ia-cost__next .ia-cost__k { display: inline-flex; align-items: center; gap: 10px; font: var(--w-head) 20px / 1.2 var(--font-ui); color: var(--color-orange-700); }
@@ -276,7 +276,7 @@
 /* ia-objects · the model in one sentence, its nouns marked, and what each band became on screen */
 .ia-one { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 64px; align-items: center; }
 .ia-one__lead { margin: 0; font: var(--w-medium) 38px / 1.42 var(--font-display); letter-spacing: -0.01em; color: var(--ink-2); text-wrap: pretty; }
-.ia-one__lead b { font-weight: var(--w-head); color: var(--color-sidebar-bg); }
+.ia-one__lead b { font-weight: var(--w-head); color: var(--deck-ink); }
 .ia-one__lead b.is-new { background: linear-gradient(transparent 60%, var(--color-primary-200) 60%, var(--color-primary-200) 92%, transparent 92%); }   /* only the new objects are marked, as on the wall */
 .ia-one__r { display: grid; gap: 16px; }
 .ia-one__k { margin: 0; font: var(--w-head) 24px / 1.2 var(--font-ui); color: var(--accent-ink); }
