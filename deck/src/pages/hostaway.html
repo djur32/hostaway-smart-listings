@@ -1019,7 +1019,7 @@
       </ul>
     </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>Today's functions and gaps</span><span>Help Center</span><span>Smart Listings, our concept</span><span class="more-link" data-more="jobs">Why jobs</span></p></div>
+  <div class="s-foot"><p class="hc-src"><span>Today's functions and gaps</span><span>Help Center</span><span>Smart Listings, our concept</span><span class="more-link" data-more="jobs">Why jobs</span><span class="more-link rs-jm__flow" data-more="ds-flows/jf-change-once">This job’s flow</span></p></div>
   <aside class="notes"><p>This replaces persona quotes with jobs. A job isn’t tied to a host type. Every host has the same goal: a listing that is right on every channel, and that they can check. So we built four jobs from the tool itself, its sections and its flows. The alternative was one job per persona, but that gives sixteen maps and hides what the personas share.</p><p>[Press] Choose a job to see its journey. What changes, where we edit it, what we see before and after we save, and what happens over time. Each one lists what exists today and what Smart Listings adds. The gaps are the ones we found in the flows. The constraint is that the maps use today’s product, so they show gaps in what exists, not what hosts say.</p><p>[Press] The More panel explains why we chose jobs over personas. The journey maps and the full detail are in Notion, under 02 · Research.</p></aside>
 </section>
 
@@ -2086,34 +2086,32 @@
   <aside class="notes"><p>Here is where the audit of Hostaway led. The facts live in two places. And our premise is that hosts change money and stay rules per channel, almost never the words. So in the prototype, the property splits the way hosts think. On the left, Shared holds every fact once, and each channel gets its own pages. In the middle is Hostaway’s own listing editor, set to Airbnb. Every field says where its value comes from. On the right is a real tip card, not a picture of one. It says what to change and why. Accepting it creates Airbnb’s own value without touching the Base. We designed in code and reviewed the running build. Behind The map is what those reviews took out. The experimentation part specifies how each claim would be checked with real hosts. We chose one listing with channels inside it over a separate AI page, because the decision should sit next to the field it changes. About 55 seconds.</p></aside>
 </section>
 
-<section class="s" data-id="ds-flows" data-title="The user flows" data-stage="4" data-part="design" data-path="S" data-angle="B" data-min="0.8" data-req="R-100" data-ground="white">
+<section class="s" data-id="ds-flows" data-title="A flow for each job" data-stage="4" data-part="design" data-path="S" data-angle="B" data-min="0.8" data-req="R-100" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Design</span><span>User flows</span></p>
-    <h2 class="h2" data-a="rise" data-at="0.05">Five flows carry the whole design</h2>
-    <p class="hc-msg" data-a="rise" data-at="0.12">Where each one starts, and what the host has at the end of it.</p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Each job from research has its own flow</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">The four jobs hosts need done, and the flow that gets each one done.</p>
   </header>
   <div class="s-body">
     <ol class="tm-miss tm-miss--port" data-a="stagger" data-s="1.2" data-at="0.18">
-      <li data-tint="blush"><span class="tm-tile"><svg><use href="#i-wand"/></svg></span><b class="tm-miss__s">1 · Turn on Smart Listings</b><span class="tm-miss__bar">Property › Overview</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">A strategy, and tips on every channel</span></li>
-      <li data-tint="lavender"><span class="tm-tile"><svg><use href="#i-sparkles"/></svg></span><b class="tm-miss__s">2 · Work through tips</b><span class="tm-miss__bar">A channel’s Listing page</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">The field updated and sent, with Undo</span></li>
-      <li data-tint="butter"><span class="tm-tile"><svg><use href="#i-layers-intersect"/></svg></span><b class="tm-miss__s">3 · One field, four cases</b><span class="tm-miss__bar">Any field on a channel</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Uses the Base, custom, channel-only or locked</span></li>
-      <li data-tint="mint"><span class="tm-tile"><svg><use href="#i-trending-up"/></svg></span><b class="tm-miss__s">4 · Check Performance</b><span class="tm-miss__bar">Smart Listings › Performance</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Keep the strategy, or edit or replace it</span></li>
-      <li data-tint="blush"><span class="tm-tile"><svg><use href="#i-users"/></svg></span><b class="tm-miss__s">5 · From a guest question</b><span class="tm-miss__bar">A question in the Inbox</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">A better listing or a new shared fact</span></li>
+      <li data-tint="blush"><span class="tm-tile"><svg><use href="#i-layers-intersect"/></svg></span><b class="tm-miss__s">1 · Change a fact once</b><span class="tm-miss__bar">Flow: One field, four cases</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Facts kept once, every channel and the assistant updated</span></li>
+      <li data-tint="butter"><span class="tm-tile"><svg><use href="#i-adjustments-horizontal"/></svg></span><b class="tm-miss__s">2 · Set money and stay rules per channel</b><span class="tm-miss__bar">Flow: Turn on a strategy per channel</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Prices and rules per channel, inside guardrails</span></li>
+      <li data-tint="lavender"><span class="tm-tile"><svg><use href="#i-sparkles"/></svg></span><b class="tm-miss__s">3 · Write for each channel</b><span class="tm-miss__bar">Flow: Work through tips</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Each channel reads right, with Undo</span></li>
+      <li data-tint="mint"><span class="tm-tile"><svg><use href="#i-trending-up"/></svg></span><b class="tm-miss__s">4 · Confirm what went where</b><span class="tm-miss__bar">Flow: Check Performance</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Proof per channel, and a strategy kept or replaced</span></li>
     </ol>
   </div>
-  <template class="more" data-more="flow-turn-on" data-title="Flow 1 · Turn on" data-label="Flow 1"><div class="more__panel" data-title="Flow 1"><figure class="hc-flow" data-flow="turn-on" data-at="0.3"></figure></div></template>
-  <template class="more" data-more="flow-tips" data-title="Flow 2 · Tips" data-label="Flow 2"><div class="more__panel" data-title="Flow 2"><figure class="hc-flow" data-flow="tips" data-at="0.3"></figure></div></template>
-  <template class="more" data-more="flow-one-field" data-title="Flow 3 · One field" data-label="Flow 3"><div class="more__panel" data-title="Flow 3"><figure class="hc-flow" data-flow="one-field" data-at="0.3"></figure></div></template>
-  <template class="more" data-more="flow-performance" data-title="Flow 4 · Performance" data-label="Flow 4"><div class="more__panel" data-title="Flow 4"><figure class="hc-flow" data-flow="performance" data-at="0.3"></figure></div></template>
-  <template class="more" data-more="flow-hub-to-tips" data-title="Flow 5 · Guest question" data-label="Flow 5"><div class="more__panel" data-title="Flow 5"><figure class="hc-flow" data-flow="hub-to-tips" data-at="0.3"></figure></div></template>
-  <div class="s-foot"><p class="hc-src"><span>Each flow is built in the prototype and specified in Notion</span><span class="more-link" data-more="flow-turn-on">Flow 1</span><span class="more-link" data-more="flow-tips">Flow 2</span><span class="more-link" data-more="flow-one-field">Flow 3</span><span class="more-link" data-more="flow-performance">Flow 4</span><span class="more-link" data-more="flow-hub-to-tips">Flow 5</span></p></div>
-  <aside class="notes"><p>Five flows carry the whole design, and every team can trace its work to one of them. Turning Smart Listings on, from the property Overview to a strategy and tips on every channel. Working through tips on a channel’s page, one at a time, with Undo. One field in four cases: it uses the Base, is custom for a channel, exists only there, or is locked by the channel. Checking Performance, then keeping, editing or replacing a strategy. And a guest question becoming a better listing. The detail opens each flow in full. About 45 seconds.</p></aside>
+  <template class="more" data-more="jf-change-once" data-title="Job · Change a fact once" data-label="Job 1 flow"><div class="more__panel" data-title="One field, four cases"><figure class="hc-flow" data-flow="one-field" data-at="0.3"></figure></div><div class="more__panel" data-title="From a guest question"><figure class="hc-flow" data-flow="hub-to-tips" data-at="0.3"></figure></div></template>
+  <template class="more" data-more="jf-money-per-channel" data-title="Job · Set money and stay rules per channel" data-label="Job 2 flow"><div class="more__panel" data-title="Turn on a strategy"><figure class="hc-flow" data-flow="turn-on" data-at="0.3"></figure></div></template>
+  <template class="more" data-more="jf-write-per-channel" data-title="Job · Write for each channel" data-label="Job 3 flow"><div class="more__panel" data-title="Work through tips"><figure class="hc-flow" data-flow="tips" data-at="0.3"></figure></div></template>
+  <template class="more" data-more="jf-confirm-arrived" data-title="Job · Confirm what went where" data-label="Job 4 flow"><div class="more__panel" data-title="Check Performance"><figure class="hc-flow" data-flow="performance" data-at="0.3"></figure></div></template>
+  <div class="s-foot"><p class="hc-src"><span>Jobs from the research, flows built in the prototype</span><span class="more-link" data-more="jf-change-once">Job 1</span><span class="more-link" data-more="jf-money-per-channel">Job 2</span><span class="more-link" data-more="jf-write-per-channel">Job 3</span><span class="more-link" data-more="jf-confirm-arrived">Job 4</span></p></div>
+  <aside class="notes"><p>The flows come straight out of the research. Each of the four jobs hosts need done has its own flow. Change a fact once: one field in four cases, and a guest question that becomes a shared fact. Set money and stay rules per channel: turn on a strategy with its guardrails. Write for each channel: work through the tips. Confirm what went where: check Performance per channel. Each job opens its flow. About 45 seconds.</p></aside>
 </section>
 
-<section class="s" data-id="ds-flow-core" data-title="The core flow" data-stage="4" data-part="design" data-path="St" data-angle="B" data-min="0.7" data-req="R-100" data-ground="white">
+<section class="s" data-id="ds-flow-core" data-title="Flow for job 2" data-stage="4" data-part="design" data-path="St" data-angle="B" data-min="0.7" data-req="R-100" data-ground="white">
   <header class="s-head">
-    <p class="eyebrow" data-a="rise"><span>Design</span><span>User flows</span></p>
-    <h2 class="h2" data-a="rise" data-at="0.05">The core flow: turn it on once, then tips arrive on every channel</h2>
+    <p class="eyebrow" data-a="rise"><span>Design</span><span>Job 2 · Money and stay rules per channel</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Set a strategy per channel once, and its guardrails hold every change</h2>
   </header>
   <div class="s-body">
     <figure class="hc-flow" data-flow="turn-on" data-at="0.2"></figure>

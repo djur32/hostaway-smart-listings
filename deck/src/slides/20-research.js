@@ -31,5 +31,6 @@ document.addEventListener('click', (e) => {
   const chip = e.target.closest('.rs-jm__chip'); if (!chip) return;
   const root = chip.closest('.rs-jm'); const key = chip.dataset.job;
   root.querySelectorAll('.rs-jm__chip').forEach((b) => b.classList.toggle('is-on', b === chip));
+  chip.closest('.s')?.querySelectorAll('[data-more^="ds-flows/jf-"]').forEach((d) => { d.dataset.more = `ds-flows/jf-${chip.dataset.job}`; });   // the job's own flow (50-design shows them all)
   root.querySelectorAll('.rs-jm__fig').forEach((f) => f.classList.toggle('is-off', f.dataset.job !== key));
 });

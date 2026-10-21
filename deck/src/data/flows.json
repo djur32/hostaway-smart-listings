@@ -3,7 +3,7 @@
  "flows": {
   "turn-on": {
    "title": "Turn on Smart Listings",
-   "caption": "One toggle on the property Overview, then a full-screen wizard. Tips appear on each channel’s pages.",
+   "caption": "Job 2 · Set money and stay rules per channel. One toggle on the property Overview, then a full-screen wizard. Tips appear on each channel’s pages.",
    "w": 1720,
    "h": 540,
    "nodes": [
@@ -199,7 +199,7 @@
   },
   "tips": {
    "title": "Work through tips on an Airbnb listing",
-   "caption": "One docked panel, one tip at a time: Accept sends the change and Undo takes it back.",
+   "caption": "Job 3 · Write for each channel. One docked panel, one tip at a time: Accept sends the change and Undo takes it back.",
    "w": 1720,
    "h": 540,
    "nodes": [
@@ -369,7 +369,7 @@
   },
   "one-field": {
    "title": "One field on a channel, in four cases",
-   "caption": "Every field is one of four cases: it uses the Base, is custom for one channel, exists only on that channel, or is set by the channel (read-only, beside a lock that says why). Switching back to the Base never loses work.",
+   "caption": "Job 1 · Change a fact once. Every field is one of four cases: it uses the Base, is custom for one channel, exists only on that channel, or is set by the channel (read-only, beside a lock that says why). Switching back to the Base never loses work.",
    "w": 1720,
    "h": 560,
    "v": {
@@ -578,7 +578,7 @@
   },
   "performance": {
    "title": "Check Performance, then edit or replace a strategy",
-   "caption": "Performance compares each channel with the same stretch before its strategy. Strategy is where you edit or replace it.",
+   "caption": "Job 4 · Confirm what went where. Performance compares each channel with the same stretch before its strategy. Strategy is where you edit or replace it.",
    "w": 1720,
    "h": 540,
    "nodes": [
@@ -745,7 +745,7 @@
   },
   "hub-to-tips": {
    "title": "From a guest question to a better listing",
-   "caption": "It shows how the Knowledge Hub can feed the tips. The Hub reads its facts from the Listing base and collects what guests ask in the Inbox, counted and marked answered or not. The assistant answers only from those facts. A gap becomes a tip, either a shared fact for the Listing base (“Add free parking”) or a better answer in one channel’s listing (Airbnb’s description). Accepted, a fact reaches every channel and the assistant, and a description change reaches that channel.",
+   "caption": "Job 1 · Change a fact once. It shows how the Knowledge Hub can feed the tips. The Hub reads its facts from the Listing base and collects what guests ask in the Inbox, counted and marked answered or not. The assistant answers only from those facts. A gap becomes a tip, either a shared fact for the Listing base (“Add free parking”) or a better answer in one channel’s listing (Airbnb’s description). Accepted, a fact reaches every channel and the assistant, and a description change reaches that channel.",
    "look": "cards",
    "w": 1880,
    "h": 660,

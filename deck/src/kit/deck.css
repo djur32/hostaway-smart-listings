@@ -480,3 +480,5 @@ html.is-print .more-page .more-sheet__body { padding-bottom: 48px; }
 @keyframes navhint-press { 0%, 100% { transform: none; box-shadow: 0 2px 0 rgba(0,0,0,.14); } 40% { transform: translateY(2px); box-shadow: 0 0 0 rgba(0,0,0,.14); background: var(--color-bg-secondary-brand-secondary); } }
 @media (prefers-reduced-motion: reduce) { .navhint, .navhint kbd.is-press { animation: none; } }
 .opener__methods span:not(.opener__k), .opener__outs span:not(.opener__outs) { cursor: pointer; }
+/* a flow drawn on the wall keeps its labels under an open detail sheet */
+.stage:has(> .more-layer:not([hidden])) .s .hc-flow__lbl { visibility: hidden; }
