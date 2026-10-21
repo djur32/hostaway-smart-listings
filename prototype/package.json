@@ -1,0 +1,28 @@
+{
+  "name": "hospitable-prototype",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Hospitable · Listing Management II — hi-fi prototype (S09 scaffold). Consumes ../ds/*. Sample data is illustrative (SIMULATED).",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "typecheck": "tsc",
+    "preview": "vite preview --port 5174",
+    "check": "tsc && node tools/check-no-raw-colour.mjs"
+  },
+  "dependencies": {
+    "posthog-js": "^1.436.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.0",
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.0.0",
+    "typescript": "~5.9.3",
+    "vite": "^8.0.0"
+  }
+}

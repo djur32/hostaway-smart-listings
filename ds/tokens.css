@@ -1,0 +1,595 @@
+/* ════════════════════════════════════════════════════════════════════════════
+   Hospitable · design-system replica — tokens
+   Case study: Listing Management II (Antonio Silva, 2026). Not Hospitable's code.
+
+   Two layers:
+   1. RAW   — Hospitable's own palette, copied verbatim from the public stylesheet
+              https://my.hospitable.com/static/styles-K7T6MMZ5.css (captured 2026-09-29)
+              → REAL·PUBLIC. Kept under Hospitable's names so an engineer there
+              recognises every token.
+   2. ROLES — what each colour does in the UI, traced to a pixel in the product
+              (ds/tools/samples.json, REAL·PRODUCT, HS-## = research/current-state/INDEX.md)
+              + the new roles this case study needs (AI, channel lens, sync,
+              provenance…), marked NEW.
+
+   Rule: prototype/ and deck/ use ROLE tokens (or raw scale steps) — never raw hex.
+   Screenshots are Display-P3; every sample was converted to sRGB before matching
+   (see ds/tools/sample.py). Most roles match a Hospitable token at ΔE 0.00.
+   ════════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ─────────────────────────────  1 · RAW  ───────────────────────────── */
+
+  /* Neutrals */
+  --color-gray-25: #fcfcfd;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e6e7ea;
+  --color-gray-300: #d3d6da;
+  --color-gray-400: #a0a5ab;
+  --color-gray-500: #70747b;
+  --color-gray-600: #53575b;
+  --color-gray-700: #414347;
+  --color-gray-800: #282b2e;
+  --color-gray-900: #191b1f;
+  --color-gray-950: #121417;
+
+  /* Primary · raspberry (brand) */
+  --color-primary-25: #fff8f9;
+  --color-primary-50: #fff0f2;
+  --color-primary-100: #ffe4e7;
+  --color-primary-200: #fdced5;
+  --color-primary-300: #fca5b4;
+  --color-primary-400: #f9738c;
+  --color-primary-500: #f24167;
+  --color-primary-600: #e1295a;
+  --color-primary-700: #bc1445;
+  --color-primary-800: #9d1440;
+  --color-primary-900: #87143d;
+  --color-primary-950: #4b061c;
+
+  /* Secondary · grape (AI, plans, shell) */
+  --color-secondary-25: #fcf8ff;
+  --color-secondary-50: #faf5ff;
+  --color-secondary-100: #f2e6fe;
+  --color-secondary-200: #e9dafb;
+  --color-secondary-300: #d6c2f7;
+  --color-secondary-400: #b18ce2;
+  --color-secondary-500: #936acd;
+  --color-secondary-600: #8155be;
+  --color-secondary-700: #6b41a4;
+  --color-secondary-800: #4c3172;
+  --color-secondary-900: #321e52;
+  --color-secondary-950: #1a0a33;
+
+  /* Success */
+  --color-success-25: #f8fcfb;
+  --color-success-50: #f0faf5;
+  --color-success-100: #dcf2e8;
+  --color-success-200: #b5e4d1;
+  --color-success-300: #8dd1b5;
+  --color-success-400: #6abf9c;
+  --color-success-500: #1d9e7a;
+  --color-success-600: #188668;
+  --color-success-700: #126e56;
+  --color-success-800: #0c5745;
+  --color-success-900: #063f33;
+  --color-success-950: #022a23;
+
+  /* Error */
+  --color-error-bg: #fffaea;
+  --color-error-25: #fff8f7;
+  --color-error-50: #ffeeeb;
+  --color-error-100: #ffe1dc;
+  --color-error-200: #ffc2b5;
+  --color-error-300: #ff8f7a;
+  --color-error-400: #f95842;
+  --color-error-500: #e02e1f;
+  --color-error-600: #c02619;
+  --color-error-700: #9c1f15;
+  --color-error-800: #76170f;
+  --color-error-900: #520f0a;
+  --color-error-950: #390a06;
+
+  /* Warning */
+  --color-warning-25: #fffcf5;
+  --color-warning-50: #fff9e5;
+  --color-warning-100: #fef0c7;
+  --color-warning-200: #fedf89;
+  --color-warning-300: #fec84b;
+  --color-warning-400: #fdb022;
+  --color-warning-500: #f79009;
+  --color-warning-600: #dc6803;
+  --color-warning-700: #b54708;
+  --color-warning-800: #93370d;
+  --color-warning-900: #7a2e0e;
+  --color-warning-950: #4e1d09;
+
+  /* Yellow — NEW (not in Hospitable's public stylesheet: ASSUMPTION, built for this case study's Smartify pattern,
+     prototype/src/ds/smartify.tsx). A distinct hue from Warning (~45° vs Warning's ~30° amber/orange) so the two
+     never read as the same signal — Antonio: "distinctly yellow and readable, not dark/muddy". -700 passes AA
+     (5.17:1) for the panel's body text/title on white; -600 sits at ~3.3:1, the same icon-only contrast class as
+     --color-ai-accent (grape), used only for the sparkle glyph, never for text. */
+  --color-yellow-25: #fffdf2;
+  --color-yellow-50: #fffbe6;
+  --color-yellow-100: #fff3bf;
+  --color-yellow-200: #ffe88a;
+  --color-yellow-300: #ffd93d;
+  --color-yellow-400: #ffc700;
+  --color-yellow-500: #e6b000;
+  --color-yellow-600: #b38600;
+  --color-yellow-700: #8a6800;
+  --color-yellow-800: #664d00;
+  --color-yellow-900: #473600;
+
+  /* Blue */
+  --color-blue-25: #f5fbff;
+  --color-blue-50: #f0f9ff;
+  --color-blue-100: #e0f2fe;
+  --color-blue-200: #b9e6fe;
+  --color-blue-300: #7cd4fd;
+  --color-blue-400: #36bffa;
+  --color-blue-500: #0ba5ec;
+  --color-blue-600: #0086c9;
+  --color-blue-700: #026aa2;
+  --color-blue-800: #065986;
+  --color-blue-900: #0b4a6f;
+  --color-blue-950: #062c41;
+
+  /* Orange */
+  --color-orange-25: #fefaf5;
+  --color-orange-50: #fef6ee;
+  --color-orange-100: #fdead7;
+  --color-orange-200: #f9dbaf;
+  --color-orange-300: #f7b27a;
+  --color-orange-400: #f38744;
+  --color-orange-500: #ef6820;
+  --color-orange-600: #e04f16;
+  --color-orange-700: #b93815;
+  --color-orange-800: #932f19;
+  --color-orange-900: #772917;
+  --color-orange-950: #511c10;
+
+  /* Named hues (legacy palette, still used across the app) */
+  --color-grape: #9571c3;
+  --color-grape-lighter: #f6f0ff;
+  --color-grape-darker: #230b41;
+  --color-raspberry: #f69db4;
+  --color-raspberry-lighter: #fce6ec;
+  --color-raspberry-darker: #ed3c6a;
+  --color-grass: #afead2;
+  --color-grass-lighter: #ebf9f3;
+  --color-grass-darker: #47c693;
+  --color-smoke: #e5e2e9;
+  --color-smoke-lighter: #f8f7f9;
+  --color-smoke-darker: #d0cdd4;
+  --color-night: #5c576a;
+  --color-night-lighter: #b3afbb;
+  --color-night-darker: #17141c;
+  --color-lemon: #ffdd6d;
+  --color-lemon-lighter: #fff2c6;
+  --color-lemon-darker: #ffc74c;
+  --color-rose: #e86161;
+  --color-rose-lighter: #fadfdf;
+  --color-rose-darker: #d43b3b;
+  --color-coral: #ff7043;
+  --color-aqua: #4fc3f7;
+
+  --color-alpha-white-10: rgba(255, 255, 255, .1);
+
+  /* Hospitable semantic tokens (verbatim) */
+  --color-bg-blue-secondary: #f0f9ff;
+  --color-bg-brand-primary: #fff8f9;
+  --color-bg-brand-primary-secondary: #fff0f2;
+  --color-bg-brand-solid: var(--color-primary-500);              /* the main red, #f24167 (Antonio, 3 Oct) */
+  --color-bg-disabled-subtle: #f9fafb;
+  --color-bg-error-secondary: #ffeeeb;
+  --color-bg-error-solid: #c02619;
+  --color-bg-inverted: #414347;
+  --color-bg-orange-secondary: #fef6ee;
+  --color-bg-overlay: rgba(0, 0, 0, .1);
+  --color-bg-quarternary: #414347;
+  --color-bg-secondary-brand-primary: #fcf8ff;
+  --color-bg-secondary-brand-secondary: #f7f0ff;
+  --color-bg-secondary-brand-solid: #8155be;
+  --color-bg-success-primary: #f8fcfb;
+  --color-bg-success-secondary: #f0faf5;
+  --color-bg-success-solid: #188668;
+  --color-bg-warning-secondary: #fff9e5;
+  --color-bg-warning-solid: #b54708;
+  --color-border-bold: #53575b;
+  --color-border-brand: #f24167;
+  --color-border-brand-subtle: #ffe4e7;
+  --color-border-error-subtle: #ffe1dc;
+  --color-border-primary: #d3d6da;
+  --color-border-quaternary: #f3f4f6;
+  --color-border-secondary: #e6e7ea;
+  --color-border-secondary-alt: rgba(0, 0, 0, .05);
+  --color-border-secondary-brand-subtle: #f2e6fe;
+  --color-border-secondary-on-dark: rgba(255, 255, 255, .1);
+  --color-border-success-subtle: #dcf2e8;
+  --color-border-tertiary: #e5e7eb;
+  --color-border-warning-subtle: #fef0c7;
+  --color-border-white: #ffffff;
+  --color-surface-inverted: #414347;
+  --color-surface-primary: #ffffff;
+  --color-surface-secondary: #f9fafb;
+  --color-surface-tertiary: #f8f7f9;
+  --color-text-brand-primary: var(--color-primary-500);          /* the main red, #f24167 */
+  --color-text-brand-secondary: #8155be;
+  --color-text-disabled: #70747b;
+  --color-text-error: #c02619;
+  --color-text-error-primary: #c02619;
+  --color-text-inverted: #ffffff;
+  --color-text-placeholder: #70747b;
+  --color-text-primary: #191b1f;
+  --color-text-primary-dark: #f3f4f6;
+  --color-text-quaternary: #70747b;
+  --color-text-secondary: #53575b;   /* Antonio 1 Oct: body / supporting text is only #191b1f (primary) or #53575b (muted); was #414347 */
+  --color-text-secondary-dark: #e6e7ea;
+  --color-text-secondary-hover: #3b3c40;
+  --color-text-success-primary: #188668;
+  --color-text-tertiary: #53575b;
+  --color-text-tertiary-hover: #414347;
+  --color-text-warning-primary: #b54708;
+  --color-text-white: #ffffff;
+
+  /* Calendar channel bars (verbatim) */
+  --color-calendar-bar-agoda: #04a9df;
+  --color-calendar-bar-airbnb: #2c8279;
+  --color-calendar-bar-blocked: #414347;
+  --color-calendar-bar-booking: #003580;
+  --color-calendar-bar-direct: var(--color-primary-500);
+  --color-calendar-bar-vrbo: #0f214b;
+  --color-calendar-hover: #ebf9f3;
+  --color-calendar-pane-shadow: rgba(10, 13, 18, .05);
+  --color-calendar-selected: #afead2;
+  --color-calendar-today: #47c693;
+  --color-calendar-today-bg: #ebf9f3;
+
+  /* Elevation & focus (verbatim) */
+  --shadow-xs: rgba(10, 13, 18, .05); /* a colour, not a shadow (verbatim name) */
+  --shadow-sm: rgba(10, 13, 18, .1); /* a colour, not a shadow (verbatim name) */
+  --shadow-raised: 0 1px 2px rgba(10, 13, 18, .06), 0 1px 3px rgba(10, 13, 18, .1);
+  --shadow-md: 0 4px 6px -1px rgba(10, 13, 18, .1), 0 2px 4px -2px rgba(10, 13, 18, .06);
+  --shadow-floating: 0 4px 6px -2px rgba(10, 13, 18, .05), 0 12px 16px -4px rgba(10, 13, 18, .1);
+  --shadow-overlay: 0 8px 8px -4px rgba(10, 13, 18, .04), 0 20px 24px -4px rgba(10, 13, 18, .1), 0 0 0 1px var(--color-border-secondary);
+  --shadow-focus-brand: 0 0 0 4px rgba(225, 41, 90, .16);
+  --shadow-focus-success: 0 0 0 4px rgba(24, 134, 104, .16);
+  /* focused text field / select trigger (REAL·PRODUCT, Antonio's capture 30 Sep): grey border kept, 2px white gap, 2px gray-300 ring */
+  --shadow-focus-neutral: 0 0 0 2px var(--color-surface-primary), 0 0 0 4px var(--color-gray-300);
+
+  /* ────────────────────────────  2 · ROLES  ──────────────────────────── */
+
+  /* ── App shell · sidebar (HS-22) ─────────────────────────────────────── */
+  --color-sidebar-bg: var(--color-secondary-950);              /* #1a0a33 ΔE0 */
+  --color-sidebar-item-active-bg: var(--color-secondary-900);  /* #321e52 ΔE0 · "Properties" */
+  --color-sidebar-item-hover-bg: rgba(255, 255, 255, .06);     /* ASSUMPTION — hover not captured */
+  --color-sidebar-text: var(--color-text-white);                /* #ffffff */
+  --color-sidebar-icon: var(--color-grape);                     /* #9571c3 ΔE0 · icons, collapse, footer glyphs */
+  --color-sidebar-divider: var(--color-border-secondary-on-dark);
+  --color-sidebar-badge: var(--color-primary-500);              /* "4" on Getting started · #e1295a ΔE0 */
+  --gradient-sidebar-highlight: linear-gradient(90deg, #331e53 0%, #5f3a94 100%); /* "Getting started" · sampled x=15…240 css */
+  --gradient-sidebar-card: linear-gradient(90deg, #331e53 0%, #6b41a4 100%);      /* trial card · ends at secondary-700 */
+  --color-sidebar-card-cta: var(--color-secondary-600);         /* "Subscribe to a plan" · #8155be ΔE0 */
+
+  /* ── Property sub-nav rail (HS-22) ───────────────────────────────────── */
+  --color-subnav-bg: var(--color-surface-primary);
+  --color-subnav-border: var(--color-border-primary);           /* #d3d6da ΔE0 */
+  --color-subnav-text: var(--color-text-primary);               /* #191b1f */
+  --color-subnav-text-active: var(--color-raspberry-darker);    /* #ed3c6a ΔE0.4 · "Details" */
+  --color-subnav-icon: var(--color-smoke-darker);               /* #d0cdd4 ΔE0.4 */
+  --color-link-back: var(--color-raspberry-darker);             /* "‹ Back" */
+
+  /* ── Page & text ─────────────────────────────────────────────────────── */
+  --color-bg-app: var(--color-surface-primary);                 /* content area is white */
+  --color-bg-subtle: var(--color-surface-secondary);            /* #f9fafb · affixes, selection bar */
+  --color-text-strong: var(--color-text-primary);               /* #191b1f · titles, labels, values */
+  --color-text-muted: var(--color-text-tertiary);               /* #53575b · descriptions, tab labels, "1 channel" */
+  --color-text-faint: var(--color-gray-400);                    /* #a0a5ab · placeholders, unlisted text */
+  --color-text-disabled-ui: var(--color-gray-500);              /* #70747b · disabled button label */
+  --color-text-table-header: var(--color-night-lighter);        /* #b3afbb ΔE0 (HS-48) */
+  --color-text-calendar-muted: var(--color-night);              /* #5c576a (HS-32) */
+
+  /* ── Borders & dividers ─────────────────────────────────────────────── */
+  --color-border-input: var(--color-border-primary);            /* #d3d6da ΔE0 · inputs, tab rail, tiles */
+  --color-border-card: var(--color-border-secondary);           /* #e6e7ea ΔE0 · radio cards, secondary buttons, empty-state card */
+  --color-border-divider: var(--color-smoke);                   /* #e5e2e9 ΔE0 · table rows, accordions */
+  --color-border-ai: var(--color-smoke-darker);                 /* #d0cdd4 ΔE0.4 · Dynamic Pricing card */
+
+  /* ── Actions ─────────────────────────────────────────────────────────── */
+  --color-action-primary: var(--color-primary-500);             /* Save, tab underline · #e1295a ΔE0 */
+  --color-action-primary-hover: var(--color-primary-700);       /* ASSUMPTION — hover not captured; next step of the scale */
+  --color-action-primary-legacy: var(--color-raspberry-darker); /* #ed3c6a · "Onboarding assistant", "Add amenity", "Configure", "Contact support" (older surfaces) */
+  --color-action-secondary-bg: var(--color-surface-primary);
+  --color-action-secondary-border: var(--color-border-secondary);
+  --color-action-secondary-hover-bg: var(--color-smoke-lighter);/* button__secondary:hover (REAL·PUBLIC) */
+  --color-action-disabled-bg: var(--color-gray-100);            /* #f3f4f6 ΔE0 · disabled Save/Discard */
+  --color-action-disabled-border: var(--color-gray-300);
+  --color-action-disabled-text: var(--color-gray-500);          /* #70747b ΔE0 */
+  --color-action-text-green: var(--color-grass-darker);         /* "+ Filter", "+ Add topic", help links · #47c693 ΔE0.6 (button__text) */
+  /* Close (×) · h-close: every close / dismiss / remove × is the outlined one (Antonio, 4 Oct). REAL·PRODUCT, measured on
+     concepts/smart-listing/refs/listing-details/09 (2× capture): the × box has the secondary button's skin (same pixels as
+     its Cancel) and research/current-state/antonio-2026-10-03-add-property/01 shows the same box at 40px */
+  --color-close-bg: var(--color-action-secondary-bg);             /* #ffffff · measured 255 */
+  --color-close-border: var(--color-action-secondary-border);     /* #e6e7ea · measured 230,231,234 ΔE0 */
+  --color-close-icon: var(--color-text-strong);                   /* #191b1f · measured 25,27,31 ΔE0 */
+  --color-close-hover-bg: var(--color-action-secondary-hover-bg); /* #f8f7f9 · ASSUMPTION: hover not captured; = button__secondary:hover */
+  --color-close-hover-border: var(--color-border-input);          /* #d3d6da · ASSUMPTION: = h-btn--secondary:hover */
+  --color-close-on-dark-border: var(--color-gray-500);            /* NEW · the toast's × on --color-bg-inverted */
+  --color-close-on-dark-hover-bg: var(--color-alpha-white-10);    /* NEW */
+  --color-link-brand: var(--color-primary-500);                 /* underlined "Security deposit overview" · #f24167 ΔE0 */
+  --color-link-neutral: var(--color-gray-700);                  /* underlined "Review opportunities", "Edit per channel" · #414347 ΔE0 */
+  --color-link-action: var(--color-link-neutral);                /* .h-link/.h-textlink rest, e.g. "Customize for Airbnb", "Use the Base" · #414347 ΔE0 (Antonio, 1 Oct) */
+  --color-link-action-hover: var(--color-gray-900);               /* .h-link/.h-textlink hover · #191b1f ΔE0 — body-text tokens are untouched, this is link/button text only */
+  --color-tab-underline: var(--color-primary-500);              /* 2px · #e1295a ΔE0 */
+  --color-floating-chat: var(--color-raspberry-darker);         /* bottom-right chat bubble · #ed3c6a */
+  --color-notification-dot: var(--color-error-500);             /* chat bubble dot */
+
+  /* ── Selection & form state ─────────────────────────────────────────── */
+  --color-control-checked: var(--color-success-500);            /* checkbox (mdc) · #1d9e7a — HS-16 row is at 50% opacity */
+  --color-control-radio: var(--color-success-600);              /* selected radio · #188668 ΔE0 */
+  --color-focus-ring: var(--shadow-focus-neutral);              /* every keyboard focus ring is neutral grey (Antonio, 1 Oct · QA B05); never brand pink or success green */
+  --color-dropdown-option-active-text: var(--color-secondary-700); /* "Amenities" in topic select · #6b41a4 ΔE0.6 */
+  --color-dropdown-option-active-bg: var(--color-gray-100);
+  --color-scrim: rgba(0, 0, 0, .32);                            /* modal backdrop: 173/255 over white, 18/26 over sidebar → α≈.32 (Material default) */
+  --opacity-row-inactive: .5;                                   /* unlisted/muted rows: #191b1f @ .5 = #8c8d8f exactly */
+
+  /* ── Pills & badges (HS-16, 21, 30, 35, 48) ─────────────────────────── */
+  --pill-recommended-bg: var(--color-success-25);               /* #f8fcfb ΔE0 */
+  --pill-recommended-border: var(--color-success-100);
+  --pill-recommended-text: var(--color-success-600);            /* #188668 ΔE0 */
+  --pill-lead-bg: var(--color-success-25);                      /* "Lead listing" — same recipe as Recommended */
+  --pill-lead-text: var(--color-success-600);
+  --pill-managed-bg: var(--color-secondary-600);                /* "Fully managed" · #8155be ΔE0, white text */
+  --pill-new-bg: var(--color-primary-50);                       /* "New" (Antonio, 3 Oct ref): the brighter Hospitable red on its light tint */
+  --pill-new-border: var(--color-primary-100);
+  --pill-new-text: var(--color-primary-500);                    /* #f24167 */
+  --pill-unlisted-bg: var(--color-gray-25);                     /* #fcfcfd ΔE0.4 */
+  --pill-unlisted-border: var(--color-gray-200);
+  --pill-unlisted-text: var(--color-gray-400);
+  --badge-scoped-bg: var(--color-grass-darker);                 /* "Scoped" · #47c693 ΔE0 (badge-grass) */
+  --badge-count-bg: var(--color-raspberry-darker);              /* "All" · #ed3c6a (.badge) */
+  --chip-filter-bg: var(--color-smoke-lighter);                 /* "Properties : Beautiful…" · #f8f7f9 ΔE0 */
+  --chip-filter-text: var(--color-gray-400);
+
+  /* ── Existing AI language (HS-30 Dynamic Pricing card) ──────────────── */
+  --color-ai-surface: var(--color-grape-lighter);               /* #f6f0ff ΔE0 */
+  --color-ai-surface-hover: var(--color-secondary-100);         /* NEW · tip dot hover, parallel to --color-ai-refine-surface-hover */
+  --color-ai-surface-subtle: var(--color-secondary-25);         /* NEW · lighter tint for large panels */
+  --color-ai-border: var(--color-border-ai);
+  --color-ai-border-strong: var(--color-secondary-300);         /* NEW · selected / focused AI element */
+  --color-ai-title: var(--color-grape-darker);                  /* #230b41 ΔE0 */
+  --color-ai-text-legacy: var(--color-grape);                   /* #9571c3 ΔE0 — 3.47:1 on the surface — fails AA for body copy */
+  --color-ai-text: var(--color-secondary-700);                  /* NEW · #6b41a4 — 6.45:1 on #f6f0ff, passes AA for body copy */
+  --color-ai-accent: var(--color-secondary-600);                /* NEW · #8155be — AI glyphs, meters, "AI-derived" chip */
+  --color-ai-sparkle: var(--color-grape);                       /* sparkle glyph, as in the sidebar footer */
+
+  /* ── NEW · Smartify — orange AI-refine (ASSUMPTION, ds/v3/smartify.css, prototype/src/ds/smartify.tsx) ──────
+     Antonio, round 2: "tips and recommendations will always appear with a purple thing... customizations/
+     refinements will be in yellow... same icon, but the functionality is a little different." Antonio, 3 Oct: the
+     yellow read weak — use a more intense colour from Hospitable's own palette (he shared an orange swatch), kept
+     lightweight. So: Hospitable's Orange scale (--color-orange-*), as a tint plus an orange glyph, never a solid fill
+     at rest. Same --color-ai-* anatomy as Tips above (surface/border/title/text/accent), so the two markers are one
+     shape in two hues. Host-initiated "rewrite what's already there", never a proactive accept/dismiss suggestion. */
+  --color-ai-refine-surface: var(--color-orange-50);
+  --color-ai-refine-surface-hover: var(--color-orange-100);
+  --color-ai-refine-surface-subtle: var(--color-orange-25);
+  --color-ai-refine-border: var(--color-orange-200);
+  --color-ai-refine-border-strong: var(--color-orange-400);
+  --color-ai-refine-title: var(--color-orange-900);
+  --color-ai-refine-text: var(--color-orange-700);
+  --color-ai-refine-accent: var(--color-orange-500);            /* sparkle glyph — Hospitable orange, #ef6820 */
+
+  /* ── NEW · channels (HS-48 platform glyphs, HS-06 connect buttons) ──── */
+  --color-channel-airbnb: #ff5a5f;                              /* sampled #ff5a5e — brand mark, identification only */
+  --color-channel-booking: #273b7d;                             /* sampled ΔE0 vs the "B." glyph */
+  --color-channel-booking-dot: #0896ff;                         /* ASSUMPTION — the "." in B. (too small to sample) */
+  --color-channel-vrbo: #0885f2;                                /* sampled */
+  --color-channel-direct: var(--color-raspberry-darker);        /* Hospitable "o" mark */
+  --color-channel-expedia: #191e3b;                             /* Expedia navy, Simple Icons (CC0) from Expedia's brand portal — identification only */
+  --color-channel-google: var(--color-gray-400);                /* ASSUMPTION — rendered mono/faded in lists */
+  --color-channel-inactive-opacity: .35;                        /* faded glyphs on unconnected channels (HS-16) */
+
+  /* ── NEW · sync, conflicts, confidence ─────────────────────────────── */
+  --color-sync-ok: var(--color-success-600);
+  --color-sync-pending: var(--color-blue-600);
+  --color-sync-failed: var(--color-error-600);
+  --color-sync-drifted: var(--color-warning-700);               /* "changed on the channel" */
+  --color-conflict-bg: var(--color-warning-25);
+  --color-conflict-border: var(--color-warning-200);
+  --color-conflict-accent: var(--color-warning-600);
+  --color-confidence-high: var(--color-success-500);
+  --color-confidence-medium: var(--color-warning-500);
+  --color-confidence-low: var(--color-gray-400);
+  --color-diff-added-bg: var(--color-success-50);
+  --color-diff-added-text: var(--color-success-700);
+  --color-diff-removed-bg: var(--color-error-50);
+  --color-diff-removed-text: var(--color-error-700);
+
+  /* ── NEW · charts & inheritance (S12, D-156 · D-154) ─────────────────
+     Categorical order is fixed (dataviz: never cycled). Validated with the dataviz validator on #fcfcfb:
+     all six checks pass (worst adjacent CVD ΔE 23.9). Versions A/B/C and series use this order. */
+  --color-chart-1: var(--color-blue-600);
+  --color-chart-2: var(--color-orange-600);
+  --color-chart-3: var(--color-secondary-600);
+  --color-chart-comps: var(--color-gray-300);                   /* the comps' demand baseline: recessive */
+  --color-chart-grid: var(--color-gray-100);
+  --color-chart-axis: var(--color-text-muted);
+  --color-chart-marker: var(--color-gray-500);                  /* version markers (vertical rules) */
+  --color-chart-unavailable: var(--color-gray-200);             /* hatched: the channel doesn't share this */
+  --color-inherit-group: var(--color-gray-500);                 /* value comes from the group (portfolio) */
+  --color-inherit-property: var(--color-text-brand-primary);    /* property overrides the group */
+  --color-inherit-channel: var(--color-warning-600);            /* channel overrides the property (same amber as overrides) */
+
+  /* ── NEW · accounts you can act as (S12 follow-up, D-160) ─────────────
+     Identity only (an initial on a filled circle, white text, AA at 12 px semibold). Never used for state. */
+  --color-account-dana: var(--color-secondary-600);
+  --color-account-callum: var(--color-blue-700);
+  --color-account-marta: var(--color-success-600);
+  --color-account-priya: var(--color-orange-700);
+
+  /* ── NEW · provenance chips (deck + Notion, CONVENTIONS §2) ─────────── */
+  --prov-brief-bg: var(--color-secondary-50);    --prov-brief-text: var(--color-secondary-700);
+  --prov-product-bg: var(--color-success-50);    --prov-product-text: var(--color-success-700);
+  --prov-public-bg: var(--color-blue-50);        --prov-public-text: var(--color-blue-700);
+  --prov-simulated-bg: var(--color-warning-50);  --prov-simulated-text: var(--color-warning-700);
+  --prov-projected-bg: var(--color-orange-50);   --prov-projected-text: var(--color-orange-700);
+  --prov-assumption-bg: var(--color-gray-100);   --prov-assumption-text: var(--color-gray-700);
+  /* NEW · Listing details: the property's source of truth (SourceOfTruthBanner). Same family as REAL·PRODUCT, one step quieter */
+  --prov-truth-bg: var(--color-success-25);      --prov-truth-text: var(--color-success-700);   --prov-truth-border: var(--color-success-100);
+  /* NEW · Listing details: the "+" that adds an amenity (Add amenity drawer). Raspberry tint = act, quieter than the primary */
+  --color-amenity-add-bg: var(--color-primary-50);   --color-amenity-add-bg-hover: var(--color-primary-100);   --color-amenity-add-icon: var(--color-primary-500);
+
+  /* ── Onboarding & import (HS-01…15) ─────────────────────────────────── */
+  --color-onboarding-bg: var(--color-bg-brand-primary);         /* blush #fff8f9 ΔE0 */
+  --color-onboarding-progress: var(--color-primary-500);        /* 3px · #f24167 ΔE0 */
+  --color-onboarding-track: var(--color-gray-200);              /* 1px */
+  --color-onboarding-stat-icon: var(--color-primary-500);
+  --color-import-progress: var(--color-grass-darker);           /* 8px bar "100%" · #47c693 ΔE0.2 */
+  --color-import-row-active: var(--color-bg-brand-primary);     /* "Properties · Importing… 0%" row */
+  --color-kh-progress: var(--color-grass-darker);               /* 4px bar + "Researching property details…" */
+
+  /* ── Illustration palette (HS-06, HS-31) ────────────────────────────── */
+  --color-illo-figure: var(--color-primary-500);                /* #f24167 ΔE0 */
+  --color-illo-figure-alt: var(--color-raspberry-darker);       /* HS-31 figure #ed3c6a */
+  --color-illo-shade: var(--color-primary-200);                 /* folds/shadows on the figure */
+  --color-illo-line: var(--color-grape-darker);                 /* #230b41 ΔE0 · outline strokes, ground line */
+  --color-illo-cloud: var(--color-gray-100);                    /* #f3f4f6 ΔE0 */
+  --color-illo-accent: var(--color-grape);                      /* NEW · AI touches in new illustrations */
+
+  /* ── Booking policies flow (Airbnb cancellation, sampled from Antonio's screens 14–21.png, P3 → sRGB) ── */
+  --color-option-selected-bg: var(--color-blue-50);             /* selected option card fill "Moderate" (15.png) · #f0f9ff */
+  --color-option-selected-border: var(--color-blue-500);        /* its 1px border (15.png) · #0ba5ec */
+  --color-info-surface: var(--color-blue-50);                   /* "Learn more about non-refundable rates" box (17.png) */
+  --color-info-text: var(--color-blue-800);                     /* "This policy will apply to all Airbnb bookings…" (21.png) · #065986 */
+  --color-link-info: var(--color-blue-600);                     /* help links "Help Center", "Learn more…" (17, 20, 21.png) · #0086c9 */
+  --color-chip-neutral-bg: var(--color-gray-200);               /* "Long-term stays (28+ nights)" chip (21.png) · #e6e7ea ΔE0 */
+
+  /* ─────────────────────────────  TYPE  ─────────────────────────────── */
+  /* Hospitable ships TT Norms Pro. We use TT Norms (TypeType) from Antonio's licensed files,
+     loaded by ds/fonts/fonts.css (D-093; supersedes the Figtree stand-in, D-021).
+     Cuts: 400 · 500 · 600→Bold (no DemiBold supplied, ASSUMPTION). */
+  --font-sans: "TT Norms", "TT Norms Pro", "TTNormsPro", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "TT Norms Pro Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /* scale — sizes from cap-height measurement (cap ≈ .71em), matched to Hospitable's CSS */
+  --text-xs: 12px;   --leading-xs: 16px;     /* badges "Scoped", "All" */
+  --text-sm: 14px;   --leading-sm: 20px;     /* helper text, "1 channel", buttons, pills, Back */
+  --text-md: 16px;   --leading-md: 24px;     /* body, field labels, tabs, nav items */
+  --text-lg: 18px;   --leading-lg: 28px;     /* subsection "Getting inside and setup" (--h4) */
+  --text-xl: 20px;   --leading-xl: 28px;     /* empty-state heading, onboarding tile (--h3) */
+  --text-2xl: 24px;  --leading-2xl: 32px;    /* page title "Details", section "Arrival", onboarding H1 (--h2) */
+  --text-3xl: 30px;  --leading-3xl: 38px;    /* --h1 (not seen in the captured screens) */
+  --tracking-heading: -.01em;
+
+  /* ─────────────────────────────  SPACE  ────────────────────────────── */
+  --space-0-5: 2px; --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px; --space-12: 48px;
+  --space-14: 56px; --space-16: 64px;
+
+  /* layout — measured on HS-22 / HS-35 at a 1512-px viewport */
+  --sidebar-width: 256px;
+  --sidebar-width-collapsed: 72px;           /* ASSUMPTION — collapsed state not captured */
+  --sidebar-item-height: 44px;
+  --sidebar-item-inset: 8px;
+  --subnav-width: 256px;                      /* incl. 1px right border */
+  --subnav-item-height: 44px;                 /* 44px pitch (HS-22) */
+  --content-padding-x: 40px;                  /* sbnbDesktop:px-10 */
+  --scrollbar-size: 8px;                      /* NEW · every scrollbar in the app (components.css "Scrollbars"); a 4px thumb inside it */
+  --content-padding-top: 18px;                /* Antonio 30 Sep: page head row (44) centred on the shell head line, y = 18 + 22 = 40 (logo, Back, title, switcher) */
+  --content-max-width: 920px;                 /* 1512 − 256 − 256 − 2×40 */
+  --control-width: 370px;                     /* right-hand control column of a field row */
+  --control-width-compact: 240px;             /* price inputs with affix (HS-30) */
+  --form-column-width: 640px;                 /* stacked setting rows (SettingRow): one readable form column */
+  --field-height: 44px;                       /* measured; Hospitable's --sbnb-field-height says 40 */
+  --field-row-gap: 48px;                      /* 120px label-to-label pitch − 72px row */
+  --field-hint-gap: 8px;                      /* control → "ⓘ 1 channel · Edit per channel" */
+  --tab-gap: 20px;
+  --tab-underline: 2px;
+  --button-height-sm: 32px;                   /* Save / Discard / Onboarding assistant (button__small) */
+  --button-height-md: 40px;
+  --button-height-lg: 48px;                   /* onboarding Continue, empty-state Connect (mat min-height) */
+  --button-padding-x: 12px;
+  --pill-height: 24px;                        /* Antonio, 3 Oct ("Recommended" / "Draft" refs): chips are 24px with 14px text */
+  --badge-height: 20px;
+  --radio-card-padding: 20px;
+  --card-padding: 24px;                       /* .card */
+  --modal-width: 800px;                       /* "New knowledge" (HS-57): 357→1158 css */
+
+  /* ─────────────────────────────  RADIUS  ───────────────────────────── */
+  --radius-xs: 2px;     /* "Scoped" badge, onboarding Continue */
+  --radius-sm: 4px;     /* inputs, buttons, modal, switcher (--sbnb-field-border-radius) */
+  --radius-md: 6px;     /* pills: Lead listing, Fully managed, Recommended, New */
+  --radius-lg: 8px;     /* cards: radio card, AI card, onboarding tile, sidebar items, trial card */
+  --radius-xl: 12px;    /* floating selection bar, popovers */
+  --radius-2xl: 20px;   /* --shell-panel-radius (new shell) */
+  --radius-full: 9999px;
+
+  /* ─────────────────────────────  MOTION  ───────────────────────────── */
+  /* Durations & curves are the ones Hospitable's CSS already uses (REAL·PUBLIC);
+     ds/motion.md specifies what animates with them. */
+  --dur-1: 150ms;    /* micro: hover, press, toggle, chip flip (Tailwind default in their CSS) */
+  --dur-2: 200ms;    /* small moves: dropdowns, tooltips, value morphs */
+  --dur-3: 300ms;    /* panels, drawers, conflict-card collapse */
+  --dur-4: 500ms;    /* sequences: import items cascading in, sync pulse cycle ≈ 2×dur-4 */
+  --ease-standard: cubic-bezier(.4, 0, .2, 1);
+  --ease-enter: cubic-bezier(0, 0, .2, 1);
+  --ease-exit: cubic-bezier(.4, 0, 1, 1);
+  --ease-emphasized: cubic-bezier(.16, 1, .3, 1);
+  --ease-drawer: cubic-bezier(.22, .72, 0, 1);
+  --dur-drawer: 160ms;   /* side panels that slide in with the content narrowing in sync (Tips, Hub drawers, PanelStack,
+                             the unsaved-changes bar). Antonio, 1 Oct: "quicker, not gradual, but still smooth" — was
+                             240ms/cubic-bezier(.32,.72,0,1); shared token, retuned ~33% faster everywhere it's used. */
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+  --stagger: 40ms;
+  --motion-distance: 8px;   /* how far things slide/lift; 0 under reduced motion */
+
+  /* ─────────────────────────────  ELEVATION roles  ──────────────────── */
+  --elevation-card: none;                     /* cards are bordered, not shadowed */
+  --elevation-switcher: var(--shadow-raised); /* property switcher */
+  --elevation-floating: var(--shadow-floating); /* selection bar, toasts, popovers */
+  --elevation-modal: var(--shadow-overlay);   /* "New knowledge" */
+  --elevation-dropdown: var(--shadow-md);
+  --elevation-button: 0 1px 2px var(--shadow-xs), inset 0 -1px 0 var(--shadow-xs); /* secondary button + outlined × (listing-details/09: 1px inner bottom 243, soft 2px drop under the border) */
+
+  /* ─────────────────────────────  Z  ────────────────────────────────── */
+  --z-sidebar: 10; --z-sticky: 20; --z-floating: 30; --z-scrim: 40; --z-modal: 50; --z-toast: 60;
+
+  /* ─────────────────────────────  MOBILE (ds/mobile.md)  ──────────────
+     One breakpoint: @media (max-width: 767px). Measured on Hospitable's real mobile web app
+     (Antonio's iPhone captures, 30 Sep, images/32–49, 923 px wide = 390 pt → ÷2.367). */
+  --m-breakpoint: 767px;                      /* documentation only: media queries can't read custom properties */
+  --m-gutter: 16px;                           /* content side padding */
+  --m-tap: 44px;                              /* minimum touch target */
+  --m-tabbar-height: 58px;                    /* bottom tab bar, above the home-indicator safe area */
+  --m-actionbar-height: 72px;                 /* Discard / Save bar: 16 + 48 + 8 */
+  --m-sectionbar-height: 60px;                /* property section bar "Airbnb › Listing ⌄": 8 + 44 + 8 (ds/mobile.md §3a) */
+  --m-nav-row: 48px;                          /* a row in the property sections sheet (above the 44 minimum: thumb-sized) */
+  --m-fab-clearance: 72px;                    /* end-of-scroll room so the chat bubble (48 + 16 above the dock) never sits on the last row */
+  --m-field-height: 48px;                     /* every input and dropdown on phones: one height (Antonio, 4 Oct)
+  */
+  --m-button-height: var(--button-height-lg); /* 48 · Discard / Save, sheet actions */
+  --m-title-size: 24px;  --m-title-leading: 30px;       /* page title "Pricing", "Details" (500) */
+  --m-section-size: 20px; --m-section-leading: 28px;    /* section title "Occupancy based pricing" (600): always below the page title */
+  --m-lead-size: 16px;   --m-lead-leading: 24px;        /* body: section description, tabs, switcher, nav rows. Scale on phones: 24 page title · 20 section · 16 body and labels · 14 hints */
+  --m-drawer-width: min(288px, 74vw);         /* property / menu drawer (real: 278 of 390) */
+  --m-sheet-max-height: 90dvh;
+  --m-safe-top: env(safe-area-inset-top, 0px);
+  --m-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --color-m-tab-active-bg: var(--color-primary-50);     /* tab bar: pill behind the active icon (images/43) */
+  --color-m-toast-bg: var(--color-warning-100);         /* top toast "The cleaning fee must not exceed…" (images/45) */
+  --color-m-toast-border: var(--color-warning-300);
+}
+
+@media (max-width: 767px) {
+  :root { --content-padding-x: var(--m-gutter); --content-padding-top: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-drawer: var(--dur-1); --dur-2: var(--dur-1); --dur-3: var(--dur-1); --dur-4: var(--dur-1); --stagger: 0ms; --motion-distance: 0px; }
+  /* movement becomes a short cross-fade; see ds/motion.md for each pattern's alternative */
+}

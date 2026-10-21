@@ -1,0 +1,43 @@
+/* Phones: fixes from the verification sweep (5 Oct). Phone rules only (<= 767px); web and tablet are untouched. Tokens only. */
+@media (max-width: 767px) {
+  /* chart settings (PerfSettings) as a bottom sheet: each label above its full-width control */
+  .sl-perf-sheet__grid { display: grid; grid-template-columns: 1fr; gap: var(--space-2); padding-bottom: var(--space-4); }
+  .sl-perf-sheet__grid .sl-perf-settings__label { font-size: var(--text-md); line-height: var(--leading-md); color: var(--color-text-primary); }
+  .sl-perf-sheet__grid .h-lens { display: flex; width: 100%; margin-bottom: var(--space-3); }
+  .sl-perf-sheet__grid .h-lens__seg { flex: 1 1 0; min-width: 0; }
+}
+
+/* Knowledge Hub B: the search finder is a bottom sheet; its results read at body size, 48px rows */
+@media (max-width: 767px) {
+  .khb-search-sheet .h-m-sheet__body { display: flex; flex-direction: column; gap: var(--space-3); }
+  .khb-search-sheet .khb-search__list { max-height: none; }
+  .khb-search-sheet .khb-search__list button { min-height: var(--m-tap); padding: var(--space-3) 0; }
+  .khb-search-sheet .khb-search__list small { font-size: var(--text-sm); line-height: var(--leading-sm); }
+  .khb-search-sheet .khb-search__list b { font-size: var(--text-md); line-height: var(--leading-md); }
+  .khb-search-sheet .khb-search__list span { font-size: var(--text-md); line-height: var(--leading-md); white-space: normal; }
+  .khb-search-sheet .khb-search__none { font-size: var(--text-md); line-height: var(--leading-md); }
+}
+
+/* Knowledge Hub E: group overlines inside the Add / More sheets keep to the 14px floor */
+@media (max-width: 767px) {
+  .h-m-sheet .khe-menu__title { font-size: var(--text-sm); line-height: var(--leading-sm); }
+}
+
+/* Channel amenities: the trash on an amenity only this channel has stays on the card's right edge on phones
+ * (the card's action slot is hidden there by default); 48px target */
+@media (max-width: 767px) {
+  .ch-amenity .ch-amenity__action:has(.ch-amenity-remove) { display: flex; flex: none; }
+  .ch-amenity .ch-amenity-remove { width: var(--m-tap); height: var(--m-tap); margin: calc(-1 * var(--space-2)) calc(-1 * var(--space-2)) calc(-1 * var(--space-2)) 0; }
+}
+
+/* Calendar on phones follows the Overview rhythm: 16 between the description and the button (a card gap), 28 from the
+ * button to the first month name's text and between months (the sticky name carries 8px of its own padding) */
+@media (max-width: 767px) {
+  .h-calp__months.h-calp__months { padding-top: var(--space-1); }
+  .h-calp__month.h-calp__month + .h-calp__month { margin-top: var(--space-5); }
+}
+
+/* Calendar sheet (Pricing & availability): the link cards 16 apart, 28 from the note above them */
+@media (max-width: 767px) {
+  .h-calp__side.h-calp__side--sheet .h-pstack-links { gap: var(--space-4); margin-top: calc(var(--space-6) + var(--space-1)); }
+}

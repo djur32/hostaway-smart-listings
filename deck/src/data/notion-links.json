@@ -1,0 +1,1751 @@
+{
+  "_note": "How 'In Notion ↗' resolves (kit/hc.js). A slide's link goes to the first of its data-notion IDs found in `ids`, else to its data-notion-page in `pages`, else to its part's default page (`parts`). An empty or missing URL shows 'Notion page pending' (no link). S07 seeded `pages` and `databases` from the Notion index; S17 fills `ids` as rows are written (D-012 → the row's URL). Never put a URL here that isn't in the Notion index or a Notion row. Since 4 Oct: \"slides\", \"details\" (slide-id/detail-id or slide-id/*), \"panels\" (by panel title) and \"covers\" (by data-part) point into the condensed workspace and win over the older keys; edit plan/notion-v2/deck-links.json and run deck/tools/notion-links.py.",
+  "pages": {
+    "hub": "https://app.notion.com/p/3eae18af164581ccbff7c4acec07296b",
+    "00-brief": "https://app.notion.com/p/3eae18af1645813e9bf2c2d5f99a50ba",
+    "01-discovery": "https://app.notion.com/p/3eae18af164581988787cc8e2e586654",
+    "02-research": "https://app.notion.com/p/3eae18af164581c7a3ced02bf5dd2e85",
+    "03-ia": "https://app.notion.com/p/3eae18af164581158c11f7b4c086086f",
+    "04-concepts": "https://app.notion.com/p/3eae18af1645818097cadc48626de044",
+    "05-design": "https://app.notion.com/p/3eae18af164581d3a8f2f53e29cef166",
+    "06-test-measure": "https://app.notion.com/p/3eae18af164581f5a8fcfb9250a0601f",
+    "07-systems-next": "https://app.notion.com/p/3eae18af164581c38940ced84482a5de",
+    "98-databases": "https://app.notion.com/p/3eae18af164581f0a42fd2100d3d97c8",
+    "99-process": "https://app.notion.com/p/3eae18af1645811c9ea8dc17cdebb875"
+  },
+  "databases": {
+    "requirements": {
+      "ids": "R-###",
+      "url": "https://app.notion.com/p/a9958ff8723e4a72a41db85ecae963b6"
+    },
+    "decisions": {
+      "ids": "D-###",
+      "url": "https://app.notion.com/p/e122c9fac6584b1e948b38d36f4cbd6d"
+    },
+    "open-questions": {
+      "ids": "OQ-###",
+      "url": "https://app.notion.com/p/532e7a78003e494eabe80af40782dae1"
+    },
+    "stakeholders": {
+      "ids": "roles",
+      "url": "https://app.notion.com/p/d60f40397b04430a94bd538a341eda79"
+    },
+    "research-questions": {
+      "ids": "Q-##",
+      "url": "https://app.notion.com/p/474fcaff63a14f549ae788318be2983c"
+    },
+    "hypotheses": {
+      "ids": "H-##",
+      "url": "https://app.notion.com/p/0b3c622152164f1da6a5fdab717b4555"
+    },
+    "evidence": {
+      "ids": "E-###",
+      "url": "https://app.notion.com/p/958cebb43b6944aaa9f53be9b363f821"
+    },
+    "interviews": {
+      "ids": "INT-#",
+      "url": "https://app.notion.com/p/095391700536484c86aff50c804f1e16"
+    },
+    "insights": {
+      "ids": "I-##",
+      "url": "https://app.notion.com/p/8cee4c4781df4bab92cfb45c72688042"
+    },
+    "personas": {
+      "ids": "P1–P4",
+      "url": "https://app.notion.com/p/c7ea0cc5d87d4bd0b741d3b9b61517eb"
+    },
+    "jobs-to-be-done": {
+      "ids": "J-##",
+      "url": "https://app.notion.com/p/61584f56482145db9eab34b3479a28dc"
+    },
+    "competitors": {
+      "ids": "CMP-##",
+      "url": "https://app.notion.com/p/b40886b42de14162bdd67fad789dab25"
+    },
+    "ia-options": {
+      "ids": "IA-#",
+      "url": "https://app.notion.com/p/db5608ca14ff4cfdab2df8d2ee6e2ab2"
+    },
+    "concepts": {
+      "ids": "C1–C7",
+      "url": "https://app.notion.com/p/2cc3dbb4fe394f9795f55f65dc72a566"
+    },
+    "screens": {
+      "ids": "SCR-##",
+      "url": "https://app.notion.com/p/1facf62200164f33b8a5ead54428004a"
+    },
+    "states": {
+      "ids": "ST-###",
+      "url": "https://app.notion.com/p/aa890d0fa3d241a0a5077d80fef4257d"
+    },
+    "flows": {
+      "ids": "F-##",
+      "url": "https://app.notion.com/p/dab94d7590b7430b87a0e16ebd0cc493"
+    },
+    "metrics": {
+      "ids": "K-##",
+      "url": "https://app.notion.com/p/7ec902283ef7481e93017d430196f209"
+    },
+    "tests": {
+      "ids": "T-##",
+      "url": "https://app.notion.com/p/8539d04c3bab413f89565948b0b04154"
+    }
+  },
+  "parts": {
+    "open": "00-brief",
+    "discovery": "01-discovery",
+    "research": "02-research",
+    "ia": "03-ia",
+    "concept": "04-concepts",
+    "design": "05-design",
+    "test": "06-test-measure",
+    "next": "07-systems-next",
+    "close": "07-systems-next",
+    "appendix": "99-process"
+  },
+  "prefixes": {
+    "R": "requirements",
+    "D": "decisions",
+    "OQ": "open-questions",
+    "Q": "research-questions",
+    "H": "hypotheses",
+    "E": "evidence",
+    "INT": "interviews",
+    "I": "insights",
+    "P": "personas",
+    "J": "jobs-to-be-done",
+    "CMP": "competitors",
+    "IA": "ia-options",
+    "C": "concepts",
+    "SCR": "screens",
+    "ST": "states",
+    "F": "flows",
+    "K": "metrics",
+    "T": "tests"
+  },
+  "ids": {
+    "D-070": "https://app.notion.com/p/3eae18af164581769148f38cbff2e913",
+    "D-071": "https://app.notion.com/p/3eae18af164581829061c2e8fe7a4ba0",
+    "D-072": "https://app.notion.com/p/3eae18af164581129333dbb385e816b3",
+    "D-073": "https://app.notion.com/p/3eae18af164581379c48e34e9b93ff35",
+    "D-074": "https://app.notion.com/p/3eae18af16458129b391c11a1cc21169",
+    "D-075": "https://app.notion.com/p/3eae18af164581888078e921eb2b4458"
+  },
+  "slides": {
+    "op-cover": {
+      "url": "https://app.notion.com/p/3eee18af164581ada1e4ebc3d3838613",
+      "title": "Hospitable · Smart Listings",
+      "key": "hub",
+      "label": "Hospitable · Smart Listings",
+      "kind": "Workspace"
+    },
+    "op-title": {
+      "url": "https://app.notion.com/p/3eee18af164581ada1e4ebc3d3838613",
+      "title": "Hospitable · Smart Listings",
+      "key": "hub",
+      "label": "Hospitable · Smart Listings",
+      "kind": "Workspace"
+    },
+    "op-burden": {
+      "url": "https://app.notion.com/p/3eee18af1645814c9da9f6fce430fb5c",
+      "title": "Problem statement",
+      "key": "02-research/o-problem",
+      "label": "Problem statement",
+      "kind": "Output"
+    },
+    "op-brief": {
+      "url": "https://app.notion.com/p/3eee18af164581e28fddc912dc332953",
+      "title": "00 · Brief & scope",
+      "key": "00-brief",
+      "label": "00 · Brief & scope",
+      "kind": "Section"
+    },
+    "op-hypothesis": {
+      "url": "https://app.notion.com/p/3eee18af1645819282b2f11c14720c03",
+      "title": "Research questions & assumptions",
+      "key": "01-discovery/o-questions",
+      "label": "Research questions & assumptions",
+      "kind": "Output"
+    },
+    "op-idea": {
+      "url": "https://app.notion.com/p/3eee18af164581828521eb27e3e50737",
+      "title": "Solution overview",
+      "key": "05-design/o-solution",
+      "label": "Solution overview",
+      "kind": "Output"
+    },
+    "op-shift": {
+      "url": "https://app.notion.com/p/3eee18af16458163b059f704859d3a6a",
+      "title": "Current-state map",
+      "key": "01-discovery/o-today",
+      "label": "Current-state map",
+      "kind": "Output"
+    },
+    "op-goals": {
+      "url": "https://app.notion.com/p/3eee18af1645813d9391e336e308e3d7",
+      "title": "Goals & KPIs",
+      "key": "06-test/o-goals-kpis",
+      "label": "Goals & KPIs",
+      "kind": "Output"
+    },
+    "op-how": {
+      "url": "https://app.notion.com/p/3eee18af164581339fabf0591e5d7f9c",
+      "title": "KD-18 · Label what is simulated, and plan the tests rather than fake results",
+      "key": "KD-18",
+      "label": "Label the sample, plan the tests",
+      "kind": "Decision"
+    },
+    "dc-today": {
+      "url": "https://app.notion.com/p/3eee18af16458140b622c2f52f500edf",
+      "title": "Product audit",
+      "key": "01-discovery/m-product-audit",
+      "label": "Product audit",
+      "kind": "Method"
+    },
+    "dc-two-truths": {
+      "url": "https://app.notion.com/p/3eee18af16458163b059f704859d3a6a",
+      "title": "Current-state map",
+      "key": "01-discovery/o-today",
+      "label": "Current-state map",
+      "kind": "Output"
+    },
+    "dc-no-channel": {
+      "url": "https://app.notion.com/p/3eee18af1645817899d8edd811bf9212",
+      "title": "Heuristic evaluation",
+      "key": "01-discovery/o-heuristics",
+      "label": "Heuristic evaluation",
+      "kind": "Output"
+    },
+    "dc-signals": {
+      "url": "https://app.notion.com/p/3eee18af16458150add8ef7c753dbd12",
+      "title": "Data analysis",
+      "key": "02-research/m-data-review",
+      "label": "Data analysis",
+      "kind": "Method"
+    },
+    "dc-risks": {
+      "url": "https://app.notion.com/p/3eee18af1645819282b2f11c14720c03",
+      "title": "Research questions & assumptions",
+      "key": "01-discovery/o-questions",
+      "label": "Research questions & assumptions",
+      "kind": "Output"
+    },
+    "dc-plan": {
+      "url": "https://app.notion.com/p/3efe18af1645814192a0fa0c2f22f757",
+      "title": "Research plan",
+      "key": "01-discovery/m-research-plan",
+      "label": "Research plan",
+      "kind": "Method"
+    },
+    "rs-method": {
+      "url": "https://app.notion.com/p/3eee18af164581339fabf0591e5d7f9c",
+      "title": "KD-18 · Label what is simulated, and plan the tests rather than fake results",
+      "key": "KD-18",
+      "label": "Label the sample, plan the tests",
+      "kind": "Decision"
+    },
+    "rs-hosts": {
+      "url": "https://app.notion.com/p/3eee18af16458171989df7edc178e5df",
+      "title": "Personas",
+      "key": "02-research/o-personas",
+      "label": "Personas",
+      "kind": "Output"
+    },
+    "rs-quotes": {
+      "url": "https://app.notion.com/p/3eee18af164581cda068f2d204abbe37",
+      "title": "Interview synthesis",
+      "key": "02-research/o-interview-synthesis",
+      "label": "Interview synthesis",
+      "kind": "Output"
+    },
+    "rs-pains": {
+      "url": "https://app.notion.com/p/3eee18af1645818094e8d80d9ddf2acd",
+      "title": "Insights",
+      "key": "02-research/o-insights",
+      "label": "Insights",
+      "kind": "Output"
+    },
+    "rs-insights": {
+      "url": "https://app.notion.com/p/3eee18af1645818094e8d80d9ddf2acd",
+      "title": "Insights",
+      "key": "02-research/o-insights",
+      "label": "Insights",
+      "kind": "Output"
+    },
+    "rs-jobs": {
+      "url": "https://app.notion.com/p/3eee18af16458111b95ee068296d5bd7",
+      "title": "Jobs to be done",
+      "key": "02-research/o-jtbd",
+      "label": "Jobs to be done",
+      "kind": "Output"
+    },
+    "rs-cardsort": {
+      "url": "https://app.notion.com/p/3eee18af1645817e8eb5cc92bbfc76a3",
+      "title": "Card sorting results",
+      "key": "02-research/o-card-sort-result",
+      "label": "Card sorting results",
+      "kind": "Output"
+    },
+    "rs-channels": {
+      "url": "https://app.notion.com/p/3eee18af1645818c859bcd3115fce28e",
+      "title": "Channel constraints",
+      "key": "01-discovery/o-channels",
+      "label": "Channel constraints",
+      "kind": "Output"
+    },
+    "rs-market": {
+      "url": "https://app.notion.com/p/3eee18af164581a68ccdf6e48d114553",
+      "title": "Competitive analysis",
+      "key": "01-discovery/o-competitors",
+      "label": "Competitive analysis",
+      "kind": "Output"
+    },
+    "rs-diagnosis": {
+      "url": "https://app.notion.com/p/3eee18af1645814c9da9f6fce430fb5c",
+      "title": "Problem statement",
+      "key": "02-research/o-problem",
+      "label": "Problem statement",
+      "kind": "Output"
+    },
+    "ia-objects": {
+      "url": "https://app.notion.com/p/3eee18af16458168b8ede129bf1dc3a9",
+      "title": "Object model",
+      "key": "03-ia/o-object-model",
+      "label": "Object model",
+      "kind": "Output"
+    },
+    "ia-bathtub": {
+      "url": "https://app.notion.com/p/3eee18af1645818c859bcd3115fce28e",
+      "title": "Channel constraints",
+      "key": "01-discovery/o-channels",
+      "label": "Channel constraints",
+      "kind": "Output"
+    },
+    "ia-options": {
+      "url": "https://app.notion.com/p/3eee18af16458180a645fc510d470034",
+      "title": "Navigation options",
+      "key": "03-ia/o-nav-models",
+      "label": "Navigation options",
+      "kind": "Output"
+    },
+    "ia-structure": {
+      "url": "https://app.notion.com/p/3eee18af164581d6b4e2c132983137ce",
+      "title": "Sitemap",
+      "key": "03-ia/o-sitemap",
+      "label": "Sitemap",
+      "kind": "Output"
+    },
+    "cn-principles": {
+      "url": "https://app.notion.com/p/3eee18af164581cfb862c44df572735c",
+      "title": "Design principles",
+      "key": "04-concepts/o-principles",
+      "label": "Design principles",
+      "kind": "Output"
+    },
+    "cn-grid": {
+      "url": "https://app.notion.com/p/3eee18af1645815aa317e53bdcf8435d",
+      "title": "Concept directions",
+      "key": "04-concepts/o-directions",
+      "label": "Concept directions",
+      "kind": "Output"
+    },
+    "cn-judged": {
+      "url": "https://app.notion.com/p/3eee18af1645815aa317e53bdcf8435d",
+      "title": "Concept directions",
+      "key": "04-concepts/o-directions",
+      "label": "Concept directions",
+      "kind": "Output"
+    },
+    "cn-converge": {
+      "url": "https://app.notion.com/p/3eee18af164581bdb0f8dd25c3d311a4",
+      "title": "Final concept",
+      "key": "04-concepts/o-converged",
+      "label": "Final concept",
+      "kind": "Output"
+    },
+    "ds-solution": {
+      "url": "https://app.notion.com/p/3eee18af164581828521eb27e3e50737",
+      "title": "Solution overview",
+      "key": "05-design/o-solution",
+      "label": "Solution overview",
+      "kind": "Output"
+    },
+    "ds-shared": {
+      "url": "https://app.notion.com/p/3eee18af1645813ab697f55d6d253754",
+      "title": "KD-02 · Listing details live once, in the Listing base. The Knowledge Hub reads them",
+      "key": "KD-02",
+      "label": "Facts live once, in Shared",
+      "kind": "Decision"
+    },
+    "ds-hub": {
+      "url": "https://app.notion.com/p/3eee18af1645811f8fcfcbffc7cbb69d",
+      "title": "Knowledge Hub",
+      "key": "05-design/o-knowledge-hub",
+      "label": "Knowledge Hub",
+      "kind": "Output"
+    },
+    "ds-channels": {
+      "url": "https://app.notion.com/p/3eee18af164581178debffa0628f4703",
+      "title": "Listing base & channels",
+      "key": "05-design/o-base-channels",
+      "label": "Listing base & channels",
+      "kind": "Output"
+    },
+    "ds-strategy": {
+      "url": "https://app.notion.com/p/3eee18af164581028d64c3d0ff9f7d48",
+      "title": "KD-06 · One strategy per channel, made in a full-screen wizard",
+      "key": "KD-06",
+      "label": "One strategy per channel",
+      "kind": "Decision"
+    },
+    "ds-tips": {
+      "url": "https://app.notion.com/p/3eee18af1645811a82c4e772997ac875",
+      "title": "Tips & AI rewrite",
+      "key": "05-design/o-tips",
+      "label": "Tips & AI rewrite",
+      "kind": "Output"
+    },
+    "ds-canvas": {
+      "url": "https://app.notion.com/p/3eee18af16458187b60ec60bb6c3c5c5",
+      "title": "Canvas preview",
+      "key": "05-design/o-canvas",
+      "label": "Canvas preview",
+      "kind": "Output"
+    },
+    "ds-performance": {
+      "url": "https://app.notion.com/p/3eee18af1645816c86aee6acef674975",
+      "title": "Strategy & performance",
+      "key": "05-design/o-smart-listings",
+      "label": "Strategy & performance",
+      "kind": "Output"
+    },
+    "ds-autopilot": {
+      "url": "https://app.notion.com/p/3eee18af16458160a7c1c703fcb2a033",
+      "title": "KD-08 · Autopilot is on or off, and suggestions always arrive as tips",
+      "key": "KD-08",
+      "label": "Autopilot on or off",
+      "kind": "Decision"
+    },
+    "ds-mobile": {
+      "url": "https://app.notion.com/p/3eee18af164581daa8b7f210cb1c6f4e",
+      "title": "Mobile & tablet",
+      "key": "05-design/o-mobile",
+      "label": "Mobile & tablet",
+      "kind": "Output"
+    },
+    "ds-challenged": {
+      "url": "https://app.notion.com/p/3eee18af1645814fbc15f0a668dc4632",
+      "title": "Design system",
+      "key": "05-design/o-design-system",
+      "label": "Design system",
+      "kind": "Output"
+    },
+    "ds-system": {
+      "url": "https://app.notion.com/p/3eee18af1645814fbc15f0a668dc4632",
+      "title": "Design system",
+      "key": "05-design/o-design-system",
+      "label": "Design system",
+      "kind": "Output"
+    },
+    "tm-test": {
+      "url": "https://app.notion.com/p/3eee18af164581b1958cc8edfcf3dcfe",
+      "title": "Test plan",
+      "key": "06-test/m-test-plan",
+      "label": "Test plan",
+      "kind": "Method"
+    },
+    "tm-measure": {
+      "url": "https://app.notion.com/p/3eee18af1645813d9391e336e308e3d7",
+      "title": "Goals & KPIs",
+      "key": "06-test/o-goals-kpis",
+      "label": "Goals & KPIs",
+      "kind": "Output"
+    },
+    "nx-story": {
+      "url": "https://app.notion.com/p/3eee18af164581828521eb27e3e50737",
+      "title": "Solution overview",
+      "key": "05-design/o-solution",
+      "label": "Solution overview",
+      "kind": "Output"
+    },
+    "nx-roadmap": {
+      "url": "https://app.notion.com/p/3efe18af164581ca9ab6d4324a44d082",
+      "title": "Smart Listings across Hospitable",
+      "key": "07-next/o-service-map",
+      "label": "Smart Listings across Hospitable",
+      "kind": "Output"
+    },
+    "cl-monday": {
+      "url": "https://app.notion.com/p/3eee18af1645818daddff9b46244175c",
+      "title": "Roadmap",
+      "key": "07-next/o-roadmap",
+      "label": "Roadmap",
+      "kind": "Output"
+    },
+    "cl-thanks": {
+      "url": "https://app.notion.com/p/3eee18af164581ada1e4ebc3d3838613",
+      "title": "Hospitable · Smart Listings",
+      "key": "hub",
+      "label": "Hospitable · Smart Listings",
+      "kind": "Workspace"
+    }
+  },
+  "details": {
+    "ia-bathtub/*": {
+      "url": "https://app.notion.com/p/3eee18af164581459cf4cb6d1a03f1d9",
+      "title": "Desk research",
+      "key": "01-discovery/m-market-scan",
+      "label": "Desk research",
+      "kind": "Method"
+    },
+    "ia-structure/*": {
+      "url": "https://app.notion.com/p/3eee18af164581f59e84e075de884cde",
+      "title": "KD-03 · A channel-first property menu: Shared first, then one group per channel",
+      "key": "KD-03",
+      "label": "Why a channel-first menu",
+      "kind": "Decision"
+    },
+    "ds-strategy/*": {
+      "url": "https://app.notion.com/p/3eee18af1645816c86aee6acef674975",
+      "title": "Strategy & performance",
+      "key": "05-design/o-smart-listings",
+      "label": "Strategy & performance",
+      "kind": "Output"
+    },
+    "ds-tips/*": {
+      "url": "https://app.notion.com/p/3eee18af164581e7844fc2de20912029",
+      "title": "KD-10 · One AI affordance per field: a tip, otherwise Rewrite with AI",
+      "key": "KD-10",
+      "label": "One AI action per field",
+      "kind": "Decision"
+    },
+    "ds-performance/*": {
+      "url": "https://app.notion.com/p/3eee18af1645812290f5e2113a9a0844",
+      "title": "KD-07 · No versions: Performance compares with the period before the strategy",
+      "key": "KD-07",
+      "label": "No versions: before and after",
+      "kind": "Decision"
+    },
+    "ds-system/*": {
+      "url": "https://app.notion.com/p/3eee18af1645811087cecfef47d6bfe3",
+      "title": "UI changes",
+      "key": "05-design/o-ui-changes",
+      "label": "UI changes",
+      "kind": "Output"
+    },
+    "op-idea/*": {
+      "url": "https://app.notion.com/p/3eee18af164581178debffa0628f4703",
+      "title": "Listing base & channels",
+      "key": "05-design/o-base-channels",
+      "label": "Listing base & channels",
+      "kind": "Output"
+    },
+    "cn-principles/*": {
+      "url": "https://app.notion.com/p/3eee18af1645818094e8d80d9ddf2acd",
+      "title": "Insights",
+      "key": "02-research/o-insights",
+      "label": "Insights",
+      "kind": "Output"
+    },
+    "tm-measure/tree": {
+      "url": "https://app.notion.com/p/3eee18af1645813d9391e336e308e3d7",
+      "title": "Goals & KPIs",
+      "key": "06-test/o-goals-kpis",
+      "label": "Goals & KPIs",
+      "kind": "Output"
+    },
+    "tm-measure/fail": {
+      "url": "https://app.notion.com/p/3eee18af1645813da04df010073ed382",
+      "title": "Pre-mortem",
+      "key": "06-test/o-premortem",
+      "label": "Pre-mortem",
+      "kind": "Output"
+    },
+    "ds-solution/*": {
+      "url": "https://app.notion.com/p/3eee18af164581828521eb27e3e50737",
+      "title": "Solution overview",
+      "key": "05-design/o-solution",
+      "label": "Solution overview",
+      "kind": "Output"
+    },
+    "nx-roadmap/gaps": {
+      "url": "https://app.notion.com/p/3efe18af164581ea8da9ebb89ab9b22f",
+      "title": "Where it falls short",
+      "key": "07-next/o-shortfalls",
+      "label": "Where it falls short",
+      "kind": "Output"
+    },
+    "nx-roadmap/perf": {
+      "url": "https://app.notion.com/p/3efe18af164581ea8da9ebb89ab9b22f",
+      "title": "Where it falls short",
+      "key": "07-next/o-shortfalls",
+      "label": "Where it falls short",
+      "kind": "Output"
+    },
+    "nx-roadmap/road": {
+      "url": "https://app.notion.com/p/3eee18af1645818daddff9b46244175c",
+      "title": "Roadmap",
+      "key": "07-next/o-roadmap",
+      "label": "Roadmap",
+      "kind": "Output"
+    },
+    "nx-roadmap/effects": {
+      "url": "https://app.notion.com/p/3eee18af1645815caf9bc8e55ee265e9",
+      "title": "Second-order effects",
+      "key": "07-next/o-second-order",
+      "label": "Second-order effects",
+      "kind": "Output"
+    },
+    "dc-plan/who": {
+      "url": "https://app.notion.com/p/3eee18af1645814eb37ee21fc7bf4eb5",
+      "title": "Stakeholder interviews",
+      "key": "01-discovery/m-stakeholder-interviews",
+      "label": "Stakeholder interviews",
+      "kind": "Method"
+    }
+  },
+  "panels": {
+    "The flow": {
+      "url": "https://app.notion.com/p/3eee18af1645818496f9d13c2481a86d",
+      "title": "User flows",
+      "key": "05-design/o-flows",
+      "label": "User flows",
+      "kind": "Output"
+    },
+    "Kill criteria": {
+      "url": "https://app.notion.com/p/3eee18af1645818daddff9b46244175c",
+      "title": "Roadmap",
+      "key": "07-next/o-roadmap",
+      "label": "Roadmap",
+      "kind": "Output"
+    },
+    "Pre-mortem": {
+      "url": "https://app.notion.com/p/3eee18af1645813da04df010073ed382",
+      "title": "Pre-mortem",
+      "key": "06-test/o-premortem",
+      "label": "Pre-mortem",
+      "kind": "Output"
+    },
+    "Built, then removed": {
+      "url": "https://app.notion.com/p/3eee18af1645810bb3b3c9d7bf2ab924",
+      "title": "05 · Design",
+      "key": "05-design",
+      "label": "05 · Design",
+      "kind": "Section"
+    },
+    "One AI per field": {
+      "url": "https://app.notion.com/p/3eee18af164581e7844fc2de20912029",
+      "title": "KD-10 · One AI affordance per field: a tip, otherwise Rewrite with AI",
+      "key": "KD-10",
+      "label": "One AI action per field",
+      "kind": "Decision"
+    },
+    "Not only words": {
+      "url": "https://app.notion.com/p/3eee18af16458172b17ac84a5abb32ef",
+      "title": "KD-11 · Tips are channel-specific and cover money and stay rules, not only copy",
+      "key": "KD-11",
+      "label": "Tips cover money too",
+      "kind": "Decision"
+    }
+  },
+  "covers": {
+    "discovery": {
+      "url": "https://app.notion.com/p/3eee18af16458127800cde5c8b1017c8",
+      "title": "01 · Discovery",
+      "key": "01-discovery",
+      "label": "01 · Discovery",
+      "kind": "Section"
+    },
+    "research": {
+      "url": "https://app.notion.com/p/3eee18af164581e3a9faf5f1f8e138f3",
+      "title": "02 · Research",
+      "key": "02-research",
+      "label": "02 · Research",
+      "kind": "Section"
+    },
+    "concept": {
+      "url": "https://app.notion.com/p/3eee18af164581b690aecaa695cf08a7",
+      "title": "04 · Concepts",
+      "key": "04-concepts",
+      "label": "04 · Concepts",
+      "kind": "Section"
+    },
+    "design": {
+      "url": "https://app.notion.com/p/3eee18af1645810bb3b3c9d7bf2ab924",
+      "title": "05 · Design",
+      "key": "05-design",
+      "label": "05 · Design",
+      "kind": "Section"
+    },
+    "test": {
+      "url": "https://app.notion.com/p/3eee18af1645813d9675c3b09fcf3546",
+      "title": "06 · Test & measure",
+      "key": "06-test",
+      "label": "06 · Test & measure",
+      "kind": "Section"
+    },
+    "next": {
+      "url": "https://app.notion.com/p/3eee18af1645813ea2e7d6c6dbf87ddf",
+      "title": "07 · Systems & next",
+      "key": "07-next",
+      "label": "07 · Systems & next",
+      "kind": "Section"
+    }
+  },
+  "lists": {
+    "op-brief": [
+      {
+        "url": "https://app.notion.com/p/3eee18af164581e28fddc912dc332953",
+        "title": "00 · Brief & scope",
+        "key": "00-brief",
+        "label": "00 · Brief & scope",
+        "kind": "Section"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af164581b68ba5e7beaa7055ab",
+        "title": "KD-01 · Go deep on Smart Listings and leave import for later",
+        "key": "KD-01",
+        "label": "Why Smart Listings only",
+        "kind": "Decision"
+      }
+    ],
+    "op-idea": [
+      {
+        "url": "https://app.notion.com/p/3eee18af164581828521eb27e3e50737",
+        "title": "Solution overview",
+        "key": "05-design/o-solution",
+        "label": "Solution overview",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af164581178debffa0628f4703",
+        "title": "Listing base & channels",
+        "key": "05-design/o-base-channels",
+        "label": "Listing base & channels",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645813ab697f55d6d253754",
+        "title": "KD-02 · Listing details live once, in the Listing base. The Knowledge Hub reads them",
+        "key": "KD-02",
+        "label": "Facts live once, in Shared",
+        "kind": "Decision"
+      }
+    ],
+    "op-goals": [
+      {
+        "url": "https://app.notion.com/p/3eee18af1645813d9391e336e308e3d7",
+        "title": "Goals & KPIs",
+        "key": "06-test/o-goals-kpis",
+        "label": "Goals & KPIs",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645812eb43fd00ba5a5cd09",
+        "title": "KD-19 · Time to adjust is the north star. Tip acceptance and trust keep it honest",
+        "key": "KD-19",
+        "label": "The north star, kept honest",
+        "kind": "Decision"
+      }
+    ],
+    "op-how": [
+      {
+        "url": "https://app.notion.com/p/3eee18af164581339fabf0591e5d7f9c",
+        "title": "KD-18 · Label what is simulated, and plan the tests rather than fake results",
+        "key": "KD-18",
+        "label": "Label the sample, plan the tests",
+        "kind": "Decision"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af164581e28fddc912dc332953",
+        "title": "00 · Brief & scope",
+        "key": "00-brief",
+        "label": "00 · Brief & scope",
+        "kind": "Section"
+      }
+    ],
+    "dc-two-truths": [
+      {
+        "url": "https://app.notion.com/p/3eee18af16458163b059f704859d3a6a",
+        "title": "Current-state map",
+        "key": "01-discovery/o-today",
+        "label": "Current-state map",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645813ab697f55d6d253754",
+        "title": "KD-02 · Listing details live once, in the Listing base. The Knowledge Hub reads them",
+        "key": "KD-02",
+        "label": "Facts live once, in Shared",
+        "kind": "Decision"
+      }
+    ],
+    "dc-risks": [
+      {
+        "url": "https://app.notion.com/p/3eee18af1645819282b2f11c14720c03",
+        "title": "Research questions & assumptions",
+        "key": "01-discovery/o-questions",
+        "label": "Research questions & assumptions",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af164581339fabf0591e5d7f9c",
+        "title": "KD-18 · Label what is simulated, and plan the tests rather than fake results",
+        "key": "KD-18",
+        "label": "Label the sample, plan the tests",
+        "kind": "Decision"
+      }
+    ],
+    "rs-method": [
+      {
+        "url": "https://app.notion.com/p/3eee18af164581339fabf0591e5d7f9c",
+        "title": "KD-18 · Label what is simulated, and plan the tests rather than fake results",
+        "key": "KD-18",
+        "label": "Label the sample, plan the tests",
+        "kind": "Decision"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645819096ffef972af24f70",
+        "title": "User interviews",
+        "key": "02-research/m-host-interviews",
+        "label": "User interviews",
+        "kind": "Method"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645812ea1ebe5dec041599a",
+        "title": "Card sorting",
+        "key": "02-research/m-card-sort",
+        "label": "Card sorting",
+        "kind": "Method"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af16458150add8ef7c753dbd12",
+        "title": "Data analysis",
+        "key": "02-research/m-data-review",
+        "label": "Data analysis",
+        "kind": "Method"
+      }
+    ],
+    "rs-insights": [
+      {
+        "url": "https://app.notion.com/p/3eee18af1645818094e8d80d9ddf2acd",
+        "title": "Insights",
+        "key": "02-research/o-insights",
+        "label": "Insights",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645814c9da9f6fce430fb5c",
+        "title": "Problem statement",
+        "key": "02-research/o-problem",
+        "label": "Problem statement",
+        "kind": "Output"
+      }
+    ],
+    "rs-cardsort": [
+      {
+        "url": "https://app.notion.com/p/3eee18af1645817e8eb5cc92bbfc76a3",
+        "title": "Card sorting results",
+        "key": "02-research/o-card-sort-result",
+        "label": "Card sorting results",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645812ea1ebe5dec041599a",
+        "title": "Card sorting",
+        "key": "02-research/m-card-sort",
+        "label": "Card sorting",
+        "kind": "Method"
+      }
+    ],
+    "ia-objects": [
+      {
+        "url": "https://app.notion.com/p/3eee18af16458168b8ede129bf1dc3a9",
+        "title": "Object model",
+        "key": "03-ia/o-object-model",
+        "label": "Object model",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645813ab697f55d6d253754",
+        "title": "KD-02 · Listing details live once, in the Listing base. The Knowledge Hub reads them",
+        "key": "KD-02",
+        "label": "Facts live once, in Shared",
+        "kind": "Decision"
+      }
+    ],
+    "ia-options": [
+      {
+        "url": "https://app.notion.com/p/3eee18af16458180a645fc510d470034",
+        "title": "Navigation options",
+        "key": "03-ia/o-nav-models",
+        "label": "Navigation options",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af164581f59e84e075de884cde",
+        "title": "KD-03 · A channel-first property menu: Shared first, then one group per channel",
+        "key": "KD-03",
+        "label": "Why a channel-first menu",
+        "kind": "Decision"
+      }
+    ],
+    "ia-structure": [
+      {
+        "url": "https://app.notion.com/p/3eee18af164581d6b4e2c132983137ce",
+        "title": "Sitemap",
+        "key": "03-ia/o-sitemap",
+        "label": "Sitemap",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af164581f59e84e075de884cde",
+        "title": "KD-03 · A channel-first property menu: Shared first, then one group per channel",
+        "key": "KD-03",
+        "label": "Why a channel-first menu",
+        "kind": "Decision"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af16458164b971f07e49e0fa84",
+        "title": "KD-04 · Each field uses the Base, is customised for the channel, exists only on that channel, or is set by the channel",
+        "key": "KD-04",
+        "label": "Four cases for every field",
+        "kind": "Decision"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645814595defdaab694e87d",
+        "title": "Tree testing",
+        "key": "03-ia/m-tree-test",
+        "label": "Tree testing",
+        "kind": "Method"
+      }
+    ],
+    "cn-grid": [
+      {
+        "url": "https://app.notion.com/p/3eee18af1645815aa317e53bdcf8435d",
+        "title": "Concept directions",
+        "key": "04-concepts/o-directions",
+        "label": "Concept directions",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af164581cfb862c44df572735c",
+        "title": "Design principles",
+        "key": "04-concepts/o-principles",
+        "label": "Design principles",
+        "kind": "Output"
+      }
+    ],
+    "cn-converge": [
+      {
+        "url": "https://app.notion.com/p/3eee18af164581bdb0f8dd25c3d311a4",
+        "title": "Final concept",
+        "key": "04-concepts/o-converged",
+        "label": "Final concept",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645815aa317e53bdcf8435d",
+        "title": "Concept directions",
+        "key": "04-concepts/o-directions",
+        "label": "Concept directions",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af164581028d64c3d0ff9f7d48",
+        "title": "KD-06 · One strategy per channel, made in a full-screen wizard",
+        "key": "KD-06",
+        "label": "One strategy per channel",
+        "kind": "Decision"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af164581319e3afd8d876c7cb2",
+        "title": "KD-09 · Tips live in one docked panel, one at a time, each with its why",
+        "key": "KD-09",
+        "label": "Tips in one docked panel",
+        "kind": "Decision"
+      }
+    ],
+    "ds-solution": [
+      {
+        "url": "https://app.notion.com/p/3eee18af164581828521eb27e3e50737",
+        "title": "Solution overview",
+        "key": "05-design/o-solution",
+        "label": "Solution overview",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645818496f9d13c2481a86d",
+        "title": "User flows",
+        "key": "05-design/o-flows",
+        "label": "User flows",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645810bb3b3c9d7bf2ab924",
+        "title": "05 · Design",
+        "key": "05-design",
+        "label": "05 · Design",
+        "kind": "Section"
+      }
+    ],
+    "ds-hub": [
+      {
+        "url": "https://app.notion.com/p/3eee18af1645811f8fcfcbffc7cbb69d",
+        "title": "Knowledge Hub",
+        "key": "05-design/o-knowledge-hub",
+        "label": "Knowledge Hub",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af164581b19c66d8d053ea6ab0",
+        "title": "KD-12 · Guest questions in the Knowledge Hub become tips, and every tip cites its sources",
+        "key": "KD-12",
+        "label": "Hub facts feed tips",
+        "kind": "Decision"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645814fa326e55e940a5942",
+        "title": "KD-13 · The Knowledge Hub is Questions, Insights, Facts and Sources, and reads the listing details from the Listing base instead of copying them",
+        "key": "KD-13",
+        "label": "How the Hub is organised",
+        "kind": "Decision"
+      }
+    ],
+    "ds-channels": [
+      {
+        "url": "https://app.notion.com/p/3eee18af164581178debffa0628f4703",
+        "title": "Listing base & channels",
+        "key": "05-design/o-base-channels",
+        "label": "Listing base & channels",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af16458164b971f07e49e0fa84",
+        "title": "KD-04 · Each field uses the Base, is customised for the channel, exists only on that channel, or is set by the channel",
+        "key": "KD-04",
+        "label": "Four cases for every field",
+        "kind": "Decision"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645818496f9d13c2481a86d",
+        "title": "User flows",
+        "key": "05-design/o-flows",
+        "label": "User flows",
+        "kind": "Output"
+      }
+    ],
+    "ds-strategy": [
+      {
+        "url": "https://app.notion.com/p/3eee18af164581028d64c3d0ff9f7d48",
+        "title": "KD-06 · One strategy per channel, made in a full-screen wizard",
+        "key": "KD-06",
+        "label": "One strategy per channel",
+        "kind": "Decision"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645816c86aee6acef674975",
+        "title": "Strategy & performance",
+        "key": "05-design/o-smart-listings",
+        "label": "Strategy & performance",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645819d96d4cff8530e1600",
+        "title": "KD-05 · Smart Listings is opt-in, switched on per property",
+        "key": "KD-05",
+        "label": "Opt-in per property",
+        "kind": "Decision"
+      }
+    ],
+    "ds-tips": [
+      {
+        "url": "https://app.notion.com/p/3eee18af1645811a82c4e772997ac875",
+        "title": "Tips & AI rewrite",
+        "key": "05-design/o-tips",
+        "label": "Tips & AI rewrite",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af164581319e3afd8d876c7cb2",
+        "title": "KD-09 · Tips live in one docked panel, one at a time, each with its why",
+        "key": "KD-09",
+        "label": "Tips in one docked panel",
+        "kind": "Decision"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af164581e7844fc2de20912029",
+        "title": "KD-10 · One AI affordance per field: a tip, otherwise Rewrite with AI",
+        "key": "KD-10",
+        "label": "One AI action per field",
+        "kind": "Decision"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af16458172b17ac84a5abb32ef",
+        "title": "KD-11 · Tips are channel-specific and cover money and stay rules, not only copy",
+        "key": "KD-11",
+        "label": "Tips cover money too",
+        "kind": "Decision"
+      }
+    ],
+    "ds-canvas": [
+      {
+        "url": "https://app.notion.com/p/3eee18af16458187b60ec60bb6c3c5c5",
+        "title": "Canvas preview",
+        "key": "05-design/o-canvas",
+        "label": "Canvas preview",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645819e9675db2668610c2b",
+        "title": "KD-14 · Canvas previews each channel's real guest page, and tapping opens the field",
+        "key": "KD-14",
+        "label": "The Canvas, the guests' page",
+        "kind": "Decision"
+      }
+    ],
+    "ds-performance": [
+      {
+        "url": "https://app.notion.com/p/3eee18af1645816c86aee6acef674975",
+        "title": "Strategy & performance",
+        "key": "05-design/o-smart-listings",
+        "label": "Strategy & performance",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645812290f5e2113a9a0844",
+        "title": "KD-07 · No versions: Performance compares with the period before the strategy",
+        "key": "KD-07",
+        "label": "No versions: before and after",
+        "kind": "Decision"
+      }
+    ],
+    "ds-autopilot": [
+      {
+        "url": "https://app.notion.com/p/3eee18af16458160a7c1c703fcb2a033",
+        "title": "KD-08 · Autopilot is on or off, and suggestions always arrive as tips",
+        "key": "KD-08",
+        "label": "Autopilot on or off",
+        "kind": "Decision"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645816c86aee6acef674975",
+        "title": "Strategy & performance",
+        "key": "05-design/o-smart-listings",
+        "label": "Strategy & performance",
+        "kind": "Output"
+      }
+    ],
+    "ds-mobile": [
+      {
+        "url": "https://app.notion.com/p/3eee18af164581daa8b7f210cb1c6f4e",
+        "title": "Mobile & tablet",
+        "key": "05-design/o-mobile",
+        "label": "Mobile & tablet",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af164581e7b09fc51d1473a880",
+        "title": "KD-17 · On phones, every side panel becomes a bottom sheet",
+        "key": "KD-17",
+        "label": "Bottom sheets on phones",
+        "kind": "Decision"
+      }
+    ],
+    "ds-challenged": [
+      {
+        "url": "https://app.notion.com/p/3eee18af1645814fbc15f0a668dc4632",
+        "title": "Design system",
+        "key": "05-design/o-design-system",
+        "label": "Design system",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645811087cecfef47d6bfe3",
+        "title": "UI changes",
+        "key": "05-design/o-ui-changes",
+        "label": "UI changes",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af164581ca9016ce7928ea3008",
+        "title": "KD-16 · Replicate Hospitable's UI and depart only where the model needs it",
+        "key": "KD-16",
+        "label": "Replicate Hospitable's UI",
+        "kind": "Decision"
+      }
+    ],
+    "ds-system": [
+      {
+        "url": "https://app.notion.com/p/3eee18af1645814fbc15f0a668dc4632",
+        "title": "Design system",
+        "key": "05-design/o-design-system",
+        "label": "Design system",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645811087cecfef47d6bfe3",
+        "title": "UI changes",
+        "key": "05-design/o-ui-changes",
+        "label": "UI changes",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af164581ca9016ce7928ea3008",
+        "title": "KD-16 · Replicate Hospitable's UI and depart only where the model needs it",
+        "key": "KD-16",
+        "label": "Replicate Hospitable's UI",
+        "kind": "Decision"
+      }
+    ],
+    "tm-test": [
+      {
+        "url": "https://app.notion.com/p/3eee18af164581b1958cc8edfcf3dcfe",
+        "title": "Test plan",
+        "key": "06-test/m-test-plan",
+        "label": "Test plan",
+        "kind": "Method"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af164581339fabf0591e5d7f9c",
+        "title": "KD-18 · Label what is simulated, and plan the tests rather than fake results",
+        "key": "KD-18",
+        "label": "Label the sample, plan the tests",
+        "kind": "Decision"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645814595defdaab694e87d",
+        "title": "Tree testing",
+        "key": "03-ia/m-tree-test",
+        "label": "Tree testing",
+        "kind": "Method"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645810fbe60d21eb29dd3c7",
+        "title": "Concept testing",
+        "key": "04-concepts/m-concept-test",
+        "label": "Concept testing",
+        "kind": "Method"
+      }
+    ],
+    "tm-measure": [
+      {
+        "url": "https://app.notion.com/p/3eee18af1645813d9391e336e308e3d7",
+        "title": "Goals & KPIs",
+        "key": "06-test/o-goals-kpis",
+        "label": "Goals & KPIs",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645812eb43fd00ba5a5cd09",
+        "title": "KD-19 · Time to adjust is the north star. Tip acceptance and trust keep it honest",
+        "key": "KD-19",
+        "label": "The north star, kept honest",
+        "kind": "Decision"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645813da04df010073ed382",
+        "title": "Pre-mortem",
+        "key": "06-test/o-premortem",
+        "label": "Pre-mortem",
+        "kind": "Output"
+      }
+    ],
+    "nx-roadmap": [
+      {
+        "url": "https://app.notion.com/p/3efe18af164581ca9ab6d4324a44d082",
+        "title": "Smart Listings across Hospitable",
+        "key": "07-next/o-service-map",
+        "label": "Smart Listings across Hospitable",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3efe18af164581ea8da9ebb89ab9b22f",
+        "title": "Where it falls short",
+        "key": "07-next/o-shortfalls",
+        "label": "Where it falls short",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645818daddff9b46244175c",
+        "title": "Roadmap",
+        "key": "07-next/o-roadmap",
+        "label": "Roadmap",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645815caf9bc8e55ee265e9",
+        "title": "Second-order effects",
+        "key": "07-next/o-second-order",
+        "label": "Second-order effects",
+        "kind": "Output"
+      }
+    ],
+    "cl-monday": [
+      {
+        "url": "https://app.notion.com/p/3eee18af1645818daddff9b46244175c",
+        "title": "Roadmap",
+        "key": "07-next/o-roadmap",
+        "label": "Roadmap",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645814eb37ee21fc7bf4eb5",
+        "title": "Stakeholder interviews",
+        "key": "01-discovery/m-stakeholder-interviews",
+        "label": "Stakeholder interviews",
+        "kind": "Method"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af164581b1958cc8edfcf3dcfe",
+        "title": "Test plan",
+        "key": "06-test/m-test-plan",
+        "label": "Test plan",
+        "kind": "Method"
+      }
+    ],
+    "dc-plan": [
+      {
+        "url": "https://app.notion.com/p/3efe18af1645814192a0fa0c2f22f757",
+        "title": "Research plan",
+        "key": "01-discovery/m-research-plan",
+        "label": "Research plan",
+        "kind": "Method"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645819282b2f11c14720c03",
+        "title": "Research questions & assumptions",
+        "key": "01-discovery/o-questions",
+        "label": "Research questions & assumptions",
+        "kind": "Output"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645814eb37ee21fc7bf4eb5",
+        "title": "Stakeholder interviews",
+        "key": "01-discovery/m-stakeholder-interviews",
+        "label": "Stakeholder interviews",
+        "kind": "Method"
+      },
+      {
+        "url": "https://app.notion.com/p/3eee18af1645819096ffef972af24f70",
+        "title": "User interviews",
+        "key": "02-research/m-host-interviews",
+        "label": "User interviews",
+        "kind": "Method"
+      }
+    ]
+  },
+  "chips": {
+    "discovery": {
+      "Product audit": {
+        "url": "https://app.notion.com/p/3eee18af16458140b622c2f52f500edf",
+        "title": "Product audit",
+        "key": "01-discovery/m-product-audit",
+        "label": "Product audit",
+        "kind": "Method"
+      },
+      "Desk research": {
+        "url": "https://app.notion.com/p/3eee18af164581459cf4cb6d1a03f1d9",
+        "title": "Desk research",
+        "key": "01-discovery/m-market-scan",
+        "label": "Desk research",
+        "kind": "Method"
+      },
+      "Stakeholder interviews": {
+        "url": "https://app.notion.com/p/3eee18af1645814eb37ee21fc7bf4eb5",
+        "title": "Stakeholder interviews",
+        "key": "01-discovery/m-stakeholder-interviews",
+        "label": "Stakeholder interviews",
+        "kind": "Method"
+      },
+      "Current-state map": {
+        "url": "https://app.notion.com/p/3eee18af16458163b059f704859d3a6a",
+        "title": "Current-state map",
+        "key": "01-discovery/o-today",
+        "label": "Current-state map",
+        "kind": "Output"
+      },
+      "Heuristic evaluation": {
+        "url": "https://app.notion.com/p/3eee18af1645817899d8edd811bf9212",
+        "title": "Heuristic evaluation",
+        "key": "01-discovery/o-heuristics",
+        "label": "Heuristic evaluation",
+        "kind": "Output"
+      },
+      "Channel constraints": {
+        "url": "https://app.notion.com/p/3eee18af1645818c859bcd3115fce28e",
+        "title": "Channel constraints",
+        "key": "01-discovery/o-channels",
+        "label": "Channel constraints",
+        "kind": "Output"
+      },
+      "Competitive analysis": {
+        "url": "https://app.notion.com/p/3eee18af164581a68ccdf6e48d114553",
+        "title": "Competitive analysis",
+        "key": "01-discovery/o-competitors",
+        "label": "Competitive analysis",
+        "kind": "Output"
+      },
+      "Research questions & assumptions": {
+        "url": "https://app.notion.com/p/3eee18af1645819282b2f11c14720c03",
+        "title": "Research questions & assumptions",
+        "key": "01-discovery/o-questions",
+        "label": "Research questions & assumptions",
+        "kind": "Output"
+      },
+      "Assumption mapping": {
+        "url": "https://app.notion.com/p/3eee18af1645819282b2f11c14720c03",
+        "title": "Research questions & assumptions",
+        "key": "01-discovery/o-questions",
+        "label": "Research questions & assumptions",
+        "kind": "Output"
+      }
+    },
+    "research": {
+      "User interviews": {
+        "url": "https://app.notion.com/p/3eee18af1645819096ffef972af24f70",
+        "title": "User interviews",
+        "key": "02-research/m-host-interviews",
+        "label": "User interviews",
+        "kind": "Method"
+      },
+      "Data analysis": {
+        "url": "https://app.notion.com/p/3eee18af16458150add8ef7c753dbd12",
+        "title": "Data analysis",
+        "key": "02-research/m-data-review",
+        "label": "Data analysis",
+        "kind": "Method"
+      },
+      "Card sorting": {
+        "url": "https://app.notion.com/p/3eee18af1645812ea1ebe5dec041599a",
+        "title": "Card sorting",
+        "key": "02-research/m-card-sort",
+        "label": "Card sorting",
+        "kind": "Method"
+      },
+      "Tree testing": {
+        "url": "https://app.notion.com/p/3eee18af1645814595defdaab694e87d",
+        "title": "Tree testing",
+        "key": "03-ia/m-tree-test",
+        "label": "Tree testing",
+        "kind": "Method"
+      },
+      "Object model": {
+        "url": "https://app.notion.com/p/3eee18af16458168b8ede129bf1dc3a9",
+        "title": "Object model",
+        "key": "03-ia/o-object-model",
+        "label": "Object model",
+        "kind": "Output"
+      },
+      "Navigation options": {
+        "url": "https://app.notion.com/p/3eee18af16458180a645fc510d470034",
+        "title": "Navigation options",
+        "key": "03-ia/o-nav-models",
+        "label": "Navigation options",
+        "kind": "Output"
+      },
+      "Sitemap": {
+        "url": "https://app.notion.com/p/3eee18af164581d6b4e2c132983137ce",
+        "title": "Sitemap",
+        "key": "03-ia/o-sitemap",
+        "label": "Sitemap",
+        "kind": "Output"
+      },
+      "Interview synthesis": {
+        "url": "https://app.notion.com/p/3eee18af164581cda068f2d204abbe37",
+        "title": "Interview synthesis",
+        "key": "02-research/o-interview-synthesis",
+        "label": "Interview synthesis",
+        "kind": "Output"
+      },
+      "Card sorting results": {
+        "url": "https://app.notion.com/p/3eee18af1645817e8eb5cc92bbfc76a3",
+        "title": "Card sorting results",
+        "key": "02-research/o-card-sort-result",
+        "label": "Card sorting results",
+        "kind": "Output"
+      },
+      "Insights": {
+        "url": "https://app.notion.com/p/3eee18af1645818094e8d80d9ddf2acd",
+        "title": "Insights",
+        "key": "02-research/o-insights",
+        "label": "Insights",
+        "kind": "Output"
+      },
+      "Personas": {
+        "url": "https://app.notion.com/p/3eee18af16458171989df7edc178e5df",
+        "title": "Personas",
+        "key": "02-research/o-personas",
+        "label": "Personas",
+        "kind": "Output"
+      },
+      "Jobs to be done": {
+        "url": "https://app.notion.com/p/3eee18af16458111b95ee068296d5bd7",
+        "title": "Jobs to be done",
+        "key": "02-research/o-jtbd",
+        "label": "Jobs to be done",
+        "kind": "Output"
+      },
+      "Problem statement": {
+        "url": "https://app.notion.com/p/3eee18af1645814c9da9f6fce430fb5c",
+        "title": "Problem statement",
+        "key": "02-research/o-problem",
+        "label": "Problem statement",
+        "kind": "Output"
+      }
+    },
+    "concept": {
+      "Divergent ideation": {
+        "url": "https://app.notion.com/p/3eee18af1645815aa317e53bdcf8435d",
+        "title": "Concept directions",
+        "key": "04-concepts/o-directions",
+        "label": "Concept directions",
+        "kind": "Output"
+      },
+      "Pattern references": {
+        "url": "https://app.notion.com/p/3eee18af1645815aa317e53bdcf8435d",
+        "title": "Concept directions",
+        "key": "04-concepts/o-directions",
+        "label": "Concept directions",
+        "kind": "Output"
+      },
+      "Weighted scoring": {
+        "url": "https://app.notion.com/p/3eee18af1645815aa317e53bdcf8435d",
+        "title": "Concept directions",
+        "key": "04-concepts/o-directions",
+        "label": "Concept directions",
+        "kind": "Output"
+      },
+      "Concept testing": {
+        "url": "https://app.notion.com/p/3eee18af1645810fbe60d21eb29dd3c7",
+        "title": "Concept testing",
+        "key": "04-concepts/m-concept-test",
+        "label": "Concept testing",
+        "kind": "Method"
+      },
+      "Design principles": {
+        "url": "https://app.notion.com/p/3eee18af164581cfb862c44df572735c",
+        "title": "Design principles",
+        "key": "04-concepts/o-principles",
+        "label": "Design principles",
+        "kind": "Output"
+      },
+      "Concept directions": {
+        "url": "https://app.notion.com/p/3eee18af1645815aa317e53bdcf8435d",
+        "title": "Concept directions",
+        "key": "04-concepts/o-directions",
+        "label": "Concept directions",
+        "kind": "Output"
+      },
+      "Final concept": {
+        "url": "https://app.notion.com/p/3eee18af164581bdb0f8dd25c3d311a4",
+        "title": "Final concept",
+        "key": "04-concepts/o-converged",
+        "label": "Final concept",
+        "kind": "Output"
+      }
+    },
+    "design": {
+      "Prototyping in code": {
+        "url": "https://app.notion.com/p/3eee18af164581828521eb27e3e50737",
+        "title": "Solution overview",
+        "key": "05-design/o-solution",
+        "label": "Solution overview",
+        "kind": "Output"
+      },
+      "Design reviews": {
+        "url": "https://app.notion.com/p/3eee18af1645810bb3b3c9d7bf2ab924",
+        "title": "05 · Design",
+        "key": "05-design",
+        "label": "05 · Design",
+        "kind": "Section"
+      },
+      "Design systems": {
+        "url": "https://app.notion.com/p/3eee18af1645814fbc15f0a668dc4632",
+        "title": "Design system",
+        "key": "05-design/o-design-system",
+        "label": "Design system",
+        "kind": "Output"
+      },
+      "Responsive design": {
+        "url": "https://app.notion.com/p/3eee18af164581daa8b7f210cb1c6f4e",
+        "title": "Mobile & tablet",
+        "key": "05-design/o-mobile",
+        "label": "Mobile & tablet",
+        "kind": "Output"
+      },
+      "Solution overview": {
+        "url": "https://app.notion.com/p/3eee18af164581828521eb27e3e50737",
+        "title": "Solution overview",
+        "key": "05-design/o-solution",
+        "label": "Solution overview",
+        "kind": "Output"
+      },
+      "User flows": {
+        "url": "https://app.notion.com/p/3eee18af1645818496f9d13c2481a86d",
+        "title": "User flows",
+        "key": "05-design/o-flows",
+        "label": "User flows",
+        "kind": "Output"
+      },
+      "Tips & AI rewrite": {
+        "url": "https://app.notion.com/p/3eee18af1645811a82c4e772997ac875",
+        "title": "Tips & AI rewrite",
+        "key": "05-design/o-tips",
+        "label": "Tips & AI rewrite",
+        "kind": "Output"
+      },
+      "Canvas preview": {
+        "url": "https://app.notion.com/p/3eee18af16458187b60ec60bb6c3c5c5",
+        "title": "Canvas preview",
+        "key": "05-design/o-canvas",
+        "label": "Canvas preview",
+        "kind": "Output"
+      },
+      "Design system": {
+        "url": "https://app.notion.com/p/3eee18af1645814fbc15f0a668dc4632",
+        "title": "Design system",
+        "key": "05-design/o-design-system",
+        "label": "Design system",
+        "kind": "Output"
+      },
+      "Mobile & tablet": {
+        "url": "https://app.notion.com/p/3eee18af164581daa8b7f210cb1c6f4e",
+        "title": "Mobile & tablet",
+        "key": "05-design/o-mobile",
+        "label": "Mobile & tablet",
+        "kind": "Output"
+      },
+      "Accessibility review": {
+        "url": "https://app.notion.com/p/3eee18af164581b1958cc8edfcf3dcfe",
+        "title": "Test plan",
+        "key": "06-test/m-test-plan",
+        "label": "Test plan",
+        "kind": "Method"
+      }
+    },
+    "test": {
+      "Benchmark test": {
+        "url": "https://app.notion.com/p/3eee18af164581b1958cc8edfcf3dcfe",
+        "title": "Test plan",
+        "key": "06-test/m-test-plan",
+        "label": "Test plan",
+        "kind": "Method"
+      },
+      "Tree testing": {
+        "url": "https://app.notion.com/p/3eee18af1645814595defdaab694e87d",
+        "title": "Tree testing",
+        "key": "03-ia/m-tree-test",
+        "label": "Tree testing",
+        "kind": "Method"
+      },
+      "Usability testing": {
+        "url": "https://app.notion.com/p/3eee18af164581b1958cc8edfcf3dcfe",
+        "title": "Test plan",
+        "key": "06-test/m-test-plan",
+        "label": "Test plan",
+        "kind": "Method"
+      },
+      "A/B testing": {
+        "url": "https://app.notion.com/p/3eee18af164581b1958cc8edfcf3dcfe",
+        "title": "Test plan",
+        "key": "06-test/m-test-plan",
+        "label": "Test plan",
+        "kind": "Method"
+      },
+      "Test plan": {
+        "url": "https://app.notion.com/p/3eee18af164581b1958cc8edfcf3dcfe",
+        "title": "Test plan",
+        "key": "06-test/m-test-plan",
+        "label": "Test plan",
+        "kind": "Method"
+      },
+      "Goals & KPIs": {
+        "url": "https://app.notion.com/p/3eee18af1645813d9391e336e308e3d7",
+        "title": "Goals & KPIs",
+        "key": "06-test/o-goals-kpis",
+        "label": "Goals & KPIs",
+        "kind": "Output"
+      },
+      "Pre-mortem": {
+        "url": "https://app.notion.com/p/3eee18af1645813da04df010073ed382",
+        "title": "Pre-mortem",
+        "key": "06-test/o-premortem",
+        "label": "Pre-mortem",
+        "kind": "Output"
+      },
+      "Goals and KPIs": {
+        "url": "https://app.notion.com/p/3eee18af1645813d9391e336e308e3d7",
+        "title": "Goals & KPIs",
+        "key": "06-test/o-goals-kpis",
+        "label": "Goals & KPIs",
+        "kind": "Output"
+      }
+    },
+    "next": {
+      "Systems mapping": {
+        "url": "https://app.notion.com/p/3eee18af1645815caf9bc8e55ee265e9",
+        "title": "Second-order effects",
+        "key": "07-next/o-second-order",
+        "label": "Second-order effects",
+        "kind": "Output"
+      },
+      "Roadmapping": {
+        "url": "https://app.notion.com/p/3eee18af1645818daddff9b46244175c",
+        "title": "Roadmap",
+        "key": "07-next/o-roadmap",
+        "label": "Roadmap",
+        "kind": "Output"
+      },
+      "Second-order effects": {
+        "url": "https://app.notion.com/p/3eee18af1645815caf9bc8e55ee265e9",
+        "title": "Second-order effects",
+        "key": "07-next/o-second-order",
+        "label": "Second-order effects",
+        "kind": "Output"
+      },
+      "Roadmap": {
+        "url": "https://app.notion.com/p/3eee18af1645818daddff9b46244175c",
+        "title": "Roadmap",
+        "key": "07-next/o-roadmap",
+        "label": "Roadmap",
+        "kind": "Output"
+      },
+      "Kill criteria": {
+        "url": "https://app.notion.com/p/3eee18af1645818daddff9b46244175c",
+        "title": "Roadmap",
+        "key": "07-next/o-roadmap",
+        "label": "Roadmap",
+        "kind": "Output"
+      },
+      "Pilot": {
+        "url": "https://app.notion.com/p/3eee18af1645818daddff9b46244175c",
+        "title": "Roadmap",
+        "key": "07-next/o-roadmap",
+        "label": "Roadmap",
+        "kind": "Output"
+      },
+      "Staged rollout": {
+        "url": "https://app.notion.com/p/3eee18af1645818daddff9b46244175c",
+        "title": "Roadmap",
+        "key": "07-next/o-roadmap",
+        "label": "Roadmap",
+        "kind": "Output"
+      },
+      "Where it falls short": {
+        "url": "https://app.notion.com/p/3efe18af164581ea8da9ebb89ab9b22f",
+        "title": "Where it falls short",
+        "key": "07-next/o-shortfalls",
+        "label": "Where it falls short",
+        "kind": "Output"
+      },
+      "Smart Listings across Hospitable": {
+        "url": "https://app.notion.com/p/3efe18af164581ca9ab6d4324a44d082",
+        "title": "Smart Listings across Hospitable",
+        "key": "07-next/o-service-map",
+        "label": "Smart Listings across Hospitable",
+        "kind": "Output"
+      }
+    }
+  }
+}

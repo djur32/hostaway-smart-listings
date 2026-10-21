@@ -1,0 +1,227 @@
+/* ============================================================================
+   TOKENS · the deck's semantic layer, and the only place it meets the design system.
+
+   ONE THEME: data-theme="hospitable"
+     The InvestEngine deck had two committed variants (Studio, Lumen) switchable with Y.
+     The Hospitable case has one look, Hospitable's own (deck/DECISIONS.md, D-071), so
+     the two four-colour themes are gone and so is the switch.
+
+   WHERE THE VALUES COME FROM
+     Every colour, the font family and the radii are var() references to the design
+     system's ROLE tokens (ds/tokens.css, S02: --color-sidebar-bg, --color-action-primary,
+     --color-ai-surface, --prov-*…), or to a step of its raw scale where no role fits.
+     They arrive in src/kit/ds/tokens.css, which tools/sync-ds.mjs copies from
+     ds/tokens.css on every build. This file holds NO raw colour: the build fails if it
+     finds one. Sizes, spacing and motion are the deck's own, because a 1920 × 1080 wall
+     is not a product screen (the product's motion tokens are for 1× UI; the deck's
+     --dur-* override them in this layer on purpose).
+
+   THE GROUNDS
+     white   content slides (the product's content area)
+     blush   onboarding's pale pink: quieter slides, the title and the close
+     aubergine  the sidebar's ground: stage openers, set the way the sidebar is set
+   A slide picks one with data-ground="white|blush|aubergine" (default white).
+
+   The canvas is a fixed 1920 × 1080 stage scaled by the engine, so every size here
+   is in canvas pixels.
+   ========================================================================= */
+
+@layer ds, tokens, base, ds-ui, deck, components, themes, slides, utils, responsive;
+/* The design system sits in the lowest layer: if one of its names ever matches a deck
+   token (--bg, --ink…), the deck's own meaning wins and nothing on the wall shifts. */
+@import url("ds/tokens.css") layer(ds);
+@import url("ds/components.css") layer(ds-ui);   /* S02's h-* components, for product UI on a slide (.hc-ui); above base, so its buttons keep their look */
+
+@layer tokens {
+
+/* ─────────────────────────────────────────── THE SYSTEM (sizes and motion) ── */
+:root {
+  --canvas-w: 1920px;
+  --canvas-h: 1080px;
+  --pad-x: 96px;             /* the content's left edge; the bar's mark sits on it too */
+  --pad-top: 120px;          /* clears the top bar (88px); 136 before 4 Oct (Antonio: the title closer to the eyebrow); was 172 (Antonio, 3 Oct: "the content should appear a little higher") */
+  --chrome-x: 96px;
+  --chrome-top: 0px;
+  --chrome-bottom: 34px;
+  --bar-h: 88px;             /* the top bar, full width, like the product's header      */
+  --pad-bottom: 132px;
+  --col: 104px;
+  --gap: 32px;
+  --content-w: 1728px;
+
+  /* Hospitable sets everything in one family (TT Norms, Antonio's licensed files, S02 D-093; replaces the Figtree stand-in).
+     Mono is only for IDs and codes (D-012, INT-3, R-031), never for labels. */
+  --font-display: var(--font-sans);
+  --font-text:    var(--font-sans);
+  --font-ui:      var(--font-sans);
+  --font-code:    var(--font-sans);          /* IDs and numbers too: TT Norms everywhere (Antonio, 3 Oct); was Geist Mono */
+  --font-mono:    var(--font-sans);          /* the kit's old "mono" labels read as the product's labels */
+
+  /* Type scale for the wall. Hospitable's product scale (24 / 16 / 14 at 1×) scaled for a
+     room: headings semibold, tight but not display-tight; labels sentence case. */
+  --t-mega:    220px;
+  --t-display: 112px;
+  --t-h1:      88px;
+  --t-h2:      60px;
+  --t-h3:      38px;
+  --t-kpi:     112px;
+  --t-lead:    30px;
+  --t-body:    24px;
+  --t-small:   20px;
+  --t-label:   17px;
+  --t-micro:   15px;
+
+  --w-display: var(--font-weight-semibold);
+  --w-head:    var(--font-weight-semibold);
+  --w-text:    var(--font-weight-regular);
+  --w-strong:  var(--font-weight-semibold);
+  --w-medium:  var(--font-weight-medium);
+
+  --lh-mega:    0.9;
+  --lh-display: 1.0;
+  --lh-head:    1.08;
+  --lh-h3:      1.18;
+  --lh-lead:    1.4;
+  --lh-body:    1.5;
+
+  --tr-mega:    -0.04em;
+  --tr-display: -0.03em;
+  --tr-head:    -0.022em;
+  --tr-h3:      -0.012em;
+  --tr-label:   0;
+
+  --s-1: 8px;   --s-2: 16px;  --s-3: 24px;  --s-4: 32px;
+  --s-5: 40px;  --s-6: 48px;  --s-8: 64px;  --s-10: 80px;
+  --s-12: 96px; --s-16: 128px;
+
+  /* the product's radii, doubled for the wall (inputs 4, buttons 6, cards 8 at 1×) */
+  --r-1: calc(var(--radius-sm) * 2);
+  --r-2: calc(var(--radius-md) * 2);
+  --r-3: calc(var(--radius-lg) * 2);
+  --r-4: calc(var(--radius-lg) * 3);
+  --r-phone: 32px;  --r-pill: var(--radius-full);
+  --hair: 1px;  --rule: 2px;  --heavy: 3px;
+
+  --dur-1: 0.2s;
+  --dur-2: 0.42s;
+  --dur-3: 0.6s;
+  --dur-4: 0.9s;
+  --stagger: 0.04s;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-io:  cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-in:  cubic-bezier(0.7, 0, 0.84, 0);
+  --motion-scale: 1;
+  --blur-in: 0px;            /* the product doesn't blur things in; neither does the deck */
+  --rise: 14px;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   HOSPITABLE · the only theme
+   --c1…--c4 are kept because kit/gen.js paints canvases from them.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root,
+[data-theme="hospitable"] {
+  --c1: var(--color-bg-app);          /* white      */
+  --c2: var(--color-text-primary);    /* ink        */
+  --c3: var(--color-action-primary);  /* raspberry  */
+  --c4: var(--color-sidebar-bg);      /* aubergine  */
+
+  --bg:          var(--color-bg-app);
+  --bg-2:        var(--color-onboarding-bg);            /* blush                       */
+  --surface:     var(--color-bg-app);
+  --surface-2:   var(--color-bg-subtle);                /* affixes, the selection bar  */
+  --ink:         var(--color-text-primary);
+  --ink-2:       var(--color-text-secondary);
+  --ink-3:       var(--color-text-muted);               /* descriptions, tab labels: ≥ 7:1 on white */
+  --ink-4:       var(--color-gray-300);                 /* decorative only             */
+  --line:        var(--color-border-secondary);
+  --line-2:      var(--color-border-primary);
+
+  --accent:      var(--color-action-primary);
+  --accent-ink:  var(--color-primary-700);              /* raspberry as small text, AA */
+  --accent-soft: var(--color-primary-50);
+  --accent-wash: var(--color-bg-brand-primary);
+  --hover-ring:  var(--color-border-primary);
+  --on-accent:   var(--color-text-white);
+  --signal:      var(--color-sidebar-bg);
+  --signal-ink:  var(--color-sidebar-bg);
+  --signal-soft: var(--color-ai-surface);
+  --good:        var(--color-success-500);
+  --good-ink:    var(--color-success-700);
+  --good-soft:   var(--color-success-50);
+  --bad:         var(--color-error-600);
+  --warn:        var(--color-warning-500);
+  --warn-soft:   var(--color-warning-50);
+  --blocker:     var(--color-error-600);
+  --stamp:       var(--color-action-primary);
+  --on-stamp:    var(--color-text-white);
+
+  /* the dark ground: stage openers, set the way the product sets its sidebar */
+  --dark:          var(--color-sidebar-bg);
+  --dark-2:        var(--color-sidebar-item-active-bg);
+  --dark-hi:       var(--gradient-sidebar-highlight);     /* the "Getting started" pill */
+  --on-dark:       var(--color-sidebar-text);
+  --on-dark-2:     color-mix(in oklab, var(--color-sidebar-text) 78%, var(--color-sidebar-bg));
+  --on-dark-3:     var(--color-sidebar-icon);             /* grape: the sidebar's icons and quiet text */
+  --on-dark-line:  var(--color-sidebar-divider);
+
+  /* AI: the product's lavender card, extended (never another product's AI look) */
+  --ai-bg:      var(--color-ai-surface);
+  --ai-bg-2:    var(--color-ai-surface-subtle);
+  --ai-line:    var(--color-ai-border);
+  --ai-ink:     var(--color-ai-text);                   /* AA on the surface (legacy grape fails) */
+  --ai-accent:  var(--color-ai-accent);
+  --ai-title:   var(--color-ai-title);
+  --ai-sparkle: var(--color-ai-sparkle);
+
+  /* channels, for identification only */
+  --ch-airbnb:  var(--color-channel-airbnb);
+  --ch-booking: var(--color-channel-booking);
+  --ch-vrbo:    var(--color-channel-vrbo);
+  --ch-expedia: var(--color-channel-expedia);
+  --ch-google:  var(--color-channel-google);
+  --ch-direct:  var(--color-channel-direct);
+
+  /* charts: one hue that argues (raspberry), one that contrasts (aubergine), greys for
+     everything else. Lavender is for AI only, green for "good" only. */
+  --data-1: var(--color-action-primary);
+  --data-2: var(--color-sidebar-bg);
+  --data-3: var(--color-gray-500);
+  --data-4: var(--color-gray-300);
+  --data-muted: var(--color-gray-100);
+  --grid:  var(--color-gray-100);
+
+  /* flat, like the product: no mesh, no glow, no glass */
+  --grad-1: linear-gradient(transparent, transparent);
+  --grad-2: linear-gradient(transparent, transparent);
+  --glow:   0 0 0 transparent;
+  --text-fill: none;
+  --glass-bg:     var(--color-bg-app);
+  --glass-line:   var(--color-border-secondary);
+  --glass-hi:     transparent;
+  --glass-blur:   0px;
+
+  --shot-bg:    var(--color-bg-app);
+  --shot-paper: var(--color-bg-app);
+  --shot-ring:  var(--color-border-secondary);
+  /* the product's raised and overlay shadows, as the wall needs them */
+  --shadow-1:  var(--shadow-raised);
+  --shadow-2:  var(--shadow-overlay);
+  --scrim:     color-mix(in oklab, var(--color-sidebar-bg) 64%, transparent);
+
+  --thread:    var(--color-border-primary);
+  --thread-o:  0;               /* the thread is retired: the product has no such line */
+  --grain-o:   0;               /* and no film grain */
+  --texture:   none;
+
+  color-scheme: light;
+}
+
+/* ─────────────────────────────────────────────────────────────── MOTION ── */
+[data-motion="calm"] { --motion-scale: 0.6; --rise: 10px; }
+[data-motion="off"]  { --motion-scale: 0; }
+@media (prefers-reduced-motion: reduce) {
+  :root:not([data-motion="full"]) { --motion-scale: 0; }
+}
+
+} /* @layer tokens */

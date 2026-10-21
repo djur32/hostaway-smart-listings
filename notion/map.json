@@ -1,0 +1,163 @@
+{
+  "hub": "https://app.notion.com/p/3eee18af164581ada1e4ebc3d3838613",
+  "decision_log_db": "https://app.notion.com/p/bdf268a39a0b413896f5084bd66df2e6",
+  "decision_log_data_source": "collection://4dcc1615-04d1-4b25-9571-e24fe723cfe3",
+  "sections": {
+    "00-brief": "https://app.notion.com/p/3eee18af164581e28fddc912dc332953",
+    "01-discovery": "https://app.notion.com/p/3eee18af16458127800cde5c8b1017c8",
+    "02-research": "https://app.notion.com/p/3eee18af164581e3a9faf5f1f8e138f3",
+    "03-ia": "https://app.notion.com/p/3eee18af164581329bede8618280f79b",
+    "04-concepts": "https://app.notion.com/p/3eee18af164581b690aecaa695cf08a7",
+    "05-design": "https://app.notion.com/p/3eee18af1645810bb3b3c9d7bf2ab924",
+    "06-test": "https://app.notion.com/p/3eee18af1645813d9675c3b09fcf3546",
+    "07-next": "https://app.notion.com/p/3eee18af1645813ea2e7d6c6dbf87ddf"
+  },
+  "pages": {
+    "01-discovery": {
+      "m-product-audit": "https://app.notion.com/p/3eee18af16458140b622c2f52f500edf",
+      "m-market-scan": "https://app.notion.com/p/3eee18af164581459cf4cb6d1a03f1d9",
+      "m-stakeholder-interviews": "https://app.notion.com/p/3eee18af1645814eb37ee21fc7bf4eb5",
+      "m-research-plan": "https://app.notion.com/p/3efe18af1645814192a0fa0c2f22f757",
+      "o-today": "https://app.notion.com/p/3eee18af16458163b059f704859d3a6a",
+      "o-heuristics": "https://app.notion.com/p/3eee18af1645817899d8edd811bf9212",
+      "o-channels": "https://app.notion.com/p/3eee18af1645818c859bcd3115fce28e",
+      "o-competitors": "https://app.notion.com/p/3eee18af164581a68ccdf6e48d114553",
+      "o-questions": "https://app.notion.com/p/3eee18af1645819282b2f11c14720c03",
+      "o-design-references": "https://app.notion.com/p/3efe18af164581dc88e7ceb2c86bb63e"
+    },
+    "02-research": {
+      "m-host-interviews": "https://app.notion.com/p/3eee18af1645819096ffef972af24f70",
+      "m-data-review": "https://app.notion.com/p/3eee18af16458150add8ef7c753dbd12",
+      "m-card-sort": "https://app.notion.com/p/3eee18af1645812ea1ebe5dec041599a",
+      "o-interview-synthesis": "https://app.notion.com/p/3eee18af164581cda068f2d204abbe37",
+      "o-card-sort-result": "https://app.notion.com/p/3eee18af1645817e8eb5cc92bbfc76a3",
+      "o-insights": "https://app.notion.com/p/3eee18af1645818094e8d80d9ddf2acd",
+      "o-personas": "https://app.notion.com/p/3eee18af16458171989df7edc178e5df",
+      "o-jtbd": "https://app.notion.com/p/3eee18af16458111b95ee068296d5bd7",
+      "o-problem": "https://app.notion.com/p/3eee18af1645814c9da9f6fce430fb5c"
+    },
+    "03-ia": {
+      "m-tree-test": "https://app.notion.com/p/3eee18af1645814595defdaab694e87d",
+      "o-object-model": "https://app.notion.com/p/3eee18af16458168b8ede129bf1dc3a9",
+      "o-nav-models": "https://app.notion.com/p/3eee18af16458180a645fc510d470034",
+      "o-sitemap": "https://app.notion.com/p/3eee18af164581d6b4e2c132983137ce"
+    },
+    "04-concepts": {
+      "m-concept-test": "https://app.notion.com/p/3eee18af1645810fbe60d21eb29dd3c7",
+      "o-principles": "https://app.notion.com/p/3eee18af164581cfb862c44df572735c",
+      "o-directions": "https://app.notion.com/p/3eee18af1645815aa317e53bdcf8435d",
+      "o-converged": "https://app.notion.com/p/3eee18af164581bdb0f8dd25c3d311a4"
+    },
+    "05-design": {
+      "o-solution": "https://app.notion.com/p/3eee18af164581828521eb27e3e50737",
+      "o-flows": "https://app.notion.com/p/3eee18af1645818496f9d13c2481a86d",
+      "o-smart-listings": "https://app.notion.com/p/3eee18af1645816c86aee6acef674975",
+      "o-tips": "https://app.notion.com/p/3eee18af1645811a82c4e772997ac875",
+      "o-base-channels": "https://app.notion.com/p/3eee18af164581178debffa0628f4703",
+      "o-canvas": "https://app.notion.com/p/3eee18af16458187b60ec60bb6c3c5c5",
+      "o-knowledge-hub": "https://app.notion.com/p/3eee18af1645811f8fcfcbffc7cbb69d",
+      "o-mobile": "https://app.notion.com/p/3eee18af164581daa8b7f210cb1c6f4e",
+      "o-ui-changes": "https://app.notion.com/p/3eee18af1645811087cecfef47d6bfe3",
+      "o-design-system": "https://app.notion.com/p/3eee18af1645814fbc15f0a668dc4632"
+    },
+    "06-test": {
+      "m-test-plan": "https://app.notion.com/p/3eee18af164581b1958cc8edfcf3dcfe",
+      "o-goals-kpis": "https://app.notion.com/p/3eee18af1645813d9391e336e308e3d7",
+      "o-premortem": "https://app.notion.com/p/3eee18af1645813da04df010073ed382"
+    },
+    "07-next": {
+      "o-second-order": "https://app.notion.com/p/3eee18af1645815caf9bc8e55ee265e9",
+      "o-roadmap": "https://app.notion.com/p/3eee18af1645818daddff9b46244175c",
+      "o-shortfalls": "https://app.notion.com/p/3efe18af164581ea8da9ebb89ab9b22f",
+      "o-service-map": "https://app.notion.com/p/3efe18af164581ca9ab6d4324a44d082"
+    },
+    "01-discovery-references": {
+      "concept-direction-references": "https://app.notion.com/p/3efe18af1645810e8a0eee5b74b5c292",
+      "final-design-references": "https://app.notion.com/p/3efe18af1645811b816bfce35cf10e2e",
+      "knowledge-hub-references": "https://app.notion.com/p/3efe18af1645819b9cd6fda40e9133b6",
+      "mobile-references": "https://app.notion.com/p/3efe18af1645812288e5c665355e9a43"
+    }
+  },
+  "decisions": {
+    "KD-01": [
+      "https://app.notion.com/p/3eee18af164581b68ba5e7beaa7055ab",
+      "Go deep on Smart Listings and leave import for later"
+    ],
+    "KD-02": [
+      "https://app.notion.com/p/3eee18af1645813ab697f55d6d253754",
+      "Listing details live once, in the Listing base. The Knowledge Hub reads them"
+    ],
+    "KD-03": [
+      "https://app.notion.com/p/3eee18af164581f59e84e075de884cde",
+      "A channel-first property menu: Shared first, then one group per channel"
+    ],
+    "KD-04": [
+      "https://app.notion.com/p/3eee18af16458164b971f07e49e0fa84",
+      "Each field uses the Base, is customised for the channel, exists only on that channel, or is set by the channel"
+    ],
+    "KD-05": [
+      "https://app.notion.com/p/3eee18af1645819d96d4cff8530e1600",
+      "Smart Listings is opt-in, switched on per property"
+    ],
+    "KD-06": [
+      "https://app.notion.com/p/3eee18af164581028d64c3d0ff9f7d48",
+      "One strategy per channel, made in a full-screen wizard"
+    ],
+    "KD-07": [
+      "https://app.notion.com/p/3eee18af1645812290f5e2113a9a0844",
+      "No versions: Performance compares with the period before the strategy"
+    ],
+    "KD-08": [
+      "https://app.notion.com/p/3eee18af16458160a7c1c703fcb2a033",
+      "Autopilot is on or off, and suggestions always arrive as tips"
+    ],
+    "KD-09": [
+      "https://app.notion.com/p/3eee18af164581319e3afd8d876c7cb2",
+      "Tips live in one docked panel, one at a time, each with its why"
+    ],
+    "KD-10": [
+      "https://app.notion.com/p/3eee18af164581e7844fc2de20912029",
+      "One AI affordance per field: a tip, otherwise Rewrite with AI"
+    ],
+    "KD-11": [
+      "https://app.notion.com/p/3eee18af16458172b17ac84a5abb32ef",
+      "Tips are channel-specific and cover money and stay rules, not only copy"
+    ],
+    "KD-12": [
+      "https://app.notion.com/p/3eee18af164581b19c66d8d053ea6ab0",
+      "Guest questions in the Knowledge Hub become tips, and every tip cites its sources"
+    ],
+    "KD-13": [
+      "https://app.notion.com/p/3eee18af1645814fa326e55e940a5942",
+      "The Knowledge Hub is Questions, Insights, Facts and Sources, and reads the listing details from the Listing base instead of copying them"
+    ],
+    "KD-14": [
+      "https://app.notion.com/p/3eee18af1645819e9675db2668610c2b",
+      "Canvas previews each channel's real guest page, and tapping opens the field"
+    ],
+    "KD-15": [
+      "https://app.notion.com/p/3eee18af164581a693f6c6cc544b8c1a",
+      "Save is the commit, and each saved change goes out with a receipt"
+    ],
+    "KD-16": [
+      "https://app.notion.com/p/3eee18af164581ca9016ce7928ea3008",
+      "Replicate Hospitable's UI and depart only where the model needs it"
+    ],
+    "KD-17": [
+      "https://app.notion.com/p/3eee18af164581e7b09fc51d1473a880",
+      "On phones, every side panel becomes a bottom sheet"
+    ],
+    "KD-18": [
+      "https://app.notion.com/p/3eee18af164581339fabf0591e5d7f9c",
+      "Label what is simulated, and plan the tests rather than fake results"
+    ],
+    "KD-19": [
+      "https://app.notion.com/p/3eee18af1645812eb43fd00ba5a5cd09",
+      "Time to adjust is the north star. Tip acceptance and trust keep it honest"
+    ],
+    "KD-20": [
+      "https://app.notion.com/p/3efe18af164581ceabafdfe5275589dd",
+      "Smart Listings expands AI Copilot. It isn't a new AI"
+    ]
+  }
+}

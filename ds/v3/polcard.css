@@ -1,0 +1,18 @@
+/* Booking policy cards, compact (Antonio, 4 Oct): the title starts at the card's top edge, level with the top of the
+ * Configure button (no 40px title row pushing it down); tighter padding; the description can run under the button's
+ * column. Applies to Airbnb, Booking.com (read-only Extranet card) and Direct, which share PolicyCard. */
+.ch-polcard { padding: var(--space-4) var(--space-5); row-gap: 0; }
+.ch-polcard__main > .ch-polcard__title:first-child { min-height: 0; }
+.ch-polcard__action { align-self: start; }
+.ch-polcard__body { margin-top: 2px; }
+.ch-polcard__meta { margin-top: var(--space-1); }
+
+/* Phones: room between the title, the description, the meta line and Configure (Antonio, 4 Oct: not enough separation).
+ * Title 16 semibold · description 16 · meta 14 · then the button 16px below. */
+@media (max-width: 767px) {
+  .ch-polcard { padding: var(--space-4); row-gap: var(--space-4); }
+  .ch-polcard__eyebrow { margin-bottom: var(--space-1); }
+  .ch-polcard__title { font-weight: var(--font-weight-semibold); }
+  .ch-polcard__body { margin-top: var(--space-2); font-size: var(--text-md); line-height: var(--leading-md); }
+  .ch-polcard__meta { margin-top: var(--space-3); font-size: var(--text-sm); line-height: var(--leading-sm); }
+}

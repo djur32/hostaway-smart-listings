@@ -1,0 +1,141 @@
+/* ============================================================================
+   BASE · fonts, reset, and the handful of type classes every slide uses.
+   ========================================================================= */
+
+/* Hospitable's family: TT Norms (TypeType), Antonio's licensed files (S02 D-093, replaces the Figtree stand-in).
+   Static cuts, so the same files serve screen and PDF. 600 maps to Bold (no DemiBold in the set). */
+@font-face { font-family: "TT Norms"; font-style: normal; font-weight: 100 950; font-display: block;
+  src: url("fonts/TTNormsProVariable.woff2") format("woff2-variations"), url("fonts/TTNormsProVariable.woff2") format("woff2"); }
+@supports not (font-variation-settings: normal) {
+@font-face { font-family: "TT Norms"; font-style: normal; font-weight: 400; font-display: block; src: url("fonts/TTNorms-400.woff") format("woff"); }
+@font-face { font-family: "TT Norms"; font-style: normal; font-weight: 500; font-display: block; src: url("fonts/TTNorms-500.woff") format("woff"); }
+@font-face { font-family: "TT Norms"; font-style: normal; font-weight: 600 700; font-display: block; src: url("fonts/TTNorms-700.woff") format("woff"); }
+}
+@font-face { font-family: "Geist"; font-style: normal; font-weight: 100 900; font-display: block;
+  src: url("fonts/Geist-Variable.woff2") format("woff2-variations"), url("fonts/Geist-Variable.woff2") format("woff2"); }
+@font-face { font-family: "Geist Mono"; font-style: normal; font-weight: 100 900; font-display: block;
+  src: url("fonts/GeistMono-Variable.woff2") format("woff2-variations"), url("fonts/GeistMono-Variable.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: block;
+  src: url("fonts/Inter-Variable.woff2") format("woff2-variations"), url("fonts/Inter-Variable.woff2") format("woff2"); }
+/* Static cuts for the PDF only (tools/print-fonts.py): Chrome's PDF backend draws variable
+   fonts as per-page Type 3 outlines. Only html.is-print asks for these families. */
+@font-face { font-family: "Geist Print"; font-weight: 100; font-display: block; src: url("fonts/print/Geist-100.woff") format("woff"); }
+@font-face { font-family: "Geist Print"; font-weight: 200; font-display: block; src: url("fonts/print/Geist-200.woff") format("woff"); }
+@font-face { font-family: "Geist Print"; font-weight: 250; font-display: block; src: url("fonts/print/Geist-250.woff") format("woff"); }
+@font-face { font-family: "Geist Print"; font-weight: 280; font-display: block; src: url("fonts/print/Geist-280.woff") format("woff"); }
+@font-face { font-family: "Geist Print"; font-weight: 300; font-display: block; src: url("fonts/print/Geist-300.woff") format("woff"); }
+@font-face { font-family: "Geist Print"; font-weight: 340; font-display: block; src: url("fonts/print/Geist-340.woff") format("woff"); }
+@font-face { font-family: "Geist Print"; font-weight: 400; font-display: block; src: url("fonts/print/Geist-400.woff") format("woff"); }
+@font-face { font-family: "Geist Print"; font-weight: 440; font-display: block; src: url("fonts/print/Geist-440.woff") format("woff"); }
+@font-face { font-family: "Geist Print"; font-weight: 500; font-display: block; src: url("fonts/print/Geist-500.woff") format("woff"); }
+@font-face { font-family: "Geist Print"; font-weight: 560; font-display: block; src: url("fonts/print/Geist-560.woff") format("woff"); }
+@font-face { font-family: "Geist Print"; font-weight: 600; font-display: block; src: url("fonts/print/Geist-600.woff") format("woff"); }
+@font-face { font-family: "Geist Print"; font-weight: 700; font-display: block; src: url("fonts/print/Geist-700.woff") format("woff"); }
+@font-face { font-family: "Geist Mono Print"; font-weight: 100; font-display: block; src: url("fonts/print/GeistMono-100.woff") format("woff"); }
+@font-face { font-family: "Geist Mono Print"; font-weight: 200; font-display: block; src: url("fonts/print/GeistMono-200.woff") format("woff"); }
+@font-face { font-family: "Geist Mono Print"; font-weight: 250; font-display: block; src: url("fonts/print/GeistMono-250.woff") format("woff"); }
+@font-face { font-family: "Geist Mono Print"; font-weight: 280; font-display: block; src: url("fonts/print/GeistMono-280.woff") format("woff"); }
+@font-face { font-family: "Geist Mono Print"; font-weight: 300; font-display: block; src: url("fonts/print/GeistMono-300.woff") format("woff"); }
+@font-face { font-family: "Geist Mono Print"; font-weight: 340; font-display: block; src: url("fonts/print/GeistMono-340.woff") format("woff"); }
+@font-face { font-family: "Geist Mono Print"; font-weight: 400; font-display: block; src: url("fonts/print/GeistMono-400.woff") format("woff"); }
+@font-face { font-family: "Geist Mono Print"; font-weight: 440; font-display: block; src: url("fonts/print/GeistMono-440.woff") format("woff"); }
+@font-face { font-family: "Geist Mono Print"; font-weight: 500; font-display: block; src: url("fonts/print/GeistMono-500.woff") format("woff"); }
+@font-face { font-family: "Geist Mono Print"; font-weight: 560; font-display: block; src: url("fonts/print/GeistMono-560.woff") format("woff"); }
+@font-face { font-family: "Geist Mono Print"; font-weight: 600; font-display: block; src: url("fonts/print/GeistMono-600.woff") format("woff"); }
+@font-face { font-family: "Geist Mono Print"; font-weight: 700; font-display: block; src: url("fonts/print/GeistMono-700.woff") format("woff"); }
+@font-face { font-family: "Inter Print"; font-weight: 100; font-display: block; src: url("fonts/print/Inter-100.woff") format("woff"); }
+@font-face { font-family: "Inter Print"; font-weight: 200; font-display: block; src: url("fonts/print/Inter-200.woff") format("woff"); }
+@font-face { font-family: "Inter Print"; font-weight: 250; font-display: block; src: url("fonts/print/Inter-250.woff") format("woff"); }
+@font-face { font-family: "Inter Print"; font-weight: 280; font-display: block; src: url("fonts/print/Inter-280.woff") format("woff"); }
+@font-face { font-family: "Inter Print"; font-weight: 300; font-display: block; src: url("fonts/print/Inter-300.woff") format("woff"); }
+@font-face { font-family: "Inter Print"; font-weight: 340; font-display: block; src: url("fonts/print/Inter-340.woff") format("woff"); }
+@font-face { font-family: "Inter Print"; font-weight: 400; font-display: block; src: url("fonts/print/Inter-400.woff") format("woff"); }
+@font-face { font-family: "Inter Print"; font-weight: 440; font-display: block; src: url("fonts/print/Inter-440.woff") format("woff"); }
+@font-face { font-family: "Inter Print"; font-weight: 500; font-display: block; src: url("fonts/print/Inter-500.woff") format("woff"); }
+@font-face { font-family: "Inter Print"; font-weight: 560; font-display: block; src: url("fonts/print/Inter-560.woff") format("woff"); }
+@font-face { font-family: "Inter Print"; font-weight: 600; font-display: block; src: url("fonts/print/Inter-600.woff") format("woff"); }
+@font-face { font-family: "Inter Print"; font-weight: 700; font-display: block; src: url("fonts/print/Inter-700.woff") format("woff"); }
+
+@layer base {
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; }
+html {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "calt";
+  transition: background-color var(--dur-2) var(--ease-io), color var(--dur-2) var(--ease-io);
+}
+body { overflow: hidden; }
+img, svg, video, canvas { display: block; max-width: 100%; }
+/* product UI is Hospitable's: no long-press save sheet, no drag out of the page.
+   A fence, not a lock (see kit/engine.js, OWN_ART). */
+img, video { -webkit-user-drag: none; -webkit-touch-callout: none; user-select: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+h1, h2, h3, h4, p, ul, ol, figure, blockquote, dl, dd { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+b, strong { font-weight: var(--w-strong); color: var(--ink); }
+em { font-style: normal; color: var(--accent-ink); }
+::selection { background: var(--accent); color: var(--on-accent); }
+:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 4px; }
+[hidden] { display: none !important; }
+
+/* ── type roles ─────────────────────────────────────────────────────────── */
+.mega {
+  font-family: var(--font-display); font-weight: var(--w-display);
+  font-size: var(--t-mega); line-height: var(--lh-mega); letter-spacing: var(--tr-mega);
+  font-variant-numeric: tabular-nums;
+}
+.display {
+  font-family: var(--font-display); font-weight: var(--w-display);
+  font-size: var(--t-display); line-height: var(--lh-display); letter-spacing: var(--tr-display);
+  text-wrap: balance;
+}
+.h1 {
+  font-family: var(--font-display); font-weight: var(--w-display);
+  font-size: var(--t-h1); line-height: var(--lh-display); letter-spacing: var(--tr-display);
+  text-wrap: balance;
+}
+.h2 {
+  font-family: var(--font-display); font-weight: var(--w-head);
+  font-size: var(--t-h2); line-height: var(--lh-head); letter-spacing: var(--tr-head);
+  text-wrap: balance;
+}
+.h3 {
+  font-family: var(--font-display); font-weight: var(--w-head);
+  font-size: var(--t-h3); line-height: var(--lh-h3); letter-spacing: var(--tr-h3);
+  text-wrap: balance;
+}
+.lead  { font-size: var(--t-lead); line-height: var(--lh-lead); color: var(--ink-2); text-wrap: pretty; max-width: 34ch; }
+.body  { font-size: var(--t-body); line-height: var(--lh-body); color: var(--ink-2); text-wrap: pretty; }
+.small { font-size: var(--t-small); line-height: 1.45; color: var(--ink-2); text-wrap: pretty; }
+.label {
+  font-family: var(--font-mono); font-size: var(--t-label); font-weight: 500;
+  letter-spacing: var(--tr-label); text-transform: uppercase; line-height: 1.2; color: var(--ink-3);
+}
+.micro { font-family: var(--font-mono); font-size: var(--t-micro); line-height: 1.4; color: var(--ink-3); letter-spacing: 0.02em; }
+.num   { font-variant-numeric: tabular-nums; font-feature-settings: "tnum", "ss01"; }
+.mono  { font-family: var(--font-mono); }
+
+/* two-tone headline: the portfolio's signature. The second tone is quieter,
+   never smaller, so the sentence still reads as one sentence. */
+.tone-2 { color: var(--ink-3); }
+.tone-a { color: var(--accent-ink); }
+
+/* SplitText line masks clip at the line box; display type sets tighter than its
+   descenders (g, y, p), so the clip is widened without moving the layout */
+.sl-mask { padding-block: 0.12em 0.32em; margin-block: -0.12em -0.32em; }   /* room for descenders at display sizes with tight leading (g, y, p) */
+
+/* the rules do the separating, not boxes */
+.rule        { height: 0; border: 0; border-top: var(--hair) solid var(--line); margin: 0; }
+.rule--ink   { border-top: var(--hair) solid var(--line-2); }
+.rule--heavy { border-top: var(--heavy) solid var(--line-2); }
+
+} /* @layer base */

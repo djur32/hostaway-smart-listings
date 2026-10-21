@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "hospitable-deck",
+      "runtimeExecutable": "/opt/homebrew/bin/node",
+      "runtimeArgs": ["/Users/antonio/Developer/hospitable-case/deck/tools/serve.mjs", "8793"],
+      "port": 8793
+    }
+  ]
+}

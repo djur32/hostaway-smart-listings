@@ -1,0 +1,319 @@
+/* 50 · DESIGN · slide-scoped styles (prefix ds-). Tokens only. */
+
+/* The kit floats its screens with a transform keyframe; inside a .ds-scene the screens are also
+   moved by this part's module (lift, slide-over, fan), and a CSS animation on `transform` would
+   win over those tweens. The same gentle float, on the independent `translate` property. */
+.ds-scene .hc-scr.is-float,
+.ds-scene .hc-scr.is-float-2,
+.ds-scene .hc-device.is-float { animation-name: ds-float; }
+@keyframes ds-float { from { translate: 0 0; } to { translate: 0 -8px; } }
+
+/* a phone that others fan out from sits on top of them while they travel */
+.ds-scene .hc-device[data-hub] { z-index: 4; }
+
+/* the left column of a scene slide: points reveal one by one, so give them room to breathe */
+.ds-col { display: grid; gap: 26px; align-content: center; }
+
+/* ── live product UI on a scene (3 Oct: "outputs as HTML, not images") ─────────────────────────────
+   .ds-live is placed like a screen (--x --y --sw, in scene px) and animated by the module; inside it,
+   .h-root.hc-ui.ds-ui is Hospitable's own component at the product's 1×, zoomed to wall size. The zoom
+   sits on the inner block, so the placement stays in scene px and the type re-lays out crisp. */
+.ds-scene > .ds-live { position: absolute; left: var(--x, 0); top: var(--y, 0); width: var(--sw, 600px); z-index: 3; }
+.ds-scene > .ds-live.is-float { animation: ds-float 7s ease-in-out -1.5s infinite alternate; }
+@media (prefers-reduced-motion: reduce) { .ds-scene > .ds-live.is-float { animation: none; } }
+.ds-live > .ds-ui { width: calc(var(--sw, 600px) / var(--ui-zoom, 1.75)); }
+/* a live card floats like the captures around it (the same shadow recipe as .hc-scr) */
+.ds-live .ds-card {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 5%, transparent),
+    0 18px 36px -14px color-mix(in oklab, var(--color-sidebar-bg) 22%, transparent),
+    0 50px 90px -34px color-mix(in oklab, var(--color-sidebar-bg) 24%, transparent);
+}
+.ds-ui [hidden] { display: none !important; }
+.ds-ui button { font-family: inherit; }
+.ds-left-quiet { color: var(--ink-2); }
+
+/* the tip card's foot after Accept / Dismiss (the product's .h-tip__done, plus Undo) */
+.ds-tip__done { display: contents; }
+.ds-ui .ds-done.is-quiet, .ds-ui .ds-done.is-quiet svg { color: var(--color-text-muted); }
+.ds-ui .ds-src { display: inline-flex; cursor: help; }
+
+/* a tighter point list beside a big live component */
+.ds-pts li { font-size: 26px; }
+
+/* ds-shared (4 Oct, KH-REFRAME): one fact, and who reads it. The kit's KPI card holds the value; its readers follow
+   as the kit's floating chips, each led by its channel's mark (the Hub by its book) */
+.ds-one { display: grid; gap: 16px; }
+.ds-one__field .ds-fields { gap: var(--space-3); }
+.ds-one__field .h-field-row { margin-top: 0; max-width: none; }   /* one field under its page title: the head sits close */
+.ds-one__readers { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; justify-items: start; align-items: center; gap: 10px; margin: 0; }
+.ds-one__readers .hc-chip { min-height: 44px; padding: 8px 18px 8px 12px; }
+.ds-one__k { grid-row: 1 / span 2; padding-right: 6px; font: var(--w-medium) 19px / 1.2 var(--font-ui); color: var(--ink-3); white-space: nowrap; }
+.ds-one__m { width: 24px; height: 24px; flex: none; }
+
+/* ds-hub (4 Oct, KH-REFRAME): the Hub's job as a loop, built from the product's components. A guest's question in the
+   Inbox, the Hub with its four sections as underline tabs (Questions open), the tip a gap becomes, and the fact it
+   leaves in the Listing base; numbered callouts carry the loop, thin wires join the cards in reading order. */
+.ds-hq { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4) var(--space-5) var(--space-5); border-radius: var(--radius-lg); background: var(--color-surface-primary); }
+.ds-hq__k { display: flex; align-items: center; gap: var(--space-2); margin: 0; font-size: var(--text-sm); font-weight: var(--font-weight-semibold); color: var(--color-text-muted); }
+.ds-hq__k > svg:first-child { width: 16px; height: 16px; color: var(--color-text-muted); }
+.ds-hq__m { width: 20px; height: 20px; flex: none; }
+.ds-hq__k .ds-hq__m { margin-left: auto; }
+.ds-hq__guest { align-self: flex-start; margin: 0; background: var(--color-gray-100); color: var(--color-text-strong); border-top-left-radius: var(--radius-xs); }
+.ds-hq--hub { gap: 0; padding-bottom: var(--space-2); }
+.ds-hq__tabs { gap: var(--space-5); margin-top: var(--space-2); }
+.ds-hq__tabs > span { padding-bottom: 12px; font-size: var(--text-sm); }
+.ds-hq__qs { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.ds-hq__q { position: relative; display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-3) 0; }
+.ds-hq__q + .ds-hq__q { border-top: 1px solid var(--color-border-divider); }
+.ds-hq__qt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ds-hq__qt b { font-size: var(--text-sm); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); }
+.ds-hq__qt span { font-size: var(--text-xs); color: var(--color-text-muted); }
+.ds-hq__ring { position: absolute; inset: 4px -10px; border: 2px solid var(--color-primary-600); border-radius: var(--radius-md); pointer-events: none; }
+.ds-hq__use { display: flex; align-items: center; gap: var(--space-2); margin: 0; }
+.ds-hq__use .h-pill { margin-left: var(--space-1); }
+.ds-hq__wires { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; z-index: 1; }
+.ds-hq__wires path { fill: none; stroke: var(--color-gray-400); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+/* ds-hub is a concept, not built in full (Antonio, 4 Oct): a tag in the eyebrow, the dashed outline the deck uses for what is planned */
+.eyebrow > * + .ds-concept:not(.hc-prov) { display: inline-flex; align-items: center; height: 30px; margin-left: 16px; padding: 0 12px; border: 1.5px dashed var(--color-primary-400);
+  border-radius: var(--radius-md); color: var(--accent-ink); letter-spacing: 0.08em; vertical-align: middle; }
+.eyebrow > * + .ds-concept:not(.hc-prov)::before { content: none; }
+/* a callout that is a step of the loop: its number in the brand's disc instead of the dot */
+.hc-callout.ds-loopc { gap: 12px; padding-left: 10px; }
+.hc-callout.ds-loopc::before { content: none; }
+.ds-loopc__n { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: var(--on-accent); font: var(--w-head) 16px / 1 var(--font-ui); }
+.hc-callout--ai .ds-loopc__n { background: var(--ai-accent); }
+
+/* channel field rows (ds-channels): Hospitable's stacked setting rows, in a card headed by the channel */
+.ds-fields { display: flex; flex-direction: column; gap: var(--space-5); padding: var(--space-4) var(--space-5) var(--space-5); border-radius: var(--radius-lg); background: var(--color-surface-primary); }
+.ds-fields__head { display: flex; align-items: center; gap: var(--space-2); margin: 0; font-size: var(--text-sm); font-weight: var(--font-weight-semibold); color: var(--color-text-muted); }
+.ds-fields > [data-state] { margin-top: 0; max-width: none; }
+/* ds-channels (Antonio, 4 Oct, second pass): three cases side by side on Airbnb's page, each a deck-type kicker over the
+   product's field card. The cards share one height so the three captions line up. */
+.ds-case__k { margin: 0; font: var(--w-head) 30px / 1.2 var(--font-ui); color: var(--ink); }
+.ds-case__d { margin: 6px 0 22px; font-size: 22px; line-height: 1.35; color: var(--ink-2); }
+.ds-case .ds-fields { min-height: 214px; box-sizing: border-box; }
+.ds-case .ds-fields__head .h-mark, .ds-set .ds-fields__head .h-mark { width: 20px; height: 20px; flex: none; }
+.ds-case .h-textarea, .ds-set .h-textarea { min-height: 0; resize: none; }
+/* the fourth case, in the detail: the channel's badge and name, the words, and the product's row with its lock's reason open */
+.ds-set { align-items: center; }
+.ds-set__l { display: grid; gap: 18px; align-content: center; }
+.ds-set__ch { display: inline-flex; align-items: center; gap: 12px; margin: 0; font: var(--w-head) 26px / 1.2 var(--font-ui); color: var(--ink); }
+.ds-set__ch .h-mark { width: 32px; height: 32px; flex: none; }
+.ds-set__t { margin: 0; max-width: 30ch; font-size: var(--t-body); line-height: 1.45; color: var(--ink-2); text-wrap: pretty; }
+.ds-set__card { padding-top: var(--space-4); box-shadow: 0 0 0 1px var(--color-border-secondary); }
+/* the shared tooltip, drawn open above the caption and aligned with the field's text (ds/components.css .h-tooltip--start) */
+.ds-why { position: relative; }
+.ds-why__tip { position: absolute; bottom: calc(100% + 8px); left: 0; width: max-content; max-width: 400px; padding: 8px 12px; text-align: left; text-wrap: pretty; white-space: normal; z-index: 2; }
+
+/* a status that changes on a press: both states share one cell; the HTML's final state shows the answer */
+.ds-swap { display: inline-grid; justify-items: start; }
+.ds-swap > * { grid-area: 1 / 1; }
+.ds-swap > [data-was] { visibility: hidden; }
+
+/* performance (ds-performance, 4 Oct rewrite): a concept. The prototype's weekly occupancy chart (ds/v3/perf.css) with
+   the two periods named over it and the change as a pill; then the next idea, strategy versions, as a quiet card */
+.ds-wk__periods { display: grid; grid-template-columns: 1fr 1fr; margin: 0; font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-secondary); }
+.ds-wk__periods > span { display: flex; align-items: center; gap: var(--space-2); }
+.ds-wk__periods > span:last-child { padding-left: var(--space-2); }
+.ds-wk__periods b { font-size: var(--text-lg); line-height: var(--leading-lg); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); font-variant-numeric: tabular-nums; }
+.ds-wk__periods > .is-before b { color: var(--color-text-muted); }
+.ds-delta { background: var(--color-success-50); border-color: var(--color-success-200); color: var(--color-success-700); }
+.ds-ver { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-primary); }
+.ds-ver__t { display: flex; align-items: center; gap: var(--space-2); margin: 0; font-size: var(--text-md); line-height: var(--leading-md); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); }
+.ds-ver__row { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: var(--space-3); }
+.ds-ver__v { display: flex; flex-direction: column; margin: 0; padding: var(--space-2) var(--space-3); border: 1px solid var(--color-border-secondary); border-radius: var(--radius-lg); }
+.ds-ver__v b { font-size: var(--text-sm); line-height: var(--leading-sm); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); }
+.ds-ver__v span { font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-secondary); white-space: nowrap; }
+.ds-ver__v.is-next { border-style: dashed; border-color: var(--color-gray-300); }
+.ds-ver__v.is-next span { color: var(--color-text-muted); }
+.ds-ver__vs { font-size: var(--text-sm); font-weight: var(--font-weight-medium); color: var(--color-text-muted); }
+/* the detail: the words, then the two versions side by side in the product's card */
+.ds-vd { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 64px; align-items: center; }
+.ds-vd__ui { width: 520px; }
+.ds-vd__card { display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-5); border: 1px solid var(--color-border-secondary); border-radius: var(--radius-lg); background: var(--color-surface-primary); }
+.ds-vd__cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+.ds-vd__col { display: flex; flex-direction: column; align-items: flex-start; padding: var(--space-3) var(--space-4) var(--space-4); border: 1px solid var(--color-border-secondary); border-radius: var(--radius-lg); }
+.ds-vd__col.is-next { border-style: dashed; border-color: var(--color-gray-300); }
+.ds-vd__col > p { margin: 0; }
+.ds-vd__name { font-size: var(--text-md); line-height: var(--leading-md); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); }
+.ds-vd__col > .ds-vd__per { margin-bottom: var(--space-3); font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-secondary); }
+.ds-vd__k { font-size: var(--text-xs); line-height: var(--leading-xs); font-weight: var(--font-weight-medium); color: var(--color-text-muted); }
+.ds-vd__col > .ds-vd__n { margin-bottom: var(--space-2); font-size: var(--text-xl); line-height: var(--leading-xl); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); font-variant-numeric: tabular-nums; }
+.ds-vd__col.is-next .ds-vd__n { font-size: var(--text-md); line-height: var(--leading-xl); color: var(--color-text-muted); }
+.ds-vd__n.is-up { color: var(--color-primary-700); }
+/* the weekly bars: before in neutral grey, since in the brand colour, a dashed marker where the strategy started */
+.ds-wk { margin: 0; display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-primary); }
+.ds-wk__t { display: flex; flex-direction: column; }
+.ds-wk__t b { font-size: var(--text-lg); line-height: var(--leading-lg); font-weight: var(--font-weight-semibold); }
+.ds-wk__t span { font-size: var(--text-sm); color: var(--color-text-muted); }
+.ds-wk__plot { position: relative; display: flex; align-items: flex-end; gap: 6px; height: 140px; padding-top: 22px; border-bottom: 1px solid var(--color-border-secondary);
+  background: repeating-linear-gradient(to top, transparent 0 calc(25% - 1px), var(--color-chart-grid) calc(25% - 1px) 25%); background-origin: content-box; background-clip: content-box; }
+.ds-wk__bar { flex: 1 1 0; height: var(--v); border-radius: 4px 4px 0 0; background: var(--color-primary-500); }
+.ds-wk__bar.is-before { background: var(--color-gray-300); }
+.ds-wk__marker { position: absolute; top: 0; bottom: 0; left: 50%; border-left: 1px dashed var(--color-chart-marker); }
+.ds-wk__marker span { position: absolute; top: 0; left: var(--space-1); padding: 0 var(--space-1); background: var(--color-surface-primary); font-size: var(--text-xs); line-height: var(--leading-xs); font-weight: var(--font-weight-medium); color: var(--color-text-secondary); white-space: nowrap; }
+.ds-wk__x { display: flex; justify-content: space-between; margin: 0; font-size: var(--text-xs); color: var(--color-chart-axis); }
+
+/* the strategy wizard (ds-strategy): the prototype's h-wz step (ds/v3/wizard.css), as a card */
+.ds-wz { position: relative; display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-6) var(--space-6) var(--space-5); border-radius: var(--radius-lg); background: var(--color-surface-primary); overflow: hidden; }
+.ds-wz__bar { position: absolute; left: 0; right: 0; top: 0; height: 4px; border-bottom: 1px solid var(--color-border-secondary); }
+.ds-wz__bar::before { content: ""; position: absolute; left: 0; top: 0; height: 4px; width: var(--p, 25%); background: var(--color-primary-500); }
+.ds-wz__eyebrow { display: flex; align-items: center; gap: var(--space-2); margin: 0 0 var(--space-1); font-size: var(--text-sm); line-height: var(--leading-sm); font-weight: var(--font-weight-semibold); color: var(--color-text-muted); }
+.ds-wz__h1 { margin: 0; font-size: var(--text-2xl); line-height: var(--leading-2xl); font-weight: var(--font-weight-semibold); letter-spacing: var(--tracking-heading); color: var(--color-text-strong); }
+.ds-wz__sub { margin: 0; font-size: var(--text-md); line-height: var(--leading-md); color: var(--color-text-secondary); }
+.ds-wz__cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); margin-top: var(--space-4); }
+.ds-wz-card { display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4) var(--space-5); border: 1px solid var(--color-border-secondary); border-radius: var(--radius-lg); background: var(--color-surface-primary); cursor: pointer; }
+.ds-wz-card:hover, .ds-wz-card:has(:checked) { border-color: var(--color-border-input); }
+.ds-wz-card > input { margin-top: 2px; }
+.ds-wz-card__main { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+.ds-wz-card__title { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; font-size: var(--text-md); line-height: var(--leading-md); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); }
+.ds-wz-card__tag { margin-left: auto; }
+.ds-wz-card__desc { margin-top: var(--space-0-5); font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
+.ds-wz__label { margin: var(--space-3) 0 0; font-size: var(--text-md); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); }
+.ds-wz__range { display: flex; align-items: center; gap: var(--space-3); }
+.ds-wz__range > div { flex: 0 1 200px; }
+.ds-wz__to { color: var(--color-text-muted); font-size: var(--text-sm); }
+.ds-wz__locked { display: flex; align-items: flex-start; gap: var(--space-2); margin: var(--space-3) 0 0; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); background: var(--color-bg-subtle); font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
+.ds-wz__locked svg { flex: none; width: 16px; height: 16px; margin-top: 2px; }
+.ds-wz__locked strong { font-weight: var(--font-weight-medium); color: var(--color-text-strong); }
+.ds-steps .hc-step__t { font-size: 26px; }
+.ds-wz__cards--1 { grid-template-columns: minmax(0, 1fr); }
+
+/* ds-system (4 Oct, Antonio): what the new patterns mean for the product. Left, the Hospitable patterns I challenged;
+   right, the new ones as the kit's own product components on white cards (the product's card: gray hairline, 16 px
+   corners, no shadow); below, the product areas they reach, Planned. */
+.ds-sys { display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 30px; height: 100%; }
+.ds-sys__top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); gap: 40px; min-height: 0; }
+.ds-sys__col { display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 16px; min-height: 0; }
+.ds-sys__k { margin: 0; font: var(--w-head) 20px / 1.2 var(--font-ui); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+/* challenged: the pattern, and what it is now */
+.ds-chg { display: grid; align-content: start; gap: 0; margin: 0; padding: 0; list-style: none; }
+.ds-chg li { display: flex; align-items: center; gap: 20px; padding: 22px 0; border-top: 1px solid var(--line); }
+.ds-chg li:first-child { border-top: 0; padding-top: 8px; }
+.ds-chg li > span:last-child { display: grid; gap: 4px; }
+.ds-chg b { font: var(--w-head) 28px / 1.2 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
+.ds-chg li > span:last-child > span { font-size: 22px; line-height: 1.35; color: var(--ink-2); }
+.ds-chg__i { display: grid; place-items: center; flex: none; width: 56px; height: 56px; border-radius: 16px; background: var(--color-primary-100); color: var(--color-primary-600); }
+.ds-chg__i svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+/* introduced: a 3 × 3 inventory, the tip card two rows tall */
+/* the challenged patterns, shown as the real components (4 Oct): drill-down nav, counts that move, stacked fields */
+/* ds-challenged (4 Oct): three tiles in a row, each the real component above its name and one line */
+.ds-chv { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+.ds-chv__t { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto; align-items: center; column-gap: 32px; padding: 24px 32px; }   /* 2 by 2: the component on the left, its name on the right (4 Oct) */
+.ds-chv__t .ds-inv__ui { place-items: center start; padding-right: 8px; }
+.ds-chv__t > .ds-inv__n { font: var(--w-head) 26px / 1.15 var(--font-display); letter-spacing: -0.01em; }
+.ds-chv__d { display: block; margin-top: 8px; font: var(--w-medium) 20px / 1.35 var(--font-ui); letter-spacing: 0; color: var(--ink-2); }
+.ds-chv__nav { min-height: 0; padding: 0; background: none; border-right: 0; width: 240px; }
+.ds-chv__pair { display: flex; align-items: flex-start; gap: 12px; }
+.ds-chv__pair .ds-chv__nav { width: 168px; }
+.ds-chv__field { margin-top: 0; width: 100%; max-width: 330px; }
+.ds-chv__input { display: flex; align-items: center; white-space: nowrap; overflow: hidden; }
+.ds-chv__also { margin: 28px 0 0; font-size: 22px; line-height: 1.35; color: var(--ink-2); }
+/* ds-system now holds the introduced patterns only: one wide grid */
+.s[data-id="ds-system"] .ds-sys__top { grid-template-columns: minmax(0, 1fr); }
+.s[data-id="ds-system"] .ds-inv { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); }
+.ds-inv__t--wide { grid-column: span 2; }
+.ds-inv__tabs .h-tab { display: inline-flex; align-items: center; gap: 8px; }
+.ds-inv { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 16px; min-height: 0; }
+.ds-inv__t { display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 10px; padding: 16px 20px 16px; border: 1px solid var(--line); border-radius: 16px; background: var(--bg); min-height: 0; }
+.ds-inv__t--tall { grid-row: span 2; }
+.ds-inv__ui { display: grid; place-items: center start; min-height: 0; }
+.ds-inv__n { margin: 0; font: var(--w-medium) 20px / 1.25 var(--font-ui); color: var(--ink); }
+.ds-inv__row { display: inline-flex; align-items: center; gap: 10px; }
+.ds-inv__stack { display: grid; gap: 8px; justify-items: start; }
+.ds-inv__tip { width: 100%; }   /* the tip card fills its tile (4 Oct) */
+.ds-inv__tip h3 { font-size: var(--text-md); }
+.ds-inv__label { font-size: var(--text-sm); font-weight: var(--font-weight-medium); color: var(--color-text-strong); }
+/* the orange Rewrite trigger beside a field's label (ds/v3/smartify.css .sy-trigger--label, which kit/ds does not carry) */
+.ds-inv__rw { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: var(--radius-full); background: var(--color-ai-refine-surface); color: var(--color-ai-refine-accent); }
+.ds-inv__rw svg { width: 12px; height: 12px; }
+.ds-inv__hint { gap: 14px; margin: 0; white-space: nowrap; }
+.ds-inv__mk { width: 24px; height: 24px; }
+.ds-inv__toast { min-width: 0; }
+.ds-inv__tabs { border-bottom: 0; }
+.ds-inv__ui { pointer-events: none; }
+/* the areas they reach, and the plan */
+.ds-reach { display: flex; align-items: center; gap: 22px; padding-top: 24px; border-top: 1px solid var(--line); }
+.ds-reach__areas { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.ds-reach__areas li { display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border-radius: 999px; background: var(--color-gray-100); font: var(--w-medium) 22px / 1 var(--font-ui); color: var(--ink); }
+.ds-reach__plan { display: inline-flex; align-items: center; gap: 12px; margin: 0 0 0 auto; font: var(--w-medium) 22px / 1.2 var(--font-ui); color: var(--ink-2); white-space: nowrap; }
+
+/* the impact detail: patterns × product areas; a raspberry dot where a pattern lands, a hairline where it doesn't */
+.ds-imp { display: grid; grid-template-columns: 300px repeat(7, minmax(0, 1fr)); align-items: center; row-gap: 0; }
+.ds-imp > * { min-height: 48px; border-top: 1px solid var(--line); }
+.ds-imp > :nth-child(-n + 8) { border-top: 0; }
+.ds-imp__h { display: flex; align-items: center; justify-content: center; font: var(--w-head) 20px / 1.2 var(--font-ui); color: var(--ink-2); text-align: center; }
+.ds-imp__l { display: flex; align-items: center; font: var(--w-medium) 20px / 1.2 var(--font-ui); color: var(--ink); }
+.ds-imp__l.is-chg { color: var(--accent-ink); }
+.ds-imp > i { display: grid; place-items: center; }
+.ds-imp > i::before { content: ""; width: 14px; height: 2px; border-radius: 2px; background: var(--color-gray-300); }
+.ds-imp > i.is-on::before { width: 18px; height: 18px; border-radius: 50%; background: var(--color-primary-600); }
+/* how I'd test: four numbered steps */
+.ds-plan { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px 72px; margin: 0; padding: 0; list-style: none; counter-reset: ds-plan; align-content: center; }
+.ds-plan li { display: grid; gap: 8px; padding-left: 64px; position: relative; counter-increment: ds-plan; }
+.ds-plan li::before { content: counter(ds-plan); position: absolute; left: 0; top: 0; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-primary-100); color: var(--color-primary-700); font: var(--w-head) 22px / 1 var(--font-display); }
+.ds-plan b { font: var(--w-head) 28px / 1.2 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
+.ds-plan span { font-size: 22px; line-height: 1.4; color: var(--ink-2); text-wrap: pretty; }
+
+/* ── details (the More card, about 1728 × 640): words on the left, the screen at the card's full height ── */
+.ds-shot { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 56px; align-items: center; }
+.ds-shot__fig { --fig-h: 636px; margin: 0; }
+.ds-shot__fig > img { height: var(--fig-h); width: auto; max-width: none; border-radius: 16px;
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 8%, transparent),
+    0 22px 44px -14px color-mix(in oklab, var(--color-sidebar-bg) 20%, transparent); }
+.ds-shot__words { display: grid; gap: 28px; align-content: center; justify-items: start; }
+.ds-shot__lead { margin: 0; font: var(--w-head) 34px / 1.22 var(--font-display); letter-spacing: -0.015em; color: var(--color-sidebar-bg); text-wrap: pretty; }
+.ds-shot__chips { display: flex; flex-wrap: wrap; gap: 12px; margin: 0; }
+.ds-shot__chips .hc-chip { font-size: 24px; min-height: 56px; padding: 12px 22px; }
+.ds-shot__chips .hc-chip__i { width: 26px; height: 26px; }
+.ds-shot .hc-chip .ds-mk { width: 26px; height: 26px; }
+.ds-shot__marks { display: flex; gap: 12px; margin: 0; }
+.ds-shot__marks .ds-mk { width: 44px; height: 44px; }
+.ds-shot__q { margin: 0; }
+.ds-shot__q .hc-chip { font-size: 28px; padding: 18px 26px; border-radius: 20px; }
+.ds-shot__q .hc-chip__i { width: 30px; height: 30px; }
+/* three strategies: one row per channel, its mark, its goal and who it is for */
+.ds-shot__rails { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.ds-shot__rails li { display: flex; align-items: center; gap: 22px; padding: 26px 0; border-top: 1px solid var(--line); }
+.ds-shot__rails li:first-child { border-top: 0; }
+.ds-shot__rails .ds-mk { width: 56px; height: 56px; }
+.ds-shot__rails span { display: grid; gap: 4px; font-size: 24px; line-height: 1.35; color: var(--ink-2); }
+.ds-shot__rails b { font: var(--w-head) 30px / 1.2 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
+/* a channel's name over its points */
+.ds-shot__ch { display: inline-flex; align-items: center; gap: 14px; margin: 0; font: var(--w-head) 30px / 1.2 var(--font-display); color: var(--ink); }
+.ds-shot__ch .ds-mk { width: 44px; height: 44px; }
+.ds-shot__pts { display: grid; gap: 22px; margin: 0; padding: 0; list-style: none; }
+.ds-shot__pts li { display: flex; align-items: center; gap: 18px; font-size: 25px; line-height: 1.38; color: var(--ink); text-wrap: pretty; }
+.ds-shot__i { display: grid; place-items: center; flex: none; width: 60px; height: 60px; border-radius: 18px; background: var(--color-primary-100); color: var(--color-primary-600); }
+.ds-shot__i svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* a quieter line under a detail's chips */
+.ds-shot__note { margin: 0; font-size: 24px; line-height: 1.4; color: var(--ink-2); text-wrap: pretty; }
+/* the orange chip: Rewrite with AI is the host asking (the ai-refine tokens; lavender stays for what the AI suggests) */
+.hc-chip.ds-chip--rw { color: var(--color-ai-refine-text); --tint-line: var(--color-ai-refine-accent); }
+
+/* what the design reviews took out (ds-solution › The map, and what I cut, DECISIONS §17): a row of cards, each name
+   struck through by a raspberry line that draws itself (data-a="rule"). Nothing is dimmed: the line says it. */
+.ds-cuts { display: grid; gap: 40px; align-content: center; }
+.ds-cuts__lead { margin: 0; font: var(--w-head) 34px / 1.22 var(--font-display); letter-spacing: -0.015em; color: var(--color-sidebar-bg); text-wrap: pretty; }
+.ds-cuts__row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; margin: 0; padding: 0; list-style: none; }
+.ds-cut { display: grid; grid-template-rows: auto auto 1fr auto; gap: 16px; padding: 28px 26px 26px; border-radius: 28px; background: var(--bg);
+  box-shadow: 0 0 0 1px var(--line), 0 22px 44px -26px color-mix(in oklab, var(--color-sidebar-bg) 22%, transparent); }
+.ds-cut__i { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 16px; background: var(--color-gray-100); color: var(--ink-2); }
+.ds-cut__i svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ds-cut__t { margin: 0; font: var(--w-head) 30px / 1.2 var(--font-display); letter-spacing: -0.012em; color: var(--ink); white-space: nowrap; }
+.ds-cut__t > span { position: relative; display: inline-block; }
+.ds-cut__x { position: absolute; left: -4px; right: -4px; top: 52%; height: 3px; border-radius: 2px; background: var(--accent); }
+.ds-cut__why { margin: 0; font-size: 22px; line-height: 1.4; color: var(--ink-2); text-wrap: pretty; }
+.ds-cut__now { display: flex; align-items: flex-start; gap: 10px; margin: 0; padding-top: 16px; border-top: 1px solid var(--line); font: var(--w-medium) 20px / 1.35 var(--font-ui); color: var(--ink); }
+.ds-cut__now svg { flex: none; width: 22px; height: 22px; margin-top: 1px; fill: none; stroke: var(--color-success-600); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.ds-chv__bar { position: static; margin: 0; padding: 12px 14px; border: 1px solid var(--color-border-secondary); border-radius: var(--radius-lg); animation: none; width: 100%; flex-wrap: wrap; gap: 10px; }
+.ds-chv__bar .h-unsaved-bar__text { font-size: 15px; }
+.ds-chv__bar .h-btn { padding-inline: 12px; }
+
+/* ds-system (4 Oct): the tip card fills its tall tile */
+.ds-inv__t--tall .ds-inv__ui { place-items: stretch; }
+.ds-inv__t--tall .ds-inv__ui > .h-root { width: 100%; }

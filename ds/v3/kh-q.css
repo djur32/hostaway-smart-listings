@@ -1,0 +1,189 @@
+/* Knowledge Hub, reframed (plan/notion-v2/deck-review/KH-REFRAME.md, 4 Oct) · prototype/src/ds/kh-q.tsx.
+ * The Hub's own job: the questions guests ask (Questions), what they tell us (Insights), the facts it reads from the
+ * Listing base by reference (Facts) and where it reads them (Sources). Built on the Hub page frame (KhrFrame, kh-r.css),
+ * the Sources table (`.h-khr2-table`), the Hub's topic accordion (`.h-khr-topic`), the tip container (components.css
+ * `.h-tip`) and the Performance cards and charts (perf.css, sl.css). Tokens only. */
+
+/* ── a page's own actions at the right end of the tab row (Test · Tips); on phones they move next to the title ── */
+.h-kq-tabactions { flex: none; display: inline-flex; align-items: center; gap: 8px; margin-top: 2px; margin-left: auto; }
+.h-kq-tabrow--plain { min-height: 46px; }
+.h-kq-mactions { display: none; }
+
+/* ── a question in a list (KqQuestionRow): the Sources row's shape, a whole-row link ── */
+.h-kq-qrow { display: grid; grid-template-columns: 18px minmax(0, 1fr) auto 18px; gap: 12px; align-items: center; padding: var(--space-3) var(--space-4) var(--space-3) var(--space-5); border-bottom: 1px solid var(--color-border-divider); cursor: pointer; transition: background var(--dur-1) var(--ease-standard); }
+.h-kq-qrow:last-child { border-bottom: 0; }
+.h-kq-qrow:hover, .h-kq-qrow.is-active { background: var(--color-bg-subtle); }
+.h-kq-qrow:focus-visible { outline: none; box-shadow: var(--shadow-focus-neutral); border-radius: var(--radius-sm); }
+.h-kq-qrow__icon { display: inline-flex; }
+.h-kq-qrow__icon .h-khc-state { margin-top: 0; }
+.h-kq-qrow__text { display: flex; flex-direction: column; min-width: 0; }
+.h-kq-qrow__q { font-size: var(--text-md); line-height: var(--leading-md); font-weight: var(--font-weight-medium); color: var(--color-text-strong); }
+.h-kq-qrow__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
+.h-kq-qrow__badge { display: inline-flex; align-items: center; }
+.h-kq-qrow__badge .h-pill { height: 20px; font-size: var(--text-xs); }
+.h-kq-qrow__end { display: inline-flex; align-items: center; min-width: 0; }
+.h-kq-qrow__chev { color: var(--color-text-secondary); }
+.h-kq-counts { font-variant-numeric: tabular-nums; }
+
+/* ── the topic accordion holding the rows: no box around the topic, a bordered table inside it ── */
+.h-kq-topics { display: flex; flex-direction: column; border-top: 1px solid var(--color-border-card); }
+.h-kq-topics .h-khr-topic__body { gap: 0; padding-bottom: var(--space-6); }
+.h-kq-topics .h-khr-topic.is-hl .h-khr-topic__label { color: var(--color-text-brand-primary); }
+.h-kq-empty { margin: var(--space-6) 0; font-size: var(--text-md); color: var(--color-text-muted); }
+
+/* ── a fact by reference (KqFactRef) ── */
+.h-kq-ref { display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 12px; align-items: start; padding: var(--space-3) var(--space-5); border-bottom: 1px solid var(--color-border-divider); }
+.h-kq-ref:last-child { border-bottom: 0; }
+.h-kq-ref__icon { margin-top: 4px; color: var(--color-text-secondary); }
+.h-kq-ref__main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.h-kq-ref__label { font-size: var(--text-md); line-height: var(--leading-md); font-weight: var(--font-weight-medium); color: var(--color-text-strong); }
+.h-kq-ref__value { font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-strong); white-space: pre-line; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.h-kq-ref__place { font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
+.h-kq-ref__link { color: var(--color-link-action); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; font-weight: var(--font-weight-medium); }
+.h-kq-ref__link:hover { color: var(--color-link-action-hover); text-decoration-thickness: 2px; }
+.h-kq-ref__link:focus-visible { outline: none; border-radius: var(--radius-xs); box-shadow: var(--color-focus-ring); }
+.h-kq-ref__meta { color: var(--color-text-muted); }
+
+/* ── a guest message (KqConversation) ── */
+.h-kq-convo { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 12px; align-items: start; padding: var(--space-3) var(--space-5); border-bottom: 1px solid var(--color-border-divider); }
+.h-kq-convo:last-child { border-bottom: 0; }
+.h-kq-convo__avatar { width: 32px; height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: var(--color-gray-100); color: var(--color-text-secondary); font-size: var(--text-sm); font-weight: var(--font-weight-medium); }
+.h-kq-convo__main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.h-kq-convo__who { font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
+.h-kq-convo__who b { font-weight: var(--font-weight-medium); color: var(--color-text-strong); }
+.h-kq-convo__text { font-size: var(--text-md); line-height: var(--leading-md); color: var(--color-text-strong); }
+.h-kq-convo__reply { font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
+
+/* ── the faithful-answer note (KqHold): the warning tone of `.h-khr-gapnote` ── */
+.h-kq-hold { display: flex; align-items: flex-start; gap: 8px; padding: 10px 12px; border-radius: var(--radius-md); background: var(--color-warning-50); color: var(--color-warning-700); font-size: var(--text-sm); line-height: var(--leading-sm); }
+.h-kq-hold > .h-icon { flex: none; margin-top: 2px; }
+.h-kq-hold__text { flex: 1 1 auto; min-width: 0; }
+.h-kq-hold__action { flex: none; align-self: center; }
+
+/* ── the receipt a tip leaves (KqReceipt) ── */
+.h-kq-receipt { display: flex; align-items: flex-start; gap: 8px; margin: var(--space-3) 0 0; font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-success-700); }
+.h-kq-receipt > .h-icon { flex: none; margin-top: 2px; }
+.h-kq-receipt > span { flex: 1 1 auto; min-width: 0; }
+.h-kq-receipt > .h-textlink { flex: none; }
+
+/* ── the answer card on a question page ── */
+.h-kq-card { border: 1px solid var(--color-border-card); border-radius: var(--radius-lg); background: var(--color-surface-primary); }
+.h-kq-card__body { padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-4); }
+.h-kq-card__label { margin: 0; font-size: var(--text-sm); font-weight: var(--font-weight-medium); color: var(--color-text-muted); }
+.h-kq-card__refs { border-top: 1px solid var(--color-border-divider); }
+.h-kq-card__refs > .h-kq-card__label { padding: var(--space-4) var(--space-5) 0; }
+.h-kq-answer { padding: var(--space-4); border-radius: var(--radius-md); background: var(--color-bg-subtle); }
+.h-kq-qhead { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 2px 0 0; font-size: var(--text-md); color: var(--color-text-secondary); }
+
+/* ── insights ── */
+.h-kq-insight { display: grid; grid-template-columns: 18px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: var(--space-3) var(--space-4) var(--space-3) var(--space-5); border-bottom: 1px solid var(--color-border-divider); }
+.h-kq-insight:last-child { border-bottom: 0; }
+.h-kq-insight__icon { color: var(--color-text-secondary); }
+.h-kq-insight__main { display: flex; flex-direction: column; min-width: 0; }
+.h-kq-insight__title { font-size: var(--text-md); line-height: var(--leading-md); color: var(--color-text-strong); }
+.h-kq-insight__line { font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
+.h-kq-insight__action { display: inline-flex; align-items: center; gap: 12px; }
+.h-kq-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5); }
+/* the topics bar list: a topic name is longer than a strategy version's label */
+.h-kq-bars .slc-multi__row { grid-template-columns: minmax(120px, 210px) minmax(0, 1fr) 40px; font-size: var(--text-sm); }
+.h-kq-bars .slc-multi__track, .h-kq-bars .slc-multi__bar { height: 14px; }
+
+/* ── the tip's destination choice (KqWhere) ── */
+.h-kq-where { margin: 0; padding: 0; border: 0; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.h-kq-where__legend { padding: 0; margin: 0 0 6px; font-size: var(--text-sm); font-weight: var(--font-weight-medium); color: var(--color-text-strong); }
+.h-kq-where__opt { align-items: flex-start; }
+.h-kq-where__opt .h-tile__box { margin-top: 3px; }
+.h-kq-where__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.h-kq-where__text b { font-weight: var(--font-weight-medium); color: var(--color-text-strong); }
+.h-tip__alt .h-kq-where__text small { margin-left: 0; font-size: var(--text-sm); line-height: var(--leading-sm); }
+
+/* ── Test (the faithful "Ask the AI" preview) ── */
+.h-kq-test { display: flex; flex-direction: column; gap: var(--space-4); }
+.h-kq-test__examples { display: flex; flex-direction: column; border: 1px solid var(--color-border-card); border-radius: var(--radius-lg); overflow: hidden; }
+.h-kq-test__example { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px var(--space-4); border: 0; border-bottom: 1px solid var(--color-border-divider); background: var(--color-surface-primary); font: inherit; font-size: var(--text-md); line-height: var(--leading-md); text-align: left; color: var(--color-text-strong); cursor: pointer; }
+.h-kq-test__example:last-child { border-bottom: 0; }
+.h-kq-test__example:hover { background: var(--color-bg-subtle); }
+.h-kq-test__example:focus-visible { outline: none; box-shadow: inset var(--shadow-focus-neutral); }
+.h-kq-test__example .h-icon { color: var(--color-text-secondary); flex: none; }
+.h-kq-test__refs { border: 1px solid var(--color-border-card); border-radius: var(--radius-lg); }
+
+/* ── Listing details: the field a Knowledge Hub reference opened (#field-<key>) is marked for a moment ── */
+.h-field-row.is-referenced { animation: h-kq-ref-flash 2.4s var(--ease-standard); border-radius: var(--radius-md); }
+@keyframes h-kq-ref-flash { 0%, 60% { box-shadow: 0 0 0 4px var(--color-ai-surface); background: var(--color-ai-surface); } 100% { box-shadow: 0 0 0 4px transparent; background: transparent; } }
+@media (prefers-reduced-motion: reduce) { .h-field-row.is-referenced { animation: none; box-shadow: 0 0 0 4px var(--color-ai-surface); } }
+
+/* ═══ phones (≤ 767px) ═══ */
+@media (max-width: 767px) {
+  .h-kq-tabactions { display: none; }
+  .h-kq-mactions { display: inline-flex; gap: 8px; margin-left: auto; }
+  .h-kq-qrow { grid-template-columns: 18px minmax(0, 1fr) auto; padding: var(--space-4) var(--space-4); gap: 10px; align-items: start; }
+  .h-kq-qrow__icon { margin-top: 3px; }
+  .h-kq-qrow__chev { display: none; }
+  .h-kq-ref, .h-kq-convo { padding: var(--space-4); }
+  .h-kq-insight { grid-template-columns: 18px minmax(0, 1fr); padding: var(--space-4); align-items: start; }
+  .h-kq-insight__icon { margin-top: 3px; }
+  .h-kq-insight__action { grid-column: 2; }
+  .h-kq-grid { grid-template-columns: minmax(0, 1fr); }
+  .h-kq-bars .slc-multi__row { grid-template-columns: minmax(96px, 40%) minmax(0, 1fr) 32px; }
+  .h-kq-card__body { padding: var(--space-4); }
+  .h-kq-hold { flex-wrap: wrap; }
+  .h-kq-hold__action { flex-basis: 100%; padding-left: 24px; }
+}
+
+/* ── small pieces ── */
+.h-kq-headactions { margin: 0 12px 0 0; }
+.ch-tips-m.h-kq-mactions { gap: 8px; }
+.h-kq-tipq { margin: 0 0 var(--space-3); font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
+.h-kq-stack { display: flex; flex-direction: column; gap: var(--space-5); }
+.h-kq-gap { margin-top: var(--space-5); }
+.h-kq-card__none { margin: var(--space-2) var(--space-5) var(--space-4); }
+.h-kq-more { margin: var(--space-3) 0 0; }
+/* the picked destination fills its radio, as a picked tile does (`.h-tile.is-on`) */
+.h-kq-where__opt.is-picked .h-tile__box--radio { border-color: var(--color-control-radio); background: var(--color-surface-primary); border-width: 6px; }
+/* the Performance chart's colours (perf.css scopes them to Smart Listings' `.sl-page`): the same ones in the Hub */
+.h-khr2 { --perf-a: var(--color-primary-500); --perf-before: var(--color-gray-300); --perf-before-line: var(--color-gray-400); }
+
+/* Facts: one card per topic, with its facts listed inside (Antonio, 4 Oct: not in a dropdown) */
+.h-kq-topiccard { border: 1px solid var(--color-border-card); border-radius: var(--radius-lg); background: var(--color-surface-primary); padding: var(--space-5); margin-bottom: var(--space-4); }
+.h-kq-topiccard__head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3); margin-bottom: var(--space-2); }
+.h-kq-topiccard__title { margin: 0; font-size: var(--text-lg); line-height: var(--leading-lg); font-weight: var(--font-weight-medium); color: var(--color-text-strong); }
+.h-kq-topiccard__count { font-size: var(--text-sm); color: var(--color-text-muted); }
+.h-kq-topiccard.is-hl { box-shadow: var(--shadow-focus-neutral); }
+/* the Listing base source row is one link: clickable as a whole, no "Open" text (Antonio, 4 Oct) */
+.h-khr2-src-link { display: block; color: inherit; text-decoration: none; }
+.h-khr2-src-link:hover .h-khr2-src-row { background: var(--color-bg-subtle); }
+.h-khr2-src-link:focus-visible { outline: none; box-shadow: var(--shadow-focus-neutral); border-radius: var(--radius-sm); }
+
+/* Sources: the Listing base row is wrapped in a link, so it takes the table's row padding and divider itself (Antonio,
+ * 4 Oct: the icons and text line up with the other rows) */
+.h-khr2-table > .h-khr2-src-link { border-bottom: 1px solid var(--color-border-divider); border-top-left-radius: var(--radius-lg); border-top-right-radius: var(--radius-lg); }
+.h-khr2-table > .h-khr2-src-link > .h-khr2-src-row { padding-left: var(--space-5); padding-right: var(--space-4); border-bottom: 0; border-radius: inherit; }
+@media (max-width: 767px) { .h-khr2-table > .h-khr2-src-link > .h-khr2-src-row { padding-left: var(--space-4); padding-right: var(--space-1); } }
+/* a topic's questions: one bordered table; the last row drops its divider */
+.h-kq-qtable > .h-kq-qrow:last-child { border-bottom: 0; }
+
+/* topic cards (Antonio, 4 Oct): icon · name over its count and a small chip */
+.h-khr-ov2-topiccard__head { display: flex; align-items: flex-start; gap: var(--space-3); color: var(--color-text-muted); }
+.h-khr-ov2-topiccard__head > .h-icon, .h-khr-ov2-topiccard__head > svg { flex: none; margin-top: 2px; }
+.h-khr-ov2-topiccard__name { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1 1 auto; }
+.h-khr-ov2-topiccard__name > .h-khr-tplcard__title { margin: 0; }
+.h-khr-ov2-topiccard__sub { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+.h-khr-ov2-topiccard__sub > .h-pill { white-space: nowrap; }
+/* the Hub's actions (Test · Tips · Add) on one line, at the right of the description or the count heading */
+.h-kq-actions { display: flex; align-items: center; gap: var(--space-2); margin-left: auto; flex: none; }
+/* a topic's questions under the tab row get the same breathing room as every other page's first block */
+.h-kq-qtable, .h-kq-topicbody { margin-top: var(--space-6); }
+
+/* Phones: a topic card reads name (16 semibold) · count and chip (14 muted) · description (14), the description lined up
+ * under the name rather than under the icon (Antonio, 4 Oct: bad layout and hierarchy) */
+@media (max-width: 767px) {
+  .h-khr-ov2-topiccard { gap: var(--space-3); padding: var(--space-4); }
+  .h-khr-ov2-topiccard__head { gap: var(--space-3); align-items: flex-start; }
+  .h-khr-ov2-topiccard__head > .h-icon, .h-khr-ov2-topiccard__head > svg { width: 20px; height: 20px; margin-top: 2px; color: var(--color-text-secondary); }
+  .h-khr-ov2-topiccard .h-khr-tplcard__title { font-size: var(--m-lead-size); line-height: var(--m-lead-leading); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); }
+  .h-khr-ov2-topiccard__name { gap: var(--space-1); }
+  .h-khr-ov2-topiccard__count { font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
+  .h-khr-ov2-topiccard__sub { gap: var(--space-2); }
+  .h-khr-ov2-topiccard__sub > .h-pill { height: 22px; padding: 0 8px; font-size: var(--text-xs); line-height: var(--leading-xs); }
+  .h-khr-ov2-topiccard .h-khr-tplcard__desc { margin: 0; padding-left: 32px; font-size: var(--text-md); line-height: var(--leading-md); color: var(--color-text-secondary); }
+}

@@ -1,0 +1,20 @@
+/* Phones: every desktop side drawer / panel opens as a bottom sheet (ds/mobile.md §7). Phone rules only (≤ 767px);
+ * web and tablet are untouched. Tokens only. */
+@media (max-width: 767px) {
+  /* ---- Manage photos (PhotosShells.tsx PhotosSheet): a full-screen sheet that stops at the shell dock ---- */
+  /* the dock (Discard / Save, Cancel / Save order, the selection bar) rises above the sheet; the sheet ends at its top
+     edge (--photos-dock-h, set by PhotosSheet); the tab bar and chat bubble step aside meanwhile */
+  .h-m-sheet--photos { bottom: var(--photos-dock-h, 0px); padding-bottom: 0; }
+  .h-m-sheet--photos .h-m-sheet__body { padding-bottom: var(--space-10); }
+  body:has(.h-m-sheet--photos) .h-m-dock { z-index: calc(var(--z-modal) + 5); }
+  body:has(.h-m-sheet--photos) .h-m-dock :is(.h-m-tabbar, .h-chat-fab) { display: none; }
+  /* sheets opened from inside (Edit photo, Add photos, the unsaved confirm) sit above the lifted dock and replace the
+     Manage photos sheet while open: never a sheet on a sheet */
+  body:has(.h-m-sheet--photos) > .h-m-layer:not(:has(.h-m-sheet--photos)) { z-index: calc(var(--z-modal) + 10); }
+  .h-m-layer:has(.h-m-sheet--photos):has(~ .h-m-layer) { visibility: hidden; }
+  /* the page head's chip row, as in the desktop takeover (ds/v3/ch.css .h-photos-takeover) */
+  .h-m-sheet--photos .h-photos-page__title { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: var(--space-1); }
+  .h-m-sheet--photos .h-photos-page__bar { min-height: 32px; }
+  .h-m-sheet--photos .h-photos-page__bar--tight { margin: var(--space-4) 0; min-height: 0; }
+  .h-m-sheet--photos .h-photos-page__head + .h-photos-grid { margin-top: var(--space-6); }
+}

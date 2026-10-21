@@ -1,0 +1,275 @@
+/* Full-screen wizard (Hospitable "Add property" replica) · WS-SL, 3 Oct.
+ * Source: research/current-state/antonio-2026-10-03-add-property/01–06 (REAL·PRODUCT). Antonio: "reuse the same kind of
+ * style … style the selectors the same way". Used by Smart Listings › Strategy's create / edit / replace wizard
+ * (prototype/src/screens/smart/StrategyWizard.tsx); React parts in prototype/src/ds/wizard.tsx. Tokens only.
+ *
+ * Anatomy (refs 01–06): a full-viewport takeover — top bar (bordered square back · centred title · bordered square ×,
+ * 1px divider), a brand progress line under it, one centred content column, a footer bar with Back (secondary) left and
+ * Continue (primary) right, both aligned to the column, both the same width. No live preview card (Antonio, 3 Oct: "I
+ * don't want to see the preview"). Sized to fit one view at 1440×900: H2-size question, compact cards, grids where
+ * options are many (Antonio, 3 Oct: "way too big … fit everything in one screen, without having to scroll"). */
+
+.h-wz {
+  position: fixed; inset: 0; z-index: calc(var(--z-toast) + 10);
+  display: flex; flex-direction: column;
+  background: var(--color-surface-primary); color: var(--color-text-strong);
+  animation: h-wz-in var(--dur-drawer) var(--ease-drawer) both;
+}
+@keyframes h-wz-in { from { opacity: 0; transform: scale(.98); } }
+
+/* top bar: back · title · close (refs 01–06) */
+.h-wz__bar {
+  flex: none; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--space-4);
+  padding: var(--space-3) var(--space-5);
+}
+.h-wz__title { margin: 0; text-align: center; font-size: var(--text-lg); line-height: var(--leading-lg); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* back ‹ wears the × 's box (h-close h-close--lg, components.css): the real top bar's two squares match (refs 01–06) */
+.h-wz__iconbtn {
+  width: 40px; height: 40px; display: inline-grid; place-items: center; padding: 0;
+  border: 1px solid var(--color-close-border); border-radius: var(--radius-sm); background: var(--color-close-bg);
+  color: var(--color-close-icon); cursor: pointer; box-shadow: var(--elevation-button);
+  transition: background var(--dur-1) var(--ease-standard), border-color var(--dur-1) var(--ease-standard);
+}
+.h-wz__iconbtn > svg.h-icon { width: 24px; height: 24px; }
+.h-wz__iconbtn:hover { background: var(--color-close-hover-bg); border-color: var(--color-close-hover-border); }
+.h-wz__iconbtn:focus-visible { outline: none; box-shadow: var(--elevation-button), var(--color-focus-ring); }
+.h-wz__iconbtn:disabled { visibility: hidden; }
+
+/* progress: a brand line on the bar's divider (refs: red line from the left edge) */
+.h-wz__progress { flex: none; position: relative; height: 4px; border-bottom: 1px solid var(--color-border-secondary); }
+.h-wz__progress > span { position: absolute; left: 0; top: 0; height: 4px; background: var(--color-primary-500); transition: width var(--dur-3) var(--ease-standard); }
+
+/* body: the scrolling area (only scrolls when the viewport is genuinely too small), one centred column */
+.h-wz__main { position: relative; flex: 1 1 auto; min-height: 0; display: flex; }
+.h-wz__body { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: var(--space-10) 0 var(--space-8); }
+.h-wz__col { width: min(800px, calc(100% - 2 * var(--space-4))); margin-inline: auto; }
+
+.h-wz__eyebrow { display: flex; align-items: center; gap: var(--space-2); margin: 0 0 var(--space-3); font-size: var(--text-sm); line-height: var(--leading-sm); font-weight: var(--font-weight-semibold); color: var(--color-text-muted); }
+.h-wz__eyebrow .h-mark { width: 18px; height: 18px; }
+.h-wz__h1 { margin: 0; display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-2xl); line-height: var(--leading-2xl); font-weight: var(--font-weight-semibold); letter-spacing: var(--tracking-heading); color: var(--color-text-strong); }
+.h-wz__h1 .h-icon { color: var(--color-ai-sparkle); }
+.h-wz__sub { margin: var(--space-1) 0 0; font-size: var(--text-md); line-height: var(--leading-md); color: var(--color-text-secondary); }
+.h-wz__content { margin-top: var(--space-6); display: flex; flex-direction: column; gap: var(--space-4); }
+.h-wz__error { margin: 0; display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-error); }
+
+/* footer: Back left, Continue right, aligned to the column (refs 01–06) */
+.h-wz__foot { flex: none; border-top: 1px solid var(--color-border-secondary); background: var(--color-surface-primary); padding: var(--space-3) 0; }
+/* Back and Continue: one fixed width, the DS large height (Antonio, 3 Oct: "the same size, the same width") */
+.h-wz__foot-btn { flex: none; width: 168px; white-space: nowrap; }
+.h-wz__foot .h-wz__col { display: flex; align-items: center; gap: var(--space-3); }
+.h-wz__foot-gap { flex: 1 1 auto; }
+.h-wz__foot-hint { font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
+
+/* ---------- choice card: radio (refs 05, 06) or checkbox variant ---------- */
+.h-wz-cards { display: flex; flex-direction: column; gap: var(--space-3); margin: 0; padding: 0; border: 0; min-width: 0; }
+.h-wz-cards--2, .h-wz-cards--3 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.h-wz-cards--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.h-wz-card {
+  display: flex; align-items: flex-start; gap: var(--space-3);
+  padding: var(--space-4) var(--space-5); border: 1px solid var(--color-border-secondary); border-radius: var(--radius-lg);
+  background: var(--color-surface-primary); cursor: pointer;
+  transition: border-color var(--dur-1) var(--ease-standard), background var(--dur-1) var(--ease-standard);
+}
+.h-wz-card:hover { border-color: var(--color-border-input); }
+.h-wz-card.is-on { border-color: var(--color-border-input); }
+.h-wz-card:has(input:focus-visible) { box-shadow: var(--color-focus-ring); }
+.h-wz-card--plain { align-items: center; padding-block: var(--space-4); }
+.h-wz-card.is-disabled { cursor: not-allowed; background: var(--color-bg-subtle); }
+.h-wz-card.is-disabled .h-wz-card__title, .h-wz-card.is-disabled .h-wz-card__desc { color: var(--color-text-faint); }
+.h-wz-card .h-radio, .h-wz-card .h-checkbox { flex: none; width: 20px; height: 20px; margin-top: 2px; }
+.h-wz-card--plain .h-radio, .h-wz-card--plain .h-checkbox { margin-top: 0; }
+.h-wz-card .h-radio::after { width: 10px; height: 10px; }
+.h-wz-card .h-checkbox::after { width: 10px; height: 6px; }
+.h-wz-card__main { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+.h-wz-card__title { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; font-size: var(--text-md); line-height: var(--leading-md); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); }
+.h-wz-card__title .h-mark { width: 20px; height: 20px; }
+.h-wz-card__desc { margin-top: var(--space-0-5); font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
+.h-wz-card__tag { margin-left: auto; }
+.h-wz-card__more { margin-top: var(--space-3); padding-top: var(--space-3); border-top: 1px solid var(--color-border-secondary); display: flex; flex-direction: column; gap: var(--space-3); cursor: default; }
+/* dense: slim checklist rows (guardrails' optional asks) */
+.h-wz-cards--dense { gap: var(--space-2); }
+.h-wz-cards--dense .h-wz-card { padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); }
+.h-wz-cards--dense .h-wz-card__title { font-weight: var(--font-weight-medium); }
+
+/* a slim always-on rule: lock · what · why */
+.h-wz-locked { margin: 0; display: flex; align-items: flex-start; gap: var(--space-2); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); background: var(--color-bg-subtle); font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
+.h-wz-locked > .h-icon { flex: none; margin-top: 2px; }
+.h-wz-locked strong { font-weight: var(--font-weight-medium); color: var(--color-text-strong); }
+
+/* ---------- config row: the selected option's settings, label above value, horizontal ---------- */
+.h-wz-config { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4) var(--space-5); border: 1px solid var(--color-border-secondary); border-radius: var(--radius-lg); background: var(--color-bg-subtle); }
+.h-wz-config__head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); flex-wrap: wrap; }
+.h-wz-config__title { margin: 0; display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-md); line-height: var(--leading-md); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); }
+.h-wz-config__line { margin: calc(-1 * var(--space-2)) 0 0; font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
+.h-wz-config__reset { background: none; border: 0; padding: 0; font: inherit; font-size: var(--text-sm); line-height: var(--leading-sm); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.h-wz-config__reset:focus-visible, .h-wz-config__value:focus-visible { outline: none; box-shadow: var(--color-focus-ring); border-radius: var(--radius-xs); }
+.h-wz-config__row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); }
+.h-wz-config__item { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-1); min-width: 0; padding: var(--space-3) var(--space-4); border: 1px solid var(--color-border-secondary); border-radius: var(--radius-md); background: var(--color-surface-primary); }
+.h-wz-config__item.is-changed { border-color: var(--color-border-input); }
+.h-wz-config__label { font-size: var(--text-xs); line-height: var(--leading-xs); font-weight: var(--font-weight-medium); color: var(--color-text-muted); }
+.h-wz-config__value { display: inline-flex; align-items: center; gap: var(--space-2); background: none; border: 0; padding: 0; font: inherit; font-size: var(--text-md); line-height: var(--leading-md); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); cursor: pointer; }
+.h-wz-config__value .h-icon { color: var(--color-text-faint); }
+.h-wz-config__value:hover .h-icon { color: var(--color-text-strong); }
+.h-wz-config__control { max-width: 100%; }
+.h-wz-config__control .h-lens { max-width: 100%; }
+.h-wz-config__hint { font-size: var(--text-xs); line-height: var(--leading-xs); color: var(--color-text-muted); }
+.h-wz-config__who { display: flex; flex-direction: column; gap: var(--space-1); }
+.h-wz-config__who .h-input { width: 100%; }
+
+/* an inline row inside a card's `more` slot (label left, control right) */
+.h-wz-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
+.h-wz-row__label { display: flex; flex-direction: column; font-size: var(--text-md); line-height: var(--leading-md); font-weight: var(--font-weight-medium); color: var(--color-text-strong); }
+.h-wz-row__label small { font-size: var(--text-sm); line-height: var(--leading-sm); font-weight: var(--font-weight-regular); color: var(--color-text-muted); }
+
+/* ---------- intro row (ref 01): icon · title · one line; the AI row is purple ---------- */
+.h-wz-intro { display: flex; flex-direction: column; gap: var(--space-3); }
+.h-wz-intro__row { display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4) var(--space-5); border: 1px solid var(--color-border-secondary); border-radius: var(--radius-lg); background: var(--color-surface-primary); }
+.h-wz-intro__row > .h-icon { flex: none; margin-top: 2px; color: var(--color-text-muted); }
+.h-wz-intro__title { margin: 0; font-size: var(--text-md); line-height: var(--leading-md); font-weight: var(--font-weight-semibold); font-weight: var(--font-weight-medium); color: var(--color-text-strong); }
+.h-wz-intro__line { margin: var(--space-0-5) 0 0; font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
+.h-wz-intro__row--ai { background: var(--color-ai-surface); border-color: var(--color-secondary-200); }
+.h-wz-intro__row--ai > .h-icon { color: var(--color-ai-accent); }
+.h-wz-intro__row--ai .h-wz-intro__line { color: var(--color-ai-text); }
+
+/* ---------- free text with "Use voice" (ref 02) ---------- */
+.h-wz-field { display: flex; flex-direction: column; gap: var(--space-3); }
+.h-wz-field__head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
+.h-wz-field__label { font-size: var(--text-md); line-height: var(--leading-md); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); }
+.h-wz-field__voice.is-listening { border-color: var(--color-primary-300); color: var(--color-primary-700); }
+.h-wz-field__voice.is-listening .h-icon { animation: h-wz-pulse 1s var(--ease-standard) infinite alternate; }
+@keyframes h-wz-pulse { to { opacity: .35; } }
+.h-wz-textarea {
+  width: 100%; min-height: 160px; resize: vertical; padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border-input); border-radius: var(--radius-sm); background: var(--color-surface-primary);
+  font: inherit; font-size: var(--text-md); line-height: var(--leading-md); color: var(--color-text-strong);
+}
+.h-wz-textarea:focus { outline: none; box-shadow: var(--color-focus-ring); }
+.h-wz-textarea::placeholder { color: var(--color-text-faint); }
+
+/* a pair of number fields with a dash between (price range) */
+.h-wz-range { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
+.h-wz-range__dash { color: var(--color-text-muted); }
+.h-wz-label { margin: 0 0 var(--space-2); font-size: var(--text-md); line-height: var(--leading-md); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); }
+.h-wz-group { display: flex; flex-direction: column; gap: var(--space-2); }
+.h-wz-group + .h-wz-group { margin-top: var(--space-2); }
+.h-wz-hint { margin: 0; font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
+
+/* ---------- review: one summary card per strategy ---------- */
+.h-wz-sum { border: 1px solid var(--color-border-secondary); border-radius: var(--radius-lg); background: var(--color-surface-primary); }
+.h-wz-sum__head { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; padding: var(--space-3) var(--space-5); border-bottom: 1px solid var(--color-border-secondary); font-size: var(--text-md); line-height: var(--leading-md); font-weight: var(--font-weight-semibold); }
+.h-wz-sum__head .h-mark { width: 20px; height: 20px; }
+.h-wz-sum__rows { margin: 0; padding: 0 var(--space-5); }
+.h-wz-sum__row { display: grid; grid-template-columns: 160px minmax(0, 1fr) auto; gap: var(--space-4); align-items: baseline; padding: var(--space-2) 0; }
+.h-wz-sum__row + .h-wz-sum__row { border-top: 1px solid var(--color-border-secondary); }
+.h-wz-sum__row dt { color: var(--color-text-muted); font-size: var(--text-sm); line-height: var(--leading-sm); }
+.h-wz-sum__edit { background: none; border: 0; padding: 0; font: inherit; font-size: var(--text-sm); line-height: var(--leading-sm); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.h-wz-sum__edit:focus-visible { outline: none; box-shadow: var(--color-focus-ring); border-radius: var(--radius-xs); }
+.h-wz-sum__row dd { margin: 0; color: var(--color-text-strong); font-size: var(--text-sm); line-height: var(--leading-sm); overflow-wrap: anywhere; }
+
+/* several strategies side by side: 2–3 columns, label above value, Edit on the label's line; the notes card spans */
+.h-wz-sums { display: flex; flex-direction: column; gap: var(--space-3); }
+.h-wz-sums--2, .h-wz-sums--3 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.h-wz-sums--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.h-wz-sums--2 > :last-child, .h-wz-sums--3 > :last-child { grid-column: 1 / -1; }
+.h-wz-sums--2 > .h-wz-sum:not(:last-child) .h-wz-sum__row, .h-wz-sums--3 > .h-wz-sum:not(:last-child) .h-wz-sum__row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "dt ed" "dd dd"; gap: 0 var(--space-3); }
+.h-wz-sums .h-wz-sum__row > dt { grid-area: dt; }
+.h-wz-sums .h-wz-sum__row > dd { grid-area: dd; }
+.h-wz-sums .h-wz-sum__row > :last-child { grid-area: ed; }
+.h-wz-sums--2 > :last-child .h-wz-sum__row, .h-wz-sums--3 > :last-child .h-wz-sum__row, .h-wz-sums:not(.h-wz-sums--2):not(.h-wz-sums--3) .h-wz-sum__row { grid-template-areas: "dt dd ed"; }
+
+/* ---------- generating modal (ref 03) ---------- */
+.h-wz-gen { position: fixed; inset: 0; z-index: calc(var(--z-toast) + 11); display: grid; place-items: center; background: var(--color-scrim); animation: h-wz-fade var(--dur-2) var(--ease-standard) both; }
+@keyframes h-wz-fade { from { opacity: 0; } }
+.h-wz-gen__modal { width: min(560px, calc(100% - 2 * var(--space-4))); padding: var(--space-8); border-radius: var(--radius-lg); background: var(--color-surface-primary); box-shadow: var(--shadow-overlay); }
+.h-wz-gen__box { margin: 0; padding: var(--space-6) var(--space-8); list-style: none; border: 1px solid var(--color-border-secondary); border-radius: var(--radius-2xl); display: flex; flex-direction: column; gap: var(--space-5); }
+.h-wz-gen__item { display: flex; align-items: center; gap: var(--space-4); font-size: var(--text-lg); line-height: var(--leading-lg); font-weight: var(--font-weight-medium); color: var(--color-text-strong); }
+.h-wz-gen__item.is-pending { color: var(--color-text-faint); }
+.h-wz-gen__icon { flex: none; width: 24px; height: 24px; display: inline-grid; place-items: center; }
+.h-wz-gen__item.is-done .h-wz-gen__icon { color: var(--color-success-600); }
+.h-wz-spin { width: 20px; height: 20px; border-radius: var(--radius-full); border: 2px solid transparent; border-right-color: var(--color-primary-300); animation: h-wz-spin .8s linear infinite; }
+.h-wz-gen__dot { width: 20px; height: 20px; border-radius: var(--radius-full); border: 2px solid var(--color-border-secondary); }
+@keyframes h-wz-spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .h-wz, .h-wz-gen { animation: none; }
+  .h-wz-spin { animation-duration: 2.4s; }
+  .h-wz-field__voice.is-listening .h-icon { animation: none; }
+}
+
+/* phones: full-width column, smaller type, the footer stays */
+@media (max-width: 767px) {
+  .h-wz__bar { padding: var(--space-2) var(--m-gutter); }
+  .h-wz__iconbtn { width: 40px; height: 40px; }
+  .h-wz__body { padding-top: var(--space-6); }
+  .h-wz__h1 { font-size: var(--text-2xl); line-height: var(--leading-2xl); }
+  .h-wz__sub { font-size: var(--text-md); line-height: var(--leading-md); }
+  .h-wz-card { padding: var(--space-4); }
+  .h-wz-cards--2, .h-wz-cards--3, .h-wz-config__row, .h-wz-sums--2, .h-wz-sums--3 { grid-template-columns: minmax(0, 1fr); }
+  .h-wz-sum__row { grid-template-columns: minmax(0, 1fr) auto; }
+  .h-wz-sum__row dt { grid-column: 1 / -1; }
+}
+
+/* phones, 2nd pass (mobile stress test, 3 Oct) */
+@media (max-width: 767px) {
+  /* bar: 44 tap targets; the title keeps the middle */
+  .h-wz { padding-top: var(--m-safe-top); }
+  .h-wz__bar { gap: var(--space-2); }
+  .h-wz__iconbtn { width: var(--m-tap); height: var(--m-tap); }
+  .h-wz__body { padding: var(--space-6) 0 var(--space-6); overscroll-behavior: contain; }
+  .h-wz__h1 { display: block; }
+  .h-wz__h1 .h-icon { display: inline-block; margin-left: var(--space-2); vertical-align: -3px; }
+  .h-wz__col { width: calc(100% - 2 * var(--m-gutter)); }
+  /* footer: Back | Continue split 50/50 (mobile.md action bar), above the home indicator; a blocking hint ("Describe
+     your guests") gets its own line above them instead of squeezing the buttons */
+  .h-wz__foot { padding: var(--space-3) 0 calc(var(--space-2) + var(--m-safe-bottom)); }
+  .h-wz__foot .h-wz__col { flex-wrap: wrap; row-gap: var(--space-2); column-gap: var(--space-2); }
+  .h-wz__foot-gap { display: none; }
+  .h-wz__foot-hint { order: -1; flex: 1 1 100%; text-align: center; }
+  .h-wz__foot-btn { width: auto; flex: 1 1 0; min-width: 0; height: var(--m-button-height); font-size: var(--text-md); }
+  /* cards: a tag that doesn't fit beside the title wraps under it, left-aligned (not stranded on the right) */
+  .h-wz-card__tag { margin-left: 0; }
+  .h-wz-card__more { cursor: auto; }
+  /* "Some channels share one": label above a full-width two-way switch, the same on every row */
+  .h-wz-row { flex-direction: column; align-items: stretch; gap: var(--space-2); }
+  .h-wz-config__control { display: flex; width: 100%; }
+  .h-wz-row .h-lens, .h-wz-config__control .h-lens { display: flex; width: 100%; height: var(--m-tap); }
+  .h-wz-row .h-lens__seg, .h-wz-config__control .h-lens__seg { flex: 1 1 0; height: 36px; font-size: var(--text-md); }
+  /* the audience's set-up: settings rows — label, then the value as a full-width 44px row with the pencil at its end */
+  .h-wz-config { padding: var(--space-4); }
+  .h-wz-config__line, .h-wz-config__reset, .h-wz-config__label, .h-wz-config__hint { font-size: var(--text-sm); line-height: var(--leading-sm); }
+  .h-wz-config__reset { min-height: var(--m-tap); }
+  .h-wz-config__row { gap: var(--space-2); }
+  .h-wz-config__item { padding: var(--space-2) var(--space-4) var(--space-3); gap: 0; }
+  .h-wz-config__value { width: 100%; min-height: var(--m-tap); justify-content: space-between; }
+  .h-wz-config__control { margin: var(--space-1) 0; }
+  .h-wz-config__who .h-input { font-size: var(--text-md); }
+  /* guardrails: the two prices share the row */
+  .h-wz-range { flex-wrap: nowrap; gap: var(--space-2); }
+  .h-wz-range > :not(.h-wz-range__dash) { flex: 1 1 0; min-width: 0; }
+  .h-wz-hint, .h-wz__error { font-size: var(--text-sm); }
+  /* notes: label and Use voice wrap cleanly */
+  .h-wz-field__head { flex-wrap: wrap; gap: var(--space-2) var(--space-4); }
+  .h-wz-field__voice { min-height: var(--m-tap); }
+  .h-wz-textarea { min-height: 200px; }
+  /* review: Edit is a 44px target at the row's end */
+  .h-wz-sum__head { padding: var(--space-3) var(--space-4); }
+  .h-wz-sum__rows { padding: 0 var(--space-4); }
+  .h-wz-sum__row { align-items: center; padding: var(--space-2) 0; }
+  .h-wz-sum__row dd { font-size: var(--text-md); line-height: var(--leading-md); }
+  .h-wz-sum__edit { min-height: var(--m-tap); min-width: var(--m-tap); font-size: var(--text-md); }
+  /* every review card (Strategy's grid and the policy flow's single card): label + Edit on one line, the value under */
+  .h-wz .h-wz__col .h-wz-sum .h-wz-sum__row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "dt ed" "dd dd"; gap: 0 var(--space-3); }
+  .h-wz .h-wz-sum .h-wz-sum__row > dt { grid-area: dt; }
+  .h-wz .h-wz-sum .h-wz-sum__row > dd { grid-area: dd; padding-bottom: var(--space-1); }
+  .h-wz .h-wz-sum .h-wz-sum__row > :last-child { grid-area: ed; }
+  /* saving modal: fits the phone */
+  .h-wz-gen__modal { padding: var(--space-4); }
+  .h-wz-gen__box { padding: var(--space-5); gap: var(--space-4); }
+  .h-wz-gen__item { font-size: var(--text-md); line-height: var(--leading-md); }
+}
+
+/* a phone top toast (ds/mobile.md §7) raised over the takeover while one is open (policy flow's discount error) */
+body:has(.h-wz) .h-m-toast { z-index: calc(var(--z-toast) + 12); }
+/* …and so is a sheet opened from inside it: on phones OvDialog ("Discard this strategy?") is a BottomSheet portalled to
+   body at the layer's own z, which sat under the takeover — × looked dead (mobile stress test, 3 Oct) */
+body:has(.h-wz) .h-m-layer { z-index: calc(var(--z-toast) + 12); }

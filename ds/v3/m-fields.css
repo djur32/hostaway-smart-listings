@@ -1,0 +1,22 @@
+/* Phones: compound number fields (currency | amount | unit) read as ONE joined 48px control and never overflow (Antonio, 4 Oct).
+   React: NumberField (prototype/src/ds/v3-ch.tsx). Desktop is untouched. */
+@media (max-width: 767px) {
+  .h-input-group.h-numfield { width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; }
+  .h-numfield > .h-input { flex: 1 1 0; width: auto; min-width: 0; }
+  .h-numfield__spin { display: none; }                         /* no stepper on touch: it left a white gap before the unit */
+  .h-numfield > .h-input:has(+ .h-numfield__spin) { padding-right: 12px; }
+  .h-numfield > .h-affix { min-width: 0; max-width: 100%; box-sizing: border-box; }
+  .h-input-group.has-dd { overflow: hidden; }
+  /* the currency, prefix or dropdown, is the same grey block */
+  .h-input-group.has-dd > .h-affix--start.h-affix--dd { background: var(--color-bg-subtle); border-right: 1px solid var(--color-border-input); }
+  .h-input-group.has-dd > .h-affix--end.h-affix--dd { background: var(--color-surface-primary); border-left: 1px solid var(--color-border-input); min-width: 0; }
+  .h-numfield > .h-affix--dd .h-dropdown { height: 100%; min-width: 0; }
+  .h-numfield > .h-affix--dd .h-dropdown__trigger { height: 100%; min-height: 0; padding: 0 12px; justify-content: space-between; white-space: nowrap; font-size: var(--m-lead-size); }
+  /* unit on its own row when it will not fit */
+  .h-input-group.h-numfield--stack { flex-wrap: wrap; height: auto; min-height: 0; }
+  .h-numfield--stack > .h-input { height: var(--m-field-height); }
+  .h-numfield--stack > .h-affix--start { height: var(--m-field-height); }
+  .h-numfield--stack > .h-affix--end { flex: 1 1 100%; width: 100%; height: var(--m-field-height); border-left: 0; border-top: 1px solid var(--color-border-input); }
+  .h-input-group.has-dd.h-numfield--stack > .h-affix--end.h-affix--dd { border-left: 0; border-top: 1px solid var(--color-border-input); }
+  .h-numfield--stack > .h-affix--end .h-dropdown { width: 100%; }
+}

@@ -1,0 +1,140 @@
+/* Smart Listings › Performance (WS-SL, 3 Oct). React parts: prototype/src/ds/perf.tsx. Tokens only.
+ * Card styling from Hospitable's Metrics (research/current-state/antonio-2026-10-03-metrics/, REAL·PRODUCT): 08 equal-
+ * height bordered filter controls; 07 widget cards (meta row with settings buttons, divider, title 18/600, a one-line
+ * definition, the chart); 01/05/06 bars with rounded tops, grey axis labels and light gridlines.
+ * 3 Oct, later (Antonio): no comparison mode. Two series only, on one timeline: before the strategy started in neutral
+ * grey (dashed as a line), the period since in the brand colour, a marker where the strategy started. */
+.sl-page { --perf-a: var(--color-primary-500); --perf-before: var(--color-gray-300); --perf-before-line: var(--color-gray-400); }
+
+/* ---------- one line: the channel (.h-lens--lg) on the left, the labelled period flush right, one height (44px) ---------- */
+.sl-perf-bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-3); }
+.sl-perf-field { display: inline-flex; align-items: center; gap: var(--space-3); margin-left: auto; }
+.sl-perf-field__label { font-size: var(--text-sm); line-height: var(--leading-sm); font-weight: var(--font-weight-medium); color: var(--color-text-secondary); white-space: nowrap; }
+.sl-perf-field .h-dropdown { flex: 0 0 auto; width: auto; min-width: 220px; }
+.sl-perf-field .h-dropdown__trigger { height: var(--field-height); min-height: var(--field-height); }
+.sl-perf-field .h-dropdown__value { overflow: visible; text-overflow: clip; white-space: nowrap; }
+
+/* the two series' colour key: the tooltip and the legend */
+.sl-perf-swatch { display: inline-block; flex-shrink: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--perf-a); }
+.sl-perf-swatch.is-before { background: var(--perf-before-line); }
+
+/* ---------- condensed KPI cards: label · value · one quiet line, every card the same height ---------- */
+.sl-perf-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: var(--space-3); }
+.sl-perf-kpi { display: grid; grid-template-rows: auto auto 1fr; row-gap: var(--space-1); min-width: 0; padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border-secondary); border-radius: var(--radius-lg); background: var(--color-surface-primary); }
+.sl-perf-kpi > * { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sl-perf-kpi__label { font-size: var(--text-sm); line-height: var(--leading-sm); font-weight: var(--font-weight-medium); color: var(--color-text-secondary); }
+.sl-perf-kpi__value { font-size: var(--text-2xl); line-height: var(--leading-2xl); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); font-variant-numeric: tabular-nums; }
+.sl-perf-kpi__foot { align-self: end; font-size: var(--text-xs); line-height: var(--leading-xs); color: var(--color-text-muted); }
+.sl-perf-kpi.is-muted .sl-perf-kpi__value { color: var(--color-text-muted); }
+
+/* ---------- Metrics widget card (ref 07) ---------- */
+.sl-perf-card { display: flex; flex-direction: column; min-width: 0; border: 1px solid var(--color-border-secondary); border-radius: var(--radius-lg); background: var(--color-surface-primary); }
+.sl-perf-card__meta { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-1) var(--space-2); padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--color-border-divider); font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-secondary); }
+.sl-perf-card__meta { flex-wrap: nowrap; justify-content: space-between; padding-top: var(--space-3); padding-bottom: var(--space-3); min-height: 64px; }
+.sl-perf-card__metatext { display: inline-flex; align-items: center; flex-wrap: wrap; gap: var(--space-1) var(--space-2); min-width: 0; }
+.sl-perf-card__actions { display: inline-flex; align-items: center; gap: var(--space-2); flex-shrink: 0; }
+
+/* ---------- a card's settings: chart type and grouping ---------- */
+.sl-perf-settings { position: relative; display: inline-flex; }
+.sl-perf-settings__btn { border: 1px solid var(--color-border-secondary); }
+.sl-perf-settings__btn.is-open { background: var(--color-surface-tertiary); }
+.sl-perf-settings__pop { position: absolute; z-index: 20; right: 0; top: calc(100% + 4px); display: grid; grid-template-columns: auto auto; align-items: center; gap: var(--space-3);
+  padding: var(--space-4); border-radius: var(--radius-md); background: var(--color-surface-primary);
+  box-shadow: var(--elevation-dropdown), 0 0 0 1px var(--color-border-secondary-alt); white-space: nowrap; }
+.sl-perf-settings__label { font-size: var(--text-sm); line-height: var(--leading-sm); font-weight: var(--font-weight-medium); color: var(--color-text-secondary); }
+
+/* ---------- the charts: a grid of equal-height cards ---------- */
+.sl-perf-charts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: var(--space-4); }
+.sl-perf-card__body { flex: 1 1 auto; display: flex; flex-direction: column; gap: var(--space-5); padding: var(--space-5) var(--space-6) var(--space-6); min-width: 0; }
+.sl-perf-card__title { margin: 0; font-size: var(--text-lg); line-height: var(--leading-lg); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); }
+.sl-perf-card__def { margin: var(--space-1) 0 0; font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-secondary); }
+
+/* ---------- bars (refs 01, 05, 06) ---------- */
+.sl-perf-chart { margin: auto 0 0; display: flex; flex-direction: column; gap: var(--space-2); }
+/* the plot + x labels: one block (the figure's own 8px gap kept between them); phones scroll it sideways when long */
+.sl-perf-chart__scroll { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+.sl-perf-chart__frame { display: grid; grid-template-columns: 48px minmax(0, 1fr); column-gap: var(--space-3); height: 200px; }
+.sl-perf-chart__y { position: relative; }
+.sl-perf-chart__y > span { position: absolute; right: 0; transform: translateY(50%); font-size: var(--text-xs); line-height: var(--leading-xs); color: var(--color-chart-axis); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sl-perf-chart__plot { position: relative; border-bottom: 1px solid var(--color-border-secondary); }
+.sl-perf-chart__grid { position: absolute; left: 0; right: 0; height: 0; border-top: 1px solid var(--color-chart-grid); }
+.sl-perf-chart__groups { position: absolute; inset: 0; display: flex; align-items: stretch; }
+.sl-perf-chart__group { position: relative; flex: 1 1 0; min-width: 0; display: flex; align-items: flex-end; justify-content: center; gap: 3px; border-radius: var(--radius-sm); outline: none; }
+/* hovering doesn't recolour the column: the tooltip says it all (Antonio, 3 Oct); keyboard focus keeps a ring */
+.sl-perf-chart__group:focus-visible { box-shadow: var(--color-focus-ring); }
+/* zero is nothing at all, never a sliver */
+.sl-perf-chart__bar { display: block; flex: 0 0 auto; width: min(36px, 60%); border-radius: 4px 4px 0 0; background: var(--perf-a); }
+.sl-perf-chart__bar.is-before { background: var(--perf-before); }
+.sl-perf-chart__lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.sl-perf-chart__line { fill: none; stroke: var(--perf-a); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.sl-perf-chart__line.is-before { stroke: var(--perf-before-line); stroke-dasharray: 5 4; }
+.sl-perf-chart__dot { position: absolute; left: 50%; width: 8px; height: 8px; border-radius: 50%; background: var(--perf-a); border: 2px solid var(--color-surface-primary); box-sizing: content-box; transform: translate(-50%, 50%); }
+.sl-perf-chart__dot.is-before { background: var(--perf-before-line); }
+/* where the strategy started: a vertical rule on the boundary, its label at the top (left of the rule when there's room) */
+.sl-perf-chart__marker { position: absolute; top: 0; bottom: 0; z-index: 1; width: 0; border-left: 1px dashed var(--color-chart-marker); pointer-events: none; }
+.sl-perf-chart__marker.is-gap { border-left-style: solid; }
+.sl-perf-chart__markerlabel { position: absolute; top: 0; left: var(--space-1); padding: 0 var(--space-1); border-radius: var(--radius-xs); background: var(--color-surface-primary);
+  font-size: var(--text-xs); line-height: var(--leading-xs); font-weight: var(--font-weight-medium); color: var(--color-text-secondary); white-space: nowrap; }
+.sl-perf-chart__x { display: flex; margin-left: calc(48px + var(--space-3)); }
+.sl-perf-chart__x > span { flex: 1 1 0; min-width: 0; text-align: center; font-size: var(--text-xs); line-height: var(--leading-xs); color: var(--color-chart-axis); white-space: nowrap; overflow: visible; }
+/* the tooltip: the product's dark tooltip, inside the plot (never above the card, ref 00) */
+.sl-perf-chart__tip { position: absolute; top: var(--space-2); z-index: 2; pointer-events: none; display: flex; flex-direction: column; gap: 3px; max-width: 100%;
+  padding: 10px 12px; border-radius: var(--radius-sm); background: var(--color-bg-inverted); color: var(--color-text-white); box-shadow: var(--shadow-md);
+  font-size: var(--text-sm); line-height: var(--leading-sm); white-space: nowrap; }
+.sl-perf-chart__tip b { font-weight: var(--font-weight-semibold); }
+.sl-perf-chart__tiprow { display: flex; align-items: center; gap: var(--space-2); }
+.sl-perf-chart__tiprow em { margin-left: auto; padding-left: var(--space-4); font-style: normal; font-weight: var(--font-weight-semibold); font-variant-numeric: tabular-nums; }
+.sl-perf-legend { display: flex; justify-content: center; flex-wrap: wrap; gap: var(--space-2) var(--space-5); padding-top: var(--space-2); font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-secondary); }
+.sl-perf-legend > span { display: inline-flex; align-items: center; gap: var(--space-2); }
+
+/* the content column is ~870px at a 1440px window (rail + sub-nav) */
+@media (max-width: 1279px) {
+  .sl-perf-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sl-perf-charts { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 767px) {
+  .sl-perf-bar > .h-lens { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .sl-perf-bar { flex-direction: column; align-items: stretch; }
+  .sl-perf-field { margin-left: 0; }
+  .sl-perf-field .h-dropdown { flex: 1 1 auto; width: auto; min-width: 0; }
+  .sl-perf-field .h-dropdown__value { overflow: hidden; text-overflow: ellipsis; }
+  .sl-perf-kpis { gap: var(--space-2); }
+  .sl-perf-kpi { padding: var(--space-3); }
+  .sl-perf-kpi__foot { white-space: normal; } /* two lines rather than cut on a phone; rows stay equal (1fr) */
+  .sl-perf-kpi__value { font-size: var(--text-xl); line-height: var(--leading-xl); }
+  .sl-perf-card__meta { padding: var(--space-3) var(--space-4); }
+  .sl-perf-card__body { padding: var(--space-4); gap: var(--space-4); }
+  .sl-perf-chart__frame { grid-template-columns: 40px minmax(0, 1fr); height: 180px; }
+  .sl-perf-chart__x { margin-left: calc(40px + var(--space-3)); }
+}
+
+/* Phones, mobile pass (3 Oct): 44px targets on the channel lens and card settings; KPI footnotes 14px; a long timeline
+ * (By day: ~100 columns) keeps 8px columns and scrolls sideways inside its card with the y axis pinned (PerfChart opens it
+ * on the latest days); a late strategy start puts its marker label on the rule's left so it never leaves the card. */
+@media (max-width: 767px) {
+  /* the channel switcher fits the 343px column: three segments share the width, tighter side padding (no sideways cut) */
+  .sl-perf-bar > .h-lens { display: flex; width: 100%; height: auto; overflow: visible; }
+  .sl-perf-bar > .h-lens .h-lens__seg { min-height: 38px; flex: 1 1 auto; min-width: 0; padding: 0 var(--space-2); gap: 6px; }
+  .sl-perf-settings__btn { width: var(--m-tap); height: var(--m-tap); }
+  .sl-perf-settings__pop { gap: var(--space-4) var(--space-3); }
+  .sl-perf-settings__pop .h-lens { height: auto; }
+  .sl-perf-settings__pop .h-lens__seg { height: 36px; font-size: var(--text-md); }
+  .sl-perf-kpi__foot { font-size: var(--text-sm); line-height: var(--leading-sm); }
+  .sl-perf-card__def { font-size: var(--text-md); line-height: var(--leading-md); }
+  /* a scroller clips: the top tick ("100%") hangs half above the plot, so the scroller gets that room back on top */
+  .sl-perf-chart.is-dense .sl-perf-chart__scroll { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; margin-top: calc(-1 * var(--space-3)); padding: var(--space-3) 0 var(--space-2); }
+  .sl-perf-chart.is-dense .sl-perf-chart__scroll > .sl-perf-chart__frame, .sl-perf-chart.is-dense .sl-perf-chart__scroll > .sl-perf-chart__x { min-width: calc(var(--perf-n, 1) * 8px + 52px); }
+  .sl-perf-chart.is-dense .sl-perf-chart__y { position: sticky; left: 0; z-index: 3; background: var(--color-surface-primary); box-shadow: var(--space-3) 0 0 var(--color-surface-primary); }
+  .sl-perf-chart.is-late .sl-perf-chart__markerlabel { left: auto; right: var(--space-1); }
+  .sl-perf-legend { font-size: var(--text-md); line-height: var(--leading-md); }
+}
+
+/* the chat button (fixed, bottom-right) must never sit over the last chart card: room to scroll it clear (audit G-1) */
+.sl-page:has(> .sl-perf-bar) { padding-bottom: 112px; }
+
+/* phones: the scroller already ends with the chat button's clearance (--m-fab-clearance); no second 112px under the page */
+@media (max-width: 767px) {
+  .sl-page:has(> .sl-perf-bar) { padding-bottom: 0; }
+}

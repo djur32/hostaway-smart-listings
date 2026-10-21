@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npm install",
+  "buildCommand": "npm run build && npm run dist && rm -rf out && cp -RL dist out",
+  "outputDirectory": "out",
+  "redirects": [{ "source": "/", "destination": "/pages/hospitable.html", "permanent": false }]
+}

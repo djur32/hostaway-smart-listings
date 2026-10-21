@@ -1,0 +1,87 @@
+/* ============================================================================
+   RESPONSIVE · the deck is a fixed 1920 × 1080 stage scaled to the window, so a
+   slide keeps its composition at every size and nothing has to be re-laid out.
+   What this file handles is everything that does NOT scale with the stage: the
+   orientation gate, the touch controls, and the reading zoom a finger needs.
+
+   Landscape from tablet up; portrait asks for a turn (Antonio, 2026-09-28: "from
+   tablet onwards make it horizontal… if you put it in vertical then create an
+   overlay indicating you have to turn your phone"). Breakpoints are the site's:
+   1024, 900, 768, 560.
+   ========================================================================= */
+
+@layer responsive {
+
+/* the window's real height, toolbars and all, so mobile Safari cannot crop the stage */
+.viewport { height: 100dvh; }
+
+/* ── the orientation gate ─────────────────────────────────────────────── */
+.rotate {
+  position: fixed; inset: 0; z-index: 90; display: none;
+  place-content: center; justify-items: center; gap: 30px;
+  padding: 40px calc(32px + env(safe-area-inset-right)) 40px calc(32px + env(safe-area-inset-left));
+  text-align: center; background: var(--bg); color: var(--ink);
+}
+.rotate__mark { display: block; width: 62px; }
+.rotate__mark svg { display: block; width: 100%; height: auto; fill: var(--ink); }
+.rotate__ph {
+  width: 52px; height: 86px; border: 2px solid var(--ink-3); border-radius: 11px;
+  animation: rotate-turn 3s var(--ease-io) infinite;
+}
+.rotate__h { font-family: var(--font-display); font-weight: var(--w-head); font-size: 29px; line-height: 1.15; letter-spacing: -0.02em; }
+.rotate__p { max-width: 32ch; font-size: 17px; line-height: 1.45; color: var(--ink-2); text-wrap: pretty; }
+@keyframes rotate-turn {
+  0%, 26% { transform: rotate(0deg); }
+  50%, 88% { transform: rotate(-90deg); }
+  100% { transform: rotate(0deg); }
+}
+@media (prefers-reduced-motion: reduce) { .rotate__ph { animation: none; transform: rotate(-90deg); } }
+
+/* a portrait window small enough to be a phone or a tablet: ask for the turn */
+@media (orientation: portrait) and (max-width: 1024px) { .rotate { display: grid; } }
+
+/* ── touch: the controls a finger needs, outside the stage so they never scale ── */
+/* A column on the right edge, halfway down: light/dark, back, forward, and nothing else
+   (Antonio, 2026-09-29: "the controls must be on the right in vertical... the slide numbers
+   must be removed from the controls... remove the search and the zoom"). The edges carry the
+   chrome on a phone so the slide keeps the middle. */
+.tbar {
+  position: fixed; z-index: 70; display: none; flex-direction: column; gap: 12px; align-items: center;
+  right: calc(12px + env(safe-area-inset-right)); top: 50%; transform: translateY(-50%);
+  /* out of the way of the slide when nobody is driving, back on any touch */
+  opacity: 1; transition: opacity var(--dur-2) var(--ease-io);
+}
+.tbar.is-idle { opacity: .26; }
+.tbar__b {
+  width: 46px; height: 46px; display: grid; place-items: center; padding: 0;
+  border: var(--hair) solid var(--line); border-radius: 50%;
+  background: var(--surface); color: var(--ink); box-shadow: var(--shadow-1);
+  -webkit-tap-highlight-color: transparent;
+}
+.tbar__b svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.tbar__b[disabled] { opacity: .4; }
+.tbar__b.is-on { border-color: var(--accent); color: var(--accent-ink); }
+/* the sun and the moon share one button: whichever the tap would bring is the one drawn */
+.tbar__b [data-touch] { pointer-events: none; }
+.tbar__b .is-sun { display: none; }
+[data-scheme="dark"] .tbar__b .is-sun { display: block; }
+[data-scheme="dark"] .tbar__b .is-moon { display: none; }
+
+@media (pointer: coarse) {
+  .tbar { display: flex; }
+  /* the keyboard hints mean nothing to a finger, and the sections live in the menu */
+  .hints { display: none !important; }
+  /* One line of chrome, not two. The byline and the presenting line belonged to a room. */
+  .byline { display: none !important; }
+  /* the stage's own chrome is scaled with the stage, so it reads as a label, not a control */
+  .appbar { pointer-events: none; }
+  .appbar__brand, .stagetab { pointer-events: auto; }
+}
+
+/* ── the reading zoom ─────────────────────────────────────────────────── */
+/* .stage carries --z and --tx/--ty (kit/touch.js). At the default 1 / 0 / 0 the
+   transform is exactly what it always was, so nothing changes on a desktop. */
+.viewport.is-zoomed { touch-action: none; }
+.viewport.is-zoomed .stage { transition: none; }
+
+} /* @layer responsive */

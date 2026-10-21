@@ -1,0 +1,15 @@
+/* TT Norms Pro (TypeType): Hospitable's own family. Files from Antonio's licensed library (D-093,
+   supersedes the Figtree stand-in of D-021). Since 2026-09-30 the variable font (TT Norms Pro Variable 3.000,
+   axes wght 100–950, wdth 75–125, slnt 0–12), supplied by Antonio "to get the 600": every weight is real,
+   including DemiBold 600, which the old static set (400/500/700, kept below as a fallback) didn't have.
+   Imported by the gallery, fidelity frames, S08/S09 frames and the prototype (src/main.tsx);
+   the deck carries its own copies (deck/src/kit/fonts/). */
+@font-face { font-family: "TT Norms"; font-style: normal; font-weight: 100 950; font-stretch: 75% 125%; font-display: swap;
+  src: url("./TTNormsProVariable.woff2") format("woff2-variations"), url("./TTNormsProVariable.woff2") format("woff2"),
+       url("./TTNormsProVariable.woff") format("woff"); }
+/* Fallback static cuts, only for engines without variable-font support */
+@supports not (font-variation-settings: normal) {
+  @font-face { font-family: "TT Norms"; font-style: normal; font-weight: 400; font-display: swap; src: url("./TTNorms-400.woff") format("woff"); }
+  @font-face { font-family: "TT Norms"; font-style: normal; font-weight: 500; font-display: swap; src: url("./TTNorms-500.woff") format("woff"); }
+  @font-face { font-family: "TT Norms"; font-style: normal; font-weight: 600 700; font-display: swap; src: url("./TTNorms-700.woff") format("woff"); }
+}

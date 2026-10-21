@@ -1,0 +1,348 @@
+[
+ {
+  "name": "p-overview",
+  "path": "/property/neukolln/overview?smart=on"
+ },
+ {
+  "name": "p-base",
+  "path": "/property/neukolln/details/essentials?smart=on"
+ },
+ {
+  "name": "p-hub",
+  "path": "/property/neukolln/hub?smart=on"
+ },
+ {
+  "name": "p-airbnb",
+  "path": "/property/neukolln/ch/airbnb/listing/essentials?smart=on"
+ },
+ {
+  "name": "p-booking",
+  "path": "/property/neukolln/ch/booking/listing/essentials?smart=on"
+ },
+ {
+  "name": "p-strategy",
+  "path": "/property/neukolln/smart/strategy?smart=on"
+ },
+ {
+  "name": "p-performance",
+  "path": "/property/neukolln/smart/performance?smart=on"
+ },
+ {
+  "name": "p-wizard",
+  "path": "/property/neukolln/smart/wizard?smart=on"
+ },
+ {
+  "name": "p-canvas",
+  "path": "/property/neukolln/ch/airbnb/listing/essentials?smart=on",
+  "steps": [
+   {
+    "click": "Canvas",
+    "after": 1500
+   }
+  ]
+ },
+ {
+  "name": "sl-hero",
+  "path": "/property/neukolln/ch/airbnb/listing/essentials?smart=on&autopilot=0&tip=t-a-name",
+  "settle": 1500,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "sl-overview",
+  "path": "/property/neukolln/overview?smart=on",
+  "settle": 1200,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "imp-found",
+  "path": "/import/found?instant=1",
+  "settle": 1500,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "imp-needs-you",
+  "path": "/property/neukolln/overview/needs-you",
+  "settle": 1200,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "imp-golive",
+  "path": "/import/go-live?instant=1",
+  "settle": 1500,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "base-details",
+  "path": "/property/neukolln/details/essentials",
+  "settle": 1200,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "kh-content",
+  "path": "/property/neukolln/hub",
+  "settle": 1200,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "kh-arrival",
+  "path": "/property/neukolln/hub/arrival",
+  "settle": 1200,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "kh-drawer",
+  "path": "/property/neukolln/hub/arrival",
+  "settle": 1200,
+  "steps": [
+   {
+    "click": "Is there free parking?",
+    "after": 1000
+   }
+  ],
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "ch-booking",
+  "path": "/property/neukolln/ch/booking/listing/essentials?smart=on",
+  "settle": 1200,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "ch-airbnb-pricing",
+  "path": "/property/neukolln/ch/airbnb/pricing?smart=on",
+  "settle": 1200,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "wz-intro",
+  "path": "/property/neukolln/smart/wizard?smart=off&entry=first&from=overview",
+  "settle": 1200,
+  "steps": [],
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "wz-goal",
+  "path": "/property/neukolln/smart/wizard?smart=off&entry=first&from=overview",
+  "settle": 1200,
+  "steps": [
+   {
+    "click": "Continue",
+    "after": 700
+   },
+   {
+    "click": "Continue",
+    "after": 700
+   },
+   {
+    "click": "Continue",
+    "after": 700
+   }
+  ],
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "wz-guardrails",
+  "path": "/property/neukolln/smart/wizard?smart=off&entry=first&from=overview",
+  "settle": 1200,
+  "steps": [
+   {
+    "click": "Continue",
+    "after": 700
+   },
+   {
+    "click": "Continue",
+    "after": 700
+   },
+   {
+    "click": "Continue",
+    "after": 700
+   },
+   {
+    "click": "Continue",
+    "after": 700
+   },
+   {
+    "click": "Continue",
+    "after": 700
+   }
+  ],
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "wz-autopilot",
+  "path": "/property/neukolln/smart/wizard?smart=off&entry=first&from=overview",
+  "settle": 1200,
+  "steps": [
+   {
+    "click": "Continue",
+    "after": 700
+   },
+   {
+    "click": "Continue",
+    "after": 700
+   },
+   {
+    "click": "Continue",
+    "after": 700
+   },
+   {
+    "click": "Continue",
+    "after": 700
+   },
+   {
+    "click": "Continue",
+    "after": 700
+   },
+   {
+    "click": "Continue",
+    "after": 700
+   }
+  ],
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "tips-wifi",
+  "path": "/property/neukolln/ch/airbnb/listing/essentials?smart=on&tip=t-a-space",
+  "settle": 1500,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "tips-alts",
+  "path": "/property/neukolln/ch/airbnb/listing/essentials?smart=on&tip=t-a-name",
+  "settle": 1500,
+  "steps": [
+   {
+    "click": "Generate alternatives",
+    "after": 2500
+   }
+  ],
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "tips-pricing",
+  "path": "/property/neukolln/ch/airbnb/pricing?smart=on&tips=1",
+  "settle": 1500,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "cv-airbnb",
+  "path": "/property/neukolln/ch/airbnb/listing/essentials?smart=on&view=canvas&tips=1",
+  "settle": 2200,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "cv-booking",
+  "path": "/property/neukolln/ch/booking/listing/essentials?smart=on&view=canvas",
+  "settle": 2200,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "tip-accepted",
+  "path": "/property/neukolln/ch/airbnb/listing/essentials?smart=on&autopilot=0&tip=t-a-name",
+  "settle": 1500,
+  "steps": [
+   {
+    "click": "Accept",
+    "after": 1200
+   }
+  ],
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "perf-airbnb",
+  "path": "/property/neukolln/smart/performance?smart=on&ch=airbnb",
+  "settle": 1800,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "perf-booking",
+  "path": "/property/neukolln/smart/performance?smart=on&ch=booking",
+  "settle": 1800,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "ap-strategy",
+  "path": "/property/neukolln/smart/strategy/airbnb?smart=on",
+  "settle": 1500,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "app-tips",
+  "path": "/app/property/neukolln/ch/airbnb/listing/essentials?smart=on&tip=t-a-space",
+  "w": 1440,
+  "h": 900,
+  "settle": 3000
+ },
+ {
+  "name": "app-overview",
+  "path": "/app",
+  "w": 1440,
+  "h": 900,
+  "settle": 3000
+ },
+ {
+  "name": "app-perf",
+  "path": "/app/property/neukolln/smart/performance?smart=on",
+  "w": 1440,
+  "h": 900,
+  "settle": 3500
+ },
+ {
+  "name": "guidance-p1",
+  "path": "/settings/guidance?persona=P1",
+  "settle": 1200,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "guidance-p2",
+  "path": "/settings/guidance?persona=P2",
+  "settle": 1200,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "ch-airbnb",
+  "path": "/property/neukolln/ch/airbnb/listing/arrival?smart=on&autopilot=0",
+  "settle": 1500,
+  "w": 1440,
+  "h": 900
+ },
+ {
+  "name": "tips-rewrite",
+  "path": "/property/neukolln/ch/airbnb/listing/essentials?smart=off",
+  "settle": 1500,
+  "steps": [
+   {
+    "click": "Rewrite summary with AI",
+    "after": 1200
+   }
+  ],
+  "w": 1440,
+  "h": 900
+ }
+]

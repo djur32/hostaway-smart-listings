@@ -1,0 +1,510 @@
+<!-- 40-concept · Concept · content (4 Oct, rebuilt): principles; round one, seven mental models drawn as their primary objects; round two, twelve AI patterns borrowed from best-in-class products and what survived; how both rounds became one Smart Listing model. Sources: concepts/PRINCIPLES.md, concepts/C-*/BRIEF.md, concepts/convergence/evaluation.md (scores, design judgement), concepts/wizard/README.md + png/WB pattern boards (round two), plan/notion-v2/pages/04-concepts__o-directions.md and __o-converged.md. Every drawing is ad hoc SVG in ds tokens (classes cn-g*, 40-concept.css). No concept-test result is shown anywhere (KD-18). The round-one scores (cn-grid › Scores) are the design judgement from before the simulated rehearsal: concepts/convergence/evaluate.py run without ADJUSTMENTS. The rehearsal moved one cell on these three screens (Decision Inbox · Listing studio · P2, 3.12 to 3.20 after); Testing tells that story, not this part. Motion: 40-concept.js. -->
+
+<section class="s" data-id="cn-principles" data-title="Principles" data-stage="3" data-part="concept" data-path="St" data-angle="both" data-min="0.6" data-req="R-011 R-116 R-160" data-notion="D-085 D-105 04-concepts" data-notion-page="04-concepts__o-principles" data-ground="white">
+  <template class="hc-cover-tpl" data-stage="3">
+    <header class="hc-cover" aria-label="Concept">
+      <div class="opener">
+        <div class="opener__top"><h2 class="opener__name">Concept</h2></div>
+        <p class="opener__vision">What are the radically different ways to solve it, and which one earns the build?</p>
+        <div class="opener__foot">
+          <p class="opener__methods"><span class="opener__k">Methods</span><span>Divergent ideation</span><span>Pattern references</span><span>Weighted scoring</span><span>Concept testing</span></p>
+          <div class="opener__out"><p class="opener__k">Outputs</p>
+            <p class="opener__outrow"><span class="hc-mark" data-mark="produced"></span><span class="opener__outs"><span>Design principles</span><span>Concept directions</span><span>Final concept</span></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="hc-illo" data-illo="concept-directions"></div>
+    </header>
+  </template>
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Concept</span><span>Design principles</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Seven principles, each one able to lose an argument</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">I let the research rewrite my draft. Three changed, one was added, and number three became the spine.</p>
+  </header>
+  <div class="s-body">
+    <div class="h-root hc-ui cn-pr" style="--ui-zoom: 1.56">
+      <section class="h-listcard cn-pr__card" data-a="rise" data-at="0.16">
+        <h3 class="h-listcard__title">Design principles <span class="h-badge-count">7</span></h3>
+        <ul class="cn-pr__list" data-a="stagger" data-at="0.24">
+          <li class="h-listitem"><span class="h-listitem__icon"><svg class="h-icon"><use href="#i-eye"/></svg></span><span class="h-listitem__text"><b><i class="cn-pr__n">1</i>Nothing written unseen</b><span>Nothing changes until Accept</span></span><span class="h-pill h-pill--neutral" data-a="pop" data-beat="1">Rewritten</span></li>
+          <li class="h-listitem"><span class="h-listitem__icon"><svg class="h-icon"><use href="#i-database"/></svg></span><span class="h-listitem__text"><b><i class="cn-pr__n">2</i>Facts once</b><span>One value per detail</span></span><span class="h-pill h-pill--new" data-a="pop" data-beat="1">New</span></li>
+          <li class="h-listitem is-key"><span class="cn-pr__hl" aria-hidden="true"></span><span class="h-listitem__icon"><svg class="h-icon"><use href="#i-coin"/></svg></span><span class="h-listitem__text"><b><i class="cn-pr__n">3</i>Money and rules vary per channel. Voice is a choice</b><span>Fees and minimum stays vary per channel, words rarely</span></span><span class="h-pill h-pill--neutral" data-a="pop" data-beat="1">Rewritten</span></li>
+          <li class="h-listitem is-ai"><span class="h-listitem__icon"><svg class="h-icon"><use href="#i-sparkles"/></svg></span><span class="h-listitem__text"><b><i class="cn-pr__n">4</i>The AI says only what the home can back</b><span>Every tip names its sources</span></span><span class="h-pill h-pill--neutral" data-a="pop" data-beat="1">Rewritten</span></li>
+          <li class="h-listitem"><span class="h-listitem__icon"><svg class="h-icon"><use href="#i-adjustments-horizontal"/></svg></span><span class="h-listitem__text"><b><i class="cn-pr__n">5</i>Autonomy follows the stakes</b><span>Money always waits for Accept</span></span></li>
+          <li class="h-listitem"><span class="h-listitem__icon"><svg class="h-icon"><use href="#i-users"/></svg></span><span class="h-listitem__text"><b><i class="cn-pr__n">6</i>One product for four hosts</b><span>Opt-in per property</span></span></li>
+          <li class="h-listitem"><span class="h-listitem__icon"><svg class="h-icon"><use href="#i-cloud-check"/></svg></span><span class="h-listitem__text"><b><i class="cn-pr__n">7</i>Say where, and whether it arrived</b><span>Receipts show Sent, then Live</span></span></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+  <template class="more" data-more="why" data-title="Where each rewrite came from">
+    <div class="more__panel" data-title="Evidence">
+      <table class="hc-table cn-why" data-a="fade">
+        <thead><tr><th>My draft</th><th aria-hidden="true"></th><th>After research</th><th>Why</th><th>Signal</th></tr></thead>
+        <tbody>
+          <tr><td>Nothing is lost</td><td class="cn-why__to">→</td><td>Nothing written unseen</td><td>A restore point answers the wrong moment</td><td><span class="hc-signal" data-strength="strong"></span></td></tr>
+          <tr><td class="cn-why__none">None</td><td class="cn-why__to">→</td><td>Facts once <span class="cn-tag is-new">New</span></td><td>Two stores of facts disagree</td><td><span class="hc-signal" data-strength="strong"></span></td></tr>
+          <tr class="is-key"><td>Facts shared, voice local</td><td class="cn-why__to">→</td><td>Money and rules vary. Voice is a choice</td><td>Money and rules vary per channel, words rarely</td><td><span class="hc-signal" data-strength="moderate"></span></td></tr>
+          <tr><td>Show the why first</td><td class="cn-why__to">→</td><td>The AI says only what the home can back</td><td>A reason raises acceptance, not scrutiny</td><td><span class="hc-signal" data-strength="strong"></span></td></tr>
+        </tbody>
+      </table>
+      <p class="cn-src"><span class="hc-prov" data-prov="simulated"></span><span>The first, third and fourth lean most on the simulated interviews</span></p>
+    </div>
+    <div class="more__panel" data-title="Floors and choices">
+      <p class="cn-floors__lead" data-a="rise"><b>1, 2 and 7 are floors</b> every direction had to meet. <b>3 to 6 are where the directions differ.</b></p>
+      <ol class="cn-floors" data-a="stagger" data-beat="1" data-s="0.9">
+        <li class="is-floor"><i>1</i><span>Nothing written unseen</span><em>Floor</em></li>
+        <li class="is-floor"><i>2</i><span>Facts once</span><em>Floor</em></li>
+        <li><i>3</i><span>Money and rules vary. Voice is a choice</span><em>Choice</em></li>
+        <li><i>4</i><span>The AI says only what the home can back</span><em>Choice</em></li>
+        <li><i>5</i><span>Autonomy follows the stakes</span><em>Choice</em></li>
+        <li><i>6</i><span>One product for four hosts</span><em>Choice</em></li>
+        <li class="is-floor"><i>7</i><span>Say where, and whether it arrived</span><em>Floor</em></li>
+      </ol>
+      <p class="cn-floors__sig" data-a="rise" data-beat="2"><span class="cn-floors__k">Signal</span><span class="hc-signal" data-strength="strong"></span><span>for 1, 2 and 7</span><span class="hc-signal" data-strength="moderate"></span><span>for 3 and 5</span></p>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span class="hc-prov" data-prov="simulated"></span><span>From the simulated research</span><span class="more-link" data-more="why">Where each came from</span></p></div>
+  <aside class="notes"><p>Before designing any direction, I wrote the rules to judge them by. Seven principles, each settling a real tension, so each one can lose an argument. The icon shows what each one governs: saves, the Listing base, money, the AI, Autopilot, host types and sync.</p><p>[Press] I wrote six before the research, and let the evidence edit them. Three got rewritten, and one was added: facts once.</p><p>[Press] Number three shaped everything. Hosts change fees and minimum stays per channel, and almost never the words. So per channel is a main pattern for money and rules. A separate voice is a choice, not a chore. That became the backbone of Smart Listings. About 45 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="cn-grid" data-title="Seven mental models" data-stage="3" data-part="concept" data-path="St" data-angle="B" data-min="0.8" data-req="R-160 R-161 R-162" data-notion="D-080 D-081 D-122 04-concepts" data-notion-page="04-concepts__o-directions" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Concept</span><span>Divergent ideation</span><span class="cn-round">Round one</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Seven mental models, and the two that made a pair</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Each had its own primary object and first action, all drawn on the same flat. None won every screen, so I kept two that cover each other.</p>
+  </header>
+  <div class="s-body">
+    <ol class="cn-models" data-own>
+      <li class="cn-model is-pick" data-tint="blush" data-gk="c1">
+        <div class="cn-model__plate"><svg class="cn-g" viewBox="0 0 200 150" aria-hidden="true">
+          <rect class="cn-gk" x="14" y="8" width="172" height="134" rx="9"/>
+          <circle class="cn-gu" cx="25" cy="18" r="2.4"/><circle class="cn-gu" cx="33" cy="18" r="2.4"/><circle class="cn-gu" cx="41" cy="18" r="2.4"/>
+          <path class="cn-gh" d="M14 27H186"/>
+          <rect class="cn-gp" x="24" y="35" width="88" height="52" rx="5"/><rect class="cn-gp" x="116" y="35" width="60" height="24" rx="5"/><rect class="cn-gp" x="116" y="63" width="60" height="24" rx="5"/>
+          <rect class="cn-gt" x="25" y="98" width="88" height="7" rx="3.5"/>
+          <rect class="cn-gu" x="25" y="115" width="98" height="5" rx="2.5"/><rect class="cn-gu" x="25" y="125" width="76" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="136" y="96" width="40" height="38" rx="6"/><rect class="cn-gu" x="143" y="103" width="22" height="5" rx="2.5"/><rect class="cn-ga" x="143" y="120" width="26" height="8" rx="4"/>
+          <rect class="cn-go" x="19" y="91" width="102" height="21" rx="6"/>
+        </svg></div>
+        <p class="cn-model__n">Channel Canvas</p>
+        <p class="cn-model__m">“Check my shop window”</p>
+        <p class="cn-model__q">What will guests see?</p>
+      </li>
+      <li class="cn-model" data-tint="butter" data-gk="c2">
+        <div class="cn-model__plate"><svg class="cn-g" viewBox="0 0 200 150" aria-hidden="true">
+          <rect class="cn-gk" x="10" y="12" width="180" height="126" rx="9"/>
+          <rect class="cn-gp" x="72" y="12.6" width="42" height="124.8"/>
+          <rect class="cn-gt" x="20" y="22" width="36" height="6" rx="3"/><rect class="cn-ga" x="80" y="22" width="26" height="6" rx="3"/>
+          <circle class="cn-gt" cx="128" cy="25" r="4"/><rect class="cn-gu" x="135" y="22" width="14" height="6" rx="3"/><circle class="cn-gt" cx="162" cy="25" r="4"/><rect class="cn-gu" x="169" y="22" width="14" height="6" rx="3"/>
+          <path class="cn-gh" d="M10 36H190M10 56H190M10 76H190M10 96H190M10 116H190M114 36V138"/>
+          <rect class="cn-gu" x="20" y="43.5" width="34" height="5" rx="2.5"/><rect class="cn-gu" x="20" y="63.5" width="28" height="5" rx="2.5"/><rect class="cn-gu" x="20" y="83.5" width="40" height="5" rx="2.5"/><rect class="cn-gu" x="20" y="103.5" width="30" height="5" rx="2.5"/><rect class="cn-gu" x="20" y="123.5" width="24" height="5" rx="2.5"/>
+          <rect class="cn-gt" x="80" y="43.5" width="26" height="5" rx="2.5"/><rect class="cn-gt" x="80" y="63.5" width="22" height="5" rx="2.5"/><rect class="cn-gt" x="80" y="83.5" width="28" height="5" rx="2.5"/><rect class="cn-gt" x="80" y="103.5" width="20" height="5" rx="2.5"/><rect class="cn-gt" x="80" y="123.5" width="24" height="5" rx="2.5"/>
+          <circle class="cn-gq" cx="128" cy="46" r="3.5"/><circle class="cn-gq" cx="162" cy="46" r="3.5"/>
+          <circle class="cn-ga" cx="128" cy="66" r="3.5"/><rect class="cn-gt" x="135" y="63.5" width="16" height="5" rx="2.5"/><circle class="cn-gq" cx="162" cy="66" r="3.5"/>
+          <circle class="cn-gq" cx="128" cy="86" r="3.5"/><circle class="cn-gq" cx="162" cy="86" r="3.5"/>
+          <circle class="cn-gq" cx="128" cy="106" r="3.5"/><circle class="cn-ga" cx="162" cy="106" r="3.5"/><rect class="cn-gt" x="169" y="103.5" width="14" height="5" rx="2.5"/>
+          <circle class="cn-gq" cx="128" cy="126" r="3.5"/><circle class="cn-gq" cx="162" cy="126" r="3.5"/>
+        </svg></div>
+        <p class="cn-model__n">Golden Record</p>
+        <p class="cn-model__m">“A master spreadsheet”</p>
+      </li>
+      <li class="cn-model" data-tint="lavender" data-gk="c3">
+        <div class="cn-model__plate"><svg class="cn-g" viewBox="0 0 200 150" aria-hidden="true">
+          <circle class="cn-gif" cx="24" cy="30" r="9"/><path class="cn-gw" d="M24 24.5l1.6 4 4 1.5-4 1.5-1.6 4-1.6-4-4-1.5 4-1.5z"/>
+          <rect class="cn-gk" x="40" y="15" width="118" height="31" rx="13"/><rect class="cn-gu" x="51" y="23.5" width="94" height="5" rx="2.5"/><rect class="cn-gu" x="51" y="32.5" width="64" height="5" rx="2.5"/>
+          <rect class="cn-ga" x="92" y="54" width="94" height="22" rx="11"/><rect class="cn-gw" x="104" y="62.5" width="68" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="40" y="84" width="146" height="54" rx="9"/>
+          <rect class="cn-gd" x="50" y="93" width="84" height="9" rx="2"/><path class="cn-gx" d="M52 97.5H132"/>
+          <rect class="cn-gn" x="50" y="107" width="108" height="9" rx="2"/>
+          <rect class="cn-ga" x="50" y="123" width="34" height="9" rx="4.5"/><rect class="cn-gv" x="89" y="123" width="30" height="9" rx="4.5"/>
+        </svg></div>
+        <p class="cn-model__n">Copilot</p>
+        <p class="cn-model__m">“Tell someone what you want”</p>
+      </li>
+      <li class="cn-model is-pick" data-tint="mint" data-gk="c4">
+        <div class="cn-model__plate"><svg class="cn-g" viewBox="0 0 200 150" aria-hidden="true">
+          <rect class="cn-gk" x="10" y="12" width="66" height="126" rx="9"/>
+          <rect class="cn-gt" x="19" y="22" width="30" height="6" rx="3"/><rect class="cn-ga" x="55" y="20.5" width="14" height="9" rx="4.5"/>
+          <rect class="cn-gp" x="15" y="36" width="56" height="18" rx="5"/>
+          <circle class="cn-ga" cx="22" cy="45" r="3"/><rect class="cn-gt" x="29" y="42.5" width="36" height="5" rx="2.5"/>
+          <circle class="cn-ga" cx="22" cy="65" r="3"/><rect class="cn-gu" x="29" y="62.5" width="32" height="5" rx="2.5"/>
+          <circle class="cn-gu" cx="22" cy="85" r="3"/><rect class="cn-gu" x="29" y="82.5" width="36" height="5" rx="2.5"/>
+          <circle class="cn-gu" cx="22" cy="105" r="3"/><rect class="cn-gu" x="29" y="102.5" width="28" height="5" rx="2.5"/>
+          <circle class="cn-gu" cx="22" cy="125" r="3"/><rect class="cn-gu" x="29" y="122.5" width="34" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="84" y="12" width="106" height="126" rx="9"/>
+          <rect class="cn-gt" x="94" y="22" width="74" height="7" rx="3.5"/><rect class="cn-gu" x="94" y="34" width="54" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="92" y="48" width="90" height="17" rx="5"/><circle class="cn-gq" cx="101" cy="56.5" r="4"/><rect class="cn-gu" x="109" y="54" width="40" height="5" rx="2.5"/><rect class="cn-gv" x="156" y="54" width="20" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="92" y="70" width="90" height="17" rx="5"/><rect class="cn-go" x="92" y="70" width="90" height="17" rx="5"/><circle class="cn-ga" cx="101" cy="78.5" r="4"/><rect class="cn-gt" x="109" y="76" width="40" height="5" rx="2.5"/><rect class="cn-gv" x="156" y="76" width="20" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="92" y="92" width="90" height="17" rx="5"/><circle class="cn-gq" cx="101" cy="100.5" r="4"/><rect class="cn-gu" x="109" y="98" width="34" height="5" rx="2.5"/><rect class="cn-gv" x="156" y="98" width="20" height="5" rx="2.5"/>
+          <rect class="cn-ga" x="94" y="117" width="42" height="12" rx="6"/><rect class="cn-gv" x="141" y="117" width="34" height="12" rx="6"/>
+        </svg></div>
+        <p class="cn-model__n">Decision Inbox</p>
+        <p class="cn-model__m">“Only show me what needs me”</p>
+        <p class="cn-model__q">What needs me?</p>
+      </li>
+      <li class="cn-model" data-tint="blush" data-gk="c5">
+        <div class="cn-model__plate"><svg class="cn-g" viewBox="0 0 200 150" aria-hidden="true">
+          <path class="cn-gl" d="M58 35C74 35 72 75 88 75M58 115C74 115 72 75 88 75M138 75H148"/>
+          <rect class="cn-gk" x="8" y="18" width="50" height="34" rx="6"/><rect class="cn-gp" x="14" y="24" width="12" height="12" rx="3"/><rect class="cn-gu" x="30" y="26" width="22" height="5" rx="2.5"/><rect class="cn-gv" x="14" y="41" width="38" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="8" y="98" width="50" height="34" rx="6"/><rect class="cn-gp" x="14" y="104" width="12" height="12" rx="3"/><rect class="cn-gu" x="30" y="106" width="22" height="5" rx="2.5"/><rect class="cn-gv" x="14" y="121" width="38" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="88" y="58" width="50" height="34" rx="6"/><rect class="cn-ga" x="94" y="64" width="22" height="6" rx="3"/><rect class="cn-gu" x="94" y="75" width="38" height="5" rx="2.5"/><rect class="cn-gv" x="94" y="83" width="28" height="4" rx="2"/>
+          <rect class="cn-gk" x="148" y="58" width="44" height="34" rx="6"/><rect class="cn-go" x="148" y="58" width="44" height="34" rx="6"/><rect class="cn-gt" x="154" y="64" width="22" height="6" rx="3"/><rect class="cn-gu" x="154" y="75" width="32" height="5" rx="2.5"/><rect class="cn-gv" x="154" y="83" width="24" height="4" rx="2"/>
+          <path class="cn-gsp" d="M98 46L112 40L126 43L140 32L154 36L172 24"/><circle class="cn-ga" cx="172" cy="24" r="3.5"/>
+        </svg></div>
+        <p class="cn-model__n">Merge &amp; Versions</p>
+        <p class="cn-model__m">“Drafts and versions”</p>
+      </li>
+      <li class="cn-model" data-tint="butter" data-gk="c7">
+        <div class="cn-model__plate"><svg class="cn-g" viewBox="0 0 200 150" aria-hidden="true">
+          <rect class="cn-gk" x="30" y="6" width="140" height="138" rx="9"/>
+          <rect class="cn-gt" x="42" y="17" width="66" height="7" rx="3.5"/>
+          <rect class="cn-gu" x="42" y="33" width="112" height="5" rx="2.5"/><rect class="cn-gu" x="42" y="42" width="86" height="5" rx="2.5"/>
+          <rect class="cn-gp" x="42" y="52" width="28" height="9" rx="4.5"/><rect class="cn-gp" x="74" y="52" width="28" height="9" rx="4.5"/><rect class="cn-gp" x="106" y="52" width="22" height="9" rx="4.5"/>
+          <rect class="cn-ga" x="35" y="72" width="3" height="30" rx="1.5"/>
+          <rect class="cn-gu" x="42" y="73" width="104" height="5" rx="2.5"/><rect class="cn-gu" x="42" y="82" width="92" height="5" rx="2.5"/>
+          <rect class="cn-ga" x="42" y="92" width="28" height="9" rx="4.5"/><rect class="cn-gp" x="74" y="92" width="28" height="9" rx="4.5"/><rect class="cn-gp" x="106" y="92" width="22" height="9" rx="4.5"/>
+          <rect class="cn-gu" x="42" y="113" width="110" height="5" rx="2.5"/><rect class="cn-gu" x="42" y="122" width="70" height="5" rx="2.5"/>
+          <rect class="cn-gp" x="42" y="132" width="28" height="7" rx="3.5"/><rect class="cn-gp" x="74" y="132" width="28" height="7" rx="3.5"/>
+        </svg></div>
+        <p class="cn-model__n">Fact Blocks</p>
+        <p class="cn-model__m">“A house manual I write once”</p>
+      </li>
+      <li class="cn-model" data-tint="mint" data-gk="c8">
+        <div class="cn-model__plate"><svg class="cn-g" viewBox="0 0 200 150" aria-hidden="true">
+          <rect class="cn-gk" x="14" y="12" width="172" height="126" rx="6"/>
+          <rect class="cn-gp" x="15.5" y="13.5" width="88.5" height="70.5"/>
+          <rect class="cn-gk" x="24" y="62" width="46" height="14" rx="4"/><circle class="cn-gw" cx="86" cy="62" r="7"/>
+          <rect class="cn-gv" x="114" y="22" width="60" height="42" rx="4"/><rect class="cn-gu" x="118" y="26" width="24" height="10" rx="3"/><rect class="cn-gu" x="146" y="26" width="24" height="10" rx="3"/>
+          <rect class="cn-gv" x="22" y="92" width="58" height="9" rx="2"/><circle class="cn-gv" cx="58" cy="120" r="10"/>
+          <rect class="cn-gv" x="144" y="94" width="34" height="36" rx="9"/>
+          <rect class="cn-gm" x="14" y="12" width="172" height="126" rx="6"/>
+          <path class="cn-gm" d="M104 12V60M104 74V84M14 84H58M76 84H136V138"/>
+          <circle class="cn-go" cx="58" cy="38" r="12"/><circle class="cn-ga" cx="58" cy="38" r="5"/>
+        </svg></div>
+        <p class="cn-model__n">Home Tour</p>
+        <p class="cn-model__m">“Walk me through your flat”</p>
+      </li>
+    </ol>
+  </div>
+  <template class="more" data-more="frames" data-title="The frames and how I scored them" data-label="Frames and scores">
+    <div class="more__panel" data-title="Frames">
+      <div class="cn-gridwrap">
+        <div class="cn-grid">
+          <span></span>
+          <p class="cn-grid__d is-pick"><b>Channel Canvas</b></p>
+          <p class="cn-grid__d"><b>Golden Record</b></p>
+          <p class="cn-grid__d"><b>Copilot</b></p>
+          <p class="cn-grid__d is-pick"><b>Decision Inbox</b></p>
+          <p class="cn-grid__d"><b>Merge &amp; Versions</b></p>
+          <p class="cn-grid__d"><b>Fact Blocks</b></p>
+          <p class="cn-grid__d"><b>Home Tour</b></p>
+          <p class="cn-grid__s">Knowledge Hub</p>
+          <img data-shot="c1-scr03" alt="Channel Canvas, Knowledge Hub">
+          <img data-shot="c2-scr03" alt="Golden Record, Knowledge Hub">
+          <img data-shot="c3-scr03" alt="Copilot, Knowledge Hub">
+          <img data-shot="c4-scr03" alt="Decision Inbox, Knowledge Hub">
+          <img data-shot="c5-scr03" alt="Merge and Versions, Knowledge Hub">
+          <img data-shot="c7-scr03" alt="Fact Blocks, Knowledge Hub">
+          <img data-shot="c8-scr03" alt="Home Tour, Knowledge Hub">
+          <p class="cn-grid__s">Listing studio</p>
+          <img data-shot="c1-scr04" alt="Channel Canvas, Listing studio">
+          <img data-shot="c2-scr04" alt="Golden Record, Listing studio">
+          <img data-shot="c3-scr04" alt="Copilot, Listing studio">
+          <img data-shot="c4-scr04" alt="Decision Inbox, Listing studio">
+          <img data-shot="c5-scr04" alt="Merge and Versions, Listing studio">
+          <img data-shot="c7-scr04" alt="Fact Blocks, Listing studio">
+          <img data-shot="c8-scr04" alt="Home Tour, Listing studio">
+          <p class="cn-grid__s">Portfolio</p>
+          <img data-shot="c1-scr05" alt="Channel Canvas, Portfolio">
+          <img data-shot="c2-scr05" alt="Golden Record, Portfolio">
+          <img data-shot="c3-scr05" alt="Copilot, Portfolio">
+          <img data-shot="c4-scr05" alt="Decision Inbox, Portfolio">
+          <img data-shot="c5-scr05" alt="Merge and Versions, Portfolio">
+          <img data-shot="c7-scr05" alt="Fact Blocks, Portfolio">
+          <img data-shot="c8-scr05" alt="Home Tour, Portfolio">
+          <i class="cn-grid__pick" style="grid-column: 2 / span 1" aria-hidden="true"></i>
+          <i class="cn-grid__pick" style="grid-column: 5 / span 1" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+    <div class="more__panel cn-heat" data-title="Scores">
+      <p class="cn-heat__lead" data-a="rise">No direction won every listing screen. The Canvas won the studio and the Inbox the portfolio, so I took them as a pair.</p>
+      <figure class="hc-chart cn-heat__pair" data-chart="matrix">
+        <script type="application/json">{ "rows": ["Channel Canvas", "Decision Inbox"], "cols": ["Knowledge Hub", "Listing studio", "Portfolio"],
+          "values": [[2.60, 3.54, 2.40], [3.04, 3.12, 3.89]], "max": 4.4, "decimals": 2, "w": 1400, "labelW": 330, "cell": 56, "headH": 56 }</script>
+      </figure>
+      <figure class="hc-chart cn-heat__rest" data-chart="matrix">
+        <script type="application/json">{ "rows": ["Golden Record", "Copilot", "Merge and Versions", "Fact Blocks", "Home Tour"], "cols": ["", "", ""],
+          "values": [[3.14, 2.83, 3.25], [2.46, 3.31, 2.71], [2.87, 3.19, 2.91], [3.26, 2.76, 2.90], [2.85, 3.02, 2.69]], "max": 4.4, "decimals": 2, "w": 1400, "labelW": 330, "cell": 46, "headH": 4 }</script>
+        <figcaption class="hc-chart__cap">Weighted scores out of 5 against fifteen criteria, darker is higher.</figcaption>
+      </figure>
+      <p class="hc-src"><span class="hc-prov" data-prov="simulated"></span><span>A simulated scoring of the seven directions, my design judgement before any concept test, not host evidence</span></p>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span class="hc-prov" data-prov="assumption"></span><span>Scores are my design judgement, made before any concept test</span><span class="more-link" data-more="frames">Frames and scores</span></p></div>
+  <aside class="notes"><p>Round one asked how a host could think about a listing at all. I wanted directions that were truly different. So I set a hard bar: no two could share a mental model, a main object or a first action. Here they are, each drawn as the thing you’d work on. The channel’s own page. A master spreadsheet. A conversation. An inbox of decisions. A version history. A house manual. A floor plan. Every frame used the same flat in Hospitable’s design system, so they could be compared.</p><p>[Press] No model won every screen. The Channel Canvas scored best where a host shapes each channel’s page. The Decision Inbox scored best where a host runs many homes. So I kept them as a pair. One answers "what will guests see?" The other answers "what needs me?" The frames and my scores are one click away. The scores are my judgement, made before any concept test, so they’re not host evidence. About 45 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="cn-judged" data-title="Twelve patterns, borrowed from the best" data-stage="3" data-part="concept" data-path="St" data-angle="B" data-min="0.8" data-req="R-160 R-163" data-notion="D-907 D-909 D-914 04-concepts" data-notion-page="04-concepts__o-directions" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Concept</span><span>Pattern references</span><span class="cn-round">Round two</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Twelve AI patterns, each borrowed from the best</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">I ran the same Smart Listing flow through twelve patterns people already trust. Two became the core of the build, and four lent it a part.</p>
+    <p class="s-legend cn-legend" data-a="rise" data-beat="1"><span data-k><i class="cn-k is-core" aria-hidden="true"></i>In the build</span><span data-k><i class="cn-k is-part" aria-hidden="true"></i>A part of it</span></p>
+  </header>
+  <div class="s-body">
+    <ol class="cn-pats" data-own>
+      <li class="cn-pat" data-tint="blush" data-gk="b1">
+        <div class="cn-pat__plate"><svg class="cn-g" viewBox="0 0 240 150" aria-hidden="true">
+          <rect class="cn-gk" x="10" y="10" width="220" height="130" rx="9"/>
+          <circle class="cn-gr" cx="48" cy="48" r="21"/><path class="cn-gc" d="M48 27A21 21 0 1 1 29 56.9"/>
+          <rect class="cn-gt" x="82" y="36" width="100" height="8" rx="4"/><rect class="cn-gu" x="82" y="51" width="70" height="5" rx="2.5"/>
+          <path class="cn-gh" d="M10 82H230"/>
+          <rect class="cn-gi" x="22" y="92" width="9" height="9" rx="2.5"/><rect class="cn-gu" x="38" y="94" width="96" height="5" rx="2.5"/><rect class="cn-gi" x="158" y="92" width="26" height="9" rx="4.5"/><rect class="cn-ga" x="190" y="92" width="28" height="9" rx="4.5"/>
+          <rect class="cn-gi" x="22" y="107" width="9" height="9" rx="2.5"/><rect class="cn-gu" x="38" y="109" width="78" height="5" rx="2.5"/><rect class="cn-gi" x="158" y="107" width="26" height="9" rx="4.5"/><rect class="cn-ga" x="190" y="107" width="28" height="9" rx="4.5"/>
+          <rect class="cn-gi" x="22" y="122" width="9" height="9" rx="2.5"/><rect class="cn-gu" x="38" y="124" width="104" height="5" rx="2.5"/><rect class="cn-gi" x="158" y="122" width="26" height="9" rx="4.5"/><rect class="cn-gk" x="190" y="122" width="28" height="9" rx="4.5"/>
+        </svg></div>
+        <p class="cn-pat__n">Listing score</p>
+        <p class="cn-pat__f">Google Ads · Yoast</p>
+      </li>
+      <li class="cn-pat is-core" data-tint="butter" data-gk="b2">
+        <div class="cn-pat__plate"><svg class="cn-g" viewBox="0 0 240 150" aria-hidden="true">
+          <rect class="cn-gk" x="10" y="8" width="220" height="134" rx="9"/>
+          <rect class="cn-gp" x="20" y="18" width="114" height="56" rx="5"/><rect class="cn-gp" x="138" y="18" width="82" height="26" rx="5"/><rect class="cn-gp" x="138" y="48" width="82" height="26" rx="5"/>
+          <rect class="cn-gt" x="22" y="87" width="98" height="7" rx="3.5"/><rect class="cn-gis" x="16" y="81" width="110" height="19" rx="6"/>
+          <rect class="cn-gu" x="22" y="110" width="96" height="5" rx="2.5"/><rect class="cn-gu" x="22" y="120" width="70" height="5" rx="2.5"/>
+          <path class="cn-gis" d="M126 90H134"/>
+          <rect class="cn-gk" x="134" y="82" width="88" height="50" rx="7"/>
+          <rect class="cn-gd" x="142" y="91" width="56" height="8" rx="2"/><path class="cn-gx" d="M144 95H196"/>
+          <rect class="cn-gn" x="142" y="103" width="70" height="8" rx="2"/>
+          <rect class="cn-ga" x="142" y="117" width="28" height="8" rx="4"/>
+        </svg><i class="cn-k is-core" aria-hidden="true"></i></div>
+        <p class="cn-pat__n"><span>Live canvas</span></p>
+        <p class="cn-pat__f">Squarespace · Notion</p>
+      </li>
+      <li class="cn-pat is-core" data-tint="mint" data-gk="b3">
+        <div class="cn-pat__plate"><svg class="cn-g" viewBox="0 0 240 150" aria-hidden="true">
+          <rect class="cn-gk" x="10" y="8" width="220" height="134" rx="9"/>
+          <rect class="cn-gs" x="10.6" y="8.6" width="24" height="132.8" rx="8.4"/><rect class="cn-gs" x="26" y="8.6" width="8.6" height="132.8"/>
+          <rect class="cn-gu" x="44" y="20" width="40" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="44" y="30" width="104" height="24" rx="5"/><rect class="cn-gi" x="50" y="37" width="72" height="10" rx="2"/><rect class="cn-gis" x="44" y="30" width="104" height="24" rx="5"/>
+          <rect class="cn-gu" x="44" y="66" width="34" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="44" y="76" width="104" height="24" rx="5"/><rect class="cn-gu" x="50" y="85.5" width="60" height="5" rx="2.5"/>
+          <rect class="cn-gu" x="44" y="112" width="44" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="44" y="121" width="104" height="13" rx="5"/>
+          <path class="cn-gi" d="M158 8.6H221A8.4 8.4 0 0 1 229.4 17V133A8.4 8.4 0 0 1 221 141.4H158Z"/>
+          <rect class="cn-gk" x="165" y="18" width="57" height="54" rx="6"/><circle class="cn-gif" cx="173" cy="27" r="3.5"/><rect class="cn-gu" x="180" y="24.5" width="34" height="5" rx="2.5"/><rect class="cn-gv" x="172" y="36" width="44" height="4" rx="2"/><rect class="cn-gv" x="172" y="44" width="36" height="4" rx="2"/><rect class="cn-ga" x="172" y="57" width="22" height="8" rx="4"/><rect class="cn-gv" x="198" y="57" width="18" height="8" rx="4"/>
+          <rect class="cn-gk" x="165" y="80" width="57" height="34" rx="6"/><circle class="cn-gif" cx="173" cy="89" r="3.5"/><rect class="cn-gu" x="180" y="86.5" width="30" height="5" rx="2.5"/><rect class="cn-gv" x="172" y="99" width="42" height="4" rx="2"/>
+          <rect class="cn-gk" x="165" y="122" width="57" height="12" rx="6"/>
+        </svg><i class="cn-k is-core" aria-hidden="true"></i></div>
+        <p class="cn-pat__n"><span>Copilot on every screen</span></p>
+        <p class="cn-pat__f">Shopify Sidekick · Notion</p>
+      </li>
+      <li class="cn-pat" data-tint="blush" data-gk="b4">
+        <div class="cn-pat__plate"><svg class="cn-g" viewBox="0 0 240 150" aria-hidden="true">
+          <rect class="cn-gb" x="10" y="12" width="52" height="126" rx="7"/>
+          <rect class="cn-gt" x="18" y="22" width="28" height="6" rx="3"/>
+          <rect class="cn-gu" x="18" y="38" width="36" height="5" rx="2.5"/><rect class="cn-gu" x="18" y="47" width="30" height="5" rx="2.5"/><rect class="cn-gu" x="18" y="56" width="36" height="5" rx="2.5"/><rect class="cn-gu" x="18" y="65" width="26" height="5" rx="2.5"/><rect class="cn-gu" x="18" y="74" width="32" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="66" y="12" width="52" height="126" rx="7"/><circle class="cn-gc1" cx="76" cy="25" r="5"/><rect class="cn-gu" x="85" y="22.5" width="24" height="5" rx="2.5"/><rect class="cn-gp" x="72" y="36" width="40" height="30" rx="4"/><rect class="cn-gu" x="72" y="72" width="38" height="5" rx="2.5"/><rect class="cn-gv" x="72" y="81" width="28" height="5" rx="2.5"/><rect class="cn-gv" x="72" y="122" width="40" height="6" rx="3"/><rect class="cn-ga" x="72" y="122" width="24" height="6" rx="3"/>
+          <rect class="cn-gk" x="122" y="12" width="52" height="126" rx="7"/><circle class="cn-gc2" cx="132" cy="25" r="5"/><rect class="cn-gu" x="141" y="22.5" width="24" height="5" rx="2.5"/><rect class="cn-gp" x="128" y="36" width="40" height="30" rx="4"/><rect class="cn-gu" x="128" y="72" width="34" height="5" rx="2.5"/><rect class="cn-gv" x="128" y="81" width="30" height="5" rx="2.5"/><rect class="cn-gv" x="128" y="122" width="40" height="6" rx="3"/><rect class="cn-ga" x="128" y="122" width="32" height="6" rx="3"/>
+          <rect class="cn-gk" x="178" y="12" width="52" height="126" rx="7"/><circle class="cn-gc3" cx="188" cy="25" r="5"/><rect class="cn-gu" x="197" y="22.5" width="24" height="5" rx="2.5"/><rect class="cn-gp" x="184" y="36" width="40" height="30" rx="4"/><rect class="cn-gu" x="184" y="72" width="36" height="5" rx="2.5"/><rect class="cn-gv" x="184" y="81" width="24" height="5" rx="2.5"/><rect class="cn-gv" x="184" y="122" width="40" height="6" rx="3"/><rect class="cn-ga" x="184" y="122" width="16" height="6" rx="3"/>
+        </svg></div>
+        <p class="cn-pat__n">Channel composer</p>
+        <p class="cn-pat__f">Buffer · Hootsuite</p>
+      </li>
+      <li class="cn-pat" data-tint="butter" data-gk="b5">
+        <div class="cn-pat__plate"><svg class="cn-g" viewBox="0 0 240 150" aria-hidden="true">
+          <rect class="cn-gk" x="10" y="10" width="76" height="130" rx="9"/>
+          <rect class="cn-gu" x="20" y="24" width="38" height="5" rx="2.5"/><path class="cn-gtr" d="M20 40H76"/><path class="cn-gtf" d="M20 40H52"/><circle class="cn-gkn" cx="52" cy="40" r="6"/>
+          <rect class="cn-gu" x="20" y="60" width="30" height="5" rx="2.5"/><path class="cn-gtr" d="M20 76H76"/><path class="cn-gtf" d="M20 76H36"/><circle class="cn-gkn" cx="36" cy="76" r="6"/>
+          <rect class="cn-gu" x="20" y="96" width="42" height="5" rx="2.5"/><path class="cn-gtr" d="M20 112H76"/><path class="cn-gtf" d="M20 112H64"/><circle class="cn-gkn" cx="64" cy="112" r="6"/>
+          <rect class="cn-gk" x="94" y="10" width="136" height="130" rx="9"/>
+          <rect class="cn-gu" x="104" y="22" width="34" height="5" rx="2.5"/><rect class="cn-gt" x="104" y="32" width="30" height="11" rx="3"/>
+          <rect class="cn-gu" x="160" y="22" width="34" height="5" rx="2.5"/><rect class="cn-ga" x="160" y="32" width="34" height="11" rx="3"/>
+          <path class="cn-gi" d="M104 118L220 72L220 100L104 125Z"/><path class="cn-gis" d="M104 121.5L220 86"/><circle class="cn-gif" cx="220" cy="86" r="3.5"/>
+          <path class="cn-gh" d="M104 130H220"/>
+        </svg></div>
+        <p class="cn-pat__n">What-if simulator</p>
+        <p class="cn-pat__f">Credit Karma · PriceLabs</p>
+      </li>
+      <li class="cn-pat is-part" data-tint="mint" data-gk="b6">
+        <div class="cn-pat__plate"><svg class="cn-g" viewBox="0 0 240 150" aria-hidden="true">
+          <rect class="cn-gk" x="10" y="10" width="68" height="46" rx="7"/><rect class="cn-go" x="10" y="10" width="68" height="46" rx="7"/><rect class="cn-gp" x="17" y="17" width="16" height="16" rx="4"/><rect class="cn-gu" x="38" y="19" width="22" height="5" rx="2.5"/><rect class="cn-gv" x="38" y="28" width="18" height="4" rx="2"/><rect class="cn-gv" x="17" y="42" width="52" height="5" rx="2.5"/><circle class="cn-ga" cx="69" cy="20" r="5.5"/><path class="cn-gwk" d="M66.5 20l2 2 3.5-4"/>
+          <rect class="cn-gk" x="86" y="10" width="68" height="46" rx="7"/><rect class="cn-gp" x="93" y="17" width="16" height="16" rx="4"/><rect class="cn-gu" x="114" y="19" width="30" height="5" rx="2.5"/><rect class="cn-gv" x="114" y="28" width="22" height="4" rx="2"/><rect class="cn-gv" x="93" y="42" width="48" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="162" y="10" width="68" height="46" rx="7"/><rect class="cn-gp" x="169" y="17" width="16" height="16" rx="4"/><rect class="cn-gu" x="190" y="19" width="30" height="5" rx="2.5"/><rect class="cn-gv" x="190" y="28" width="22" height="4" rx="2"/><rect class="cn-gv" x="169" y="42" width="52" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="10" y="66" width="106" height="74" rx="7"/><rect class="cn-go" x="10" y="66" width="106" height="74" rx="7"/><rect class="cn-gp" x="17" y="73" width="92" height="32" rx="4"/><rect class="cn-gt" x="17" y="112" width="64" height="6" rx="3"/><rect class="cn-gu" x="17" y="123" width="80" height="5" rx="2.5"/><rect class="cn-gv" x="17" y="132" width="50" height="4" rx="2"/>
+          <rect class="cn-gk" x="124" y="66" width="106" height="74" rx="7"/><rect class="cn-gp" x="131" y="73" width="92" height="32" rx="4"/><rect class="cn-gt" x="131" y="112" width="58" height="6" rx="3"/><rect class="cn-gu" x="131" y="123" width="76" height="5" rx="2.5"/><rect class="cn-gv" x="131" y="132" width="44" height="4" rx="2"/>
+        </svg><i class="cn-k is-part" aria-hidden="true"></i></div>
+        <p class="cn-pat__n">Strategy picker</p>
+        <p class="cn-pat__f">Grammarly · Spotify</p>
+      </li>
+      <li class="cn-pat is-part" data-tint="blush" data-gk="b7">
+        <div class="cn-pat__plate"><svg class="cn-g" viewBox="0 0 240 150" aria-hidden="true">
+          <rect class="cn-gk" x="10" y="10" width="68" height="28" rx="14"/><rect class="cn-go" x="10" y="10" width="68" height="28" rx="14"/><circle class="cn-ga" cx="24" cy="24" r="5"/><rect class="cn-gu" x="34" y="21.5" width="34" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="86" y="10" width="68" height="28" rx="14"/><circle class="cn-gu" cx="100" cy="24" r="5"/><rect class="cn-gu" x="110" y="21.5" width="34" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="162" y="10" width="68" height="28" rx="14"/><circle class="cn-gu" cx="176" cy="24" r="5"/><rect class="cn-gu" x="186" y="21.5" width="34" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="10" y="46" width="220" height="94" rx="9"/>
+          <rect class="cn-gt" x="21" y="60" width="12" height="9" rx="2"/><path class="cn-gl" d="M23.5 60V57a3.5 3.5 0 0 1 7 0V60"/><rect class="cn-gu" x="42" y="62" width="110" height="5" rx="2.5"/><rect class="cn-gv" x="188" y="60" width="30" height="9" rx="4.5"/>
+          <rect class="cn-gt" x="21" y="80" width="12" height="9" rx="2"/><path class="cn-gl" d="M23.5 80V77a3.5 3.5 0 0 1 7 0V80"/><rect class="cn-gu" x="42" y="82" width="92" height="5" rx="2.5"/><rect class="cn-gv" x="188" y="80" width="30" height="9" rx="4.5"/>
+          <rect class="cn-ga" x="18" y="97" width="18" height="10" rx="5"/><circle class="cn-gw" cx="31" cy="102" r="3.5"/><rect class="cn-gu" x="42" y="99.5" width="100" height="5" rx="2.5"/>
+          <rect class="cn-gi" x="20" y="120" width="200" height="11" rx="5.5"/><rect class="cn-gif" x="26" y="123.5" width="44" height="4" rx="2"/>
+        </svg><i class="cn-k is-part" aria-hidden="true"></i></div>
+        <p class="cn-pat__n">Goals and guardrails</p>
+        <p class="cn-pat__f">Performance Max · Advantage+</p>
+      </li>
+      <li class="cn-pat is-part" data-tint="butter" data-gk="b8">
+        <div class="cn-pat__plate"><svg class="cn-g" viewBox="0 0 240 150" aria-hidden="true">
+          <rect class="cn-gu" x="10" y="14" width="44" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="10" y="24" width="142" height="70" rx="7"/><rect class="cn-gis" x="10" y="24" width="142" height="70" rx="7"/>
+          <rect class="cn-gd" x="20" y="35" width="102" height="10" rx="2"/><path class="cn-gx" d="M22 40H120"/>
+          <rect class="cn-gn" x="20" y="51" width="122" height="10" rx="2"/>
+          <rect class="cn-gv" x="20" y="74" width="34" height="6" rx="3"/><circle class="cn-gif" cx="140" cy="77" r="6"/>
+          <path class="cn-gis" d="M152 40H162"/>
+          <rect class="cn-gk" x="162" y="14" width="68" height="112" rx="7"/>
+          <circle class="cn-gif" cx="174" cy="27" r="6"/><rect class="cn-gt" x="184" y="24.5" width="38" height="5" rx="2.5"/>
+          <rect class="cn-gu" x="170" y="42" width="52" height="5" rx="2.5"/><rect class="cn-gu" x="170" y="51" width="44" height="5" rx="2.5"/><rect class="cn-gu" x="170" y="60" width="48" height="5" rx="2.5"/>
+          <rect class="cn-gi" x="170" y="73" width="46" height="10" rx="5"/>
+          <rect class="cn-gk" x="170" y="104" width="22" height="14" rx="4"/><path class="cn-gl" d="M177.5 107.5l7 7M184.5 107.5l-7 7"/>
+          <rect class="cn-ga" x="196" y="104" width="26" height="14" rx="4"/><path class="cn-gwk" d="M205 111l3 3l5.5-6"/>
+        </svg><i class="cn-k is-part" aria-hidden="true"></i></div>
+        <p class="cn-pat__n">Suggesting mode</p>
+        <p class="cn-pat__f">Notion · Linear</p>
+      </li>
+      <li class="cn-pat" data-tint="mint" data-gk="b9">
+        <div class="cn-pat__plate"><svg class="cn-g" viewBox="0 0 240 150" aria-hidden="true">
+          <rect class="cn-gk" x="10" y="10" width="220" height="130" rx="9"/>
+          <path class="cn-gl" d="M22 24l4.5 4.5 4.5-4.5"/><rect class="cn-gt" x="40" y="22" width="56" height="8" rx="4"/>
+          <rect class="cn-gv" x="148" y="23" width="70" height="6" rx="3"/><rect class="cn-ga" x="148" y="23" width="28" height="6" rx="3"/>
+          <path class="cn-gh" d="M10 42H230"/>
+          <circle class="cn-ga" cx="30" cy="61" r="8"/><path class="cn-gwk" d="M26 61l3 3l5-6"/><rect class="cn-gu" x="46" y="55" width="84" height="6" rx="3"/><rect class="cn-gv" x="46" y="65" width="54" height="4" rx="2"/><rect class="cn-gp" x="190" y="57" width="28" height="8" rx="4"/>
+          <circle class="cn-gq" cx="30" cy="91" r="8"/><rect class="cn-gt" x="46" y="85" width="96" height="6" rx="3"/><rect class="cn-gv" x="46" y="95" width="58" height="4" rx="2"/><rect class="cn-gk" x="182" y="84" width="36" height="14" rx="5"/>
+          <circle class="cn-gq" cx="30" cy="121" r="8"/><rect class="cn-gt" x="46" y="115" width="72" height="6" rx="3"/><rect class="cn-gv" x="46" y="125" width="44" height="4" rx="2"/><rect class="cn-gk" x="182" y="114" width="36" height="14" rx="5"/>
+        </svg></div>
+        <p class="cn-pat__n">Readiness guide</p>
+        <p class="cn-pat__f">Squarespace · Vanta</p>
+      </li>
+      <li class="cn-pat is-part" data-tint="blush" data-gk="b10">
+        <div class="cn-pat__plate"><svg class="cn-g" viewBox="0 0 240 150" aria-hidden="true">
+          <rect class="cn-gk" x="10" y="10" width="108" height="130" rx="9"/>
+          <rect class="cn-gu" x="20" y="22" width="34" height="5" rx="2.5"/><rect class="cn-gu" x="66" y="22" width="22" height="5" rx="2.5"/>
+          <rect class="cn-gt" x="20" y="33" width="36" height="13" rx="3"/><rect class="cn-ga" x="66" y="33" width="32" height="13" rx="3"/>
+          <rect class="cn-gv" x="20" y="60" width="88" height="6" rx="3"/><rect class="cn-ga" x="20" y="60" width="12" height="6" rx="3"/>
+          <rect class="cn-gu" x="20" y="76" width="60" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="20" y="110" width="44" height="16" rx="5"/><rect class="cn-gv" x="70" y="110" width="38" height="16" rx="8"/>
+          <rect class="cn-gv" x="128" y="70" width="12" height="4" rx="2"/><rect class="cn-gok" x="128" y="78" width="12" height="50" rx="2"/>
+          <rect class="cn-gv" x="143" y="70" width="12" height="4" rx="2"/><rect class="cn-gok" x="143" y="78" width="12" height="50" rx="2"/>
+          <rect class="cn-gv" x="158" y="70" width="12" height="4" rx="2"/><rect class="cn-gok" x="158" y="78" width="12" height="50" rx="2"/>
+          <rect class="cn-gv" x="173" y="54" width="12" height="4" rx="2"/><rect class="cn-gu" x="173" y="62" width="12" height="66" rx="2"/>
+          <rect class="cn-gv" x="188" y="50" width="12" height="4" rx="2"/><rect class="cn-gu" x="188" y="58" width="12" height="70" rx="2"/>
+          <rect class="cn-gv" x="203" y="42" width="12" height="4" rx="2"/><rect class="cn-gu" x="203" y="50" width="12" height="78" rx="2"/><rect class="cn-gis" x="200" y="47" width="18" height="84" rx="4"/>
+          <rect class="cn-gv" x="218" y="70" width="12" height="4" rx="2"/><rect class="cn-gok" x="218" y="78" width="12" height="50" rx="2"/>
+        </svg><i class="cn-k is-part" aria-hidden="true"></i></div>
+        <p class="cn-pat__n">You vs similar homes</p>
+        <p class="cn-pat__f">Hootsuite · Tripadvisor</p>
+      </li>
+      <li class="cn-pat" data-tint="butter" data-gk="b11">
+        <div class="cn-pat__plate"><svg class="cn-g" viewBox="0 0 240 150" aria-hidden="true">
+          <rect class="cn-gk" x="10" y="10" width="152" height="130" rx="9"/>
+          <rect class="cn-gv" x="20" y="19" width="12" height="4" rx="2"/><rect class="cn-gv" x="48" y="19" width="12" height="4" rx="2"/><rect class="cn-gv" x="76" y="19" width="12" height="4" rx="2"/><rect class="cn-gv" x="104" y="19" width="12" height="4" rx="2"/><rect class="cn-gv" x="132" y="19" width="12" height="4" rx="2"/>
+          <rect class="cn-gs" x="16" y="30" width="26" height="32" rx="3"/><rect class="cn-gu" x="20" y="35" width="8" height="4" rx="2"/><rect class="cn-gt" x="20" y="48" width="16" height="6" rx="2"/>
+          <rect class="cn-gs" x="44" y="30" width="26" height="32" rx="3"/><rect class="cn-gu" x="48" y="35" width="8" height="4" rx="2"/><rect class="cn-gt" x="48" y="48" width="16" height="6" rx="2"/><circle class="cn-gif" cx="64" cy="37" r="2.5"/>
+          <rect class="cn-gif" x="72" y="30" width="54" height="32" rx="3"/><rect class="cn-gw" x="76" y="35" width="8" height="4" rx="2"/><rect class="cn-gw" x="76" y="48" width="16" height="6" rx="2"/><rect class="cn-gw" x="104" y="35" width="8" height="4" rx="2"/><rect class="cn-gw" x="104" y="48" width="16" height="6" rx="2"/>
+          <rect class="cn-gs" x="128" y="30" width="26" height="32" rx="3"/><rect class="cn-gu" x="132" y="35" width="8" height="4" rx="2"/><rect class="cn-gt" x="132" y="48" width="16" height="6" rx="2"/>
+          <rect class="cn-gs" x="16" y="66" width="26" height="32" rx="3"/><rect class="cn-gu" x="20" y="71" width="8" height="4" rx="2"/><rect class="cn-gt" x="20" y="84" width="16" height="6" rx="2"/>
+          <rect class="cn-gs" x="44" y="66" width="26" height="32" rx="3"/><rect class="cn-gu" x="48" y="71" width="8" height="4" rx="2"/><rect class="cn-gt" x="48" y="84" width="16" height="6" rx="2"/>
+          <rect class="cn-gs" x="72" y="66" width="26" height="32" rx="3"/><rect class="cn-gu" x="76" y="71" width="8" height="4" rx="2"/><rect class="cn-gt" x="76" y="84" width="16" height="6" rx="2"/>
+          <rect class="cn-gs" x="100" y="66" width="26" height="32" rx="3"/><rect class="cn-gu" x="104" y="71" width="8" height="4" rx="2"/><rect class="cn-gt" x="104" y="84" width="16" height="6" rx="2"/>
+          <rect class="cn-gs" x="128" y="66" width="26" height="32" rx="3"/><rect class="cn-gu" x="132" y="71" width="8" height="4" rx="2"/><rect class="cn-gt" x="132" y="84" width="16" height="6" rx="2"/>
+          <rect class="cn-gs" x="16" y="102" width="26" height="32" rx="3"/><rect class="cn-gu" x="20" y="107" width="8" height="4" rx="2"/><rect class="cn-gt" x="20" y="120" width="16" height="6" rx="2"/>
+          <rect class="cn-gs" x="44" y="102" width="26" height="32" rx="3"/><rect class="cn-gu" x="48" y="107" width="8" height="4" rx="2"/><rect class="cn-gt" x="48" y="120" width="16" height="6" rx="2"/>
+          <rect class="cn-gs" x="72" y="102" width="26" height="32" rx="3"/><rect class="cn-gu" x="76" y="107" width="8" height="4" rx="2"/><rect class="cn-gt" x="76" y="120" width="16" height="6" rx="2"/>
+          <rect class="cn-gs" x="100" y="102" width="26" height="32" rx="3"/><rect class="cn-gu" x="104" y="107" width="8" height="4" rx="2"/><rect class="cn-gt" x="104" y="120" width="16" height="6" rx="2"/>
+          <rect class="cn-gs" x="128" y="102" width="26" height="32" rx="3"/><rect class="cn-gu" x="132" y="107" width="8" height="4" rx="2"/><rect class="cn-gt" x="132" y="120" width="16" height="6" rx="2"/>
+          <rect class="cn-gk" x="170" y="10" width="60" height="130" rx="9"/>
+          <circle class="cn-gq" cx="181" cy="32" r="5"/><rect class="cn-gu" x="190" y="27" width="30" height="5" rx="2.5"/><rect class="cn-gv" x="190" y="36" width="22" height="4" rx="2"/>
+          <circle class="cn-gq" cx="181" cy="68" r="5"/><rect class="cn-gu" x="190" y="63" width="30" height="5" rx="2.5"/><rect class="cn-gv" x="190" y="72" width="22" height="4" rx="2"/>
+          <rect class="cn-gis" x="174" y="90" width="52" height="40" rx="6"/><circle class="cn-gif" cx="181" cy="104" r="5"/><rect class="cn-gu" x="190" y="99" width="30" height="5" rx="2.5"/><rect class="cn-gi" x="190" y="108" width="28" height="8" rx="4"/>
+        </svg></div>
+        <p class="cn-pat__n">Rate calendar first</p>
+        <p class="cn-pat__f">Turo · KAYAK</p>
+      </li>
+      <li class="cn-pat" data-tint="mint" data-gk="b12">
+        <div class="cn-pat__plate"><svg class="cn-g" viewBox="0 0 240 150" aria-hidden="true">
+          <rect class="cn-gk" x="10" y="10" width="220" height="130" rx="9"/>
+          <rect class="cn-gu" x="22" y="20" width="40" height="5" rx="2.5"/>
+          <rect class="cn-gk" x="22" y="30" width="128" height="22" rx="5"/><rect class="cn-gu" x="29" y="38.5" width="78" height="5" rx="2.5"/>
+          <rect class="cn-go" x="17" y="25" width="138" height="32" rx="8"/>
+          <rect class="cn-gk" x="34" y="66" width="136" height="46" rx="7"/><path class="cn-gptr" d="M58 66.6L66 59L74 66.6"/>
+          <circle class="cn-gif" cx="45" cy="76" r="3.5"/><rect class="cn-gt" x="53" y="73.5" width="64" height="5" rx="2.5"/><rect class="cn-gu" x="44" y="85" width="108" height="4" rx="2"/>
+          <rect class="cn-gv" x="104" y="96" width="26" height="9" rx="4.5"/><rect class="cn-ga" x="134" y="96" width="28" height="9" rx="4.5"/>
+          <rect class="cn-gk" x="22" y="120" width="128" height="12" rx="5"/>
+          <path class="cn-gh" d="M204 28V124"/>
+          <circle class="cn-ga" cx="204" cy="28" r="4.5"/><circle class="cn-ga" cx="204" cy="48" r="4.5"/>
+          <circle class="cn-gk" cx="204" cy="68" r="6"/><circle class="cn-go" cx="204" cy="68" r="6"/>
+          <circle class="cn-gk" cx="204" cy="88" r="4.5"/>
+          <circle class="cn-gis" cx="204" cy="106" r="9"/><circle class="cn-gif" cx="204" cy="106" r="4.5"/>
+          <circle class="cn-gk" cx="204" cy="124" r="4.5"/>
+        </svg></div>
+        <p class="cn-pat__n">Guided pass</p>
+        <p class="cn-pat__f">Zoho CRM · Navattic</p>
+      </li>
+    </ol>
+  </div>
+  <template class="more" data-more="kept" data-title="Same flow, same rules" data-label="Same flow">
+    <div class="more__panel" data-title="Same flow, same rules">
+      <p class="cn-flow__lead" data-a="rise">Every direction ran the same eight steps under the same rules, so only the pattern changed.</p>
+      <ol class="cn-flow" data-a="stagger" data-at="0.15" data-s="0.6">
+        <li>Overview</li><li>Listing text</li><li>A missing fact</li><li>Pricing</li><li>Availability</li><li>Booking policies</li><li>Review</li><li>Receipts</li>
+      </ol>
+      <ul class="cn-rulez" data-a="stagger" data-beat="1" data-s="1.2">
+        <li data-tint="blush"><span class="cn-tile"><svg><use href="#i-eye"/></svg></span><b>Nothing reaches a channel unless the host approved it</b></li>
+        <li data-tint="butter"><span class="cn-tile"><svg><use href="#i-coin"/></svg></span><b>Money and stay rules never go on autopilot</b></li>
+        <li data-tint="mint"><span class="cn-tile"><svg><use href="#i-help-circle"/></svg></span><b>An unknown fact becomes a question</b></li>
+        <li data-tint="blush"><span class="cn-tile"><svg><use href="#i-adjustments-horizontal"/></svg></span><b>Each channel’s real limits apply</b></li>
+      </ul>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span class="hc-prov" data-prov="public"></span><span>Pattern references from the vendors’ own pages and saved screens</span><span class="more-link" data-more="kept">Same flow</span></p></div>
+  <aside class="notes"><p>Round one gave me a structure. Round two was about the listing itself. How should AI help a host make each channel’s listing better? I built twelve directions in Paper. Each one uses a pattern people already trust, from Google Ads’ optimisation score to Notion’s suggesting mode. I saved the references beside each one. Borrowing what hosts already know means less to learn. Every direction ran the same flow, from the overview through pricing, availability and policies to receipts. And the same hard rules applied. Money and stay rules never go on autopilot. An unknown fact becomes a question, never a guess.</p><p>[Press] Two became the core of the build. The live canvas is now the Canvas view. The copilot became the docked tips panel and Rewrite with AI. Four lent a part: who the strategy is for, its goal and guardrails, the tracked change with its why, and similar homes as evidence. About 50 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="cn-converge" data-title="Two rounds, one model: Smart Listings" data-stage="3" data-part="concept" data-path="S" data-angle="B" data-min="0.9" data-req="R-164 R-116" data-notion="D-916 D-917 D-124 04-concepts" data-notion-page="04-concepts__o-converged" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Concept</span><span>Final concept</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Two rounds of directions, one model: Smart Listings</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Round one set the shape. Round two gave the model. A strategy per channel turns into tips with their why, seen on the channel’s real page.</p>
+  </header>
+  <div class="s-body">
+    <div class="cn-from" data-own>
+      <p class="cn-from__h"><span class="cn-round">Round one</span></p><p class="cn-from__h"><span class="cn-round">Round two</span></p><p class="cn-from__h cn-from__h--to"><span class="cn-round cn-round--to">In Smart Listings</span></p>
+
+      <ul class="cn-from__c"></ul>
+      <div class="cn-from__mid"><ul class="cn-from__c"><li class="cn-chip"><i class="cn-chip__g" data-g="b6"></i>Strategy picker</li><li class="cn-chip"><i class="cn-chip__g" data-g="b7"></i>Goals and guardrails</li></ul><span class="cn-from__ln" aria-hidden="true"><i class="cn-from__sh"></i><svg class="cn-from__hd" viewBox="0 0 14 24"><path d="M3 4.5L12 12L3 19.5"/></svg></span></div>
+      <div class="cn-from__to"><span class="cn-from__i" data-tint="butter"><svg><use href="#i-target"/></svg></span><p class="cn-from__t">A strategy per channel</p><p class="cn-from__d">Who it’s for, a goal, guardrails</p></div>
+
+      <ul class="cn-from__c"><li class="cn-chip"><i class="cn-chip__g" data-g="c4"></i>Decision Inbox</li></ul>
+      <div class="cn-from__mid"><ul class="cn-from__c"><li class="cn-chip"><i class="cn-chip__g" data-g="b3"></i>Copilot</li><li class="cn-chip"><i class="cn-chip__g" data-g="b8"></i>Suggesting mode</li><li class="cn-chip"><i class="cn-chip__g" data-g="b10"></i>You vs similar homes</li></ul><span class="cn-from__ln" aria-hidden="true"><i class="cn-from__sh"></i><svg class="cn-from__hd" viewBox="0 0 14 24"><path d="M3 4.5L12 12L3 19.5"/></svg></span></div>
+      <div class="cn-from__to"><span class="cn-from__i" data-tint="lavender"><svg><use href="#i-sparkles"/></svg></span><p class="cn-from__t">Tips with their why</p><p class="cn-from__d">One at a time, with sources</p></div>
+
+      <ul class="cn-from__c"><li class="cn-chip"><i class="cn-chip__g" data-g="c1"></i>Channel Canvas</li></ul>
+      <div class="cn-from__mid"><ul class="cn-from__c"><li class="cn-chip"><i class="cn-chip__g" data-g="b2"></i>Live canvas</li></ul><span class="cn-from__ln" aria-hidden="true"><i class="cn-from__sh"></i><svg class="cn-from__hd" viewBox="0 0 14 24"><path d="M3 4.5L12 12L3 19.5"/></svg></span></div>
+      <div class="cn-from__to"><span class="cn-from__i" data-tint="blush"><svg><use href="#i-eye"/></svg></span><p class="cn-from__t">The Canvas view</p><p class="cn-from__d">Each channel’s real page</p></div>
+
+      <ul class="cn-from__c"></ul>
+      <div class="cn-from__mid"><ul class="cn-from__c"><li class="cn-chip"><i class="cn-chip__g" data-g="b3"></i>Copilot</li></ul><span class="cn-from__ln" aria-hidden="true"><i class="cn-from__sh"></i><svg class="cn-from__hd" viewBox="0 0 14 24"><path d="M3 4.5L12 12L3 19.5"/></svg></span></div>
+      <div class="cn-from__to"><span class="cn-from__i" data-tint="lavender"><svg><use href="#i-wand"/></svg></span><p class="cn-from__t">Rewrite with AI</p><p class="cn-from__d">Any field without a tip, even with Smart Listings off</p></div>
+    </div>
+  </div>
+  <template class="more" data-more="how" data-title="How the model was set" data-label="How it converged">
+    <div class="more__panel" data-title="The reviews">
+      <ol class="cn-steps" data-a="stagger" data-s="1.4">
+        <li><span class="cn-steps__n">1</span><p class="cn-steps__t">43 comments on the live canvas</p><p class="cn-steps__d">set the model: switched on per property, a strategy per channel, one tip container, Classic and Canvas, Performance</p></li>
+        <li><span class="cn-steps__n">2</span><p class="cn-steps__t">Four steps were too many</p><p class="cn-steps__d">so the strategy became a short wizard, one question per screen, on Hospitable’s own pattern</p></li>
+        <li class="is-key"><span class="cn-steps__n">3</span><p class="cn-steps__t">“Do it on the real thing”</p><p class="cn-steps__d">so the model left Paper for the coded prototype, with the channel-first menu</p></li>
+      </ol>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span class="more-link" data-more="how">How it converged</span></p></div>
+  <aside class="notes"><p>Here’s how two rounds became one model. Round one gave me the shape. The inbox’s "what needs you" became tips. The canvas became a window on each channel’s real page. Round two gave the parts: the live canvas, the copilot, two strategy directions, the tracked change, and similar homes as evidence.</p><p>[Press] Put together, that’s Smart Listings. A strategy per channel: who it’s for, a goal and guardrails. Tips with their why, one at a time, in a docked panel. The Canvas view of each channel’s real page. And Rewrite with AI on any field without a tip. It needs no strategy, so it works even with Smart Listings off. I reviewed the live canvas frame by frame, with 43 comments, and that review set the model. When the strategy grew to four steps, I cut it to one question per screen, on Hospitable’s own wizard. Then I built it for real. From here on, everything I show is running code. About 55 seconds.</p></aside>
+</section>

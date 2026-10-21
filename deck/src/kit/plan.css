@@ -1,0 +1,183 @@
+/* ============================================================================
+   PLAN · the dialog that asks how much of the deck you want to see, and the
+   hint that reopens it. Screen furniture, so it lives at window size outside
+   the scaled stage, like the palette and the lightbox.
+
+   Two columns of rows, and nothing below --ink-3. On lumen, --ink-4 is 22% ink
+   on deep navy and the notes could not be read at all (Antonio, 2026-09-28:
+   "never use dark grey on dark blue, can't see anything"), so --ink-4 is kept
+   for the meter's unlit stubs and nothing that carries a word.
+   ========================================================================= */
+@layer components {
+
+.plan {
+  position: fixed; inset: 0; z-index: 88;   /* under .rotate (90) and the boot veil (100), over the palette (80) */
+  display: grid; place-items: center; padding: 3vh 16px;
+  font-family: var(--font-text);
+}
+.plan[hidden] { display: none; }
+.plan__scrim { position: absolute; inset: 0;
+  background: color-mix(in oklab, var(--bg) 62%, transparent); backdrop-filter: blur(16px) saturate(1.2); }
+
+.plan__box {
+  position: relative; width: min(880px, 100%); max-height: 94vh; overflow: hidden;
+  /* head, presets, rows, foot: only the rows scroll, so Start is never below the fold */
+  display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; gap: var(--s-4); padding: 34px 38px 26px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow-2);
+}
+
+/* ── the head ───────────────────────────────────────────────────────────── */
+.plan__head { display: grid; gap: 9px; }
+.plan__eyebrow {
+  margin: 0; font-family: var(--font-mono); font-size: var(--t-micro); font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-ink);
+}
+.plan__head h2 {
+  margin: 0; font-family: var(--font-display); font-weight: var(--w-display);
+  font-size: clamp(23px, 2.6vw, 29px); line-height: 1.12; letter-spacing: var(--tr-display); color: var(--ink);
+}
+.plan__sub { margin: 0; max-width: 62ch; font-size: 14.5px; line-height: 1.45; color: var(--ink-3); text-wrap: pretty; }
+
+/* ── the three lengths to start from ────────────────────────────────────── */
+.plan__presets { display: flex; flex-wrap: wrap; gap: 8px; }
+.plan__preset {
+  display: inline-flex; align-items: baseline; gap: 8px; padding: 8px 15px;
+  border: 1px solid var(--line); border-radius: var(--r-pill); background: transparent;
+  font-family: var(--font-mono); font-size: var(--t-micro); letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-2); cursor: pointer;
+  transition: color var(--dur-1) var(--ease-io), border-color var(--dur-1) var(--ease-io), background var(--dur-1) var(--ease-io);
+}
+.plan__preset em { font-style: normal; color: var(--ink-3); }
+.plan__preset:hover { color: var(--ink); border-color: var(--ink-3); }
+.plan__preset.is-on { color: var(--ink); border-color: var(--accent); background: var(--accent-soft); }
+.plan__preset.is-on em { color: var(--accent-ink); }
+
+/* ── one row per part of the talk, two at a time; the whole row is the target ── */
+.plan__rows {
+  margin: 0; padding: 0; list-style: none;
+  display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--s-6);
+  align-content: start; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
+}
+.plan__rows li { border-top: var(--hair) solid var(--line); }
+.plan__rows li:nth-child(-n + 2) { border-top: 0; }
+/* only when there is more below: a clipped row should look like more, not like a mistake */
+.plan__rows.is-scroll { mask-image: linear-gradient(to bottom, var(--ink) calc(100% - 26px), transparent); }
+.plan__row {
+  display: grid; width: 100%; text-align: left; cursor: pointer;
+  grid-template-columns: 1fr auto auto; column-gap: 14px; align-items: center;
+  padding: 13px 12px; margin: 0 -12px; border: 0; border-radius: 10px; background: transparent;
+  transition: background var(--dur-1) var(--ease-io);
+}
+.plan__row:hover { background: var(--accent-soft); }
+.plan__row:focus-visible { outline: 1.5px solid var(--accent); outline-offset: 2px; }
+.plan__nm { grid-column: 1; font-size: 16px; line-height: 1.25; color: var(--ink-2); transition: color var(--dur-1) var(--ease-io); }
+.plan__row.is-on .plan__nm { color: var(--ink); }
+.plan__note { grid-column: 1 / -1; grid-row: 2; margin-top: 4px; font-size: 13px; line-height: 1.4; color: var(--ink-3); }
+.plan__n {
+  grid-column: 2; grid-row: 1; justify-self: end; min-width: 3ch; text-align: right;
+  font-family: var(--font-mono); font-size: var(--t-micro); letter-spacing: 0.06em; color: var(--ink-3);
+}
+.plan__row.is-on .plan__n { color: var(--accent-ink); }
+
+/* the switch, and its two-state cousin for the main case */
+.plan__sw {
+  grid-column: 3; grid-row: 1; width: 38px; height: 21px; padding: 2px; border-radius: var(--r-pill);
+  border: 1px solid var(--line); background: transparent; display: block;
+  transition: border-color var(--dur-1) var(--ease-io), background var(--dur-1) var(--ease-io);
+}
+.plan__sw i {
+  display: block; width: 15px; height: 15px; border-radius: 50%; background: var(--ink-3);
+  transition: transform var(--dur-1) var(--ease-out), background var(--dur-1) var(--ease-io);
+}
+.plan__row.is-on .plan__sw { border-color: var(--accent); background: var(--accent); }
+.plan__row.is-on .plan__sw i { transform: translateX(17px); background: var(--on-accent); }
+
+.plan__two {
+  grid-column: 3; grid-row: 1; display: inline-flex; padding: 2px;
+  border: 1px solid var(--line); border-radius: var(--r-pill);
+}
+.plan__two em {
+  font-style: normal; padding: 4px 11px; border-radius: var(--r-pill);
+  font-family: var(--font-mono); font-size: var(--t-micro); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3);
+  transition: color var(--dur-1) var(--ease-io), background var(--dur-1) var(--ease-io);
+}
+.plan__two em.is-on { color: var(--on-accent); background: var(--accent); }
+
+/* ── the density, and the way in ────────────────────────────────────────── */
+.plan__foot {
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px var(--s-5);
+  padding-top: var(--s-3); border-top: var(--hair) solid var(--line);
+}
+/* One tick per slide, in deck order. A slide that is in stands full height; one that is out
+   keeps its place as a stub, so the meter reads as density rather than as a bar that grows. */
+.plan__meter { grid-column: 1 / -1; display: flex; gap: 3px; height: 20px; align-items: stretch; }
+.plan__meter i {
+  flex: 1; border-radius: 1px; background: var(--ink-4); transform-origin: 50% 100%; transform: scaleY(0.28);
+  transition: transform var(--dur-1) var(--ease-out), background var(--dur-1) var(--ease-io);
+}
+.plan__meter i.is-on { background: var(--ink-3); transform: scaleY(1); }
+.plan__meter i.is-hi.is-on { background: var(--accent); }
+.plan__meter i.is-hi:not(.is-on) { background: var(--accent); transform: scaleY(0.5); }
+.plan__count { margin: 0; font-family: var(--font-mono); font-size: var(--t-micro); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+.plan__count b { font-weight: 500; color: var(--ink); }
+.plan__dot { margin: 0 8px; color: var(--ink-3); }
+.plan__go {
+  justify-self: end; padding: 11px 26px; border: 0; border-radius: var(--r-pill); cursor: pointer;
+  background: var(--accent); color: var(--on-accent);
+  font-family: var(--font-mono); font-size: var(--t-micro); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+  transition: filter var(--dur-1) var(--ease-io);
+}
+.plan__go:hover { filter: brightness(1.08); }
+.plan__go:focus-visible { outline: 1.5px solid var(--accent); outline-offset: 3px; }
+
+/* one column once the pair no longer fits side by side */
+@media (max-width: 860px) {
+  .plan__rows { grid-template-columns: 1fr; }
+  .plan__rows li:nth-child(-n + 2) { border-top: var(--hair) solid var(--line); }
+  .plan__rows li:first-child { border-top: 0; }
+}
+/* a short window compacts rather than scrolls */
+@media (max-height: 740px) {
+  .plan__box { padding: 24px 28px 20px; gap: var(--s-3); }
+  .plan__head h2 { font-size: clamp(20px, 2.4vw, 25px); }
+  .plan__head { gap: 6px; }
+  .plan__sub { font-size: 13.5px; }
+  .plan__row { padding: 10px 12px; }
+  .plan__nm { font-size: 15px; }
+  .plan__note { font-size: 12.5px; margin-top: 2px; }
+  .plan__meter { height: 15px; }
+}
+@media (max-height: 600px) { .plan__note { display: none; } }
+/* a phone in landscape: the head gives up its second line so the rows keep a window of
+   their own and Start stays pinned where a thumb can reach it */
+@media (max-height: 560px) {
+  .plan { padding: 8px 12px; }
+  .plan__box { padding: 18px 20px 14px; gap: 12px; max-height: 96dvh; border-radius: 14px; }
+  .plan__sub { display: none; }
+  .plan__head h2 { font-size: 19px; }
+  .plan__eyebrow { font-size: 10px; }
+  .plan__preset { padding: 6px 12px; }
+  .plan__row { padding: 8px 12px; }
+  .plan__nm { font-size: 14.5px; }
+  .plan__meter { height: 12px; }
+  .plan__foot { gap: 8px 16px; padding-top: 12px; }
+  .plan__go { padding: 9px 20px; }
+}
+
+@media (max-width: 560px) {
+  .plan__box { padding: 24px 20px 20px; }
+  .plan__row { grid-template-columns: 1fr auto; }
+  .plan__n { grid-column: 2; }
+  .plan__sw, .plan__two { grid-column: 2; grid-row: 3; justify-self: end; margin-top: 8px; }
+  .plan__foot { grid-template-columns: 1fr; }
+  .plan__go { justify-self: stretch; text-align: center; }
+}
+
+/* A slide the plan leaves out: still in the document, in order, simply not on the wall. */
+.s.is-cut { display: none; }
+
+} /* @layer components */
+
+@layer utils {
+  html.is-print .plan { display: none !important; }
+}

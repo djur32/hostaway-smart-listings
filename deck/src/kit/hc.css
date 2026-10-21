@@ -1,0 +1,1058 @@
+/* ============================================================================
+   HC · the Hospitable case's own components (S07). Templates: src/slides/_kit.html.
+   Behaviour (charts, Notion links, frames, the concept grid): kit/hc.js.
+
+     .hc-prov        provenance chip: REAL·BRIEF · REAL·PRODUCT · REAL·PUBLIC ·
+                     SIMULATED ("Illustrative") · PROJECTED · ASSUMPTION
+     .hc-id          an ID tag (D-012, I-04, INT-3); a link when Notion knows it
+     .hc-notion      "In Notion ↗" (every slide gets one in its foot, automatically)
+     .hc-quote       a quote card: persona, words, INT-# and time, provenance
+     .hc-chart       a chart frame fed by JSON: bar · funnel · matrix · journey ·
+                     line (before/after) · svg (an imported dendrogram)
+     .hc-kpi         a KPI tile        .hc-signal   a signal-strength meter
+     .hc-stat        the KPI card (label · value · one quiet line); .hc-stats rows, .hc-stats--stack
+     .hc-browser     my.hospitable.com in a browser frame   .hc-phone   a phone
+     .hc-live        the live prototype, embedded, with a poster
+     .hc-grid        the 7 × 5 concept matrix (click a cell to zoom)
+     .hc-decision    a decision card: D-###, the call, the options, why, strength
+     .hc-pr          problem → response → screen
+     .hc-ch          a channel chip     .hc-ai   the lavender AI card
+     .hc-illo        an opener's illustration (from ds/illustrations/)
+     .hc-ph          a placeholder: what goes here, and who fills it
+
+   Tokens only (src/kit/tokens.css → ds/tokens.css). Prefix hc- is the kit's; slide
+   parts prefix their own classes with their part (dc-, rs-, ia-…).
+   ========================================================================= */
+
+@layer components {
+
+/* ── provenance, one colour per kind (3 Oct, late) ─────────────────────────
+   Antonio: the kinds were coloured on one slide and grey on the others. One colour per kind,
+   the same everywhere (footer chips, legends, the covers' Outputs), built from ds tokens:
+     Real        --prov-real   / --prov-real-bg     green  (success-700 / -50)   brief · product · public
+     Simulated   --prov-sim    / --prov-sim-bg      orange (orange-700 / -50)   never purple: lavender/purple means AI
+     Projected   --prov-proj   / --prov-proj-bg     blue   (blue-700 / -50)
+     Assumption  --prov-assume / --prov-assume-bg   gray   (gray-700 / -50)     a design call, not yet tested
+   The -700 inks pass AA on white and on their own -bg. The glyph still tells the kind without
+   colour: ● real (filled) · ○ simulated (hollow) · ◐ projected · ◇ assumption.
+   A slide's sources sit in its foot as one line (.hc-src), the chip names the kind. */
+:root {
+  /* the quiet gray plate behind cards, rows and chips. Gray-50 read as white on the wall (Antonio, 4 Oct: "the light gray is too light") */
+  --plate-quiet: var(--color-gray-100);
+  --prov-real:   var(--color-success-700);   --prov-real-bg:   var(--color-success-50);
+  --prov-sim:    var(--color-orange-700);    --prov-sim-bg:    var(--color-orange-50);
+  --prov-proj:   var(--color-blue-700);      --prov-proj-bg:   var(--color-blue-50);
+  --prov-assume: var(--color-gray-700);      --prov-assume-bg: var(--plate-quiet);
+  --prov-plan:   var(--color-gray-600);      --prov-plan-line: var(--color-gray-400);   /* a planned output: neutral */
+}
+.hc-prov {
+  display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; vertical-align: baseline;
+  font: var(--w-medium) 15px / 1.2 var(--font-ui); letter-spacing: 0; color: var(--prov-c, var(--ink-3));
+}
+.hc-prov:is([data-prov="brief"], [data-prov="product"], [data-prov="public"]) { --prov-c: var(--prov-real); }
+.hc-prov[data-prov="simulated"]  { --prov-c: var(--prov-sim); }
+.hc-prov[data-prov="projected"]  { --prov-c: var(--prov-proj); }
+.hc-prov[data-prov="assumption"] { --prov-c: var(--prov-assume); }
+.hc-prov::before { content: ""; width: 8px; height: 8px; border-radius: 50%; flex: none; background: currentColor; }
+.hc-prov[data-prov="simulated"]::before { background: none; box-shadow: inset 0 0 0 1.4px currentColor; }
+.hc-prov[data-prov="projected"]::before { background: linear-gradient(90deg, currentColor 50%, transparent 50%); box-shadow: inset 0 0 0 1.4px currentColor; }
+.hc-prov[data-prov="assumption"]::before { width: 7px; height: 7px; border-radius: 1px; transform: rotate(45deg); background: none; box-shadow: inset 0 0 0 1.4px currentColor; }
+.hc-prov--sm { font-size: 13px; gap: 6px; }
+.hc-prov--sm::before { width: 6px; height: 6px; }
+/* on the aubergine ground the -700 inks are too dark: the chips go back to the quiet on-dark text */
+.s[data-ground="aubergine"] .hc-prov { --prov-c: var(--on-dark-2); }
+
+/* ── what became of an output (the covers' Outputs) ────────────────────────
+   <span class="hc-mark" data-mark="produced|sampled|planned"></span>   (the word fills itself)
+   produced: made in this case (the real colours) · sampled: made from a simulated sample
+   (the simulated colours) · planned: what I'd make with real access, not made here (gray outline). */
+.hc-mark {
+  display: inline-flex; align-items: center; gap: 7px; height: 30px; padding: 0 12px 0 10px; border-radius: var(--r-pill);
+  font: var(--w-head) 15px / 1 var(--font-ui); letter-spacing: 0; white-space: nowrap; vertical-align: middle;
+  color: var(--mark-c, var(--ink-3)); background: var(--mark-bg, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--mark-c, var(--ink-3)) 22%, transparent);
+}
+.hc-mark::before { content: ""; width: 8px; height: 8px; border-radius: 50%; flex: none; background: currentColor; }
+.hc-mark[data-mark="produced"] { --mark-c: var(--prov-real); --mark-bg: var(--prov-real-bg); }
+.hc-mark[data-mark="sampled"]  { --mark-c: var(--prov-sim);  --mark-bg: var(--prov-sim-bg); }
+.hc-mark[data-mark="sampled"]::before { background: none; box-shadow: inset 0 0 0 1.4px currentColor; }
+.hc-mark[data-mark="planned"]  { --mark-c: var(--prov-plan); --mark-bg: var(--bg); box-shadow: none; border: 1.5px dashed var(--prov-plan-line); padding: 0 10.5px 0 8.5px; }
+.hc-mark[data-mark="planned"]::before { background: none; box-shadow: inset 0 0 0 1.4px currentColor; }
+/* the source line: kind, then what it is */
+.hc-src { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px; font-size: 15px; line-height: 1.4; color: var(--ink-3); max-width: 1400px; }   /* centred: an inline-flex chip's baseline is its dot, so baseline let the words ride high (Antonio, 4 Oct) */
+.hc-src > * { line-height: 1.4; }
+.hc-src > span:not(.hc-prov) { color: var(--ink-3); }
+.hc-src .hc-prov + span::before { content: ""; }
+
+/* ── IDs and the Notion link ───────────────────────────────────────────── */
+.hc-id {
+  display: inline-flex; align-items: center; height: 24px; padding: 0 7px; border-radius: var(--r-1);
+  background: var(--plate-quiet); border: var(--hair) solid var(--line);
+  font: 500 13px / 1 var(--font-code); letter-spacing: 0; color: var(--ink-3); white-space: nowrap; vertical-align: middle;
+}
+a.hc-id:hover { color: var(--ink); border-color: var(--line-2); }
+.hc-ids { display: inline-flex; flex-wrap: wrap; gap: 6px; }
+/* "Notion ↗": a plain text link in the foot, only where a page exists for the slide */
+.hc-notion { display: inline-flex; align-items: center; gap: 6px; font: var(--w-medium) 15px / 1 var(--font-ui); color: var(--ink-3); white-space: nowrap; }
+.hc-notion::after { content: "↗"; font-size: 14px; }
+a.hc-notion:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.hc-notion.is-pending { display: none; }
+.s-foot .hc-notion, .hc-foot .hc-notion { display: none; }   /* moved to the hint row, next to Jump (kit/hc.js notionHint) */
+.hint--notion { text-decoration: none; }
+.hint--notion[hidden] { display: none; }
+html.is-print .hint--notion { display: none; }
+/* the prototype door (kit/hc.js protoHint): solid ink, the height of a key cap, so it reads before the grey hints */
+.hint.hint--proto { height: 28px; padding: 0 12px 0 14px; gap: 7px; border-radius: var(--r-1); background: var(--color-sidebar-bg);
+  color: var(--color-text-white); font: var(--w-medium) 16px / 1 var(--font-ui); text-decoration: none; }
+.hint.hint--proto::after { content: "↗"; font-size: 15px; }
+/* the text stays white at rest, hover and focus: the generic .hint:hover ink would otherwise win on the dark chip (4 Oct) */
+.hint.hint--proto, .hint.hint--proto:hover, .hint.hint--proto:focus-visible { color: var(--color-text-white); }
+.hint.hint--proto:hover { background: var(--color-secondary-900); }
+.hint.hint--proto:focus-visible { outline: 2px solid var(--color-text-white); outline-offset: 2px; }
+.hint--proto[hidden] { display: none; }
+html.is-print .hint--proto { display: none; }
+.hc-foot { display: flex; align-items: baseline; gap: var(--s-3); }
+
+/* ── channel chip ───────────────────────────────────────────────────────── */
+.hc-ch {
+  display: inline-flex; align-items: center; gap: 8px; height: 30px; padding: 0 12px 0 10px;
+  border-radius: var(--r-pill); border: var(--hair) solid var(--line); background: var(--bg);
+  font: var(--w-medium) 15px / 1 var(--font-ui); color: var(--ink-2); white-space: nowrap;
+}
+.hc-ch::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--ch, var(--ink-4)); }
+.hc-ch.has-mark::before { content: none; }
+.hc-ch__mark { width: 18px; height: 18px; flex: none; }
+.hc-ch[data-ch="airbnb"]  { --ch: var(--ch-airbnb); }
+.hc-ch[data-ch="booking"] { --ch: var(--ch-booking); }
+.hc-ch[data-ch="vrbo"]    { --ch: var(--ch-vrbo); }
+.hc-ch[data-ch="google"]  { --ch: var(--ch-google); }
+.hc-ch[data-ch="direct"]  { --ch: var(--ch-direct); }
+
+/* ── product UI on a slide: S02's h-* components, at wall size ──────────────
+   <div class="h-root hc-ui" style="--ui-zoom: 1.6"> … ds/components/index.html markup … </div>
+   The design system draws at the product's 1× (16px body); the wall wants it larger, so the block
+   is zoomed as a whole rather than restyled. Use it for one real component on a slide (an AI
+   suggestion card, a conflict card, a field row), never for a whole screen: screens are shots. */
+.hc-ui { zoom: var(--ui-zoom, 1.75); background: transparent; }
+
+/* ── the lavender AI card: the product's "Dynamic Pricing · New", at wall size ── */
+.hc-ai {
+  display: grid; gap: 6px; padding: 22px 28px; border-radius: var(--r-3);
+  background: var(--ai-bg); border: var(--hair) solid var(--ai-line);
+}
+.hc-ai__t { display: flex; align-items: center; gap: 12px; font: var(--w-head) 24px / 1.2 var(--font-ui); color: var(--ai-title); }
+.hc-ai__t .hc-new { display: inline-flex; align-items: center; height: 26px; padding: 0 10px; border-radius: var(--r-2);
+  background: var(--pill-new-bg); border: var(--hair) solid var(--pill-new-border); color: var(--pill-new-text); font: var(--w-medium) 14px / 1 var(--font-ui); }
+.hc-ai__b { font-size: var(--t-small); line-height: 1.45; color: var(--ai-ink); }
+.hc-ai--sparkle .hc-ai__t::before { content: "✦"; color: var(--ai-sparkle); font-size: 22px; }
+
+/* ── quote card ─────────────────────────────────────────────────────────── */
+.hc-quote {
+  display: grid; gap: var(--s-3); align-content: start; margin: 0; padding: 32px 36px 28px;
+  border: var(--hair) solid var(--line); border-radius: var(--r-3); background: var(--bg); max-width: 760px;
+}
+.hc-quote blockquote {
+  font: var(--w-medium) 32px / 1.3 var(--font-display); letter-spacing: -0.01em; color: var(--ink); text-wrap: pretty;
+  text-indent: -0.4em;
+}
+.hc-quote blockquote::before { content: "\201C"; color: var(--accent); }
+.hc-quote blockquote::after  { content: "\201D"; color: var(--accent); }
+.hc-quote figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; font-size: 16px; color: var(--ink-3); }
+.hc-quote__who { color: var(--ink-2); }
+.hc-quote__who b { font-weight: var(--w-head); }
+.hc-quote__t { font: 500 14px / 1 var(--font-code); color: var(--ink-3); }
+.hc-quote .hc-prov { margin-left: auto; }
+.hc-quote--lg blockquote { font-size: 44px; line-height: 1.2; }
+.hc-quotes { display: grid; grid-template-columns: repeat(var(--n, 2), minmax(0, 1fr)); gap: var(--s-4); align-items: start; }
+/* the persona avatar: an initial on the persona's tint (P1…P4) */
+.hc-avatar {
+  display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; flex: none;
+  font: var(--w-head) 15px / 1 var(--font-ui); color: var(--av-ink, var(--ink)); background: var(--av-bg, var(--color-gray-100));
+}
+.hc-avatar[data-persona="P1"] { --av-bg: var(--color-primary-100);   --av-ink: var(--color-primary-800); }
+.hc-avatar[data-persona="P2"] { --av-bg: var(--color-blue-100);      --av-ink: var(--color-blue-800); }
+.hc-avatar[data-persona="P3"] { --av-bg: var(--color-secondary-100); --av-ink: var(--color-secondary-800); }
+.hc-avatar[data-persona="P4"] { --av-bg: var(--color-success-100);   --av-ink: var(--color-success-800); }
+
+/* ── KPI tile ───────────────────────────────────────────────────────────── */
+.hc-kpi {
+  display: grid; gap: 10px; align-content: start; padding: 28px 30px; min-width: 0;
+  border: var(--hair) solid var(--line); border-radius: var(--r-3); background: var(--bg);
+}
+.hc-kpi__l { font: var(--w-medium) 17px / 1.3 var(--font-ui); color: var(--ink-3); }
+.hc-kpi__v { font: var(--w-head) 76px / 1 var(--font-display); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; color: var(--ink); }
+.hc-kpi__v small { font-size: .42em; letter-spacing: 0; margin-left: 4px; color: var(--ink-3); }
+.hc-kpi__d { display: inline-flex; align-items: center; gap: 6px; font: var(--w-medium) 16px / 1 var(--font-ui); color: var(--good-ink); }
+.hc-kpi__d.is-down { color: var(--bad); }
+.hc-kpi__d.is-flat { color: var(--ink-3); }
+.hc-kpi__f { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 4px; }
+.hc-kpis { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: var(--s-3); }
+
+/* ── signal-strength meter (CONVENTIONS §2: strong · moderate · weak · hypothesis) ── */
+.hc-signal { display: inline-flex; align-items: center; gap: 10px; font: var(--w-medium) 15px / 1 var(--font-ui); color: var(--ink-2); white-space: nowrap; }
+.hc-signal__bars { display: inline-flex; align-items: flex-end; gap: 3px; height: 20px; }
+.hc-signal__bars i { width: 6px; border-radius: 1px; background: var(--data-muted); box-shadow: inset 0 0 0 1px var(--line-2); }
+.hc-signal__bars i:nth-child(1) { height: 7px; }
+.hc-signal__bars i:nth-child(2) { height: 13px; }
+.hc-signal__bars i:nth-child(3) { height: 20px; }
+.hc-signal[data-strength="weak"] .hc-signal__bars i:nth-child(-n + 1),
+.hc-signal[data-strength="moderate"] .hc-signal__bars i:nth-child(-n + 2),
+.hc-signal[data-strength="strong"] .hc-signal__bars i { background: var(--sig, var(--accent)); box-shadow: none; }
+.hc-signal[data-strength="strong"]   { --sig: var(--good); }
+.hc-signal[data-strength="moderate"] { --sig: var(--warn); }
+.hc-signal[data-strength="weak"]     { --sig: var(--ink-3); }
+.hc-signal[data-strength="hypothesis"] .hc-signal__bars i { background: none; box-shadow: inset 0 0 0 1px var(--ink-4); }
+
+/* ── chart frames (drawn by kit/hc.js from JSON) ─────────────────────────── */
+.hc-chart { position: relative; margin: 0; display: grid; gap: var(--s-2); width: var(--w, 100%); min-width: 0; }
+.hc-chart__svg { display: block; width: 100%; height: auto; overflow: visible; }
+/* a chart's caption reads as the slide's source line (.hc-src): 15 px, quiet ink, the chip first and on the left
+   (Antonio, 4 Oct). Inside a detail, engine.js lifts it into the panel's one source line at the card's bottom left. */
+.hc-chart__cap { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 4px 18px; font-size: 15px; line-height: 1.4; color: var(--ink-3); }
+.hc-chart__cap .hc-prov { order: -1; margin-left: 0; }
+.hc-chart text { font-family: var(--font-ui); fill: var(--ink-2); }
+.hc-chart .t-label { font-size: 18px; fill: var(--ink-2); }
+.hc-chart .t-value { font-size: 18px; font-weight: 600; fill: var(--ink); font-variant-numeric: tabular-nums; }
+.hc-chart .t-axis  { font-size: 15px; fill: var(--ink-3); }
+.hc-chart .t-strong { font-weight: 600; fill: var(--ink); }
+.hc-chart .m-bar   { fill: var(--data-4); }
+.hc-chart .m-bar.is-hi { fill: var(--data-1); }
+.hc-chart .m-track { fill: var(--data-muted); }
+.hc-chart .m-grid  { stroke: var(--grid); stroke-width: 1; }
+.hc-chart .m-axis  { stroke: var(--line-2); stroke-width: 1; }
+.hc-chart .m-zero  { stroke: var(--line-2); stroke-width: 1; stroke-dasharray: 4 5; }
+.hc-chart .m-funnel { fill: var(--data-1); }
+.hc-chart .m-funnel.is-lost { fill: var(--accent-soft); }
+.hc-chart .m-line  { fill: none; stroke: var(--data-2); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.hc-chart .m-line.is-before { stroke: var(--data-4); stroke-dasharray: 2 8; stroke-width: 3; }
+.hc-chart .m-line.is-hi { stroke: var(--data-1); }
+.hc-chart .m-dot   { fill: var(--bg); stroke: var(--data-2); stroke-width: 3; }
+.hc-chart .m-dot.is-low  { stroke: var(--data-1); fill: var(--data-1); }
+.hc-chart .m-dot.is-high { stroke: var(--good); fill: var(--good); }
+.hc-chart .m-area  { fill: var(--accent-wash); }
+.hc-chart .m-cell  { fill: var(--accent); }
+.hc-chart .m-cell-empty { fill: var(--data-muted); }
+.hc-chart .m-cell-text { font-size: 16px; font-weight: 600; fill: var(--ink); }
+.hc-chart .m-cell-text.is-on-dark { fill: var(--on-accent); }
+/* an imported SVG (a dendrogram from research/charts) takes the deck's inks */
+.hc-chart--svg svg { width: 100%; height: auto; }
+.hc-chart--svg :is(path, line, polyline) { stroke: var(--ink-3); }
+.hc-chart--svg text { fill: var(--ink-2); font-family: var(--font-ui); }
+
+/* ── screen frames ──────────────────────────────────────────────────────── */
+/* The browser the 59 screenshots were taken in, without the macOS menu bar: one tab, the
+   address bar with my.hospitable.com, then the product. Drawn in tokens, not an image. */
+.hc-browser {
+  position: relative; margin: 0; width: var(--w, 1100px); flex: none;
+  border-radius: var(--r-3); overflow: hidden; background: var(--bg);
+  box-shadow: 0 0 0 1px var(--line-2), var(--shadow-2);
+}
+.hc-browser__bar { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: end; gap: 16px; height: 44px; padding: 0 16px; background: var(--color-gray-100); }
+.hc-browser__dots { display: flex; gap: 8px; align-self: center; }
+.hc-browser__dots i { width: 12px; height: 12px; border-radius: 50%; background: var(--color-gray-300); }
+.hc-browser__tab {
+  display: flex; align-items: center; gap: 8px; justify-self: start; max-width: 300px; height: 36px; padding: 0 16px;
+  border-radius: 10px 10px 0 0; background: var(--bg); font: var(--w-medium) 14px / 1 var(--font-ui); color: var(--ink-2);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.hc-browser__tab::before { content: ""; width: 12px; height: 12px; border-radius: 50%; border: 3px solid var(--accent); flex: none; }
+.hc-browser__url { display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 16px; border-bottom: var(--hair) solid var(--line); background: var(--bg); }
+.hc-browser__url span {
+  flex: 1; display: flex; align-items: center; height: 30px; padding: 0 14px; border-radius: var(--r-pill);
+  background: var(--color-gray-100); font: 400 15px / 1 var(--font-ui); color: var(--ink-3); white-space: nowrap; overflow: hidden;
+}
+.hc-browser__url b { font-weight: 400; color: var(--ink); }
+.hc-browser__view { position: relative; aspect-ratio: var(--ar, 1512 / 861); background: var(--bg); overflow: hidden; }
+.hc-browser__view > img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+.hc-browser figcaption, .hc-phone figcaption { position: absolute; left: 0; right: 0; top: 100%; margin-top: 14px; font-size: var(--t-micro); color: var(--ink-3); }
+.hc-frame { position: relative; }          /* wraps a frame + its caption so the caption can sit outside the clip */
+.hc-frame > figcaption { margin-top: 14px; display: flex; gap: 10px; align-items: center; font-size: var(--t-micro); color: var(--ink-3); }
+
+.hc-phone {
+  position: relative; margin: 0; width: var(--w, 340px); flex: none; aspect-ratio: 390 / 844;
+  padding: 12px; border-radius: 52px; background: var(--color-gray-900);
+  box-shadow: var(--shadow-2);
+}
+.hc-phone__screen { position: relative; width: 100%; height: 100%; border-radius: 40px; overflow: hidden; background: var(--bg); }
+.hc-phone__screen > img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.hc-phone__screen::before {            /* the dynamic island */
+  content: ""; position: absolute; z-index: 2; top: 12px; left: 50%; width: 30%; height: 28px; margin-left: -15%;
+  border-radius: 14px; background: var(--color-gray-900);
+}
+
+/* the live prototype: a poster on the wall, the real thing on "Open live" (kit/hc.js) */
+.hc-live { position: relative; margin: 0; width: var(--w, 1100px); }
+.hc-live .hc-browser { width: 100%; }
+.hc-live__go {
+  position: absolute; z-index: 3; right: 20px; bottom: 20px; display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 18px;
+  border-radius: var(--r-1); background: var(--accent); color: var(--on-accent); font: var(--w-medium) 16px / 1 var(--font-ui);
+  box-shadow: var(--shadow-1);
+}
+.hc-live__go::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.hc-live.is-live .hc-live__go { display: none; }
+.hc-live__iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: var(--bg); }
+.hc-live__hint { margin-top: 12px; font-size: var(--t-micro); color: var(--ink-3); }
+
+/* ── the 7 × 5 concept grid ─────────────────────────────────────────────── */
+/* Seven rows of five must fit under a one-line headline, so a cell is a fixed thumbnail
+   (--cell-w; 16:10) and the grid is only as wide as it needs: the right of the slide stays free
+   for what the grid says. A click opens any frame full size (the lightbox walks the set). */
+.hc-grid {
+  display: grid; grid-template-columns: 220px repeat(var(--cols, 5), var(--cell-w, 124px)); gap: 8px;
+  grid-auto-rows: auto; align-items: stretch; justify-content: start;
+}
+.hc-grid__h { font: var(--w-medium) 15px / 1.25 var(--font-ui); color: var(--ink-3); align-self: end; padding-bottom: 4px; white-space: nowrap; }
+.hc-grid__h b { display: block; font: 500 13px / 1 var(--font-code); color: var(--ink-3); margin-bottom: 4px; }
+.hc-grid__r { display: flex; flex-direction: column; justify-content: center; gap: 4px; padding-right: 8px; }
+.hc-grid__r b { font: 500 13px / 1 var(--font-code); color: var(--accent-ink); }
+.hc-grid__r span { font: var(--w-head) 17px / 1.2 var(--font-ui); color: var(--ink); }
+.hc-grid__c {
+  position: relative; aspect-ratio: 16 / 10; border-radius: var(--r-1); overflow: hidden; cursor: zoom-in;
+  background: var(--plate-quiet); box-shadow: inset 0 0 0 1px var(--line);
+}
+.hc-grid__c > img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+.hc-grid__c.is-pick { box-shadow: inset 0 0 0 3px var(--accent); }
+.hc-grid__c.is-dim { opacity: .4; }
+.hc-grid__c:empty::after {         /* no frame yet: say what goes here */
+  content: attr(data-label); position: absolute; inset: 0; display: grid; place-items: center; padding: 6px; text-align: center;
+  font: 500 12px / 1.2 var(--font-code); color: var(--ink-3);
+}
+
+/* ── decision card ──────────────────────────────────────────────────────── */
+.hc-decision {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px 40px; padding: 32px 36px;
+  border: var(--hair) solid var(--line); border-radius: var(--r-3); background: var(--bg);
+}
+.hc-decision__head { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.hc-decision__head .hc-signal { margin-left: auto; }
+.hc-decision__call { grid-column: 1 / -1; font: var(--w-head) 36px / 1.18 var(--font-display); letter-spacing: -0.015em; color: var(--ink); text-wrap: balance; }
+.hc-decision__k { font: var(--w-medium) 15px / 1.2 var(--font-ui); color: var(--ink-3); margin-bottom: 10px; }
+.hc-decision__opts { display: grid; gap: 8px; }
+.hc-decision__opts li { display: flex; align-items: baseline; gap: 10px; font-size: 19px; line-height: 1.35; color: var(--ink-3); }
+.hc-decision__opts li::before { content: ""; flex: none; width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid var(--ink-4); transform: translateY(2px); }
+.hc-decision__opts li.is-chosen { color: var(--ink); font-weight: var(--w-medium); }
+.hc-decision__opts li.is-chosen::before { border-color: var(--good); background: radial-gradient(circle, var(--good) 45%, transparent 50%); }
+.hc-decision__why { font-size: 19px; line-height: 1.45; color: var(--ink-2); }
+.hc-decision__foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 16px; border-top: var(--hair) solid var(--line); font-size: 15px; color: var(--ink-3); }
+.hc-status { display: inline-flex; align-items: center; height: 26px; padding: 0 10px; border-radius: var(--r-2); font: var(--w-medium) 14px / 1 var(--font-ui);
+  background: var(--pill-recommended-bg); border: var(--hair) solid var(--pill-recommended-border); color: var(--pill-recommended-text); }
+.hc-status.is-proposed { background: var(--plate-quiet); border-color: var(--line-2); color: var(--ink-3); }
+
+/* ── problem → response → screen ────────────────────────────────────────── */
+.hc-prs { display: grid; gap: 14px; }
+.hc-pr {
+  display: grid; grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr) 260px; align-items: center; gap: 20px;
+  padding: 20px 24px; border: var(--hair) solid var(--line); border-radius: var(--r-3); background: var(--bg);
+}
+.hc-pr__p, .hc-pr__r { display: grid; gap: 8px; align-content: center; }
+.hc-pr__k { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font: var(--w-medium) 14px / 1 var(--font-ui); color: var(--ink-3); }
+.hc-pr__t { font-size: 21px; line-height: 1.35; color: var(--ink); text-wrap: pretty; }
+.hc-pr__p .hc-pr__t { color: var(--ink-2); }
+.hc-pr__arrow { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--accent-soft); color: var(--accent-ink); font: 600 20px / 1 var(--font-ui); }
+.hc-pr__arrow::before { content: "→"; }
+.hc-pr__s { position: relative; aspect-ratio: 16 / 10; border-radius: var(--r-1); overflow: hidden; background: var(--plate-quiet); box-shadow: inset 0 0 0 1px var(--line); }
+.hc-pr__s > img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+.hc-pr__s:empty::after { content: attr(data-label); position: absolute; inset: 0; display: grid; place-items: center; font: 500 13px / 1.2 var(--font-code); color: var(--ink-3); }
+
+/* ── an opener's illustration ───────────────────────────────────────────── */
+/* ds/illustrations/<name>.svg, synced into assets/illustrations/ by tools/sync-ds.mjs. Until a
+   drawing exists the slot shows the product's faint clouds, so an opener is never empty. */
+/* S02's drawings are made for the product's white grounds (navy contour, grey clouds), so on the
+   aubergine cover each sits on a blush disc, the way the product sets an empty-state figure. */
+.hc-illo { position: absolute; z-index: 0; right: 150px; top: calc(var(--bar-h) + 150px); width: 600px; height: 600px; pointer-events: none;
+  border-radius: 50%; background: var(--bg-2); overflow: hidden; }
+.hc-illo > img { width: 100%; height: 100%; object-fit: contain; padding: 60px; }
+.hc-illo.is-missing { background:
+  radial-gradient(closest-side, var(--dark-2) 98%, transparent) 50% 58% / 76% 76% no-repeat,
+  radial-gradient(closest-side, color-mix(in oklab, var(--dark-2) 55%, var(--dark)) 98%, transparent) 16% 30% / 34% 34% no-repeat,
+  radial-gradient(closest-side, color-mix(in oklab, var(--dark-2) 55%, var(--dark)) 98%, transparent) 86% 18% / 22% 22% no-repeat; }
+.hc-illo.is-missing::after {
+  content: attr(data-illo); position: absolute; left: 0; right: 0; bottom: 18%; text-align: center;
+  font: 500 14px / 1 var(--font-code); color: var(--on-dark-3); opacity: .7;
+}
+
+/* ── a part's cover (D-072; a feature moment since 3 Oct, evening) ────────
+   The first beat of a part's first slide. Antonio, 3 Oct: "the covers to be a feature: much
+   bolder, and embody the thing they represent in a playful manner". So a cover is one of
+   Hospitable's marketing panels (references 06, 08, 10): a big tinted plate, the part's name,
+   question, methods and outputs in aubergine on the left, the mascot on the right, hand-drawn
+   rings and strokes around it in tones that hold on the plate. No part number, no "With AI"
+   line (3 Oct, late). kit/hc.js covers() builds the plate and the art, picks the tint and
+   the drawing from data/covers.json, and sets the entry (data-a). Recipe: ds/marketing-patterns.md. */
+.s > .hc-cover:not(.art):not(.notes):not(script) {   /* outranks components.css's ".s > :not(.art)…" */
+  position: absolute; inset: 0; z-index: 3; padding: 0;
+  background: var(--bg); color: var(--ink); overflow: hidden;
+}
+/* the plate sits in even white bands: as much white under it as over it (Antonio, 4 Oct) */
+.hc-cover__plate {
+  position: absolute; left: 40px; right: 40px; top: var(--plate-y); bottom: var(--plate-y); z-index: 0; overflow: hidden;
+  border-radius: 48px; background: var(--tint-halo, var(--color-primary-200));
+}
+/* the words, all in the left column: the name, the question, the methods, the outputs */
+/* the plate's inset on every side (80px, as on the left). The name and its question stay together at the
+   top, always; the methods and outputs sit on the bottom inset, never centred (Antonio, 4 Oct: "they should
+   always be together… discovery on top of the text"). Only the foot is pushed down (margin-top: auto). */
+.hc-cover .opener {
+  position: absolute; z-index: 2; left: 120px; top: calc(var(--plate-y) + 72px); bottom: calc(var(--plate-y) + 80px); width: 780px;
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 0; padding: 0; height: auto;
+}
+.hc-cover .opener__top { display: grid; justify-items: start; gap: 0; }
+.hc-cover .opener__n { display: none; }                  /* no "Part N of 6" (Antonio, 3 Oct); hc.js drops it too */
+.hc-cover .opener__name {
+  margin: 0; max-width: 800px; font-family: var(--font-display); font-size: 128px; font-weight: var(--w-head);
+  line-height: 0.95; letter-spacing: -0.04em; color: var(--tint-title, var(--color-sidebar-bg)); text-wrap: balance;
+}
+.hc-cover .opener__vision {
+  margin-top: 30px; max-width: 740px; font-family: var(--font-display); font-size: 34px; font-weight: var(--w-text);
+  line-height: 1.28; letter-spacing: -0.01em; color: var(--tint-body, var(--ink-2)); text-wrap: pretty;
+}
+.hc-cover .opener__foot { margin-top: auto; padding-top: 40px; display: grid; gap: 26px; max-width: 780px; align-self: flex-start; }   /* left, under the question, however few chips it holds */
+.hc-cover .opener__k {
+  flex-basis: 100%; margin: 0 0 2px; color: var(--tint-ink, var(--ink-3)); font: var(--w-head) var(--t-label) / 1.2 var(--font-ui);
+  letter-spacing: 0; text-transform: none;
+}
+.hc-cover .opener__methods { gap: 10px; }
+.hc-cover .opener__methods > :is(span, a):not(.opener__k) {         /* Hospitable's white chips, floating on the plate */
+  height: 44px; padding: 0 18px; border: 0; border-radius: var(--r-pill); background: var(--bg);
+  color: var(--ink); font: var(--w-medium) 18px / 1 var(--font-ui);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent), 0 10px 22px -14px color-mix(in oklab, var(--color-sidebar-bg) 40%, transparent);
+}
+/* the outputs: chips in the same style as the methods, one text colour (Antonio, 3 Oct: "too complex,
+   produced / sampled / planned doesn't look great here"). The status stays, quietly: a small dot inside
+   each chip (filled green: produced · hollow orange: sampled · dashed gray ring: planned). */
+.hc-cover .opener__out { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.hc-cover .opener__out .opener__k { flex-basis: 100%; margin: 0 0 2px; }
+.hc-cover .opener__outrow, .hc-cover .opener__outs { display: contents; }
+.hc-cover .opener__outrow > .hc-mark { display: none; }
+.hc-cover .opener__outs > :is(span, a) {
+  display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 18px; border-radius: var(--r-pill); background: var(--bg);
+  color: var(--ink); font: var(--w-medium) 18px / 1 var(--font-ui); letter-spacing: 0; white-space: nowrap;
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent), 0 10px 22px -14px color-mix(in oklab, var(--color-sidebar-bg) 40%, transparent);
+}
+.hc-cover .opener__outs > :is(span, a)::before { content: ""; width: 9px; height: 9px; border-radius: 50%; flex: none; background: var(--prov-real); }
+.hc-cover .opener__outrow:has(> [data-mark="sampled"]) .opener__outs > :is(span, a)::before { background: transparent; box-shadow: inset 0 0 0 2px var(--prov-sim); }
+.hc-cover .opener__outrow:has(> [data-mark="planned"]) .opener__outs > :is(span, a)::before { background: transparent; border: 1.5px dashed var(--prov-plan-line); width: 8px; height: 8px; }
+
+/* the art: the part's drawing, big (about 62% of the slide's height), standing on the plate and
+   cropped by its bottom edge like hospitable.com's mascots (references 08, 10); doodles around it.
+   Coordinates are in the plate's box. */
+.hc-cover__art { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+/* oversized on purpose (Antonio, 3 Oct: "overblown", references 08 and 10): the drawing is about
+   1.15 × the plate's height, so the plate crops it at the bottom and the right edge and it
+   dominates the slide; the words keep the left column (z-index 2) and the drawing starts after it.
+   Nothing here depends on the drawing's head or pose: only the 320 × 220 frame. */
+.hc-cover__mascot { position: absolute; right: 30px; bottom: -8px; width: 960px; aspect-ratio: 320 / 220; }   /* moderate again (Antonio, 3 Oct: "way too big"): about 60% of the slide's height, standing on the plate's bottom edge */
+.hc-cover .hc-illo {
+  position: absolute; inset: 0; width: auto; height: auto; border-radius: 0; background: none; overflow: visible;
+  animation: hc-bob 6.5s ease-in-out infinite; transform-origin: 50% 100%;
+}
+.hc-cover .hc-illo > img { padding: 0; }
+.hc-cover .hc-illo > svg { display: block; width: 100%; height: 100%; }
+/* the drawing's own "///" strokes, in the cover's stroke tone (kit/hc.js inlineIllo, DOODLE_TONES) */
+.hc-cover { --cover-stroke: var(--color-secondary-500); }
+.hc-cover[data-strokes="raspberry"] { --cover-stroke: var(--color-primary-500); }
+.hc-cover[data-strokes="aubergine"] { --cover-stroke: var(--color-secondary-800); }
+.hc-cover .hc-illo__stroke { stroke: var(--cover-stroke); }
+.hc-cover .hc-illo.is-missing { background: none; }
+.hc-cover .hc-illo.is-missing::after { color: var(--ink-3); }
+.hc-cover__art .hc-doodle { position: absolute; }
+.hc-cover__mascot.is-flip .hc-illo > :is(svg, img) { transform: scaleX(-1); }
+/* one ring of the cover's own, in the gap between the name and the oversized drawing */
+.hc-cover__art .hc-doodle--a { left: 700px; top: 40px; --size: 116px; }
+html.is-print .s > .hc-cover { display: none; }
+
+/* ── placeholder: the skeleton block S07 leaves for S17 ─────────────────── */
+.hc-ph {
+  position: relative; display: grid; align-content: center; justify-items: start; gap: 10px; min-height: 220px; padding: 28px 32px;
+  border: 1.5px dashed var(--line-2); border-radius: var(--r-3);
+  background: repeating-linear-gradient(135deg, var(--plate-quiet) 0 14px, var(--bg) 14px 28px);
+}
+.hc-ph__k { display: flex; align-items: center; gap: 10px; font: var(--w-head) 20px / 1.2 var(--font-ui); color: var(--ink-2); }
+.hc-ph__k::before { content: ""; width: 10px; height: 10px; border-radius: 2px; background: var(--accent); }
+.hc-ph__d { font-size: 18px; line-height: 1.4; color: var(--ink-3); max-width: 70ch; }
+.hc-ph__from { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 15px; color: var(--ink-3); }
+/* a placeholder that already shows its component: the words left, the wireframe right, so the
+   block is only as tall as the component and never rides up into the headline */
+.hc-ph--split { grid-template-columns: 360px minmax(0, 1fr); align-items: center; justify-items: stretch; column-gap: var(--s-6); padding: 24px 32px; }
+.hc-ph__text { display: grid; gap: 10px; align-content: center; }
+.hc-ph__demo { min-width: 0; display: flex; justify-content: flex-start; }
+.hc-ph__demo > * { flex: 0 1 auto; max-width: 100%; }
+.hc-ph__demo > :is(.hc-chart, .hc-quotes, .hc-prs, .hc-kpis, .hc-decision) { flex: 1 1 auto; width: 100%; }
+.s[data-ground="aubergine"] .hc-ph { background: none; border-color: var(--on-dark-line); }
+.s[data-ground="aubergine"] .hc-ph__k { color: var(--on-dark); }
+
+/* ── slide head, the Hospitable way: eyebrow, a title, the one-line message ── */
+.hc-msg { font-size: var(--t-lead); line-height: 1.35; color: var(--ink-3); max-width: 58ch; text-wrap: pretty; }
+.s[data-ground="aubergine"] .hc-msg { color: var(--on-dark-2); }
+
+/* the footer line on the title and the close (R-189's guardrail, D-073) */
+
+} /* @layer components */
+
+/* ════════════════════════════════════════════════════ 3 Oct · the selling kit ══
+   Antonio, 3 Oct: "more of a selling tool than a pure presentation", with mock-ups that
+   float, realistic but not 3D. Everything below is tokens only. */
+@layer components {
+
+/* ── floating mockups ────────────────────────────────────────────────────
+   <div class="hc-scene" style="--w: 1100px; --h: 640px">
+     <div class="hc-scene__bg"></div>
+     <figure class="hc-scr is-float" style="--x: 0px; --y: 40px; --sw: 860px"><img data-shot="sl-airbnb" alt=""></figure>
+     <figure class="hc-scr hc-scr--crop" style="--x: 640px; --y: 0px; --sw: 380px; --ar: 380/520; --z: 3.98; --cx: -76%; --cy: -4%"><img data-shot="…" alt=""></figure>
+     <p class="hc-callout" style="--x: 40px; --y: 560px">One Base, every channel</p>
+   </div>
+   A screen is a real prototype capture (tools/capture-proto.mjs). --sw is its width; a crop
+   shows a part of it at --z times the frame width, moved by --cx / --cy. */
+.hc-scene { position: relative; width: var(--w, 1100px); height: var(--h, 640px); flex: none; }
+.hc-scene__bg {
+  position: absolute; inset: var(--bg-inset, 7% -2% -2% 6%); border-radius: 48px;
+  background:
+    radial-gradient(70% 90% at 12% 8%, var(--color-primary-50), transparent 70%),
+    radial-gradient(60% 80% at 92% 96%, var(--color-ai-surface), transparent 72%),
+    var(--plate-quiet);
+}
+.hc-scene__bg--quiet { background: var(--plate-quiet); }
+.hc-scr {
+  position: absolute; left: var(--x, 0); top: var(--y, 0); width: var(--sw, 80%); margin: 0;
+  border-radius: var(--scr-r, 14px); overflow: hidden; background: var(--bg);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 7%, transparent),
+    0 2px 4px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent),
+    0 22px 44px -14px color-mix(in oklab, var(--color-sidebar-bg) 22%, transparent),
+    0 60px 110px -34px color-mix(in oklab, var(--color-sidebar-bg) 26%, transparent);
+}
+.hc-scr > img { display: block; width: 100%; height: auto; }
+.hc-scr--crop { aspect-ratio: var(--ar, 4 / 3); }
+.hc-scr--crop > img { width: calc(100% * var(--z, 1)); max-width: none; height: auto; transform: translate(var(--cx, 0), var(--cy, 0)); }
+.hc-scr.is-back { }   /* back layer: depth from overlap and shadow only, never muted (Antonio, 3 Oct: no dimming) */
+.hc-scr.is-float { animation: hc-float 7s ease-in-out infinite alternate; }
+.hc-scr.is-float-2 { animation: hc-float 8.5s ease-in-out -3s infinite alternate; }
+@keyframes hc-float { from { transform: translateY(0); } to { transform: translateY(-8px); } }
+@media (prefers-reduced-motion: reduce) { .hc-scr.is-float, .hc-scr.is-float-2 { animation: none; } }
+/* a phone, floating */
+.hc-scene .hc-phone { position: absolute; left: var(--x, 0); top: var(--y, 0); }
+/* a device capture that already carries its own frame (transparent around the bezel): no card, no shadow */
+.hc-device { position: absolute; left: var(--x, 0); top: var(--y, 0); width: var(--sw, 300px); margin: 0; z-index: 3; }
+.hc-device > img { display: block; width: 100%; height: auto; }
+.hc-device.is-float { animation: hc-float 7.5s ease-in-out -2s infinite alternate; }
+@media (prefers-reduced-motion: reduce) { .hc-device.is-float { animation: none; } }
+/* a browser window placed on a scene; .is-fade lets its bottom dissolve into the backdrop (a hero crop) */
+.hc-scene > .hc-browser { position: absolute; left: var(--x, 0); top: var(--y, 0); z-index: 1;
+  box-shadow: 0 0 0 1px var(--line-2), 0 30px 60px -20px color-mix(in oklab, var(--color-sidebar-bg) 24%, transparent), 0 80px 140px -40px color-mix(in oklab, var(--color-sidebar-bg) 22%, transparent); }
+.hc-scene > .hc-browser.is-fade { -webkit-mask-image: linear-gradient(to bottom, black 78%, transparent); mask-image: linear-gradient(to bottom, black 78%, transparent); }
+.hc-scene > .hc-scr.is-front { z-index: 3; box-shadow: 0 0 0 1px var(--line-2), 0 40px 80px -24px color-mix(in oklab, var(--color-sidebar-bg) 28%, transparent); }
+/* a callout pinned on the scene */
+.hc-callout {
+  position: absolute; left: var(--x, 0); top: var(--y, 0); z-index: 4; display: inline-flex; align-items: center; gap: 10px;
+  padding: 12px 18px; border-radius: var(--r-pill); background: var(--bg); white-space: nowrap;
+  font: var(--w-medium) 18px / 1 var(--font-ui); color: var(--ink);
+  box-shadow: 0 0 0 1px var(--line), 0 12px 28px -10px color-mix(in oklab, var(--color-sidebar-bg) 30%, transparent);
+}
+.hc-callout::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); flex: none; }
+.hc-callout--ai::before { background: var(--ai-accent); }
+.hc-callout--ok::before { background: var(--good); }
+
+/* ── open the real thing: the deployed website and the mobile app, in a new tab ── */
+.hc-open { display: inline-flex; flex-wrap: wrap; gap: 12px; }
+.hc-open a { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: var(--r-pill); background: var(--bg);
+  box-shadow: 0 0 0 1px var(--line); font: var(--w-medium) 18px / 1 var(--font-ui); color: var(--ink); text-decoration: none; }
+.hc-open a::after { content: "↗"; color: var(--accent); }
+.hc-open a:hover { box-shadow: 0 0 0 1.5px var(--accent); }
+.hc-open small { font-size: 15px; color: var(--ink-3); font-weight: 400; }
+
+/* ── a statement in Antonio's voice ─────────────────────────────────────── */
+.hc-say { font: var(--w-head) var(--t-h3) / 1.22 var(--font-display); letter-spacing: -0.012em; color: var(--ink); max-width: 30ch; text-wrap: balance; }
+.hc-say .tone-2 { color: var(--ink-3); }
+.hc-kicker { font: var(--w-medium) var(--t-label) / 1.2 var(--font-ui); color: var(--accent-ink); }
+
+/* ── pillars: three to five ideas, side by side ─────────────────────────
+   3 Oct: "the section items: I want them to be bolder". Each pillar opens on a big pastel tile
+   with one coloured line icon (reference 12), every tile its own tint, in order: blush, lavender,
+   butter, mint. --ai keeps a tile lavender. The icon sways a few degrees, slowly. */
+.hc-pillars { display: grid; grid-template-columns: repeat(var(--n, 4), minmax(0, 1fr)); gap: var(--s-4); }
+.hc-pillar { display: grid; gap: 12px; align-content: start; }
+.hc-pillar__i {
+  --tint-plate: var(--color-primary-100); --tint-line: var(--color-primary-600);
+  width: 104px; height: 104px; margin-bottom: 10px; border-radius: 28px; display: grid; place-items: center;
+  background: var(--tint-plate); color: var(--tint-line);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--tint-line) 10%, transparent);
+}
+.hc-pillar__i svg { width: 46px !important; height: 46px !important; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+  animation: hc-sway 7s ease-in-out infinite; transform-origin: 50% 60%; }
+.hc-pillar:nth-child(3n + 2) .hc-pillar__i { --tint-plate: var(--color-warning-100);   --tint-line: var(--color-orange-600); }
+.hc-pillar:nth-child(3n + 3) .hc-pillar__i { --tint-plate: var(--color-success-100);   --tint-line: var(--color-success-600); }
+.hc-pillar .hc-pillar__i.hc-pillar__i--ai { --tint-plate: var(--color-secondary-100); --tint-line: var(--color-secondary-600); }   /* lavender means AI, only */
+.hc-pillar:nth-child(2) .hc-pillar__i svg { animation-delay: -1.6s; }
+.hc-pillar:nth-child(3) .hc-pillar__i svg { animation-delay: -3.1s; }
+.hc-pillar:nth-child(4) .hc-pillar__i svg { animation-delay: -4.4s; }
+.hc-pillar:nth-child(5) .hc-pillar__i svg { animation-delay: -5.7s; }
+.hc-pillar__t { font: var(--w-head) 30px / 1.18 var(--font-display); letter-spacing: -0.012em; color: var(--ink); }
+.hc-pillar__d { font-size: 22px; line-height: 1.45; color: var(--ink-3); text-wrap: pretty; }
+/* tiles: the icon tile spans the pillar, a wide pastel plate on top (op-idea) */
+.hc-pillars--tiles .hc-pillar__i { width: 100%; height: auto; aspect-ratio: 16 / 11; border-radius: 32px; margin-bottom: 14px; }
+.hc-pillars--tiles .hc-pillar__i svg { width: 64px !important; height: 64px !important; stroke-width: 1.7; }
+
+/* ── before and after ───────────────────────────────────────────────────── */
+.hc-vs { display: grid; grid-template-columns: minmax(0, 1fr) 72px minmax(0, 1fr); gap: 0; align-items: stretch; }
+.hc-vs__c { display: grid; gap: 18px; align-content: start; padding: 32px 36px; border-radius: var(--r-3); background: var(--plate-quiet); }
+.hc-vs__c.is-new { background: var(--bg); box-shadow: 0 0 0 1px var(--line), 0 24px 48px -24px color-mix(in oklab, var(--color-sidebar-bg) 24%, transparent); }
+.hc-vs__k { font: var(--w-head) 17px / 1 var(--font-ui); color: var(--ink-3); }
+.hc-vs__c.is-new .hc-vs__k { color: var(--accent-ink); }
+.hc-vs__arrow { display: grid; place-items: center; color: var(--ink-4); font: 400 34px / 1 var(--font-ui); }
+.hc-vs ul { display: grid; gap: 14px; }
+.hc-vs li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; font-size: 21px; line-height: 1.4; color: var(--ink-2); }
+.hc-vs li::before { content: ""; width: 10px; height: 2px; margin-top: 14px; background: var(--ink-4); }
+.hc-vs__c.is-new li::before { content: ""; width: 10px; height: 10px; margin-top: 9px; border-radius: 50%; background: var(--accent); }
+
+/* ── a clean table ──────────────────────────────────────────────────────── */
+.hc-table { width: 100%; border-collapse: collapse; font-size: 19px; line-height: 1.35; }
+.hc-table th { text-align: left; font: var(--w-medium) 15px / 1.2 var(--font-ui); color: var(--ink-3); padding: 0 16px 12px 0; border-bottom: 1px solid var(--line-2); }
+.hc-table td { padding: 14px 16px 14px 0; border-bottom: 1px solid var(--line); color: var(--ink-2); vertical-align: top; }
+.hc-table td:first-child { color: var(--ink); font-weight: var(--w-medium); }
+.hc-table .is-key td { color: var(--ink); }
+.hc-table .num { font-variant-numeric: tabular-nums; }
+
+/* ── stats: the KPI card (4 Oct, restyled the same day) ───────────────────────
+   Antonio: the big bare numbers were "really old school"; then the pastel-tile, blush-filled cards "don't feel
+   aligned to Hospitable's UI". So a stat is exactly the product's KPI card (Smart Listings › Performance and
+   Metrics: ds/v3/perf.css .sl-perf-kpi), drawn at wall size (the product's px × about 2): a white card, the
+   product's gray hairline and card radius, no shadow; the label on top in the product's label style (medium,
+   secondary ink), the value in its number style (semibold, strong ink, tabular), one quiet muted line at the foot.
+   No icon tile: the product's KPI card has none, so a .hc-stat__i left in old markup is not drawn.
+
+     .hc-stats(--stack) (--n: 1…4)   a row of cards, equal heights, feet aligned; --stack: one card per row, down a side column
+       .hc-stat(.is-key)        the card. .is-key marks the number the slide is about: the value in brand ink, the card stays white
+         .hc-stat__k            optional · the label, what the number is ("Occupancy")
+         .hc-stat__v            the value; data-a="count" counts its first text node; <small> for a unit or "of 28"
+         .hc-stat__l            optional · the quiet foot line: against what, from where ("Similar homes 60%")
+         .hc-prov / any block   rides under it
+
+   [data-tint] on the card or an ancestor changes the key ink (never lavender: that means AI).
+   --stat-v sets the value's size (50 px). Old markup (no __k) reads value first, then the line.
+   The card takes its width from its column (a grid cell or a .stack). */
+.hc-stats { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: 16px 20px; align-items: stretch; }
+.hc-stats--stack { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.hc-stat {
+  --st-ink: var(--tint-ink, var(--color-primary-700));
+  display: flex; flex-direction: column; align-items: stretch; min-width: 0;
+  padding: 22px 28px 24px; border: var(--hair) solid var(--line); border-radius: var(--r-3); background: var(--bg);
+}
+.hc-stat > * { min-width: 0; }
+.hc-stat__i { display: none; }
+.hc-stat__k { margin: 0 0 8px; font: var(--w-medium) var(--t-small) / 1.3 var(--font-ui); letter-spacing: 0; color: var(--ink-2); text-wrap: balance; }
+.hc-stat__v { margin: 0; font: var(--w-head) var(--stat-v, 50px) / 1.1 var(--font-ui); letter-spacing: -0.01em; font-variant-numeric: tabular-nums; color: var(--ink); white-space: nowrap; }
+.hc-stat__v small { margin-left: 6px; font-size: 0.4em; font-weight: var(--w-medium); letter-spacing: 0; color: var(--ink-3); }
+.hc-stat__l { margin: auto 0 0; padding-top: 12px; font-size: var(--t-small); line-height: 1.4; color: var(--ink-3); text-wrap: pretty; }
+.hc-stat .hc-prov { margin-top: 10px; align-self: flex-start; }
+/* the key stat: the product's way, the number in brand ink on the same white card */
+.hc-stat.is-key .hc-stat__v { color: var(--st-ink); }
+/* on the aubergine ground the card stays a white card */
+.s[data-ground="aubergine"] .hc-stat { border-color: transparent; }
+
+/* ── steps along a line ─────────────────────────────────────────────────── */
+.hc-steps { display: grid; grid-template-columns: repeat(var(--n, 4), minmax(0, 1fr)); gap: 0; counter-reset: st; }
+.hc-step { position: relative; display: grid; gap: 10px; align-content: start; padding: 54px 24px 0 0; counter-increment: st; }
+.hc-step::before { content: counter(st); position: absolute; left: 0; top: 0; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--bg); box-shadow: inset 0 0 0 1.5px var(--line-2); font: var(--w-head) 16px / 1 var(--font-ui); color: var(--ink-2); z-index: 1; }
+.hc-step::after { content: ""; position: absolute; left: 36px; right: 0; top: 17px; height: 2px; background: var(--line); }
+.hc-step:last-child::after { content: none; }
+.hc-step.is-key::before { background: var(--accent); box-shadow: none; color: var(--on-accent); }
+.hc-step__t { font: var(--w-head) 23px / 1.2 var(--font-display); color: var(--ink); }
+.hc-step__d { font-size: 19px; line-height: 1.45; color: var(--ink-3); text-wrap: pretty; }
+
+/* vertical: the line runs down the left */
+.hc-steps--v { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+.hc-steps--v .hc-step { padding: 0 0 0 58px; gap: 6px; }
+.hc-steps--v .hc-step::after { left: 17px; right: auto; top: 40px; bottom: -26px; width: 2px; height: auto; }
+/* a comparison stacked in a narrow column */
+.hc-vs--stack { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+.hc-vs--stack .hc-vs__c { padding: 26px 30px; gap: 14px; }
+
+/* ── a tidy list of statements ──────────────────────────────────────────── */
+.hc-points { display: grid; gap: 18px; }
+.hc-points li { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 12px; font-size: 22px; line-height: 1.42; color: var(--ink-2); text-wrap: pretty; }
+.hc-points li::before { content: ""; width: 10px; height: 10px; margin-top: 11px; border-radius: 50%; background: var(--accent); }
+.hc-points li b { color: var(--ink); font-weight: var(--w-head); }
+.hc-points--quiet li::before { background: var(--ink-4); }
+/* AI lists: the lavender arrow bullets of Copilot's pages (reference 07) */
+.hc-points--ai li { grid-template-columns: 40px minmax(0, 1fr); gap: 16px; align-items: center; }
+.hc-points--ai li::before {
+  content: "\2192"; width: 40px; height: 40px; margin: 0; border-radius: 50%; display: grid; place-items: center;
+  background: var(--color-secondary-100); color: var(--color-secondary-600); font: 500 20px / 1 var(--font-ui);
+}
+
+/* ── a soft panel to hold a group ───────────────────────────────────────── */
+.hc-panel { padding: 30px 34px; border-radius: 28px; background: var(--tint-soft, var(--plate-quiet)); }
+.hc-panel--ai { background: var(--color-secondary-50); box-shadow: inset 0 0 0 1px var(--color-secondary-100); }
+.hc-panel--ai .hc-panel__k { color: var(--color-secondary-700); }
+.hc-panel[data-tint] { background: var(--tint-plate); }
+.hc-panel__k { font: var(--w-head) 17px / 1.2 var(--font-ui); color: var(--tint-ink, var(--ink-3)); margin-bottom: 14px; }
+
+/* ── a picture of something drawn (an SVG or PNG from the research), framed ── */
+.hc-figure { margin: 0; display: grid; gap: 12px; }
+.hc-figure > img { display: block; width: auto; max-width: 100%; height: auto; max-height: var(--fig-h, 430px); margin: 0 auto; border-radius: var(--r-2); }
+.hc-figure--card { padding: 22px; border-radius: var(--r-3); background: var(--bg); box-shadow: 0 0 0 1px var(--line), 0 24px 48px -28px color-mix(in oklab, var(--color-sidebar-bg) 22%, transparent); }
+.hc-figure figcaption { font-size: 15px; color: var(--ink-3); }
+
+/* the slide's two halves: words left, picture right */
+.hc-two { display: grid; grid-template-columns: minmax(0, var(--l, 0.9fr)) minmax(0, var(--r, 1.1fr)); gap: var(--s-8); align-items: center; }
+.hc-two--top { align-items: start; }
+}
+
+/* ════════════════════════════════ 3 Oct, evening · Hospitable's marketing language ══
+   Antonio: "embody the design and the flair of Hospitable in a much more profound way… a lot
+   more playful… slightly animated". Borrowed from hospitable.com (research/references/
+   hospitable-marketing/, README): tinted feature plates with a pill badge, UI on a soft halo
+   plate, floating chips, the highlighted comparison column, hand-drawn rings and strokes.
+   Colour lives in covers, plates, tiles and accents; content slides stay mostly white.
+   Every pattern is documented with its token recipe in ds/marketing-patterns.md. */
+@layer components {
+
+/* ── tints: one family per plate (blush · lavender · butter · mint) ──────────
+   data-tint="…" (or .hc-tint--…) on any container sets five roles its children read:
+     --tint-plate  the plate          --tint-halo  the halo around a UI on the plate
+     --tint-soft   a lighter wash     --tint-ink   the badge fill and small accent text (AA)
+     --tint-line   a line icon        --tint-title / --tint-body  headline and copy on the plate */
+[data-tint="blush"], .hc-tint--blush {
+  --tint-plate: var(--color-primary-100); --tint-halo: var(--color-primary-200); --tint-soft: var(--color-primary-50);
+  --tint-ink: var(--color-primary-700); --tint-line: var(--color-primary-600); --tint-title: var(--color-sidebar-bg); --tint-body: var(--ink-2);
+}
+[data-tint="lavender"], .hc-tint--lavender {
+  --tint-plate: var(--color-secondary-100); --tint-halo: var(--color-secondary-200); --tint-soft: var(--color-secondary-50);
+  --tint-ink: var(--color-secondary-700); --tint-line: var(--color-secondary-600); --tint-title: var(--color-secondary-900); --tint-body: var(--color-secondary-800);
+}
+[data-tint="butter"], .hc-tint--butter {
+  --tint-plate: var(--color-warning-100); --tint-halo: var(--color-warning-200); --tint-soft: var(--color-warning-50);
+  --tint-ink: var(--color-orange-700); --tint-line: var(--color-orange-600); --tint-title: var(--color-sidebar-bg); --tint-body: var(--ink-2);
+}
+[data-tint="mint"], .hc-tint--mint {
+  --tint-plate: var(--color-success-100); --tint-halo: var(--color-success-200); --tint-soft: var(--color-success-50);
+  --tint-ink: var(--color-success-700); --tint-line: var(--color-success-600); --tint-title: var(--color-sidebar-bg); --tint-body: var(--ink-2);
+}
+
+/* ── the pill badge ("Hospitable exclusive") ──────────────────────────────── */
+.hc-badge {
+  display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 18px; border-radius: var(--r-pill);
+  background: var(--tint-ink, var(--accent-ink)); color: var(--on-accent); font: var(--w-head) 18px / 1 var(--font-ui); white-space: nowrap;
+}
+.hc-badge svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+/* ── chips: the Copilot question chips and AI answers, floating ─────────────
+   <span class="hc-chip"><svg class="hc-chip__i"><use href="#i-sparkles"/></svg>How many check-ins…?</span>
+   --q: a question (rounded rectangle, roomier) · --ai: the answer's lavender label · --ok: a receipt.
+   On a scene: .is-at with --x --y. .is-drift idles 4px. A group can stagger in: data-a="stagger". */
+.hc-chip {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 10px 20px; border-radius: var(--r-pill);
+  background: var(--bg); color: var(--ink); font: var(--w-medium) 19px / 1.25 var(--font-ui); white-space: nowrap;
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 7%, transparent), 0 14px 30px -16px color-mix(in oklab, var(--color-sidebar-bg) 45%, transparent);
+}
+.hc-chip__i { flex: none; width: 22px; height: 22px; fill: none; stroke: var(--tint-line, var(--accent)); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.hc-chip--q { border-radius: 16px; padding: 14px 22px; white-space: normal; }
+.hc-chip--ai { color: var(--ai-ink); }
+.hc-chip--ai .hc-chip__i { stroke: var(--ai-accent); }
+.hc-chip--ok .hc-chip__i { stroke: var(--good); }
+.hc-chip small { font-size: 15px; color: var(--ink-3); font-weight: 400; }
+.hc-chip.is-at { position: absolute; z-index: 4; left: var(--x, 0); top: var(--y, 0); }
+.hc-chips { display: flex; flex-wrap: wrap; gap: 12px; }
+.is-drift { animation: hc-drift 7s ease-in-out infinite; }
+.is-drift-2 { animation: hc-drift 8.5s ease-in-out -2.5s infinite; }
+.is-drift-3 { animation: hc-drift 6.2s ease-in-out -4.2s infinite; }
+
+/* ── the feature card: a tinted plate on top, the words on white below ───────
+   <article class="hc-feature" data-tint="lavender">
+     <div class="hc-feature__plate"><span class="hc-badge">One Base</span>
+       <div class="hc-feature__halo"> … one UI element, a crop, a number … </div></div>
+     <div class="hc-feature__body"><h3 class="hc-feature__t">…</h3><p class="hc-feature__d">…</p></div>
+   </article>                                                      (references 01, 02) */
+.hc-features { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: var(--s-4); align-items: stretch; }
+.hc-feature {
+  display: grid; grid-template-rows: auto 1fr; min-width: 0; border-radius: 32px; overflow: hidden; background: var(--bg);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.hc-feature__plate {
+  position: relative; display: grid; place-items: center; min-height: var(--plate-h, 340px); padding: 76px 34px 34px;
+  background: var(--tint-plate, var(--color-primary-100));
+}
+.hc-feature__plate > .hc-badge { position: absolute; top: 22px; left: 50%; transform: translateX(-50%); }
+.hc-feature__halo { position: relative; width: 100%; max-width: var(--halo-w, 100%); padding: 14px; border-radius: 30px;
+  background: color-mix(in oklab, var(--tint-halo, var(--color-primary-200)) 70%, var(--tint-plate, var(--color-primary-100))); }
+.hc-feature__halo > * { border-radius: 18px; }
+.hc-feature__body { display: grid; gap: 10px; align-content: start; padding: 28px 32px 32px; }
+.hc-feature__t { font: var(--w-head) 30px / 1.18 var(--font-display); letter-spacing: -0.012em; color: var(--ink); }
+.hc-feature__d { font-size: 21px; line-height: 1.42; color: var(--ink-3); text-wrap: pretty; }
+.hc-feature__v { font: var(--w-head) 76px / 1 var(--font-display); letter-spacing: -0.035em; color: var(--tint-ink, var(--ink)); font-variant-numeric: tabular-nums; }
+.hc-feature__v small { font-size: 0.4em; letter-spacing: 0; margin-left: 4px; }
+.hc-feature--stat .hc-feature__plate { --plate-h: 190px; padding: 30px; }
+/* a white card for a mini UI on a halo (rows of label + state) */
+.hc-mini { display: grid; gap: 0; padding: 6px 0; background: var(--bg); text-align: left; }
+.hc-mini__h { display: flex; align-items: center; gap: 10px; padding: 12px 20px 10px; font: var(--w-head) 17px / 1.2 var(--font-ui); color: var(--ink-3); }
+.hc-mini__r { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 4px 14px; padding: 12px 20px; border-top: 1px solid var(--line); }
+.hc-mini__l { font: var(--w-medium) 18px / 1.3 var(--font-ui); color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hc-mini__s { display: inline-flex; align-items: center; gap: 6px; font: var(--w-medium) 15px / 1.2 var(--font-ui); color: var(--ink-3); white-space: nowrap; }
+.hc-mini__s svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.hc-mini__s.is-ai { color: var(--ai-ink); }
+.hc-mini__s.is-ok { color: var(--good-ink); }
+.hc-mini__s.is-lock { color: var(--ink-2); }
+
+/* ── the comparison table, one column highlighted (reference 05) ─────────────
+   A grid; the highlighted column is its cells' own blush, so it can fill in on a beat with them:
+   <div class="hc-compare" style="--n: 2">
+     <span class="hc-compare__h"></span><span class="hc-compare__h">Today</span><span class="hc-compare__h is-hi">With…</span>
+     <span class="hc-compare__l">…</span><span class="hc-compare__c"><i class="hc-x"></i>…</span><span class="hc-compare__c is-hi"><i class="hc-check"></i>…</span>
+     …  the last highlighted cell gets .is-end (its rounded foot)
+   </div>                                                                        */
+.hc-compare { display: grid; grid-template-columns: var(--label-w, 300px) repeat(var(--n, 2), minmax(0, 1fr)); }
+.hc-compare__h { display: flex; align-items: center; gap: 12px; padding: 26px 30px 22px; font: var(--w-head) 24px / 1.2 var(--font-display); color: var(--ink-3); }
+.hc-compare__h.is-hi { color: var(--ink); border-radius: 28px 28px 0 0; }
+.hc-compare__h.is-hi svg { width: 28px; height: 28px; }
+.hc-compare__l, .hc-compare__c { display: flex; align-items: center; gap: 16px; padding: 22px 30px; border-top: 1px solid var(--line); }
+.hc-compare__l { padding-left: 0; font: var(--w-head) 21px / 1.3 var(--font-ui); color: var(--ink); }
+.hc-compare__c { font-size: 21px; line-height: 1.4; color: var(--ink-3); }
+.hc-compare .is-hi { background: var(--color-primary-50); color: var(--ink); }
+.hc-compare__c.is-hi { border-top-color: var(--color-primary-100); }
+.hc-compare__c.is-end { border-radius: 0 0 28px 28px; }
+.hc-check, .hc-x { flex: none; display: inline-grid; place-items: center; border-radius: 50%; }
+.hc-check { width: 36px; height: 36px; background: var(--color-primary-700); }
+.hc-check::before { content: ""; width: 13px; height: 7px; margin-top: -4px; border: solid var(--on-accent); border-width: 0 0 2.5px 2.5px; transform: rotate(-45deg); }
+/* the "today" mark: the row's own grey, the check's size, a drawn × dead centre (Antonio, 4 Oct: "I can barely see the X") */
+.hc-x { position: relative; width: 36px; height: 36px; color: var(--ink-3); box-shadow: inset 0 0 0 2px currentColor; }
+.hc-x::before, .hc-x::after { content: ""; position: absolute; left: 50%; top: 50%; width: 15px; height: 2.5px; border-radius: 2px;
+  background: currentColor; transform: translate(-50%, -50%) rotate(45deg); }
+.hc-x::after { transform: translate(-50%, -50%) rotate(-45deg); }
+
+/* ── doodles: hand-drawn rings and strokes (reference 11) ─────────────────────
+   <span class="hc-doodle" data-doodle="ring|strokes|squiggle|swoosh" data-tone="raspberry|purple|aubergine|yellow|mint" style="--size: 140px"></span>
+   Pairings that hold (Antonio, 3 Oct: "you cannot put yellow on red… or on purple"): on blush,
+   purple and aubergine; on lavender, raspberry and aubergine; on butter and mint, raspberry and
+   purple. Yellow only on white or aubergine grounds. kit/hc.js DOODLE_TONES sets the covers'.
+   kit/hc.js draws the SVG; data-a="draw" on the span draws it in. The ring sways a few degrees. */
+.hc-doodle { display: inline-block; width: var(--size, 120px); height: var(--size, 120px); pointer-events: none; --doodle: var(--color-primary-500); }
+.hc-doodle[data-tone="purple"] { --doodle: var(--color-secondary-500); }
+.hc-doodle[data-tone="aubergine"] { --doodle: var(--color-secondary-800); }
+.hc-doodle[data-tone="yellow"] { --doodle: var(--color-yellow-300); }
+.hc-doodle[data-tone="mint"]   { --doodle: var(--color-success-400); }
+.hc-doodle svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.hc-doodle path { fill: none; stroke: var(--doodle); stroke-width: var(--doodle-w, 11); stroke-linecap: round; stroke-linejoin: round; }
+.hc-doodle[data-doodle="ring"] { animation: hc-sway 9s ease-in-out infinite; }
+.hc-doodle[data-doodle="strokes"] { animation: hc-drift 8s ease-in-out -3s infinite; }
+
+/* ── idle motion: a drift that always ends where it started (motion off lands on 0) ── */
+.hc-idle   { animation: hc-drift 7s ease-in-out infinite; }
+.hc-idle-2 { animation: hc-drift 8.5s ease-in-out -3s infinite; }
+@keyframes hc-drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes hc-bob   { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-6px) rotate(-0.6deg); } }
+@keyframes hc-sway  { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-4deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .hc-pillar__i svg, .hc-doodle, .hc-idle, .hc-idle-2, .is-drift, .is-drift-2, .is-drift-3, .hc-cover .hc-illo { animation: none; }
+}
+html.is-print :is(.hc-pillar__i svg, .hc-doodle, .hc-idle, .hc-idle-2, .is-drift, .is-drift-2, .is-drift-3) { animation: none; }
+
+/* ── a tree drawn in HTML: a root, its branches, their leaves (the KPI tree, 60-test) ──
+   <div class="hc-tree"><div class="hc-tree__root">…</div><div class="hc-tree__row" style="--n: 3">
+     <div class="hc-tree__node" data-tint="lavender"><p class="hc-tree__k">Levers</p><ul><li>…</li></ul></div>…</div></div> */
+.hc-tree { position: relative; display: grid; justify-items: center; gap: 56px; }
+.hc-tree__root { position: relative; display: grid; gap: 8px; justify-items: center; padding: 22px 34px; border-radius: 24px; text-align: center;
+  background: var(--tint-plate, var(--color-primary-100)); }
+.hc-tree__root::after { content: ""; position: absolute; left: 50%; top: 100%; width: 2px; height: 28px; background: var(--line-2); }
+.hc-tree__row { position: relative; width: 100%; display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: 20px; }
+.hc-tree__row::before { content: ""; position: absolute; left: calc(100% / var(--n, 3) / 2); right: calc(100% / var(--n, 3) / 2); top: -28px; height: 2px; background: var(--line-2); }
+.hc-tree__node { position: relative; display: grid; gap: 10px; align-content: start; padding: 20px 24px; border-radius: 22px; background: var(--tint-soft, var(--plate-quiet));
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--tint-line, var(--line-2)) 18%, transparent); }
+.hc-tree__node::before { content: ""; position: absolute; left: 50%; bottom: 100%; width: 2px; height: 28px; background: var(--line-2); }
+.hc-tree__k { font: var(--w-head) 17px / 1.2 var(--font-ui); color: var(--tint-ink, var(--ink-3)); }
+.hc-tree__v { font: var(--w-head) 30px / 1.15 var(--font-display); color: var(--tint-title, var(--ink)); }
+.hc-tree ul { display: grid; gap: 8px; }
+.hc-tree li { font-size: 18px; line-height: 1.35; color: var(--ink-2); }
+.hc-tree li b { color: var(--ink); font-weight: var(--w-head); }
+}
+
+/* ── vertical balance (Antonio, 3 Oct: "content always vertically aligned with the available space; more space between the description and the table"):
+   the body starts a step below the message and reaches into the footer's padding, so its centred content sits mid-way between them */
+@layer components {
+  .s > .s-head + .s-body { margin-top: 28px; }
+  .s:has(> .s-foot:not([hidden])) > .s-body { margin-bottom: -28px; }
+  .s > .s-foot[hidden] { display: none; }    /* a foot with nothing to show (kit/hc.js quietFoot) */
+  /* a sparse slide sits nearer its headline (kit/hc.js balance) */
+  .s-body.is-sparse { justify-content: flex-start; padding-top: var(--sparse-gap, 48px); }
+}
+
+/* ════════════════════════════════ 4 Oct · flows, maps and models, drawn live (kit/flowmap.js) ══
+   <figure class="hc-flow" data-flow="turn-on" [data-variant="notion"]></figure>, data in src/data/flows.json.
+   The look is the product's: white cards on a hairline, the aubergine rail for a start, mint for an end,
+   raspberry for a decision the host makes, lavender only for what the AI does, channel marks where a
+   channel appears, plates in the marketing tints. Every size is drawn on a 1720 px canvas and the whole
+   canvas zooms to its figure (flowmap.js fit), so node text never drops under 20 px on the wall. */
+@layer components {
+  .hc-flow { position: relative; margin: 0; width: 100%; min-width: 0; display: flex; justify-content: center; align-items: center; }
+  .more__panel > .hc-flow { flex: 1 1 0; min-height: 0; }
+  .hc-flow__canvas { position: relative; flex: none; font-family: var(--font-ui); color: var(--ink); }
+  .hc-flow__wires { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+  .hc-flow__e { fill: none; stroke: var(--color-gray-400); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .hc-flow__e.is-dash { stroke-dasharray: 0.5 8; }
+  .hc-flow__e.is-head { stroke-dasharray: none; }
+  .hc-flow__reveal { fill: none; stroke: var(--color-text-white); stroke-width: 16; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* a node: the product's card */
+  .hc-flow__n { position: absolute; box-sizing: border-box; display: flex; align-items: center; gap: 14px; padding: 12px 20px;
+    border: 1px solid var(--color-gray-200); border-radius: 16px; background: var(--surface); color: var(--ink);
+    box-shadow: 0 1px 2px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent), 0 14px 30px -20px color-mix(in oklab, var(--color-sidebar-bg) 45%, transparent); }
+  .hc-flow__tx { display: grid; gap: 4px; min-width: 0; flex: 1 1 auto; align-content: center; }
+  .hc-flow__t { display: flex; align-items: center; gap: 10px; font: var(--w-head) 22px / 1.2 var(--font-ui); letter-spacing: -0.01em; color: inherit; text-wrap: balance; }
+  .hc-flow__s { font: var(--w-text) 20px / 1.28 var(--font-ui); color: var(--ink-3); text-wrap: pretty; }
+  .hc-flow__cap { display: flex; align-items: center; gap: 6px; font: var(--w-medium) 20px / 1.2 var(--font-ui); color: var(--ink-3); }
+  .hc-flow__marks { display: inline-flex; gap: 4px; flex: none; }
+  .hc-flow__marks .h-mark { width: 26px; height: 26px; }
+  .hc-flow__i { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* the start: the product's aubergine; the end: a mint stadium with a check */
+  .hc-flow__n--start, .hc-flow__n--root { background: var(--color-sidebar-bg); border-color: var(--color-sidebar-bg); color: var(--color-text-white); }
+  .hc-flow__n--start { border-radius: 999px; padding: 12px 30px; }
+  .hc-flow__n--start .hc-flow__s, .hc-flow__n--root .hc-flow__s { color: var(--on-dark-2); }
+  .hc-flow__n--root { justify-content: center; text-align: center; }
+  .hc-flow__n--end { border-radius: 40px; padding: 12px 28px; background: var(--color-success-50); border: 1.5px solid var(--color-success-200); }
+
+  /* a decision: a stadium led by a "?"; raspberry when the host decides, quiet when the product does */
+  .hc-flow__n--decision { border-radius: 999px; padding: 10px 26px 10px 14px; gap: 12px; }
+  .hc-flow__q { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: 50%;
+    font: var(--w-head) 21px / 1 var(--font-ui); background: var(--color-gray-100); color: var(--ink-2); }
+  .hc-flow__n--decision.is-system { border: 1.5px solid var(--color-gray-300); }
+  .hc-flow__n--decision.is-host { background: var(--color-primary-50); border: 2px solid var(--color-primary-300); }
+  .hc-flow__n--decision.is-host .hc-flow__q { background: var(--accent); color: var(--on-accent); }
+  .hc-flow__n--decision.is-host .hc-flow__t { color: var(--accent-ink); }
+
+  /* what the AI does: lavender, and a sparkle on the corner (lavender means AI, only) */
+  .hc-flow__n--ai { background: var(--color-secondary-50); border: 1.5px solid var(--color-secondary-200); }
+  .hc-flow__n--ai .hc-flow__t { color: var(--color-secondary-900); }
+  .hc-flow__n--ai .hc-flow__s { color: var(--ai-ink); }
+  .hc-flow__badge { position: absolute; top: -15px; right: -13px; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%;
+    border: 2px solid var(--surface); }
+  .hc-flow__badge .hc-flow__i { width: 20px; height: 20px; }
+  .hc-flow__badge--ai { background: var(--color-secondary-100); color: var(--color-secondary-600); }
+  .hc-flow__badge--end { background: var(--color-success-500); color: var(--color-text-white); }
+  .hc-flow__badge--end .hc-flow__i { stroke-width: 2.6; }
+  .hc-flow__n--end .hc-flow__badge { top: -13px; right: 14px; }
+
+  /* a screen: a tiny UI glyph of the product's frame (page · wizard · docked panel · drawer) */
+  .hc-flow__g { width: 48px; height: 36px; flex: none; }
+  .hc-flow__g .g-frame { fill: var(--surface); stroke: var(--color-gray-300); stroke-width: 1.2; }
+  .hc-flow__g .g-rail { fill: var(--color-sidebar-bg); }
+  .hc-flow__g .g-line { fill: var(--color-gray-200); }
+  .hc-flow__g .g-bar { fill: var(--accent); }
+  .hc-flow__g .g-card { fill: var(--color-gray-100); stroke: var(--color-gray-300); stroke-width: 1; }
+  .hc-flow__g .g-ai { fill: var(--color-secondary-200); }
+  .hc-flow__g .g-drawer { fill: var(--surface); stroke: var(--color-gray-300); stroke-width: 1.2; }
+  .hc-flow__n--start .hc-flow__g .g-frame { stroke: var(--surface); }
+
+  /* rows inside a card: the three states of a channel field, the parts of an object */
+  .hc-flow__rows { display: grid; gap: 7px; margin: 8px 0 0; padding: 10px 0 0; list-style: none; border-top: 1px solid var(--color-gray-200); }
+  .hc-flow__rows li { display: flex; align-items: center; gap: 9px; font: var(--w-medium) 20px / 1.2 var(--font-ui); color: var(--ink-2); }
+  .hc-flow__rows li .hc-flow__i { width: 21px; height: 21px; color: var(--ink-3); }
+  .hc-flow__rows li[data-k="custom"] .hc-flow__i { color: var(--accent-ink); }
+  .hc-flow__rows li[data-k="only"] .hc-flow__i { color: var(--color-orange-600); }
+  .hc-flow__rows li[data-k="set"] .hc-flow__i { color: var(--color-gray-600); }
+
+  /* a plate: a group of objects in a marketing tint, named on its corner */
+  .hc-flow__grp { position: absolute; border-radius: 28px; background: var(--tint-plate, var(--color-primary-100)); }
+  .hc-flow__gt { position: absolute; left: 26px; top: 16px; margin: 0; font: var(--w-head) 20px / 1.2 var(--font-ui); color: var(--tint-ink, var(--ink-2)); white-space: nowrap; }
+  .hc-flow__gt span { font-weight: var(--w-text); color: var(--tint-body, var(--ink-2)); }
+  .hc-flow__gt span::before { content: " · "; }
+
+  /* a branch's label: a pill on its line (raspberry when the host chose it) */
+  .hc-flow__lbl { position: absolute; width: 0; height: 0; }
+  .hc-flow__lbl > span { position: absolute; left: 0; top: 0; transform: translate(-50%, -50%); white-space: nowrap; padding: 6px 14px; border-radius: 999px;
+    background: var(--surface); border: 1px solid var(--color-gray-200); font: var(--w-medium) 20px / 1.1 var(--font-ui); color: var(--ink-2); }
+  .hc-flow__lbl.is-host > span { color: var(--accent-ink); border-color: var(--color-primary-200); }
+
+  /* "look": "cards" (4 Oct, Antonio on the Hub flow: "don't make everything so round"): every node is the same card,
+     the deck's white card on a hairline at one radius. The meaning rides in the lead inside the card: lavender and a
+     sparkle only for the AI, a diamond for a question, a check for an outcome. Labels take the product's pill corner. */
+  .is-cards .hc-flow__n { border-radius: var(--r-2); padding: 14px 18px; gap: 12px; border: 1px solid var(--color-gray-200); background: var(--surface); color: var(--ink); box-shadow: none; }
+  .is-cards .hc-flow__n--start .hc-flow__s, .is-cards .hc-flow__n--end .hc-flow__s { color: var(--ink-3); }
+  .is-cards .hc-flow__n--ai { background: var(--color-secondary-50); border-color: var(--color-secondary-200); }
+  .is-cards .hc-flow__lead { width: 24px; height: 24px; }
+  .is-cards .hc-flow__n--ai .hc-flow__lead { color: var(--color-secondary-600); }
+  .is-cards .hc-flow__n--end .hc-flow__lead { color: var(--color-success-600); }
+  .is-cards .hc-flow__q { position: relative; width: 34px; height: 34px; border-radius: 0; background: none; color: var(--ink-2); }
+  .is-cards .hc-flow__q::before { content: ""; position: absolute; inset: 5px; border-radius: var(--radius-sm); background: var(--color-gray-100); border: 1.5px solid var(--color-gray-300); transform: rotate(45deg); }
+  .is-cards .hc-flow__q > span { position: relative; font: var(--w-head) 18px / 1 var(--font-ui); }
+  .is-cards .hc-flow__n--decision.is-host { background: var(--surface); border: 1px solid var(--color-gray-200); }
+  .is-cards .hc-flow__n--decision.is-host .hc-flow__q { background: none; color: var(--accent-ink); }
+  .is-cards .hc-flow__n--decision.is-host .hc-flow__q::before { background: var(--color-primary-50); border-color: var(--color-primary-300); }
+  .is-cards .hc-flow__lbl > span { border-radius: var(--radius-md); }
+
+  /* the words under a diagram in a detail */
+  .hc-flow__note { margin: 0; max-width: 78ch; font-size: var(--t-body); line-height: 1.45; color: var(--ink-2); text-wrap: pretty; }
+  .hc-flow__src { display: inline-flex; align-items: baseline; gap: 8px; margin-left: 10px; font-size: var(--t-small); color: var(--ink-3); white-space: nowrap; }
+}
+
+/* covers: methods and outputs open their Notion page (kit/hc.js covers) */
+.hc-cover a.is-link { text-decoration: none; cursor: pointer; transition: box-shadow var(--dur-1) var(--ease-io), color var(--dur-1) var(--ease-io); }
+.hc-cover a.is-link:hover, .hc-cover a.is-link:focus-visible { color: var(--accent-ink); outline: none;
+  box-shadow: 0 0 0 1.5px var(--color-primary-300), 0 10px 22px -14px color-mix(in oklab, var(--color-sidebar-bg) 40%, transparent); }
+/* every slide laid out once at boot, so hidden ones can be measured (kit/hc.js) */
+html.is-measuring .deck > .s { content-visibility: visible !important; }
+
+/* a cover chip that opens Notion shows the external-link arrow on hover, sliding in (Antonio, 4 Oct).
+   The chip never changes width, so nothing ever re-wraps (Antonio, 4 Oct: "no wrap change ever"): the arrow
+   is out of flow, and the hover moves 8px of padding from the left to the right, where the arrow sits.
+   The two paddings always add up to the chip's 36px. */
+.hc-cover .opener a.is-link {
+  position: relative; display: inline-flex; align-items: center;
+  transition: box-shadow var(--dur-1) var(--ease-io), color var(--dur-1) var(--ease-io),
+              padding var(--dur-1) var(--ease-out, ease);
+}
+.hc-cover .opener a.is-link::after {
+  content: ""; position: absolute; top: 50%; right: 9px; width: 16px; height: 16px; margin-top: -8px; background: currentColor;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M7 17 17 7M9 7h8v8'/></svg>") center / 16px 16px no-repeat;
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M7 17 17 7M9 7h8v8'/></svg>") center / 16px 16px no-repeat;
+  clip-path: inset(0 100% 0 0); transform: translate(-6px, 4px);
+  transition: clip-path var(--dur-1) var(--ease-out, ease), transform var(--dur-2) var(--ease-out, ease);
+}
+.hc-cover .opener a.is-link:is(:hover, :focus-visible) { padding-left: 10px; padding-right: 26px; }
+.hc-cover .opener a.is-link:is(:hover, :focus-visible)::after { clip-path: inset(0); transform: translate(0, 0); }
+@media (prefers-reduced-motion: reduce) { .hc-cover .opener a.is-link, .hc-cover .opener a.is-link::after { transition: none; } }
+
+/* a foot that carries a "So →" strip stacks it over the source line (kit/hc.js soToFoot) */
+.s-foot.has-so { flex-direction: column; align-items: flex-start; justify-content: flex-end; gap: 14px; }
+.s-foot.has-so > .dc-so, .s-foot.has-so > .hc-so { margin: 0; }
+
+/* ── the brand plate: the talk's bookends (4 Oct) ─────────────────────────────
+   Hospitable's own marketing panels (research/references/hospitable-marketing/brand-*.{webp,png}):
+   a deep aubergine plate, big white sentence-case words, and playful marks at its edges, cropped by
+   the plate: hand-drawn rings, a raspberry blob, small coloured dots, a lighter band across it.
+   Used by the opening (op-cover) and the close (cl-thanks). The plate has the cover plate's geometry.
+     <div class="art art--full hc-brand" aria-hidden="true"><div class="hc-brand__plate">
+       <i class="hc-brand__band" style="--x --y --w --h --r"></i>
+       <span class="hc-brand__at hc-doodle" data-doodle="ring" data-tone="purple" style="--x --y --size" data-a="draw"></span>
+       <i class="hc-brand__at hc-blob" style="--x --y --size"></i> · <i class="hc-brand__at hc-dot" data-tone="yellow" style="--x --y"></i>
+     </div></div>
+   --x --y are plate coordinates (1840 × 904). The blob and the dots scale in (the slide's module);
+   they rest at full size, so motion off and print show the finished plate. Words: .hc-brand__k,
+   .hc-brand__t (display), .hc-brand__d, and the lockup .hc-lockup (the mark and the wordmark, white). */
+@layer components {
+.hc-brand__plate {
+  position: absolute; left: 40px; right: 40px; top: var(--plate-y); bottom: var(--plate-y); overflow: hidden;
+  border-radius: 48px; background: var(--color-sidebar-bg);
+}
+.hc-brand__band {
+  position: absolute; left: var(--x); top: var(--y); width: var(--w, 1400px); height: var(--h, 640px); border-radius: 50%;
+  background: color-mix(in oklab, var(--color-secondary-900) 62%, var(--color-sidebar-bg)); transform: rotate(var(--r, -24deg));
+}
+.hc-brand__at { position: absolute; left: var(--x); top: var(--y); }
+.hc-brand .hc-doodle { --doodle-w: 9; }
+.hc-brand .hc-doodle[data-tone="purple"] { --doodle: var(--color-secondary-400); }   /* the references' lavender ring, a step lighter on aubergine */
+.hc-blob {
+  display: block; width: var(--size, 320px); height: var(--size, 320px);
+  border-radius: 58% 42% 54% 46% / 47% 57% 43% 53%; background: var(--color-primary-500);
+}
+.hc-dot { display: block; width: var(--size, 14px); height: var(--size, 14px); border-radius: 50%; background: var(--color-primary-500); }
+.hc-dot[data-tone="yellow"] { background: var(--color-yellow-300); }
+.hc-dot[data-tone="purple"] { background: var(--color-secondary-400); }
+.hc-brand__k { margin: 0; font: var(--w-medium) 26px / 1.3 var(--font-ui); color: var(--on-dark-2); }
+.hc-brand__t {
+  margin: 0; font: var(--w-head) 168px / 1 var(--font-display); letter-spacing: -0.045em; color: var(--on-dark); white-space: nowrap;
+}
+.hc-brand__d { margin: 0; max-width: 34ch; font-size: 34px; line-height: 1.4; color: var(--on-dark-2); text-wrap: pretty; }
+.hc-lockup { display: inline-flex; align-items: center; gap: 0.2em; font: var(--w-head) var(--lockup, 44px) / 1 var(--font-display); letter-spacing: -0.02em; color: var(--on-dark); white-space: nowrap; }
+.hc-lockup svg { flex: none; width: 1.3em; height: 1.3em; }
+} /* @layer components: the brand plate */

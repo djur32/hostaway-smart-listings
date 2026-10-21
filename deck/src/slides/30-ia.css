@@ -1,0 +1,305 @@
+/* 30-ia · tokens only; classes prefixed ia-. Motion: 30-ia.js. */
+@layer slides {
+
+/* ── ia-objects · the model as live nodes, wired (kit/links.js) ─────────────
+   One colour meaning on the wall and in its detail (Antonio, 4 Oct: "make the backgrounds
+   meaningful"): blush soft plate + raspberry ring = a new object Hospitable lacks today;
+   white + gray hairline = from the brief, or exists today. Nothing else is tinted. */
+.ia-map { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: auto auto; column-gap: 92px; row-gap: 56px; align-items: stretch; width: 100%; max-width: 1660px; margin: 0 auto; }
+.ia-node { display: flex; flex-direction: column; gap: 10px; padding: 26px 28px 28px; border-radius: var(--r-3); background: var(--bg);
+  box-shadow: 0 0 0 1px var(--line), 0 18px 40px -26px color-mix(in oklab, var(--color-sidebar-bg) 34%, transparent); }
+.ia-node__t { font: var(--w-head) 32px / 1.1 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
+.ia-node__d { font-size: 22px; line-height: 1.38; color: var(--ink-2); text-wrap: pretty; }
+.ia-node.is-new { background: var(--color-primary-50); box-shadow: 0 0 0 2px var(--accent), 0 18px 40px -26px color-mix(in oklab, var(--color-sidebar-bg) 34%, transparent); }
+/* the brief's open question sits in the gap the projection will fill, above the dashed wire */
+.ia-gap { justify-self: center; align-self: center; margin-bottom: 104px; text-align: center; font: var(--w-medium) 18px / 1.3 var(--font-ui); color: var(--ink-3); }
+/* how to read it, under Source and Property; the key on the same left edge, at the row's foot */
+.ia-read { display: flex; flex-direction: column; justify-content: space-between; gap: 28px; padding-right: 24px; }
+.ia-read__t { margin: 0; font: var(--w-text) 24px / 1.45 var(--font-ui); color: var(--ink-2); text-wrap: pretty; }
+.ia-read__t b { font-weight: var(--w-head); color: var(--ink); }
+/* the key: one swatch per meaning, the same plate and ring as the cards */
+.ia-key { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 32px; margin: 0; font: var(--w-medium) 18px / 1.2 var(--font-ui); color: var(--ink-2); }
+.ia-key__i { display: inline-flex; align-items: center; gap: 10px; }
+.ia-sw { flex: none; width: 22px; height: 22px; border-radius: 7px; background: var(--bg); box-shadow: inset 0 0 0 1px var(--color-gray-300); }
+.ia-sw.is-new { background: var(--color-primary-50); box-shadow: inset 0 0 0 2px var(--accent); }
+
+/* ── ia-bathtub · one fact card, four channels (4 Oct: the deck's card spirit, as rs-channels and rs-pains:
+   white cards on a gray hairline, 30 px corners, no shadow; the fact is the key card, a blush hairline.
+   The fact card and the four rows share one height, so their tops and bottoms line up) ── */
+.ia-fan { display: grid; grid-template-columns: 500px minmax(0, 760px); column-gap: 150px; align-items: stretch; justify-content: center; width: 100%; }
+.ia-fact { display: grid; align-content: start; gap: 16px; padding: 34px 36px 36px; border-radius: 30px; background: var(--bg); box-shadow: inset 0 0 0 2px var(--color-primary-200); }
+.ia-fact__k { margin: 0; font: var(--w-head) 18px / 1 var(--font-ui); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-ink); }
+.ia-fact__t { display: flex; align-items: center; gap: 18px; margin: 0; font: var(--w-head) 48px / 1 var(--font-display); letter-spacing: -0.015em; color: var(--ink); }
+.ia-fact__i { display: grid; place-items: center; flex: none; width: 64px; height: 64px; border-radius: 20px; background: var(--color-primary-50); color: var(--accent-ink); }
+.ia-fact__i .h-icon { width: 34px; height: 34px; }
+.ia-fact__rows { display: grid; gap: 10px; margin: 6px 0 0; }
+.ia-fact__rows > div { display: grid; grid-template-columns: 104px 1fr; align-items: baseline; padding-top: 10px; border-top: 1px solid var(--line); }
+.ia-fact__rows dt { font-size: 20px; color: var(--ink-3); }
+.ia-fact__rows dd { margin: 0; font: var(--w-medium) 24px / 1.3 var(--font-ui); color: var(--ink); }
+.ia-fact__foot { display: flex; align-items: flex-start; gap: 12px; margin: 8px 0 0; padding: 16px 18px; border-radius: 18px; background: var(--color-primary-50); font: var(--w-medium) 21px / 1.35 var(--font-ui); color: var(--ink); }
+.ia-fact__foot .h-icon { flex: none; width: 24px; height: 24px; margin-top: 2px; color: var(--accent-ink); }
+.ia-chs { display: grid; grid-template-rows: repeat(4, minmax(0, 1fr)); gap: 18px; margin: 0; padding: 0; list-style: none; }
+.ia-chs__r { display: grid; grid-template-columns: 230px minmax(0, 1fr); align-items: center; gap: 20px; padding: 0 30px; border-radius: 30px; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
+.ia-chs__ch { display: inline-flex; align-items: center; gap: 14px; font: var(--w-head) 24px / 1.1 var(--font-display); color: var(--ink); }
+.ia-chs__ch .h-mark { width: 40px; height: 40px; }
+.ia-chs__how { font-size: 23px; line-height: 1.3; color: var(--ink-2); }
+.ia-chs__how b { color: var(--ink); font-weight: var(--w-head); }
+
+
+/* ── ia-structure · the property menu, live (ds h-chnav), and what flows through it ── */
+.ia-st { display: grid; grid-template-columns: 262px minmax(0, 1fr); column-gap: 360px; align-items: start; min-height: 536px;   /* the final menu's height, so nothing re-centres as it grows */ width: 100%; max-width: 1720px; margin: 0 auto; }
+.ia-rail { position: relative; width: 262px; border-radius: 18px; background: var(--color-subnav-bg);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 8%, transparent), 0 2px 4px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent),
+    0 22px 44px -14px color-mix(in oklab, var(--color-sidebar-bg) 22%, transparent), 0 60px 110px -34px color-mix(in oklab, var(--color-sidebar-bg) 22%, transparent); }
+.ia-rail__ui { --subnav-item-height: 34px; }
+.ia-rail .h-chnav { min-height: 0; padding: 8px 12px 10px 12px; border-right: 0; background: transparent; }
+.ia-rail .h-chnav__group { padding: 12px 12px 5px; }
+.ia-rail .h-chnav__child { height: 28px; }
+.ia-rail .h-chnav__item { cursor: default; }
+.ia-rail .h-chnav__child { cursor: default; }
+.ia-chev { transition: none; }
+.ia-chev.is-shut { transform: rotate(-90deg); }
+.ia-kids { overflow: hidden; }
+.ia-kids--base { height: 0; }   /* the final state: one group open at a time, as in the prototype; the module opens it on entry */
+/* a bracket beside each group of the menu, with what the group is for */
+.ia-grp { position: relative; }
+.ia-grp::after { content: ""; position: absolute; top: 16px; bottom: 4px; left: calc(100% + 40px); width: 2px; border-radius: 2px; background: var(--line-2); transform: scaleY(var(--ia-brs, 1)); transform-origin: top; }
+.ia-grp--ch::after { background: var(--accent); }
+.ia-grp__tag { position: absolute; top: 8px; left: calc(100% + 60px); width: 280px; font: var(--w-head) 22px / 1.25 var(--font-ui); color: var(--ink); white-space: normal; text-wrap: balance; }
+.ia-grp--ch .ia-grp__tag { color: var(--accent-ink); }
+.ia-r--sl { position: relative; }
+.ia-sl-tag { position: absolute; left: calc(100% + 40px); top: 50%; translate: 0 -50%; display: inline-flex; align-items: center; gap: 10px; padding: 9px 16px; border-radius: var(--r-pill); background: var(--bg); white-space: nowrap;
+  font: var(--w-medium) 17px / 1 var(--font-ui); color: var(--ink); box-shadow: 0 0 0 1px var(--line), 0 12px 28px -10px color-mix(in oklab, var(--color-sidebar-bg) 30%, transparent); }
+.ia-sl-tag::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--ai-accent); flex: none; }
+
+.ia-st__side { display: grid; gap: 56px; align-content: start; padding-top: 16px; }
+.ia-k { font: var(--w-medium) var(--t-label) / 1.2 var(--font-ui); color: var(--ink-3); margin-bottom: 18px; }
+/* what each channel takes from the Base (Antonio, 4 Oct): one bar per channel, a segment per case, the count inside it */
+.ia-reach [data-s="base"] { --seg: var(--color-gray-200); --seg-ink: var(--ink-2); }
+.ia-reach [data-s="own"]  { --seg: var(--color-orange-500); --seg-ink: var(--on-dark); }
+.ia-reach [data-s="only"] { --seg: var(--color-sidebar-bg); --seg-ink: var(--on-dark); }
+.ia-reach [data-s="set"]  { --seg: var(--color-gray-500); --seg-ink: var(--on-dark); }
+.ia-reach__key { display: flex; flex-wrap: wrap; gap: 10px 28px; margin: 0 0 22px; padding: 0; list-style: none; }
+.ia-reach__key li { display: inline-flex; align-items: center; gap: 10px; font: var(--w-medium) 19px / 1.2 var(--font-ui); color: var(--ink-2); }
+.ia-reach__key i { width: 18px; height: 18px; border-radius: 5px; background: var(--seg); box-shadow: inset 0 0 0 1px var(--line); flex: none; }
+.ia-reach__rows { display: grid; gap: 16px; }
+.ia-reach__row { display: grid; grid-template-columns: 210px minmax(0, 1fr); align-items: center; column-gap: 24px; }
+.ia-reach__ch { display: inline-flex; align-items: center; gap: 14px; font: var(--w-head) 24px / 1 var(--font-ui); color: var(--ink); white-space: nowrap; }
+.ia-reach__ch .h-mark { width: 36px; height: 36px; flex: none; }
+.ia-reach__bar { display: flex; gap: 4px; height: 52px; }
+.ia-reach__bar i { flex: var(--n) 1 0; min-width: 44px; display: grid; place-items: center; border-radius: 10px; background: var(--seg); color: var(--seg-ink);
+  font: var(--w-head) 20px / 1 var(--font-ui); font-style: normal; transform-origin: left center; }
+/* the control, as the prototype's field row draws it: a value, its caption and the one action that switches it */
+.ia-ctl__ui { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.ia-ctl__f { padding: 14px 16px 12px; border-radius: var(--radius-lg); background: var(--color-surface-primary); box-shadow: 0 0 0 1px var(--color-border-secondary); }
+.ia-ctl__who { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; font-size: var(--text-md); color: var(--color-text-strong); }
+.ia-ctl__who b { font-weight: var(--font-weight-medium); }
+.ia-ctl__who span { color: var(--color-text-muted); }
+.ia-ctl__who .h-mark { width: 20px; height: 20px; flex: none; }
+.ia-ctl__in { display: flex; align-items: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.ia-ctl .h-field-hint__action { cursor: default; }
+
+/* ── ia-options · five navigation models (Antonio, 4 Oct: no scores, no weightings; the five from Notion's
+   Navigation options). One card each, in rs-channels' spirit: a quiet plate holding a tiny sidebar of the model
+   (bars, not words: lavender is Smart Listings, raspberry the place you land), then the name, how it works, its
+   strength and its risk. Channel-first is the blush card; the press rings it and the "So" line rises. ── */
+.ia-nv-wrap { display: grid; gap: 26px; }
+.ia-nvs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+.ia-nv { position: relative; display: grid; grid-template-rows: auto 1fr; min-width: 0; border-radius: 30px; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
+.ia-nv.is-hi { z-index: 2; box-shadow: inset 0 0 0 2px var(--color-primary-200); }
+.ia-nv__plate { position: relative; display: grid; justify-items: center; align-content: end; height: 250px; padding-bottom: 24px; border-radius: 30px 30px 0 0; background: var(--plate-quiet); }
+.ia-nv.is-hi .ia-nv__plate { background: var(--tint-plate); }
+.ia-nv__badge { position: absolute; top: 16px; left: 50%; transform: translateX(-50%); }
+.ia-nv__tag { display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: var(--r-pill); background: var(--bg); box-shadow: inset 0 0 0 1.5px var(--line-2);
+  font: var(--w-head) 17px / 1 var(--font-ui); color: var(--ink-2); white-space: nowrap; }
+.ia-nv__body { display: grid; grid-template-rows: auto auto auto auto; align-content: start; gap: 12px; padding: 22px 24px 26px; }
+.ia-nv__t { display: flex; align-items: center; gap: 12px; margin: 0; font: var(--w-head) 25px / 1.15 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
+.ia-nv__n { display: grid; place-items: center; flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--ink); color: var(--bg); font: var(--w-head) 17px / 1 var(--font-display); }
+.ia-nv.is-hi .ia-nv__n { background: var(--accent); color: var(--on-accent); }
+.ia-nv__how { margin: 0; min-height: 2.7em; font: var(--w-medium) 21px / 1.35 var(--font-ui); color: var(--ink-2); text-wrap: pretty; }
+.ia-nv__pro, .ia-nv__con { display: flex; align-items: flex-start; gap: 10px; margin: 0; font: var(--w-medium) 20px / 1.3 var(--font-ui); color: var(--ink-2); }
+.ia-nv__pro svg, .ia-nv__con svg { flex: none; width: 22px; height: 22px; margin-top: 2px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.ia-nv__pro svg { color: var(--good-ink); }
+.ia-nv__con svg { color: var(--color-orange-700); }
+.ia-nv.is-hi .ia-nv__how { color: var(--ink); }
+
+/* the tiny sidebar: a white frame, a rail of bars and a page of lines */
+.ia-nm { position: relative; display: grid; grid-template-columns: 96px minmax(0, 1fr); width: 240px; height: 164px; overflow: hidden; border-radius: 14px; background: var(--bg);
+  box-shadow: 0 0 0 1px var(--line), 0 14px 28px -18px color-mix(in oklab, var(--color-sidebar-bg) 40%, transparent); }
+.ia-nm__rail { display: flex; flex-direction: column; gap: 9px; padding: 14px 10px 12px 12px; border-right: 1px solid var(--line); background: var(--color-gray-50); }
+.ia-nm__rail--tight { gap: 7px; }
+.ia-nm__main { display: flex; flex-direction: column; gap: 10px; padding: 16px 14px; }
+.ia-nm__b, .ia-nm__l { display: block; flex: none; width: var(--w, 100%); height: 9px; border-radius: 5px; background: var(--color-gray-200); }
+.ia-nm__l { height: 8px; background: var(--color-gray-100); }
+.ia-nm__b.is-sl { background: color-mix(in oklab, var(--ai-accent) 45%, var(--bg)); }
+.ia-nm__b.is-on { background: var(--accent); }
+.ia-nm__b--in { margin-left: 10px; width: calc(var(--w, 100%) - 10px); }
+.ia-nm__top { display: flex; align-items: center; gap: 8px; margin-bottom: 2px; }
+.ia-nm__sw { position: relative; display: block; width: 32px; height: 18px; border-radius: var(--r-pill); background: var(--accent); }
+.ia-nm__sw::after { content: ""; position: absolute; top: 3px; right: 3px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); }
+.ia-nm__spark { width: 18px; height: 18px; fill: none; stroke: var(--ai-sparkle); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.ia-nm__seg { display: flex; gap: 4px; margin-bottom: 4px; }
+.ia-nm__seg i { display: block; flex: 1; height: 14px; border-radius: var(--r-pill); background: var(--color-gray-100); box-shadow: inset 0 0 0 1px var(--line); }
+.ia-nm__seg i.is-on { background: var(--ink); box-shadow: none; }
+.ia-nm__g { font: var(--w-head) 15px / 1 var(--font-ui); color: var(--accent-ink); }
+.ia-nm__ch { display: flex; align-items: center; gap: 6px; }
+.ia-nm__ch .h-mark { flex: none; width: 16px; height: 16px; }
+.ia-nm__ch .ia-nm__b { flex: 1; width: auto; }
+.ia-nm__rail .ia-nm__ch:first-of-type { margin-top: 6px; padding-top: 9px; border-top: 1px solid var(--line); }
+.ia-nm__drawer { position: absolute; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; gap: 9px; width: 78px; padding: 14px 10px; background: var(--ai-bg); border-left: 1px solid var(--ai-line); }
+.ia-nm__drawer .ia-nm__l { background: color-mix(in oklab, var(--ai-accent) 40%, var(--bg)); }
+
+.ia-so { display: flex; align-items: center; gap: 16px; margin: 0; padding: 16px 24px; border-radius: 24px; background: var(--plate-quiet); font: var(--w-medium) 24px / 1.3 var(--font-ui); color: var(--ink); }
+.ia-so b { display: inline-flex; align-items: center; flex: none; height: 40px; padding: 0 18px; border-radius: var(--r-pill); background: var(--color-sidebar-bg); color: var(--on-dark); font: var(--w-head) 19px / 1 var(--font-ui); }
+
+/* the detail · Channel-first as two bands: Shared (once, for every channel) and Channel-specific (each channel's own pages) */
+.ia-cf { display: grid; gap: 24px; }
+.ia-cf__band { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 40px; align-items: center; padding: 34px 38px; border-radius: 30px; box-shadow: inset 0 0 0 1px var(--line); }
+.ia-cf__head { display: grid; gap: 8px; }
+.ia-cf__k { display: flex; align-items: center; gap: 10px; margin: 0; font: var(--w-head) 36px / 1.1 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
+.ia-cf__k svg { width: 32px; height: 32px; fill: none; stroke: var(--accent); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.ia-cf__d { margin: 0; font: var(--w-medium) 22px / 1.4 var(--font-ui); color: var(--ink-3); text-wrap: pretty; }
+.ia-cf__items { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+.ia-cf__items li { display: flex; align-items: center; gap: 14px; min-height: 96px; padding: 12px 20px; border-radius: 20px; background: var(--color-gray-50); }
+.ia-cf__items li > span:last-child { display: grid; gap: 2px; min-width: 0; }
+.ia-cf__items b { font: var(--w-head) 24px / 1.2 var(--font-ui); color: var(--ink); }
+.ia-cf__items small { font: var(--w-medium) 18px / 1.25 var(--font-ui); color: var(--ink-3); }
+.ia-cf__i { display: grid; place-items: center; flex: none; width: 52px; height: 52px; border-radius: 14px; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); color: var(--ink-2); }
+.ia-cf__i svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.ia-cf__items li.is-ai { background: var(--ai-bg); }
+.ia-cf__items li.is-ai .ia-cf__i { color: var(--ai-sparkle); box-shadow: inset 0 0 0 1px var(--ai-line); }
+.ia-cf__items li.is-ai small { color: var(--ai-ink); }
+.ia-cf__chs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.ia-cf__ch { display: grid; gap: 10px; padding: 20px 22px; border-radius: 20px; background: var(--color-gray-50); }
+.ia-cf__chn { display: flex; align-items: center; gap: 12px; margin: 0; font: var(--w-head) 26px / 1.2 var(--font-ui); color: var(--ink); }
+.ia-cf__chn .h-mark { width: 32px; height: 32px; }
+.ia-cf__pg { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 12px; margin: 0; font: var(--w-medium) 20px / 1.35 var(--font-ui); color: var(--ink-2); }
+.ia-cf__pg span { white-space: nowrap; }
+.ia-src { display: flex; align-items: center; gap: 12px; margin: 22px 0 0; font: var(--w-medium) 18px / 1.3 var(--font-ui); color: var(--ink-3); }
+.ia-was { display: grid; gap: 36px; }
+.ia-was__lead { margin: 0; font: var(--w-head) 46px / 1.2 var(--font-display); letter-spacing: -0.015em; color: var(--color-sidebar-bg); text-wrap: balance; }
+.ia-was__cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.ia-was__c { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 10px 30px; padding: 40px 44px; border-radius: 30px; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
+.ia-was__c .ia-tile { grid-row: 1 / span 3; }
+.ia-was__n { margin: 0; font: var(--w-head) 38px / 1.15 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
+.ia-was__d { margin: 0; font: var(--w-medium) 26px / 1.35 var(--font-ui); color: var(--ink-2); }
+.ia-was__to { display: flex; align-items: center; gap: 10px; margin: 6px 0 0; font: var(--w-head) 24px / 1.3 var(--font-ui); color: var(--accent-ink); }
+.ia-was__to svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ── details, as live HTML (drawn by 30-ia.js from each figure's JSON) ───────────────── */
+/* kinds of content, one hue each (ia/options: F facts · V what guests read · M money ·
+   B booking and time · G guest and team · H health and history) */
+[data-kind="F"] { --kind: var(--data-2); }
+[data-kind="V"] { --kind: var(--accent); }
+[data-kind="M"] { --kind: var(--color-yellow-500); }
+[data-kind="B"] { --kind: var(--color-blue-500); }
+[data-kind="G"] { --kind: var(--color-orange-500); }
+[data-kind="H"] { --kind: var(--color-gray-400); }
+
+/* the object model: four bands, 22 entities, the four new ones ringed */
+/* the detail's card is white (Antonio, 4 Oct); the bands are split by hairlines, not tints, so blush means only "new" */
+.more-sheet:has(.ia-om, .ia-one) { --more-card: var(--bg); }
+.ia-om { margin: 0; display: grid; gap: 8px; }
+.ia-om__band { display: grid; grid-template-columns: 136px repeat(7, minmax(0, 1fr)); gap: 8px; align-items: stretch; padding: 8px 0; border-top: 1px solid var(--line); }
+.ia-om__bl { grid-column: 1; align-self: center; padding: 0 6px 0 0; font: var(--w-head) var(--t-micro) / 1.25 var(--font-ui); color: var(--ink-2); }
+.ia-om__e { display: flex; flex-direction: column; gap: 3px; min-width: 0; padding: 7px 10px 8px; border-radius: var(--r-2); background: var(--bg); box-shadow: 0 0 0 1px var(--line); }
+.ia-om__e.is-new { background: var(--color-primary-50); box-shadow: 0 0 0 2px var(--accent); }
+.ia-key--om { justify-content: flex-end; margin-bottom: 6px; }
+.ia-om__n { display: flex; align-items: baseline; justify-content: space-between; gap: 6px; font: var(--w-head) 18px / 1.15 var(--font-ui); color: var(--ink); }
+.ia-om__n i { font: var(--w-head) 13px / 1 var(--font-ui); font-style: normal; color: var(--accent-ink); }
+.ia-om__is { font: var(--w-text) var(--t-micro) / 1.25 var(--font-ui); color: var(--ink-2); }
+.ia-om__sees { margin-top: auto; font: var(--w-medium) var(--t-micro) / 1.3 var(--font-ui); color: var(--ink-3); }
+
+/* one fact, four channels: what each channel calls it, and what happens to it */
+.ia-proj { margin: 0; display: grid; gap: 14px; }
+.ia-proj__t { display: grid; grid-template-columns: 210px repeat(4, minmax(0, 1fr)); border-radius: var(--r-3); overflow: hidden; box-shadow: 0 0 0 1px var(--line); }
+.ia-proj__t > * { padding: 12px 14px; border-top: 1px solid var(--line); }
+.ia-proj__hd { border-top: 0; background: var(--plate-quiet); display: flex; align-items: center; }
+.ia-proj__f { display: grid; gap: 2px; align-content: center; background: var(--bg); }
+.ia-proj__f b { font: var(--w-head) 20px / 1.15 var(--font-ui); color: var(--ink); }
+.ia-proj__f span { font: var(--w-medium) var(--t-micro) / 1.2 var(--font-ui); color: var(--ink-3); }
+.ia-proj__c { display: grid; gap: 6px; align-content: center; background: var(--bg); }
+.ia-proj__c b { font: var(--w-medium) 17px / 1.25 var(--font-ui); color: var(--ink); overflow-wrap: anywhere; }
+.ia-proj__t > .is-hi { background: var(--accent-soft); }
+.ia-proj__s { justify-self: start; padding: 3px 9px; border-radius: var(--r-pill); font: var(--w-head) 13px / 1.2 var(--font-ui); background: var(--color-gray-100); color: var(--ink-2); }
+.ia-proj__s[data-s="re"] { background: var(--color-blue-50); color: var(--color-blue-800); }
+.ia-proj__s[data-s="lo"] { background: var(--color-warning-50); color: var(--color-warning-800); }
+.ia-proj__s[data-s="no"] { background: var(--color-gray-100); color: var(--ink-3); }
+.ia-proj__s[data-s="tbc"] { background: var(--bg); color: var(--ink-3); box-shadow: inset 0 0 0 1px var(--color-gray-300); }
+.ia-proj__c.is-none b { color: var(--ink-3); font-weight: var(--w-text); }
+.ia-proj__cap { display: flex; align-items: center; gap: 8px; font: var(--w-medium) var(--t-micro) / 1.2 var(--font-ui); color: var(--ink-3); }
+
+}
+@layer slides {
+/* ── ia-structure detail · the cost on the left (and the test it calls for), the three moves that answer it on the right ── */
+.ia-cost { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 64px; align-items: center; }
+.ia-cost__l { display: grid; gap: 36px; align-content: center; }
+.ia-cost__lead { margin: 0; font: var(--w-head) 40px / 1.16 var(--font-display); letter-spacing: -0.015em; color: var(--color-sidebar-bg); text-wrap: balance; }
+.ia-cost__next { display: grid; gap: 12px; justify-items: start; padding: 26px 30px 28px; border-radius: 28px; background: var(--color-warning-100); }
+.ia-cost__next p { margin: 0; font-size: 24px; line-height: 1.42; color: var(--ink-2); text-wrap: pretty; }
+.ia-cost__next .ia-cost__k { display: inline-flex; align-items: center; gap: 10px; font: var(--w-head) 20px / 1.2 var(--font-ui); color: var(--color-orange-700); }
+.ia-cost__k svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.ia-cost__r { display: grid; gap: 20px; align-content: center; }
+.ia-cost__kick { margin: 0; font: var(--w-head) 24px / 1.2 var(--font-ui); color: var(--accent-ink); }
+.ia-cost__moves { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+.ia-cost__moves li { display: flex; align-items: center; gap: 24px; min-height: 124px; padding: 18px 30px 18px 18px; border-radius: 28px; background: var(--bg); box-shadow: 0 0 0 1px var(--line);
+  font: var(--w-head) 29px / 1.25 var(--font-display); letter-spacing: -0.01em; color: var(--ink); text-wrap: pretty; }
+.ia-cost__mks { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 12px; }
+.ia-cost__mk { display: inline-flex; align-items: center; gap: 10px; font: var(--w-medium) 20px / 1 var(--font-ui); letter-spacing: 0; color: var(--ink-2); }
+.ia-cost__mk .h-mark { width: 30px; height: 30px; flex: none; }
+.ia-tile { display: grid; place-items: center; flex: none; width: 84px; height: 84px; border-radius: 24px; background: var(--tint-plate); color: var(--tint-line);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--tint-line) 10%, transparent); }
+.ia-tile svg { width: 38px; height: 38px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ── the IA details at card size (Antonio, 3 Oct: "resize the elements to the available space") ── */
+.ia-om { gap: 8px; }
+.ia-om__band { grid-template-columns: 150px repeat(7, minmax(0, 1fr)); gap: 8px; padding: 8px; }
+.ia-om__bl { font-size: 18px; }
+.ia-om__e { gap: 3px; padding: 8px 11px 9px; }
+.ia-om__n { font-size: 20px; }
+.ia-om__n i { font-size: 15px; }
+.ia-om__is { font-size: 16px; line-height: 1.22; }
+.ia-om__sees { font-size: 16px; line-height: 1.22; }
+.ia-proj { gap: 16px; }
+.ia-proj__t { grid-template-columns: 230px repeat(4, minmax(0, 1fr)); }
+.ia-proj__t > * { padding: 12px 18px; }
+.ia-proj__hd { gap: 12px; font: var(--w-head) 21px / 1.1 var(--font-ui); color: var(--ink); }
+.ia-proj__mk { display: inline-flex; }
+.ia-proj__mk .h-mark { width: 32px; height: 32px; }
+.ia-proj__f b { font-size: 24px; }
+.ia-proj__f span { font-size: 17px; }
+.ia-proj__c { gap: 6px; }
+.ia-proj__c b { font-size: 21px; }
+.ia-proj__s { padding: 4px 11px; font-size: 16px; }
+.ia-proj__cap { font-size: 18px; }
+
+/* ia-objects · the model in one sentence, its nouns marked, and what each band became on screen */
+.ia-one { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 64px; align-items: center; }
+.ia-one__lead { margin: 0; font: var(--w-medium) 38px / 1.42 var(--font-display); letter-spacing: -0.01em; color: var(--ink-2); text-wrap: pretty; }
+.ia-one__lead b { font-weight: var(--w-head); color: var(--color-sidebar-bg); }
+.ia-one__lead b.is-new { background: linear-gradient(transparent 60%, var(--color-primary-200) 60%, var(--color-primary-200) 92%, transparent 92%); }   /* only the new objects are marked, as on the wall */
+.ia-one__r { display: grid; gap: 16px; }
+.ia-one__k { margin: 0; font: var(--w-head) 24px / 1.2 var(--font-ui); color: var(--accent-ink); }
+.ia-one__band { display: grid; gap: 12px; padding: 32px 34px 34px; border-radius: 30px; background: var(--bg); box-shadow: 0 0 0 1px var(--line); }
+.ia-one__l { display: grid; gap: 28px; }
+.ia-one__l .ia-key { font-size: 20px; }
+.ia-one__l .ia-sw.is-new { border-radius: 4px; box-shadow: none; background: var(--color-primary-200); }
+.ia-one__from { margin: 0; font: var(--w-medium) 24px / 1.2 var(--font-ui); color: var(--ink-2); }
+.ia-one__to { display: flex; gap: 12px; margin: 0; font: var(--w-head) 30px / 1.25 var(--font-display); letter-spacing: -0.01em; color: var(--ink); text-wrap: pretty; }
+.ia-one__arrow { color: var(--accent); }
+
+/* ia-bathtub · what one bathtub forces: three rules as cards, the pattern and today's two states as pills */
+.ia-forces { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 0; padding: 0; list-style: none; }
+.ia-forces li { display: grid; align-content: start; gap: 14px; min-height: 380px; padding: 30px 32px 34px; border-radius: 30px; background: var(--bg); box-shadow: 0 0 0 1px var(--line); }
+.ia-forces li .ia-tile { margin-bottom: 8px; }
+.ia-forces b { font: var(--w-head) 32px / 1.2 var(--font-display); letter-spacing: -0.012em; color: var(--ink); text-wrap: balance; }
+.ia-forces li > span:last-child { font-size: 24px; line-height: 1.4; color: var(--ink-2); text-wrap: pretty; }
+.ia-forces__foot { display: flex; flex-wrap: wrap; gap: 14px 48px; margin-top: 4px; }
+.ia-forces__foot p { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0; }
+.ia-forces__k { margin-right: 6px; font: var(--w-head) 24px / 1.2 var(--font-ui); color: var(--ink); }
+.ia-pill { display: inline-flex; align-items: center; height: 44px; padding: 0 18px; border-radius: var(--r-pill); background: var(--bg); box-shadow: 0 0 0 1px var(--line);
+  font: var(--w-medium) 22px / 1 var(--font-ui); color: var(--ink-2); }
+/* the sample says it's a sample: "and every other fact", led by the product's three dots, on a quiet plate */
+.ia-pill--more { gap: 10px; padding-left: 14px; background: var(--plate-quiet); box-shadow: inset 0 0 0 1px var(--line); color: var(--ink); }
+.ia-pill--more .h-icon { width: 22px; height: 22px; color: var(--ink-3); }
+}

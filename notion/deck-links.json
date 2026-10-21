@@ -1,0 +1,306 @@
+{
+  "_note": "Which page of the Notion workspace 'Hospitable · Smart Listings' each deck slide, detail pop-up and section cover opens (N, or the hint next to Jump). Keys of 'pages' are map.json keys: a section ('01-discovery'), 'section/slug' ('01-discovery/o-today'), 'KD-##', 'hub' or 'decision_log_db'. Applied to deck/src/data/notion-links.json by tools/notion-links.py.",
+  "covers": {
+    "discovery": "01-discovery",
+    "research": "02-research",
+    "concept": "04-concepts",
+    "design": "05-design",
+    "test": "06-test",
+    "next": "07-next"
+  },
+  "slides": {
+    "op-cover": "hub",
+    "op-title": "hub",
+    "op-burden": "02-research/o-problem",
+    "op-brief": "00-brief",
+    "op-hypothesis": "01-discovery/o-questions",
+    "op-idea": "05-design/o-solution",
+    "op-shift": "01-discovery/o-today",
+    "op-goals": "06-test/o-goals-kpis",
+    "op-how": "KD-18",
+    "dc-today": "01-discovery/m-product-audit",
+    "dc-two-truths": "01-discovery/o-today",
+    "dc-no-channel": "01-discovery/o-heuristics",
+    "dc-signals": "02-research/m-data-review",
+    "dc-risks": "01-discovery/o-questions",
+    "dc-plan": "01-discovery/m-research-plan",
+    "rs-method": "KD-18",
+    "rs-hosts": "02-research/o-personas",
+    "rs-quotes": "02-research/o-interview-synthesis",
+    "rs-pains": "02-research/o-insights",
+    "rs-insights": "02-research/o-insights",
+    "rs-jobs": "02-research/o-jtbd",
+    "rs-cardsort": "02-research/o-card-sort-result",
+    "rs-channels": "01-discovery/o-channels",
+    "rs-market": "01-discovery/o-competitors",
+    "rs-diagnosis": "02-research/o-problem",
+    "ia-objects": "03-ia/o-object-model",
+    "ia-bathtub": "01-discovery/o-channels",
+    "ia-options": "03-ia/o-nav-models",
+    "ia-structure": "03-ia/o-sitemap",
+    "cn-principles": "04-concepts/o-principles",
+    "cn-grid": "04-concepts/o-directions",
+    "cn-judged": "04-concepts/o-directions",
+    "cn-converge": "04-concepts/o-converged",
+    "ds-solution": "05-design/o-solution",
+    "ds-shared": "KD-02",
+    "ds-hub": "05-design/o-knowledge-hub",
+    "ds-channels": "05-design/o-base-channels",
+    "ds-strategy": "KD-06",
+    "ds-tips": "05-design/o-tips",
+    "ds-canvas": "05-design/o-canvas",
+    "ds-performance": "05-design/o-smart-listings",
+    "ds-autopilot": "KD-08",
+    "ds-mobile": "05-design/o-mobile",
+    "ds-challenged": "05-design/o-design-system",
+    "ds-system": "05-design/o-design-system",
+    "tm-test": "06-test/m-test-plan",
+    "tm-measure": "06-test/o-goals-kpis",
+    "nx-story": "05-design/o-solution",
+    "nx-roadmap": "07-next/o-service-map",
+    "cl-monday": "07-next/o-roadmap",
+    "cl-thanks": "hub"
+  },
+  "details": {
+    "ia-bathtub/*": "01-discovery/m-market-scan",
+    "ia-structure/*": "KD-03",
+    "ds-strategy/*": "05-design/o-smart-listings",
+    "ds-tips/*": "KD-10",
+    "ds-performance/*": "KD-07",
+    "ds-system/*": "05-design/o-ui-changes",
+    "op-idea/*": "05-design/o-base-channels",
+    "cn-principles/*": "02-research/o-insights",
+    "tm-measure/tree": "06-test/o-goals-kpis",
+    "tm-measure/fail": "06-test/o-premortem",
+    "ds-solution/*": "05-design/o-solution",
+    "nx-roadmap/gaps": "07-next/o-shortfalls",
+    "nx-roadmap/perf": "07-next/o-shortfalls",
+    "nx-roadmap/road": "07-next/o-roadmap",
+    "nx-roadmap/effects": "07-next/o-second-order",
+    "dc-plan/who": "01-discovery/m-stakeholder-interviews"
+  },
+  "panels": {
+    "The flow": "05-design/o-flows",
+    "Kill criteria": "07-next/o-roadmap",
+    "Pre-mortem": "06-test/o-premortem",
+    "Built, then removed": "05-design",
+    "One AI per field": "KD-10",
+    "Not only words": "KD-11"
+  },
+  "lists": {
+    "op-brief": [
+      "00-brief",
+      "KD-01"
+    ],
+    "op-idea": [
+      "05-design/o-solution",
+      "05-design/o-base-channels",
+      "KD-02"
+    ],
+    "op-goals": [
+      "06-test/o-goals-kpis",
+      "KD-19"
+    ],
+    "op-how": [
+      "KD-18",
+      "00-brief"
+    ],
+    "dc-two-truths": [
+      "01-discovery/o-today",
+      "KD-02"
+    ],
+    "dc-risks": [
+      "01-discovery/o-questions",
+      "KD-18"
+    ],
+    "rs-method": [
+      "KD-18",
+      "02-research/m-host-interviews",
+      "02-research/m-card-sort",
+      "02-research/m-data-review"
+    ],
+    "rs-insights": [
+      "02-research/o-insights",
+      "02-research/o-problem"
+    ],
+    "rs-cardsort": [
+      "02-research/o-card-sort-result",
+      "02-research/m-card-sort"
+    ],
+    "ia-objects": [
+      "03-ia/o-object-model",
+      "KD-02"
+    ],
+    "ia-options": [
+      "03-ia/o-nav-models",
+      "KD-03"
+    ],
+    "ia-structure": [
+      "03-ia/o-sitemap",
+      "KD-03",
+      "KD-04",
+      "03-ia/m-tree-test"
+    ],
+    "cn-grid": [
+      "04-concepts/o-directions",
+      "04-concepts/o-principles"
+    ],
+    "cn-converge": [
+      "04-concepts/o-converged",
+      "04-concepts/o-directions",
+      "KD-06",
+      "KD-09"
+    ],
+    "ds-solution": [
+      "05-design/o-solution",
+      "05-design/o-flows",
+      "05-design"
+    ],
+    "ds-hub": [
+      "05-design/o-knowledge-hub",
+      "KD-12",
+      "KD-13"
+    ],
+    "ds-channels": [
+      "05-design/o-base-channels",
+      "KD-04",
+      "05-design/o-flows"
+    ],
+    "ds-strategy": [
+      "KD-06",
+      "05-design/o-smart-listings",
+      "KD-05"
+    ],
+    "ds-tips": [
+      "05-design/o-tips",
+      "KD-09",
+      "KD-10",
+      "KD-11"
+    ],
+    "ds-canvas": [
+      "05-design/o-canvas",
+      "KD-14"
+    ],
+    "ds-performance": [
+      "05-design/o-smart-listings",
+      "KD-07"
+    ],
+    "ds-autopilot": [
+      "KD-08",
+      "05-design/o-smart-listings"
+    ],
+    "ds-mobile": [
+      "05-design/o-mobile",
+      "KD-17"
+    ],
+    "ds-challenged": [
+      "05-design/o-design-system",
+      "05-design/o-ui-changes",
+      "KD-16"
+    ],
+    "ds-system": [
+      "05-design/o-design-system",
+      "05-design/o-ui-changes",
+      "KD-16"
+    ],
+    "tm-test": [
+      "06-test/m-test-plan",
+      "KD-18",
+      "03-ia/m-tree-test",
+      "04-concepts/m-concept-test"
+    ],
+    "tm-measure": [
+      "06-test/o-goals-kpis",
+      "KD-19",
+      "06-test/o-premortem"
+    ],
+    "nx-roadmap": [
+      "07-next/o-service-map",
+      "07-next/o-shortfalls",
+      "07-next/o-roadmap",
+      "07-next/o-second-order"
+    ],
+    "cl-monday": [
+      "07-next/o-roadmap",
+      "01-discovery/m-stakeholder-interviews",
+      "06-test/m-test-plan"
+    ],
+    "dc-plan": [
+      "01-discovery/m-research-plan",
+      "01-discovery/o-questions",
+      "01-discovery/m-stakeholder-interviews",
+      "02-research/m-host-interviews"
+    ]
+  },
+  "chips": {
+    "discovery": {
+      "Product audit": "01-discovery/m-product-audit",
+      "Desk research": "01-discovery/m-market-scan",
+      "Stakeholder interviews": "01-discovery/m-stakeholder-interviews",
+      "Current-state map": "01-discovery/o-today",
+      "Heuristic evaluation": "01-discovery/o-heuristics",
+      "Channel constraints": "01-discovery/o-channels",
+      "Competitive analysis": "01-discovery/o-competitors",
+      "Research questions & assumptions": "01-discovery/o-questions",
+      "Assumption mapping": "01-discovery/o-questions"
+    },
+    "research": {
+      "User interviews": "02-research/m-host-interviews",
+      "Data analysis": "02-research/m-data-review",
+      "Card sorting": "02-research/m-card-sort",
+      "Tree testing": "03-ia/m-tree-test",
+      "Object model": "03-ia/o-object-model",
+      "Navigation options": "03-ia/o-nav-models",
+      "Sitemap": "03-ia/o-sitemap",
+      "Interview synthesis": "02-research/o-interview-synthesis",
+      "Card sorting results": "02-research/o-card-sort-result",
+      "Insights": "02-research/o-insights",
+      "Personas": "02-research/o-personas",
+      "Jobs to be done": "02-research/o-jtbd",
+      "Problem statement": "02-research/o-problem"
+    },
+    "concept": {
+      "Divergent ideation": "04-concepts/o-directions",
+      "Pattern references": "04-concepts/o-directions",
+      "Weighted scoring": "04-concepts/o-directions",
+      "Concept testing": "04-concepts/m-concept-test",
+      "Design principles": "04-concepts/o-principles",
+      "Concept directions": "04-concepts/o-directions",
+      "Final concept": "04-concepts/o-converged"
+    },
+    "design": {
+      "Prototyping in code": "05-design/o-solution",
+      "Design reviews": "05-design",
+      "Design systems": "05-design/o-design-system",
+      "Responsive design": "05-design/o-mobile",
+      "Solution overview": "05-design/o-solution",
+      "User flows": "05-design/o-flows",
+      "Tips & AI rewrite": "05-design/o-tips",
+      "Canvas preview": "05-design/o-canvas",
+      "Design system": "05-design/o-design-system",
+      "Mobile & tablet": "05-design/o-mobile",
+      "Accessibility review": "06-test/m-test-plan"
+    },
+    "test": {
+      "Benchmark test": "06-test/m-test-plan",
+      "Tree testing": "03-ia/m-tree-test",
+      "Usability testing": "06-test/m-test-plan",
+      "A/B testing": "06-test/m-test-plan",
+      "Test plan": "06-test/m-test-plan",
+      "Goals & KPIs": "06-test/o-goals-kpis",
+      "Pre-mortem": "06-test/o-premortem",
+      "Goals and KPIs": "06-test/o-goals-kpis"
+    },
+    "next": {
+      "Systems mapping": "07-next/o-second-order",
+      "Roadmapping": "07-next/o-roadmap",
+      "Second-order effects": "07-next/o-second-order",
+      "Roadmap": "07-next/o-roadmap",
+      "Kill criteria": "07-next/o-roadmap",
+      "Pilot": "07-next/o-roadmap",
+      "Staged rollout": "07-next/o-roadmap",
+      "Where it falls short": "07-next/o-shortfalls",
+      "Smart Listings across Hospitable": "07-next/o-service-map"
+    }
+  }
+}

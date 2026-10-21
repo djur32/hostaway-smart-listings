@@ -1,0 +1,399 @@
+<!-- 70-next · Systems & next, and the close · content (4 Oct, Notion v2): the story I'd hand Marketing, what Smart Listings sets off (Second-order effects: blast radius first) and what comes next (Roadmap: test and harden it, then import on the same Base, then optimisation over time; five kill criteria written before any result), and the first week. Field model per the deck's four cases (Antonio, 4 Oct); the story card is On Airbnb, so it shows the three that occur there, and the channel-only example is Airbnb's check-in method, as in the prototype (prototype/src/data/sl3.ts). The fourth, set by the channel (Booking.com's description, behind a lock), is in the notes. Nothing here is observed: it is a plan, labelled as one. -->
+
+<section class="s" data-id="nx-story" data-title="The story, and the product" data-stage="6" data-part="next" data-path="St" data-angle="both" data-min="0.7" data-req="R-116 R-190" data-notion="D-085 07-systems-next" data-notion-page="07-systems-next" data-ground="white">
+  <template class="hc-cover-tpl" data-stage="6">
+    <header class="hc-cover" aria-label="Next steps">
+      <div class="opener">
+        <div class="opener__top"><h2 class="opener__name">Next steps</h2></div>
+        <p class="opener__vision">How would I tell it, what else does it change, and what comes after it?</p>
+        <div class="opener__foot">
+          <p class="opener__methods"><span class="opener__k">Methods</span><span>Systems mapping</span><span>Roadmapping</span><span>Pilot</span><span>Staged rollout</span></p>
+          <div class="opener__out"><p class="opener__k">Outputs</p>
+            <p class="opener__outrow"><span class="hc-mark" data-mark="planned"></span><span class="opener__outs"><span>Second-order effects</span><span>Roadmap</span><span>Where it falls short</span><span>Smart Listings across Hospitable</span></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="hc-illo" data-illo="nothing-lost-versions"></div>
+    </header>
+  </template>
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Next steps</span><span>Story and product</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">“Your listings, handled. And you still have the last word.”</h2>
+  </header>
+  <div class="s-body">
+    <div class="stack" style="--gap-y: 22px">
+      <p class="nx-lvl" data-a="rise" data-at="0.14"><span class="nx-lvl__n">1</span>What I’d tell hosts</p>
+      <div class="hc-features nx-features" style="--n: 3" data-a="stagger" data-at="0.18">
+        <article class="hc-feature" data-tint="blush">
+          <div class="hc-feature__plate"><span class="hc-badge">One Base</span>
+            <div class="hc-feature__halo"><div class="hc-mini">
+              <p class="hc-mini__h"><svg class="h-mark"><use href="#ch-airbnb"/></svg>On Airbnb</p>
+              <p class="hc-mini__r"><span class="hc-mini__l">Description</span><span class="hc-mini__s"><svg><use href="#i-arrow-back-up"/></svg>Uses the Base</span></p>
+              <p class="hc-mini__r"><span class="hc-mini__l">Summary</span><span class="hc-mini__s is-ai"><svg><use href="#i-git-compare"/></svg>Custom for Airbnb</span></p>
+              <p class="hc-mini__r"><span class="hc-mini__l">Check-in method</span><span class="hc-mini__s nx-only"><svg><use href="#i-pencil"/></svg>Airbnb only</span></p>
+            </div></div>
+          </div>
+          <div class="hc-feature__body"><h3 class="hc-feature__t">Your facts, once</h3></div>
+        </article>
+        <article class="hc-feature" data-tint="lavender">
+          <div class="hc-feature__plate"><span class="hc-badge">AI Copilot</span>
+            <div class="hc-feature__halo nx-tip"><div class="h-root hc-ui" style="--ui-zoom: 1.08">
+              <article class="h-tip" aria-label="Property name">
+                <div class="h-tip__head"><span class="h-tip__type">Property name</span><span class="h-tip__nav">1 of 11</span></div>
+                <div class="h-tip__body"><div class="h-tip__main"><h3 class="h-tip__title">Name a landmark guests search for</h3></div>
+                  <div class="h-tip__why"><h4>Why</h4><ul><li><svg class="h-icon"><use href="#i-target"/></svg><span class="h-tip__why-text">Tempelhofer Feld is 5 minutes on foot.</span></li></ul></div></div>
+                <div class="h-tip__foot"><span class="h-tip__actions"><button class="h-btn h-btn--secondary" tabindex="-1">Dismiss</button><button class="h-btn h-btn--primary" tabindex="-1">Accept</button></span></div>
+              </article>
+            </div></div>
+          </div>
+          <div class="hc-feature__body"><h3 class="hc-feature__t">Tuned for each channel</h3></div>
+        </article>
+        <article class="hc-feature" data-tint="mint">
+          <div class="hc-feature__plate"><span class="hc-badge">Receipts</span>
+            <div class="hc-feature__halo"><div class="hc-mini">
+              <p class="hc-mini__r"><span class="hc-mini__l">Property name updated</span><span class="hc-mini__s is-ok"><svg><use href="#i-circle-check"/></svg>Applied</span></p>
+              <p class="hc-mini__r"><span class="hc-mini__l">Weekly discount</span><span class="hc-mini__s"><svg><use href="#i-clock"/></svg>Asks you</span></p>
+            </div></div>
+          </div>
+          <div class="hc-feature__body"><h3 class="hc-feature__t">Money always asks you</h3></div>
+        </article>
+      </div>
+      <div class="nx-lvl2" data-a="rise" data-beat="1">
+      <p class="nx-lvl"><span class="nx-lvl__n">2</span>Where I’d take the product</p>
+      <div class="nx-dir">
+        <ul class="nx-dir__l">
+          <li><svg><use href="#i-home"/></svg>The property around one Base</li>
+          <li><svg><use href="#i-sparkles"/></svg>Copilot wherever the listing goes</li>
+          <li><svg><use href="#i-topology-star-3"/></svg>Smart Listings across Hospitable</li>
+        </ul>
+        <p class="nx-dir__n">Mapped next<svg><use href="#i-arrow-right"/></svg></p>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="s-foot"><p class="hc-src"><span class="hc-prov" data-prov="public"></span><span>AI Copilot: hospitable.com</span><span class="hc-prov" data-prov="projected"></span><span>The product direction is a plan</span></p></div>
+  <aside class="notes"><p>This slide works on two levels. First, what I’d tell hosts: your listings, handled, and you still have the last word. Your facts live once. Every channel gets tips tuned to its own strategy, from AI Copilot, the assistant hosts already know. Copilot can apply tips within your guardrails, but money always asks, and every change gets a receipt. [Press] Second, where I’d take the product. This isn’t a feature launch. It reorganises the property around one Base. It puts Copilot wherever the listing is used. And it makes Smart Listings a capability across Hospitable. The next slide shows where it spreads.</p></aside>
+</section>
+
+<section class="s" data-id="nx-roadmap" data-title="Smart Listings, across Hospitable" data-stage="6" data-part="next" data-path="St" data-angle="both" data-min="1.2" data-req="R-156 R-191" data-notion="D-114 D-980 D-981 OQ-100 OQ-101 07-systems-next" data-notion-page="07-systems-next" data-ground="white">
+  <!-- The service map (4 Oct, Antonio: "a visual that shows how this implementation affects other future implementations and the product at large").
+       Flows from research/systems/product-map.md (1 to 18); horizons from roadmap.md and the Notion Roadmap page. Built = in the prototype, on sample data.
+       The four lines of work Antonio named (comps per channel, a deeper Knowledge Hub, Performance over time, tips beyond the listing) are dashed: implied, not built.
+       Geometry and motion: 70-next.js. -->
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Next steps</span><span>Service map</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Smart Listings is a system, not a screen</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Facts kept once and one kind of tip can reach every part of Hospitable.</p>
+    <p class="s-legend nx-key" data-a="rise" data-at="0.16" aria-label="Legend"><span data-k><i class="nx-k is-built" aria-hidden="true"></i>Built</span><span data-k><i class="nx-k is-next" aria-hidden="true"></i>Next</span><span data-k><i class="nx-k is-later" aria-hidden="true"></i>Later</span><span data-k><i class="nx-k is-implied" aria-hidden="true"></i>Implied, not built</span></p>
+  </header>
+  <div class="s-body">
+    <figure class="nx-map" data-w="1728" data-h="596" role="img" aria-label="Service map. At the centre, Smart Listings over Shared: the Listing base and the Knowledge Hub. Built: tips and the Base reach Airbnb, Booking.com and Direct sites. The guest assistant in the Inbox reads the same listing details, plus the host's own notes. Metrics sends results back. Next: Import fills the Base once. Implied and not built: similar homes per channel, Performance over time, a deeper Knowledge Hub, tips in the Calendar and in the Inbox. Later: receipts reach owner statements, strategy goals reach Dynamic Pricing, typed facts feed Google, the Guidebook, Operations, Devices and the API.">
+      <div class="nx-sh" data-node="shared"><p class="nx-sh__k">Shared</p></div>
+      <div class="nx-sl" data-node="sl"><span class="nx-sl__i"><svg><use href="#i-sparkles"/></svg></span><span class="nx-sl__tx"><b>Smart Listings</b><span>strategy · tips · Copilot</span></span></div>
+      <div class="nx-n nx-n--in" data-node="lb"><span class="nx-n__i"><svg><use href="#i-home"/></svg></span><span class="nx-n__t">Listing base</span></div>
+      <div class="nx-n nx-n--in" data-node="hub"><span class="nx-n__i"><svg><use href="#i-book"/></svg></span><span class="nx-n__t">Knowledge Hub</span></div>
+
+      <div class="nx-n" data-node="ch" data-ring="1" data-y="88" data-w="320"><span class="nx-n__m"><svg class="h-mark h-mark--badge h-mark--airbnb" viewBox="0 0 24 24" aria-hidden="true"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-airbnb" width="24" height="24"/></svg><svg class="h-mark h-mark--badge h-mark--booking" viewBox="0 0 24 24" aria-hidden="true"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-booking" width="24" height="24"/></svg></span><span class="nx-n__t">Airbnb · Booking.com</span></div>
+      <div class="nx-n" data-node="me" data-ring="1" data-y="215" data-w="200"><span class="nx-n__i"><svg><use href="#i-chart-line"/></svg></span><span class="nx-n__t">Metrics</span></div>
+      <div class="nx-n" data-node="di" data-ring="1" data-y="352" data-w="230"><span class="nx-n__m"><svg class="h-mark h-mark--badge h-mark--hospitable" viewBox="0 0 24 24" aria-hidden="true"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-hospitable" width="24" height="24"/></svg></span><span class="nx-n__t">Direct sites</span></div>
+      <div class="nx-n" data-node="ib" data-ring="1" data-y="465" data-w="260"><span class="nx-n__i"><svg><use href="#i-message-circle"/></svg></span><span class="nx-n__t">Inbox · Copilot</span></div>
+
+      <div class="nx-n is-implied" data-node="sh" data-ring="2" data-y="32" data-w="360"><span class="nx-n__i"><svg><use href="#i-home-2"/></svg></span><span class="nx-n__t">Similar homes, per channel</span></div>
+      <div class="nx-n is-implied" data-node="tc" data-ring="2" data-y="145" data-w="300"><span class="nx-n__i"><svg><use href="#i-calendar-month"/></svg></span><span class="nx-n__t">Tips in the Calendar</span></div>
+      <div class="nx-n is-implied" data-node="pf" data-ring="2" data-y="232" data-w="316"><span class="nx-n__i"><svg><use href="#i-trending-up"/></svg></span><span class="nx-n__t">Performance over time</span></div>
+      <div class="nx-n" data-node="im" data-ring="2" data-y="305" data-w="164"><span class="nx-n__i"><svg><use href="#i-cloud-upload"/></svg></span><span class="nx-n__t">Import</span></div>
+      <div class="nx-n is-implied" data-node="kh" data-ring="2" data-y="420" data-w="326"><span class="nx-n__i"><svg><use href="#i-book"/></svg></span><span class="nx-n__t">A deeper Knowledge Hub</span></div>
+      <div class="nx-n is-implied" data-node="ti" data-ring="2" data-y="528" data-w="274"><span class="nx-n__i"><svg><use href="#i-message-circle"/></svg></span><span class="nx-n__t">Tips in the Inbox</span></div>
+
+      <div class="nx-n" data-node="os" data-ring="3" data-y="94" data-w="248"><span class="nx-n__i"><svg><use href="#i-file-text"/></svg></span><span class="nx-n__t">Owner statements</span></div>
+      <div class="nx-n" data-node="dp" data-ring="3" data-y="164" data-w="240"><span class="nx-n__i"><svg><use href="#i-coin"/></svg></span><span class="nx-n__t">Dynamic Pricing</span></div>
+      <div class="nx-n" data-node="go" data-ring="3" data-y="236" data-w="156"><span class="nx-n__m"><svg class="h-mark h-mark--badge h-mark--google" viewBox="0 0 24 24" aria-hidden="true"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-google" width="24" height="24"/></svg></span><span class="nx-n__t">Google</span></div>
+      <div class="nx-n" data-node="gb" data-ring="3" data-y="308" data-w="184"><span class="nx-n__i"><svg><use href="#i-map-pin"/></svg></span><span class="nx-n__t">Guidebook</span></div>
+      <div class="nx-n" data-node="op" data-ring="3" data-y="382" data-w="194"><span class="nx-n__i"><svg><use href="#i-clipboard-check"/></svg></span><span class="nx-n__t">Operations</span></div>
+      <div class="nx-n" data-node="dv" data-ring="3" data-y="457" data-w="162"><span class="nx-n__i"><svg><use href="#i-lock"/></svg></span><span class="nx-n__t">Devices</span></div>
+      <div class="nx-n" data-node="api" data-ring="3" data-y="532" data-w="184"><span class="nx-n__i"><svg><use href="#i-topology-star-3"/></svg></span><span class="nx-n__t">API · MCP</span></div>
+
+      <p class="nx-ring" data-ring="1" data-y="578"><span>Built</span></p>
+      <p class="nx-ring" data-ring="2" data-y="578"><span>Next</span></p>
+      <p class="nx-ring" data-ring="3" data-y="578"><span>Later</span></p>
+
+      <i class="nx-e" data-e="sl>ch" data-st="built" data-y0="150"><span>tips · the Base</span></i>
+      <i class="nx-e" data-e="me>sl" data-st="built" data-y1="212"><span>results</span></i>
+      <i class="nx-e" data-e="lb>di" data-st="built" data-y0="328"><span>the Base</span></i>
+      <i class="nx-e" data-e="hub>ib" data-st="built" data-y0="412"><span>answers</span></i>
+      <i class="nx-e" data-e="sh>sl" data-st="next" data-via="205,32" data-t="0.3"><span>price, positioning</span></i>
+      <i class="nx-e" data-e="sl>tc" data-st="next" data-y0="176" data-t="0.86"><span>tips</span></i>
+      <i class="nx-e" data-e="me>pf" data-st="next"><span>periods</span></i>
+      <i class="nx-e" data-e="im>lb" data-st="next" data-y1="300" data-t="0.2"><span>facts, once</span></i>
+      <i class="nx-e" data-e="hub>kh" data-st="next" data-y0="390" data-t="0.8"><span>questions</span></i>
+      <i class="nx-e" data-e="ib>ti" data-st="next"><span>tips</span></i>
+      <i class="nx-e" data-e="ch>os" data-st="later" data-t="0.86"><span>receipts</span></i>
+      <i class="nx-e" data-e="tc>dp" data-st="later"><span>goals</span></i>
+      <i class="nx-e" data-e="kh>go" data-st="later" data-y0="410"></i>
+      <i class="nx-e" data-e="kh>gb" data-st="later" data-y0="415"></i>
+      <i class="nx-e" data-e="kh>op" data-st="later" data-y0="420" data-lx="1352" data-ly="336"><span>answers, insights</span></i>
+      <i class="nx-e" data-e="kh>dv" data-st="later" data-y0="425"></i>
+      <i class="nx-e" data-e="kh>api" data-st="later" data-y0="430"></i>
+    </figure>
+  </div>
+
+  <template class="more" data-more="gaps" data-title="Where it falls short: comps, the Knowledge Hub, tips" data-label="Falls short">
+    <div class="more__panel" data-title="Comps and the Hub">
+      <div class="nx-gap" data-a="stagger" data-s="0.7">
+        <div class="nx-gap__r is-h"><span></span>
+          <div class="nx-gap__hd" data-tint="butter"><span class="nx-tile"><svg><use href="#i-home-2"/></svg></span><h3>Similar homes, per channel</h3><span class="nx-imp">Implied</span></div>
+          <div class="nx-gap__hd" data-tint="blush"><span class="nx-tile"><svg><use href="#i-book"/></svg></span><h3>A deeper Knowledge Hub</h3><span class="nx-imp">Concept</span></div>
+        </div>
+        <div class="nx-gap__r"><p class="nx-lab"><svg><use href="#i-eye"/></svg>Now</p><p class="nx-txt">Sample figures behind tips and Performance</p><p class="nx-txt">Questions and insights: a concept</p></div>
+        <div class="nx-gap__r"><p class="nx-lab"><svg><use href="#i-circle-dashed"/></svg>Missing</p><ul class="nx-chips is-gap"><li>Real data per channel</li><li>Legal terms</li></ul><ul class="nx-chips is-gap"><li>Real Inbox questions</li><li>Faithful answers only</li><li>Knows its workflows</li></ul></div>
+        <div class="nx-gap__r"><p class="nx-lab"><svg><use href="#i-list-details"/></svg>How</p><p class="nx-txt">Define “similar” with Data. Aggregates, never another host’s text</p><p class="nx-txt">Count Inbox questions. Answer only from the Listing base and confirmed Hub facts. Gaps become tips</p></div>
+        <div class="nx-gap__r"><p class="nx-lab"><svg><use href="#i-users"/></svg>With</p><ul class="nx-chips is-team"><li>Data</li><li>Legal</li><li>Integrations</li></ul><ul class="nx-chips is-team"><li>AI and ML</li><li>CS</li><li>Data</li></ul></div>
+        <div class="nx-gap__r"><p class="nx-lab"><svg><use href="#i-target"/></svg>Worked if</p><p class="nx-txt">Tips citing similar homes accepted, not reverted</p><p class="nx-txt">Fewer questions left open</p></div>
+      </div>
+    </div>
+    <div class="more__panel" data-title="Tips everywhere">
+      <div class="nx-tips">
+        <div class="nx-contract" data-a="rise"><p class="nx-contract__k">One tip contract, for any area</p><ol><li><svg><use href="#i-pencil"/></svg>Field</li><li><svg><use href="#i-help-circle"/></svg>Why</li><li><svg><use href="#i-book"/></svg>Sources</li><li><svg><use href="#i-arrow-back-up"/></svg>Accept or Undo</li><li><svg><use href="#i-circle-check"/></svg>Receipt</li></ol></div>
+        <div class="nx-tips__ex" data-a="stagger" data-s="1.2">
+          <div class="nx-tips__p" data-tint="lavender">
+            <p class="nx-tips__a"><span class="nx-tile"><svg><use href="#i-calendar-month"/></svg></span><b>Calendar</b></p>
+            <div class="h-root hc-ui" style="--ui-zoom: 1.42"><article class="h-tip" aria-label="Minimum stay">
+              <div class="h-tip__head"><span class="h-tip__type">Minimum stay</span></div>
+              <div class="h-tip__body"><div class="h-tip__main"><h3 class="h-tip__title">Shorten the minimum stay for this gap</h3></div>
+                <div class="h-tip__why"><h4>Why</h4><ul><li><svg class="h-icon"><use href="#i-target"/></svg><span class="h-tip__why-text">Your strategy: fill empty nights</span></li></ul></div></div>
+              <div class="h-tip__foot"><span class="h-tip__actions"><button class="h-btn h-btn--secondary" tabindex="-1">Dismiss</button><button class="h-btn h-btn--primary" tabindex="-1">Accept</button></span></div>
+            </article></div>
+          </div>
+          <div class="nx-tips__p" data-tint="lavender">
+            <p class="nx-tips__a"><span class="nx-tile"><svg><use href="#i-message-circle"/></svg></span><b>Inbox</b></p>
+            <div class="h-root hc-ui" style="--ui-zoom: 1.42"><article class="h-tip" aria-label="Knowledge Hub">
+              <div class="h-tip__head"><span class="h-tip__type">Knowledge Hub</span></div>
+              <div class="h-tip__body"><div class="h-tip__main"><h3 class="h-tip__title">Add the answer guests keep asking for</h3></div>
+                <div class="h-tip__why"><h4>Why</h4><ul><li><svg class="h-icon"><use href="#i-message-circle"/></svg><span class="h-tip__why-text">Asked by guests. No fact answers it</span></li></ul></div></div>
+              <div class="h-tip__foot"><span class="h-tip__actions"><button class="h-btn h-btn--secondary" tabindex="-1">Dismiss</button><button class="h-btn h-btn--primary" tabindex="-1">Accept</button></span></div>
+            </article></div>
+          </div>
+        </div>
+        <div class="nx-run" data-a="stagger" data-s="1">
+          <div><p class="nx-lab"><svg><use href="#i-list-details"/></svg>How</p><p class="nx-txt">The design system owns the contract. Calendar and Inbox first, then each area adds its tip types</p></div>
+          <div><p class="nx-lab"><svg><use href="#i-users"/></svg>With</p><ul class="nx-chips is-team"><li>Design system</li><li>AI and ML</li><li>Calendar</li><li>Inbox</li></ul></div>
+          <div><p class="nx-lab"><svg><use href="#i-target"/></svg>Worked if</p><p class="nx-txt">Accepted out of shown, per area. Undo ≤ 5%</p></div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template class="more" data-more="perf" data-title="Where it falls short: Performance" data-label="Performance">
+    <div class="more__panel" data-title="Over time">
+      <div class="nx-perf">
+        <figure class="nx-sketch" data-a="rise">
+          <p class="nx-sketch__k"><span>One channel, week by week</span></p>
+          <p class="nx-sketch__d">Weekly occupancy on Airbnb. Each strategy is its own period, compared with the weeks before it and with similar homes.</p>
+          <div class="nx-sketch__plot">
+            <svg viewBox="0 0 760 330" aria-hidden="true">
+              <path class="nx-sk-grid" d="M0 100H760M0 200H760M0 300H760"/>
+              <rect class="nx-sb nx-sb--before" x="10" y="210" width="28" height="90" rx="4"/><rect class="nx-sb nx-sb--before" x="50" y="190" width="28" height="110" rx="4"/><rect class="nx-sb nx-sb--before" x="90" y="205" width="28" height="95" rx="4"/><rect class="nx-sb nx-sb--before" x="130" y="180" width="28" height="120" rx="4"/><rect class="nx-sb nx-sb--before" x="170" y="200" width="28" height="100" rx="4"/><rect class="nx-sb nx-sb--before" x="210" y="195" width="28" height="105" rx="4"/><rect class="nx-sb nx-sb--s1" x="250" y="180" width="28" height="120" rx="4"/><rect class="nx-sb nx-sb--s1" x="290" y="165" width="28" height="135" rx="4"/><rect class="nx-sb nx-sb--s1" x="330" y="150" width="28" height="150" rx="4"/><rect class="nx-sb nx-sb--s1" x="370" y="140" width="28" height="160" rx="4"/><rect class="nx-sb nx-sb--s1" x="410" y="145" width="28" height="155" rx="4"/><rect class="nx-sb nx-sb--s1" x="450" y="125" width="28" height="175" rx="4"/><rect class="nx-sb nx-sb--s2" x="490" y="120" width="28" height="180" rx="4"/><rect class="nx-sb nx-sb--s2" x="530" y="110" width="28" height="190" rx="4"/><rect class="nx-sb nx-sb--s2" x="570" y="100" width="28" height="200" rx="4"/><rect class="nx-sb nx-sb--s2" x="610" y="90" width="28" height="210" rx="4"/><rect class="nx-sb nx-sb--wait" x="650" y="200" width="28" height="100" rx="4"/><rect class="nx-sb nx-sb--wait" x="690" y="200" width="28" height="100" rx="4"/><rect class="nx-sb nx-sb--wait" x="730" y="200" width="28" height="100" rx="4"/>
+              <path class="nx-sk-comps" d="M0 168 L760 150"/>
+              <path class="nx-sk-start" d="M244 30V300M484 30V300"/>
+              <circle class="nx-sk-dot" cx="304" cy="151" r="8"/><circle class="nx-sk-dot" cx="424" cy="131" r="8"/><circle class="nx-sk-dot" cx="544" cy="96" r="8"/>
+            </svg>
+            <p class="nx-sk-l nx-sk-c" style="left: 15.5%; top: 306px">Before</p>
+            <p class="nx-sk-l nx-sk-c is-acc" style="left: 47%; top: 306px">Strategy 1</p>
+            <p class="nx-sk-l nx-sk-c is-acc" style="left: 73.5%; top: 306px">Strategy 2</p>
+            <p class="nx-sk-l nx-sk-c" style="left: 93%; top: 306px">Too soon</p>
+            <p class="nx-sk-l is-l" style="left: 8px; top: 136px">Similar homes</p>
+            <p class="nx-sk-l is-l is-dot" style="left: 8px; top: 0">Tip applied</p>
+          </div>
+        </figure>
+        <div class="nx-rows" data-a="stagger" data-s="1">
+          <div><p class="nx-lab"><svg><use href="#i-circle-check"/></svg>Built</p><p class="nx-txt">One channel against the same days before. Eight cards, four charts</p></div>
+          <div><p class="nx-lab"><svg><use href="#i-circle-dashed"/></svg>Missing</p><ul class="nx-chips is-gap"><li>Strategy periods</li><li>A fair baseline</li><li>“Not enough data yet”</li></ul></div>
+          <div><p class="nx-lab"><svg><use href="#i-chart-line"/></svg>Measure</p><ul class="nx-chips"><li>Bookings and requests</li><li>Nights booked ahead</li><li>Views → bookings</li><li>Rating</li></ul></div>
+          <div><p class="nx-lab"><svg><use href="#i-eye"/></svg>Show</p><p class="nx-txt">Periods as bands, applied tips as dots, similar homes as the season</p></div>
+        </div>
+      </div>
+      <p class="hc-src"><span class="hc-prov" data-prov="simulated"></span><span>A sketch with made-up weeks, to show the idea, not data</span></p>
+    </div>
+    <div class="more__panel" data-title="Acted on">
+      <div class="nx-act">
+        <p class="nx-act__h"><span></span><span>Metric</span><span>It says</span><span>It opens</span></p>
+        <ol class="nx-act__rows" data-a="stagger" data-s="1">
+          <li><span class="nx-tile" data-tint="blush"><svg><use href="#i-calendar-month"/></svg></span><b class="nx-act__m">Nights booked ahead</b><span class="nx-act__w">Filling slower than similar homes</span><span class="nx-act__o"><svg><use href="#i-sparkles"/></svg>A price or minimum-stay tip</span></li>
+          <li><span class="nx-tile" data-tint="butter"><svg><use href="#i-eye"/></svg></span><b class="nx-act__m">Views → bookings</b><span class="nx-act__w">Seen on Direct, not booked</span><span class="nx-act__o"><svg><use href="#i-sparkles"/></svg>A title or photo tip</span></li>
+          <li><span class="nx-tile" data-tint="mint"><svg><use href="#i-heart"/></svg></span><b class="nx-act__m">Reviews</b><span class="nx-act__w">Guests mention a gap</span><span class="nx-act__o"><svg><use href="#i-sparkles"/></svg>A Knowledge Hub fact</span></li>
+          <li><span class="nx-tile" data-tint="blush"><svg><use href="#i-trending-up"/></svg></span><b class="nx-act__m">Revenue per available night</b><span class="nx-act__w">Did the strategy work?</span><span class="nx-act__o is-host"><svg><use href="#i-adjustments-horizontal"/></svg>Keep, edit or replace it</span></li>
+        </ol>
+        <div class="nx-run" data-a="stagger" data-s="1">
+          <div><p class="nx-lab"><svg><use href="#i-list-details"/></svg>How</p><p class="nx-txt">Events and a fair minimum period, agreed with Data. Then Copilot answers and opens the tip</p></div>
+          <div><p class="nx-lab"><svg><use href="#i-users"/></svg>With</p><ul class="nx-chips is-team"><li>Data</li><li>AI and ML</li><li>Dynamic Pricing</li></ul></div>
+          <div><p class="nx-lab"><svg><use href="#i-target"/></svg>Worked if</p><p class="nx-txt">Half of adopters act on a tip each month</p></div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template class="more" data-more="road" data-title="The roadmap, with the four lines of work placed" data-label="Roadmap">
+    <div class="more__panel" data-title="Now, next, later">
+      <div class="hc-features nx-road" style="--n: 3" data-a="stagger" data-s="1.4">
+        <article class="hc-feature" data-tint="blush">
+          <div class="hc-feature__plate"><span class="hc-badge">Now</span>
+            <div class="hc-feature__halo"><div class="hc-mini">
+              <p class="hc-mini__r"><span class="hc-mini__l">Test programme</span><span class="hc-mini__s"><svg><use href="#i-users"/></svg>Hosts</span></p>
+              <p class="hc-mini__r"><span class="hc-mini__l">Per-field confirmation</span><span class="hc-mini__s"><svg><use href="#i-cloud-check"/></svg>Integrations</span></p>
+              <p class="hc-mini__r"><span class="hc-mini__l">AI checked offline</span><span class="hc-mini__s is-ai"><svg><use href="#i-sparkles"/></svg>AI and ML</span></p>
+              <p class="hc-mini__r"><span class="hc-mini__l">Performance events</span><span class="hc-mini__s"><svg><use href="#i-database"/></svg>Data</span></p>
+            </div></div>
+          </div>
+          <div class="hc-feature__body"><h3 class="hc-feature__t">Test and harden it</h3><p class="hc-feature__d">Real hosts first</p></div>
+        </article>
+        <article class="hc-feature" data-tint="butter">
+          <div class="hc-feature__plate"><span class="hc-badge">Next</span>
+            <div class="hc-feature__halo"><div class="hc-mini">
+              <p class="hc-mini__r"><span class="hc-mini__l">Import and setup</span><span class="hc-mini__s"><svg><use href="#i-cloud-upload"/></svg>Same Base</span></p>
+              <p class="hc-mini__r"><span class="hc-mini__l">Similar homes</span><span class="hc-mini__s nx-imp">Implied</span></p>
+              <p class="hc-mini__r"><span class="hc-mini__l">Performance over time</span><span class="hc-mini__s nx-imp">Implied</span></p>
+              <p class="hc-mini__r"><span class="hc-mini__l">A deeper Knowledge Hub</span><span class="hc-mini__s nx-imp">Implied</span></p>
+            </div></div>
+          </div>
+          <div class="hc-feature__body"><h3 class="hc-feature__t">Import, and what it implies</h3><p class="hc-feature__d">North star: confirmed live in 7 days</p></div>
+        </article>
+        <article class="hc-feature" data-tint="mint">
+          <div class="hc-feature__plate"><span class="hc-badge">Later</span>
+            <div class="hc-feature__halo"><div class="hc-mini">
+              <p class="hc-mini__r"><span class="hc-mini__l">Sequential tests</span><span class="hc-mini__s is-ok"><svg><use href="#i-git-compare"/></svg>Measured</span></p>
+              <p class="hc-mini__r"><span class="hc-mini__l">Copilot widens</span><span class="hc-mini__s is-ai"><svg><use href="#i-sparkles"/></svg>Where it helps</span></p>
+              <p class="hc-mini__r"><span class="hc-mini__l">Tips everywhere</span><span class="hc-mini__s is-ai"><svg><use href="#i-sparkles"/></svg>One contract</span></p>
+              <p class="hc-mini__r"><span class="hc-mini__l">Typed facts</span><span class="hc-mini__s"><svg><use href="#i-topology-star-3"/></svg>API</span></p>
+            </div></div>
+          </div>
+          <div class="hc-feature__body"><h3 class="hc-feature__t">Optimise, then go wide</h3><p class="hc-feature__d">After the tests</p></div>
+        </article>
+      </div>
+      <div class="nx-reuse" data-a="stagger" data-s="0.8">
+        <p class="nx-reuse__k">Patterns that travel</p>
+        <span class="hc-chip">Fact</span><span class="hc-chip">Source</span><span class="hc-chip">Inheritance</span><span class="hc-chip hc-chip--ai"><svg class="hc-chip__i"><use href="#i-sparkles"/></svg>Tip</span><span class="hc-chip hc-chip--ok"><svg class="hc-chip__i"><use href="#i-circle-check"/></svg>Receipt</span><span class="hc-chip hc-chip--ai"><svg class="hc-chip__i"><use href="#i-sparkles"/></svg>Autonomy</span>
+      </div>
+    </div>
+  </template>
+
+  <template class="more" data-more="effects" data-title="What it sets off, and when I’d stop" data-label="Effects">
+    <div class="more__panel" data-title="Effects">
+      <div class="nx-fx">
+        <article class="nx-blast" data-tint="blush">
+          <div class="nx-blast__plate">
+            <div class="nx-blast__map">
+              <svg class="nx-blast__lines" viewBox="0 0 720 320" aria-hidden="true" data-a="draw"><path d="M232 160 C340 160 340 28 452 28"/><path d="M232 160 C340 160 340 94 452 94"/><path d="M232 160 C340 160 340 160 452 160"/><path d="M232 160 C340 160 340 226 452 226"/><path d="M232 160 C340 160 340 292 452 292"/></svg>
+              <p class="nx-blast__src"><span class="nx-blast__k">Shared</span><b>Check-in time</b></p>
+              <p class="nx-blast__to" style="--y: 28px"><svg class="h-mark"><use href="#ch-airbnb"/></svg>Airbnb</p>
+              <p class="nx-blast__to" style="--y: 94px"><svg class="h-mark"><use href="#ch-booking"/></svg>Booking.com</p>
+              <p class="nx-blast__to" style="--y: 160px"><svg><use href="#i-world"/></svg>Direct</p>
+              <p class="nx-blast__to" style="--y: 226px"><svg><use href="#i-message-circle"/></svg>Guest replies</p>
+              <p class="nx-blast__to" style="--y: 292px"><svg><use href="#i-clipboard-check"/></svg>Operations</p>
+            </div>
+          </div>
+          <div class="nx-blast__b"><h3 class="nx-blast__t">Blast radius</h3><p class="nx-blast__d">One wrong fact now reaches every channel and every guest reply, so every fact shows its source and its reach.</p></div>
+        </article>
+        <div class="nx-fx__list" data-a="stagger" data-s="1.4">
+          <article class="nx-fx__r" data-tint="butter"><span class="nx-tile"><svg><use href="#i-file-text"/></svg></span><div><h3 class="nx-fx__t">A channel changes its terms</h3><p class="nx-fx__d">If a channel bans automated edits, Copilot stops applying tips there. Tips still show</p></div></article>
+          <article class="nx-fx__r" data-tint="mint"><span class="nx-tile"><svg><use href="#i-home-2"/></svg></span><div><h3 class="nx-fx__t">Comparing with similar homes</h3><p class="nx-fx__d">Hard for others to copy, but it uses other hosts’ data. Legal reviews it first</p></div></article>
+          <article class="nx-fx__r" data-tint="blush"><span class="nx-tile"><svg><use href="#i-message-circle"/></svg></span><div><h3 class="nx-fx__t">New support questions</h3><p class="nx-fx__d">Fewer “where do I edit?” tickets, more “why did Copilot change this?”</p></div></article>
+        </div>
+      </div>
+      <p class="hc-src"><span class="hc-prov" data-prov="projected"></span><span>Effects I expect. None observed, because nothing has shipped</span></p>
+    </div>
+    <div class="more__panel" data-title="Kill criteria">
+      <div class="nx-kill">
+        <p class="nx-kill__h"><span></span><span>If this happens</span><span>Threshold</span><span>What I’d do</span></p>
+        <ol class="nx-kill__rows" data-a="stagger" data-s="1.4">
+          <li data-tint="butter"><span class="nx-tile"><svg><use href="#i-map-pin"/></svg></span><b class="nx-kill__w">Hosts can’t say where facts live</b><span class="nx-kill__t">Under 4 of 5, after two rounds</span><span class="nx-kill__do">Revisit the menu</span></li>
+          <li data-tint="blush"><span class="nx-tile"><svg><use href="#i-git-compare"/></svg></span><b class="nx-kill__w">Text varies per channel as often as money</b><span class="nx-kill__t">In real override data</span><span class="nx-kill__do">Per-channel text by default</span></li>
+          <li data-tint="mint"><span class="nx-tile"><svg><use href="#i-eye-off"/></svg></span><b class="nx-kill__w">It’s ignored, or tips aren’t trusted</b><span class="nx-kill__t">Under target, two quarters</span><span class="nx-kill__do">Stop investing in automatic tips</span></li>
+          <li data-tint="lavender"><span class="nx-tile"><svg><use href="#i-sparkles"/></svg></span><b class="nx-kill__w">AI copy reverted, or a channel strike</b><span class="nx-kill__t">Over 10%, or any strike</span><span class="nx-kill__do">Pause automatic tips for everyone</span></li>
+          <li data-tint="butter"><span class="nx-tile"><svg><use href="#i-file-text"/></svg></span><b class="nx-kill__w">Terms forbid automated updates</b><span class="nx-kill__t">Any channel</span><span class="nx-kill__do">Automatic tips off there. Tips stay</span></li>
+        </ol>
+      </div>
+      <p class="hc-src"><span class="hc-prov" data-prov="projected"></span><span>Thresholds set before any result</span></p>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span class="hc-prov" data-prov="simulated"></span><span>Built: in the prototype, on sample data</span><span class="hc-prov" data-prov="projected"></span><span>Next and later: my plan, nothing measured</span><span class="more-link" data-more="gaps">Where it falls short</span><span class="more-link" data-more="perf">Performance</span><span class="more-link" data-more="road">Roadmap</span><span class="more-link" data-more="effects">What it sets off</span></p></div>
+  <aside class="notes"><p>Smart Listings only pays off as a system, not a screen. In the middle is what I built: Shared, which is the Listing base and the Knowledge Hub that reads it, with Smart Listings on top. The inner ring is in the prototype. Tips and the Base reach Airbnb, Booking.com and Direct. The guest assistant answers from the same facts. And results come back as Performance.</p><p>The next ring is where the build falls short, and I want to name it. Four lines of work are implied but not built. One: similar homes for each channel. Two: a deeper Knowledge Hub whose job is guests’ questions. It collects them from the Inbox, answers only from facts, shows what guests ask, turns gaps into tips, and knows which messages and tasks use each fact. Three: Performance a host can act on over time. Four: tips beyond the listing, in the Calendar and the Inbox first, all with one tip format. Import joins here, on the same Base.</p><p>The outer ring is later. Pricing reads the strategy’s goals. Owner statements read the receipts. And the Base’s facts and the Hub’s answers and insights feed the Guidebook, Operations, Devices, Google and the API. How I’d run each line of work is one click away. About 70 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="cl-monday" data-title="What I'd do on Monday" data-stage="6" data-part="close" data-path="S" data-angle="none" data-min="0.75" data-req="R-191 R-013 R-189" data-notion="07-systems-next" data-notion-page="07-systems-next" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Close</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">On Monday, I’d swap simulation for real answers</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Four things, one week. Every team gets its questions in writing. Friday’s readout decides what changes.</p>
+  </header>
+  <div class="s-body">
+    <div class="cl-plan">
+      <ol class="cl-four" data-a="stagger" data-at="0.2" data-s="1">
+        <li><b class="cl-n">1</b><span>Benchmark today’s product</span></li>
+        <li><b class="cl-n">2</b><span>Ten stakeholder interviews</span></li>
+        <li><b class="cl-n">3</b><span>60 sales calls, two coders</span></li>
+        <li><b class="cl-n">4</b><span>Ticket and edit data</span></li>
+      </ol>
+      <div class="cl-week">
+        <div class="cl-week__rows" data-a="mask" data-at="0.45">
+          <span class="cl-day" style="--c: 2">Mon</span><span class="cl-day" style="--c: 3">Tue</span><span class="cl-day" style="--c: 4">Wed</span><span class="cl-day" style="--c: 5">Thu</span><span class="cl-day" style="--c: 6">Fri</span>
+          <span class="cl-lane is-me" style="--r: 2">Me</span>
+          <span class="cl-lane" style="--r: 3">Product</span>
+          <span class="cl-lane" style="--r: 4">Integrations</span>
+          <span class="cl-lane" style="--r: 5">AI/ML</span>
+          <span class="cl-lane" style="--r: 6">Data</span>
+          <span class="cl-lane" style="--r: 7">CS</span>
+          <span class="cl-lane" style="--r: 8">Legal</span>
+          <span class="cl-lane is-hosts" style="--r: 9">Hosts</span>
+        </div>
+        <p class="cl-c" style="--c: 2; --r: 2" data-a="rise" data-at="0.6"><b class="cl-n">2</b>Kick-off. Questions out</p>
+        <p class="cl-c" style="--c: 2; --r: 3" data-a="rise" data-at="0.66"><b class="cl-n">2</b>Owners and roadmap</p>
+        <p class="cl-c" style="--c: 2; --r: 6" data-a="rise" data-at="0.72"><b class="cl-n">4</b>Data access</p>
+        <p class="cl-c" style="--c: 3; --r: 2" data-a="rise" data-beat="1"><b class="cl-n">1</b>Benchmark set up</p>
+        <p class="cl-c" style="--c: 3; --r: 4" data-a="rise" data-beat="1" data-at="0.08"><b class="cl-n">2</b>What each channel accepts</p>
+        <p class="cl-c" style="--c: 3; --r: 5" data-a="rise" data-beat="1" data-at="0.16"><b class="cl-n">2</b>What feeds the Hub</p>
+        <p class="cl-c" style="--c: 3; --r: 6" data-a="rise" data-beat="1" data-at="0.24"><b class="cl-n">2</b>Overrides, signals</p>
+        <p class="cl-c" style="--c: 3; --r: 7" data-a="rise" data-beat="1" data-at="0.32"><b class="cl-n">4</b>400 tickets</p>
+        <p class="cl-c is-host" style="--c: 3; --r: 9" data-a="rise" data-beat="1" data-at="0.4"><b class="cl-n">1</b>Recruiting with Marketing</p>
+        <p class="cl-c" style="--c: 4; --r: 2" data-a="rise" data-beat="2"><b class="cl-n">3</b>60 calls coded</p>
+        <p class="cl-c" style="--c: 4; --r: 6" data-a="rise" data-beat="2" data-at="0.08"><b class="cl-n">4</b>Usage exports</p>
+        <p class="cl-c is-host" style="--c: 4 / span 2; --r: 9" data-a="mask" data-beat="2" data-at="0.16"><b class="cl-n">1</b>Benchmark: 40 unmoderated, 5 moderated</p>
+        <p class="cl-c" style="--c: 5; --r: 2" data-a="rise" data-beat="3"><b class="cl-n">4</b>Tickets, edits read</p>
+        <p class="cl-c" style="--c: 5; --r: 7" data-a="rise" data-beat="3" data-at="0.08"><b class="cl-n">2</b>What needs a person</p>
+        <p class="cl-c" style="--c: 5; --r: 8" data-a="rise" data-beat="3" data-at="0.16"><b class="cl-n">2</b>AI copy, channel terms</p>
+        <div class="cl-read" data-tint="blush" style="--c: 6; --r: 2 / span 7" data-a="pop" data-beat="4"><b class="cl-read__t">Readout</b><span class="cl-read__d">One page to every team: what I learned, what changes</span></div>
+        <p class="cl-c is-host" style="--c: 6; --r: 9" data-a="rise" data-beat="4" data-at="0.2"><b class="cl-n">1</b>Round 1 booked: 8 hosts</p>
+      </div>
+    </div>
+  </div>
+  <div class="s-foot"><p class="hc-src"><span class="hc-prov" data-prov="assumption"></span><span>My plan, not run. Sizes from the research plan and the test plan</span></p></div>
+  <aside class="notes"><p>Everything I’ve shown is designed and built, and the evidence about hosts is sampled. So on Monday I’d start making it real, with four things: a benchmark of today’s product, ten interviews with Hospitable’s own teams, the sales calls tagged properly, and the ticket and edit data. Monday is the kick-off with the Head of Product and the listing team. Every owner gets their open questions in writing. [Press] Tuesday, Integrations tells me what each channel accepts. AI and ML tell me what feeds the Knowledge Hub. Data tells me how often hosts override fields. [Press] Wednesday, sixty calls get tagged, checked by a second person, and the benchmark runs on today’s product. [Press] Thursday, CS and Legal. [Press] Friday, a one-page readout to every team, and round one of usability testing is booked with hosts.</p></aside>
+</section>
+
+<section class="s" data-id="cl-thanks" data-title="Thanks." data-stage="6" data-part="close" data-path="S" data-angle="none" data-min="0.15" data-req="R-189" data-notion="hub" data-notion-page="hub" data-ground="white" data-chrome="none" data-chrome-late="1" data-cover="1" data-bookend>
+  <!-- cl-thanks (4 Oct): the close. Antonio: "a thank you to close. Something simple but meaningful, a little playful,
+       not super playful … The last one has to be 'Thanks.' That's it." The aubergine brand plate (kit/hc.css .hc-brand),
+       set like research/references/hospitable-marketing/brand-working-at.png: the word centred, the marks at the
+       plate's corners, the lockup on the bottom inset. A bookend: not counted against the 50 (R-185).
+       Motion (70-next.js): the plate settles, the word rises out of its mask, the rings and strokes draw, the blob and
+       the dots scale in. -->
+  <div class="art art--full hc-brand cl-thanks__art" aria-hidden="true">
+    <div class="hc-brand__plate">
+      <i class="hc-brand__band" style="--x: -260px; --y: 260px; --w: 1700px; --h: 560px; --r: -22deg"></i>
+      <span class="hc-brand__at hc-doodle" data-doodle="ring" data-tone="purple" style="--x: -70px; --y: -90px; --size: 300px" data-a="draw" data-at="0.3"></span>
+      <span class="hc-brand__at hc-doodle" data-doodle="ring" data-tone="purple" style="--x: 170px; --y: 30px; --size: 230px" data-a="draw" data-at="0.42"></span>
+      <i class="hc-brand__at hc-blob" style="--x: 1540px; --y: -150px; --size: 420px"></i>
+      <span class="hc-brand__at hc-doodle" data-doodle="ring" data-tone="yellow" style="--x: 1560px; --y: 650px; --size: 330px" data-a="draw" data-at="0.55"></span>
+      <span class="hc-brand__at hc-doodle" data-doodle="strokes" data-tone="mint" style="--x: -20px; --y: 690px; --size: 170px" data-a="draw" data-at="0.62"></span>
+      <span class="hc-brand__at hc-doodle" data-doodle="strokes" data-tone="mint" style="--x: 110px; --y: 770px; --size: 150px" data-a="draw" data-at="0.7"></span>
+      <i class="hc-brand__at hc-dot" data-tone="yellow" style="--x: 420px; --y: 470px; --size: 14px"></i>
+      <i class="hc-brand__at hc-dot" data-tone="purple" style="--x: 1480px; --y: 420px; --size: 20px"></i>
+      <i class="hc-brand__at hc-dot" style="--x: 1320px; --y: 150px; --size: 14px"></i>
+      <i class="hc-brand__at hc-dot" data-tone="purple" style="--x: 640px; --y: 800px; --size: 10px"></i>
+    </div>
+  </div>
+  <div class="s-body cl-thanks">
+    <h2 class="hc-brand__t cl-thanks__t"><span class="cl-thanks__ln"><span>Thanks.</span></span></h2>
+    <p class="hc-lockup cl-thanks__lockup"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#ch-hospitable"/></svg>hospitable</p>
+  </div>
+  <aside class="notes"><p>That’s it. Thank you for your time, and for a brief I really enjoyed. I’d love to hear your questions, and what you’d push on first. About 10 seconds.</p></aside>
+</section>

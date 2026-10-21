@@ -1,0 +1,206 @@
+/* ============================================================================
+   HOSPITABLE · the one skin (D-071). It makes the kit's chrome read as the
+   product at a glance:
+
+     the top bar     the product's header: a white bar with a hairline under it,
+                     the mark and the wordmark at the far left, the parts of the story
+                     as plain tabs (the active one in full ink, semibold; no underline)
+     the ground      one white ground for every slide; colour lives inside the
+                     compositions (3 Oct), so nothing on the wall flips between slides
+     the voice       one family, sentence case, no tracked-out capitals: labels,
+                     hints and the folio are the product's secondary text
+     AI              the lavender "Dynamic Pricing · New" card, extended in kit/hc.css
+
+   Tokens only. Every colour here is a var() into src/kit/tokens.css.
+   ========================================================================= */
+
+@layer themes {
+
+/* ─────────────────────────────────────────── the voice: no mono, no caps ── */
+/* The InvestEngine kit set its labels in tracked-out mono capitals. Hospitable has
+   none: its labels are sentence case, medium weight, secondary colour. */
+:is(.label, .micro, .src, .kpi__s, .pull cite, .shot figcaption, .device figcaption, .device__cap,
+    .embed__bar, .embed figcaption, .embed__go, .opener__k, .more-sheet__k, .more-sheet__ctl, .more-sheet__seg,
+    .more-sheet__hint, .more-sheet__close, .palette__g h3, .plan__two em, .appbar, .appbar__back, .hints,
+    .lightbox__cap, .keys, .rows__n, .prov, .cover__i, .legend) {
+  text-transform: none; letter-spacing: 0;
+}
+.label { font-weight: var(--w-medium); color: var(--ink-3); }
+.src   { font-size: var(--t-micro); color: var(--ink-3); }
+.num   { font-feature-settings: "tnum"; }
+
+/* headlines: semibold, the second tone quieter, never lighter than the product would set it */
+:is(.display, .h1, .h2, .h3, .mega) .tone-2 { color: var(--ink-3); font-weight: var(--w-head); }
+
+/* ─────────────────────────────────────────────────────── the top bar ── */
+/* The chrome sits nearer the canvas edge than the content (Antonio, 3 Oct: "adjust the horizontal
+   padding"): the brand and the byline at the far left, the status and the hints at the far right,
+   on the same 40 px inset as the covers' plates; the content keeps its own --pad-x. */
+/* A plate (the title, a cover, a detail card) sits in two equal white bands, each holding its chrome on
+   its centre line (Antonio, 4 Oct: "the padding top and bottom of the header strip is uneven … make the
+   container a little higher"): the bar is 88 tall with its row on 44, the foot row's 32 sit on 1036. */
+:root { --chrome-x: 40px; --chrome-bottom: 28px; --plate-y: var(--bar-h); }   /* the foot row sits centred in the 76 px band under the cover plate (Antonio, 3 Oct) */
+.appbar {
+  left: 0; right: 0; top: 0; height: var(--bar-h);
+  padding: 0 var(--chrome-x);
+  grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--s-6);
+  font-family: var(--font-ui); font-size: var(--t-label); font-weight: var(--w-medium);
+  color: var(--ink-3); background: var(--bg);
+  border-bottom: 0;                                  /* no rule under the bar (Antonio, 3 Oct: "remove the horizontal line of the header completely") */
+}
+/* the lockup: the ring mark, the wordmark, and what this is */
+.appbar__brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); }
+.brand-mark { height: 46px; width: auto; aspect-ratio: 1; margin: 0 -2px; }   /* the lockup a size up (Antonio, 3 Oct: "Hospitable is too small") */
+.brand-word { font-size: 37px; font-weight: var(--w-head); letter-spacing: -0.02em; line-height: 1; color: var(--ink); }
+.brand-sub {
+  margin-left: 16px; padding-left: 18px; border-left: var(--hair) solid var(--line);
+  font-size: 20px; font-weight: var(--w-medium); color: var(--ink-3); white-space: nowrap; line-height: 32px;   /* was 17px: "too small" (Antonio, 3 Oct) */
+}
+.brand-sub i { font-style: normal; color: var(--ink-3); margin: 0 4px; }
+.appbar__brand.is-back { color: var(--accent-ink); }
+.appbar__brand.is-back .brand-mark--back { stroke: currentColor; height: 26px; }
+.appbar__back { font-size: var(--t-label); font-weight: var(--w-medium); }
+
+/* the tabs: plain words, no underline (Antonio, 3 Oct: "drop the underline of the header, it is
+   too big"). The active part is marked by ink and weight alone: full ink, semibold; the others
+   stay in the secondary text. Each label reserves its semibold width (::after, hidden), so the
+   row never shifts as the active tab changes. */
+.appbar__stages {
+  display: flex; justify-content: center; align-self: stretch; gap: 34px;
+  grid-template-columns: none;
+  position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%);   /* centred on the canvas, whatever the sides hold (Antonio, 3 Oct) */
+}
+.stagetab {
+  position: relative; display: flex; align-items: center; gap: 0; height: 100%;
+  color: var(--color-gray-500); font-size: 21px; font-weight: var(--w-medium); white-space: nowrap;   /* bigger, a lighter grey, 500 (Antonio, 3 Oct; 20 to 22px the same night) */
+}
+.stagetab__l { display: inline-grid; line-height: 1; }
+.stagetab__l::after { content: attr(data-l); grid-area: 1 / 1; height: 0; overflow: hidden; visibility: hidden; font-weight: var(--w-head); }
+.stagetab__bar { display: none; }
+.stagetab.is-on { color: var(--ink); font-weight: var(--w-head); }
+.stagetab.is-done { color: var(--ink-2); }
+.stagetab:hover { color: var(--ink); }
+
+/* the status, right: the slide number always stays (Antonio, 3 Oct: "I don't want to remove the slide
+   number"); "Presenting" never shows, and the clock only when asked for (C), before the number */
+.live > i, .live__t { display: none; }
+.appbar__meta { gap: 18px; grid-column: 3; }   /* the nav left the grid (absolute, centred), so the number keeps the far right */
+.live { gap: 10px; font-size: 20px; color: var(--color-gray-500); }
+.appbar__folio { color: var(--color-gray-500); font-weight: var(--w-medium); }
+.appbar__folio::before { color: var(--ink-4); }
+.stage:not(.clock-on) .appbar__folio::before { content: none; }
+
+/* ────────────────────────────────────────────── hints and the byline ── */
+/* One quiet row at the foot of every slide (Antonio, 3 Oct: "align … keys, next, jump … and
+   Antonio Silva"): the byline on the left and Jump · Next · Keys on the right share one centre
+   line, one size and one colour. Personalising is gone from the deck (3 Oct). */
+.hints, .byline {
+  bottom: var(--chrome-bottom); height: 32px; display: flex; align-items: center;
+  font-family: var(--font-ui); font-size: 18px; font-weight: var(--w-medium); line-height: 1;
+  color: var(--ink-3); letter-spacing: 0;
+}
+/* the hints a size up and dimmed: a light grey that darkens under the pointer (Antonio, 3 Oct);
+   the byline keeps its grey, it is a name, not a control */
+.hints { gap: 26px; }
+.hint { display: inline-flex; align-items: center; gap: 9px; color: var(--color-gray-400); line-height: 1; transition: color var(--dur-1) var(--ease-io); }
+/* keys drawn the way the product draws "⌘K" in its search field: a small quiet cap */
+.hint kbd {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 28px; height: 28px; padding: 0 7px;
+  border: var(--hair) solid var(--color-gray-200); border-radius: var(--r-1); background: var(--bg);
+  font: var(--w-medium) 15px / 1 var(--font-ui); color: var(--color-gray-400); transition: color var(--dur-1) var(--ease-io), border-color var(--dur-1) var(--ease-io);
+}
+.hint__cmd { position: static; top: 0; font-size: 15px; line-height: 1; margin-right: 1px; }
+.hint:hover { color: var(--ink); }
+.hint:hover kbd { color: var(--ink-2); border-color: var(--color-gray-300); }
+/* the prototype door (kit/hc.css .hint--proto) is dark aubergine: its text stays white at rest, hover and focus (4 Oct) */
+.hint.hint--proto, .hint.hint--proto:hover, .hint.hint--proto:focus-visible { color: var(--color-text-white); }
+/* Keys and Notion open as pops right above their own hint, on hover (Antonio, 4 Oct: "it's very far off
+   from the actual keys … make it hover based … any tap closes it"). One ground, one hairline, one shadow:
+   the pop is white whatever is behind it. A transparent bridge keeps the hover alive on the way up. */
+.hint-wrap { position: relative; display: inline-flex; align-items: center; }
+.hint-pop {
+  position: absolute; right: -14px; bottom: calc(100% + 18px); z-index: 20; display: none;
+  min-width: 300px; padding: 18px 22px; border-radius: 18px; background: var(--bg);
+  border: var(--hair) solid var(--color-gray-200);
+  box-shadow: 0 22px 48px -20px color-mix(in oklab, var(--color-sidebar-bg) 30%, transparent);
+  font: var(--w-medium) 17px / 1.5 var(--font-ui); color: var(--ink-2);
+  text-transform: none; letter-spacing: 0; white-space: nowrap; cursor: default;
+}
+.hint-pop::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 22px; }
+.hint-wrap:hover > .hint-pop, .hint-wrap:focus-within > .hint-pop, .hint-wrap.is-open > .hint-pop { display: grid; }
+.hint-wrap.is-shut > .hint-pop { display: none; }
+.hint-wrap:hover > .hint, .hint-wrap.is-open > .hint { color: var(--ink); }
+.hint-wrap:hover > .hint kbd, .hint-wrap.is-open > .hint kbd { color: var(--ink-2); border-color: var(--color-gray-300); }
+/* the Notion pop: at most four pages, each its title and what it is */
+.npop { min-width: 340px; padding: 10px; gap: 2px; }
+.hint-wrap:not(.has-many) > .npop { display: none; }
+.npop__it { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 18px; padding: 10px 14px; border-radius: 12px;
+  color: var(--ink); text-decoration: none; }
+.npop__it:hover, .npop__it:focus-visible { background: var(--plate-quiet); outline: none; }
+.npop__t { font: var(--w-medium) 17px / 1.3 var(--font-ui); color: var(--ink); white-space: normal; max-width: 300px; }
+.npop__k { font: var(--w-medium) 14px / 1.3 var(--font-ui); color: var(--color-gray-500); }
+/* a detail open: the hint row steps away with the slide (its keys showed through the scrim) */
+.stage.is-more .hints { visibility: hidden; }
+
+/* the byline: small capitals in the secondary grey, the quietest thing on the wall */
+.byline {
+  transform: none !important;
+  font-size: 14px; font-weight: var(--w-head); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3);
+  gap: 14px;
+}
+/* who, then what this is: the role left the top bar for the byline (Antonio, 3 Oct) */
+.byline__name { font-weight: inherit; }
+.byline__role { padding-left: 14px; border-left: var(--hair) solid var(--color-gray-300); font-weight: var(--w-medium); line-height: 18px; }
+.byline__role i { font-style: normal; margin: 0 6px; }
+.stage[data-cover="1"] .byline { transform: none; }
+
+/* ─────────────────────────────────────────────────────── the grounds ── */
+/* One ground for the whole talk (Antonio, 3 Oct: the jump from a coloured slide to a white one
+   read as "tacky"). Colour lives inside the compositions, never on the wall behind them, so the
+   chrome never changes between slides. */
+.s[data-ground] { background: var(--bg); }
+.stage .appbar { transition: opacity var(--dur-2) var(--ease-io), transform var(--dur-2) var(--ease-io); }
+
+/* ───────────────────────────────────────────────── eyebrow and lens ── */
+/* sentence case, medium, secondary; the separators are the product's middle dot */
+/* the eyebrow is set like the footer's byline: caps, tracked, with a middle dot the size of the caps (Antonio, 4 Oct:
+   "all caps, the same way as Head of Design · Case study", and "the dot is really small") */
+.eyebrow { font-family: var(--font-ui); font-size: 15px; font-weight: var(--w-head); letter-spacing: 0.12em; text-transform: uppercase; gap: 0; color: var(--ink-3); line-height: 1; }
+.eyebrow > * + :not(.prov):not(.hc-prov):not(.hc-id)::before {
+  content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 50%; margin: 0 12px 0 calc(12px - 0.12em); transform: none; background: var(--ink-3);   /* equal space each side (the caps' tracking adds 0.12em after "Research") */
+  vertical-align: calc(0.36em - 3px);   /* the dot's centre at the middle of the caps (a font's middle dot sat high) */
+}
+
+/* ─────────────────────────────────────────────── dialogs, sheets, palette ── */
+.palette { background: var(--scrim); backdrop-filter: none; }
+.palette__box { border-radius: var(--r-3); border-color: var(--line); }
+.palette__q { font-family: var(--font-ui); }
+.palette__g h3 { font-family: var(--font-ui); font-size: 13px; font-weight: var(--w-head); color: var(--ink-3); }
+.palette__it { font-family: var(--font-ui); border-radius: var(--r-2); }
+.palette__it span:first-child { font-family: var(--font-code); }
+.palette__it:hover, .palette__it.is-on { background: var(--accent-soft); }
+.palette__it em.palette__path { border-radius: var(--r-1); width: auto; min-width: 24px; padding: 0 5px; font-family: var(--font-ui); }
+
+/* the detail is a card where the content was, not a sheet over a dimmed slide (deck.css, 3 Oct) */
+.more-sheet__title { font-weight: var(--w-head); }
+.veil i { background: var(--accent); }
+.lightbox { background: var(--scrim); }
+.lightbox__cap { color: var(--on-dark); font-family: var(--font-ui); }
+
+/* the Personalise dialog, in the product's modal language: sentence case, one family */
+.plan__box { border-radius: var(--r-3); }
+:is(.plan__eyebrow, .plan__preset, .plan__go, .plan__count, .plan__count *, .plan__preset em) { text-transform: none; letter-spacing: 0; font-family: var(--font-ui); }
+.plan__eyebrow { font-weight: var(--w-medium); }
+.plan__go { font-weight: var(--w-medium); border-radius: var(--r-1); }
+.plan__two em { font-family: var(--font-ui); font-size: 13px; font-weight: var(--w-medium); padding: 4px 10px; }
+.plan__n { font-family: var(--font-code); }
+
+/* a door in words: the product's text link ("Edit per channel", "Learn more"): sentence case, the text face */
+.more-link { font: var(--w-medium) var(--t-small) / 1 var(--font-ui); letter-spacing: 0; text-transform: none; color: var(--accent-ink); }
+.more-link:is(:hover, :focus-visible) { color: var(--ink); }
+.more-cue__t { text-transform: none; letter-spacing: 0; font-family: var(--font-ui); }
+
+/* ────────────────────────────────────────── shots: the product's own cards ── */
+.shot img { border-radius: var(--r-2); box-shadow: 0 0 0 1px var(--shot-ring), var(--shadow-1); }
+
+} /* @layer themes */

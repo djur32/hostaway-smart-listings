@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 560" width="1240" height="560" role="img" aria-labelledby="t d" font-family="'TT Norms', 'TT Norms Pro', -apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+<title id="t">Smart Listings: two measures, projected over the first 12 months</title>
+<desc id="d">Time to adjust in the product (index, lower is better, goal 60 or less) and tip acceptance (%, goal 30% at 30 days and 40% at 90 days), expected line with a pessimistic to optimistic band. PROJECTED, values from research/testing/projections.json.</desc>
+<style>:root{--surface:#fcfcfd;--ink:#191b1f;--ink2:#53575b;--ink3:#70747b;--grid:#e6e7ea;--track:#f3f4f6;--neutral:#a0a5ab;--brand:#e1295a;--brand2:#fca5b4;--brand3:#ffe4e7;--ai:#8155be;--seq0:#fff0f2;--seq1:#ffe4e7;--seq2:#fdced5;--seq3:#fca5b4;--seq4:#f9738c;--seq5:#f24167;--seq6:#e1295a;--seq7:#bc1445;--seq8:#9d1440}@media (prefers-color-scheme: dark){:root{--surface:#191b1f;--ink:#f3f4f6;--ink2:#d3d6da;--ink3:#a0a5ab;--grid:#414347;--track:#282b2e;--neutral:#70747b;--brand:#f9738c;--brand2:#bc1445;--brand3:#87143d;--ai:#b18ce2;--seq0:#4b061c;--seq1:#87143d;--seq2:#9d1440;--seq3:#bc1445;--seq4:#e1295a;--seq5:#f24167;--seq6:#f9738c;--seq7:#fca5b4;--seq8:#fdced5}}.bg{fill:var(--surface)}.h1{fill:var(--ink);font-size:20px;font-weight:600}.sub{fill:var(--ink2);font-size:13px}.lab{fill:var(--ink);font-size:12.5px}.lab2{fill:var(--ink2);font-size:12px}.lab3{fill:var(--ink3);font-size:11px}.num{fill:var(--ink);font-size:12px;font-weight:600}.numi{fill:var(--surface);font-size:12px;font-weight:600}.foot{fill:var(--ink3);font-size:11px}.grid{stroke:var(--grid);stroke-width:1}.track{fill:var(--track)}.neutral{fill:var(--neutral)}.brand{fill:var(--brand)}.brand2{fill:var(--brand2)}.brand3{fill:var(--brand3)}.ai{fill:var(--ai)}.cut{stroke:var(--brand);stroke-width:2;stroke-dasharray:5 4}.ink{fill:var(--ink)}.s0{fill:var(--seq0)}.s1{fill:var(--seq1)}.s2{fill:var(--seq2)}.s3{fill:var(--seq3)}.s4{fill:var(--seq4)}.s5{fill:var(--seq5)}.s6{fill:var(--seq6)}.s7{fill:var(--seq7)}.s8{fill:var(--seq8)}</style>
+<rect class="bg" width="1240" height="560"/>
+<style>.band{fill:var(--brand3);opacity:.8}.exp{fill:none;stroke:var(--brand);stroke-width:2.5;stroke-linejoin:round}.base{stroke:var(--neutral);stroke-width:1.5;stroke-dasharray:6 4}.ph{fill:var(--track)}.axis{stroke:var(--grid);stroke-width:1}.dot{fill:var(--brand);stroke:var(--surface);stroke-width:2}.phl{fill:var(--ink2);font-size:11px}.goal{stroke:var(--ink);stroke-width:1.5;stroke-dasharray:2 4;stroke-linecap:round}.gdot{fill:var(--surface);stroke:var(--ink);stroke-width:2}.gl{fill:var(--ink);font-size:11.5px;font-weight:600}</style>
+<text class="h1" x="32.0" y="46.0" text-anchor="start" >Smart Listings · two measures, projected over the first 12 months</text>
+<text class="sub" x="32.0" y="72.0" text-anchor="start" >Expected line, pessimistic–optimistic band, the holdout&#x27;s level dashed, the goal dotted. Shaded: the 50/50 rollout. Nothing here is measured.</text>
+<text class="lab" x="32.0" y="126.0" text-anchor="start" font-weight="600" font-size="15">Time to adjust, in the product · the north star</text>
+<text class="lab3" x="32.0" y="146.0" text-anchor="start" >index · lower is better · first measured month of the holdout = 100 · goal ≤ 60</text>
+<rect class="ph" x="236.0" y="164" width="80.0" height="260"/>
+<line class="axis" x1="76" x2="556" y1="406.7" y2="406.7"/>
+<text class="lab3" x="68.0" y="410.7" text-anchor="end" >40</text>
+<line class="axis" x1="76" x2="556" y1="337.3" y2="337.3"/>
+<text class="lab3" x="68.0" y="341.3" text-anchor="end" >60</text>
+<line class="axis" x1="76" x2="556" y1="268.0" y2="268.0"/>
+<text class="lab3" x="68.0" y="272.0" text-anchor="end" >80</text>
+<line class="axis" x1="76" x2="556" y1="198.7" y2="198.7"/>
+<text class="lab3" x="68.0" y="202.7" text-anchor="end" >100</text>
+<text class="lab3" x="76.0" y="442.0" text-anchor="middle" >0</text>
+<text class="lab3" x="196.0" y="442.0" text-anchor="middle" >3</text>
+<text class="lab3" x="316.0" y="442.0" text-anchor="middle" >6</text>
+<text class="lab3" x="436.0" y="442.0" text-anchor="middle" >9</text>
+<text class="lab3" x="556.0" y="442.0" text-anchor="middle" >12</text>
+<text class="lab3" x="316.0" y="460.0" text-anchor="middle" >months after go</text>
+<line class="axis" x1="78.0" x2="154.0" y1="476" y2="476" stroke-width="3"/>
+<text class="phl" x="116.0" y="492.0" text-anchor="middle" >Lab</text>
+<line class="axis" x1="158.0" x2="234.0" y1="476" y2="476" stroke-width="3"/>
+<text class="phl" x="196.0" y="492.0" text-anchor="middle" >Pilot</text>
+<line class="axis" x1="238.0" x2="314.0" y1="476" y2="476" stroke-width="3"/>
+<text class="phl" x="276.0" y="492.0" text-anchor="middle" >50/50</text>
+<line class="axis" x1="318.0" x2="554.0" y1="476" y2="476" stroke-width="3"/>
+<text class="phl" x="436.0" y="492.0" text-anchor="middle" >Release · 10% holdout</text>
+<polygon class="band" points="76.0,198.7 116.0,198.7 156.0,313.1 196.0,313.1 236.0,341.5 276.0,351.2 316.0,360.9 356.0,370.3 396.0,379.6 436.0,389.3 476.0,389.3 516.0,389.3 556.0,389.3 556.0,285.3 516.0,285.3 476.0,285.3 436.0,285.3 396.0,281.2 356.0,276.7 316.0,272.2 276.0,268.0 236.0,263.8 196.0,250.7 156.0,250.7 116.0,198.7 76.0,198.7"><title>Time to adjust, in the product · the north star: pessimistic to optimistic</title></polygon>
+<line class="base" x1="76" x2="556" y1="198.7" y2="198.7"><title>Holdout: 100</title></line>
+<text class="lab3" x="556.0" y="190.7" text-anchor="end" >holdout</text>
+<line class="goal" x1="76" x2="556" y1="337.3" y2="337.3"><title>Goal: 60</title></line>
+<text class="gl" x="80.0" y="329.3" text-anchor="start" >goal ≤ 60</text>
+<polyline class="exp" points="76.0,198.7 116.0,198.7 156.0,292.3 196.0,292.3 236.0,315.8 276.0,323.5 316.0,331.1 356.0,339.1 396.0,347.0 436.0,354.7 476.0,354.7 516.0,354.7 556.0,354.7"/>
+<circle cx="76.0" cy="198.7" r="10" fill="transparent"><title>Month 0: expected 100 (band 100–100)</title></circle>
+<circle cx="116.0" cy="198.7" r="10" fill="transparent"><title>Month 1: expected 100 (band 100–100)</title></circle>
+<circle cx="156.0" cy="292.3" r="10" fill="transparent"><title>Month 2: expected 73 (band 85–67)</title></circle>
+<circle cx="196.0" cy="292.3" r="10" fill="transparent"><title>Month 3: expected 73 (band 85–67)</title></circle>
+<circle cx="236.0" cy="315.8" r="10" fill="transparent"><title>Month 4: expected 66.2 (band 81.2–58.8)</title></circle>
+<circle cx="276.0" cy="323.5" r="10" fill="transparent"><title>Month 5: expected 64 (band 80–56)</title></circle>
+<circle cx="316.0" cy="331.1" r="10" fill="transparent"><title>Month 6: expected 61.8 (band 78.8–53.2)</title></circle>
+<circle cx="356.0" cy="339.1" r="10" fill="transparent"><title>Month 7: expected 59.5 (band 77.5–50.5)</title></circle>
+<circle cx="396.0" cy="347.0" r="10" fill="transparent"><title>Month 8: expected 57.2 (band 76.2–47.8)</title></circle>
+<circle cx="436.0" cy="354.7" r="10" fill="transparent"><title>Month 9: expected 55 (band 75–45)</title></circle>
+<circle cx="476.0" cy="354.7" r="10" fill="transparent"><title>Month 10: expected 55 (band 75–45)</title></circle>
+<circle cx="516.0" cy="354.7" r="10" fill="transparent"><title>Month 11: expected 55 (band 75–45)</title></circle>
+<circle cx="556.0" cy="354.7" r="10" fill="transparent"><title>Month 12: expected 55 (band 75–45)</title></circle>
+<circle class="dot" cx="556.0" cy="354.7" r="5"/>
+<text class="num" x="566.0" y="359.7" text-anchor="start" font-size="15">55</text>
+<text class="lab3" x="566.0" y="376.7" text-anchor="start" >45–75</text>
+<text class="lab" x="648.0" y="126.0" text-anchor="start" font-weight="600" font-size="15">Tip acceptance</text>
+<text class="lab3" x="648.0" y="146.0" text-anchor="start" >% of tips shown that hosts accept · new feature, no baseline · goal 30% at 30 days, 40% at 90 days</text>
+<rect class="ph" x="852.0" y="164" width="80.0" height="260"/>
+<line class="axis" x1="692" x2="1172" y1="424.0" y2="424.0"/>
+<text class="lab3" x="684.0" y="428.0" text-anchor="end" >0</text>
+<line class="axis" x1="692" x2="1172" y1="384.6" y2="384.6"/>
+<text class="lab3" x="684.0" y="388.6" text-anchor="end" >10</text>
+<line class="axis" x1="692" x2="1172" y1="345.2" y2="345.2"/>
+<text class="lab3" x="684.0" y="349.2" text-anchor="end" >20</text>
+<line class="axis" x1="692" x2="1172" y1="305.8" y2="305.8"/>
+<text class="lab3" x="684.0" y="309.8" text-anchor="end" >30</text>
+<line class="axis" x1="692" x2="1172" y1="266.4" y2="266.4"/>
+<text class="lab3" x="684.0" y="270.4" text-anchor="end" >40</text>
+<line class="axis" x1="692" x2="1172" y1="227.0" y2="227.0"/>
+<text class="lab3" x="684.0" y="231.0" text-anchor="end" >50</text>
+<line class="axis" x1="692" x2="1172" y1="187.6" y2="187.6"/>
+<text class="lab3" x="684.0" y="191.6" text-anchor="end" >60</text>
+<text class="lab3" x="692.0" y="442.0" text-anchor="middle" >0</text>
+<text class="lab3" x="812.0" y="442.0" text-anchor="middle" >3</text>
+<text class="lab3" x="932.0" y="442.0" text-anchor="middle" >6</text>
+<text class="lab3" x="1052.0" y="442.0" text-anchor="middle" >9</text>
+<text class="lab3" x="1172.0" y="442.0" text-anchor="middle" >12</text>
+<text class="lab3" x="932.0" y="460.0" text-anchor="middle" >months after go</text>
+<line class="axis" x1="694.0" x2="770.0" y1="476" y2="476" stroke-width="3"/>
+<text class="phl" x="732.0" y="492.0" text-anchor="middle" >Lab</text>
+<line class="axis" x1="774.0" x2="850.0" y1="476" y2="476" stroke-width="3"/>
+<text class="phl" x="812.0" y="492.0" text-anchor="middle" >Pilot</text>
+<line class="axis" x1="854.0" x2="930.0" y1="476" y2="476" stroke-width="3"/>
+<text class="phl" x="892.0" y="492.0" text-anchor="middle" >50/50</text>
+<line class="axis" x1="934.0" x2="1170.0" y1="476" y2="476" stroke-width="3"/>
+<text class="phl" x="1052.0" y="492.0" text-anchor="middle" >Release · 10% holdout</text>
+<polygon class="band" points="772.0,282.2 812.0,282.2 852.0,246.7 892.0,234.9 932.0,223.1 972.0,211.3 1012.0,199.5 1052.0,187.6 1092.0,187.6 1132.0,187.6 1172.0,187.6 1172.0,305.8 1132.0,305.8 1092.0,305.8 1052.0,305.8 1012.0,311.7 972.0,317.6 932.0,323.5 892.0,329.5 852.0,335.4 812.0,353.1 772.0,353.1"><title>Tip acceptance: pessimistic to optimistic</title></polygon>
+<circle class="gdot" cx="772.0" cy="305.8" r="6"><title>Goal: 30%</title></circle>
+<circle class="gdot" cx="892.0" cy="266.4" r="6"><title>Goal: 40%</title></circle>
+<text class="gl" x="762.0" y="309.8" text-anchor="end" >30 days</text><text class="gl" x="882.0" y="258.4" text-anchor="end" >90 days</text>
+<polyline class="exp" points="772.0,305.8 812.0,305.8 852.0,276.3 892.0,266.4 932.0,256.6 972.0,246.7 1012.0,236.9 1052.0,227.0 1092.0,227.0 1132.0,227.0 1172.0,227.0"/>
+<circle cx="772.0" cy="305.8" r="10" fill="transparent"><title>Month 2: expected 30 (band 18–36)</title></circle>
+<circle cx="812.0" cy="305.8" r="10" fill="transparent"><title>Month 3: expected 30 (band 18–36)</title></circle>
+<circle cx="852.0" cy="276.3" r="10" fill="transparent"><title>Month 4: expected 37.5 (band 22.5–45)</title></circle>
+<circle cx="892.0" cy="266.4" r="10" fill="transparent"><title>Month 5: expected 40 (band 24–48)</title></circle>
+<circle cx="932.0" cy="256.6" r="10" fill="transparent"><title>Month 6: expected 42.5 (band 25.5–51)</title></circle>
+<circle cx="972.0" cy="246.7" r="10" fill="transparent"><title>Month 7: expected 45 (band 27–54)</title></circle>
+<circle cx="1012.0" cy="236.9" r="10" fill="transparent"><title>Month 8: expected 47.5 (band 28.5–57)</title></circle>
+<circle cx="1052.0" cy="227.0" r="10" fill="transparent"><title>Month 9: expected 50 (band 30–60)</title></circle>
+<circle cx="1092.0" cy="227.0" r="10" fill="transparent"><title>Month 10: expected 50 (band 30–60)</title></circle>
+<circle cx="1132.0" cy="227.0" r="10" fill="transparent"><title>Month 11: expected 50 (band 30–60)</title></circle>
+<circle cx="1172.0" cy="227.0" r="10" fill="transparent"><title>Month 12: expected 50 (band 30–60)</title></circle>
+<circle class="dot" cx="1172.0" cy="227.0" r="5"/>
+<text class="num" x="1182.0" y="232.0" text-anchor="start" font-size="15">50</text>
+<text class="lab3" x="1182.0" y="249.0" text-anchor="start" >30–60</text>
+<text class="foot" x="32.0" y="542.0" text-anchor="start" >PROJECTED · values from research/testing/projections.json · goals from the deck&#x27;s Goals &amp; KPIs · time to adjust is indexed to a benchmark not run yet · tip acceptance is an ASSUMPTION until the think-aloud rounds and the pilot</text>
+</svg>

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 622" width="1000" height="622" role="img" aria-labelledby="t d" font-family="'TT Norms', 'TT Norms Pro', -apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+<title id="t">Which fields hosts keep different per channel</title>
+<desc id="d">Share of multi-channel properties that override each field per channel. Fees and stay rules are overridden far more than any text field.</desc>
+<style>:root{--surface:#fcfcfd;--ink:#191b1f;--ink2:#53575b;--ink3:#70747b;--grid:#e6e7ea;--track:#f3f4f6;--neutral:#a0a5ab;--brand:#e1295a;--brand2:#fca5b4;--brand3:#ffe4e7;--ai:#8155be;--seq0:#fff0f2;--seq1:#ffe4e7;--seq2:#fdced5;--seq3:#fca5b4;--seq4:#f9738c;--seq5:#f24167;--seq6:#e1295a;--seq7:#bc1445;--seq8:#9d1440}@media (prefers-color-scheme: dark){:root{--surface:#191b1f;--ink:#f3f4f6;--ink2:#d3d6da;--ink3:#a0a5ab;--grid:#414347;--track:#282b2e;--neutral:#70747b;--brand:#f9738c;--brand2:#bc1445;--brand3:#87143d;--ai:#b18ce2;--seq0:#4b061c;--seq1:#87143d;--seq2:#9d1440;--seq3:#bc1445;--seq4:#e1295a;--seq5:#f24167;--seq6:#f9738c;--seq7:#fca5b4;--seq8:#fdced5}}.bg{fill:var(--surface)}.h1{fill:var(--ink);font-size:20px;font-weight:600}.sub{fill:var(--ink2);font-size:13px}.lab{fill:var(--ink);font-size:12.5px}.lab2{fill:var(--ink2);font-size:12px}.lab3{fill:var(--ink3);font-size:11px}.num{fill:var(--ink);font-size:12px;font-weight:600}.numi{fill:var(--surface);font-size:12px;font-weight:600}.foot{fill:var(--ink3);font-size:11px}.grid{stroke:var(--grid);stroke-width:1}.track{fill:var(--track)}.neutral{fill:var(--neutral)}.brand{fill:var(--brand)}.brand2{fill:var(--brand2)}.brand3{fill:var(--brand3)}.ai{fill:var(--ai)}.cut{stroke:var(--brand);stroke-width:2;stroke-dasharray:5 4}.ink{fill:var(--ink)}.s0{fill:var(--seq0)}.s1{fill:var(--seq1)}.s2{fill:var(--seq2)}.s3{fill:var(--seq3)}.s4{fill:var(--seq4)}.s5{fill:var(--seq5)}.s6{fill:var(--seq6)}.s7{fill:var(--seq7)}.s8{fill:var(--seq8)}</style>
+<rect class="bg" width="1000" height="622"/>
+<text class="h1" x="40.0" y="44.0" text-anchor="start" >What hosts keep different per channel is money and stay rules, not words</text>
+<text class="sub" x="40.0" y="68.0" text-anchor="start" >Share of multi-channel properties using “Edit per channel” on each field (SIMULATED; fields from the product's own field inventory, REAL·PRODUCT)</text>
+<text class="lab" x="40.0" y="131.0" text-anchor="start" >Cleaning fee</text>
+<text class="lab3" x="288.0" y="131.0" text-anchor="end" >Pricing</text>
+<rect class="track" x="300" y="118" width="520" height="18" rx="4"/>
+<path class="brand" d="M300.0,118.0 h458.8 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-458.8 z"><title>Cleaning fee (Pricing › Fees): overridden on 35.6% of multi-channel properties</title></path>
+<text class="num" x="770.8" y="131.0" text-anchor="start" >36%</text>
+<text class="lab" x="40.0" y="165.0" text-anchor="start" >Minimum stay length</text>
+<text class="lab3" x="288.0" y="165.0" text-anchor="end" >Availability</text>
+<rect class="track" x="300" y="152" width="520" height="18" rx="4"/>
+<path class="brand" d="M300.0,152.0 h386.0 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-386.0 z"><title>Minimum stay length (Availability › General): overridden on 30.0% of multi-channel properties</title></path>
+<text class="num" x="698.0" y="165.0" text-anchor="start" >30%</text>
+<text class="lab" x="40.0" y="199.0" text-anchor="start" >Pet fee</text>
+<text class="lab3" x="288.0" y="199.0" text-anchor="end" >Pricing</text>
+<rect class="track" x="300" y="186" width="520" height="18" rx="4"/>
+<path class="brand" d="M300.0,186.0 h150.7 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-150.7 z"><title>Pet fee (Pricing › Fees): overridden on 11.9% of multi-channel properties</title></path>
+<text class="num" x="462.7" y="199.0" text-anchor="start" >12%</text>
+<text class="lab" x="40.0" y="233.0" text-anchor="start" >Advance notice</text>
+<text class="lab3" x="288.0" y="233.0" text-anchor="end" >Availability</text>
+<rect class="track" x="300" y="220" width="520" height="18" rx="4"/>
+<path class="brand" d="M300.0,220.0 h122.1 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-122.1 z"><title>Advance notice (Availability › Booking rules): overridden on 9.7% of multi-channel properties</title></path>
+<text class="num" x="434.1" y="233.0" text-anchor="start" >9.7%</text>
+<text class="lab" x="40.0" y="267.0" text-anchor="start" >Maximum stay length</text>
+<text class="lab3" x="288.0" y="267.0" text-anchor="end" >Availability</text>
+<rect class="track" x="300" y="254" width="520" height="18" rx="4"/>
+<path class="brand" d="M300.0,254.0 h116.9 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-116.9 z"><title>Maximum stay length (Availability › General): overridden on 9.3% of multi-channel properties</title></path>
+<text class="num" x="428.9" y="267.0" text-anchor="start" >9.3%</text>
+<text class="lab" x="40.0" y="301.0" text-anchor="start" >Linens fee</text>
+<text class="lab3" x="288.0" y="301.0" text-anchor="end" >Pricing</text>
+<rect class="track" x="300" y="288" width="520" height="18" rx="4"/>
+<path class="brand" d="M300.0,288.0 h101.3 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-101.3 z"><title>Linens fee (Pricing › Fees): overridden on 8.1% of multi-channel properties</title></path>
+<text class="num" x="413.3" y="301.0" text-anchor="start" >8.1%</text>
+<text class="lab" x="40.0" y="335.0" text-anchor="start" >Allow pets</text>
+<text class="lab3" x="288.0" y="335.0" text-anchor="end" >Details</text>
+<rect class="track" x="300" y="322" width="520" height="18" rx="4"/>
+<path class="neutral" d="M300.0,322.0 h55.8 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-55.8 z"><title>Allow pets (Details › Rules): overridden on 4.6% of multi-channel properties</title></path>
+<text class="num" x="367.8" y="335.0" text-anchor="start" >4.6%</text>
+<text class="lab" x="40.0" y="369.0" text-anchor="start" >Neighbourhood description</text>
+<text class="lab3" x="288.0" y="369.0" text-anchor="end" >Details</text>
+<rect class="track" x="300" y="356" width="520" height="18" rx="4"/>
+<path class="neutral" d="M300.0,356.0 h49.3 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-49.3 z"><title>Neighbourhood description (Details › Location): overridden on 4.1% of multi-channel properties</title></path>
+<text class="num" x="361.3" y="369.0" text-anchor="start" >4.1%</text>
+<text class="lab" x="40.0" y="403.0" text-anchor="start" >Directions</text>
+<text class="lab3" x="288.0" y="403.0" text-anchor="end" >Details</text>
+<rect class="track" x="300" y="390" width="520" height="18" rx="4"/>
+<path class="neutral" d="M300.0,390.0 h38.9 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-38.9 z"><title>Directions (Details › Location): overridden on 3.3% of multi-channel properties</title></path>
+<text class="num" x="350.9" y="403.0" text-anchor="start" >3.3%</text>
+<text class="lab" x="40.0" y="437.0" text-anchor="start" >House rules</text>
+<text class="lab3" x="288.0" y="437.0" text-anchor="end" >Details</text>
+<rect class="track" x="300" y="424" width="520" height="18" rx="4"/>
+<path class="neutral" d="M300.0,424.0 h24.6 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-24.6 z"><title>House rules (Details › Rules): overridden on 2.2% of multi-channel properties</title></path>
+<text class="num" x="336.6" y="437.0" text-anchor="start" >2.2%</text>
+<text class="lab" x="40.0" y="471.0" text-anchor="start" >Guest access</text>
+<text class="lab3" x="288.0" y="471.0" text-anchor="end" >Details</text>
+<rect class="track" x="300" y="458" width="520" height="18" rx="4"/>
+<path class="neutral" d="M300.0,458.0 h22.0 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-22.0 z"><title>Guest access (Details › Arrival): overridden on 2.0% of multi-channel properties</title></path>
+<text class="num" x="334.0" y="471.0" text-anchor="start" >2.0%</text>
+<text class="lab" x="40.0" y="505.0" text-anchor="start" >Getting around</text>
+<text class="lab3" x="288.0" y="505.0" text-anchor="end" >Details</text>
+<rect class="track" x="300" y="492" width="520" height="18" rx="4"/>
+<path class="neutral" d="M300.0,492.0 h20.7 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-20.7 z"><title>Getting around (Details › Location): overridden on 1.9% of multi-channel properties</title></path>
+<text class="num" x="332.7" y="505.0" text-anchor="start" >1.9%</text>
+<text class="lab" x="40.0" y="539.0" text-anchor="start" >Interaction preferences</text>
+<text class="lab3" x="288.0" y="539.0" text-anchor="end" >Details</text>
+<rect class="track" x="300" y="526" width="520" height="18" rx="4"/>
+<path class="neutral" d="M300.0,526.0 h7.7 a4,4 0 0 1 4,4 v10.0 a4,4 0 0 1 -4,4 h-7.7 z"><title>Interaction preferences (Details › Arrival): overridden on 0.9% of multi-channel properties</title></path>
+<text class="num" x="319.7" y="539.0" text-anchor="start" >0.9%</text>
+<rect class="brand" x="300" y="566" width="12" height="12" rx="2"/>
+<text class="lab2" x="318.0" y="576.0" text-anchor="start" >Pricing &amp; availability</text>
+<rect class="neutral" x="490" y="566" width="12" height="12" rx="2"/>
+<text class="lab2" x="508.0" y="576.0" text-anchor="start" >Details (text &amp; rules)</text>
+<text class="foot" x="40.0" y="600.0" text-anchor="start" >SIMULATED data, real analysis · titles, descriptions and photos are not in this data</text>
+</svg>

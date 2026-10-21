@@ -1,0 +1,289 @@
+/* 70-next · tokens only; classes prefixed nx-. Feature cards, chips and tints: kit/hc.css. */
+@layer slides {
+/* nx-story: three feature cards, each proving its claim with the product's own UI on a halo */
+.nx-features .hc-feature__plate { height: 340px; min-height: 0; padding: 76px 30px 28px; }
+.nx-features .hc-feature__halo { max-width: 470px; }
+.nx-features .hc-mini { border-radius: 18px; overflow: hidden; padding: 0; }
+.nx-features .hc-mini__r:first-child { border-top: 0; }
+.nx-features .hc-mini__h { padding: 12px 20px 10px; color: var(--ink-2); }
+.nx-features .hc-mini__h svg { width: 20px; height: 20px; flex: none; }
+.nx-features .hc-mini__h + .hc-mini__r { padding-top: 11px; }
+.nx-features .hc-mini__h ~ .hc-mini__r { padding-top: 10px; padding-bottom: 10px; }
+.nx-only { color: var(--ink-2); }
+.nx-tip .hc-ui { border-radius: 10px; overflow: hidden; }
+.nx-tip article { border: 0; }
+.nx-features .hc-feature { height: 100%; }
+.nx-lvl2 { display: grid; gap: 14px; }
+.nx-lvl { display: inline-flex; align-items: center; gap: 12px; margin: 0; font: var(--w-medium) 22px / 1.2 var(--font-ui); color: var(--ink-2); }
+.nx-lvl__n { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--surface-2); font: var(--w-medium) 17px / 1 var(--font-ui); color: var(--ink-2); }
+.nx-dir { display: flex; align-items: center; gap: 36px; padding: 24px 36px; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); }
+.nx-dir__l { display: flex; flex: 1; gap: 28px; margin: 0; padding: 0; list-style: none; }
+.nx-dir__l { justify-content: space-between; }
+.nx-dir__l li { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; font: var(--w-head) 24px / 1.2 var(--font-display); color: var(--ink); }
+.nx-dir__l svg, .nx-dir__n svg { width: 24px; height: 24px; flex: none; fill: none; stroke: var(--ink-2); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.nx-dir__l li:nth-child(2) svg { stroke: var(--ai-accent); }
+.nx-dir__n { display: inline-flex; align-items: center; gap: 8px; margin: 0; font: var(--w-text) 20px / 1.2 var(--font-ui); color: var(--ink-3); white-space: nowrap; }
+.nx-dir__n svg { stroke: var(--ink-3); width: 20px; height: 20px; }
+
+/* ── nx-roadmap detail "Roadmap" · now, next, later as three feature cards; the four lines of work marked ── */
+.nx-road .hc-feature__plate { height: auto; min-height: 0; padding: 66px 24px 24px; }
+.nx-road .hc-mini__r { padding: 12px 20px; }
+.nx-road .hc-mini__l { font-size: 21px; }
+.nx-road .hc-mini__s { font-size: 17px; }
+.nx-road .hc-mini__s svg { width: 18px; height: 18px; }
+.nx-road .hc-feature__halo { max-width: 500px; }
+.nx-road .hc-mini { border-radius: 18px; overflow: hidden; padding: 0; }
+.nx-road .hc-mini__r:first-child { border-top: 0; }
+.nx-road .hc-feature__body { padding: 20px 28px 24px; gap: 6px; }
+.nx-road .hc-feature__t { font-size: 27px; }
+.nx-road .hc-feature__d { font-size: 20px; }
+.nx-road .hc-mini__s.nx-imp { padding: 3px 10px; border: 1.5px dashed var(--color-primary-400); border-radius: var(--r-pill); color: var(--accent-ink); }
+.nx-reuse { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 26px 0 0; }
+.nx-reuse__k { margin-right: 8px; font: var(--w-head) 19px / 1.2 var(--font-ui); color: var(--ink-2); }
+
+/* ── cl-monday · four things to do, then the first week as swimlanes: me, the teams I ask, hosts ── */
+.s[data-id="cl-monday"] .s-body { justify-content: center; }
+.cl-plan { display: grid; gap: 26px; width: 100%; }
+.cl-four { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin: 0; padding: 0; list-style: none; }
+.cl-four li { display: flex; align-items: center; gap: 14px; height: 68px; padding: 0 22px 0 18px; border-radius: 20px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--color-gray-200);
+  font: var(--w-head) 23px / 1.2 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
+.cl-n { display: grid; place-items: center; flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--color-primary-50); box-shadow: inset 0 0 0 1px var(--color-primary-200);
+  font: var(--w-head) 15px / 1 var(--font-ui); color: var(--accent-ink); }
+/* the week: a label column and five days; every lane a hairline row, mine on a blush wash */
+.cl-week { position: relative; display: grid; grid-template-columns: 140px repeat(5, minmax(0, 1fr)); grid-template-rows: 34px repeat(8, 54px); column-gap: 14px; }
+.cl-week__rows { display: contents; }
+.cl-week > *, .cl-week__rows > * { grid-column: var(--c, 1); grid-row: var(--r, 1); }
+.cl-day { align-self: start; font: var(--w-head) 18px / 1 var(--font-ui); letter-spacing: 0.02em; color: var(--ink-3); padding-left: 4px; }
+.cl-lane { grid-column: 1 / -1; display: flex; align-items: center; margin: 0; padding-left: 16px; border-top: 1px solid var(--color-gray-200);
+  font: var(--w-medium) 20px / 1 var(--font-ui); color: var(--ink-2); }
+.cl-lane.is-me { border-radius: 14px; border-top-color: transparent; background: var(--color-primary-50); font-weight: var(--w-head); color: var(--accent-ink); }
+.cl-lane.is-me + .cl-lane { border-top-color: transparent; }
+.cl-lane.is-hosts { border-bottom: 1px solid var(--color-gray-200); font-weight: var(--w-head); color: var(--ink); }
+.cl-c { align-self: center; display: flex; align-items: center; gap: 10px; min-width: 0; height: 42px; margin: 0; padding: 0 14px 0 7px; border-radius: 12px;
+  background: var(--surface); box-shadow: inset 0 0 0 1px var(--color-gray-200), 0 6px 16px -12px color-mix(in oklab, var(--color-sidebar-bg) 40%, transparent);
+  font: var(--w-medium) 20px / 1 var(--font-ui); color: var(--ink); white-space: nowrap; }
+.cl-c.is-host { padding-left: 14px; box-shadow: inset 0 0 0 1.5px var(--color-primary-300); }
+.cl-c.is-host .cl-n { margin-left: -7px; }
+.cl-four .cl-n { width: 34px; height: 34px; font-size: 17px; }
+.cl-read { align-self: stretch; display: grid; align-content: center; gap: 10px; margin: 0 0 6px; padding: 0 26px; border-radius: 22px; background: var(--tint-plate); }
+.cl-read__t { font: var(--w-head) 30px / 1.1 var(--font-display); letter-spacing: -0.012em; color: var(--tint-title); }
+.cl-read__d { font: var(--w-text) 21px / 1.4 var(--font-ui); color: var(--tint-body); text-wrap: pretty; }
+
+/* ── nx-roadmap detail, panel 1 · blast radius drawn (one fact, every surface it reaches), then three effects ── */
+.nx-fx { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 24px; align-items: stretch; }
+.nx-blast { display: grid; grid-template-rows: auto 1fr; min-width: 0; border-radius: 32px; overflow: hidden; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
+.nx-blast__plate { display: grid; place-items: center; padding: 30px 30px 28px; background: var(--tint-plate); }
+/* drawn at a fixed size, so the curves land on the chips: 720 × 320, targets every 66 px */
+.nx-blast__map { position: relative; width: 720px; height: 320px; }
+.nx-blast__lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.nx-blast__lines path { fill: none; stroke: var(--tint-line); stroke-width: 2.5; stroke-linecap: round; }
+.nx-blast__src { position: absolute; left: 0; top: 50%; width: 232px; transform: translateY(-50%); display: grid; gap: 4px; margin: 0; padding: 18px 22px 20px; border-radius: 22px; background: var(--bg);
+  box-shadow: inset 0 0 0 2px var(--tint-line); }
+.nx-blast__k { font: var(--w-head) 16px / 1.2 var(--font-ui); color: var(--tint-ink); }
+.nx-blast__src b { font: var(--w-head) 25px / 1.2 var(--font-display); color: var(--ink); }
+.nx-blast__to { position: absolute; left: 452px; right: 0; top: var(--y); transform: translateY(-50%); display: flex; align-items: center; gap: 10px; height: 52px; margin: 0; padding: 0 18px;
+  border-radius: var(--r-pill); background: var(--bg); font: var(--w-medium) 20px / 1 var(--font-ui); color: var(--ink); white-space: nowrap; }
+.nx-blast__to svg { flex: none; width: 22px; height: 22px; fill: none; stroke: var(--ink-3); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.nx-blast__b { display: grid; gap: 10px; align-content: start; padding: 26px 32px 30px; }
+.nx-blast__t { font: var(--w-head) 32px / 1.15 var(--font-display); letter-spacing: -0.012em; color: var(--ink); }
+.nx-blast__d { font-size: 24px; line-height: 1.4; color: var(--ink-2); text-wrap: pretty; }
+.nx-fx__list { display: grid; gap: 18px; grid-auto-rows: 1fr; }
+.nx-fx__r { display: flex; align-items: center; gap: 26px; padding: 22px 30px 22px 22px; border-radius: 30px; background: var(--bg); box-shadow: 0 0 0 1px var(--line); }
+.nx-fx__t { margin: 0 0 6px; font: var(--w-head) 28px / 1.18 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
+.nx-fx__d { margin: 0; font-size: 23px; line-height: 1.38; color: var(--ink-2); text-wrap: pretty; }
+.nx-tile { display: grid; place-items: center; flex: none; width: 88px; height: 88px; border-radius: 26px; background: var(--tint-plate); color: var(--tint-line); }
+.nx-tile svg { width: 40px; height: 40px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.nx-effects__note { display: inline-flex; align-items: center; gap: 12px; margin: 22px 0 0; font: var(--w-medium) 22px / 1.3 var(--font-ui); color: var(--ink-2); }
+.nx-effects__note svg { flex: none; width: 26px; height: 26px; fill: none; stroke: var(--ink-3); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ── nx-roadmap detail, panel 2 · the five kill criteria: the signal, its threshold as a chip, what I'd do ── */
+.nx-kill { display: grid; gap: 12px; }
+.nx-kill__h, .nx-kill__rows li { display: grid; grid-template-columns: 60px minmax(0, 1.3fr) minmax(0, 0.95fr) minmax(0, 1fr); align-items: center; gap: 26px; }
+.nx-kill__h { margin: 0; padding: 0 30px 0 12px; font: var(--w-head) 18px / 1.2 var(--font-ui); color: var(--ink-3); }
+.nx-kill__rows { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.nx-kill__rows li { padding: 14px 30px 14px 12px; border-radius: 24px; background: var(--bg); box-shadow: 0 0 0 1px var(--line); }
+.nx-kill__rows .nx-tile { width: 60px; height: 60px; border-radius: 18px; }
+.nx-kill__rows .nx-tile svg { width: 30px; height: 30px; }
+.nx-kill__w { font: var(--w-head) 25px / 1.22 var(--font-display); letter-spacing: -0.01em; color: var(--ink); text-wrap: pretty; }
+.nx-kill__t { justify-self: start; padding: 9px 18px 10px; border-radius: var(--r-pill); background: var(--tint-plate); font: var(--w-medium) 20px / 1.25 var(--font-ui); color: var(--tint-title); }
+.nx-kill__do { font: var(--w-medium) 23px / 1.3 var(--font-ui); color: var(--ink); text-wrap: pretty; }
+.nx-kill .nx-effects__note { margin-top: 10px; }
+
+/* ══ nx-roadmap · the service map (4 Oct): the hub, three rings, wires in their status ══════════
+   Geometry is placed by 70-next.js (drawMap): nodes get left/top/width/height, wires are drawn in
+   two SVG layers under the cards (the rings' bands, then the wires), labels sit over everything. */
+.nx-key .nx-k { display: inline-block; width: 30px; height: 0; border-top: 3px solid var(--color-gray-500); }
+.nx-key .nx-k.is-next { border-top: 3px dashed var(--accent); }
+.nx-key .nx-k.is-later { border-top: 4px dotted var(--color-gray-400); }
+.nx-key .nx-k.is-implied { width: 26px; height: 16px; border: 2px dashed var(--color-primary-400); border-radius: 5px; background: var(--surface); }
+.s[data-id="nx-roadmap"] .s-body { align-items: center; justify-content: center; }
+.nx-map { position: relative; flex: none; width: 1728px; height: 596px; margin: 0 auto; font-family: var(--font-ui); color: var(--ink); }
+.nx-map > svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.nx-map > svg.nx-map__bands { overflow: hidden; }
+/* the rings: soft bands, a status each (mint built, blush next, gray later), never over a card */
+.nx-band { fill: none; stroke-width: 92; stroke-linecap: butt; }
+.nx-band[data-ring="1"] { stroke: var(--color-success-50); }
+.nx-band[data-ring="2"] { stroke: var(--color-primary-50); }
+.nx-band[data-ring="3"] { stroke: var(--color-gray-50); }
+.nx-ring { position: absolute; width: 0; height: 0; margin: 0; }
+.nx-ring > span { position: absolute; left: 0; top: 0; transform: translate(-50%, -50%); white-space: nowrap; font: var(--w-head) 17px / 1 var(--font-ui); letter-spacing: 0.02em; }
+.nx-ring[data-ring="1"] > span { color: var(--color-success-700); }
+.nx-ring[data-ring="2"] > span { color: var(--accent-ink); }
+.nx-ring[data-ring="3"] > span { color: var(--color-gray-600); }
+/* the wires: built is solid, next is dashed raspberry, later is dotted; a chevron at the head */
+.nx-w__p { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.nx-w.is-built .nx-w__p { stroke: var(--color-gray-500); }
+.nx-w.is-next .nx-w__p { stroke: var(--accent); stroke-dasharray: 9 8; }
+.nx-w.is-later .nx-w__p { stroke: var(--color-gray-400); stroke-dasharray: 0.5 8; stroke-width: 3; }
+.nx-w .nx-w__p.is-head { stroke-dasharray: none; stroke-width: 2.5; }
+.nx-w.is-later .nx-w__p.is-head { stroke: var(--color-gray-400); }
+.nx-w__reveal { fill: none; stroke: var(--color-text-white); stroke-width: 16; stroke-linecap: butt; stroke-linejoin: round; }
+.nx-e { position: absolute; width: 0; height: 0; font-style: normal; }
+.nx-e > span { position: absolute; left: 0; top: 0; transform: translate(-50%, -50%); white-space: nowrap; padding: 5px 13px 6px; border-radius: var(--r-pill);
+  background: var(--surface); border: 1px solid var(--color-gray-200); font: var(--w-medium) 18px / 1.1 var(--font-ui); color: var(--ink-2); }
+.nx-e[data-st="next"] > span { color: var(--accent-ink); border-color: var(--color-primary-200); }
+/* the cards: the product's card, an icon tile tinted by ring, the name */
+.nx-n { position: absolute; box-sizing: border-box; display: flex; align-items: center; gap: 12px; padding: 0 18px 0 11px; border: 1px solid var(--color-gray-200); border-radius: 16px;
+  background: var(--surface); box-shadow: 0 1px 2px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent), 0 12px 26px -18px color-mix(in oklab, var(--color-sidebar-bg) 45%, transparent); }
+.nx-n__t { min-width: 0; font: var(--w-head) 21px / 1.15 var(--font-ui); letter-spacing: -0.01em; color: var(--ink); white-space: nowrap; }
+.nx-n__i { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: 10px; background: var(--color-gray-100); color: var(--color-gray-600); }
+.nx-n__i svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.nx-n[data-ring="1"] .nx-n__i { background: var(--color-success-100); color: var(--color-success-700); }
+.nx-n[data-ring="2"] .nx-n__i { background: var(--color-primary-100); color: var(--color-primary-600); }
+.nx-n[data-ring="3"] { border-radius: 14px; }
+.nx-n[data-ring="3"] .nx-n__i { width: 32px; height: 32px; }
+.nx-n[data-ring="3"] .nx-n__i svg { width: 19px; height: 19px; }
+.nx-n__m { display: inline-flex; gap: 4px; flex: none; padding-left: 4px; }
+.nx-n__m .h-mark { width: 28px; height: 28px; }
+/* implied, not built: the four lines of work Smart Listings implies */
+.nx-n.is-implied { border: 2px dashed var(--color-primary-400); box-shadow: none; }
+/* the hub: Smart Listings (lavender: AI) over Shared (blush), whose two stores are cards on it */
+.nx-sl, .nx-sh { position: absolute; box-sizing: border-box; border-radius: 26px; }
+.nx-sl { display: flex; align-items: center; gap: 14px; padding: 0 16px; background: var(--color-secondary-100); }
+.nx-sl__i { display: grid; place-items: center; flex: none; width: 50px; height: 50px; border-radius: 16px; background: var(--surface); color: var(--color-secondary-600); }
+.nx-sl__i svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.nx-sl__tx { display: grid; gap: 4px; }
+.nx-sl__tx b { font: var(--w-head) 26px / 1.1 var(--font-display); letter-spacing: -0.015em; color: var(--color-secondary-900); }
+.nx-sl__tx span { font: var(--w-medium) 17px / 1.2 var(--font-ui); color: var(--ai-ink); white-space: nowrap; }
+.nx-sh { background: var(--color-primary-100); }
+.nx-sh__k { position: absolute; left: 18px; top: 12px; margin: 0; font: var(--w-head) 20px / 1.2 var(--font-ui); color: var(--color-primary-700); }
+.nx-n--in .nx-n__i { background: var(--color-primary-50); color: var(--color-primary-600); }
+
+/* ══ nx-roadmap details · where it falls short (4 Oct) ══════════════════════════════════════════ */
+/* a row's label: an icon and a word, in the quiet ink */
+.nx-lab { display: flex; align-items: center; gap: 10px; margin: 0; font: var(--w-head) 20px / 1.2 var(--font-ui); color: var(--ink-3); }
+.nx-lab svg { flex: none; width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.nx-txt { margin: 0; font: var(--w-text) 23px / 1.36 var(--font-ui); color: var(--ink); text-wrap: pretty; }
+.nx-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.nx-chips > li { display: inline-flex; align-items: center; gap: 7px; padding: 6px 13px 7px; border-radius: var(--r-pill); background: var(--surface); box-shadow: inset 0 0 0 1px var(--color-gray-200);
+  font: var(--w-medium) 20px / 1.15 var(--font-ui); color: var(--ink); white-space: nowrap; }
+.nx-chips > li svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; color: var(--ink-3); }
+.nx-chips.is-gap > li { box-shadow: none; border: 1.5px dashed var(--color-primary-400); color: var(--accent-ink); }
+.nx-chips.is-team > li { background: var(--color-gray-100); box-shadow: none; }
+.nx-imp { display: inline-flex; align-items: center; justify-self: start; padding: 4px 12px 5px; border: 1.5px dashed var(--color-primary-400); border-radius: var(--r-pill);
+  font: var(--w-medium) 17px / 1.1 var(--font-ui); color: var(--accent-ink); white-space: nowrap; }
+
+/* panel "Comps and the Hub": a label column, then one column per line of work */
+.nx-gap { display: grid; gap: 0; }
+.nx-gap__r { display: grid; grid-template-columns: 196px minmax(0, 1fr) minmax(0, 1fr); align-items: center; column-gap: 26px; padding: 19px 0; border-top: 1px solid var(--line); }
+.nx-gap__r.is-h { align-items: stretch; padding: 0 0 14px; border-top: 0; }
+.nx-gap__c { display: flex; align-items: center; gap: 14px; padding: 0 6px; }
+.nx-gap__hd { display: flex; align-items: center; gap: 18px; padding: 18px 22px; border-radius: 24px; background: var(--tint-plate); }
+.nx-gap__hd h3 { flex: 1 1 auto; margin: 0; font: var(--w-head) 28px / 1.15 var(--font-display); letter-spacing: -0.012em; color: var(--tint-title); }
+.nx-gap__hd .nx-imp { background: var(--surface); }
+.nx-gap .nx-tile { width: 56px; height: 56px; border-radius: 17px; background: var(--surface); }
+.nx-act .nx-tile { width: 56px; height: 56px; border-radius: 17px; }
+.nx-gap .nx-tile svg, .nx-act .nx-tile svg { width: 28px; height: 28px; }
+
+/* panel "Tips everywhere": the contract, two tips in two new places, how I'd run it */
+.nx-tips { display: grid; gap: 22px; }
+.nx-contract { display: flex; align-items: center; gap: 22px; }
+.nx-contract__k { flex: none; margin: 0; font: var(--w-head) 26px / 1.2 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
+.nx-contract ol { display: flex; align-items: center; gap: 0; margin: 0; padding: 0; list-style: none; }
+.nx-contract li { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px 10px; border-radius: var(--r-pill); background: var(--color-secondary-50); box-shadow: inset 0 0 0 1px var(--color-secondary-200);
+  font: var(--w-medium) 21px / 1.1 var(--font-ui); color: var(--color-secondary-900); white-space: nowrap; }
+.nx-contract li svg { width: 18px; height: 18px; fill: none; stroke: var(--color-secondary-600); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.nx-contract li + li::before { content: ""; width: 22px; height: 2px; margin: 0 8px 0 -15px; background: var(--color-secondary-300); order: -1; }
+.nx-contract li + li { margin-left: 15px; }
+.nx-tips__ex { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.nx-tips__p { display: grid; grid-template-columns: 150px minmax(0, 1fr); align-items: center; gap: 20px; padding: 22px 24px; border-radius: 28px; background: var(--tint-plate); }
+.nx-tips__a { display: grid; gap: 10px; margin: 0; }
+.nx-tips__a b { font: var(--w-head) 27px / 1.15 var(--font-display); color: var(--tint-title); }
+.nx-tips__a span { font: var(--w-text) 19px / 1.3 var(--font-ui); color: var(--tint-body); }
+.nx-tips__a .nx-tile { width: 52px; height: 52px; border-radius: 16px; background: var(--surface); }
+.nx-tips__a .nx-tile svg { width: 26px; height: 26px; }
+.nx-tips__p .hc-ui { border-radius: 12px; overflow: hidden; }
+.nx-tips__p .h-tip { border: 0; }
+.nx-run { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr); gap: 22px; }
+.nx-run > div { display: grid; align-content: start; gap: 12px; padding: 18px 22px 20px; border-radius: 22px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+
+/* panel "Over time": a sketch of the chart I'd draw, then what's built, missing, measured and shown */
+.nx-perf { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); gap: 26px; align-items: stretch; }
+.nx-sketch { display: grid; grid-template-rows: auto auto 1fr; gap: 14px; margin: 0; padding: 24px 26px 22px; border-radius: 30px; background: var(--plate-quiet); box-shadow: inset 0 0 0 1px var(--line); }
+.nx-sketch__k { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 0; font: var(--w-head) 24px / 1.2 var(--font-ui); color: var(--ink); }
+.nx-sketch__plot { position: relative; width: 760px; height: 330px; justify-self: center; align-self: center; }
+.nx-sketch__plot svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.nx-sk-grid { stroke: var(--color-gray-200); stroke-width: 1; }
+.nx-sk-p1 { fill: var(--color-primary-50); }
+.nx-sk-p2 { fill: var(--color-primary-100); }
+.nx-sk-wait { fill: var(--surface); stroke: var(--color-gray-300); stroke-width: 1.5; stroke-dasharray: 5 5; }
+.nx-sk-comps { fill: none; stroke: var(--color-gray-400); stroke-width: 2.5; stroke-dasharray: 8 7; stroke-linecap: round; }
+.nx-sk-before { fill: none; stroke: var(--color-gray-500); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+.nx-sk-since { fill: none; stroke: var(--accent); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+.nx-sk-start { stroke: var(--color-sidebar-bg); stroke-width: 2; }
+.nx-sk-dot { fill: var(--surface); stroke: var(--accent); stroke-width: 3; }
+.nx-sk-l { position: absolute; transform: translate(-50%, 0); margin: 0; white-space: nowrap; font: var(--w-medium) 18px / 1.15 var(--font-ui); color: var(--ink-2); }
+.nx-sk-l.is-l { transform: none; }
+.nx-sk-l.is-acc { color: var(--accent-ink); }
+.nx-sk-l.is-dot::before { content: ""; display: inline-block; width: 11px; height: 11px; margin-right: 7px; border-radius: 50%; box-shadow: inset 0 0 0 3px var(--accent); vertical-align: -1px; }
+.nx-rows { display: grid; align-content: center; gap: 0; }
+.nx-rows > div { display: grid; grid-template-columns: 150px minmax(0, 1fr); align-items: center; gap: 18px; padding: 22px 0; border-top: 1px solid var(--line); }
+.nx-rows > div:first-child { border-top: 0; }
+
+/* panel "Acted on": every metric opens the tip that moves it */
+.nx-act { display: grid; gap: 18px; }
+.nx-act__h, .nx-act__rows > li { display: grid; grid-template-columns: 56px minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.1fr); align-items: center; gap: 24px; }
+.nx-act__h { margin: 0; padding: 0 24px 0 14px; font: var(--w-head) 19px / 1.2 var(--font-ui); color: var(--ink-3); }
+.nx-act__rows { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.nx-act__rows > li { padding: 14px 24px 14px 14px; border-radius: 22px; background: var(--surface); box-shadow: 0 0 0 1px var(--line); }
+.nx-act__m { font: var(--w-head) 24px / 1.2 var(--font-ui); color: var(--ink); }
+.nx-act__w { font: var(--w-text) 23px / 1.3 var(--font-ui); color: var(--ink-2); }
+.nx-act__o { display: inline-flex; align-items: center; justify-self: start; gap: 8px; padding: 7px 15px 8px; border-radius: var(--r-pill); background: var(--color-secondary-50);
+  font: var(--w-medium) 21px / 1.2 var(--font-ui); color: var(--color-secondary-900); }
+.nx-act__o svg { flex: none; width: 18px; height: 18px; fill: none; stroke: var(--color-secondary-600); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.nx-act__o.is-host { background: var(--color-gray-100); color: var(--ink); }
+.nx-act__o.is-host svg { stroke: var(--ink-3); }
+}
+
+/* the roadmap's three cards: identical in size, the stage badge on the left with room under it, no halo outline (Antonio, 4 Oct) */
+.nx-road { align-items: stretch; }
+.nx-road .hc-feature { grid-template-rows: 1fr auto; }
+.nx-road .hc-feature__plate { place-items: start stretch; min-height: 0; padding: 30px 30px 32px; align-content: start; }
+.nx-road .hc-feature__plate > .hc-badge { position: static; transform: none; justify-self: start; margin-bottom: 26px; }
+.nx-road .hc-feature__halo { padding: 0; background: none; }
+.nx-road .hc-feature__halo > * { border-radius: 18px; box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent); }
+
+/* the key: every swatch centred on its word's line, one height for all four (Antonio, 4 Oct: "align") */
+.nx-key [data-k] { display: inline-flex; align-items: center; gap: 10px; line-height: 1; }
+.nx-key .nx-k { flex: none; vertical-align: middle; }
+.s-head > .nx-key { display: flex; align-items: center; }
+
+/* the Performance sketch drawn the product's way: weekly bars (grey before, the brand for each strategy), periods split by a line */
+.nx-sketch__d { margin: 0; font-size: var(--t-small); line-height: 1.4; color: var(--ink-3); max-width: 46ch; }
+.nx-sb--before { fill: var(--color-gray-300); }
+.nx-sb--s1 { fill: var(--color-primary-400); }
+.nx-sb--s2 { fill: var(--color-primary-600); }
+.nx-sb--wait { fill: none; stroke: var(--color-gray-300); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.nx-sk-c { transform: translateX(-50%); white-space: nowrap; }
+
+/* ── cl-thanks: the close, on the aubergine brand plate (4 Oct; kit/hc.css .hc-brand) ──────
+   One word, centred on the plate; the lockup on the plate's bottom inset; the marks at its corners. */
+@layer slides {
+.s[data-id="cl-thanks"] > .s-body { margin-bottom: 0; }
+.cl-thanks__art .hc-brand__plate { left: 0; right: 0; top: 0; bottom: 0; border-radius: 0; }   /* full screen; the enter grows it from the window (70-next.js) */
+.cl-thanks { justify-content: center; align-items: center; padding-bottom: 30px; }
+.cl-thanks .cl-thanks__t { font-size: 280px; letter-spacing: -0.05em; }
+.cl-thanks__ln { display: block; overflow: hidden; padding-bottom: 0.16em; margin-bottom: -0.16em; }
+.cl-thanks__ln > span { display: block; }
+.cl-thanks__lockup { position: absolute; left: 0; right: 0; bottom: 20px; width: max-content; margin-inline: auto; --lockup: 40px; }
+}

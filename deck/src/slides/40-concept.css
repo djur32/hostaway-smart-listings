@@ -1,0 +1,212 @@
+/* 40-concept · tokens only; classes prefixed cn-. Motion: 40-concept.js. */
+@layer slides {
+/* cn-principles · the seven as the product's own list card (.h-listcard > .h-listitem): an icon tile per principle for what it governs,
+   the product's pills for Rewritten / New, and number 3 as the product's highlighted row (the blush of a selected row), wiped in on its beat */
+.cn-pr { width: 100%; }
+.cn-pr__card { padding: 18px 28px 10px; }
+.cn-pr__card .h-listcard__title { margin-bottom: 4px; }
+.cn-pr__card .h-badge-count { background: var(--color-gray-100); color: var(--color-text-secondary); }
+.cn-pr__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px; margin: 0; padding: 0; list-style: none; }
+.cn-pr__list > .h-listitem { position: relative; padding: 13px 0; }
+.cn-pr__list > .h-listitem.is-key { grid-column: 1 / -1; }
+.cn-pr__list .h-listitem__text b { display: flex; align-items: baseline; gap: 10px; color: var(--color-text-strong); }
+.cn-pr__list .h-listitem__text > span { color: var(--color-text-secondary); }
+.cn-pr__n { flex: none; min-width: 12px; font-style: normal; font-weight: var(--font-weight-semibold); color: var(--color-text-muted); }
+.cn-pr__list > li > [data-beat] { flex: none; }
+.cn-pr__list > .is-ai .h-listitem__icon { background: var(--color-ai-surface); }
+.cn-pr__list > .is-ai .h-listitem__icon svg { color: var(--color-ai-sparkle); }
+/* the spine: blush plate behind the row (the product's selected row), the tile and number in the brand */
+.cn-pr__hl { position: absolute; inset: 0 -28px; border-radius: 0; background: var(--color-bg-brand-primary-secondary); transform-origin: 0 50%; }   /* full card width, no outline (4 Oct) */
+/* the highlighted row carries no divider lines above or below it */
+.cn-pr__list > .is-key, .cn-pr__list > .is-key + li, .cn-pr__list > .is-key + li + li { border-top-color: transparent; }
+.cn-pr__list > .is-key > :not(.cn-pr__hl) { position: relative; }
+.cn-pr__list > .is-key .h-listitem__icon { background: var(--color-primary-100); }
+.cn-pr__list > .is-key .h-listitem__icon svg { color: var(--color-primary-600); }
+.cn-pr__list > .is-key .cn-pr__n { color: var(--color-primary-600); }
+.cn-tag { justify-self: start; margin-left: 6px; padding: 5px 10px; border-radius: var(--r-pill); background: var(--plate-quiet); box-shadow: 0 0 0 1px var(--line); font: var(--w-medium) 15px / 1 var(--font-ui); color: var(--ink-3); white-space: nowrap; }
+.cn-tag.is-new { background: var(--pill-new-bg); box-shadow: 0 0 0 1px var(--pill-new-border); color: var(--accent-ink); }
+}
+
+@layer slides {
+/* ── the drawings: every mental model and every pattern as a small flat picture of the thing a host
+   works on (4 Oct, "visualised, created ad hoc for the deck"). One vocabulary for all nineteen:
+   white cards with a gray hairline, gray bars for words, the plate's tint for photos and the accent,
+   purple (secondary) only for what the AI proposes, red/green only for a tracked change. ── */
+.cn-g { display: block; width: 100%; height: auto; overflow: visible; }
+.cn-gk { fill: var(--bg); stroke: var(--color-gray-200); stroke-width: 1.2; }
+.cn-gb { fill: var(--plate-quiet); stroke: var(--color-gray-200); stroke-width: 1.2; }
+.cn-gs { fill: var(--plate-quiet); }
+.cn-gt { fill: var(--color-gray-300); }
+.cn-gu { fill: var(--color-gray-200); }
+.cn-gv { fill: var(--color-gray-100); }
+.cn-gw { fill: var(--bg); }
+.cn-gp { fill: var(--tint-halo); }
+.cn-ga { fill: var(--tint-line); }
+.cn-go { fill: none; stroke: var(--tint-line); stroke-width: 2.2; }
+.cn-gi { fill: var(--color-secondary-100); }
+.cn-gif { fill: var(--color-secondary-500); }
+.cn-gis { fill: none; stroke: var(--color-secondary-500); stroke-width: 2; stroke-linecap: round; }
+.cn-gl { fill: none; stroke: var(--color-gray-400); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.cn-gh { fill: none; stroke: var(--color-gray-200); stroke-width: 1.2; }
+.cn-gq { fill: var(--bg); stroke: var(--color-gray-300); stroke-width: 1.6; }
+.cn-gm { fill: none; stroke: var(--color-gray-400); stroke-width: 3; stroke-linecap: round; }
+.cn-gwk { fill: none; stroke: var(--bg); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cn-gd { fill: var(--color-error-100); }
+.cn-gx { fill: none; stroke: var(--color-error-500); stroke-width: 1.4; }
+.cn-gn { fill: var(--color-success-100); }
+.cn-gok { fill: var(--color-success-300); }
+.cn-gr { fill: none; stroke: var(--color-gray-100); stroke-width: 8; }
+.cn-gc { fill: none; stroke: var(--tint-line); stroke-width: 8; stroke-linecap: round; }
+.cn-gsp { fill: none; stroke: var(--tint-line); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.cn-gtr { fill: none; stroke: var(--color-gray-200); stroke-width: 4; stroke-linecap: round; }
+.cn-gtf { fill: none; stroke: var(--tint-line); stroke-width: 4; stroke-linecap: round; }
+.cn-gkn { fill: var(--bg); stroke: var(--tint-line); stroke-width: 2; }
+.cn-gptr { fill: var(--bg); stroke: var(--color-gray-200); stroke-width: 1.2; stroke-linejoin: round; }
+.cn-gc1 { fill: var(--color-primary-500); }
+.cn-gc2 { fill: var(--color-blue-600); }
+.cn-gc3 { fill: var(--color-gray-700); }
+
+/* cn-grid · seven mental models: a pastel plate with the model's primary object, its name, its metaphor.
+   The finalists' questions wait for the beat that loops them (40-concept.js). */
+.cn-models { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 30px; width: 100%; margin: 0; padding: 0; list-style: none; }
+.cn-model { position: relative; display: grid; grid-template-rows: auto auto auto 1fr; align-content: start; gap: 6px; }
+.cn-model__plate { display: grid; place-items: center; aspect-ratio: 200 / 168; margin-bottom: 14px; padding: 0 6%; border-radius: 26px; background: var(--tint-plate);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--tint-line) 10%, transparent); }
+.cn-model__n { margin: 0; font: var(--w-head) 27px / 1.12 var(--font-display); letter-spacing: -0.012em; color: var(--ink); }
+.cn-model__m { margin: 0; font-size: 21px; line-height: 1.32; color: var(--ink-3); text-wrap: pretty; }
+.cn-model__q { justify-self: start; align-self: end; margin: 12px 0 0; padding: 8px 14px; border-radius: var(--r-pill); background: var(--color-primary-50);
+  font: var(--w-head) 19px / 1.1 var(--font-ui); color: var(--accent-ink); white-space: nowrap; }
+
+/* cn-judged · twelve patterns: the same plates, six by two; a check on the plate's corner for what survived */
+.cn-pats { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 30px 22px; width: 100%; margin: 0; padding: 0; list-style: none; }
+.cn-pat { position: relative; display: grid; align-content: start; gap: 11px; }
+.cn-pat__plate { position: relative; display: grid; place-items: center; aspect-ratio: 240 / 146; margin-bottom: 12px; padding: 0 8%; border-radius: 24px; background: var(--tint-plate);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--tint-line) 10%, transparent); }
+.cn-pat__n { margin: 0; font: var(--w-head) 24px / 1.15 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
+.cn-pat__f { margin: 0; font: var(--w-medium) 18px / 1.3 var(--font-ui); color: var(--ink-3); white-space: nowrap; }
+.cn-pat__n > span { display: inline-block; }
+.cn-pat__plate > .cn-k { position: absolute; top: -10px; right: -10px; }
+/* the two marks: in the build (the kit's filled check) and a part of it (the same check, outlined) */
+.cn-k { display: inline-grid; place-items: center; flex: none; width: 38px; height: 38px; border-radius: 50%; background: var(--color-primary-700); box-shadow: 0 0 0 4px var(--bg); }
+.cn-k::before { content: ""; width: 14px; height: 7px; margin-top: -4px; border: solid var(--on-accent); border-width: 0 0 2.6px 2.6px; transform: rotate(-45deg); }
+.cn-k.is-part { background: var(--bg); box-shadow: inset 0 0 0 2.5px var(--color-primary-700), 0 0 0 4px var(--bg); }
+.cn-k.is-part::before { border-color: var(--color-primary-700); }
+.cn-legend .cn-k { width: 26px; height: 26px; box-shadow: none; }
+.cn-legend .cn-k::before { width: 10px; height: 5px; margin-top: -3px; border-width: 0 0 2px 2px; }
+.cn-legend .cn-k.is-part { box-shadow: inset 0 0 0 2px var(--color-primary-700); }
+
+/* cn-converge · what came from where: round one, round two, then the part of Smart Listings it became */
+.cn-from { display: grid; grid-template-columns: 270px minmax(0, 1fr) 520px; align-items: center; gap: 26px 24px; width: 100%; }
+.cn-from__h { margin: 0 0 -6px; font: var(--w-head) var(--t-label) / 1.2 var(--font-ui); letter-spacing: 0.02em; color: var(--ink-3); }
+.cn-from__h--to { color: var(--color-secondary-700); }
+/* the rounds as solid badges (Antonio, 4 Oct: "more prominent"): aubergine ink, white words; the result in the AI's lavender.
+   The same badge rides at the end of the eyebrow on cn-grid (round one) and cn-judged (round two). */
+.cn-round { display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: var(--r-pill); background: var(--color-sidebar-bg);
+  color: var(--color-text-white); font: var(--w-head) 19px / 1 var(--font-ui); letter-spacing: 0.01em; text-transform: none; white-space: nowrap; }
+.cn-round--to { background: var(--color-secondary-100); color: var(--ai-ink); }
+.cn-from__h:has(> .cn-round) { margin: 0 0 -2px; }
+.eyebrow > * + .cn-round:not(.prov):not(.hc-prov):not(.hc-id) { height: 32px; margin: -9px 0 -9px 18px; padding: 0 14px; font-size: 16px; letter-spacing: 0.02em; text-transform: uppercase; }
+.eyebrow > * + .cn-round:not(.prov):not(.hc-prov):not(.hc-id)::before { content: none; }
+.cn-from__c { display: flex; flex-wrap: wrap; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.cn-chip { display: inline-flex; align-items: center; gap: 12px; height: 58px; padding: 0 20px 0 7px; border-radius: 16px; background: var(--bg); box-shadow: 0 0 0 1px var(--line);
+  font: var(--w-medium) 21px / 1 var(--font-ui); color: var(--ink); white-space: nowrap; }
+.cn-chip__g { display: grid; place-items: center; flex: none; width: 62px; height: 44px; padding: 0 5px; border-radius: 10px; background: var(--tint-plate, var(--plate-quiet)); }
+.cn-from__mid { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.cn-from__mid > .cn-from__c { flex: none; }
+.cn-from__ln { position: relative; flex: 1 1 auto; min-width: 70px; height: 24px; }
+.cn-from__sh { position: absolute; left: 0; right: 4px; top: 11px; height: 2px; border-radius: 1px; background: var(--color-gray-400); }
+.cn-from__hd { position: absolute; right: 0; top: 0; width: 14px; height: 24px; overflow: visible; }
+.cn-from__hd path { fill: none; stroke: var(--color-gray-400); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cn-from__to { display: grid; grid-template-columns: 64px minmax(0, 1fr); column-gap: 20px; align-items: center; padding: 16px 26px 16px 16px; border-radius: 22px; background: var(--bg); box-shadow: 0 0 0 1px var(--line); }
+.cn-from__i { grid-row: 1 / span 2; display: grid; place-items: center; width: 64px; height: 64px; border-radius: 18px; background: var(--tint-plate); color: var(--tint-line); }
+.cn-from__i svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.cn-from__t { margin: 0; align-self: end; font: var(--w-head) 27px / 1.15 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
+.cn-from__d { margin: 2px 0 0; align-self: start; font-size: 20px; line-height: 1.3; color: var(--ink-3); }
+}
+
+@layer slides {
+/* ── details (the More card, 1728 × 624) ── */
+.cn-tile { display: grid; place-items: center; flex: none; width: 84px; height: 84px; border-radius: 24px; background: var(--tint-plate, var(--color-primary-100)); color: var(--tint-line, var(--color-primary-600));
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--tint-line, var(--color-primary-600)) 10%, transparent); }
+.cn-tile svg { width: 38px; height: 38px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.cn-src { display: flex; align-items: center; gap: 12px; margin: 0; font: var(--w-medium) 18px / 1.3 var(--font-ui); color: var(--ink-3); }
+
+/* cn-principles · where each rewrite came from: the table at reading size, the spine row on blush, the signal as the kit's meter */
+.cn-why { font-size: 24px; line-height: 1.35; }
+.cn-why th { font-size: 18px; padding-bottom: 14px; }
+.cn-why td { padding: 28px 22px 28px 0; vertical-align: middle; }
+.cn-why td:first-child { padding-left: 20px; font-weight: 400; color: var(--ink-2); }
+.cn-why th:first-child { padding-left: 20px; }
+.cn-why td:nth-child(3) { font-weight: var(--w-head); color: var(--ink); }
+.cn-why td:nth-child(4) { color: var(--ink-2); }
+.cn-why__to { width: 40px; padding-right: 14px !important; font: var(--w-medium) 26px / 1 var(--font-ui); color: var(--accent); }
+.cn-why .cn-why__none { color: var(--ink-3); }
+.cn-why tr.is-key td { background: var(--color-primary-50); }
+.cn-why tr.is-key td:first-child { border-radius: 16px 0 0 16px; }
+.cn-why tr.is-key td:last-child { border-radius: 0 16px 16px 0; }
+.cn-why .hc-signal { font-size: 20px; gap: 12px; }
+.cn-why .cn-tag { vertical-align: 3px; }
+.cn-why .hc-signal > span:last-child, .cn-floors__sig .hc-signal > span:last-child { display: none; }
+
+/* cn-principles · floors and choices: the seven as tiles, floors on blush */
+.cn-floors__lead { margin: 0; font: var(--w-medium) 32px / 1.3 var(--font-display); letter-spacing: -0.01em; color: var(--ink-2); text-wrap: balance; }
+.cn-floors__lead b { font-weight: var(--w-head); color: var(--color-sidebar-bg); }
+.cn-floors { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 16px; margin: 12px 0 0; padding: 0; list-style: none; }
+.cn-floors li { display: grid; grid-template-rows: auto 1fr auto; gap: 14px; min-height: 320px; padding: 24px 22px 22px; border-radius: 26px; background: var(--bg); box-shadow: 0 0 0 1px var(--line); }
+.cn-floors li.is-floor { background: var(--color-primary-100); box-shadow: none; }
+.cn-floors i { font: var(--w-head) 52px / 1 var(--font-display); font-style: normal; letter-spacing: -0.03em; color: var(--ink-3); }
+.cn-floors li.is-floor i { color: var(--accent-ink); }
+.cn-floors span { font: var(--w-head) 24px / 1.28 var(--font-display); color: var(--ink); text-wrap: pretty; }
+.cn-floors em { justify-self: start; padding: 7px 14px; border-radius: var(--r-pill); font: var(--w-head) 16px / 1 var(--font-ui); font-style: normal;
+  background: var(--plate-quiet); box-shadow: 0 0 0 1px var(--line); color: var(--ink-2); }
+.cn-floors li.is-floor em { background: var(--accent-ink); box-shadow: none; color: var(--on-accent); }
+.cn-floors__sig { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: 4px 0 0; font: var(--w-medium) 24px / 1.2 var(--font-ui); color: var(--ink-2); }
+.cn-floors__sig .hc-signal { font-size: 24px; }
+.cn-floors__sig .hc-signal:not(:nth-child(2)) { margin-left: 22px; }
+.cn-floors__k { font-weight: var(--w-head); color: var(--ink); margin-right: 6px; }
+
+/* cn-grid · the frames: seven directions (columns) × the three listing screens (rows), the finalists boxed */
+.cn-gridwrap { display: grid; gap: 22px; width: 100%; max-width: 1660px; margin: 0 auto; }
+.cn-grid { position: relative; display: grid; grid-template-columns: 170px repeat(7, minmax(0, 1fr)); gap: 12px 16px; align-items: center; width: 100%; }
+.cn-grid__s { margin: 0; font: var(--w-medium) 20px / 1.2 var(--font-ui); color: var(--ink-2); }
+.cn-grid__d { margin: 0; align-self: end; padding-bottom: 4px; }
+.cn-grid__d b { font: var(--w-head) 20px / 1.15 var(--font-ui); letter-spacing: -0.01em; color: var(--ink); }
+.cn-grid__d.is-pick b { color: var(--accent-ink); }
+.cn-grid img { display: block; width: 100%; aspect-ratio: 1200 / 760; object-fit: cover; object-position: top left; border-radius: 6px; box-shadow: 0 0 0 1px var(--line); background: var(--plate-quiet); }
+.cn-grid__pick { position: absolute; inset: -8px -7px; grid-row: 1 / 5; border-radius: 16px; box-shadow: 0 0 0 2.5px var(--color-primary-500); pointer-events: none; }
+.cn-grid__note { margin: 0; max-width: 80ch; font-size: 21px; line-height: 1.4; color: var(--ink-2); }
+
+/* cn-grid · the scores: two matrices on one grid, the chosen pair in raspberry on top, the other five quieter below */
+.cn-heat { gap: 6px; }
+.cn-heat .hc-chart { gap: 0; }
+.cn-heat__lead { margin: 0 0 18px; max-width: 58ch; font: var(--w-head) 30px / 1.25 var(--font-display); letter-spacing: -0.01em; color: var(--color-sidebar-bg); text-wrap: balance; }
+.cn-heat__rest .m-cell { fill: var(--data-2); }
+.cn-heat .t-axis { font-size: 19px; }
+.cn-heat__pair .t-axis { font-size: 20px; fill: var(--ink-2); }
+.cn-heat .t-label { font-size: 20px; }
+.cn-heat__pair .t-label { font-size: 21px; font-weight: var(--w-head); fill: var(--ink); }
+.cn-heat .m-cell-text { font-size: 19px; }
+
+
+/* cn-judged · same flow, same rules: the eight steps as a rail, the rules as tiles */
+.cn-flow__lead { margin: 0; font: var(--w-head) 32px / 1.25 var(--font-display); letter-spacing: -0.01em; color: var(--color-sidebar-bg); text-wrap: balance; }
+.cn-flow { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 0; margin: 26px 0 34px; padding: 0; list-style: none; }
+.cn-flow li { display: inline-flex; align-items: center; height: 50px; padding: 0 20px; border-radius: var(--r-pill); background: var(--plate-quiet); box-shadow: 0 0 0 1px var(--line);
+  font: var(--w-medium) 21px / 1 var(--font-ui); color: var(--ink); white-space: nowrap; }
+.cn-flow li + li { margin-left: 34px; position: relative; }
+.cn-flow li + li::before { content: ""; position: absolute; left: -27px; top: 50%; width: 20px; height: 2px; background: var(--color-gray-400); }
+.cn-rulez { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin: 0; padding: 0; list-style: none; }
+.cn-rulez li { display: grid; justify-items: start; gap: 20px; padding: 26px 26px 30px; border-radius: 28px; background: var(--bg); box-shadow: 0 0 0 1px var(--line); }
+.cn-rulez .cn-tile { width: 72px; height: 72px; border-radius: 22px; }
+.cn-rulez b { font: var(--w-head) 27px / 1.22 var(--font-display); letter-spacing: -0.01em; color: var(--ink); text-wrap: pretty; }
+
+/* cn-converge · the reviews, as three numbered steps; the last one on blush */
+.cn-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 0; padding: 0; list-style: none; }
+.cn-steps li { display: grid; align-content: start; gap: 16px; min-height: 360px; padding: 32px 32px 34px; border-radius: 30px; background: var(--bg); box-shadow: 0 0 0 1px var(--line); }
+.cn-steps li.is-key { background: var(--color-primary-100); box-shadow: none; }
+.cn-steps__n { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--color-sidebar-bg); color: var(--on-dark); font: var(--w-head) 24px / 1 var(--font-display); }
+.cn-steps li.is-key .cn-steps__n { background: var(--accent-ink); color: var(--on-accent); }
+.cn-steps__t { margin: 8px 0 0; font: var(--w-head) 32px / 1.2 var(--font-display); letter-spacing: -0.012em; color: var(--ink); text-wrap: balance; }
+.cn-steps__d { margin: 0; font-size: 24px; line-height: 1.4; color: var(--ink-2); text-wrap: pretty; }
+
+}

@@ -1,0 +1,106 @@
+/* 60-test · tokens only; classes prefixed tm-. */
+@layer slides {
+/* ── tm-test · the programme as a line of six studies; under each, the bar written before it runs ── */
+.tm-prog { display: grid; gap: 40px; }
+.tm-line { position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 22px; margin: 0; padding: 0; list-style: none; }
+/* the rail runs from the first dot's centre to the last one's */
+.tm-line .tm-line__rail { position: absolute; left: 42px; right: calc((100% - 110px) / 6 - 42px); top: 41px; height: 3px; border-radius: 2px; background: var(--line-2); }
+.tm-step { position: relative; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.tm-line__dot { display: grid; place-items: center; width: 84px; height: 84px; margin-bottom: 12px; border-radius: 26px; background: var(--tint-plate, var(--plate-quiet)); color: var(--tint-line, var(--ink-3));
+  box-shadow: 0 0 0 8px var(--bg); }
+.tm-line__dot svg { width: 38px; height: 38px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.tm-step.is-key .tm-line__dot { background: var(--accent); color: var(--on-accent); }
+.tm-step b { font: var(--w-head) 26px / 1.18 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
+.tm-step__d { margin-bottom: 22px; font-size: 20px; line-height: 1.38; color: var(--ink-3); text-wrap: pretty; }
+/* the bar: the step's tint, a target, the threshold; all six sit on one line (margin-top: auto) */
+.tm-bar { display: flex; align-items: center; gap: 10px; min-height: 92px; margin: auto 0 0; padding: 14px 18px; border-radius: 20px; background: var(--tint-plate);
+  font: var(--w-head) 21px / 1.3 var(--font-ui); color: var(--tint-title); text-wrap: pretty; }
+.tm-bar svg { flex: none; width: 24px; height: 24px; fill: none; stroke: var(--tint-ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.tm-note { display: flex; align-items: center; gap: 12px; margin: 0; font: var(--w-medium) 20px / 1.3 var(--font-ui); color: var(--ink-2); }
+.tm-note svg { flex: none; width: 24px; height: 24px; fill: none; stroke: var(--good-ink); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ── tm-measure · the KPI tree on the wall (Antonio, 4 Oct): the north star, then the five goals from op-goals as columns.
+   Each column reads down: the goal's plate and name, its KPI, the riskiest assumption it tests, the study that checks it.
+   Rows line up across the columns (subgrid); a label column names them once. ── */
+.tm-kt { display: grid; gap: 30px; }
+.tm-star { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 14px; }
+.tm-star__k { display: inline-flex; align-items: center; gap: 10px; width: 186px; margin: 0; font: var(--w-head) 20px / 1 var(--font-ui); color: var(--accent-ink); }
+.tm-star__k--trust { width: auto; margin-left: 26px; }
+.tm-star__k svg, .tm-star__by svg { flex: none; width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.tm-ns { display: inline-flex; align-items: baseline; gap: 14px; margin: 0; padding: 12px 26px 13px; border-radius: var(--r-pill); background: var(--color-sidebar-bg);
+  font: var(--w-head) 25px / 1.2 var(--font-ui); color: var(--on-dark); white-space: nowrap; }
+.tm-ns small { font: var(--w-medium) 18px / 1.2 var(--font-ui); color: var(--on-dark); }
+.tm-star__by { display: inline-flex; align-items: center; gap: 10px; margin: 0; font: var(--w-medium) 20px / 1.2 var(--font-ui); color: var(--ink-2); }
+.tm-star__by svg { color: var(--ink-3); }
+.tm-kgrid { display: grid; grid-template-columns: 186px repeat(5, minmax(0, 1fr)); grid-template-rows: auto auto auto auto auto; column-gap: 20px; }
+.tm-kgrid__l { grid-column: 1; align-self: center; margin: 0; font: var(--w-head) 18px / 1.2 var(--font-ui); color: var(--ink-3); }
+/* a goal card: the feature card's tinted plate (the icon top right, no badge tile; the number bottom left, Antonio 4 Oct), then three rows on white */
+.tm-goal { grid-row: 1 / span 5; display: grid; grid-template-rows: subgrid; min-width: 0; overflow: hidden; border-radius: 30px; background: var(--bg); box-shadow: inset 0 0 0 1.5px var(--line); }
+.tm-goal__plate { position: relative; display: flex; align-items: flex-end; min-height: 170px; padding: 0 24px 18px; background: var(--tint-plate); }
+.tm-goal__i { position: absolute; top: 20px; right: 20px; width: 44px; height: 44px; fill: none; stroke: var(--tint-line); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.tm-goal__v { margin: 0; font: var(--w-head) 84px / 0.9 var(--font-display); letter-spacing: -0.035em; color: var(--tint-ink, var(--ink)); font-variant-numeric: tabular-nums; }
+.tm-goal__v small { margin-left: 4px; font-size: 0.4em; letter-spacing: 0; }
+.tm-goal__t { align-self: start; margin: 0; padding: 20px 24px 6px; font: var(--w-head) 25px / 1.18 var(--font-display); letter-spacing: -0.012em; color: var(--ink); text-wrap: balance; }
+.tm-goal__kpi { align-self: center; margin: 0; padding: 4px 24px 14px; font-size: 20px; line-height: 1.32; color: var(--ink-2); text-wrap: pretty; }
+.tm-goal__bet, .tm-goal__test { display: flex; align-items: center; gap: 10px; margin: 0; padding: 14px 24px; border-top: 1.5px solid var(--line); font: var(--w-medium) 20px / 1.28 var(--font-ui); color: var(--ink); }
+.tm-goal__bet .hc-id { flex: none; }
+.tm-goal__bet.is-risk .hc-id { background: var(--accent-soft); border-color: transparent; color: var(--accent-ink); }   /* one of the three riskiest, dc-risks */
+.tm-goal__test { padding-bottom: 20px; color: var(--ink-2); }
+.tm-goal__test svg { flex: none; width: 22px; height: 22px; fill: none; stroke: var(--ink-3); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+/* guardrails: a row of chips (the KPI tree's detail) */
+.tm-guards { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.tm-guards__k { display: inline-flex; align-items: center; gap: 10px; width: 186px; margin: 0; font: var(--w-head) 20px / 1 var(--font-ui); color: var(--good-ink); }
+.tm-guards__k svg { flex: none; width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ── details (the More card, about 1728 × 640) ── */
+/* the KPI tree at card size: a bigger root, four branches at reading size, longer connectors */
+.tm-tree { margin: 0; gap: 64px; }
+.tm-tree .hc-tree__root { padding: 22px 52px 24px; border-radius: 28px; gap: 8px; }
+.tm-tree .hc-tree__root::after { height: 32px; }
+.tm-tree .hc-tree__row { gap: 22px; }
+.tm-tree .hc-tree__row::before { top: -32px; }
+.tm-tree .hc-tree__node { gap: 16px; padding: 28px 30px 32px; border-radius: 28px; }
+.tm-tree .hc-tree__node::before { height: 32px; }
+.tm-tree .hc-tree__k { font-size: 23px; }
+.tm-tree .hc-tree__v { font-size: 40px; letter-spacing: -0.02em; }
+.tm-tree ul { gap: 14px; }
+.tm-tree li { font-size: 23px; line-height: 1.3; }
+.tm-tree .hc-tree__k { display: flex; align-items: center; gap: 10px; }
+.tm-rank { display: inline-grid; place-items: center; flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--tint-ink, var(--accent)); font: var(--w-head) 17px / 1 var(--font-ui); color: var(--on-accent); }
+.tm-tree__t { display: flex; align-items: center; gap: 10px; margin: 6px 0 0; padding-top: 14px; border-top: 1.5px solid var(--tint-line, var(--line)); font: var(--w-medium) 21px / 1.25 var(--font-ui); color: var(--ink-2); }
+.tm-tree__t svg { flex: none; width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.more__panel > .tm-guards { margin-top: 10px; }
+/* what I would ask: four questions as cards, each with the part of the design it probes */
+.tm-probes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 0; padding: 0; list-style: none; }
+.tm-probes li { display: flex; align-items: center; gap: 26px; min-height: 236px; padding: 32px 36px 34px 30px; border-radius: 30px; background: var(--bg); box-shadow: 0 0 0 1px var(--line); }
+.tm-probes__k { margin: 0 0 10px; font: var(--w-head) 22px / 1.2 var(--font-ui); color: var(--tint-ink); }
+.tm-probes__q { margin: 0; font: var(--w-head) 30px / 1.28 var(--font-display); letter-spacing: -0.01em; color: var(--ink); text-wrap: pretty; }
+.tm-tile { display: grid; place-items: center; flex: none; width: 88px; height: 88px; border-radius: 26px; background: var(--tint-plate); color: var(--tint-line); }
+.tm-tile svg { width: 40px; height: 40px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+/* if a bar is missed: one row per step, the step, the miss as a chip in its tint, an arrow, what it decides */
+.tm-miss { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.tm-miss li { display: grid; grid-template-columns: 60px 270px 400px 32px minmax(0, 1fr); align-items: center; gap: 24px; padding: 12px 30px 12px 12px; border-radius: 24px; background: var(--bg); box-shadow: 0 0 0 1px var(--line); }
+.tm-miss .tm-tile { width: 60px; height: 60px; border-radius: 18px; }
+.tm-miss .tm-tile svg { width: 30px; height: 30px; }
+.tm-miss__s { font: var(--w-head) 25px / 1.2 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
+.tm-miss__bar { justify-self: start; padding: 9px 18px 10px; border-radius: var(--r-pill); background: var(--tint-plate); font: var(--w-head) 21px / 1.25 var(--font-ui); color: var(--tint-title); }
+.tm-miss__arrow { width: 30px; height: 30px; fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.tm-miss__do { font: var(--w-medium) 24px / 1.3 var(--font-ui); color: var(--ink); }
+/* the pre-mortem: what went wrong, the early signal as a chip, what I'd do; column heads over the rows */
+.tm-pm { display: grid; gap: 12px; }
+.tm-pm__h, .tm-pm__rows li { display: grid; grid-template-columns: 60px minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 26px; }
+.tm-pm__h { margin: 0; padding: 0 30px 0 12px; font: var(--w-head) 18px / 1.2 var(--font-ui); color: var(--ink-3); }
+.tm-pm__rows { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.tm-pm__rows li { padding: 14px 30px 14px 12px; border-radius: 24px; background: var(--bg); box-shadow: 0 0 0 1px var(--line); }
+.tm-pm__rows .tm-tile { width: 60px; height: 60px; border-radius: 18px; }
+.tm-pm__rows .tm-tile svg { width: 30px; height: 30px; }
+.tm-pm__w { font: var(--w-head) 25px / 1.22 var(--font-display); letter-spacing: -0.01em; color: var(--ink); text-wrap: pretty; }
+.tm-pm__sig { display: inline-flex; align-items: center; gap: 10px; justify-self: start; padding: 9px 18px 10px; border-radius: var(--r-pill); background: var(--tint-plate);
+  font: var(--w-medium) 20px / 1.25 var(--font-ui); color: var(--tint-title); }
+.tm-pm__sig svg { flex: none; width: 22px; height: 22px; fill: none; stroke: var(--tint-ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.tm-pm__do { font: var(--w-medium) 23px / 1.3 var(--font-ui); color: var(--ink); text-wrap: pretty; }
+
+/* the projection at card size: axis and series names at reading size */
+.tm-proj .t-axis { font-size: 19px; }
+.tm-proj .t-label { font-size: 22px; }
+}

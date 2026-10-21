@@ -1,0 +1,344 @@
+<!-- 00-open · the opening (3 Oct, night): Smart Listings, presented as a launch. The title steps through the concept,
+     one press of → per step (base, channels, strategy, accept, save), and ends on the mascot; then why it matters, what the brief asked and
+     what I added, my hypothesis, the idea, the shift, the goals, how I worked. Sources: plan/BRIEF.md (§3.4, §3.5),
+     research/current-state/heuristics.md (HE-02, HE-06), research/synthesis/personas.md and jtbd.md,
+     research/market/voc-bank.md (E-137), research/testing/goals.md, D-980. Goal strings from prototype/src/data/sl3.ts (GOALS). -->
+
+<section class="s" data-id="op-cover" data-title="Managing listings across channels" data-stage="0" data-part="open" data-path="S" data-angle="none" data-min="0.2" data-req="R-189" data-notion="hub" data-notion-page="hub" data-ground="white" data-chrome="none" data-cover="1" data-bookend>
+  <!-- op-cover (4 Oct): the opening, before the launch. Antonio: "a first slide … an intro for what I'm trying to do
+       here, covering what I'm going to show". Set like Hospitable's own marketing panels (research/references/
+       hospitable-marketing/brand-ad-simple.webp, brand-customers.png, brand-working-at.png): the aubergine brand
+       plate (kit/hc.css .hc-brand), big white words, marks at the plate's edges. A bookend: not counted against
+       the 50 (R-185). Motion (00-open.js): the plate settles, the lines rise out of their masks, the rings and
+       strokes draw, the blob and the dots scale in. -->
+  <div class="art art--full hc-brand op-cover__art" aria-hidden="true">
+    <div class="hc-brand__plate">
+      <i class="hc-brand__band" style="--x: 860px; --y: 110px; --w: 1500px; --h: 620px; --r: -28deg"></i>
+      <span class="hc-brand__at hc-doodle" data-doodle="ring" data-tone="purple" style="--x: 1420px; --y: -110px; --size: 300px" data-a="draw" data-at="0.3"></span>
+      <span class="hc-brand__at hc-doodle" data-doodle="ring" data-tone="purple" style="--x: 1640px; --y: 40px; --size: 230px" data-a="draw" data-at="0.42"></span>
+      <i class="hc-brand__at hc-blob" style="--x: 1650px; --y: 600px; --size: 380px"></i>
+      <span class="hc-brand__at hc-doodle" data-doodle="ring" data-tone="yellow" style="--x: 1300px; --y: 690px; --size: 260px" data-a="draw" data-at="0.55"></span>
+      <span class="hc-brand__at hc-doodle" data-doodle="strokes" data-tone="mint" style="--x: 1130px; --y: 700px; --size: 150px" data-a="draw" data-at="0.65"></span>
+      <i class="hc-brand__at hc-dot" data-tone="yellow" style="--x: 1290px; --y: 200px; --size: 14px"></i>
+      <i class="hc-brand__at hc-dot" data-tone="purple" style="--x: 1530px; --y: 430px; --size: 20px"></i>
+      <i class="hc-brand__at hc-dot" style="--x: 1360px; --y: 520px; --size: 14px"></i>
+      <i class="hc-brand__at hc-dot" data-tone="purple" style="--x: 940px; --y: 90px; --size: 10px"></i>
+    </div>
+  </div>
+  <div class="s-body op-cover">
+    <p class="hc-lockup op-cover__lockup"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#ch-hospitable"/></svg>hospitable</p>
+    <p class="hc-brand__k op-cover__k"><span class="op-ln"><span>Head of Design case study</span></span></p>
+    <h1 class="hc-brand__t op-cover__t"><span class="op-ln"><span>Managing listings</span></span><span class="op-ln"><span>across channels.</span></span></h1>
+    <p class="hc-brand__d op-cover__d"><span class="op-ln"><span>The case: how hosts keep one listing right on every channel today, what I found, and how I’d approach it and test it.</span></span></p>
+    <p class="op-cover__by"><span class="op-ln"><span>Antonio Silva</span></span></p>
+  </div>
+  <aside class="notes"><p>Hi, I’m Antonio Silva. This is my case study for Head of Design. It’s about managing one listing across every channel. I’ll show how hosts do it today, what I found, and how I’d approach it and test it. Then I’ll show what I did with that. About 10 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="op-title" data-title="Smart Listings" data-stage="0" data-part="open" data-path="S" data-angle="B" data-min="0.4" data-req="R-001 R-180 R-189" data-notion="hub" data-notion-page="hub" data-ground="white" data-chrome="min" data-cover="1">
+  <!-- The launch (3 Oct, night; reworked with Antonio's notes the same night). The feature's name, big, its promise as the
+       subtitle, one line of context; on the blush plate the concept story, one step per press of → (00-open.js):
+       entry  the words, then 1 edit each channel on its own (the base, then on → its channels fan out under the same
+       caption) · → 3 a strategy per channel · → 4 accept what helps · → 5 save once, then earn more · → the ending: an abstract calendar filling up and a line graph rising, the mascot cheering beside them.
+       Generic channels on purpose: it works for any channel. Nothing fades: pieces scale, slide, draw or rise out of a mask.
+       Every story piece rests hidden in the CSS, so motion off and print show the words and the calm ending only. -->
+  <div class="art art--full op-launch" data-tint="blush" aria-hidden="true">
+    <div class="op-launch__plate">
+      <div class="op-end op-cal"><p class="op-end__k"><i></i><i></i></p><div class="op-cal__g"><i></i><i></i><i class="is-on"><b></b></i><i></i><i></i><i></i><i></i><i></i><i class="is-on"><b></b></i><i></i><i></i><i class="is-on is-t"><b></b></i><i></i><i></i><i class="is-on is-t"><b></b></i><i></i><i></i><i class="is-on"><b></b></i><i></i><i class="is-on"><b></b></i><i></i><i></i><i class="is-on"><b></b></i><i class="is-on"><b></b></i><i></i><i class="is-on"><b></b></i><i></i><i class="is-on is-t"><b></b></i><i class="is-on"><b></b></i><i></i><i class="is-on"><b></b></i><i class="is-on is-t"><b></b></i><i></i><i class="is-on"><b></b></i><i class="is-on"><b></b></i></div></div>
+      <div class="op-end op-graph"><p class="op-end__k"><i></i><i></i></p>
+        <svg viewBox="0 0 342 226" aria-hidden="true">
+          <defs><clipPath id="op-graph-wipe"><rect class="op-graph__wipe" x="0" y="0" width="342" height="226"/></clipPath></defs>
+          <path class="op-graph__grid" d="M8 56H326M8 113H326M8 170H326"/>
+          <path class="op-graph__area" clip-path="url(#op-graph-wipe)" d="M8 198 C92 194 134 172 180 142 C234 106 268 58 326 36 L326 226 L8 226 Z"/>
+          <path class="op-graph__line" d="M8 198 C92 194 134 172 180 142 C234 106 268 58 326 36"/>
+          <circle class="op-graph__dot" cx="326" cy="36" r="11"/>
+        </svg>
+      </div>
+      <div class="op-launch__mascot"><div class="op-launch__bob"></div></div>
+
+      <div class="op-st op-caps">
+        <p class="op-cap"><b>1</b>Edit each channel on its own</p>
+        <p class="op-cap"><b>2</b>A strategy per channel</p>
+        <p class="op-cap"><b>3</b>Accept what helps</p>
+        <p class="op-cap"><b>4</b>Save once, then earn more</p>
+      </div>
+      <svg class="op-st op-wires" viewBox="0 0 1840 896" aria-hidden="true">
+        <path d="M1270 448 C1370 448 1350 277 1450 277"/>
+        <path d="M1270 448 C1370 448 1350 391 1450 391"/>
+        <path d="M1270 448 C1370 448 1350 505 1450 505"/>
+        <path d="M1270 448 C1370 448 1350 619 1450 619"/>
+      </svg>
+      <div class="op-st op-base">
+        <p class="op-base__k"><span class="op-base__tile"><svg><use href="#i-stack-2"/></svg></span><span><b>Base</b><small>Listing details, once</small></span></p>
+        <ul class="op-base__facts">
+          <li><svg><use href="#i-bed"/></svg><i style="--w: 62%"></i></li>
+          <li><svg><use href="#i-wifi"/></svg><i style="--w: 48%"></i></li>
+          <li><svg><use href="#i-map-pin"/></svg><i style="--w: 74%"></i></li>
+          <li><svg><use href="#i-bath"/></svg><i style="--w: 40%"></i></li>
+        </ul>
+      </div>
+      <div class="op-st op-row op-row--1" style="--y: 231px"><span class="op-ch"><span class="op-ch__m"><svg><use href="#i-home"/></svg></span><span class="op-ch__bars"><i></i><i></i></span></span><span class="op-goal"><svg><use href="#i-target"/></svg>Fill empty nights</span><span class="op-rec"><svg><use href="#i-sparkles"/></svg></span><span class="op-ok"><svg><use href="#i-check"/></svg></span></div>
+      <div class="op-st op-row op-row--2" style="--y: 345px"><span class="op-ch"><span class="op-ch__m"><svg><use href="#i-home"/></svg></span><span class="op-ch__bars"><i></i><i></i></span></span><span class="op-goal"><svg><use href="#i-target"/></svg>Earn more per booking</span><span class="op-rec"><svg><use href="#i-sparkles"/></svg></span><span class="op-ok"><svg><use href="#i-check"/></svg></span></div>
+      <div class="op-st op-row op-row--3" style="--y: 459px"><span class="op-ch"><span class="op-ch__m"><svg><use href="#i-home"/></svg></span><span class="op-ch__bars"><i></i><i></i></span></span><span class="op-goal"><svg><use href="#i-target"/></svg>Balance both</span><span class="op-rec"><svg><use href="#i-sparkles"/></svg></span><span class="op-ok"><svg><use href="#i-check"/></svg></span></div>
+      <div class="op-st op-row op-row--4" style="--y: 573px"><span class="op-ch"><span class="op-ch__m"><svg><use href="#i-home"/></svg></span><span class="op-ch__bars"><i></i><i></i></span></span><span class="op-goal"><svg><use href="#i-target"/></svg>Save me time</span><span class="op-rec"><svg><use href="#i-sparkles"/></svg></span><span class="op-ok"><svg><use href="#i-check"/></svg></span></div>
+      <p class="op-st op-receipt"><span class="hc-chip hc-chip--ok"><svg class="hc-chip__i"><use href="#i-circle-check"/></svg>Saved · Live on every channel</span></p>
+    </div>
+  </div>
+  <div class="s-body op-title">
+    <p class="op-title__new"><span class="hc-badge">Introducing</span></p>
+    <h1 class="display op-title__name"><span class="op-ln"><span>Smart Listings</span></span></h1>
+    <p class="op-title__sub"><span class="op-ln"><span>Set it once, earn more.</span></span><span class="op-ln op-title__earn"><span>On every channel.</span></span></p>
+    <p class="op-title__ctx"><span class="op-ln"><span>A new way to run every channel: you stay in control, work faster, and keep improving.</span></span></p>
+  </div>
+  <aside class="notes"><p>This is Smart Listings. What’s new is that you can edit each channel on its own. Your facts stay in one base. [Press] Every channel you sell on gets its own pages on top of it. [Press] Each channel gets its own strategy. Fill empty nights here, earn more per booking there. That is what Smart Listings is: each channel, optimised on its own. [Press] It recommends changes, backed by your own data. You accept what helps. [Press] You save once, and it’s live everywhere. [Press] Then you earn more. Your calendar fills and your earnings climb. You stay in control, you work faster, and you keep improving. About 25 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="op-burden" data-title="Keeping a listing good is a part-time job" data-stage="0" data-part="open" data-path="S" data-angle="B" data-min="0.9" data-req="R-001 R-008" data-notion="HE-02 HE-06 HS-21 E-137 00-brief" data-notion-page="00-brief" data-ground="white">
+  <!-- op-burden (3 Oct, night): Antonio's argument. No one size fits all: each channel has its own guests, competition
+       and rules, so each needs its own strategy; it costs every kind of host something different; and Hospitable today
+       manages the listing as one thing, in one crowded place. Entry: the channels · beat 1: the four hosts · beat 2:
+       Hospitable today, and the 321 votes. Sources: research/synthesis/personas.md (at a glance, P1 to P4),
+       research/market/channel-constraints.md (Booking.com writes its own description), research/market/voc-bank.md E-137,
+       the product audit (research/current-state/heuristics.md HE-02, HE-06). -->
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Intro</span><span>Why it matters</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Keeping a listing good on every channel is a part-time job</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Every channel has its own guests, competition and rules. Hospitable manages the listing as one thing, in one crowded place.</p>
+    <p class="op-ask op-ask--why" data-a="pop" data-beat="3" data-at="0.1">Set once, the listing drives revenue.<br><b>AI can keep tuning it.</b></p>
+  </header>
+  <div class="s-body">
+    <div class="op-burden">
+      <figure class="op-lanes" data-tint="blush" data-a="rise" data-at="0.2">
+        <p class="op-lanes__k">Guests look for<span class="hc-prov op-lanes__prov" data-prov="assumption"></span></p>
+        <ul class="op-lanes__l" data-a="stagger" data-at="0.32">
+          <li><svg aria-label="Airbnb"><use href="#ch-airbnb"/></svg><span>Vibe and photos</span></li>
+          <li><svg aria-label="Booking.com"><use href="#ch-booking"/></svg><span>Facts and amenities</span></li>
+          <li><svg aria-label="Vrbo"><use href="#ch-vrbo"/></svg><span>Space for families</span></li>
+        </ul>
+      </figure>
+      <figure class="op-span" data-a="rise" data-beat="1">
+        <figcaption class="op-span__k">Every kind of host</figcaption>
+        <div class="op-span__track">
+          <span class="op-span__line" data-a="grow" data-beat="1" data-at="0.1"></span>
+          <div class="op-pin op-pin--up" style="--at: 4%" data-a="pop" data-beat="1" data-at="0.25"><span class="hc-avatar" data-persona="P1">P1</span><b>Family host</b><span>Wants it to just work</span></div>
+          <div class="op-pin op-pin--down" style="--at: 30%" data-a="pop" data-beat="1" data-at="0.35"><span class="hc-avatar" data-persona="P4">P4</span><b>New to a PMS</b><span>Not sure what it’s for</span></div>
+          <div class="op-pin op-pin--up" style="--at: 62%" data-a="pop" data-beat="1" data-at="0.45"><span class="hc-avatar" data-persona="P2">P2</span><b>SEO optimiser</b><span>Tunes channels weekly</span></div>
+          <div class="op-pin op-pin--down" style="--at: 94%" data-a="pop" data-beat="1" data-at="0.55"><span class="hc-avatar" data-persona="P3">P3</span><b>Portfolio manager</b><span>Needs it at scale</span></div>
+        </div>
+      </figure>
+      <div class="op-now">
+        <p class="op-now__k" data-a="rise" data-beat="2">Hospitable today</p>
+        <p class="op-now__c hc-chips" data-a="stagger" data-beat="2" data-at="0.08">
+          <span class="hc-chip"><svg class="hc-chip__i"><use href="#i-layers-intersect"/></svg>No view per channel</span>
+          <span class="hc-chip"><svg class="hc-chip__i"><use href="#i-calendar"/></svg>Listing spread across screens</span>
+          <span class="hc-chip"><svg class="hc-chip__i"><use href="#i-copy"/></svg>Field-by-field edits</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><p>There is no one size fits all for channels. Guests behave differently on each one. They have different goals, different references and different competition. What guests look for on each channel is my assumption, not data yet, and the card says so. What is a fact: Booking.com writes its own description. So each channel needs its own strategy. [Press] And every kind of host matters. The family host just wants it to work. The newcomer is busy with everything else. They aren’t sure what the listing tools are for, or that the listing could be better at all. The optimiser tunes every channel every week. And the portfolio manager needs it at scale. One product has to serve all of them. [Press] Today there’s no view per channel. The listing is spread across screens, and tailoring a channel means editing field by field. [Press] And that matters. Once it’s set, the listing is what drives revenue. AI can keep tuning it. About 50 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="op-brief" data-title="The brief asked for an intelligent listing" data-stage="0" data-part="open" data-path="S" data-angle="B" data-min="0.6" data-req="R-001 R-008" data-notion="D-001 00-brief" data-notion-page="00-brief" data-ground="white">
+  <!-- op-brief (3 Oct, night): the brief's question, then what I added beyond it: recommendations across the whole listing
+       (listing, pricing, availability, booking policies), a strategy per channel, and an autopilot you can watch and measure.
+       Sources: plan/BRIEF.md §3.4, §3.5; D-980. -->
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Intro</span><span>The brief</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">The brief asked for an intelligent listing. I took it deeper.</h2>
+  </header>
+  <div class="s-body">
+    <div class="op-brief">
+      <figure class="op-brief__card" data-a="rise" data-at="0.2">
+        <figcaption class="op-brief__k">Where I started</figcaption>
+        <blockquote>What changes when each channel can be different, and how much control do hosts need?</blockquote>
+      </figure>
+      <figure class="op-brief__card op-brief__card--mine" data-tint="blush" data-a="rise" data-beat="1">
+        <p class="hc-badge">My spin</p>
+        <p class="op-spin__lead">I took the brief's question deeper:</p>
+        <ol class="op-spin" data-a="stagger" data-beat="1" data-at="0.15">
+          <li><p><b>From copy to strategy.</b> A view and a goal for every channel, not just words.</p></li>
+          <li><p><b>From the text to the whole listing.</b> Tips for pricing, availability and policies too, built on data.</p></li>
+          <li><p><b>You choose the autonomy.</b> Review every tip, or turn on an optional Autopilot inside your guardrails.</p></li>
+          <li><p><b>From launch to results.</b> Tracked over time, before and as it evolves.</p></li>
+        </ol>
+      </figure>
+    </div>
+  </div>
+  <aside class="notes"><p>I started from two questions. What does a listing look like when each channel can be different? And how much control do hosts need? Then I went deeper, in four ways. [Press] First, from copy to strategy. Every channel gets its own view and its own goal, not just new words. Second, from the text to the whole listing. The tips cover pricing, availability and booking policies too. They’re built on data: guests’ questions, the facts about the home, and similar homes. Third, and this matters most, you choose how much freedom it has. You can review every tip yourself. Or you can switch on an optional Autopilot that works inside your guardrails. You decide how much you stay in the loop. Fourth, from launch to results. Every strategy is tracked over time, against the weeks before it and week by week as it changes. So hosts keep what works. About 40 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="op-hypothesis" data-title="My hypothesis" data-stage="0" data-part="open" data-path="S" data-angle="B" data-min="0.4" data-req="R-001 R-116" data-notion="D-980 00-brief" data-notion-page="00-brief" data-ground="white">
+  <!-- op-hypothesis (3 Oct, night): what I want to prove, in my words, on a butter feature plate. Beat 1: how I'll know,
+       four proof points. They are not the five goals (op-goals); I come back to them when I show how I'd measure it. -->
+  <div class="s-body">
+    <div class="op-hyp" data-tint="butter">
+      <span class="op-hyp__bg" aria-hidden="true"></span>
+      <span class="hc-doodle op-hyp__d1" data-doodle="ring" data-tone="raspberry" data-a="draw" data-d="2" data-at="1.15"></span>
+      <span class="hc-doodle op-hyp__d2" data-doodle="strokes" data-tone="purple" data-a="draw" data-d="2" data-at="1.25"></span>
+      <p class="hc-badge" data-a="rise" data-at="0.8"><svg><use href="#i-bulb"/></svg>My hypothesis</p>
+      <h2 class="op-hyp__s" data-a="rise" data-at="0.9">If every channel gets its own strategy, and recommendations backed by data, listing management stops being a chore and becomes <span>Hospitable's competitive advantage.</span></h2>
+      <div class="op-hyp__proof">
+        <p class="op-hyp__k" data-a="rise" data-beat="1">It's true when</p>
+        <p class="hc-chips" data-a="stagger" data-beat="1" data-at="0.08">
+          <span class="hc-chip"><svg class="hc-chip__i"><use href="#i-clock"/></svg>Changes take less time</span>
+          <span class="hc-chip"><svg class="hc-chip__i"><use href="#i-shield-check"/></svg>Hosts trust what goes out</span>
+          <span class="hc-chip"><svg class="hc-chip__i"><use href="#i-thumb-up"/></svg>Hosts keep the tips</span>
+          <span class="hc-chip"><svg class="hc-chip__i"><use href="#i-trending-up"/></svg>More bookings on every channel</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <aside class="notes"><p>So here is what I want to prove. Give every channel its own strategy, and back the tips with data. Then listing management stops being a chore. It becomes Hospitable’s edge over its competitors. I’ll know it’s true when four things happen. Changes take less time. Hosts trust what goes out. They keep the tips they’re given. And each channel beats its own baseline. I come back to these four when I show how I’d measure it. About 25 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="op-idea" data-title="The idea: Smart Listings" data-stage="0" data-part="open" data-path="S" data-angle="B" data-min="0.9" data-req="R-005 R-006 R-116" data-notion="D-980 D-104 00-brief" data-notion-page="00-brief" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Intro</span><span>The idea</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Listings that manage themselves.<br>Hosts who stay in charge.</h2>
+  </header>
+  <div class="s-body">
+    <div class="hc-pillars hc-pillars--tiles" style="--n: 5" data-a="stagger" data-at="0.2" data-s="4">
+      <div class="hc-pillar"><span class="hc-pillar__i"><svg class="op-loop op-loop--stack" viewBox="0 0 64 64" aria-hidden="true"><path class="op-l3" d="M10 41 L32 52 L54 41"/><path class="op-l2" d="M10 32 L32 43 L54 32"/><path class="op-l1" d="M32 12 L54 23 L32 34 L10 23 Z"/></svg></span><p class="hc-pillar__t">One base</p><p class="hc-pillar__d">Facts about the home, written once. Each channel reads what it needs.</p></div>
+      <div class="hc-pillar"><span class="hc-pillar__i"><svg class="op-loop op-loop--target" viewBox="0 0 64 64" aria-hidden="true"><circle class="op-r3" cx="32" cy="32" r="22"/><circle class="op-r2" cx="32" cy="32" r="13"/><circle class="op-r1" cx="32" cy="32" r="4.5"/></svg></span><p class="hc-pillar__t">A strategy per channel</p><p class="hc-pillar__d">Every channel has its own guests and competition. Set a goal, an audience and guardrails for each one.</p></div>
+      <div class="hc-pillar"><span class="hc-pillar__i hc-pillar__i--ai"><svg class="op-loop op-loop--spark" viewBox="0 0 64 64" aria-hidden="true"><path class="op-s1" d="M24 18 C25.5 28 28 30.5 38 32 C28 33.5 25.5 36 24 46 C22.5 36 20 33.5 10 32 C20 30.5 22.5 28 24 18 Z"/><path class="op-s2" d="M46 8 C46.8 13 48 14.2 53 15 C48 15.8 46.8 17 46 22 C45.2 17 44 15.8 39 15 C44 14.2 45.2 13 46 8 Z"/><path class="op-s3" d="M47 40 C47.7 44.3 48.7 45.3 53 46 C48.7 46.7 47.7 47.7 47 52 C46.3 47.7 45.3 46.7 41 46 C45.3 45.3 46.3 44.3 47 40 Z"/></svg></span><p class="hc-pillar__t">Tips backed by data</p><p class="hc-pillar__d">Listing, pricing, availability and policies, each tip with its reason: guest questions, home facts, similar homes.</p></div>
+      <div class="hc-pillar"><span class="hc-pillar__i"><svg class="op-loop op-loop--sliders" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 18 H54 M10 32 H54 M10 46 H54"/><circle class="op-k1" cx="22" cy="18" r="5.5"/><circle class="op-k2" cx="40" cy="32" r="5.5"/><circle class="op-k3" cx="28" cy="46" r="5.5"/></svg></span><p class="hc-pillar__t">You stay in control</p><p class="hc-pillar__d">Review every tip, or turn on Autopilot inside your guardrails, and choose what it may touch. Money always asks first.</p></div>
+      <div class="hc-pillar"><span class="hc-pillar__i"><svg class="op-loop op-loop--chart" viewBox="0 0 64 64" aria-hidden="true"><path class="op-axis" d="M10 52 H54"/><path class="op-line" pathLength="1" d="M10 42 L21 31 L31 37 L43 20 L54 26"/><circle class="op-dot" cx="54" cy="26" r="3.5"/></svg></span><p class="hc-pillar__t">Measured</p><p class="hc-pillar__d">Each strategy tracked over time, from the weeks before it onwards.</p></div>
+    </div>
+  </div>
+  <!-- op-idea detail v4 (Antonio, 4 Oct): four cases, not three. The shared Summary reaches Direct as the Base, Airbnb as a
+       custom text and Booking.com not at all: Booking.com writes its own description, so the field there is read-only, captioned
+       "Booking.com only" beside a lock whose tooltip says why (prototype/src/data/sl3.ts, Summary: booking 'set'). The check-in
+       method has no Base: it exists only on Airbnb, editable there. -->
+  <template class="more" data-more="field" data-title="One field, four cases" data-label="One field">
+    <div class="more__panel" data-title="How a field reaches each channel">
+      <p class="op-field__lead">Every field reaches each channel in one of four ways.</p>
+      <div class="op-tree">
+        <div class="op-tree__src op-tree__src--a" data-a="rise"><p class="op-tree__k">Listing base · shared</p><p class="op-tree__name">Summary</p><p class="op-tree__v">“A sunny two-room flat full of original paintings…”</p></div>
+        <div class="op-tree__src op-tree__src--b" data-a="rise" data-at="0.15"><p class="op-tree__k">No Base</p><p class="op-tree__name">Check-in method</p></div>
+        <div class="op-tree__fork"><svg class="op-tree__wire" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50 H50 M50 15 V85 M50 15 H100 M50 50 H100 M50 85 H100" vector-effect="non-scaling-stroke"/></svg></div>
+        <div class="op-tree__solo"><svg class="op-tree__wire" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50 H100" vector-effect="non-scaling-stroke"/></svg></div>
+        <div class="op-tree__row op-tree__row--1" data-a="rise" data-at="0.35"><span class="op-tree__n">1</span><span class="op-tree__ch"><svg class="h-mark h-mark--badge h-mark--hospitable op-tree__mk" viewBox="0 0 24 24" role="img" aria-label="Direct"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-hospitable" width="24" height="24"/></svg>Direct</span><span class="op-tree__tag op-tree__tag--base"><svg><use href="#i-arrow-back-up"/></svg>Uses the Base</span><span class="op-tree__d">Shown as written, follows the Base.</span></div>
+        <div class="op-tree__row op-tree__row--2" data-a="rise" data-at="0.55"><span class="op-tree__n">2</span><span class="op-tree__ch"><svg class="h-mark h-mark--badge h-mark--airbnb op-tree__mk" viewBox="0 0 24 24" role="img" aria-label="Airbnb"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-airbnb" width="24" height="24"/></svg>Airbnb</span><span class="op-tree__tag op-tree__tag--own"><svg><use href="#i-git-compare"/></svg>Custom for Airbnb</span><span class="op-tree__d">Tuned for its guests. One click back to the Base.</span></div>
+        <div class="op-tree__row op-tree__row--3" data-a="rise" data-at="0.75"><span class="op-tree__n">3</span><span class="op-tree__ch"><svg class="h-mark h-mark--badge h-mark--booking op-tree__mk" viewBox="0 0 24 24" role="img" aria-label="Booking.com"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-booking" width="24" height="24"/></svg>Booking.com</span><span class="op-tree__tag op-tree__tag--set"><svg><use href="#i-lock"/></svg>Booking.com only</span><span class="op-tree__d">Booking.com writes it. Read-only, the reason on hover.</span></div>
+        <div class="op-tree__row op-tree__row--4" data-a="rise" data-at="0.95"><span class="op-tree__n">4</span><span class="op-tree__ch"><svg class="h-mark h-mark--badge h-mark--airbnb op-tree__mk" viewBox="0 0 24 24" role="img" aria-label="Airbnb"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-airbnb" width="24" height="24"/></svg>Airbnb</span><span class="op-tree__tag op-tree__tag--solo"><svg><use href="#i-pencil"/></svg>Airbnb only</span><span class="op-tree__d">Only on its page, and editable there.</span></div>
+      </div>
+      <div class="op-vis" data-a="rise" data-at="1.15">
+        <div class="op-vis__t"><b>Field visibility</b><span>How shared fields appear on each channel's pages.</span></div>
+        <div class="op-vis__seg" role="group" aria-label="Field visibility"><span>Show</span><span class="is-on">Edit</span><span>Don't show</span></div>
+      </div>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span class="more-link" data-more="field">One field, four cases</span></p></div>
+  <aside class="notes"><p>Smart Listings rests on five ideas. First, one base. The facts about the home are written once, and each channel reads what it needs. Second, a strategy per channel. Every channel has its own guests and its own competition, so each gets a goal, an audience and guardrails. Third, tips backed by data. Not just for the text, but for pricing, availability and booking policies too, each with its reason. Fourth, control stays with the host. They review every tip, or turn on Autopilot inside their guardrails, and choose what it may touch. Anything that changes money always asks first. Fifth, every strategy is tracked over time, against the weeks before it and as it changes. So the host can see what works. About 40 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="op-shift" data-title="From managing fields to managing outcomes" data-stage="0" data-part="open" data-path="S" data-angle="B" data-min="0.8" data-req="R-116 R-166" data-notion="HE-02 HE-06 HE-08 D-980 00-brief" data-notion-page="00-brief" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Intro</span><span>The shift</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">From managing fields to managing outcomes</h2>
+    <p class="hc-msg op-shift__msg" data-a="rise" data-at="0.12">Today, a host edits field by field and hopes it works.<br>With Smart Listings, they set a goal and AI helps them reach it.</p>
+  </header>
+  <div class="s-body">
+    <div class="hc-compare op-compare" style="--n: 2; --label-w: 260px">
+      <span class="hc-compare__h"></span>
+      <span class="hc-compare__h" data-a="rise" data-at="0.18">Today</span>
+      <span class="hc-compare__h is-hi" data-a="rise" data-beat="1" data-at="0.05"><svg><use href="#ch-hospitable"/></svg>With Smart Listings</span>
+      <span class="hc-compare__l" data-a="rise" data-at="0.24">The listing</span>
+      <span class="hc-compare__c" data-a="rise" data-at="0.28"><i class="hc-x"></i>One editor for everything, in one place</span>
+      <span class="hc-compare__c is-hi" data-a="rise" data-beat="1" data-at="0.15"><i class="hc-check"></i>One Base, and a view per channel</span>
+      <span class="hc-compare__l" data-a="rise" data-at="0.32">Strategy</span>
+      <span class="hc-compare__c" data-a="rise" data-at="0.36"><i class="hc-x"></i>One copy, overrides scattered</span>
+      <span class="hc-compare__c is-hi" data-a="rise" data-beat="1" data-at="0.23"><i class="hc-check"></i>A goal and an audience for each channel</span>
+      <span class="hc-compare__l" data-a="rise" data-at="0.40">Recommendations</span>
+      <span class="hc-compare__c" data-a="rise" data-at="0.44"><i class="hc-x"></i>Improving it is guesswork</span>
+      <span class="hc-compare__c is-hi" data-a="rise" data-beat="1" data-at="0.31"><i class="hc-check"></i>AI in every tip, for listing, pricing and policies, with its reason</span>
+      <span class="hc-compare__l" data-a="rise" data-at="0.48">Control</span>
+      <span class="hc-compare__c" data-a="rise" data-at="0.52"><i class="hc-x"></i>Every change is manual</span>
+      <span class="hc-compare__c is-hi" data-a="rise" data-beat="1" data-at="0.39"><i class="hc-check"></i>Review every tip, or turn on an optional Autopilot</span>
+      <span class="hc-compare__l" data-a="rise" data-at="0.56">Context</span>
+      <span class="hc-compare__c" data-a="rise" data-at="0.60"><i class="hc-x"></i>No before, no after</span>
+      <span class="hc-compare__c is-hi is-end" data-a="rise" data-beat="1" data-at="0.47"><i class="hc-check"></i>Tracked over time, before and as it evolves</span>
+    </div>
+  </div>
+  <div class="s-foot"><p class="hc-src"><span class="hc-prov" data-prov="product"></span><span>Product audit</span></p></div>
+  <aside class="notes"><p>Today the unit of work is a field. The host has one editor for everything, all in one place, and that makes it hard to read. There’s one copy, with overrides scattered field by field. Improving the listing is guesswork. Every change is manual. Nothing shows what it was like before, or whether it worked. [Press] Smart Listings makes the unit of work an outcome. One Base, and a view per channel. A goal and an audience for each channel. AI in every tip, for the listing, pricing, availability and policies, each with its reason. The host chooses how much the AI does, from reviewing every tip to an optional Autopilot. And every strategy is tracked over time, so hosts can see what improved. About 45 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="op-goals" data-title="What success looks like" data-stage="0" data-part="open" data-path="S" data-angle="B" data-min="0.9" data-req="R-019 R-171 R-172" data-notion="D-990 D-991 06-test-measure" data-notion-page="06-test-measure" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Intro</span><span>Goals</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">What success looks like for Smart Listings</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Five goals, each with the metric I'd track and where I'd expect it 30 and 90 days after launch.</p>
+  </header>
+  <div class="s-body">
+    <div class="op-goals">
+      <div class="op-g op-g--h" data-a="fade" data-at="0.18"><span></span><span>Goal</span><span>What I’d measure</span><span>Today</span><span>30 days</span><span>90 days</span></div>
+        <div class="op-g" data-a="rise" data-at="0.25"><span class="op-g__i"><svg><use href="#i-trending-up"/></svg></span><b class="op-g__n">More bookings and requests</b><span class="op-g__m">Bookings and booking requests per listing, against its own weeks before, from the bookings Hospitable already has</span><span class="op-g__v op-g__v--now">Baseline</span><span class="op-g__v">+5%</span><span class="op-g__v op-g__v--key">+7%</span></div>
+        <div class="op-g" data-a="rise" data-at="0.35"><span class="op-g__i"><svg><use href="#i-rocket"/></svg></span><b class="op-g__n">Hosts adopt it</b><span class="op-g__m">Eligible properties with a strategy on at least one channel</span><span class="op-g__v op-g__v--now">New</span><span class="op-g__v">10%</span><span class="op-g__v op-g__v--key">25%</span></div>
+        <div class="op-g" data-a="rise" data-at="0.45"><span class="op-g__i"><svg><use href="#i-refresh"/></svg></span><b class="op-g__n">Hosts keep refining</b><span class="op-g__m">Adopters who act on a tip in the month</span><span class="op-g__v op-g__v--now">New</span><span class="op-g__v">60%</span><span class="op-g__v op-g__v--key">50%</span></div>
+        <div class="op-g" data-a="rise" data-at="0.55"><span class="op-g__i op-g__i--ai"><svg><use href="#i-sparkles"/></svg></span><b class="op-g__n">Tips earn their place</b><span class="op-g__m">Tips accepted, out of tips shown</span><span class="op-g__v op-g__v--now">New</span><span class="op-g__v">30%</span><span class="op-g__v op-g__v--key">40%</span></div>
+        <div class="op-g" data-a="rise" data-at="0.65"><span class="op-g__i"><svg><use href="#i-heart-handshake"/></svg></span><b class="op-g__n">Fewer losses, less support</b><span class="op-g__m">Listing and sync tickets per 100 properties</span><span class="op-g__v op-g__v--now">Baseline</span><span class="op-g__v">−5%</span><span class="op-g__v op-g__v--key">−10%</span></div>
+    </div>
+  </div>
+  <template class="more" data-more="how" data-title="How I set these targets" data-label="How I set them">
+    <div class="more__panel" data-title="The reasoning">
+      <div class="hc-pillars" style="--n: 4; row-gap: 40px; column-gap: 88px" data-a="stagger" data-s="1.6">
+        <div class="hc-pillar"><span class="hc-pillar__i"><svg><use href="#i-trending-up"/></svg></span><p class="hc-pillar__t">More bookings</p><p class="body">Hospitable already has every booking and request per listing, so the baseline is its own weeks before. Season moves numbers, so the bar stays modest: +5%, then +7%.</p></div>
+        <div class="hc-pillar"><span class="hc-pillar__i"><svg><use href="#i-users"/></svg></span><p class="hc-pillar__t">Adoption</p><p class="body">The plan sets 35% of eligible properties at six months. 10% and 25% are the steps.</p></div>
+        <div class="hc-pillar"><span class="hc-pillar__i hc-pillar__i--ai"><svg><use href="#i-sparkles"/></svg></span><p class="hc-pillar__t">Refining and tips</p><p class="body">New behaviours: assumptions until the pilot. A third of tips accepted at first, rising to 40% as tips learn what hosts keep.</p></div>
+        <div class="hc-pillar"><span class="hc-pillar__i"><svg><use href="#i-message-circle"/></svg></span><p class="hc-pillar__t">Support</p><p class="body">Tickets lag about two months: 5% fewer at first, 10% by 90 days.</p></div>
+      </div>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span class="hc-prov" data-prov="projected"></span><span>Targets at 30 and 90 days, set before any data. The pilot sets the real ones</span><span class="more-link" data-more="how">How I set them</span></p></div>
+  <aside class="notes"><p>Here is what I want to move, and how I’d know. First, more bookings and booking requests per listing, against its own weeks before. Hospitable already has that data. I’d expect a modest 5% after 30 days and 7% after 90. I know the season moves these numbers. Second, adoption: eligible properties with a strategy on at least one channel. 10%, then 25%, on the way to a third at six months. Third, hosts keep improving: of the hosts who turned it on, how many act on a tip each month. Fourth, tips earn their place: 30% accepted at first, 40% by 90 days. And under all of it, fewer listing and sync tickets per hundred properties. I don’t have Hospitable’s data, so every target here is an assumption. The pilot sets the real ones. About 50 seconds.</p></aside>
+</section>
+
+<!-- op-how (3 Oct, night; Antonio: "way too much information… rewire it and make it more dynamic"): one slide that plays as two.
+     Part 1 · the process I'd run: entry shows the six stages; beat 1 brings each stage's methods (five at most), marked done, sampled or planned.
+     Part 2 · how I'd agentify it: beat 2 slides the matrix away and rolls the headline; beats 2 to 4 draw the flow two stages at a time:
+     what goes in → one of my skills → a gate where I decide → what comes out. A raspberry line through every gate: the human in the loop.
+     Marks (4 Oct, plan/notion-v2/deck-review/DECISIONS.md §23, §26): the deck's words, produced = Done, sampled = Sampled, planned = Planned.
+     Written desk outputs are Done (Goals and KPIs, Roadmapping, Second-order effects, Kill criteria); every test of the design is Planned
+     (no simulated test results are shown); Data analysis sits in Discovery and Desk research in Research, as dc-signals, rs-channels and rs-market do.
+     Skills: named as on digimal.studio/ai ("The loop", "The skills"), placed as the process deck places them. Both parts are drawn by 00-open.js from the JSON below. -->
+<section class="s" data-id="op-how" data-title="The process, and how I'd agentify it" data-stage="0" data-part="open" data-path="St" data-angle="none" data-min="1" data-req="R-035 R-010 R-037" data-notion="D-003 D-043 99-process" data-notion-page="99-process" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Intro</span><span><span class="op-roll"><span class="op-roll__a">Process</span><span class="op-roll__b">With AI</span></span></span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05"><span class="op-roll"><span class="op-roll__a">The process I'd run</span><span class="op-roll__b">How I'd agentify it</span></span></h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12"><span class="op-roll"><span class="op-roll__a">I ran what I could reach, sampled what needed hosts, and planned the rest.</span><span class="op-roll__b">Agents read and make at every stage. At every gate, I decide.</span></span></p>
+    <p class="s-legend op-key" aria-label="Legend"><span class="hc-mark" data-mark="produced">Done</span><span class="hc-mark" data-mark="sampled"></span><span class="hc-mark" data-mark="planned"></span></p>
+  </header>
+  <div class="s-body">
+    <div class="op-stage">
+      <figure class="op-proc" aria-label="The process: six stages and their methods, each marked done, sampled or planned">
+        <script type="application/json">{
+          "stages": [
+            { "name": "Discovery", "icon": "i-search", "methods": [["Product audit", "produced"], ["Desk research", "produced"], ["Assumption mapping", "produced"], ["Stakeholder interviews", "planned"]] },
+            { "name": "Research", "icon": "i-users", "methods": [["User interviews", "sampled"], ["Data analysis", "sampled"], ["Tree testing", "sampled"]] },
+            { "name": "Concept", "icon": "i-bulb", "methods": [["Divergent ideation", "produced"], ["Pattern references", "produced"], ["Weighted scoring", "produced"], ["Concept testing", "sampled"]] },
+            { "name": "Design", "icon": "i-palette", "methods": [["Prototyping in code", "produced"], ["Design reviews", "produced"], ["Responsive design", "produced"], ["Accessibility review", "planned"]] },
+            { "name": "Testing", "icon": "i-clipboard-check", "methods": [["Benchmark test", "planned"], ["Usability testing", "planned"], ["A/B testing", "planned"]] },
+            { "name": "Next steps", "icon": "i-rocket", "methods": [["Systems mapping", "planned"], ["Roadmapping", "planned"], ["Pilot", "planned"], ["Staged rollout", "planned"]] }
+          ]
+        }</script>
+      </figure>
+      <figure class="op-flow" aria-label="How I'd agentify it: at each stage, what goes in, the skill that does the work, the question I decide, and what comes out">
+        <script type="application/json">{
+          "heads": ["What goes in", "The skill", "Me", "What comes out"],
+          "rows": [
+            { "stage": "Discovery", "in": ["Open questions", "The product today"], "skill": "study-brief", "ask": "Which hypotheses matter?", "out": "A study plan" },
+            { "stage": "Research", "in": ["Host calls", "CS tickets"], "skill": "interview-digest", "ask": "A pattern, or a loud few?", "out": "Insights" },
+            { "stage": "Concept", "in": ["Insights", "Today's screen"], "skill": "concept-explore", "ask": "Which direction?", "out": "One direction" },
+            { "stage": "Design", "in": ["The direction", "Design system"], "skill": "system-swap", "ask": "Does the system hold?", "out": "A coded prototype" },
+            { "stage": "Testing", "in": ["Session recordings", "Transcripts"], "skill": "validation-digest", "ask": "What does the finding mean?", "out": "Fixes, by evidence" },
+            { "stage": "Next steps", "in": ["Running build", "The prototype"], "skill": "design-drift", "ask": "What ships?", "out": "A staged rollout" }
+          ]
+        }</script>
+      </figure>
+    </div>
+  </div>
+  <aside class="notes"><p>Two parts. First, the process I’d run. These are the six stages, with the methods under each. Done is what I did here. The product audit and heuristic evaluation. Desk research on channels and competitors. Seven directions on a weighted matrix. The prototype in code, reviewed round after round. The design system. And the goals, roadmap and kill criteria, written out. Sampled is a labelled stand-in. I had no access to hosts. So I sampled five interviews and the support data, to see what the main issues might be. The concept rests on those, and on what I could see for real. Planned is what I’d run with real access: every test of the design, the pilot and the rollout. Second, how I’d run it with AI agents. At each stage, something goes in. One of my skills does the reading or the making. Then there’s a gate where I decide. Which hypotheses matter. Whether it’s a pattern or a loud few. Which direction. Whether the system holds. What a finding means. And what ships. The agents carry the work. The decisions stay mine. About a minute.</p></aside>
+</section>
+

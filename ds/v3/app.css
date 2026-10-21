@@ -1,0 +1,145 @@
+/* ═══════════════════════  APP MODE · spec ds/mobile.md "App mode" · code prototype/src/app/**  ═══════════════════════
+   Loaded only in app mode (VITE_APP_MODE=mobile, or /app): prototype/src/app/index.ts imports it, behind a dynamic import
+   in main.tsx, so the website never ships these rules. Everything is scoped to html.is-app (the app) or html.is-app-stage
+   (the desktop page that draws the phone). Tokens only. Motion: ds/motion.md tokens; no new curves. */
+
+:root.is-app {
+  --app-push-dur: var(--dur-3);          /* push / pop: 300ms, the panel duration (M-01) */
+  --app-push-ease: var(--ease-drawer);   /* the drawer curve: fast start, long settle, like UIKit's navigation push */
+  --app-parallax: -30%;                  /* the page underneath drifts a third of the width (UINavigationController) */
+  --app-dim: brightness(.94);            /* and dims a touch while covered */
+  --app-edge: 16px;                      /* the swipe-back strip = the content gutter, so it covers nothing tappable */
+}
+/* Inside the desktop device frame: the frame draws a 47px status bar and a 34px home indicator over the app */
+:root.is-app[data-app-frame="true"] { --m-safe-top: 47px; --m-safe-bottom: 34px; }
+
+/* ---------- A1 · the document behaves like an app, not a page ---------- */
+.is-app, .is-app body { overscroll-behavior: none; }                  /* no rubber-band of the whole document, no pull-to-refresh */
+.is-app body { touch-action: manipulation; -webkit-tap-highlight-color: transparent; -webkit-text-size-adjust: 100%; } /* no 300ms delay, no grey flash */
+.is-app #root { box-sizing: border-box; padding-top: var(--m-safe-top); background: var(--color-surface-primary); }
+/* every scroller: momentum, and its overscroll stays inside it (never chains to the page or the shell) */
+.is-app :is(.h-content, .ch-editor, .ch-canvas, .h-split, .h-m-sheet__body, .h-m-drawer__body) { -webkit-overflow-scrolling: touch; overscroll-behavior-y: contain; }
+/* chrome isn't text: no selection or callout on long-press */
+.is-app :is(.h-m-tabbar, .h-m-compactbar, .h-m-head__titlerow, .h-m-actionbar, .h-m-sheet__grip, .h-m-sheet__head, .h-btn, .h-tabs, .app-edge) { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+
+/* ---------- A1 · press states (touch has no hover: every control answers the finger) ---------- */
+.is-app :is(.h-btn, .h-m-more, .h-close, .h-switcher, .h-segmented button, .h-chip, .h-ov-menu__sheetitem) {
+  transition: transform var(--dur-1) var(--ease-standard), opacity var(--dur-1) var(--ease-standard), background-color var(--dur-1) var(--ease-standard), border-color var(--dur-1) var(--ease-standard), color var(--dur-1) var(--ease-standard);
+}
+.is-app :is(.h-btn, .h-m-more, .h-close, .h-switcher, .h-segmented button, .h-chip):active:not(:disabled) { transform: scale(.97); opacity: .8; }
+.is-app .h-m-tabbar__icon { transition: transform var(--dur-1) var(--ease-standard); }
+.is-app .h-m-tabbar__item:not(.is-inert):active .h-m-tabbar__icon { transform: scale(.88); }
+/* rows highlight instead of shrinking (UITableView) */
+.is-app :is(.h-chnav__item, .h-chnav__child, .h-m-menu__item:not(.is-inert), .h-ov-menu__sheetitem, .h-subnav__back:not(.is-inert)):active { background: var(--color-gray-100); }
+.is-app [role="tab"]:active { opacity: .6; }
+
+/* ---------- A3 · push / pop page transitions (View Transitions API; nav.ts writes html[data-nav]) ---------- */
+/* What moves: the shell's page column, or the whole app for full-page flows. The tab bar never moves. */
+.is-app .p-frame > .h-app { view-transition-name: app-page; background: var(--color-surface-primary); } /* opaque: the snapshot covers the page under it */
+.is-app #root:not(:has(.p-frame)) { view-transition-name: app-page; }
+.is-app .h-m-tabbar { view-transition-name: app-tabbar; }
+.is-app .h-m-actionbar:not(.is-empty) { view-transition-name: app-actionbar; }
+
+.is-app::view-transition-old(root), .is-app::view-transition-new(root) { animation-duration: var(--dur-2); }
+.is-app::view-transition-group(app-tabbar), .is-app::view-transition-old(app-tabbar), .is-app::view-transition-new(app-tabbar) { animation: none; }
+.is-app::view-transition-old(app-tabbar) { opacity: 0; }
+.is-app::view-transition-image-pair(app-page) { isolation: auto; }
+.is-app::view-transition-old(app-page), .is-app::view-transition-new(app-page) { mix-blend-mode: normal; animation-duration: var(--app-push-dur); animation-timing-function: var(--app-push-ease); animation-fill-mode: both; }
+
+/* push: the new page comes in from the right, over the old one, which drifts left and dims */
+.is-app[data-nav="push"]::view-transition-old(app-page) { animation-name: app-vt-under-out; }
+.is-app[data-nav="push"]::view-transition-new(app-page) { animation-name: app-vt-over-in; box-shadow: var(--elevation-modal); }
+/* pop: the reverse — the current page slides off to the right, on top; the previous one comes back from the left */
+.is-app[data-nav="pop"]::view-transition-old(app-page) { animation-name: app-vt-over-out; z-index: 1; box-shadow: var(--elevation-modal); }
+.is-app[data-nav="pop"]::view-transition-new(app-page) { animation-name: app-vt-under-in; }
+/* fade: lateral moves (tab bar, Sections sheet) */
+.is-app[data-nav="fade"]::view-transition-old(app-page) { animation: app-fade-out var(--dur-2) var(--ease-exit) both; }
+.is-app[data-nav="fade"]::view-transition-new(app-page) { animation: app-fade-in var(--dur-2) var(--ease-enter) both; }
+/* none: the same page (another tab or view), or the swipe already moved it */
+.is-app[data-nav="none"]::view-transition-group(*),
+.is-app[data-nav="none"]::view-transition-old(*),
+.is-app[data-nav="none"]::view-transition-new(*) { animation: none; }
+.is-app[data-nav="none"]::view-transition-old(*) { opacity: 0; }
+
+/* a takeover opened in place (Manage photos, html[data-drill]): it slides over the page, which stays still */
+.is-app .h-photos-takeover { top: var(--m-safe-top); view-transition-name: app-takeover; } /* clear of the status bar */
+.is-app[data-drill="true"]::view-transition-old(app-page), .is-app[data-drill="true"]::view-transition-new(app-page) { animation: none; }
+.is-app[data-drill="true"]::view-transition-old(app-page) { opacity: 0; }
+.is-app[data-drill="true"]::view-transition-new(app-takeover) { animation: app-vt-over-in var(--app-push-dur) var(--app-push-ease) both; box-shadow: var(--elevation-modal); }
+.is-app[data-drill="true"]::view-transition-old(app-takeover) { animation: app-vt-over-out var(--app-push-dur) var(--app-push-ease) both; box-shadow: var(--elevation-modal); }
+.is-app[data-nav="none"]::view-transition-new(app-takeover), .is-app[data-nav="none"]::view-transition-old(app-takeover) { animation: none; box-shadow: none; }
+
+@keyframes app-vt-over-in { from { transform: translateX(100%); } }
+@keyframes app-vt-over-out { to { transform: translateX(100%); } }
+@keyframes app-vt-under-out { to { transform: translateX(var(--app-parallax)); filter: var(--app-dim); } }
+@keyframes app-vt-under-in { from { transform: translateX(var(--app-parallax)); filter: var(--app-dim); } }
+@keyframes app-fade-in { from { opacity: 0; } }
+@keyframes app-fade-out { to { opacity: 0; } }
+
+/* no View Transitions (older Safari, Firefox): the new page enters in the same direction, shorter */
+.is-app .app-enter-push { animation: app-enter-right var(--app-push-dur) var(--app-push-ease) both; }
+.is-app .app-enter-pop { animation: app-enter-left var(--app-push-dur) var(--app-push-ease) both; }
+.is-app .app-enter-fade { animation: app-fade-in var(--dur-2) var(--ease-enter) both; }
+@keyframes app-enter-right { from { transform: translateX(calc(6 * var(--motion-distance))); opacity: 0; } }
+@keyframes app-enter-left { from { transform: translateX(calc(-6 * var(--motion-distance))); opacity: 0; } }
+
+/* ---------- A4 · swipe back from the left edge (gesture.ts) ---------- */
+.app-edge { display: none; }
+.is-app .app-edge { display: block; position: fixed; left: 0; top: 0; bottom: calc(var(--m-tabbar-height) + var(--m-safe-bottom)); width: var(--app-edge); z-index: calc(var(--z-toast) + 20); touch-action: none; }
+/* above full-screen takeovers (z 70), so their back works by swipe too; gone while a sheet or drawer is open */
+.is-app body:has(.h-m-layer) .app-edge { display: none; }
+.is-app .p-frame > .is-swiping, .is-app #root.is-swiping { position: relative; z-index: 2; }
+.is-app .is-swiping {  background: var(--color-surface-primary); box-shadow: var(--elevation-modal); will-change: transform; }
+.is-app .is-swiping.is-settling { transition: transform var(--dur-3) var(--ease-drawer); }
+.is-app .app-underlay { position: fixed; overflow: hidden; pointer-events: none; background: var(--color-surface-primary);
+  filter: brightness(calc(.94 + .06 * var(--app-swipe-p, 0))); will-change: transform; }
+.is-app .app-underlay > * { width: 100%; height: 100%; }
+.is-app .app-underlay.is-settling { transition: transform var(--dur-3) var(--ease-drawer), filter var(--dur-3) var(--ease-drawer); }
+.is-app.is-swiping-back, .is-app.is-swiping-back * { cursor: grabbing; }
+
+/* ---------- A5 · sheets: they come up from the bottom edge and follow the finger (ds/mobile.tsx BottomSheet) ---------- */
+.is-app .h-m-sheet { animation-name: app-sheet-in; animation-duration: var(--dur-3); }
+.is-app .h-m-layer.is-leaving .h-m-sheet { animation: app-sheet-out var(--dur-2) var(--ease-exit) both; }
+.is-app .h-m-layer .h-m-scrim { opacity: calc(1 - var(--app-sheet-p, 0)); }
+.is-app .h-m-sheet__grip { height: 28px; }
+@keyframes app-sheet-in { from { transform: translateY(100%); } }
+@keyframes app-sheet-out { to { transform: translateY(100%); } }
+
+/* ---------- A6 · large title → compact bar ----------
+   The phone layer owns it now (ds/components.css `.h-m-compactbar`, shell/PropertyLayout.tsx; Antonio, 4 Oct): the page
+   title is the section switcher, and once it scrolls away a 44px compact bar names the page and still opens Sections.
+   The grey section bar is gone on phones, so nothing here restyles it. */
+.is-app .h-m-compactbar__btn:active { transform: scale(.97); }
+
+/* ---------- A7 · toasts at the top (the real app's validation toast sits under the status bar) ---------- */
+/* the save toast (`.is-dock`, with Undo) stays at the bottom over the dock, where Save was (4 Oct) */
+.is-app .h-toast-layer.is-phone:not(.is-dock) { top: calc(8px + var(--m-safe-top)) !important; bottom: auto !important; }
+.is-app .h-toast-layer.is-phone:not(.is-dock) > .h-toast { animation-name: h-m-toast-in; }
+
+/* ---------- reduced motion: keep the information, drop the travel (motion.md principle 5) ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .is-app[data-nav]::view-transition-old(app-page) { animation: app-fade-out var(--dur-1) var(--ease-exit) both; box-shadow: none; }
+  .is-app[data-nav]::view-transition-new(app-page) { animation: app-fade-in var(--dur-1) var(--ease-enter) both; box-shadow: none; }
+  .is-app[data-nav="none"]::view-transition-old(app-page), .is-app[data-nav="none"]::view-transition-new(app-page) { animation: none; }
+  .is-app :is(.app-enter-push, .app-enter-pop) { animation: app-fade-in var(--dur-1) var(--ease-enter) both; }
+  .is-app .h-m-sheet { animation-name: h-fade-in; }
+  .is-app .h-m-layer.is-leaving .h-m-sheet { animation-name: h-m-fade-out; }
+  .is-app :is(.h-btn, .h-m-more, .h-close, .h-switcher, .h-segmented button, .h-chip):active:not(:disabled) { transform: none; }
+}
+
+/* ═══════════  the desktop page that draws the phone (AppFrame.tsx): 390 × 844 screen in a 14px bezel  ═══════════ */
+.is-app-stage body { background: var(--color-gray-100); }
+.app-stage { box-sizing: border-box; min-height: 100%; display: grid; justify-items: center; align-content: center; gap: 20px; padding: 24px 16px; font-family: var(--font-sans); }
+.app-stage__device { position: relative; flex: none; }
+.app-device { position: absolute; top: 0; left: 0; width: 418px; height: 872px; box-sizing: border-box; padding: 14px; transform-origin: 0 0;
+  border-radius: 68px; background: var(--color-gray-950); box-shadow: var(--elevation-modal), inset 0 0 0 2px var(--color-gray-700); }
+.app-device__screen { display: block; width: 390px; height: 844px; border: 0; border-radius: 54px; background: var(--color-surface-primary); }
+.app-device__status { position: absolute; top: 14px; left: 14px; width: 390px; height: 47px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between;
+  padding: 6px 30px 0 52px; pointer-events: none; color: var(--color-text-strong); font-size: 17px; font-weight: var(--font-weight-semibold); letter-spacing: -.01em; }
+.app-device__glyphs { display: inline-flex; align-items: center; gap: 6px; }
+.app-device__glyphs svg { height: 12px; width: auto; fill: currentColor; }
+.app-device__glyphs svg:nth-child(1) { width: 18px; } .app-device__glyphs svg:nth-child(2) { width: 16px; } .app-device__glyphs svg:nth-child(3) { width: 27px; }
+.app-device__island { position: absolute; top: 25px; left: 50%; width: 124px; height: 36px; transform: translateX(-50%); border-radius: var(--radius-full); background: var(--color-gray-950); pointer-events: none; }
+.app-device__home { position: absolute; bottom: 22px; left: 50%; width: 134px; height: 5px; transform: translateX(-50%); border-radius: var(--radius-full); background: var(--color-gray-950); pointer-events: none; }
+.app-stage__note { max-width: 420px; margin: 0; text-align: center; font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
+.app-stage__note a { color: var(--color-text-strong); font-weight: var(--font-weight-medium); }

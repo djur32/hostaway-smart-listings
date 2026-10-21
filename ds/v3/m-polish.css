@@ -1,0 +1,55 @@
+/* Phones: the last polish pass (Antonio, 5 Oct). One type scale, one rhythm, lone buttons full width. Desktop untouched.
+   Type: 24 page title · 20 section title · 16 body, labels, descriptions · 14 hints and meta · 12 chips, badges, counts, chart axes.
+   Rhythm: fields 28 · sub-headings 36 · sections 28 · cards 16 apart. The lone-button marks (data-solo) come from src/ds/mPolish.ts. */
+@media (max-width: 767px) {
+  /* B. a button alone on its row: full width, 48 */
+  .h-btn[data-solo] { width: 100%; max-width: 100%; box-sizing: border-box; flex: 1 1 100%; align-self: stretch; justify-content: center; height: auto !important; min-height: var(--m-field-height) !important; font-size: var(--m-lead-size); }
+  .h-solo-wrap { width: 100%; max-width: 100%; box-sizing: border-box; }
+
+  /* A. section titles are 20 (never 18) */
+  .h-khr2-sechead__title, .sl-section__title, .h-calp__title { font-size: var(--m-section-size); line-height: var(--m-section-leading); }
+  /* a card inside a section is a step below: 16 / 600, like the policy cards */
+  .sl-perf-card__title { font-size: var(--m-lead-size); line-height: var(--m-lead-leading); }
+  /* a sub-heading inside a section is the same size as the section title and never bolder */
+  .ch-subhead { font-weight: var(--font-weight-medium); }
+  /* descriptions under a title and field values are body: 16 */
+  .h-ai-card__body, .h-pstack-link__summary, .h-wz-card__desc, .sl-section__line, .h-kq-ref__value { font-size: var(--m-lead-size); line-height: var(--m-lead-leading); }
+  /* labels are 16 */
+  .sl-perf-kpi__label, .sl-perf-field__label, .slc-multi__title, .sl-filters__label { font-size: var(--m-lead-size); line-height: var(--m-lead-leading); }
+
+  .sl-perf-kpi__label { white-space: normal; overflow: visible; text-overflow: clip; }
+  .h-wz__title { font-size: var(--m-lead-size); line-height: var(--m-lead-leading); }
+
+  /* a title inside a sheet is never larger or bolder than the sheet's own title */
+  .h-photos-page__title { font-size: var(--m-section-size); line-height: var(--m-section-leading); font-weight: var(--font-weight-medium); }
+
+  .h-wz-sum__row strong { font-weight: var(--font-weight-semibold); }
+
+  /* C. rhythm */
+  .h-photos-grid { gap: 16px; }
+  .h-wz-cards { gap: 16px; }
+  .sl-page { gap: 28px; }
+  .h-kq-grid { gap: 16px; }
+  .h-khr2-sechead { margin-top: 28px; }
+  .h-ov-listings { gap: 28px; }
+  .h-ov-sec { padding-block: 14px; }
+  .h-ov-divider { margin-block: 14px; }
+  .h-ov-group { margin-top: 14px; }
+}
+
+/* Phones: every section title is 20/600 (Overview, Hub, Details, Pricing…); sub-headings under them stay 500 */
+@media (max-width: 767px) {
+  .ch-sechead__title, .h-ov-sec__title, .h-khr2-sechead__title, .sl-section__title, .h-calp__title { font-weight: var(--font-weight-semibold); }
+}
+
+/* Phones: the bulk sheet (portfolio Needs you) follows the scale: steps, labels and captions 14, segmented controls 44 */
+@media (max-width: 767px) {
+  .h-m-sheet .h-steps-inline, .h-m-sheet .h-steps-inline * { font-size: var(--text-sm); line-height: var(--leading-sm); }
+  .h-m-sheet .p-label, .h-m-sheet .h-caption { font-size: var(--text-sm); line-height: var(--leading-sm); }
+  .h-m-sheet .h-lens { height: var(--m-tap); }
+  .h-m-sheet .h-lens__seg { height: calc(var(--m-tap) - 6px); font-size: var(--text-md); line-height: var(--leading-md); }
+}
+@media (max-width: 767px) {
+  .h-m-sheet .h-lens { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .h-m-sheet .h-lens__seg:has(> .h-mark) { font-size: var(--text-sm); line-height: var(--leading-sm); padding: 0 var(--space-2); }
+}

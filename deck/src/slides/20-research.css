@@ -1,0 +1,355 @@
+/* 20-research · tokens only; classes prefixed rs-. */
+@layer slides {
+/* a fifth tint for the persona that wears the product's sky blue (P2); lavender stays for AI */
+.rs-sky { --tint-plate: var(--color-blue-100); --tint-halo: var(--color-blue-200); --tint-soft: var(--color-blue-50);
+  --tint-ink: var(--color-blue-700); --tint-line: var(--color-blue-600); --tint-title: var(--color-sidebar-bg); --tint-body: var(--ink-2); }
+/* a small white icon disc on a plate, stroked in the plate's line colour */
+.rs-ico { display: inline-grid; place-items: center; flex: none; width: 64px; height: 64px; border-radius: 20px; background: var(--bg); color: var(--tint-line, var(--accent));
+  box-shadow: 0 10px 24px -14px color-mix(in oklab, var(--color-sidebar-bg) 40%, transparent); }
+.rs-ico svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ── rs-method · five steps: the question, who and what I'd check, what is already public, and the rule ── */
+.rs-m { display: grid; gap: 20px; }
+.rs-m__q { display: grid; gap: 8px; padding: 22px 34px 24px; border-radius: 30px; background: var(--color-primary-50); }
+.rs-m__say { font: var(--w-head) 36px / 1.18 var(--font-display); letter-spacing: -0.02em; color: var(--ink); text-wrap: balance; }
+.rs-m__k { display: flex; align-items: center; gap: 12px; font: var(--w-head) 19px / 1.2 var(--font-ui); color: var(--accent-ink); }
+.rs-m__k b { display: grid; place-items: center; flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--accent-ink); color: var(--on-dark); font: var(--w-head) 17px / 1 var(--font-ui); }   /* a solid disc on any ground, so the step number shows on white too */
+.rs-m__k .hc-prov { margin-left: auto; }
+.rs-m__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+.rs-m__col { display: grid; gap: 10px; align-content: start; padding: 20px 20px 22px; border-radius: 30px; background: var(--plate-quiet); }
+.rs-m__col.is-real { background: var(--prov-real-bg); }
+.rs-m__stat { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: 16px; row-gap: 4px; padding: 12px 22px; border-radius: 22px; background: var(--bg); }
+.rs-m__v { font: var(--w-head) 54px / 1 var(--font-display); letter-spacing: -0.03em; color: var(--ink); font-variant-numeric: tabular-nums; min-width: 2.1ch; }
+.rs-m__l { font-size: 20px; line-height: 1.3; color: var(--ink-2); }
+.rs-m__stat .hc-prov { grid-column: 2; justify-self: start; }
+.rs-rule { display: flex; align-items: center; justify-content: center; gap: 24px; }
+.rs-rule .hc-chip { font-size: 21px; min-height: 58px; padding: 12px 26px; gap: 16px; }
+
+/* ── rs-hosts · four persona cards, in order of experience: the answer as a chip, the time per month as blocks ── */
+.rs-hosts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+.rs-host { display: grid; grid-template-rows: auto 1fr; min-width: 0; border-radius: 32px; overflow: hidden; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
+.rs-host__plate { position: relative; height: 262px; padding: 28px; background: var(--tint-plate); }
+/* photo slot: a placeholder until the shoot. The dashed ring marks it as a slot, the monogram is not a person */
+.rs-host__photo { display: grid; place-items: center; width: 132px; height: 132px; border-radius: 30px; background: var(--bg); color: var(--tint-ink); overflow: hidden;
+  font: var(--w-head) 52px / 1 var(--font-display); }
+.rs-host__photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.rs-host__where { position: absolute; right: 24px; bottom: 26px; max-width: calc(100% - 48px); }
+.rs-host__where .hc-chip { font: var(--w-head) 30px / 1.15 var(--font-display); letter-spacing: -0.01em; padding: 16px 24px; border-radius: 22px 22px 6px 22px; white-space: normal; }
+.rs-host__body { display: grid; gap: 8px; align-content: start; padding: 24px 28px 28px; }
+.rs-host__n { font: var(--w-head) 28px / 1.15 var(--font-display); color: var(--ink); }
+.rs-host__n span { font: var(--w-medium) 19px / 1.2 var(--font-ui); color: var(--ink-3); margin-left: 6px; }
+.rs-host__d { font-size: 20px; line-height: 1.4; color: var(--ink-2); }
+.rs-host__h { display: grid; gap: 8px; margin-top: 18px; }
+.rs-host__t { display: flex; align-items: center; gap: 10px; font: var(--w-medium) 17px / 1.2 var(--font-ui); color: var(--ink-3); }
+.rs-host__t .hc-prov { margin-left: auto; }
+.rs-host__bar { display: grid; grid-template-columns: repeat(20, minmax(0, 1fr)); gap: 4px; }
+.rs-host__bar i { height: 22px; border-radius: 5px; background: var(--color-gray-100); }
+.rs-host__bar i.is-on { background: var(--color-orange-400); box-shadow: inset 0 -3px 0 color-mix(in oklab, var(--color-orange-600) 45%, transparent); }
+.rs-host__bar i.is-maybe { background: none; box-shadow: inset 0 0 0 2px var(--color-orange-400); }
+.rs-host__hv { font: var(--w-head) 20px / 1.25 var(--font-ui); color: var(--color-orange-700); }
+
+/* ── rs-quotes · three big quotes on strong grounds (reference 09) ── */
+.rs-qs { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; align-items: start; }
+.rs-q { --q-bg: var(--color-sidebar-bg); position: relative; margin: 0; display: grid; grid-template-rows: 1fr auto; gap: 40px; min-height: 460px; padding: 46px 44px 38px;
+  border-radius: 36px; background: var(--q-bg); color: var(--on-dark); }
+.rs-q:nth-of-type(2) { --q-bg: var(--color-primary-700); margin-top: 44px; }
+.rs-q:nth-of-type(3) { --q-bg: var(--color-success-700); margin-top: 88px; }
+.rs-q blockquote { font: var(--w-medium) 40px / 1.2 var(--font-display); letter-spacing: -0.015em; color: var(--on-accent); text-wrap: pretty; text-indent: -0.42em; }
+.rs-q blockquote::before { content: "\201C"; }
+.rs-q blockquote::after { content: "\201D"; }
+.rs-q figcaption { display: flex; align-items: center; gap: 16px; }
+.rs-q__av { display: grid; place-items: center; flex: none; width: 60px; height: 60px; border-radius: 50%; background: var(--bg); color: var(--q-bg); font: var(--w-head) 24px / 1 var(--font-display); }
+.rs-q__who { display: grid; gap: 4px; font-size: 18px; line-height: 1.25; color: color-mix(in oklab, var(--on-accent) 80%, transparent); }
+.rs-q__who b { font: var(--w-head) 22px / 1.2 var(--font-ui); color: var(--on-accent); }
+.rs-q .hc-prov { margin-left: auto; color: color-mix(in oklab, var(--on-accent) 80%, transparent); }
+.rs-qs__doodle { position: absolute; left: -34px; top: -58px; z-index: 1; }
+
+/* ── rs-pains · four pains as cards; my answer lands on each on the press ── */
+.rs-pains { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; align-items: stretch; }
+.rs-pain { display: grid; grid-template-rows: auto 1fr; min-width: 0; border-radius: 32px; overflow: hidden; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
+.rs-pain__plate { position: relative; display: grid; place-items: center; height: 176px; background: var(--tint-plate); }
+.rs-pain__plate .rs-ico { width: 88px; height: 88px; border-radius: 26px; }
+.rs-pain__plate .rs-ico svg { width: 44px; height: 44px; }
+.rs-pain__n { position: absolute; left: 24px; top: 20px; font: var(--w-head) 22px / 1 var(--font-display); color: var(--tint-ink); }
+.rs-pain__sig { position: absolute; right: 18px; top: 16px; padding: 7px 12px; border-radius: var(--r-pill); background: var(--bg); }
+.rs-pain__body { display: grid; grid-template-rows: auto 1fr auto; gap: 12px; padding: 22px 24px 24px; }
+.rs-pain__t { font: var(--w-head) 27px / 1.2 var(--font-display); letter-spacing: -0.01em; color: var(--ink); text-wrap: balance; min-height: 2.4em; }   /* two lines always, so the product decisions line up */
+.rs-pain__a { margin: 0; font: var(--w-medium) 21px / 1.4 var(--font-ui); color: var(--ink-2); text-wrap: pretty; }   /* the product decision: plain text, no card, no icon, no colour */
+.rs-pain__k { display: block; margin-bottom: 6px; font: var(--w-medium) 15px / 1.2 var(--font-ui); color: var(--ink-3); }
+
+/* ── rs-insights · the fifteen as a strength meter, and the one that changed the design lifted ── */
+.rs-meter { display: flex; align-items: center; gap: 28px; padding: 20px 28px; border-radius: 28px; background: var(--plate-quiet); }
+.rs-meter__k { font: var(--w-head) 19px / 1.25 var(--font-ui); color: var(--ink-2); width: 190px; }
+.rs-meter__cells { display: flex; gap: 8px; }
+.rs-meter__cells i { width: 54px; height: 54px; border-radius: 16px; background: var(--good); }
+.rs-meter__cells i.is-mod { background: var(--warn); }
+.rs-meter__cells i.is-weak { background: none; box-shadow: inset 0 0 0 2px var(--ink-4); }
+.rs-meter__legend { display: flex; gap: 26px; margin-left: auto; }
+.rs-meter__legend span { display: grid; gap: 2px; font: var(--w-medium) 17px / 1.2 var(--font-ui); color: var(--ink-3); }
+.rs-meter__legend b { font: var(--w-head) 44px / 1 var(--font-display); color: var(--ink); }
+.rs-ins { display: grid; gap: 32px; }
+.rs-ins__cards { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto auto; gap: 16px; }
+.rs-in { display: grid; gap: 14px; align-content: start; padding: 24px 26px; border-radius: 26px; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
+.rs-in p { font-size: 21px; line-height: 1.38; color: var(--ink-2); text-wrap: pretty; }
+.rs-in p b { color: var(--ink); font-weight: var(--w-head); }
+.rs-in.is-lift { grid-row: 1 / span 3; grid-template-columns: minmax(0, 1fr); align-content: stretch; gap: 22px 26px; padding: 30px 32px; background: var(--tint-plate);
+  box-shadow: 0 24px 48px -26px color-mix(in oklab, var(--color-secondary-700) 45%, transparent); }
+.rs-in.is-lift .rs-in__v { grid-column: 1; font: var(--w-medium) 20px / 1.3 var(--font-ui); color: var(--tint-body); white-space: normal; }
+.rs-in.is-lift .rs-in__v b { font: var(--w-head) 20px / 1 var(--font-ui); color: var(--tint-ink); }   /* the count is a label; the finding is the headline (4 Oct) */
+.rs-in.is-lift .rs-in__v small { font: inherit; color: var(--tint-body); }
+.rs-in.is-lift .rs-in__s { grid-column: 1; display: grid; gap: 14px; align-content: start; }
+.rs-in.is-lift .rs-in__s p { font: var(--w-head) 46px / 1.12 var(--font-display); letter-spacing: -0.02em; color: var(--tint-title); text-wrap: balance; }
+.rs-in.is-lift .rs-in__s p + p { font: var(--w-medium) 22px / 1.45 var(--font-ui); color: var(--tint-body); max-width: 34em; }
+.rs-in.is-lift .hc-chip { grid-column: 1 / -1; justify-self: start; align-self: end; }
+
+/* ── rs-jobs · the job, big, with the rituals hosts run to do it by hand ── */
+.rs-job { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.62fr); gap: 24px; align-items: stretch; }
+.rs-job__plate { display: grid; gap: 24px; align-content: start; padding: 34px 44px 36px; border-radius: 36px; background: var(--tint-plate); }
+.rs-job__k { font: var(--w-head) 18px / 1.2 var(--font-ui); color: var(--tint-ink); }
+.rs-job__say { font: var(--w-head) 40px / 1.16 var(--font-display); letter-spacing: -0.02em; color: var(--tint-title); text-wrap: pretty; max-width: 33ch; }
+.rs-job__say span { color: var(--tint-ink); }
+.rs-job__rits { display: flex; flex-wrap: wrap; gap: 14px 14px; }
+.rs-rit .hc-chip { gap: 12px; padding-left: 10px; font-size: 19px; }
+.rs-rit__av { display: grid; place-items: center; flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--tint-plate); color: var(--tint-ink); font: var(--w-head) 15px / 1 var(--font-ui); }
+.rs-rit:nth-child(2n) { margin-top: 10px; }
+.rs-job__stat { display: grid; align-content: space-between; gap: 18px; padding: 34px 34px; border-radius: 36px; background: var(--tint-plate); }
+.rs-job__stat .rs-ico { width: 72px; height: 72px; }
+.rs-job__v { font: var(--w-head) 112px / 0.9 var(--font-display); letter-spacing: -0.045em; color: var(--tint-ink); font-variant-numeric: tabular-nums; }
+.rs-job__l { font-size: 21px; line-height: 1.4; color: var(--tint-body); }
+
+/* ── rs-channels · who writes the listing, one card per channel ── */
+.rs-chs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
+.rs-chc { position: relative; display: grid; grid-template-rows: auto 1fr; min-width: 0; border-radius: 30px; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
+.rs-chc__plate { position: relative; display: grid; border-radius: 30px 30px 0 0; justify-items: center; align-content: center; gap: 14px; height: 240px; padding-top: 34px; background: var(--plate-quiet); }
+.rs-chc__mark { display: grid; place-items: center; width: 84px; height: 84px; border-radius: 26px; background: var(--bg); box-shadow: 0 10px 24px -14px color-mix(in oklab, var(--color-sidebar-bg) 40%, transparent); }
+.rs-chc__mark svg { width: 46px; height: 46px; }
+.rs-chc__n { font: var(--w-head) 24px / 1.1 var(--font-display); color: var(--ink); }
+.rs-chc__body { display: grid; gap: 10px; align-content: start; padding: 22px 24px 26px; }
+.rs-chc__who { display: flex; align-items: center; gap: 10px; font: var(--w-head) 23px / 1.2 var(--font-ui); color: var(--ink); }
+.rs-chc__who svg { flex: none; width: 22px; height: 22px; fill: none; stroke: var(--accent); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.rs-chc__d { font-size: 20px; line-height: 1.4; color: var(--ink-3); text-wrap: pretty; }
+.rs-chc.is-hi { box-shadow: inset 0 0 0 2px var(--color-primary-200); }
+.rs-chc.is-hi .rs-chc__plate { background: var(--tint-plate); }
+.rs-chc.is-hi .rs-chc__d { color: var(--ink-2); }
+.rs-chc__badge { position: absolute; top: 16px; left: 50%; transform: translateX(-50%); }
+
+/* ── rs-market · two recreated panels side by side (5 Oct): what pricing tools compare today (a generic
+   recreation, not one vendor's screen), and the same comps pointed at the listing (the concept). Each panel
+   is a plate with a numbered head, the product's own card at wall size (.h-root.hc-ui.rs-ui, zoomed), and
+   one supporting number at its foot. The concept panel is the key one: blush plate, raspberry hairline. ── */
+.rs-cmp { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 28px; align-items: stretch; }
+.rs-cmp__col { display: grid; grid-template-rows: auto 1fr auto; min-width: 0; border-radius: 30px; background: var(--plate-quiet); }
+.rs-cmp__col.is-key { background: var(--tint-plate); box-shadow: inset 0 0 0 2px var(--color-primary-200); }
+.rs-cmp__head { display: flex; align-items: center; gap: 14px; padding: 22px 26px 0; }
+.rs-cmp__n { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--ink); color: var(--bg);
+  font: var(--w-head) 18px / 1 var(--font-display); }
+.rs-cmp__col.is-key .rs-cmp__n { background: var(--accent); color: var(--on-accent); }
+.rs-cmp__k { margin: 0; font: var(--w-head) 26px / 1.15 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
+.rs-cmp__tag { display: inline-flex; align-items: center; height: 34px; margin-left: auto; padding: 0 14px; border-radius: var(--r-pill); background: var(--bg);
+  font: var(--w-medium) 16px / 1 var(--font-ui); color: var(--ink-3); white-space: nowrap; }
+.rs-cmp__col.is-key .rs-cmp__tag { color: var(--accent-ink); }
+.rs-cmp__stage { display: flex; align-items: stretch; justify-content: center; gap: 20px; padding: 18px 26px; min-width: 0; }
+.rs-cmp__fact { display: flex; align-items: baseline; gap: 10px; margin: 0; padding: 0 26px 22px; font: var(--w-medium) 20px / 1.3 var(--font-ui); color: var(--ink-2); }
+.rs-cmp__fact b { font: var(--w-head) 26px / 1 var(--font-display); letter-spacing: -0.01em; color: var(--ink); white-space: nowrap; }
+.rs-cmp__col.is-key .rs-cmp__fact b { color: var(--tint-ink); }
+.rs-cmp__fact .hc-prov { margin-left: 4px; }
+
+/* the product's cards at the product's 1×, zoomed to wall size (50-design's .ds-live recipe): the width is set in
+   product px, so the type re-lays out crisp; a white card on the plate, the scene's float shadow */
+.rs-ui { flex: none; }
+.rs-ui .rs-card { border-radius: var(--radius-lg); background: var(--color-surface-primary);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent),
+    0 14px 30px -14px color-mix(in oklab, var(--color-sidebar-bg) 20%, transparent); }
+.rs-ui .rs-card__head { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--color-border-divider);
+  font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-strong); }
+.rs-ui .rs-card__head b { font-weight: var(--font-weight-semibold); }
+.rs-ui .rs-card__meta { margin-left: auto; font-size: var(--text-xs); color: var(--color-text-muted); white-space: nowrap; }
+
+/* panel 1 · price against the comp set: two KPI cells, then the comps' range with the middle half, the median and you */
+.rs-ui .rs-pc { display: flex; flex-direction: column; width: 483px; height: 100%; }   /* fills the plate: (680 − 2 × 26) / 1.3 */
+.rs-pc__kpis { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); padding: var(--space-4) var(--space-4) 0; }
+.rs-pc__kpi { display: grid; gap: var(--space-1); padding: var(--space-3) var(--space-4); border: 1px solid var(--color-border-secondary); border-radius: var(--radius-lg); }
+.rs-pc__kpi.is-you { border-color: var(--color-primary-200); background: var(--color-primary-25); }
+.rs-pc__l { font-size: var(--text-xs); line-height: var(--leading-xs); font-weight: var(--font-weight-medium); color: var(--color-text-secondary); }
+.rs-pc__v { font-size: var(--text-2xl); line-height: var(--leading-2xl); font-weight: var(--font-weight-semibold); color: var(--color-text-strong); font-variant-numeric: tabular-nums; }
+.rs-pc__kpi.is-you .rs-pc__v { color: var(--color-primary-700); }
+.rs-range { margin-top: auto; padding: 40px var(--space-4) var(--space-4); }
+.rs-range__track { position: relative; height: 10px; border-radius: var(--radius-full); background: var(--color-gray-100); }
+.rs-range__band { position: absolute; top: 0; bottom: 0; left: var(--lo); width: calc(var(--hi) - var(--lo)); border-radius: var(--radius-full); background: var(--color-gray-300); }
+.rs-range__med { position: absolute; top: -5px; bottom: -5px; left: var(--med); width: 2px; margin-left: -1px; border-radius: 1px; background: var(--color-gray-700); }
+.rs-range__you { position: absolute; top: 50%; left: var(--you); width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; background: var(--color-primary-600);
+  box-shadow: 0 0 0 3px var(--color-surface-primary); }
+.rs-range__you b { position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); padding: 2px 8px; border-radius: var(--radius-full); background: var(--color-primary-600);
+  font-size: var(--text-xs); line-height: var(--leading-xs); font-weight: var(--font-weight-semibold); color: var(--color-text-white); white-space: nowrap; }
+.rs-range__x { position: relative; display: flex; justify-content: space-between; margin-top: var(--space-2); font-size: var(--text-xs); line-height: var(--leading-xs); color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+.rs-range__mid { position: absolute; left: calc((var(--lo) + var(--hi)) / 2); transform: translateX(-50%); color: var(--color-text-secondary); white-space: nowrap; }
+
+/* panel 2 · the listing against the same comp set: a table, the row with a tip marked by the product's tip dot,
+   and the tip itself in the product's one recommendation container (AI Copilot's lavender head and sparkle) */
+.rs-ui .rs-lc { width: 434px; }   /* with the tip, fills the plate: (1018 − 2 × 26 − 20) / 1.3 */
+.rs-lc__t { width: 100%; border-collapse: collapse; font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-strong); font-variant-numeric: tabular-nums; }
+.rs-lc__t th { padding: var(--space-2) var(--space-4) var(--space-1); font-size: var(--text-xs); line-height: var(--leading-xs); font-weight: var(--font-weight-medium); color: var(--color-text-muted); text-align: right; }
+.rs-lc__t td { padding: 7px var(--space-4); border-top: 1px solid var(--color-border-divider); text-align: right; white-space: nowrap; }
+.rs-lc__t td:first-child, .rs-lc__t th:first-child { text-align: left; color: var(--color-text-secondary); }
+.rs-lc__t th:nth-child(2), .rs-lc__t td:nth-child(2) { width: 84px; }
+.rs-lc__t th:last-child, .rs-lc__t td:last-child { width: 84px; }
+.rs-lc__t td:nth-child(2) { font-weight: var(--font-weight-semibold); }
+.rs-lc__t td:last-child { color: var(--color-text-secondary); }
+.rs-lc__t tbody tr:first-child td { border-top-color: var(--color-border-secondary); }
+.rs-lc__t tr.is-tip td { background: var(--color-ai-surface-subtle); }
+.rs-lc__t tr.is-tip td:first-child { color: var(--color-ai-title); font-weight: var(--font-weight-medium); }
+.rs-lc__f { display: inline-flex; align-items: center; gap: var(--space-2); }
+.rs-lc__t tbody tr:last-child td { padding-bottom: var(--space-3); }
+.rs-ui .rs-tip { display: flex; flex-direction: column; width: 293px; height: 100%; }
+.rs-tip__body { flex: 1; }
+.rs-ui .rs-tip__spark { color: var(--color-ai-sparkle); }
+
+/* ── rs-diagnosis · the problem statement on a blush plate; beside it, one how-might-we per part of the problem,
+   as the deck's plate-and-body cards (the same build as the root causes in its detail) ── */
+.rs-dx { display: grid; grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr); gap: 28px; align-items: stretch; }
+.rs-dx__ps { display: grid; gap: 22px; align-content: center; padding: 40px 46px 44px; border-radius: 36px; background: var(--tint-plate); }
+.rs-dx__k { margin: 0; font: var(--w-head) 20px / 1.2 var(--font-ui); color: var(--tint-ink, var(--accent-ink)); }
+.rs-dx__say { margin: 0; font: var(--w-medium) 44px / 1.22 var(--font-display); letter-spacing: -0.015em; color: var(--tint-body); text-wrap: pretty; }
+.rs-dx__say b { font-weight: var(--w-head); color: var(--tint-title); }
+.rs-dx__how { display: grid; grid-template-rows: auto 1fr; gap: 16px; min-width: 0; }
+.rs-hmws { display: grid; grid-template-rows: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
+.rs-hmw { display: grid; grid-template-columns: 150px minmax(0, 1fr); align-items: stretch; min-width: 0; border-radius: 30px; overflow: hidden; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
+.rs-hmw__plate { position: relative; display: grid; place-items: center; background: var(--tint-plate); }
+.rs-hmw__plate .rs-ico { width: 72px; height: 72px; border-radius: 22px; }
+.rs-hmw__plate .rs-ico svg { width: 36px; height: 36px; }
+.rs-hmw__n { position: absolute; top: 12px; left: 16px; font: var(--w-head) 20px / 1 var(--font-display); color: var(--tint-ink); }
+.rs-hmw__b { display: grid; gap: 6px; align-content: center; padding: 18px 30px; }
+.rs-hmw__c { margin: 0; font: var(--w-medium) 17px / 1.2 var(--font-ui); color: var(--ink-3); }
+.rs-hmw__q { margin: 0; font: var(--w-head) 27px / 1.24 var(--font-display); letter-spacing: -0.01em; color: var(--ink); text-wrap: pretty; }
+
+/* ── rs-cardsort · the planned card sort: seven topics, then the structure they would be sorted into ── */
+.rs-cs { display: grid; gap: 22px; align-content: start; padding-top: 4px; }
+.rs-cs__k { margin: 0 0 12px; font: var(--w-medium) 18px / 1.2 var(--font-ui); letter-spacing: 0.02em; color: var(--ink-3); }
+.rs-cats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+.rs-cat { display: grid; gap: 10px; align-content: start; min-width: 0; min-height: 104px; padding: 22px 20px 24px; border-radius: 26px; background: var(--plate-quiet); }
+.rs-cat__t { font: var(--w-head) 24px / 1.18 var(--font-display); letter-spacing: -0.01em; color: var(--ink); text-wrap: balance; }
+.rs-cat__e { font-size: 20px; line-height: 1.35; color: var(--ink-2); text-wrap: pretty; }
+/* the open sort (4 Oct): two empty starting groups and one the host names; no card is placed, so the slide shows no answer */
+.rs-grp--empty { min-height: 150px; box-shadow: inset 0 0 0 1.5px var(--line); background: var(--bg); }
+.rs-grp--own { min-height: 150px; background: var(--bg); box-shadow: inset 0 0 0 2px var(--color-gray-300); border-style: dashed; }
+.rs-grp__own { margin: 0; font-size: 20px; line-height: 1.35; color: var(--ink-3); }
+.rs-cs__down { margin: -8px 0 -6px; text-align: center; color: var(--ink-3); }
+.rs-cs__down svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.rs-plan__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
+.rs-grp { position: relative; display: grid; gap: 14px; align-content: start; min-width: 0; padding: 22px 24px 26px; border-radius: 30px; background: var(--tint-plate); }
+.rs-grp__k { font: var(--w-head) 20px / 1.2 var(--font-ui); color: var(--tint-ink); }
+.rs-grp__items { display: flex; flex-wrap: wrap; gap: 10px; }
+.rs-pill { display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border-radius: var(--r-pill); background: var(--bg); font: var(--w-medium) 21px / 1.2 var(--font-ui); color: var(--ink); white-space: nowrap; }
+.rs-base { position: relative; display: grid; gap: 8px; align-content: center; min-height: 150px; padding: 22px 26px; border-radius: 26px; background: var(--bg); }
+.rs-base__t { font: var(--w-head) 34px / 1.1 var(--font-display); letter-spacing: -0.02em; color: var(--ink); }
+.rs-base__d { font-size: 21px; line-height: 1.35; color: var(--ink-2); }
+.rs-base .rs-ring { position: absolute; inset: -14px; z-index: 3; width: calc(100% + 28px); height: calc(100% + 28px); max-width: none; max-height: none; overflow: visible; pointer-events: none; }
+.rs-ch { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.rs-ch .hc-ch { font-size: 21px; }
+}
+
+@layer slides {
+/* the hand-drawn ring a press draws round the card it lands on (rs-insights, rs-channels): a wobbly
+   rounded box stretched to the card, raspberry or purple; the card grows 4% with it (20-research.js) */
+.rs-ring { position: absolute; inset: -20px; z-index: 3; width: calc(100% + 40px); height: calc(100% + 40px); max-width: none; max-height: none; overflow: visible; pointer-events: none; }
+.rs-ring path { fill: none; stroke: var(--color-primary-500); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+.rs-ring[data-tone="purple"] path { stroke: var(--color-secondary-500); }
+.rs-in.is-lift, .rs-chc.is-hi { position: relative; z-index: 2; }
+}
+@layer slides {
+/* ── rs-diagnosis detail · four root causes as numbered cards: a tinted plate with its icon, the cause beside it ── */
+.rs-causes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 0; padding: 0; list-style: none; }
+.rs-causes li { display: grid; grid-template-columns: 220px minmax(0, 1fr); align-items: stretch; min-height: 252px; border-radius: 30px; overflow: hidden; background: var(--bg); box-shadow: 0 0 0 1px var(--line); }
+.rs-causes__plate { position: relative; display: grid; place-items: center; background: var(--tint-plate); }
+.rs-causes__plate .rs-ico { width: 96px; height: 96px; border-radius: 28px; }
+.rs-causes__plate .rs-ico svg { width: 46px; height: 46px; }
+.rs-causes__n { position: absolute; top: 18px; left: 20px; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--bg); color: var(--tint-ink);
+  font: var(--w-head) 20px / 1 var(--font-display); }
+.rs-causes p { align-self: center; margin: 0; padding: 28px 40px; font: var(--w-head) 30px / 1.28 var(--font-display); letter-spacing: -0.01em; color: var(--ink); text-wrap: pretty; }
+.rs-src { display: flex; align-items: center; gap: 12px; margin: 0; font: var(--w-medium) 18px / 1.3 var(--font-ui); color: var(--ink-3); }
+/* ── rs-channels detail · the limits at reading size, each channel with its mark ── */
+.rs-limits { font-size: 26px; line-height: 1.3; }
+.rs-limits th { padding: 0 20px 16px 0; font-size: 18px; }
+.rs-limits th svg { display: inline-block; width: 20px; height: 20px; margin-right: 8px; vertical-align: -4px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.rs-limits td { padding: 22px 20px 22px 0; vertical-align: middle; }
+.rs-limits td:nth-child(2) { font-weight: var(--w-head); color: var(--ink); }
+.rs-limits__ch { display: flex; align-items: center; gap: 16px; font-weight: var(--w-head); }
+.rs-limits__ch .rs-mk { width: 44px; height: 44px; }
+.rs-limits tr.is-key td { background: var(--color-primary-50); }
+.rs-limits tr.is-key td:first-child { border-radius: 16px 0 0 16px; }
+.rs-limits tr.is-key td:last-child { border-radius: 0 16px 16px 0; }
+.rs-limits td:first-child, .rs-limits th:first-child { padding-left: 16px; }
+.rs-limits__lock { display: inline-flex; align-items: center; gap: 10px; }
+.rs-limits__lock svg { width: 24px; height: 24px; fill: none; stroke: var(--accent-ink); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+}
+
+/* ── rs-quotes · interview synthesis: three main insights, each card tagged with the hosts who raised it.
+   Choosing a host dims the cards that aren't theirs (opacity only, so nothing reflows on hover). ── */
+.rs-syn { display: grid; gap: 26px; }
+.rs-syn__bar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
+/* a fixed legend, not a filter (Antonio, 4 Oct): each initial with its host */
+.rs-syn__leg { display: inline-flex; align-items: center; gap: 10px; font: var(--w-medium) 20px / 1 var(--font-ui); color: var(--ink-2); }
+.rs-syn__leg .syn-av { margin-left: 0; }
+.rs-syn__lbl { margin-right: 6px; font: var(--w-medium) 17px / 1 var(--font-ui); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+.rs-syn__dot { width: 14px; height: 14px; flex: none; border-radius: 50%; }
+.rs-syn__dot--m, .syn-av--m { background: var(--color-primary-700); }
+.rs-syn__dot--d, .syn-av--d { background: var(--color-warning-700); }
+.rs-syn__dot--c, .syn-av--c { background: var(--color-sidebar-bg); }
+.rs-syn__dot--p, .syn-av--p { background: var(--color-action-primary); }
+.rs-syn__dot--r, .syn-av--r { background: var(--color-success-700); }
+.rs-syn__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.rs-syn__col { display: grid; gap: 14px; align-content: start; min-width: 0; }
+.rs-syn__h { display: flex; align-items: center; gap: 12px; font: var(--w-head) 32px / 1.15 var(--font-display); letter-spacing: -0.01em; color: var(--ink); }
+.rs-syn__n { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--ink); color: var(--bg); font: var(--w-head) 20px / 1 var(--font-display); }
+.rs-syn__q { font-size: 20px; line-height: 1.35; color: var(--ink-3); }
+.syn-card { display: grid; gap: 18px; padding: 30px 30px 26px; border-radius: 26px; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); transition: opacity 0.3s, filter 0.3s; }
+.syn-card p { font-size: 25px; line-height: 1.34; color: var(--ink); text-wrap: pretty; }
+.syn-card blockquote { margin: 0; font-size: 18px; line-height: 1.35; color: var(--ink-3); font-style: italic; text-wrap: pretty; }
+.syn-card footer { display: flex; align-items: center; gap: 10px; margin-top: 2px; }
+.syn-card__sig { margin-left: auto; font: var(--w-medium) 15px / 1 var(--font-ui); color: var(--ink-3); white-space: nowrap; }
+.syn-card.is-canvas { background: var(--tint-plate); box-shadow: inset 0 0 0 2px var(--ink); }
+.syn-card.is-dim { opacity: 0.26; filter: saturate(0.5); }
+.syn-avs { display: flex; }
+.syn-av { display: grid; place-items: center; width: 34px; height: 34px; margin-left: -8px; border-radius: 50%; box-shadow: 0 0 0 2px var(--bg); color: var(--on-accent); font: var(--w-head) 15px / 1 var(--font-ui); }
+.syn-av:first-child { margin-left: 0; }
+.syn-av::after { content: attr(data-i); }
+.rs-syn__quotes { display: grid; gap: 22px; }
+.rs-syn__quotes blockquote { margin: 0; font: var(--w-medium) 26px / 1.3 var(--font-display); color: var(--ink); text-wrap: pretty; }
+.rs-syn__quotes cite { display: block; margin-top: 6px; font: var(--w-medium) 17px / 1.2 var(--font-ui); font-style: normal; color: var(--ink-3); }
+.rs-syn__need { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+.rs-syn__need li { display: grid; gap: 6px; padding: 16px 20px; border-radius: 22px; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
+.rs-syn__need b { font: var(--w-head) 19px / 1.2 var(--font-ui); color: var(--ink); }
+.rs-syn__need span { font-size: 17px; line-height: 1.3; color: var(--ink-3); }
+
+/* the signal is its bars alone, on the insights and the pains (Antonio, 4 Oct): the word is in the title, not the chip */
+.rs-in .hc-signal__l, .rs-pain__sig .hc-signal__l, .rs-meter .hc-signal__l { display: none; }
+.rs-meter__legend .hc-signal { display: inline-flex; }
+.rs-in > .hc-signal { align-self: start; }
+.rs-meter__legend span { display: flex; align-items: center; gap: 10px; }
+.rs-meter__legend .hc-signal { gap: 0; }
+
+/* ── rs-jobs · the jobs to be done: one chip per job, its journey map shown beside it (the same chip
+   look as the synthesis filter). The maps are PNGs from research/synthesis/jtbd-maps. ── */
+.rs-jm { display: grid; gap: 18px; }
+.rs-jm__chips { display: flex; flex-wrap: wrap; gap: 12px; }
+/* the tab bar sits right under the headline, and the journey map comes below it (4 Oct) */
+.s[data-id="rs-jobs"] > .s-body { justify-content: flex-start; }
+.s[data-id="rs-jobs"] > .s-body { margin-top: 0; padding-top: 28px; }   /* the tab bar sits 28px under the headline, whatever the map's height (4 Oct) */
+.rs-jm__chip { display: inline-flex; align-items: center; height: 52px; padding: 0 22px; border: 0; border-radius: 999px; background: var(--bg);
+  box-shadow: inset 0 0 0 1.5px var(--line); color: var(--ink-2); font: var(--w-medium) 19px / 1 var(--font-ui); cursor: pointer; transition: background 0.2s, color 0.2s; }
+.rs-jm__chip.is-on { background: var(--ink); box-shadow: none; color: var(--bg); }
+.rs-jm__chip:focus-visible { outline: 3px solid var(--color-orange-400); outline-offset: 3px; }
+.rs-jm__fig { margin: 0; }
+.rs-jm__fig.is-off { display: none; }
+.rs-jm__fig img { display: block; width: calc(100% + 72px); max-width: none; max-height: 600px; margin-left: -36px; object-position: left top; height: auto; object-fit: contain; border-radius: 14px; }
+.rs-jm__sections { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.rs-jm__sections li { font-size: 21px; line-height: 1.35; color: var(--ink-2); }
+.rs-jm__sections b { display: inline-block; min-width: 230px; font: var(--w-head) 21px / 1.2 var(--font-ui); color: var(--ink); }
+
+
+/* rs-cardsort (4 Oct): the cards and groups use the full width, aligned with the headline */
+.s[data-id="rs-cardsort"] .rs-cs { grid-template-columns: minmax(0, 1fr); }
+
+/* ── rs-insights · three findings fill the body: the rows share the height, so the cards aren't cramped at the top ── */
+.rs-ins__cards { grid-template-rows: 1fr 1fr; min-height: 560px; }

@@ -1,0 +1,153 @@
+/* Property › Calendar (Antonio, 3 Oct; HS-C01 / HS-32 replica). Inside the property shell, the same frame as every
+ * other property page: `.ch-editor` with a fixed `.ch-editor__head` (title + property switcher, the description, then
+ * the toolbar: Preview dynamic pricing · Layers · Occupancy | Tasks). Below it, two independent scrollers: the months
+ * (Sun–Sat grid, one month under the other) and the docked settings sidebar (Pricing | Availability). Tokens only. */
+
+.h-calp__bar { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-2); padding: var(--space-4) 0; }
+.h-calp__count { color: var(--color-text-muted); font-size: var(--text-sm); }
+
+/* the body: the head stays, only these two columns scroll (each on its own) */
+/* The two columns split like .h-split with its panel open (components.css): one gap between them equal to the page's
+ * --content-padding-x, halved either side of the column boundary, and the months' scrollbar (a fixed --scrollbar-size,
+ * its gutter always reserved) centred in that gap: months → bar = bar → sidebar = half the gutter minus half the bar
+ * (16 | 8 | 16 at desktop). The sidebar's content is --calp-side-content wide, and the toolbar's Preview + Layers group
+ * (.h-calp__tools) is exactly that wide and right-aligned under the same right padding, so Preview's left edge is the
+ * left edge of the tabs and every field below (Antonio, 4 Oct: "drop the inset"). */
+:root { --calp-side-content: 320px; } /* the sidebar's content width, shared by the body grid and the toolbar group */
+.ch-editor > .h-calp__body { flex: 1 1 auto; min-height: 0; display: grid;
+  grid-template-columns: minmax(0, 1fr) calc(var(--calp-side-content) + var(--content-padding-x) / 2 - var(--scrollbar-size) / 2 + var(--content-padding-x)); } /* no line under the head (Antonio, 4 Oct) */
+.h-calp__months { min-height: 0; overflow-y: auto; overscroll-behavior-y: contain; scrollbar-gutter: stable;
+  padding: var(--space-6) calc(var(--content-padding-x) / 2 - var(--scrollbar-size) / 2) var(--space-12) var(--content-padding-x); }
+/* the sidebar's own scrollbar sits inside its right-hand gutter (reserved, so nothing shifts when it appears): its
+ * content runs from Preview's left edge to Layers' right edge */
+.h-calp__side { min-height: 0; overflow-y: auto; overscroll-behavior-y: contain; scrollbar-gutter: stable;
+  padding: var(--space-2) calc(var(--content-padding-x) - var(--scrollbar-size)) var(--space-12) calc(var(--content-padding-x) / 2 - var(--scrollbar-size) / 2); } /* no separator line, no inset */
+.h-calp__tools { flex: 0 0 var(--calp-side-content); display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
+.h-calp__side > .h-tabs { margin-top: 0; border-bottom: 0; } /* no line under the tab row */
+.h-calp__side .ch-sechead { padding-top: var(--space-6); }
+.h-calp__side .h-pstack-links { margin-top: var(--space-6); }
+
+/* one month: "Oct 2026", the Sun…Sat row, bordered day cells */
+.h-calp__month { max-width: 720px; }
+.h-calp__month + .h-calp__month { margin-top: var(--space-10); }
+.h-calp__title { margin: 0 0 var(--space-4); font-size: var(--text-xl); line-height: var(--leading-xl); font-weight: var(--font-weight-medium); color: var(--color-text-strong); }
+.h-calp__dows, .h-calp__grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.h-calp__dow { padding: 0 0 var(--space-2); font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-faint); }
+.h-calp__grid { border-left: 1px solid var(--color-border-card); border-top: 1px solid var(--color-border-card); }
+.h-calp__day { min-height: 92px; padding: var(--space-2); border-right: 1px solid var(--color-border-card); border-bottom: 1px solid var(--color-border-card); display: flex; flex-direction: column; font-size: var(--text-sm); line-height: var(--leading-sm); }
+.h-calp__day.is-blank { background: var(--color-surface-secondary); }
+.h-calp__num { font-weight: var(--font-weight-semibold); color: var(--color-text-strong); }
+.h-calp__meta { margin-top: auto; display: flex; flex-direction: column; align-items: flex-end; }
+.h-calp__min { display: inline-flex; align-items: center; gap: 2px; font-size: var(--text-xs); line-height: var(--leading-xs); color: var(--color-text-calendar-muted); }
+.h-calp__min > .h-icon { width: 12px; height: 12px; }
+.h-calp__price { font-size: var(--text-md); line-height: var(--leading-md); color: var(--color-text-calendar-muted); }
+.h-calp__day.is-past { background: var(--color-surface-secondary); }
+.h-calp__day.is-past .h-calp__num, .h-calp__day.is-past .h-calp__min, .h-calp__day.is-past .h-calp__price { color: var(--color-text-faint); }
+.h-calp__day.is-today .h-calp__num { color: var(--color-text-white); background: var(--color-calendar-today); border-radius: var(--radius-full); width: 24px; height: 24px; display: grid; place-items: center; margin: -2px 0 0 -4px; }
+/* a reserved night (the seeded stays, shared with the global /calendar, H-08): the stay is one continuous band in the
+ * channel's colour, across the cell's padding and its right border, with the guest's name truncated on its first night
+ * and at the start of each week row. Look only, like the rest of the page. */
+.h-calp__day > .h-cal__bar { display: block; flex: none; margin: auto calc(-1 * var(--space-2) - 1px) var(--space-1) calc(-1 * var(--space-2)); padding: 0 var(--space-2); line-height: 20px; border-radius: 0; text-overflow: ellipsis; position: relative; }
+.h-calp__day > .h-cal__bar:not(.h-cal__bar--cont) { margin-left: 0; border-top-left-radius: var(--radius-sm); border-bottom-left-radius: var(--radius-sm); }
+.h-calp__day > .h-cal__bar--end { margin-right: 0; border-top-right-radius: var(--radius-sm); border-bottom-right-radius: var(--radius-sm); }
+
+/* Base price fields in the sidebar: label over a full-width field (HS-C01) */
+.h-calp__field { margin-top: var(--space-4); }
+.h-calp__field > .h-field-row__label { display: block; margin-bottom: var(--space-2); }
+.h-calp__info { color: var(--color-text-faint); }
+.h-calp__note { margin: var(--space-2) 0 0; font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
+
+/* Look only (Antonio, 3 Oct: "just show what it looks like… switch between pricing and availability, and that's it"):
+ * the toolbar's Preview / Layers and the sidebar's drill-down rows have no handler, so they keep Hospitable's look but
+ * drop the pointer, the hover and the press — nothing suggests a click that does nothing. */
+.h-calp__bar .h-btn.h-calp__inert, .h-calp__inert-links > .h-pstack-link { cursor: default; }
+.h-calp__bar .h-btn--secondary.h-calp__inert:hover { background: var(--color-action-secondary-bg); border-color: var(--color-action-secondary-border); }
+.h-calp__bar .h-btn.h-calp__inert:active { transform: none; }
+.h-calp__inert-links > .h-pstack-link:hover { border-color: var(--color-border-card); }
+/* the chat button (fixed, bottom-right) must never sit over the last card: room to scroll it clear */
+.h-calp__side { padding-bottom: 112px; }
+
+@media (max-width: 767px) {
+  .ch-editor > .h-calp__body { grid-template-columns: minmax(0, 1fr); overflow: visible; } /* .ch-editor is the one scroller (ch.css) */
+  .h-calp__months, .h-calp__side { overflow: visible; }
+  .h-calp__months, .h-calp__side { scrollbar-gutter: auto; }
+  .h-calp__day { min-height: 64px; padding: var(--space-1); }
+  .h-calp__price { font-size: var(--text-xs); line-height: var(--leading-xs); }
+}
+/* the sidebar's content inside its bottom sheet (PropertyCalendar): the sheet supplies the 16px gutter and the scrolling.
+ * Not inside the 767px query: the sheet is rendered whenever useIsMobile() is true, which app mode forces at any width
+ * (a phone in landscape, the app on a tablet). Inside the query, a sheet wider than 767px kept the docked sidebar's
+ * side padding on top of the sheet's own gutter, insetting the tabs and fields ~56px while the toolbar sat at 16. */
+.h-calp__side.h-calp__side--sheet { padding: 0; border-top: 0; overflow: visible; min-height: auto; }
+.h-calp__bar-spacer { flex: 1 1 auto; }
+
+/* Phones, mobile pass (3 Oct). The head is display: contents on phones (ch.css), so the description and the toolbar get
+ * the page gutter here. Toolbar: Occupancy | Tasks + Layers on one line, then "Pricing & availability" (the sheet that
+ * holds the desktop sidebar) and Preview each full width; every control 44px. Month: the established compact phone
+ * calendar (Airbnb host app, iOS Calendar) — the month name and weekday row stick under the top edge while that month scrolls, each
+ * cell is the date and the night's price only (the minimum stay is in the cell's label and in Pricing & availability),
+ * price 14px so it stays readable. */
+@media (max-width: 767px) {
+  .h-calp__bar { padding: var(--space-4) var(--content-padding-x); gap: var(--space-2); }
+  .h-calp__bar > .h-lens { flex: 1 1 auto; height: var(--m-tap); }
+  .h-calp__bar > .h-lens .h-lens__seg { flex: 1 1 0; height: 36px; font-size: var(--text-md); }
+  .h-calp__bar > .h-btn { min-height: var(--m-tap); }
+  .h-calp__bar-spacer { display: none; }
+  .h-calp__bar > .h-btn--ai { order: 3; flex: 1 1 100%; }
+  .h-calp__bar > .h-btn:last-child:not(.h-btn--ai) { order: 2; flex: 1 1 100%; }
+  .h-calp__months { padding: var(--space-5) var(--content-padding-x) var(--space-10); }
+  .h-calp__month + .h-calp__month { margin-top: var(--space-8); }
+  .h-calp__title { position: sticky; top: 0; z-index: 2; margin: 0; padding: var(--space-2) 0; background: var(--color-surface-primary); font-size: var(--text-lg); line-height: var(--leading-lg); }
+  .h-calp__dows { position: sticky; top: calc(var(--leading-lg) + 2 * var(--space-2)); z-index: 2; background: var(--color-surface-primary); }
+  .h-calp__dow { text-align: center; font-size: var(--text-sm); }
+  .h-calp__day { min-height: 56px; padding: var(--space-1) 2px var(--space-1) var(--space-1); }
+  .h-calp__min { display: none; }
+  .h-calp__meta { align-items: center; }
+  .h-calp__price { font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-secondary); font-variant-numeric: tabular-nums; }
+  .h-calp__day.is-today .h-calp__num { width: 22px; height: 22px; margin: -1px 0 0 -2px; }
+  .h-calp__day > .h-cal__bar { height: 18px; line-height: 18px; font-size: var(--text-xs); margin: auto -3px 0 calc(-1 * var(--space-1)); padding: 0 var(--space-1); }
+  .h-calp__day > .h-cal__bar:not(.h-cal__bar--cont) { margin-left: 0; }
+  .h-calp__day > .h-cal__bar--end { margin-right: 0; }
+}
+
+/* Calendar (global, all properties): the 14-night grid (screens/global/Calendar.tsx). The property column is 240 wide
+ * on desktop (was an inline style). Phones: the grid scrolls sideways only (no second vertical scroller inside the
+ * page), the property column stays pinned, narrower, and wraps a long name onto two lines; rows are 44px targets,
+ * headers 14px. */
+.h-calgrid .h-grid th:first-child { width: 240px; }
+@media (max-width: 767px) {
+  .h-calgrid { max-height: none; overscroll-behavior-x: contain; }
+  .h-calgrid .h-grid th { font-size: var(--text-sm); }
+  .h-calgrid .h-grid th:first-child, .h-calgrid .h-grid td:first-child { width: 136px; min-width: 136px; max-width: 136px; white-space: normal; background: var(--color-surface-primary); box-shadow: inset -1px 0 0 var(--color-border-divider); }
+  .h-calgrid .h-grid th:first-child { background: var(--color-bg-subtle); }
+  .h-calgrid .h-grid td { height: var(--m-tap); }
+  .h-calgrid .h-grid td:first-child .h-link { display: block; padding: 2px 0; line-height: var(--leading-sm); }
+  .h-calfilters { flex-wrap: wrap; }
+  .h-calfilters > .h-filter-chip:not(:has(button)) { display: none; } /* "All properties · 12": the select right under it says the same */
+  .h-calfilters__select { flex: 1 1 100%; }
+}
+
+/* Calendar › one property's month (global /calendar?property=): the filter chip's × (was inline styles) — a 44px target
+ * on phones; the month's type one step up on phones so dates, prices and guest names stay readable (12px floor). */
+.h-calfilters__clear { margin-left: 2px; } /* the outlined × (h-close--sm) */
+@media (max-width: 767px) {
+  .h-calfilters__clear { margin: 0 -4px 0 auto; } /* 28px box, 44px hit area (h-close--sm on phones) */
+  .h-calmonth .h-cal__dow { font-size: var(--text-sm); }
+  .h-calmonth .h-cal__num { font-size: var(--text-sm); }
+  .h-calmonth .h-cal__price { font-size: var(--text-sm); }
+  .h-calmonth .h-cal__bar { height: 18px; line-height: 18px; font-size: var(--text-xs); }
+}
+
+/* phones: Preview dynamic pricing and Layers sit at the top of the Pricing & availability sheet */
+.h-calp__sheettools { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4); }
+.h-calp__sheettools > .h-btn { min-height: var(--m-tap); }
+.h-calp__sheettools > .h-btn--ai { flex: 1 1 100%; }
+.h-calp__sheettools > .h-btn:not(.h-btn--ai) { flex: 1 1 100%; }
+@media (max-width: 767px) {
+  .h-calp__bar > .h-lens { flex: 1 1 100%; }
+  .h-calp__bar > .h-btn { flex: 1 1 100%; }
+}
+
+@media (max-width: 767px) {
+  .h-calp__side { padding-bottom: var(--space-4); }
+}

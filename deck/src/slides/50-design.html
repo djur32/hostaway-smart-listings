@@ -1,0 +1,787 @@
+<!-- 50-design · Design · content (3 Oct): Smart Listings in the running prototype, captured by tools/capture-proto.mjs (?smart=on demo). Sources: plan/DECISIONS-UX-SUMMARY.md, prototype/src/*.
+     Choreography (3 Oct, dynamic pass): every scene is a .ds-scene owned by 50-design.js. data-st="N" on a scene item = it arrives on the Nth press
+     (0 = with the entry); data-lift on a crop = it lifts out of the screen with the same shot; the left column uses data-a + data-beat with the same N. -->
+
+<section class="s" data-id="ds-solution" data-proto="https://hospitable-case-web.digimal.studio/property/neukolln/ch/airbnb/listing/essentials?smart=on&amp;autopilot=0&amp;tip=t-a-name" data-title="Smart Listings in one screen" data-stage="4" data-part="design" data-path="S" data-angle="both" data-min="1.0" data-req="R-100 R-101 R-116" data-notion="D-980 D-981 D-114 D-947 05-design" data-notion-page="05-design" data-ground="white">
+  <template class="hc-cover-tpl" data-stage="4">
+    <header class="hc-cover" aria-label="Design">
+      <div class="opener">
+        <div class="opener__top"><h2 class="opener__name">Design</h2></div>
+        <p class="opener__vision">Smart Listings, built in code on Hospitable’s own UI, and pruned in every review.</p>
+        <div class="opener__foot">
+          <p class="opener__methods"><span class="opener__k">Methods</span><span>Prototyping in code</span><span>Design reviews</span><span>Responsive design</span><span>Accessibility review</span></p>
+          <div class="opener__out"><p class="opener__k">Outputs</p>
+            <p class="opener__outrow"><span class="hc-mark" data-mark="produced"></span><span class="opener__outs"><span>Solution overview</span><span>User flows</span><span>Tips & AI rewrite</span><span>Canvas preview</span><span>Design system</span><span>Mobile & tablet</span></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="hc-illo" data-illo="listings-together"></div>
+    </header>
+  </template>
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Design</span><span>Solution overview</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">One listing for every channel, and tips that say why</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Facts live once, channels keep only what differs, and you decide what the AI does alone.</p>
+  </header>
+  <div class="s-body">
+    <div class="hc-scene ds-scene" data-own style="--w: 1660px; --h: 650px">
+      <div class="hc-scene__bg"></div>
+      <figure class="hc-scr is-float" style="--x: 60px; --y: 40px; --sw: 960px"><img data-shot="sl-hero" alt="The Airbnb listing in Hospitable with the Tips panel open on the property name"></figure>
+      <div class="ds-live is-float-2" data-st="3" style="--x: 1050px; --y: 0px; --sw: 600px">
+        <div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.45">
+          <article class="h-tip ds-card" data-tip aria-label="Property name">
+            <div class="h-tip__head"><span class="h-tip__type">Property name</span><span class="h-tip__nav"><button type="button" aria-label="Previous tip" tabindex="-1" disabled><svg class="h-icon"><use href="#i-chevron-left"/></svg></button>1 of 11<button type="button" aria-label="Next tip" tabindex="-1"><svg class="h-icon"><use href="#i-chevron-right"/></svg></button></span></div>
+            <div class="h-tip__body ds-tip__body">
+              <div class="h-tip__main"><h3 class="h-tip__title">Name a landmark guests search for</h3>
+                <div class="h-diff"><p class="h-diff__note"><svg class="h-icon"><use href="#i-info-circle"/></svg>Creates Airbnb’s own value. The Base stays as it is.</p><del>Beautiful Artist Apt. in Neukölln</del><ins>Artist's Flat by Tempelhofer Feld · Neukölln</ins></div></div>
+              <div class="h-tip__why"><h4>Why</h4><ul>
+                <li><span class="h-tip__why-src ds-src" title="Source: Strategy"><svg class="h-icon"><use href="#i-target"/></svg></span><span class="h-tip__why-text">Remote workers search by area first: 17 of 24 similar Airbnb homes nearby name the neighbourhood and a landmark.</span></li>
+                <li><span class="h-tip__why-src ds-src" title="Source: Strategy"><svg class="h-icon"><use href="#i-target"/></svg></span><span class="h-tip__why-text">Tempelhofer Feld is 5 minutes on foot.</span></li>
+              </ul></div>
+            </div>
+            <div class="h-tip__foot">
+              <span class="h-tip__actions ds-tip__ask"><button type="button" class="h-btn h-btn--secondary" data-act="dismiss">Dismiss</button><button type="button" class="h-btn h-btn--primary" data-act="accept">Accept</button></span>
+              <span class="ds-tip__done" hidden><span class="h-tip__done ds-done"><svg class="h-icon"><use href="#i-circle-check"/></svg><span class="ds-tip__label">Accepted</span></span><span class="h-tip__actions"><button type="button" class="h-btn h-btn--ghost" data-act="undo"><svg class="h-icon"><use href="#i-arrow-back-up"/></svg>Undo</button></span></span>
+            </div>
+          </article>
+        </div>
+      </div>
+      <p class="hc-callout" data-st="1" style="--x: 20px; --y: 120px">Shared: every fact once</p>
+      <p class="hc-callout" data-st="1" style="--x: 20px; --y: 360px">Channels: one page set each</p>
+      <p class="hc-callout" data-st="2" style="--x: 560px; --y: 590px">Every field shows its source</p>
+      <p class="hc-callout hc-callout--ai" data-st="3" style="--x: 1240px; --y: 612px">A tip, with its why</p>
+    </div>
+  </div>
+  <!-- the solution map, drawn live by kit/flowmap.js from data/flows.json (4 Oct) -->
+  <!-- 4 Oct (DECISIONS §17): the solution map, then what the design reviews took out. Removals from 05 · Design
+       ("versions, a compare mode, a Setup page and inline editing on the Canvas were built and then removed") and KD-08
+       (the three-level dial). Reasons: KD-07, KD-06, Canvas preview ("one field, one editor"), KD-08. -->
+  <template class="more" data-more="map" data-title="The map, and what I cut" data-label="The map">
+    <div class="more__panel" data-title="The map">
+      <figure class="hc-flow" data-flow="solution-map" data-at="0.3"></figure>
+      <p class="hc-flow__note ds-map__note" data-a="rise" data-at="0.3">Every fact lives once, in Shared, and each channel holds only what differs. A strategy per channel produces tips, each with its why. The host accepts or dismisses them, unless Autopilot is on for words and photos.</p>
+      <p class="hc-src"><span class="hc-prov" data-prov="simulated"></span><span>The prototype as built, demo data</span></p>
+    </div>
+    <div class="more__panel" data-title="Built, then removed">
+      <div class="ds-cuts">
+        <p class="ds-cuts__lead" data-a="rise">I reviewed the running build, and each review took something out.</p>
+        <ol class="ds-cuts__row">
+          <li class="ds-cut" data-a="rise" data-at="0.12"><span class="ds-cut__i"><svg><use href="#i-history"/></svg></span><p class="ds-cut__t"><span>Versions<i class="ds-cut__x" data-a="rule" data-at="0.75"></i></span></p><p class="ds-cut__why">A concept to learn before any payoff.</p><p class="ds-cut__now"><svg><use href="#i-check"/></svg>One current strategy</p></li>
+          <li class="ds-cut" data-a="rise" data-at="0.22"><span class="ds-cut__i"><svg><use href="#i-git-compare"/></svg></span><p class="ds-cut__t"><span>Compare mode<i class="ds-cut__x" data-a="rule" data-at="0.87"></i></span></p><p class="ds-cut__why">One baseline already answers “did it work?”</p><p class="ds-cut__now"><svg><use href="#i-check"/></svg>The weeks before, in grey</p></li>
+          <li class="ds-cut" data-a="rise" data-at="0.32"><span class="ds-cut__i"><svg><use href="#i-list-details"/></svg></span><p class="ds-cut__t"><span>Setup page<i class="ds-cut__x" data-a="rule" data-at="0.99"></i></span></p><p class="ds-cut__why">It looked just like Strategy.</p><p class="ds-cut__now"><svg><use href="#i-check"/></svg>One full-screen wizard</p></li>
+          <li class="ds-cut" data-a="rise" data-at="0.42"><span class="ds-cut__i"><svg><use href="#i-pencil"/></svg></span><p class="ds-cut__t"><span>Canvas editing<i class="ds-cut__x" data-a="rule" data-at="1.11"></i></span></p><p class="ds-cut__why">A second editor for the same field.</p><p class="ds-cut__now"><svg><use href="#i-check"/></svg>A tap opens the field</p></li>
+          <li class="ds-cut" data-a="rise" data-at="0.52"><span class="ds-cut__i"><svg><use href="#i-adjustments-horizontal"/></svg></span><p class="ds-cut__t"><span>Autonomy dial<i class="ds-cut__x" data-a="rule" data-at="1.23"></i></span></p><p class="ds-cut__why">Three levels per content type. One switch is simpler.</p><p class="ds-cut__now"><svg><use href="#i-check"/></svg>Autopilot, on or off</p></li>
+        </ol>
+      </div>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span class="hc-prov" data-prov="simulated"></span><span>Tips and reasons, demo data</span><span class="more-link" data-more="map">The map, and what I cut</span></p></div>
+  <aside class="notes"><p>Here is where the findings led. The facts lived in two places. And in my sampled research, hosts change money and stay rules per channel, almost never the words. So in the prototype, the property splits the way hosts think. On the left, Shared holds every fact once, and each channel gets its own pages. In the middle is Hospitable’s own listing editor, set to Airbnb. Every field says where its value comes from. On the right is a real tip card, not a picture of one. It says what to change and why. Accepting it creates Airbnb’s own value without touching the Base. I designed in code and reviewed the running build. Behind The map is what those reviews took out. The tips and numbers are demo data, and no host has used this yet. That’s what the test plan is for. About 55 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="ds-shared" data-proto="https://hospitable-case-web.digimal.studio/property/neukolln/details/essentials?smart=on" data-title="Shared: one Base" data-stage="4" data-part="design" data-path="St" data-angle="both" data-min="0.7" data-req="R-072 R-081 R-082 R-089" data-notion="D-940 D-941 D-942 D-114 05-design" data-notion-page="05-design" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Design</span><span>Listing base</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Change a fact once, and see every channel it reaches</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Every channel and the Knowledge Hub read the same listing detail. So the Listing base holds only what channels share, and each field shows its reach.</p>
+  </header>
+  <div class="s-body">
+    <div class="hc-two" style="--l: 0.62fr; --r: 1.38fr">
+      <div class="stack" style="--gap-y: 30px">
+        <div class="ds-one">
+          <!-- 4 Oct (Antonio): the fact as the product's own field row, not a KPI card -->
+          <div class="ds-live ds-one__field" data-a="rise" data-at="0.2" style="--sw: 540px">
+            <div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.3">
+              <div class="ds-card ds-fields">
+                <p class="ds-fields__head">Listing base · Arrival</p>
+                <div class="h-field-row h-field-row--stacked">
+                  <div class="h-field-row__head"><p class="h-field-row__label">Check-in time</p><p class="h-field-row__help">Kept once, here.</p></div>
+                  <div class="h-field-row__control">
+                    <div class="h-select-wrap"><button type="button" class="h-select" tabindex="-1">3:00 PM</button><svg class="h-icon"><use href="#i-chevron-down"/></svg></div>
+                    <div class="h-field-hint"><span class="h-field-hint__channels"><svg class="h-icon"><use href="#i-info-circle"/></svg><span class="ds-scope">Shared with every channel that reads it</span></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="ds-one__readers" data-a="stagger" data-at="0.4"><span class="ds-one__k">Read by</span><span class="hc-chip"><svg class="ds-one__m" viewBox="0 0 24 24" aria-hidden="true"><use href="#ch-airbnb"/></svg>Airbnb</span><span class="hc-chip"><svg class="ds-one__m" viewBox="0 0 24 24" aria-hidden="true"><use href="#ch-booking"/></svg>Booking.com</span><span class="hc-chip"><svg class="ds-one__m" viewBox="0 0 24 24" aria-hidden="true"><use href="#ch-hospitable"/></svg>Direct</span><span class="hc-chip"><svg class="hc-chip__i"><use href="#i-book"/></svg>Knowledge Hub</span></p>
+        </div>
+        <ul class="hc-points">
+          <li data-a="rise" data-beat="1"><span>Labelled <b>Source of truth</b></span></li>
+          <li data-a="rise" data-beat="2"><span>Each field shows the channels it reaches</span></li>
+          <li data-a="rise" data-beat="2" data-at="0.12"><span>Channel-only fields move to their channel’s page</span></li>
+        </ul>
+      </div>
+      <div class="hc-scene ds-scene" data-own style="--w: 1080px; --h: 650px">
+        <div class="hc-scene__bg"></div>
+        <figure class="hc-scr is-float" style="--x: 30px; --y: 40px; --sw: 900px"><img data-shot="base-details" alt="Listing details, the source of truth, with the channel reach under each field"></figure>
+        <figure class="hc-scr hc-scr--crop is-float-2" data-st="2" data-lift style="--x: 490px; --y: 320px; --sw: 560px; --ar: 1.784; --z: 2.198; --cx: -37.75%; --cy: -51.2%"><img data-shot="base-details" alt="Property name reaches 2 channels, the summary reaches 1 channel"></figure>
+        <p class="hc-callout" data-st="1" style="--x: 560px; --y: 2px">Source of truth</p>
+        <p class="hc-callout" data-st="2" style="--x: 40px; --y: 560px">Its reach, under every field: never a surprise</p>
+      </div>
+    </div>
+  </div>
+  <div class="s-foot"><p class="hc-src"><span class="hc-prov" data-prov="product"></span><span>Product audit: the check-in time from a trial listing</span><span class="hc-prov" data-prov="simulated"></span><span>The prototype, on demo data</span></p></div>
+  <aside class="notes"><p>The first thing the audit showed: the Knowledge Hub keeps its own copy of the listing. So the same fact lives twice and drifts. Everything else depends on fixing that, so it comes first. Take one fact: check-in at 3 PM. It lives once, in the Listing base. Airbnb, Booking.com, Direct and the Knowledge Hub all read that one value.</p><p>[Press] I made the Listing base one clean layer, labelled as the source of truth. It holds the values every channel inherits, and nothing that belongs to only one.</p><p>[Press] And each field shows how far it reaches: the channels that read it. So an edit is never a surprise. The Hub no longer keeps a copy. It reads these same values, so the two can’t drift apart again. Tips, strategies and receipts all start from this one record. About 45 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="ds-hub" data-proto="https://hospitable-case-web.digimal.studio/property/neukolln/hub/questions/ar-parking?smart=on" data-title="The Knowledge Hub" data-stage="4" data-part="design" data-path="St" data-angle="both" data-min="0.7" data-req="R-072 R-075 R-083 R-089" data-notion="D-966 D-967 D-968 D-924 05-design" data-notion-page="05-design" data-ground="white">
+  <!-- 4 Oct, the Knowledge Hub reframe (plan/notion-v2/deck-review/KH-REFRAME.md): the Hub's own job, guests' questions.
+       Built from Hospitable's components as a concept (the prototype's Hub still shows the earlier content): the four
+       sections as the product's underline tabs, the loop as numbered callouts. Inbox → Questions (counted, answered or
+       not) → a gap becomes a tip → the host's answer becomes a fact in the Listing base → every channel and Copilot. -->
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Design</span><span>Knowledge Hub</span><span class="ds-concept">Concept</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">The Knowledge Hub learns from guests’ questions</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">A concept, not built in full: guests’ questions reveal gaps, and each gap becomes a tip for the Base or one channel.</p>
+  </header>
+  <div class="s-body">
+    <div class="hc-scene ds-scene ds-hq-scene" data-own style="--w: 1728px; --h: 500px">
+      <div class="hc-scene__bg"></div>
+      <svg class="ds-hq__wires" viewBox="0 0 1728 500" aria-hidden="true">
+        <path d="M 318 196 C 344 196 348 178 372 178 m -11 -9 l 11 9 l -11 9"/>
+        <path data-st="1" d="M 884 178 C 910 178 914 196 938 196 m -11 -9 l 11 9 l -11 9"/>
+        <path data-st="2" d="M 1354 228 C 1380 228 1384 212 1408 212 m -11 -9 l 11 9 l -11 9"/>
+      </svg>
+      <div class="ds-live is-float" style="--x: 0px; --y: 120px; --sw: 318px">
+        <div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.4">
+          <div class="ds-card ds-hq">
+            <p class="ds-hq__k"><svg class="h-icon"><use href="#i-message-circle"/></svg>Inbox<svg class="ds-hq__m" viewBox="0 0 24 24" aria-label="Airbnb"><use href="#ch-airbnb"/></svg></p>
+            <div class="h-thread"><p class="h-msg ds-hq__guest">Is there free parking?</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="ds-live" style="--x: 372px; --y: 20px; --sw: 512px">
+        <div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.4">
+          <div class="ds-card ds-hq ds-hq--hub">
+            <p class="h-h4">Knowledge Hub</p>
+            <div class="h-tabs ds-hq__tabs" role="tablist"><span class="h-tab" role="tab" aria-selected="true">Questions</span><span class="h-tab" role="tab">Insights</span><span class="h-tab" role="tab">Facts</span><span class="h-tab" role="tab">Sources</span></div>
+            <ul class="ds-hq__qs">
+              <li class="ds-hq__q"><span class="ds-hq__ring" data-st="1" aria-hidden="true"></span><span class="ds-hq__qt"><b>Is there free parking?</b><span>Asked 9 times</span></span><span class="h-pill h-pill--warning">Not answered</span></li>
+              <li class="ds-hq__q"><span class="ds-hq__qt"><b>What time is check-in?</b><span>Asked 14 times</span></span><span class="h-pill h-pill--neutral">Answered</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="ds-live is-float-2" data-st="1" style="--x: 938px; --y: 56px; --sw: 416px">
+        <div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.4">
+          <article class="h-tip ds-card" aria-label="Amenities">
+            <div class="h-tip__head"><span class="h-tip__type">Amenities</span></div>
+            <div class="h-tip__body">
+              <div class="h-tip__main"><h3 class="h-tip__title">Add free parking</h3></div>
+              <div class="h-tip__why"><h4>Why</h4><ul><li><svg class="h-icon"><use href="#i-message-circle"/></svg><span class="h-tip__why-text">Asked by 9 guests, not answered</span></li></ul></div>
+            </div>
+            <div class="h-tip__foot"><span class="h-tip__actions"><button type="button" class="h-btn h-btn--secondary" tabindex="-1">Dismiss</button><button type="button" class="h-btn h-btn--primary" tabindex="-1">Accept</button></span></div>
+          </article>
+        </div>
+      </div>
+      <div class="ds-live is-float" data-st="2" style="--x: 1408px; --y: 130px; --sw: 320px">
+        <div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.4">
+          <div class="ds-card ds-hq">
+            <p class="ds-hq__k"><svg class="h-icon"><use href="#i-home"/></svg>Listing base</p>
+            <div class="h-ld-amenity"><div class="h-ld-amenity__card"><div class="h-ld-amenity__head"><b>Free parking on premise</b></div></div></div>
+            <p class="ds-hq__use"><svg class="ds-hq__m" viewBox="0 0 24 24" aria-label="Airbnb"><use href="#ch-airbnb"/></svg><svg class="ds-hq__m" viewBox="0 0 24 24" aria-label="Booking.com"><use href="#ch-booking"/></svg><svg class="ds-hq__m" viewBox="0 0 24 24" aria-label="Direct"><use href="#ch-hospitable"/></svg><span class="h-pill h-pill--ai"><svg class="h-icon h-icon--16"><use href="#i-sparkles"/></svg>Copilot</span></p>
+          </div>
+        </div>
+      </div>
+      <p class="hc-callout ds-loopc" style="--x: 0px; --y: 296px"><b class="ds-loopc__n">1</b>A guest asks in the Inbox</p>
+      <p class="hc-callout ds-loopc" style="--x: 440px; --y: 380px"><b class="ds-loopc__n">2</b>Counted, answered or not</p>
+      <p class="hc-callout hc-callout--ai ds-loopc" data-st="1" style="--x: 990px; --y: 372px"><b class="ds-loopc__n">3</b>A gap becomes a tip</p>
+      <p class="hc-callout ds-loopc" data-st="2" style="--x: 1300px; --y: 372px"><b class="ds-loopc__n">4</b>The host’s answer becomes a fact</p>
+      <p class="hc-callout ds-loopc" data-st="2" style="--x: 1352px; --y: 436px"><b class="ds-loopc__n">5</b>Every channel and the AI use it</p>
+    </div>
+  </div>
+  <!-- flow 5, drawn live by kit/flowmap.js from data/flows.json (4 Oct; reframed to the Hub's job the same day) -->
+  <template class="more" data-more="flow" data-title="From a guest question to a better listing" data-label="The flow">
+    <div class="more__panel" data-title="The flow">
+      <figure class="hc-flow" data-flow="hub-to-tips" data-at="0.3"></figure>
+      <p class="hc-flow__note" data-a="rise" data-at="0.3">A concept, not built in full: how the Hub can feed the tips. A gap becomes a shared fact for the Listing base, or a better answer in one channel’s listing, such as Airbnb’s description. <span class="hc-flow__src"><span class="hc-prov" data-prov="simulated"></span>Concept, demo data</span></p>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span class="hc-prov" data-prov="product"></span><span>Product audit: guest questions stay in the Inbox today</span><span class="hc-prov" data-prov="simulated"></span><span>A concept: the questions and counts are demo data</span><span class="more-link" data-more="flow">The flow</span></p></div>
+  <aside class="notes"><p>Today the Hub has no job of its own, so I gave it one: guests’ questions. It no longer keeps a copy of the listing. It reads the listing details from the Listing base and adds the situations the host writes. It has four sections: Questions, Insights, Facts and Sources. It starts in the Inbox. A guest asks if there’s free parking, and the question lands in the Hub. It’s grouped, counted, and marked answered or not. This one was asked nine times and never answered. Copilot only answers from what backs it. When nothing backs an answer, it says so and asks the host.</p><p>[Press] That gap becomes a tip, with the same tip format as everywhere else. Its why is the questions behind it. It goes to one of two places. A shared fact for the Listing base, like free parking. Or a better answer in one channel’s listing, like Airbnb’s description.</p><p>[Press] When the host accepts, the answer is saved where it belongs. A listing detail goes in the Listing base, so every channel and Copilot use it. A situation goes in the Hub. Either way, the next guest gets an accurate answer. To be clear, the Hub is a concept, not built in full. It shows how the Hub can feed the tips. The counts are demo data. The full flow is one click away. About 45 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="ds-channels" data-proto="https://hospitable-case-web.digimal.studio/property/neukolln/ch/airbnb/listing/arrival?smart=on&amp;autopilot=0" data-title="Channel actions" data-stage="4" data-part="design" data-path="S" data-angle="both" data-min="0.8" data-req="R-084 R-100 R-101" data-notion="D-980 D-933 D-934 D-032 D-086 D-085 05-design" data-notion-page="05-design" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Design</span><span>Channels</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Optimise each channel on its own, starting from the Base</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">The Base is where a channel starts, not where it stops. On every field, the host sets how much each channel takes from it.</p>
+  </header>
+  <div class="s-body">
+    <!-- Antonio, 4 Oct (second pass): the KPI cards go, the story is per-channel optimisation, and the slide shows the control
+         itself. Three cases on Airbnb's Listing page, true to the demo data in prototype/src/data/sl3.ts FIELDS: "Other details
+         to note" is 'inherit' on every channel, the Summary is 'override' on Airbnb (written for remote workers), the check-in
+         method is 'only' on Airbnb. Captions and actions are the prototype's (ds/sl3.tsx scopeOf), as slide 28 (ia-structure)
+         draws them. The fourth case, set by the channel, lives in the detail with its reason. The rows are live: the action flips them. -->
+    <div class="hc-scene ds-scene ds-cases" data-own style="--w: 1728px; --h: 440px">
+      <div class="ds-live ds-case" style="--x: 0px; --y: 0px; --sw: 544px">
+        <p class="ds-case__k">Follows the Base</p>
+        <p class="ds-case__d">The same on every channel.</p>
+        <div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.5">
+          <div class="ds-card ds-fields">
+            <p class="ds-fields__head"><svg class="h-mark h-mark--badge h-mark--airbnb" viewBox="0 0 24 24" aria-hidden="true"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-airbnb" width="24" height="24"/></svg>Airbnb · Listing</p>
+            <div class="h-field-row h-field-row--stacked" data-state="inherit" data-start="inherit" data-ch="Airbnb">
+              <div class="h-field-row__head"><p class="h-field-row__label">Other details to note</p></div>
+              <div class="h-field-row__control">
+                <textarea class="h-textarea" rows="2" aria-label="Other details to note" data-base="A 4th-floor walk-up with no elevator…" data-custom="A 4th-floor walk-up with no elevator…" disabled>A 4th-floor walk-up with no elevator…</textarea>
+                <div class="h-field-hint"><span class="h-field-hint__channels"><svg class="h-icon"><use href="#i-info-circle"/></svg><span class="ds-scope">Uses the Base</span></span><button type="button" class="h-field-hint__action" data-act="scope">Customize for Airbnb</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ds-live ds-case" data-st="1" style="--x: 592px; --y: 0px; --sw: 544px">
+        <p class="ds-case__k">Customized for Airbnb</p>
+        <p class="ds-case__d">Its own words, for Airbnb search.</p>
+        <div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.5">
+          <div class="ds-card ds-fields">
+            <p class="ds-fields__head"><svg class="h-mark h-mark--badge h-mark--airbnb" viewBox="0 0 24 24" aria-hidden="true"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-airbnb" width="24" height="24"/></svg>Airbnb · Listing</p>
+            <div class="h-field-row h-field-row--stacked" data-state="override" data-start="override" data-ch="Airbnb">
+              <div class="h-field-row__head"><p class="h-field-row__label">Summary</p></div>
+              <div class="h-field-row__control">
+                <textarea class="h-textarea" rows="2" aria-label="Summary" data-base="A sunny two-room flat full of original paintings…" data-custom="Your quiet base for working remotely in Berlin…">Your quiet base for working remotely in Berlin…</textarea>
+                <div class="h-field-hint"><span class="h-field-hint__channels"><svg class="h-icon"><use href="#i-info-circle"/></svg><span class="ds-scope">Custom for Airbnb</span></span><button type="button" class="h-field-hint__action" data-act="scope">Use the Base</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ds-live ds-case" data-st="2" style="--x: 1184px; --y: 0px; --sw: 544px">
+        <p class="ds-case__k">Only on Airbnb</p>
+        <p class="ds-case__d">No other channel asks for it.</p>
+        <div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.5">
+          <div class="ds-card ds-fields">
+            <p class="ds-fields__head"><svg class="h-mark h-mark--badge h-mark--airbnb" viewBox="0 0 24 24" aria-hidden="true"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-airbnb" width="24" height="24"/></svg>Airbnb · Listing</p>
+            <div class="h-field-row h-field-row--stacked" data-state="only">
+              <div class="h-field-row__head"><p class="h-field-row__label">Check-in method</p></div>
+              <div class="h-field-row__control">
+                <div class="h-select-wrap"><button type="button" class="h-select" tabindex="-1">Keypad</button><svg class="h-icon"><use href="#i-chevron-down"/></svg></div>
+                <div class="h-field-hint"><span class="h-field-hint__channels"><svg class="h-icon"><use href="#i-info-circle"/></svg>Airbnb only</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- the fourth case (Antonio, 4 Oct): set by the channel. It never sits on Airbnb's page, so it is the detail's first panel,
+       with the reason the product's lock gives on hover (prototype data/sl3.ts BOOKING_WRITES), drawn open here.
+       Then flow 3, drawn live by kit/flowmap.js from data/flows.json: all four cases. -->
+  <template class="more" data-more="flow" data-title="Four cases, one field" data-label="Set by the channel">
+    <div class="more__panel" data-title="Set by the channel">
+      <div class="hc-two ds-set" style="--l: 0.9fr; --r: 1.1fr">
+        <div class="ds-set__l">
+          <p class="ds-set__ch"><svg class="h-mark h-mark--badge h-mark--booking" viewBox="0 0 24 24" role="img" aria-label="Booking.com"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-booking" width="24" height="24"/></svg>Booking.com</p>
+          <p class="ds-set__t">Booking.com writes its own description. So on its page the field is read-only, a lock replaces the ⓘ, and the lock says why.</p>
+        </div>
+        <div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.8">
+          <div class="ds-card ds-fields ds-set__card">
+            <p class="ds-fields__head"><svg class="h-mark h-mark--badge h-mark--booking" viewBox="0 0 24 24" aria-hidden="true"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-booking" width="24" height="24"/></svg>Booking.com · Listing</p>
+            <div class="h-field-row h-field-row--stacked" data-state="set">
+              <div class="h-field-row__head"><p class="h-field-row__label">Description</p></div>
+              <div class="h-field-row__control">
+                <textarea class="h-textarea" rows="3" aria-label="Description" disabled>Sunny two-room flat full of original paintings…</textarea>
+                <div class="h-field-hint"><span class="h-field-hint__channels ds-why"><svg class="h-icon"><use href="#i-lock"/></svg>Booking.com only<span class="h-tooltip ds-why__tip" role="tooltip">Booking.com writes this from your facts, photos and amenities, so it can’t be edited here.</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="hc-src"><span class="hc-prov" data-prov="simulated"></span><span>The prototype as built, demo data</span></p>
+    </div>
+    <div class="more__panel" data-title="The flow">
+      <figure class="hc-flow" data-flow="one-field" data-at="0.3"></figure>
+      <p class="hc-flow__note" data-a="rise" data-at="0.3">Every field is one of four cases. “Use the Base” keeps the custom text, so “Customize” brings it back.</p>
+      <p class="hc-src"><span class="hc-prov" data-prov="simulated"></span><span>Walked in the prototype, demo data</span></p>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span class="hc-prov" data-prov="simulated"></span><span>The prototype’s demo flat, as built</span><span class="more-link" data-more="flow">Set by the channel</span></p></div>
+  <aside class="notes"><p>I want hosts to stop thinking of one listing copied everywhere. Each channel is optimised on its own, and the Base is where it starts. So every field says how much it takes from the Base. Fields like Other details to note simply follow it, on every channel.</p><p>[Press] The summary is Airbnb’s own, written for remote workers searching Airbnb. One click on Use the Base and it follows the Base again, and the custom text is kept. These are live.</p><p>[Press] And the check-in method lives only on Airbnb, because no other channel asks for it. The fourth case, a field the channel sets itself, is in More. About 45 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="ds-strategy" data-proto="https://hospitable-case-web.digimal.studio/property/neukolln/smart/strategy?smart=on" data-title="A strategy per channel" data-stage="4" data-part="design" data-path="S" data-angle="both" data-min="0.9" data-req="R-072 R-075 R-110" data-notion="D-938 D-964 D-917 D-922 05-design" data-notion-page="05-design" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Design</span><span>Strategy</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Turn it on, then aim each channel in four questions</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Opt-in per property, since not every host wants AI. It reuses Hospitable’s Add-property wizard. Each suggestion says why.</p>
+  </header>
+  <div class="s-body">
+    <div class="hc-two" style="--l: 0.42fr; --r: 1.58fr">
+      <div class="hc-steps hc-steps--v ds-steps" style="--n: 4">
+        <div class="hc-step is-key" data-a="rise" data-at="0.2"><p class="hc-step__t">Goal</p></div>
+        <div class="hc-step" data-a="rise" data-at="0.3"><p class="hc-step__t">Who it’s for</p></div>
+        <div class="hc-step" data-a="rise" data-beat="1"><p class="hc-step__t">Guardrails</p></div>
+        <div class="hc-step" data-a="rise" data-beat="2"><p class="hc-step__t">Autopilot, off by default</p></div>
+      </div>
+      <div class="hc-scene ds-scene" data-own style="--w: 1220px; --h: 540px">
+        <div class="hc-scene__bg"></div>
+        <div class="ds-live" style="--x: 0px; --y: 0px; --sw: 640px">
+          <div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.45">
+            <div class="ds-card ds-wz">
+              <span class="ds-wz__bar" style="--p: 25%"></span>
+              <p class="ds-wz__eyebrow"><svg class="h-mark"><use href="#ch-airbnb"/></svg>Airbnb · Strategy 1 of 3</p>
+              <h3 class="ds-wz__h1">What should this strategy aim for?</h3>
+              <div class="ds-wz__cards ds-wz__cards--1">
+                <label class="ds-wz-card"><input class="h-radio" type="radio" name="ds-goal" checked><span class="ds-wz-card__main"><span class="ds-wz-card__title">Fill empty nights<span class="h-pill h-pill--ai ds-wz-card__tag">Suggested</span></span><span class="ds-wz-card__desc">8 of your 13 empty nights on Airbnb are Monday to Thursday.</span></span></label>
+                <label class="ds-wz-card"><input class="h-radio" type="radio" name="ds-goal"><span class="ds-wz-card__main"><span class="ds-wz-card__title">Earn more per booking</span><span class="ds-wz-card__desc">Your Airbnb weekends book 3 weeks out. Similar homes charge €12 more.</span></span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ds-live is-float" data-st="1" style="--x: 600px; --y: 80px; --sw: 620px">
+          <div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.45">
+            <div class="ds-card ds-wz">
+              <span class="ds-wz__bar" style="--p: 75%"></span>
+              <h3 class="ds-wz__h1">Set your guardrails</h3>
+              <p class="ds-wz__sub">Smart Listings never goes outside them.</p>
+              <p class="ds-wz__label">Keep my nightly price between</p>
+              <div class="ds-wz__range">
+                <div class="h-input-group"><span class="h-affix h-affix--start">€</span><input class="h-input ds-num" inputmode="numeric" aria-label="Lowest nightly price" value="40"></div>
+                <span class="ds-wz__to">to</span>
+                <div class="h-input-group"><span class="h-affix h-affix--start">€</span><input class="h-input ds-num" inputmode="numeric" aria-label="Highest nightly price" value="90"></div>
+              </div>
+              <p class="ds-wz__locked"><svg class="h-icon"><use href="#i-lock"/></svg><span><strong>Prices and fees, Minimum stay and rules, Cancellation policy</strong> · Always asks you. This can’t be turned off.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <template class="more" data-more="rails" data-title="The result: three strategies">
+    <div class="more__panel" data-title="Three strategies">
+      <div class="ds-shot">
+        <ul class="ds-shot__rails" data-a="stagger" data-s="2">
+          <li><svg class="h-mark h-mark--badge h-mark--airbnb ds-mk" viewBox="0 0 24 24" role="img" aria-label="Airbnb"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-airbnb" width="24" height="24"/></svg><span><b>Airbnb fills empty nights</b>for remote workers</span></li>
+          <li><svg class="h-mark h-mark--badge h-mark--booking ds-mk" viewBox="0 0 24 24" role="img" aria-label="Booking.com"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-booking" width="24" height="24"/></svg><span><b>Booking.com earns more per booking</b>from city-break couples</span></li>
+          <li><svg class="h-mark h-mark--badge h-mark--hospitable ds-mk" viewBox="0 0 24 24" role="img" aria-label="Direct"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-hospitable" width="24" height="24"/></svg><span><b>Direct balances both</b></span></li>
+        </ul>
+        <figure class="hc-figure ds-shot__fig" data-zoom data-a="rise" data-at="0.1"><img data-shot="p-strategy" alt="Strategy: Airbnb fills empty nights, Booking.com earns more per booking, Direct balances both"></figure>
+      </div>
+    </div>
+    <!-- flow 1, drawn live by kit/flowmap.js from data/flows.json (4 Oct) -->
+    <div class="more__panel" data-title="The flow">
+      <figure class="hc-flow" data-flow="turn-on" data-at="0.3"></figure>
+      <p class="hc-flow__note" data-a="rise" data-at="0.3">Opt-in per property, because not every host wants it, and turning it off keeps everything. The wizard copies Hospitable’s Add-property flow, which hosts already know. Closing it halfway changes nothing. <span class="hc-flow__src"><span class="hc-prov" data-prov="simulated"></span>Walked in the prototype, demo data</span></p>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span class="hc-prov" data-prov="product"></span><span>Pattern: Hospitable’s Add-property wizard</span><span class="hc-prov" data-prov="simulated"></span><span>Suggestion evidence, demo data</span><span class="more-link" data-more="rails">The three strategies</span></p></div>
+  <aside class="notes"><p>Smart Listings is opt-in, switched on per property, because not every host wants AI on their listing. With it off, Shared and Channels look exactly the same, so the structure serves every host. Turning it off later keeps everything. Turning it on opens a wizard hosts already know: Hospitable’s Add-property flow. So I reused it rather than invent a new pattern. First, what to aim for. Each option shows its evidence, like this one: 8 of your 13 empty nights on Airbnb are Monday to Thursday.</p><p>[Press] Then the guardrails, which are the contract. Smart Listings never goes outside the price range. Prices, stay rules and cancellation always ask. That lock can’t be turned off.</p><p>[Press] Last, whether Autopilot may act. It starts off. There’s one strategy per channel, or one shared by several. So Airbnb and Booking.com can go after different guests. About 55 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="ds-tips" data-proto="https://hospitable-case-web.digimal.studio/property/neukolln/ch/airbnb/listing/essentials?smart=on&amp;tip=t-a-space" data-title="Tips with a why" data-stage="4" data-part="design" data-path="S" data-angle="both" data-min="0.9" data-req="R-100 R-106 R-107 R-108 R-109" data-notion="D-931 D-939 D-947 D-968 D-981 05-design" data-notion-page="05-design" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Design</span><span>Tips & AI rewrite</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Accept a tip knowing exactly what changes, and why</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">A suggestion without a reason is a guess. Tips open in the Tips panel, with their sources.</p>
+  </header>
+  <div class="s-body">
+    <div class="hc-two" style="--l: 0.42fr; --r: 1.58fr">
+      <ul class="hc-points ds-pts">
+        <li data-a="rise" data-at="0.2"><span>The edit, shown once</span></li>
+        <li data-a="rise" data-beat="1"><span>Every reason, sourced</span></li>
+        <li data-a="rise" data-beat="2"><span>Undo, one click away</span></li>
+      </ul>
+      <div class="hc-scene ds-scene" data-own style="--w: 1240px; --h: 560px">
+        <div class="hc-scene__bg"></div>
+        <figure class="hc-scr is-back" style="--x: 0px; --y: 90px; --sw: 600px"><img data-shot="tips-wifi" alt="The Airbnb listing with the Wi-Fi tip open, as built in the prototype"></figure>
+        <div class="ds-live is-float" style="--x: 300px; --y: 0px; --sw: 930px">
+          <div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.6">
+            <article class="h-tip ds-card" data-tip aria-label="The space">
+              <div class="h-tip__head"><span class="h-tip__type">The space</span>
+                <span class="h-tip__nav"><button type="button" aria-label="Previous tip" tabindex="-1"><svg class="h-icon"><use href="#i-chevron-left"/></svg></button>4 of 11<button type="button" aria-label="Next tip" tabindex="-1"><svg class="h-icon"><use href="#i-chevron-right"/></svg></button></span></div>
+              <div class="h-tip__body ds-tip__body">
+                <div class="h-tip__main"><h3 class="h-tip__title">Say how fast the Wi-Fi is</h3>
+                  <div class="h-diff"><p class="h-diff__text">…by the window with an ergonomic <del>chair and </del><ins>chair, </ins>a 27" <del>monitor, </del><ins>monitor and 250 Mbps fibre Wi-Fi (tested on 12 Sep), </ins>plus the paintings, a sofa and…</p></div></div>
+                <div class="h-tip__why"><h4>Why</h4>
+                  <ul>
+                    <li data-st="1"><span class="h-tip__why-src ds-src" title="Source: Listing base" aria-label="Source: Listing base"><svg class="h-icon"><use href="#i-file-text"/></svg></span><span class="h-tip__why-text">From your Listing base · Amenities: Wi-Fi, 250 Mbps fibre, tested on 12 Sep.</span></li>
+                    <li data-st="1"><span class="h-tip__why-src ds-src" title="Source: Inbox" aria-label="Source: Inbox"><svg class="h-icon"><use href="#i-message-circle"/></svg></span><span class="h-tip__why-text">5 of your last 12 Airbnb inquiries asked about the Wi-Fi speed.</span></li>
+                    <li data-st="1"><span class="h-tip__why-src ds-src" title="Source: Strategy" aria-label="Source: Strategy"><svg class="h-icon"><use href="#i-target"/></svg></span><span class="h-tip__why-text">8 of 24 similar homes state the speed in The space.</span></li>
+                  </ul></div>
+              </div>
+              <div class="h-tip__foot">
+                <span class="h-tip__actions ds-tip__ask"><button type="button" class="h-btn h-btn--secondary" data-act="dismiss">Dismiss</button><button type="button" class="h-btn h-btn--primary" data-act="accept">Accept</button></span>
+                <span class="ds-tip__done" hidden><span class="h-tip__done ds-done"><svg class="h-icon"><use href="#i-circle-check"/></svg><span class="ds-tip__label">Accepted</span></span><span class="h-tip__actions"><button type="button" class="h-btn h-btn--ghost" data-act="undo"><svg class="h-icon"><use href="#i-arrow-back-up"/></svg>Undo</button></span></span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 4 Oct (DECISIONS §17): KD-10, one AI affordance per field (a tip, otherwise Rewrite with AI), then KD-11, tips cover
+       money and stay rules and say when a field is shared. Generate alternatives stays in the flow ("5 more options"). -->
+  <template class="more" data-more="more" data-title="Two rules behind every tip" data-label="More">
+    <div class="more__panel" data-title="One AI per field">
+      <div class="ds-shot">
+        <div class="ds-shot__words">
+          <p class="ds-shot__lead" data-a="rise">Each field shows one AI marker at most: its tip, or Rewrite with AI where you can type right now.</p>
+          <p class="ds-shot__chips" data-a="stagger" data-at="0.2"><span class="hc-chip hc-chip--ai"><svg class="hc-chip__i"><use href="#i-sparkles"/></svg>Purple: the AI suggests</span><span class="hc-chip ds-chip--rw"><svg class="hc-chip__i"><use href="#i-sparkles"/></svg>Orange: you ask</span></p>
+          <p class="ds-shot__note" data-a="rise" data-at="0.4">Both use the same card, so hosts learn the AI once. Rewrite with AI works with Smart Listings off too.</p>
+        </div>
+        <figure class="hc-figure ds-shot__fig" data-zoom data-a="rise" data-at="0.1"><img data-shot="tips-rewrite" alt="Rewrite with AI on Airbnb’s Summary: describe the change, or pick Shorten, Summarize, More formal, Warmer or More detail"></figure>
+      </div>
+    </div>
+    <div class="more__panel" data-title="Not only words">
+      <div class="ds-shot">
+        <div class="ds-shot__words">
+          <p class="ds-shot__lead" data-a="rise">Tips cover prices and stay rules too, where hosts differ most per channel. On a shared field, the tip says so.</p>
+          <p class="ds-shot__chips" data-a="stagger" data-at="0.2"><span class="hc-chip"><svg class="hc-chip__i"><use href="#i-world"/></svg>Applies to every channel</span></p>
+          <p class="ds-shot__marks" data-a="rise" data-at="0.35"><svg class="h-mark h-mark--badge h-mark--airbnb ds-mk" viewBox="0 0 24 24" role="img" aria-label="Airbnb"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-airbnb" width="24" height="24"/></svg><svg class="h-mark h-mark--badge h-mark--booking ds-mk" viewBox="0 0 24 24" role="img" aria-label="Booking.com"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-booking" width="24" height="24"/></svg><svg class="h-mark h-mark--badge h-mark--hospitable ds-mk" viewBox="0 0 24 24" role="img" aria-label="Direct"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-hospitable" width="24" height="24"/></svg></p>
+        </div>
+        <figure class="hc-figure ds-shot__fig" data-zoom data-a="rise" data-at="0.1"><img data-shot="tips-pricing" alt="Raise your weekend rate: applies to every channel"></figure>
+      </div>
+    </div>
+  </template>
+  <!-- flow 2, drawn live by kit/flowmap.js from data/flows.json (4 Oct); its own door, since "more" holds two panels already -->
+  <template class="more" data-more="flow" data-title="Working through the tips" data-label="The flow">
+    <div class="more__panel" data-title="The flow">
+      <figure class="hc-flow" data-flow="tips" data-at="0.3"></figure>
+      <p class="hc-flow__note" data-a="rise" data-at="0.3">One panel and one tip at a time keep the decision next to the field it changes, with its reason in view. With Autopilot off, nothing changes until the host accepts, and Undo withdraws the change it sent. <span class="hc-flow__src"><span class="hc-prov" data-prov="simulated"></span>Walked in the prototype, demo data</span></p>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span class="hc-prov" data-prov="simulated"></span><span>Tip content and reasons, demo data</span><span class="more-link" data-more="more">One AI per field, and prices too</span><span class="more-link" data-more="flow">The flow</span></p></div>
+  <aside class="notes"><p>Today the only listing AI in Hospitable is a separate page of suggestions, away from the fields. A suggestion without a reason is a guess. So I put every tip beside its field, in one docked panel, one at a time. This card is the real component. The tip is to say how fast the Wi-Fi is. It’s the fourth of eleven. It shows the edit once, with only the new words coloured.</p><p>[Press] Every reason names its source: a fact from the Knowledge Hub, the host’s own inbox, or similar homes nearby. Hover the icon and it says which.</p><p>[Press] Accept is Hospitable’s usual raspberry button. Let me accept it. And Undo is one click. One rule kept this calm: a field shows one AI marker at most, either its tip or Rewrite with AI. Rewrite with AI doesn’t need Smart Listings. Every host has it. About 50 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="ds-canvas" data-proto="https://hospitable-case-web.digimal.studio/property/neukolln/ch/airbnb/listing/essentials?smart=on&amp;view=canvas&amp;tips=1" data-title="See what guests see" data-stage="4" data-part="design" data-path="St" data-angle="both" data-min="0.7" data-req="R-101 R-102 R-103 R-104" data-notion="D-925 D-953 D-972 D-124 05-design" data-notion-page="05-design" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Design</span><span>Canvas preview</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">See the listing as guests will, then tap to change it</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Hospitable publishes with no preview today. I rebuilt each channel’s real guest page. A tap opens the field behind it, its tip or Rewrite with AI.</p>
+  </header>
+  <div class="s-body">
+    <div class="hc-two" style="--l: 0.62fr; --r: 1.38fr">
+      <ul class="hc-points">
+        <li data-a="rise" data-at="0.75"><span><b>Purple</b>: a tip waits here</span></li>
+        <li data-a="rise" data-at="0.85"><span><b>Orange</b>: editable here</span></li>
+        <li data-a="rise" data-at="0.95"><span><b>No colour</b>: owned elsewhere</span></li>
+        <li data-a="rise" data-beat="1" data-at="0.3"><span><b>Show only editable sections</b>: hide the rest</span></li>
+        <li data-a="rise" data-beat="1" data-at="0.42"><span><b>Your edits or Live now</b>: compare, and go back to the original</span></li>
+      </ul>
+      <div class="hc-scene ds-scene" data-own style="--w: 1080px; --h: 620px">
+        <div class="hc-scene__bg"></div>
+        <figure class="hc-scr is-back" style="--x: 20px; --y: 20px; --sw: 700px"><img data-shot="cv-airbnb" alt="Canvas: the Airbnb page as guests see it, with the title tip open"></figure>
+        <figure class="hc-scr is-float" data-st="1" style="--x: 420px; --y: 170px; --sw: 640px"><img data-shot="cv-booking" alt="Canvas: the Booking.com page as guests see it"></figure>
+        <figure class="hc-scr hc-scr--crop is-float-2" data-lift style="--x: 30px; --y: 480px; --sw: 560px; --ar: 5.25; --z: 3.175; --cx: -26.5%; --cy: -40.8%"><img data-shot="cv-airbnb" alt="The title on Airbnb's page, ringed in purple: a tip waits here"></figure>
+        <p class="hc-callout" data-st="1" style="--x: 660px; --y: 124px">Classic or Canvas, one switch</p>
+      </div>
+    </div>
+  </div>
+  <div class="s-foot"><p class="hc-src"><span class="hc-prov" data-prov="product"></span><span>Changes publish without a preview</span></p></div>
+  <aside class="notes"><p>Canvas goes beyond a preview. One switch shows only the sections you can edit. Another switches between your edits and what’s live on the channel now. So you can see the difference, and go back to the original with one click. Today no screen in Hospitable shows one listing as it looks on one channel, and changes publish without a preview. So Canvas shows the channel’s real guest page, and colour says what you can do. Purple: a tip waits here. Orange: you can edit it here. No colour: it’s owned somewhere else. On Airbnb the title has a purple ring, because a tip waits on it.</p><p>[Press] Booking.com gets its own page, one switch away from Classic. Canvas works for every host, with Smart Listings on or off. My first version let you edit right on the page. In review, that became a second editor for the same field, so I took it out. Now a tap opens the field itself, and a price opens Pricing’s own fields. One field, one editor. About 50 seconds.</p></aside>
+</section>
+
+
+<section class="s" data-id="ds-performance" data-proto="https://hospitable-case-web.digimal.studio/property/neukolln/smart/performance?smart=on&amp;ch=airbnb" data-title="Every strategy, measured" data-stage="4" data-part="design" data-path="S" data-angle="both" data-min="0.8" data-req="R-121 R-122" data-notion="D-963 D-962 D-952 05-design" data-notion-page="05-design" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Design</span><span>Performance · concept</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Each strategy, measured against the weeks before it</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">A concept: since the strategy started, against the same weeks before.</p>
+  </header>
+  <div class="s-body">
+    <div class="hc-two" style="--l: 0.5fr; --r: 1.5fr">
+      <div class="hc-stats hc-stats--stack">
+        <div class="hc-stat is-key" data-a="rise" data-at="0.2"><p class="hc-stat__k">Airbnb occupancy</p><p class="hc-stat__v">+20<small>points</small></p><p class="hc-stat__l">60% since 14 Aug, 40% before</p></div>
+        <div class="hc-stat" data-a="rise" data-at="0.3"><p class="hc-stat__k">Airbnb revenue</p><p class="hc-stat__v">+39.2%</p><p class="hc-stat__l">€1,507 since 14 Aug</p></div>
+      </div>
+      <div class="hc-scene ds-scene" data-own style="--w: 1160px; --h: 640px">
+        <div class="hc-scene__bg"></div>
+        <div class="ds-live" style="--x: 0px; --y: 0px; --sw: 1040px">
+          <div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.6">
+            <figure class="ds-card ds-wk" aria-label="Occupancy by week on Airbnb: the 7 weeks before the strategy started on 14 Aug in grey, then the 7 weeks since in colour">
+              <figcaption class="ds-wk__t"><b>Occupancy</b><span>Share of nights booked through Airbnb.</span></figcaption>
+              <p class="ds-wk__periods"><span class="is-before">7 weeks before <b>40%</b></span><span>Since 14 Aug <b>60%</b><span class="h-pill ds-delta">+20 points</span></span></p>
+              <div class="ds-wk__plot"><span class="ds-wk__marker"><span>Strategy started 14 Aug</span></span><i class="ds-wk__bar is-before" style="--v: 14%" title="25 Jun, before: 14%"></i><i class="ds-wk__bar is-before" style="--v: 43%" title="2 Jul, before: 43%"></i><i class="ds-wk__bar is-before" style="--v: 29%" title="9 Jul, before: 29%"></i><i class="ds-wk__bar is-before" style="--v: 86%" title="16 Jul, before: 86%"></i><i class="ds-wk__bar is-before" style="--v: 43%" title="23 Jul, before: 43%"></i><i class="ds-wk__bar is-before" style="--v: 43%" title="30 Jul, before: 43%"></i><i class="ds-wk__bar is-before" style="--v: 25%" title="6 Aug, before: 25%"></i><i class="ds-wk__bar" style="--v: 43%" title="14 Aug, since: 43%"></i><i class="ds-wk__bar" style="--v: 43%" title="21 Aug, since: 43%"></i><i class="ds-wk__bar" style="--v: 71%" title="28 Aug, since: 71%"></i><i class="ds-wk__bar" style="--v: 71%" title="4 Sep, since: 71%"></i><i class="ds-wk__bar" style="--v: 29%" title="11 Sep, since: 29%"></i><i class="ds-wk__bar" style="--v: 71%" title="18 Sep, since: 71%"></i><i class="ds-wk__bar" style="--v: 88%" title="25 Sep, since: 88%"></i></div>
+              <p class="ds-wk__x"><span>25 Jun</span><span>14 Aug</span><span>25 Sep</span></p>
+            </figure>
+          </div>
+        </div>
+        <div class="ds-live is-float" data-st="1" style="--x: 300px; --y: 452px; --sw: 860px">
+          <div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.6">
+            <div class="ds-card ds-ver">
+              <p class="ds-ver__t"><span class="h-pill h-pill--neutral">Next idea</span>Strategy versions on Airbnb</p>
+              <div class="ds-ver__row">
+                <p class="ds-ver__v"><b>Version 1</b><span>Since 14 Aug · +20 points</span></p>
+                <span class="ds-ver__vs">vs</span>
+                <p class="ds-ver__v is-next"><b>Version 2</b><span>From the next change</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <template class="more" data-more="versions" data-title="Strategy versions, a concept" data-label="Versions">
+    <div class="more__panel" data-title="Versions">
+      <div class="ds-vd">
+        <div class="ds-shot__words">
+          <p class="ds-shot__lead" data-a="rise">Not designed in full: where Performance would compare one strategy with another.</p>
+          <ul class="ds-shot__pts" data-a="stagger" data-at="0.15" data-s="2">
+            <li><span class="ds-shot__i"><svg><use href="#i-target"/></svg></span><span>Each change to a channel’s strategy starts a new version.</span></li>
+            <li><span class="ds-shot__i"><svg><use href="#i-calendar"/></svg></span><span>Each version keeps its own period and the stretch before it.</span></li>
+            <li><span class="ds-shot__i"><svg><use href="#i-chart-line"/></svg></span><span>Side by side, a host sees which one worked on that channel.</span></li>
+          </ul>
+        </div>
+        <div class="h-root hc-ui ds-ui ds-vd__ui" style="--ui-zoom: 1.85" data-a="rise" data-at="0.1">
+          <div class="ds-vd__card">
+            <p class="ds-ver__t"><svg class="h-mark"><use href="#ch-airbnb"/></svg>Occupancy on Airbnb, by version</p>
+            <div class="ds-vd__cols">
+              <div class="ds-vd__col">
+                <p class="ds-vd__name">Version 1</p>
+                <p class="ds-vd__per">Since 14 Aug, 7 weeks</p>
+                <p class="ds-vd__k">Before</p><p class="ds-vd__n">40%</p>
+                <p class="ds-vd__k">Since</p><p class="ds-vd__n is-up">60%</p>
+                <span class="h-pill ds-delta">+20 points</span>
+              </div>
+              <div class="ds-vd__col is-next">
+                <p class="ds-vd__name">Version 2</p>
+                <p class="ds-vd__per">From the next change</p>
+                <p class="ds-vd__k">Compared with</p><p class="ds-vd__n">Version 1</p>
+                <p class="ds-vd__k">Since</p><p class="ds-vd__n">Not started</p>
+                <span class="h-pill h-pill--neutral">Concept</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="hc-src"><span class="hc-prov" data-prov="simulated"></span><span>Version 1: Performance demo data</span><span class="hc-prov" data-prov="assumption"></span><span>Version 2: a concept, not designed in full</span></p>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span class="hc-prov" data-prov="simulated"></span><span>Performance, demo data</span><span class="hc-prov" data-prov="product"></span><span>Cards and bars follow Hospitable Metrics</span><span class="more-link" data-more="versions">Strategy versions</span></p></div>
+  <aside class="notes"><p>This part is a concept. Pick a channel, and Performance puts the weeks since its strategy started next to the same stretch just before, in grey. On this Airbnb listing, with demo data, occupancy went from 40 to 60 percent, up twenty points. Revenue rose 39 percent.</p><p>[Press] The next idea is versions. When a host changes a strategy, each version keeps its own period. So Version 1 and Version 2 on the same channel can be compared directly. I haven’t designed it in full. The detail shows where it would sit. About 45 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="ds-autopilot" data-proto="https://hospitable-case-web.digimal.studio/property/neukolln/smart/strategy/airbnb?smart=on" data-title="Autopilot, inside guardrails" data-stage="4" data-part="design" data-path="St" data-angle="both" data-min="0.7" data-req="R-116" data-notion="D-085 D-145 D-938 D-964 05-design" data-notion-page="05-design" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Design</span><span>Autopilot</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Autopilot for words and photos. Money always asks you</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">With Autopilot on, text and photo-order tips apply inside the host’s guardrails, since they are cheap to undo. Prices, stay rules and cancellation always wait for a yes.</p>
+  </header>
+  <div class="s-body">
+    <div class="hc-two" style="--l: 0.62fr; --r: 1.38fr">
+      <div class="hc-vs hc-vs--stack">
+        <div class="hc-vs__c is-new" data-a="rise" data-at="0.2"><p class="hc-vs__k">May apply on its own</p><ul><li>Text tips</li><li>Photo order, never adding or removing a photo</li></ul></div>
+        <div class="hc-vs__c" data-a="rise" data-beat="1"><p class="hc-vs__k">Always asks you first</p><ul><li>Prices and fees</li><li>Minimum stay and rules</li><li>Cancellation policy</li></ul></div>
+      </div>
+      <div class="hc-scene ds-scene" data-own style="--w: 1080px; --h: 640px">
+        <div class="hc-scene__bg"></div>
+        <figure class="hc-scr is-back" style="--x: 20px; --y: 70px; --sw: 660px"><img data-shot="ap-strategy" alt="Airbnb strategy: always asks you first, Autopilot on"></figure>
+        <figure class="hc-scr hc-scr--crop is-float-2" data-st="1" data-lift style="--x: 360px; --y: 0px; --sw: 700px; --ar: 6.33; --z: 1.754; --cx: -38.5%; --cy: -49.6%"><img data-shot="ap-strategy" alt="Always asks you first: prices and fees, minimum stay and rules, cancellation policy. Autopilot on"></figure>
+        <figure class="hc-scr is-float" data-st="2" style="--x: 460px; --y: 226px; --sw: 600px"><img data-shot="tips-pricing" alt="Pricing: Autopilot is on, prices always ask you first"></figure>
+        <p class="hc-callout" data-st="1" style="--x: 640px; --y: 126px">Locked: it can’t be turned off</p>
+        <p class="hc-callout hc-callout--ai" data-st="2" style="--x: 480px; --y: 596px">The editor says Autopilot is on</p>
+      </div>
+    </div>
+  </div>
+  <template class="more" data-more="step" data-title="Off by default">
+    <div class="more__panel" data-title="Wizard step">
+      <div class="ds-shot">
+        <div class="ds-shot__words">
+          <p class="ds-shot__q" data-a="rise"><span class="hc-chip hc-chip--q hc-chip--ai"><svg class="hc-chip__i"><use href="#i-sparkles"/></svg>Should Autopilot apply tips for you?</span></p>
+          <p class="ds-shot__lead" data-a="rise" data-at="0.15">Off is the default. Tips wait for the host, and nothing changes until they accept one.</p>
+          <p class="ds-shot__chips" data-a="rise" data-at="0.3"><span class="hc-chip"><svg class="hc-chip__i"><use href="#i-refresh"/></svg>Switch it any time</span></p>
+        </div>
+        <figure class="hc-figure ds-shot__fig" data-zoom data-a="rise" data-at="0.1"><img data-shot="wz-autopilot" alt="Should Autopilot apply tips for you? Autopilot off is the default"></figure>
+      </div>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span class="more-link" data-more="step">The Autopilot question</span></p></div>
+  <aside class="notes"><p>In my sampled interviews, hosts feared losing money and status far more than a sentence. So I made control follow the stakes. Autopilot is off by default, and the host chooses it per strategy. When it’s on, it may rewrite a sentence or reorder photos inside the host’s guardrails, because those are cheap to undo.</p><p>[Press] Anything that changes money, who can book, or what guests are promised always asks. That lock can’t be turned off.</p><p>[Press] With Autopilot on, the editor says so, here on Pricing, and offers the way out. I first designed a three-level dial per content type. One switch turned out simpler. In the prototype, the switch and its states are built. The automatic applying itself isn’t simulated. About 50 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="ds-mobile" data-proto="https://hospitable-case-mobile.digimal.studio/property/neukolln/ch/airbnb/listing/essentials?smart=on&amp;tip=t-a-space" data-title="In the pocket" data-stage="4" data-part="design" data-path="St" data-angle="both" data-min="0.6" data-req="R-076 R-140 R-141" data-notion="D-973 D-970 05-design" data-notion-page="05-design" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Design</span><span>Mobile & tablet</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Fix a listing between turnovers, from your phone</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">To make that possible, I built an app mode that runs every screen as Hospitable’s mobile app: sheets, swipe-back, tips in a bottom sheet.</p>
+  </header>
+  <div class="s-body">
+    <div class="hc-two" style="--l: 0.62fr; --r: 1.38fr">
+      <div class="ds-col">
+        <ul class="hc-points">
+          <li data-a="rise" data-at="0.2"><span>Every side panel becomes a bottom sheet</span></li>
+          <li data-a="rise" data-beat="1"><span>44 px targets, 16 px inputs</span></li>
+          <li data-a="rise" data-beat="1" data-at="0.1"><span>Checked at 375, 768 and 1440</span></li>
+          <li data-a="rise" data-beat="2"><span>Installable: Add to Home Screen</span></li>
+          <li data-a="rise" data-beat="2" data-at="0.1"><span>Voice input: a stand-in, no speech model yet</span></li>
+        </ul>
+      </div>
+      <div class="hc-scene ds-scene" data-own style="--w: 1080px; --h: 580px">
+        <div class="hc-scene__bg"></div>
+        <figure class="hc-device" data-st="1" data-in="fan" style="--x: 90px; --y: 50px; --sw: 245px"><img data-shot="app-overview-phone" alt="App mode: the property Overview"></figure>
+        <figure class="hc-device is-float" data-hub style="--x: 400px; --y: 0px; --sw: 272px"><img data-shot="app-tips-phone" alt="App mode: the Wi-Fi tip in a bottom sheet"></figure>
+        <figure class="hc-device" data-st="1" data-in="fan" style="--x: 740px; --y: 50px; --sw: 245px"><img data-shot="app-perf-phone" alt="App mode: Performance"></figure>
+      </div>
+    </div>
+  </div>
+  <div class="s-foot"><p class="hc-src"><span class="hc-mark" data-mark="planned"></span><span>Built in part, under the case’s time limit. Many improvements are still needed</span></p></div>
+  <aside class="notes"><p>A caveat first. I built this only in part, because of the time I had. It would need many more improvements before it shipped. I designed for a host fixing a listing between turnovers, on a phone. That’s my design intent, not a finding. It means mobile isn’t a shrunken desktop. Here is the Wi-Fi tip again. On a phone, every side panel, tips included, becomes a bottom sheet you can drag away, with 44 pixel targets and 16 pixel inputs.</p><p>[Press] I built it so the same code runs as an installable app: Overview, Performance, and every screen I settled on. Pages slide in and out, and you swipe back from the edge.</p><p>[Press] Both the website and the app are live, so let me open the app and show it. Voice input is a stand-in. It shows the flow, but there’s no speech model behind it, and I say so. About 45 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="ds-challenged" data-title="Patterns I challenged" data-stage="4" data-part="design" data-path="E" data-angle="both" data-min="0.6" data-req="R-150 R-151" data-notion="D-020 D-022 05-design" data-notion-page="05-design" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Design</span><span>Design system</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Four patterns I challenged</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">They change how every part of Hospitable is organised, not only listings.</p>
+  </header>
+  <div class="s-body">
+    <!-- 4 Oct (Antonio): the challenges that matter most, as the kit's real components (h-chnav with children and
+         counts, h-field-row--stacked), the same as the prototype's sidebar and fields. Save and close are one line. -->
+    <div class="ds-chv">
+            <div class="ds-inv__t ds-chv__t" data-a="rise" data-at="0.26">
+              <div class="ds-inv__ui"><div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.15">
+                <div class="h-chnav ds-chv__nav">
+                  <span class="h-chnav__item" aria-current="page"><svg class="h-icon"><use href="#i-file-text"/></svg>Listing base<span class="h-chnav__trail"><svg class="h-icon"><use href="#i-chevron-down"/></svg></span></span>
+                  <div class="h-chnav__children"><span class="h-chnav__child is-here">Details</span><span class="h-chnav__child">Pricing</span><span class="h-chnav__child">Availability</span></div>
+                  <span class="h-chnav__item"><svg class="h-icon"><use href="#i-book"/></svg>Knowledge Hub<span class="h-chnav__trail"><svg class="h-icon"><use href="#i-chevron-right"/></svg></span></span>
+                </div>
+              </div></div>
+              <p class="ds-inv__n">Drill-down navigation<span class="ds-chv__d">Only the main menu had it. Now every section does.</span></p>
+            </div>
+            <div class="ds-inv__t ds-chv__t" data-a="rise" data-at="0.34">
+              <div class="ds-inv__ui"><div class="h-root hc-ui ds-ui ds-chv__pair" style="--ui-zoom: 1.15">
+                <div class="h-chnav ds-chv__nav">
+                  <span class="h-chnav__item"><svg class="h-mark h-mark--badge h-mark--airbnb" viewBox="0 0 24 24" aria-hidden="true"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-airbnb" width="24" height="24"/></svg>Airbnb<span class="h-chnav__trail"><span class="h-chnav__count">19</span><svg class="h-icon"><use href="#i-chevron-right"/></svg></span></span>
+                </div>
+                <div class="h-chnav ds-chv__nav">
+                  <span class="h-chnav__item"><svg class="h-mark h-mark--badge h-mark--airbnb" viewBox="0 0 24 24" aria-hidden="true"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-airbnb" width="24" height="24"/></svg>Airbnb<span class="h-chnav__trail"><svg class="h-icon"><use href="#i-chevron-down"/></svg></span></span>
+                  <div class="h-chnav__children"><span class="h-chnav__child">Listing<span class="h-chnav__trail"><span class="h-chnav__count">11</span></span></span><span class="h-chnav__child">Pricing<span class="h-chnav__trail"><span class="h-chnav__count">4</span></span></span><span class="h-chnav__child">Availability<span class="h-chnav__trail"><span class="h-chnav__count">2</span></span></span><span class="h-chnav__child">Booking policies<span class="h-chnav__trail"><span class="h-chnav__count">2</span></span></span></div>
+                </div>
+              </div></div>
+              <p class="ds-inv__n">Counts that move<span class="ds-chv__d">The total on the parent when closed, each page’s own when open.</span></p>
+            </div>
+            <div class="ds-inv__t ds-chv__t" data-a="rise" data-at="0.42">
+              <div class="ds-inv__ui"><div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.15">
+                <div class="h-field-row h-field-row--stacked ds-chv__field">
+                  <div class="h-field-row__head"><p class="h-field-row__label">Property name</p><p class="h-field-row__help">Guests see it in search.</p></div>
+                  <div class="h-field-row__control"><span class="h-input ds-chv__input">Beautiful Artist Apt. in Neukölln</span></div>
+                </div>
+              </div></div>
+              <p class="ds-inv__n">Stacked fields<span class="ds-chv__d">Label above the input, so Tips or Canvas fit beside it.</span></p>
+            </div>
+            <div class="ds-inv__t ds-chv__t" data-a="rise" data-at="0.5">
+              <div class="ds-inv__ui"><div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.15">
+                <div class="h-unsaved-bar ds-chv__bar"><span class="h-unsaved-bar__text">Unsaved changes</span><span class="h-unsaved-bar__actions"><span class="h-btn h-btn--secondary">Discard changes</span><span class="h-btn h-btn--primary">Save changes</span></span></div>
+              </div></div>
+              <p class="ds-inv__n">Save only when something changed<span class="ds-chv__d">And one outlined × for every close.</span></p>
+            </div>
+          </div>
+          
+    
+  </div>
+  <div class="s-foot"><p class="hc-src"><span class="hc-prov" data-prov="product"></span><span>Built on Hospitable’s own components, as in the prototype</span></p></div>
+  <aside class="notes"><p>Building Smart Listings, I didn’t only add to Hospitable’s design system. I challenged parts of it. Four matter most.</p><p>First, drill-down navigation. Only the main menu had it. Now each section opens to its own pages. Second, counts that move. A closed section shows its total, and once it’s open, each page shows its own. Third, stacked fields. The label sits above the input, not beside it, so Tips or Canvas fit as a second column. Fourth, Save changes shows only when something changed. And there’s one outlined close button everywhere. About 40 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="ds-system" data-title="Patterns I introduced" data-stage="4" data-part="design" data-path="E" data-angle="both" data-min="0.75" data-req="R-150 R-151 R-152 R-153 R-154 R-155" data-notion="D-020 D-022 D-023 D-954 05-design" data-notion-page="05-design" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Design</span><span>Design system</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Patterns I introduced, and where they reach</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Before they spread, I’d weigh them with each team, then test.</p>
+  </header>
+  <div class="s-body">
+    <!-- 4 Oct (Antonio): the system slide says what the patterns mean for the product. Left, the Hospitable patterns I
+         challenged (ds/DS.md, prototype/src/ds/unsaved.tsx, panels.tsx, sl3.tsx, CloseButton). Right, the new ones as the
+         kit's own product components (kit/ds/components.css: h-tip, h-tipdot, h-btn--ai, h-field-hint, h-mark--badge,
+         h-lens, h-toast, h-tabs, h-planline; the orange Rewrite trigger copies ds/v3/smartify.css .sy-trigger--label).
+         Foot, the product areas they reach, Planned. The full impact table is the More. -->
+    <div class="ds-sys">
+      <div class="ds-sys__top">
+        
+        <div class="ds-sys__col">
+          
+          <div class="ds-inv" data-a="stagger" data-at="0.2" data-at="0.08" data-s="0.06">
+            <div class="ds-inv__t ds-inv__t--tall">
+              <div class="ds-inv__ui"><div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.4">
+                <article class="h-tip ds-inv__tip" aria-label="A tip">
+                                    <div class="h-tip__head"><span class="h-tip__type">Wi-Fi</span></div>
+                  <div class="h-tip__body"><div class="h-tip__main"><h3 class="h-tip__title">Say how fast the Wi-Fi is</h3></div></div>
+                  <div class="h-tip__foot"><span class="h-tip__actions"><span class="h-btn h-btn--secondary">Dismiss</span><span class="h-btn h-btn--primary">Accept</span></span></div>
+                </article>
+              </div></div>
+              <p class="ds-inv__n">Tip card</p>
+            </div>
+            <div class="ds-inv__t">
+              <div class="ds-inv__ui"><div class="h-root hc-ui ds-ui ds-inv__row" style="--ui-zoom: 1.5">
+                <span class="h-btn h-btn--ai"><svg class="h-icon"><use href="#i-sparkles"/></svg>Tips · 3</span>
+                <span class="h-tipdot"><svg class="h-icon"><use href="#i-sparkles"/></svg>2</span>
+              </div></div>
+              <p class="ds-inv__n">Tips drawer, markers</p>
+            </div>
+            <div class="ds-inv__t">
+              <div class="ds-inv__ui"><div class="h-root hc-ui ds-ui ds-inv__row" style="--ui-zoom: 1.5">
+                <span class="ds-inv__label">Description</span><span class="ds-inv__rw"><svg class="h-icon"><use href="#i-sparkles"/></svg></span>
+              </div></div>
+              <p class="ds-inv__n">Rewrite with AI</p>
+            </div>
+            <div class="ds-inv__t">
+              <div class="ds-inv__ui"><div class="h-root hc-ui ds-ui ds-inv__stack" style="--ui-zoom: 1.3">
+                <span class="ds-inv__row"><svg class="h-mark h-mark--badge h-mark--airbnb ds-inv__mk" viewBox="0 0 24 24" role="img" aria-label="Airbnb"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-airbnb" width="24" height="24"/></svg><svg class="h-mark h-mark--badge h-mark--booking ds-inv__mk" viewBox="0 0 24 24" role="img" aria-label="Booking.com"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-booking" width="24" height="24"/></svg><svg class="h-mark h-mark--badge h-mark--hospitable ds-inv__mk" viewBox="0 0 24 24" role="img" aria-label="Direct"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-hospitable" width="24" height="24"/></svg></span>
+                <div class="h-field-hint ds-inv__hint"><span class="h-field-hint__channels"><svg class="h-icon"><use href="#i-info-circle"/></svg><span>Uses the Base</span></span><span class="h-field-hint__action">Customize for Airbnb</span></div>
+              </div></div>
+              <p class="ds-inv__n">Channel badges, reach caption</p>
+            </div>
+            <div class="ds-inv__t">
+              <div class="ds-inv__ui"><div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.5">
+                <span class="h-lens"><span class="h-lens__seg"><svg class="h-icon"><use href="#i-list-details"/></svg>Classic</span><span class="h-lens__seg" aria-pressed="true"><svg class="h-icon"><use href="#i-eye"/></svg>Canvas</span></span>
+              </div></div>
+              <p class="ds-inv__n">Canvas preview</p>
+            </div>
+            <div class="ds-inv__t">
+              <div class="ds-inv__ui"><div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.4">
+                <div class="h-toast ds-inv__toast"><svg class="h-icon"><use href="#i-circle-check"/></svg><span class="h-toast__body"><span class="h-toast__title">Changes saved</span></span><span class="h-toast__action">Undo</span></div>
+              </div></div>
+              <p class="ds-inv__n">Save toast, Undo</p>
+            </div>
+            <div class="ds-inv__t">
+              <div class="ds-inv__ui"><div class="h-root hc-ui ds-ui" style="--ui-zoom: 1.4">
+                <div class="h-tabs ds-inv__tabs" role="tablist"><span class="h-tab" role="tab" aria-selected="true">Essentials<span class="h-chnav__count">5</span></span><span class="h-tab" role="tab">Arrival<span class="h-chnav__count">2</span></span></div>
+              </div></div>
+              <p class="ds-inv__n">Section tabs with tip counts</p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="ds-reach">
+        <p class="ds-sys__k" data-a="rise" data-beat="1">Reaches</p>
+        <ul class="ds-reach__areas" data-a="stagger" data-beat="1" data-at="0.06" data-s="0.05">
+          <li>Inbox</li><li>Calendar</li><li>Pricing</li><li>Operations</li><li>Guest experience</li><li>Metrics</li><li>Mobile app</li>
+        </ul>
+        <p class="ds-reach__plan" data-a="rise" data-beat="1" data-at="0.5"><span class="hc-mark" data-mark="planned"></span><span>Evaluate, then test</span></p>
+      </div>
+    </div>
+  </div>
+  <template class="more" data-more="impact" data-title="Where each pattern lands, and how I’d test it" data-label="The impact">
+    <div class="more__panel" data-title="Impact">
+      <div class="ds-imp" data-a="fade" data-at="0.2">
+        <span></span><span class="ds-imp__h">Inbox</span><span class="ds-imp__h">Calendar</span><span class="ds-imp__h">Pricing</span><span class="ds-imp__h">Operations</span><span class="ds-imp__h">Guest exp.</span><span class="ds-imp__h">Metrics</span><span class="ds-imp__h">Mobile</span>
+        <span class="ds-imp__l is-chg">Save bar and toast</span><i></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i></i><i class="is-on"></i>
+        <span class="ds-imp__l is-chg">Drill-down navigation</span><i></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i></i><i class="is-on"></i>
+        <span class="ds-imp__l is-chg">Counts that move</span><i class="is-on"></i><i></i><i></i><i class="is-on"></i><i class="is-on"></i><i></i><i class="is-on"></i>
+        <span class="ds-imp__l is-chg">Stacked fields</span><i></i><i></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i></i><i class="is-on"></i>
+        <span class="ds-imp__l is-chg">Outlined close</span><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i>
+        <span class="ds-imp__l">Tips drawer, card</span><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i></i><i class="is-on"></i><i class="is-on"></i>
+        <span class="ds-imp__l">Tip markers, counts</span><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i></i><i></i><i></i><i class="is-on"></i>
+        <span class="ds-imp__l">Rewrite with AI</span><i class="is-on"></i><i></i><i></i><i class="is-on"></i><i class="is-on"></i><i></i><i class="is-on"></i>
+        <span class="ds-imp__l">Reach caption, badges</span><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i>
+        <span class="ds-imp__l">Canvas preview</span><i></i><i></i><i></i><i></i><i class="is-on"></i><i></i><i class="is-on"></i>
+        <span class="ds-imp__l">Section tabs, tip counts</span><i></i><i></i><i class="is-on"></i><i></i><i class="is-on"></i><i></i><i class="is-on"></i>
+      </div>
+      <p class="hc-src"><span class="hc-prov" data-prov="assumption"></span><span>My reading of where each pattern would land, to check with each product team. Raspberry names: patterns I challenged</span></p>
+    </div>
+    <div class="more__panel" data-title="How I’d test">
+      <ol class="ds-plan">
+        <li data-a="rise" data-at="0.15"><b>Weigh the impact</b><span>One review per product team: where each pattern lands, what it replaces, who owns it.</span></li>
+        <li data-a="rise" data-at="0.25"><b>Save placement</b><span>A first-click and preference test: the header’s Discard and Save, against the bar that appears when something changed.</span></li>
+        <li data-a="rise" data-at="0.35"><b>Tips: drawer or inline</b><span>Usability tests on both: do hosts find a tip, read its why, and trust Accept?</span></li>
+        <li data-a="rise" data-at="0.45"><b>Clear and consistent</b><span>Can hosts say what “Uses the Base” means, and does it read the same in Pricing?</span></li>
+      </ol>
+      <p class="hc-src"><span class="hc-mark" data-mark="planned"></span><span>Not run. Each test sets the alternatives side by side before anything spreads</span></p>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span class="hc-prov" data-prov="product"></span><span>Built on Hospitable’s own tokens and components</span><span class="hc-prov" data-prov="assumption"></span><span>The areas they reach are my reading, to check</span><span class="more-link" data-more="impact">The impact</span></p></div>
+  <aside class="notes"><p>I also added new pieces: the tip card and its drawer, the markers that lead to improvements, Rewrite with AI, the reach caption and channel badges under every field, Canvas, the save toast with Undo, and section tabs that show their tip counts.</p><p>[Press] None of these stays inside listings. Navigation, counts, tips and the save toast reach the Inbox, Calendar, Pricing, Operations, Metrics and the mobile app. So before they spread, I’d weigh the impact with each team, then test them against alternatives. That’s planned, not run. About 40 seconds.</p></aside>
+</section>
