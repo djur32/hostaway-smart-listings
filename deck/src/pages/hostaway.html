@@ -2086,6 +2086,47 @@
   <aside class="notes"><p>Here is where the audit of Hostaway led. The facts live in two places. And our premise is that hosts change money and stay rules per channel, almost never the words. So in the prototype, the property splits the way hosts think. On the left, Shared holds every fact once, and each channel gets its own pages. In the middle is Hostaway’s own listing editor, set to Airbnb. Every field says where its value comes from. On the right is a real tip card, not a picture of one. It says what to change and why. Accepting it creates Airbnb’s own value without touching the Base. We designed in code and reviewed the running build. Behind The map is what those reviews took out. The experimentation part specifies how each claim would be checked with real hosts. We chose one listing with channels inside it over a separate AI page, because the decision should sit next to the field it changes. About 55 seconds.</p></aside>
 </section>
 
+<section class="s" data-id="ds-flows" data-title="The user flows" data-stage="4" data-part="design" data-path="S" data-angle="B" data-min="0.8" data-req="R-100" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Design</span><span>User flows</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Five flows carry the whole design</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Where each one starts, and what the host has at the end of it.</p>
+  </header>
+  <div class="s-body">
+    <ol class="tm-miss tm-miss--port" data-a="stagger" data-s="1.2" data-at="0.18">
+      <li data-tint="blush"><span class="tm-tile"><svg><use href="#i-wand"/></svg></span><b class="tm-miss__s">1 · Turn on Smart Listings</b><span class="tm-miss__bar">Property › Overview</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">A strategy, and tips on every channel</span></li>
+      <li data-tint="lavender"><span class="tm-tile"><svg><use href="#i-sparkles"/></svg></span><b class="tm-miss__s">2 · Work through tips</b><span class="tm-miss__bar">A channel’s Listing page</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">The field updated and sent, with Undo</span></li>
+      <li data-tint="butter"><span class="tm-tile"><svg><use href="#i-layers-intersect"/></svg></span><b class="tm-miss__s">3 · One field, four cases</b><span class="tm-miss__bar">Any field on a channel</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Uses the Base, custom, channel-only or locked</span></li>
+      <li data-tint="mint"><span class="tm-tile"><svg><use href="#i-trending-up"/></svg></span><b class="tm-miss__s">4 · Check Performance</b><span class="tm-miss__bar">Smart Listings › Performance</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Keep the strategy, or edit or replace it</span></li>
+      <li data-tint="blush"><span class="tm-tile"><svg><use href="#i-users"/></svg></span><b class="tm-miss__s">5 · From a guest question</b><span class="tm-miss__bar">A question in the Inbox</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">A better listing or a new shared fact</span></li>
+    </ol>
+  </div>
+  <template class="more" data-more="flow-turn-on" data-title="Flow 1 · Turn on" data-label="Flow 1"><div class="more__panel" data-title="Flow 1"><figure class="hc-flow" data-flow="turn-on" data-at="0.3"></figure></div></template>
+  <template class="more" data-more="flow-tips" data-title="Flow 2 · Tips" data-label="Flow 2"><div class="more__panel" data-title="Flow 2"><figure class="hc-flow" data-flow="tips" data-at="0.3"></figure></div></template>
+  <template class="more" data-more="flow-one-field" data-title="Flow 3 · One field" data-label="Flow 3"><div class="more__panel" data-title="Flow 3"><figure class="hc-flow" data-flow="one-field" data-at="0.3"></figure></div></template>
+  <template class="more" data-more="flow-performance" data-title="Flow 4 · Performance" data-label="Flow 4"><div class="more__panel" data-title="Flow 4"><figure class="hc-flow" data-flow="performance" data-at="0.3"></figure></div></template>
+  <template class="more" data-more="flow-hub-to-tips" data-title="Flow 5 · Guest question" data-label="Flow 5"><div class="more__panel" data-title="Flow 5"><figure class="hc-flow" data-flow="hub-to-tips" data-at="0.3"></figure></div></template>
+  <div class="s-foot"><p class="hc-src"><span>Each flow is built in the prototype and specified in Notion</span><span class="more-link" data-more="flow-turn-on">Flow 1</span><span class="more-link" data-more="flow-tips">Flow 2</span><span class="more-link" data-more="flow-one-field">Flow 3</span><span class="more-link" data-more="flow-performance">Flow 4</span><span class="more-link" data-more="flow-hub-to-tips">Flow 5</span></p></div>
+  <aside class="notes"><p>Five flows carry the whole design, and every team can trace its work to one of them. Turning Smart Listings on, from the property Overview to a strategy and tips on every channel. Working through tips on a channel’s page, one at a time, with Undo. One field in four cases: it uses the Base, is custom for a channel, exists only there, or is locked by the channel. Checking Performance, then keeping, editing or replacing a strategy. And a guest question becoming a better listing. The detail opens each flow in full. About 45 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="ds-flow-core" data-title="The core flow" data-stage="4" data-part="design" data-path="St" data-angle="B" data-min="0.7" data-req="R-100" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Design</span><span>User flows</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">The core flow: turn it on once, then tips arrive on every channel</h2>
+  </header>
+  <div class="s-body">
+    <figure class="hc-flow" data-flow="turn-on" data-at="0.2"></figure>
+  </div>
+  <div class="s-foot"><p class="hc-src"><span class="more-link" data-more="flows2">The tips flow</span></p></div>
+  <template class="more" data-more="flows2" data-title="Then, working through the tips" data-label="The tips flow">
+    <div class="more__panel" data-title="The tips flow">
+      <figure class="hc-flow" data-flow="tips" data-at="0.3"></figure>
+    </div>
+  </template>
+  <aside class="notes"><p>This is the flow everything else hangs on. One toggle on the property Overview opens a full-screen wizard: which channels, whether they share a strategy, what it should know. Saving it puts tips on each channel’s pages. Product owns the order of these steps, engineering the save and sync, design the wizard. About 40 seconds.</p></aside>
+</section>
+
 <section class="s" data-id="ds-shared" data-title="Shared: one Base" data-stage="4" data-part="design" data-path="St" data-angle="both" data-min="0.7" data-req="R-072 R-081 R-082 R-089" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Design</span><span>Listing base</span></p>
