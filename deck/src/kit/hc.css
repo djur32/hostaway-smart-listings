@@ -934,11 +934,11 @@ html.is-measuring .deck > .s { content-visibility: visible !important; }
 @layer components {
 .hc-brand__plate {
   position: absolute; inset: 0; overflow: hidden;
-  border-radius: 0; background: var(--color-sidebar-bg);
+  border-radius: 0; background: var(--deck-dark);
 }
 .hc-brand__band {
   position: absolute; left: var(--x); top: var(--y); width: var(--w, 1400px); height: var(--h, 640px); border-radius: 50%;
-  background: color-mix(in oklab, var(--color-sidebar-item-active-bg) 62%, var(--color-sidebar-bg)); transform: rotate(var(--r, -24deg));
+  background: color-mix(in oklab, var(--deck-dark-2) 62%, var(--deck-dark)); transform: rotate(var(--r, -24deg));
 }
 .hc-brand__at { position: absolute; left: var(--x); top: var(--y); }
 .hc-brand .hc-doodle { --doodle-w: 9; }

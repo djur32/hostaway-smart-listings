@@ -262,15 +262,15 @@
   /* ────────────────────────────  2 · ROLES  ──────────────────────────── */
 
   /* ── App shell · sidebar (HS-22) ─────────────────────────────────────── */
-  --color-sidebar-bg: #e8dfcc;                /* sand */
-  --color-sidebar-item-active-bg: #d3c5a6;                  /* darker sand, text 10:1 */
+  --color-sidebar-bg: #f4efe3;                /* sand */
+  --color-sidebar-item-active-bg: #e7dec9;                  /* darker sand, text 12:1 */
   --color-sidebar-item-hover-bg: rgba(29, 27, 22, .06);
   --color-sidebar-text: #1d1b16;                  /* ink on sand, 13:1 */
   --color-sidebar-icon: #4a4436;                  /* 7:1 on sand */
   --color-sidebar-divider: rgba(29, 27, 22, .14);
   --color-sidebar-badge: var(--color-primary-600);              /* "4" on Getting started · #b94d00, white text */
-  --gradient-sidebar-highlight: linear-gradient(90deg, #f3e3c4 0%, #f5c48d 100%);
-  --gradient-sidebar-card: linear-gradient(90deg, #f3e3c4 0%, #f5c48d 100%);
+  --gradient-sidebar-highlight: linear-gradient(90deg, #f7ead2 0%, #f8d3a6 100%);
+  --gradient-sidebar-card: linear-gradient(90deg, #f7ead2 0%, #f8d3a6 100%);
   --color-sidebar-card-cta: var(--color-primary-600);           /* "Subscribe to a plan" · #b94d00, white text */
 
   /* ── Property sub-nav rail (HS-22) ───────────────────────────────────── */

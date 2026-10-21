@@ -448,4 +448,10 @@ html:not(.is-print) .op-loop--chart .op-dot { animation: op-hit 4.2s var(--ease-
 .op-cover__lockup { position: absolute; left: 9px; top: 40px; bottom: auto; margin: 0; --lockup: 60px; top: -40px; }
 /* full screen from the first frame (4 Oct): the plate is the whole slide, so nothing resizes when the chrome comes back on slide two */
 .s[data-id="op-cover"] .hc-brand__plate { left: 0; right: 0; top: 0; bottom: 0; border-radius: 0; }
+
+.op-pgs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.op-pgs--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.op-pg { padding: 28px 30px; border-radius: 22px; background: var(--plate-quiet); }
+.op-pg b { display: block; margin-bottom: 10px; font: var(--w-head) 30px / 1.15 var(--font-display); color: var(--deck-ink); }
+.op-pg p { margin: 0; font-size: 23px; line-height: 1.42; color: var(--ink-2); text-wrap: pretty; }
 }

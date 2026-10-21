@@ -40,7 +40,7 @@
     </div>
   </template>
   <div class="s-foot"><p class="hc-src"><span>Property, listing and the sync direction</span><span class="more-link" data-more="model">The whole model</span></p></div>
-  <aside class="notes"><p>Before drawing a single screen, I asked what this product is made of. That’s an object model: the nouns of the product, and how they connect. Get the nouns right and the screens follow. Hostaway has two, a property and a listing, and leaves the sync direction between them open. That gap is where the pains live. The lost description. The title a host wanted different per channel. The price that changed on Airbnb with no trace.</p><p>[Press] So I added four objects Hostaway doesn’t have today, the blush ones. I considered extending the listing with more fields instead, but a field can’t hold where a fact came from or prove a save arrived. Read it left to right. A fact comes from a source and lives once on the property. It shows up on each channel, and becomes the copy guests read on a listing. Every save comes back with a receipt. About 45 seconds.</p></aside>
+  <aside class="notes"><p>Before drawing a single screen, we asked what this product is made of. That’s an object model: the nouns of the product, and how they connect. Get the nouns right and the screens follow. Hostaway has two, a property and a listing, and leaves the sync direction between them open. That gap is where the pains live. The lost description. The title a host wanted different per channel. The price that changed on Airbnb with no trace.</p><p>[Press] So we added four objects Hostaway doesn’t have today, the blush ones. We considered extending the listing with more fields instead, but a field can’t hold where a fact came from or prove a save arrived. Read it left to right. A fact comes from a source and lives once on the property. It shows up on each channel, and becomes the copy guests read on a listing. Every save comes back with a receipt. About 45 seconds.</p></aside>
 </section>
 
 <section class="s" data-id="ia-bathtub" data-title="One bathtub, four names" data-stage="2" data-part="research" data-path="E" data-angle="both" data-min="0.5" data-req="R-082 R-059 R-023" data-ground="white">
@@ -68,7 +68,7 @@
   </div>
   <template class="more" data-more="forces" data-title="What one bathtub forces">
     <div class="more__panel" data-title="Five facts, four channels"><figure class="ia-proj" aria-label="Five facts stated once, and what each channel calls them"><script type="application/json">{"chs": ["Airbnb", "Booking.com", "Vrbo", "Expedia"], "keys": {"as": "as is", "re": "re-shaped", "lo": "lossy", "no": "not published", "tbc": "to be confirmed"}, "rows": [{"f": "Bathtub", "scope": "Bathroom 1", "hi": true, "c": [["Amenity \"Bathtub\"", "as"], ["BATH, on each bathroom", "re"], ["TUB, full bathroom only", "re"], ["Shower type BATHTUB_ONLY, per room type", "lo"]]}, {"f": "Washer", "scope": "a room", "c": [["Washer", "as"], ["WASHING_MACHINE, a room facility", "re"], ["WASHER", "as"], ["ROOM_WASHING_MACHINE, if no dryer", "re"]]}, {"f": "Beds", "scope": "each bedroom", "c": [["Beds and sleeping arrangements", "as"], ["A bed code per bed", "re"], ["BED_KING, BED_QUEEN…", "re"], ["Bed type and size, per room type", "re"]]}, {"f": "Smoking", "scope": "the home", "c": [["House rule", "as"], ["smoking_allowed", "as"], ["SMOKING_ALLOWED", "as"], ["SMOKE_FREE_PROPERTY, a policy code", "re"]]}, {"f": "Other house rules", "scope": "the home", "c": [["Additional rules, free text", "as"], ["No field, toggles only", "no"], ["3 custom rules × 50 characters", "lo"], ["Coded policies. Free text not documented", "tbc"]]}]}</script></figure>
-      <p class="hc-src"><span>My canonical field map, from each channel's own documentation: <a href="https://developers.expediagroup.com/supply/lodging/docs/property_mgmt_apis/product/reference/enumerations">Expedia's Product API</a> for Expedia</span></p></div>
+      <p class="hc-src"><span>Our canonical field map, from each channel's own documentation: <a href="https://developers.expediagroup.com/supply/lodging/docs/property_mgmt_apis/product/reference/enumerations">Expedia's Product API</a> for Expedia</span></p></div>
     <div class="more__panel" data-title="What it forces">
       <ol class="ia-forces" data-a="stagger" data-s="2">
         <li data-tint="blush"><span class="ia-tile"><svg><use href="#i-bath"/></svg></span><b>Facts need a scope below the property</b><span>The bathtub belongs to Bathroom 1.</span></li>
@@ -89,8 +89,8 @@
 <section class="s" data-id="ia-options" data-title="Five navigation models" data-stage="2" data-part="research" data-path="E" data-angle="both" data-min="0.75" data-req="R-071 R-046" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Research</span><span>Navigation options</span></p>
-    <h2 class="h2" data-a="rise" data-at="0.05">Five navigation models. I chose Channel-first.</h2>
-    <p class="hc-msg" data-a="rise" data-at="0.12">I drew five ways Smart Listings could fit the menu, and compared them on the same tasks.</p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Five navigation models. We chose Channel-first.</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">We drew five ways Smart Listings could fit the menu, and compared them on the same tasks.</p>
   </header>
   <div class="s-body">
     <!-- review, 4 Oct: the five models from Notion (Navigation options), no scores, no weightings. Each card: a tiny
@@ -140,7 +140,7 @@
           </div>
         </article>
         <article class="ia-nv is-hi" data-tint="blush" data-focus><svg class="rs-ring" data-tone="raspberry" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" data-a="draw" data-beat="1" data-at="0.05"><path d="M14 3C42 1 72 2 96 4C99 32 99 68 97 96C66 99 34 98 4 97C1 68 1 34 3 6C22 2 44 1 66 2"/></svg>
-          <div class="ia-nv__plate"><span class="ia-nv__badge" data-a="pop" data-beat="1" data-at="0.1"><span class="hc-badge">My pick</span></span>
+          <div class="ia-nv__plate"><span class="ia-nv__badge" data-a="pop" data-beat="1" data-at="0.1"><span class="hc-badge">Our pick</span></span>
             <div class="ia-nm" aria-hidden="true">
               <div class="ia-nm__rail"><span class="ia-nm__g">Shared</span><i class="ia-nm__b"></i><i class="ia-nm__b" style="--w: 75%"></i><i class="ia-nm__b" style="--w: 85%"></i>
                 <span class="ia-nm__ch"><svg class="h-mark h-mark--badge h-mark--airbnb" viewBox="0 0 24 24"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-airbnb" width="24" height="24"/></svg><i class="ia-nm__b"></i></span>
@@ -198,28 +198,28 @@
           </div>
         </div>
       </div>
-      <p class="ia-src"><span>The prototype’s property menu, as I chose it</span></p>
+      <p class="ia-src"><span>The prototype’s property menu, as we chose it</span></p>
     </div>
     <div class="more__panel" data-title="What came before">
       <div class="ia-was">
-        <p class="ia-was__lead">Before the five menus, I compared seven structures on paper. Two ideas carried over.</p>
+        <p class="ia-was__lead">Before the five menus, we compared seven structures on paper. Two ideas carried over.</p>
         <div class="ia-was__cards">
           <div class="ia-was__c" data-tint="blush"><span class="ia-tile"><svg><use href="#i-file-text"/></svg></span><p class="ia-was__n">Record-first</p><p class="ia-was__d">Every fact once, grouped by kind</p><p class="ia-was__to"><svg><use href="#i-arrow-right"/></svg>Became Shared</p></div>
           <div class="ia-was__c" data-tint="butter"><span class="ia-tile"><svg><use href="#i-alert-circle"/></svg></span><p class="ia-was__n">State-first</p><p class="ia-was__d">What needs you comes first</p><p class="ia-was__to"><svg><use href="#i-arrow-right"/></svg>Became Needs you, on the Overview</p></div>
         </div>
       </div>
-      <p class="ia-src"><span>Compared by me against the product's own menu</span></p>
+      <p class="ia-src"><span>Compared by us against the product's own menu</span></p>
     </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>Five menus I drew in Paper and compared on the same tasks</span><span class="more-link" data-more="menu">The menu</span></p></div>
-  <aside class="notes"><p>When Smart Listings needed a home, I drew five ways it could fit the property menu. I drew each on Hostaway’s interface, and walked the same five tasks through each. A mode switch gives a focused workspace, but the rest of the property disappears while it’s on. One listing hub was my runner-up. It has one copy of every fact, but the biggest migration. A sub-nav section moves nothing, but brings back two copies that drift. An assistant drawer changes nothing, but has no room and no home.</p><p>[Press] I chose channel-first. Shared comes first and holds each fact once. Then each channel has its own pages. They show the Base until you change something for that channel. The cost is a menu that grows with every channel, and I accept that cost. The tree test I specify measures it. About 45 seconds.</p></aside>
+  <div class="s-foot"><p class="hc-src"><span>Five menus we drew in Paper and compared on the same tasks</span><span class="more-link" data-more="menu">The menu</span></p></div>
+  <aside class="notes"><p>When Smart Listings needed a home, we drew five ways it could fit the property menu. We drew each on Hostaway’s interface, and walked the same five tasks through each. A mode switch gives a focused workspace, but the rest of the property disappears while it’s on. One listing hub was our runner-up. It has one copy of every fact, but the biggest migration. A sub-nav section moves nothing, but brings back two copies that drift. An assistant drawer changes nothing, but has no room and no home.</p><p>[Press] we chose channel-first. Shared comes first and holds each fact once. Then each channel has its own pages. They show the Base until you change something for that channel. The cost is a menu that grows with every channel, and we accept that cost. The tree test we specify measures it. About 45 seconds.</p></aside>
 </section>
 
 <section class="s" data-id="ia-structure" data-title="Shared traits, channel actions" data-stage="2" data-part="research" data-path="S" data-angle="both" data-min="0.9" data-req="R-070 R-072 R-075 R-081 R-101" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Research</span><span>Sitemap</span></p>
     <h2 class="h2" data-a="rise" data-at="0.05">Shared traits once. Channel actions where they differ.</h2>
-    <p class="hc-msg" data-a="rise" data-at="0.12">Laying out the sitemap, I saw hosts need to know what each channel repeats from the Base.</p>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Laying out the sitemap, we saw hosts need to know what each channel repeats from the Base.</p>
   </header>
   <div class="s-body">
     <div class="ia-st" data-own>
@@ -292,14 +292,14 @@
     <div class="more__panel" data-title="The trade-off">
       <div class="ia-cost">
         <div class="ia-cost__l">
-          <p class="ia-cost__lead" data-a="rise">Record-first won my scoring. When Smart Listings needed a home, I drew five menus and chose channel-first: fewest clicks on my frames.</p>
+          <p class="ia-cost__lead" data-a="rise">Record-first won our scoring. When Smart Listings needed a home, we drew five menus and chose channel-first: fewest clicks on our frames.</p>
           <div class="ia-cost__next" data-a="rise" data-beat="2">
-            <p class="ia-cost__k"><svg><use href="#i-clipboard-check"/></svg>The test I specify</p>
+            <p class="ia-cost__k"><svg><use href="#i-clipboard-check"/></svg>The test we specify</p>
             <p>A tree test against today's menu and record-first, 30 hosts each. It passes within 5 points of record-first, and at 70% on channel tasks.</p>
           </div>
         </div>
         <div class="ia-cost__r">
-          <p class="ia-cost__kick" data-a="rise" data-at="0.15">Its risk is copied facts, so I designed that out</p>
+          <p class="ia-cost__kick" data-a="rise" data-at="0.15">Its risk is copied facts, so we designed that out</p>
           <ol class="ia-cost__moves" data-a="stagger" data-beat="1" data-s="2">
             <li data-tint="blush"><span class="ia-tile"><svg><use href="#i-home"/></svg></span><span>Shared values live only on the Listing base</span></li>
             <li data-tint="butter"><span class="ia-tile"><svg><use href="#i-lock"/></svg></span><span>Channel pages show inherited values read-only</span></li>
@@ -307,9 +307,9 @@
           </ol>
         </div>
       </div>
-      <p class="hc-src"><span>My design reasoning. The tree test I specify checks it</span></p>
+      <p class="hc-src"><span>Our design reasoning. The tree test we specify checks it</span></p>
     </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>Sample data</span><span>The listing fields of my prototype's sample flat</span><span class="more-link" data-more="why">The trade-off</span></p></div>
-  <aside class="notes"><p>Here is the sitemap I chose, as the prototype builds it. Shared comes first: the Listing base, the Knowledge Hub, calendar, guest experience and operations. Every fact lives there once.</p><p>[Press] Then a page group per channel, only for what differs, and Smart Listings at the bottom of Shared.</p><p>[Press] Walking through that content, I saw what hosts would need to know: how much of each channel is still the Base. So each channel shows it. On my sample flat, Airbnb takes 24 of its 34 fields from the Base. Booking.com sets two itself. And Direct is all Base.</p><p>[Press] And every field has the control: Customize for Airbnb, or Use the Base. The host decides how far each channel drifts. The alternative was a flat list of channels with no Base, which hides what each channel repeats. The constraint is that hosts must never lose track of which value a channel is using. About 45 seconds.</p></aside>
+  <div class="s-foot"><p class="hc-src"><span>The listing fields of our prototype's sample flat</span><span class="more-link" data-more="why">The trade-off</span></p></div>
+  <aside class="notes"><p>Here is the sitemap we chose, as the prototype builds it. Shared comes first: the Listing base, the Knowledge Hub, calendar, guest experience and operations. Every fact lives there once.</p><p>[Press] Then a page group per channel, only for what differs, and Smart Listings at the bottom of Shared.</p><p>[Press] Walking through that content, we saw what hosts would need to know: how much of each channel is still the Base. So each channel shows it. On our sample flat, Airbnb takes 24 of its 34 fields from the Base. Booking.com sets two itself. And Direct is all Base.</p><p>[Press] And every field has the control: Customize for Airbnb, or Use the Base. The host decides how far each channel drifts. The alternative was a flat list of channels with no Base, which hides what each channel repeats. The constraint is that hosts must never lose track of which value a channel is using. About 45 seconds.</p></aside>
 </section>

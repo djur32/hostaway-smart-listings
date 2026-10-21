@@ -51,6 +51,8 @@
 
   /* Hostaway sets everything in one family (TT Norms, review's licensed files, S02 D-093; replaces the Figtree stand-in).
      Mono is only for IDs and codes (D-012, INT-3, R-031), never for labels. */
+  --deck-dark: #17323a;                 /* cover plates and dark fills; text on them is white */
+  --deck-dark-2: #21505c;
   --deck-ink: #1d1b16;                  /* text and shadow ink on white slides */
   --font-display: var(--font-sans);
   --font-text:    var(--font-sans);
@@ -159,12 +161,12 @@
 
   /* the dark ground: stage openers, set the way the product sets its sidebar */
   --dark:          var(--deck-ink);
-  --dark-2:        var(--color-sidebar-item-active-bg);
-  --dark-hi:       var(--gradient-sidebar-highlight);     /* the "Getting started" pill */
-  --on-dark:       var(--color-sidebar-text);
-  --on-dark-2:     color-mix(in oklab, var(--color-sidebar-text) 78%, var(--deck-ink));
-  --on-dark-3:     var(--color-sidebar-icon);             /* the sidebar's icons and quiet text */
-  --on-dark-line:  var(--color-sidebar-divider);
+  --dark-2:        var(--deck-dark-2);
+  --dark-hi:       linear-gradient(90deg, var(--deck-dark) 0%, #7a3200 100%);     /* the "Getting started" pill */
+  --on-dark:       #ffffff;
+  --on-dark-2:     rgba(255, 255, 255, .82);
+  --on-dark-3:     rgba(255, 255, 255, .68);
+  --on-dark-line:  rgba(255, 255, 255, .18);
 
   /* AI: the product's teal card, extended (never another product's AI look) */
   --ai-bg:      var(--color-ai-surface);

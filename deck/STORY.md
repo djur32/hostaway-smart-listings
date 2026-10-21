@@ -17,7 +17,7 @@
 | 1 | `op-title` | Smart Listings | Facts once. Voice per channel. The host stays in the loop. | S | none | 00-brief | title | R-180 R-181 R-189 | deck |
 | 2 | `op-brief` | The brief in one breath | Two angles, taken as one story: A creates the truth, B puts it to work. | S | both | 00-brief | brief | R-001 R-008 | plan/BRIEF.md · D-001 |
 | 3 | `op-thesis` | Facts once, voice per channel, host in the loop | The thesis this work set out to test, and what would have proved it wrong. | S | both | 00-brief | thesis | R-001 R-016 R-011 | MASTER-PLAN §2 |
-| 4 | `op-how` | How I worked | Eight stages, AI sessions for the legwork, and a label on everything that is not real. | St | none | 00-brief | how | R-035 R-010 R-037 | 99 · Process |
+| 4 | `op-how` | How we worked | Eight stages, AI sessions for the legwork, and a label on everything that is not real. | St | none | 00-brief | how | R-035 R-010 R-037 | 99 · Process |
 
 ## Discovery · `10-discovery.html`
 
@@ -38,7 +38,7 @@
 | # | id | Slide | The one message | Path | Angle | Page | Component (placeholder) | Requirements | Fills from |
 |---|---|---|---|---|---|---|---|---|---|
 | 10 | `rs-method` | Method and sample | Five hosts, one card sort, public reviews and the channels' own docs, each with its label. | E | none | 02-research | method | R-052 R-053 | S05 · Interviews DB |
-| 11 | `rs-hosts` | Four hosts, four mental models | Each persona reads "my listing" differently: a home, a funnel, a portfolio, a form. | S | both | 02-research | personas | R-018 R-065 | S05 · Personas DB |
+| 11 | `rs-hosts` | Four hosts, four mental models | Each persona reads "our listing" differently: a home, a funnel, a portfolio, a form. | S | both | 02-research | personas | R-018 R-065 | S05 · Personas DB |
 | 12 | `rs-quotes` | In their words | Hosts do not want more fields; they want to stop checking three tabs to trust one fact. | S | both | 02-research | quotes | R-183 R-052 | S05 · INT-1 to INT-5 |
 | 13 | `rs-insights` | From evidence to insight | Every insight shows how many sources hold it up, and how strong they are. | St | both | 02-research | insights | R-044 R-057 | S05 · Insights DB |
 | 14 | `rs-jobs` | Jobs to be done | The job is not "edit a listing"; it is "be found and trusted on every channel without redoing work". | St | both | 02-research | jobs | R-061 | S05 · JTBD DB |
@@ -116,7 +116,7 @@
 
 | # | id | Slide | The one message | Path | Angle | Page | Component (placeholder) | Requirements | Fills from |
 |---|---|---|---|---|---|---|---|---|---|
-| 49 | `cl-monday` | What I'd do on Monday | Five first-week actions, and who I would talk to first. | S | none | 07-systems-next | close | R-191 R-013 R-189 | S16 |
+| 49 | `cl-monday` | What we’d do on Monday | Five first-week actions, and who we would talk to first. | S | none | 07-systems-next | close | R-191 R-013 R-189 | S16 |
 
 
 ## What S17 changes here

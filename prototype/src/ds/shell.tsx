@@ -12,7 +12,7 @@ import type { PersonaId, Property } from '../data/types'
 import { Icon, cx } from './primitives'
 import { BottomSheet, ScrollTabs, useIsMobile, useIsNarrowDesktop, useMobileShell } from './mobile'
 
-const LOGO = <img src="/hostaway-icon.png" alt="" width={28} height={28} style={{ borderRadius: 6, display: 'block' }} />
+const LOGO = <img src="/hostaway-icon.png" alt="" width={28} height={28} style={{ borderRadius: 7, display: 'block' }} />
 export const HostawayMark = () => LOGO
 
 /** Hostaway's chat bubble, always at the bottom right of the app shell ("present at all times except in

@@ -56,14 +56,14 @@
   <!-- 4 Oct (DECISIONS §17): the solution map, then what the design reviews took out. Removals from 05 · Design
        ("versions, a compare mode, a Setup page and inline editing on the Canvas were built and then removed") and KD-08
        (the three-level dial). Reasons: KD-07, KD-06, Canvas preview ("one field, one editor"), KD-08. -->
-  <template class="more" data-more="map" data-title="The map, and what I cut" data-label="The map">
+  <template class="more" data-more="map" data-title="The map, and what we cut" data-label="The map">
     <div class="more__panel" data-title="The map">
       <figure class="hc-flow" data-flow="solution-map" data-at="0.3"></figure>
       <p class="hc-flow__note ds-map__note" data-a="rise" data-at="0.3">Every fact lives once, in Shared, and each channel holds only what differs. A strategy per channel produces tips, each with its why. The host accepts or dismisses them, unless Autopilot is on for words and photos.</p>
       </div>
     <div class="more__panel" data-title="Built, then removed">
       <div class="ds-cuts">
-        <p class="ds-cuts__lead" data-a="rise">I reviewed the running build, and each review took something out.</p>
+        <p class="ds-cuts__lead" data-a="rise">We reviewed the running build, and each review took something out.</p>
         <ol class="ds-cuts__row">
           <li class="ds-cut" data-a="rise" data-at="0.12"><span class="ds-cut__i"><svg><use href="#i-history"/></svg></span><p class="ds-cut__t"><span>Versions<i class="ds-cut__x" data-a="rule" data-at="0.75"></i></span></p><p class="ds-cut__why">A concept to learn before any payoff.</p><p class="ds-cut__now"><svg><use href="#i-check"/></svg>One current strategy</p></li>
           <li class="ds-cut" data-a="rise" data-at="0.22"><span class="ds-cut__i"><svg><use href="#i-git-compare"/></svg></span><p class="ds-cut__t"><span>Compare mode<i class="ds-cut__x" data-a="rule" data-at="0.87"></i></span></p><p class="ds-cut__why">One baseline already answers “did it work?”</p><p class="ds-cut__now"><svg><use href="#i-check"/></svg>The weeks before, in grey</p></li>
@@ -74,8 +74,8 @@
       </div>
     </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>Sample data</span><span class="more-link" data-more="map">The map, and what I cut</span></p></div>
-  <aside class="notes"><p>Here is where the audit of Hostaway led. The facts live in two places. And my premise is that hosts change money and stay rules per channel, almost never the words. So in the prototype, the property splits the way hosts think. On the left, Shared holds every fact once, and each channel gets its own pages. In the middle is Hostaway’s own listing editor, set to Airbnb. Every field says where its value comes from. On the right is a real tip card, not a picture of one. It says what to change and why. Accepting it creates Airbnb’s own value without touching the Base. I designed in code and reviewed the running build. Behind The map is what those reviews took out. The tips and numbers are sample data. The experimentation part specifies how each claim would be checked with real hosts. I chose one listing with channels inside it over a separate AI page, because the decision should sit next to the field it changes. About 55 seconds.</p></aside>
+  <div class="s-foot"><p class="hc-src"><span class="more-link" data-more="map">The map, and what we cut</span></p></div>
+  <aside class="notes"><p>Here is where the audit of Hostaway led. The facts live in two places. And our premise is that hosts change money and stay rules per channel, almost never the words. So in the prototype, the property splits the way hosts think. On the left, Shared holds every fact once, and each channel gets its own pages. In the middle is Hostaway’s own listing editor, set to Airbnb. Every field says where its value comes from. On the right is a real tip card, not a picture of one. It says what to change and why. Accepting it creates Airbnb’s own value without touching the Base. We designed in code and reviewed the running build. Behind The map is what those reviews took out. The experimentation part specifies how each claim would be checked with real hosts. We chose one listing with channels inside it over a separate AI page, because the decision should sit next to the field it changes. About 55 seconds.</p></aside>
 </section>
 
 <section class="s" data-id="ds-shared" data-title="Shared: one Base" data-stage="4" data-part="design" data-path="St" data-angle="both" data-min="0.7" data-req="R-072 R-081 R-082 R-089" data-ground="white">
@@ -120,8 +120,8 @@
       </div>
     </div>
   </div>
-  <div class="s-foot"><p class="hc-src"><span>Sample data</span></p></div>
-  <aside class="notes"><p>The first thing the audit showed: the Knowledge Hub keeps its own copy of the listing. So the same fact lives twice and drifts. Everything else depends on fixing that, so it comes first. Take one fact: check-in at 3 PM. It lives once, in the Listing base. Airbnb, Booking.com, Direct and the Knowledge Hub all read that one value.</p><p>[Press] I made the Listing base one clean layer, labelled as the source of truth. It holds the values every channel inherits, and nothing that belongs to only one.</p><p>[Press] And each field shows how far it reaches: the channels that read it. So an edit is never a surprise. The Hub no longer keeps a copy. It reads these same values, so the two can’t drift apart again. Tips, strategies and receipts all start from this one record. About 45 seconds.</p></aside>
+  
+  <aside class="notes"><p>The first thing the audit showed: the Knowledge Hub keeps its own copy of the listing. So the same fact lives twice and drifts. Everything else depends on fixing that, so it comes first. Take one fact: check-in at 3 PM. It lives once, in the Listing base. Airbnb, Booking.com, Direct and the Knowledge Hub all read that one value.</p><p>[Press] we made the Listing base one clean layer, labelled as the source of truth. It holds the values every channel inherits, and nothing that belongs to only one.</p><p>[Press] And each field shows how far it reaches: the channels that read it. So an edit is never a surprise. The Hub no longer keeps a copy. It reads these same values, so the two can’t drift apart again. Tips, strategies and receipts all start from this one record. About 45 seconds.</p></aside>
 </section>
 
 <section class="s" data-id="ds-hub" data-title="The Knowledge Hub" data-stage="4" data-part="design" data-path="St" data-angle="both" data-min="0.7" data-req="R-072 R-075 R-083 R-089" data-ground="white">
@@ -197,8 +197,8 @@
       <p class="hc-flow__note" data-a="rise" data-at="0.3">How the Hub feeds the tips. A gap becomes a shared fact for the Listing base, or a better answer in one channel’s listing, such as Airbnb’s description. <span class="hc-flow__src">Sample data</span></p>
     </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>Sample data</span><span class="more-link" data-more="flow">The flow</span></p></div>
-  <aside class="notes"><p>Today the Hub has no job of its own, so I gave it one: guests’ questions. It no longer keeps a copy of the listing. It reads the listing details from the Listing base and adds the situations the host writes. It has four sections: Questions, Insights, Facts and Sources. It starts in the Inbox. A guest asks if there’s free parking, and the question lands in the Hub. It’s grouped, counted, and marked answered or not. This one was asked nine times and never answered. The assistant only answers from what backs it. When nothing backs an answer, it says so and asks the host.</p><p>[Press] That gap becomes a tip, with the same tip format as everywhere else. Its why is the questions behind it. It goes to one of two places. A shared fact for the Listing base, like free parking. Or a better answer in one channel’s listing, like Airbnb’s description.</p><p>[Press] When the host accepts, the answer is saved where it belongs. A listing detail goes in the Listing base, so every channel and the assistant use it. A situation goes in the Hub. Either way, the next guest gets an accurate answer. I gave the Hub this job, and not a copy of the listing, because a second store of facts drifts. The counts are sample data. The full flow is one click away. About 45 seconds.</p></aside>
+  <div class="s-foot"><p class="hc-src"><span class="more-link" data-more="flow">The flow</span></p></div>
+  <aside class="notes"><p>Today the Hub has no job of its own, so we gave it one: guests’ questions. It no longer keeps a copy of the listing. It reads the listing details from the Listing base and adds the situations the host writes. It has four sections: Questions, Insights, Facts and Sources. It starts in the Inbox. A guest asks if there’s free parking, and the question lands in the Hub. It’s grouped, counted, and marked answered or not. This one was asked nine times and never answered. The assistant only answers from what backs it. When nothing backs an answer, it says so and asks the host.</p><p>[Press] That gap becomes a tip, with the same tip format as everywhere else. Its why is the questions behind it. It goes to one of two places. A shared fact for the Listing base, like free parking. Or a better answer in one channel’s listing, like Airbnb’s description.</p><p>[Press] When the host accepts, the answer is saved where it belongs. A listing detail goes in the Listing base, so every channel and the assistant use it. A situation goes in the Hub. Either way, the next guest gets an accurate answer. We gave the Hub this job, and not a copy of the listing, because a second store of facts drifts. The full flow is one click away. About 45 seconds.</p></aside>
 </section>
 
 <section class="s" data-id="ds-channels" data-title="Channel actions" data-stage="4" data-part="design" data-path="S" data-angle="both" data-min="0.8" data-req="R-084 R-100 R-101" data-ground="white">
@@ -293,8 +293,8 @@
       <p class="hc-flow__note" data-a="rise" data-at="0.3">Every field is one of four cases. “Use the Base” keeps the custom text, so “Customize” brings it back.</p>
       </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>Sample data</span><span class="more-link" data-more="flow">Set by the channel</span></p></div>
-  <aside class="notes"><p>I want hosts to stop thinking of one listing copied everywhere. Each channel is optimised on its own, and the Base is where it starts. So every field says how much it takes from the Base. Fields like Other details to note simply follow it, on every channel.</p><p>[Press] The summary is Airbnb’s own, written for remote workers searching Airbnb. One click on Use the Base and it follows the Base again, and the custom text is kept. These are live.</p><p>[Press] And the check-in method lives only on Airbnb, because no other channel asks for it. The fourth case, a field the channel sets itself, is in More. About 45 seconds.</p></aside>
+  <div class="s-foot"><p class="hc-src"><span class="more-link" data-more="flow">Set by the channel</span></p></div>
+  <aside class="notes"><p>We want hosts to stop thinking of one listing copied everywhere. Each channel is optimised on its own, and the Base is where it starts. So every field says how much it takes from the Base. Fields like Other details to note simply follow it, on every channel.</p><p>[Press] The summary is Airbnb’s own, written for remote workers searching Airbnb. One click on Use the Base and it follows the Base again, and the custom text is kept. These are live.</p><p>[Press] And the check-in method lives only on Airbnb, because no other channel asks for it. The fourth case, a field the channel sets itself, is in More. About 45 seconds.</p></aside>
 </section>
 
 <section class="s" data-id="ds-strategy" data-title="A strategy per channel" data-stage="4" data-part="design" data-path="S" data-angle="both" data-min="0.9" data-req="R-072 R-075 R-110" data-ground="white">
@@ -332,7 +332,7 @@
               <span class="ds-wz__bar" style="--p: 75%"></span>
               <h3 class="ds-wz__h1">Set your guardrails</h3>
               <p class="ds-wz__sub">Smart Listings never goes outside them.</p>
-              <p class="ds-wz__label">Keep my nightly price between</p>
+              <p class="ds-wz__label">Keep our nightly price between</p>
               <div class="ds-wz__range">
                 <div class="h-input-group"><span class="h-affix h-affix--start">€</span><input class="h-input ds-num" inputmode="numeric" aria-label="Lowest nightly price" value="40"></div>
                 <span class="ds-wz__to">to</span>
@@ -362,8 +362,8 @@
       <p class="hc-flow__note" data-a="rise" data-at="0.3">Opt-in per property, because not every host wants it, and turning it off keeps everything. The wizard copies Hostaway’s Add-property flow, which hosts already know. Closing it halfway changes nothing.</p>
     </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>Sample data</span><span class="more-link" data-more="rails">The three strategies</span></p></div>
-  <aside class="notes"><p>Smart Listings is opt-in, switched on per property, because not every host wants AI on their listing. With it off, Shared and Channels look exactly the same, so the structure serves every host. Turning it off later keeps everything. Turning it on opens a wizard hosts already know: Hostaway’s Add-property flow. So I reused it rather than invent a new pattern. First, what to aim for. Each option shows its evidence, like this one: 8 of your 13 empty nights on Airbnb are Monday to Thursday.</p><p>[Press] Then the guardrails, which are the contract. Smart Listings never goes outside the price range. Prices, stay rules and cancellation always ask. That lock can’t be turned off.</p><p>[Press] Last, whether Autopilot may act. It starts off. There’s one strategy per channel, or one shared by several. So Airbnb and Booking.com can go after different guests. About 55 seconds.</p></aside>
+  <div class="s-foot"><p class="hc-src"><span class="more-link" data-more="rails">The three strategies</span></p></div>
+  <aside class="notes"><p>Smart Listings is opt-in, switched on per property, because not every host wants AI on their listing. With it off, Shared and Channels look exactly the same, so the structure serves every host. Turning it off later keeps everything. Turning it on opens a wizard hosts already know: Hostaway’s Add-property flow. So we reused it rather than invent a new pattern. First, what to aim for. Each option shows its evidence, like this one: 8 of your 13 empty nights on Airbnb are Monday to Thursday.</p><p>[Press] Then the guardrails, which are the contract. Smart Listings never goes outside the price range. Prices, stay rules and cancellation always ask. That lock can’t be turned off.</p><p>[Press] Last, whether Autopilot may act. It starts off. There’s one strategy per channel, or one shared by several. So Airbnb and Booking.com can go after different guests. About 55 seconds.</p></aside>
 </section>
 
 <section class="s" data-id="ds-tips" data-title="Tips with a why" data-stage="4" data-part="design" data-path="S" data-angle="both" data-min="0.9" data-req="R-100 R-106 R-107 R-108 R-109" data-ground="white">
@@ -438,15 +438,15 @@
       <p class="hc-flow__note" data-a="rise" data-at="0.3">One panel and one tip at a time keep the decision next to the field it changes, with its reason in view. With Autopilot off, nothing changes until the host accepts, and Undo withdraws the change it sent.</p>
     </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>Sample data</span><span class="more-link" data-more="more">One AI per field, and prices too</span><span class="more-link" data-more="flow">The flow</span></p></div>
-  <aside class="notes"><p>Today the only listing AI in Hostaway is a separate page of suggestions, away from the fields. A suggestion without a reason is a guess. So I put every tip beside its field, in one docked panel, one at a time. This card is the real component. The tip is to say how fast the Wi-Fi is. It’s the fourth of eleven. It shows the edit once, with only the new words coloured.</p><p>[Press] Every reason names its source: a fact from the Knowledge Hub, the host’s own inbox, or similar homes nearby. Hover the icon and it says which.</p><p>[Press] Accept is Hostaway’s usual raspberry button. Let me accept it. And Undo is one click. One rule kept this calm: a field shows one AI marker at most, either its tip or Rewrite with AI. Rewrite with AI doesn’t need Smart Listings. Every host has it. About 50 seconds.</p></aside>
+  <div class="s-foot"><p class="hc-src"><span class="more-link" data-more="more">One AI per field, and prices too</span><span class="more-link" data-more="flow">The flow</span></p></div>
+  <aside class="notes"><p>Today the only listing AI in Hostaway is a separate page of suggestions, away from the fields. A suggestion without a reason is a guess. So we put every tip beside its field, in one docked panel, one at a time. This card is the real component. The tip is to say how fast the Wi-Fi is. It’s the fourth of eleven. It shows the edit once, with only the new words coloured.</p><p>[Press] Every reason names its source: a fact from the Knowledge Hub, the host’s own inbox, or similar homes nearby. Hover the icon and it says which.</p><p>[Press] Accept is Hostaway’s usual raspberry button. Let us accept it. And Undo is one click. One rule kept this calm: a field shows one AI marker at most, either its tip or Rewrite with AI. Rewrite with AI doesn’t need Smart Listings. Every host has it. About 50 seconds.</p></aside>
 </section>
 
 <section class="s" data-id="ds-canvas" data-title="See what guests see" data-stage="4" data-part="design" data-path="St" data-angle="both" data-min="0.7" data-req="R-101 R-102 R-103 R-104" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Design</span><span>Canvas preview</span></p>
     <h2 class="h2" data-a="rise" data-at="0.05">See the listing as guests will, then tap to change it</h2>
-    <p class="hc-msg" data-a="rise" data-at="0.12">Hostaway publishes with no preview today. I rebuilt each channel’s real guest page. A tap opens the field behind it, its tip or Rewrite with AI.</p>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Hostaway publishes with no preview today. We rebuilt each channel’s real guest page. A tap opens the field behind it, its tip or Rewrite with AI.</p>
   </header>
   <div class="s-body">
     <div class="hc-two" style="--l: 0.62fr; --r: 1.38fr">
@@ -467,7 +467,7 @@
     </div>
   </div>
   <div class="s-foot"><p class="hc-src"><span>Changes publish without a preview</span></p></div>
-  <aside class="notes"><p>Canvas goes beyond a preview. One switch shows only the sections you can edit. Another switches between your edits and what’s live on the channel now. So you can see the difference, and go back to the original with one click. Today no screen in Hostaway shows one listing as it looks on one channel, and changes publish without a preview. So Canvas shows the channel’s real guest page, and colour says what you can do. Purple: a tip waits here. Orange: you can edit it here. No colour: it’s owned somewhere else. On Airbnb the title has a purple ring, because a tip waits on it.</p><p>[Press] Booking.com gets its own page, one switch away from Classic. Canvas works for every host, with Smart Listings on or off. My first version let you edit right on the page. In review, that became a second editor for the same field, so I took it out. Now a tap opens the field itself, and a price opens Pricing’s own fields. One field, one editor. About 50 seconds.</p></aside>
+  <aside class="notes"><p>Canvas goes beyond a preview. One switch shows only the sections you can edit. Another switches between your edits and what’s live on the channel now. So you can see the difference, and go back to the original with one click. Today no screen in Hostaway shows one listing as it looks on one channel, and changes publish without a preview. So Canvas shows the channel’s real guest page, and colour says what you can do. Purple: a tip waits here. Orange: you can edit it here. No colour: it’s owned somewhere else. On Airbnb the title has a purple ring, because a tip waits on it.</p><p>[Press] Booking.com gets its own page, one switch away from Classic. Canvas works for every host, with Smart Listings on or off. Our first version let you edit right on the page. In review, that became a second editor for the same field, so we took it out. Now a tap opens the field itself, and a price opens Pricing’s own fields. One field, one editor. About 50 seconds.</p></aside>
 </section>
 
 
@@ -543,11 +543,11 @@
           </div>
         </div>
       </div>
-      <p class="hc-src"><span>Sample data</span></p>
+      
     </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>Sample data</span><span>Cards and bars follow Hostaway Metrics</span><span class="more-link" data-more="versions">Strategy versions</span></p></div>
-  <aside class="notes"><p>Pick a channel, and Performance puts the weeks since its strategy started next to the same stretch just before, in grey. On this Airbnb listing, in the sample data, occupancy goes from 40 to 60 percent, up twenty points, and revenue rises 39 percent. I chose the same weeks before as the baseline because one clear comparison is enough to read, and a peer comparison would need data a host does not have. The constraint is season, so the experimentation part keeps a permanent holdout on the old behaviour.</p><p>[Press] The second layer is versions. When a host changes a strategy, each version keeps its own period. So Version 1 and Version 2 on the same channel can be compared directly. The detail shows where they sit. About 45 seconds.</p></aside>
+  <div class="s-foot"><p class="hc-src"><span>Cards and bars follow Hostaway Metrics</span><span class="more-link" data-more="versions">Strategy versions</span></p></div>
+  <aside class="notes"><p>Pick a channel, and Performance puts the weeks since its strategy started next to the same stretch just before, in grey. On this Airbnb listing, in the sample data, occupancy goes from 40 to 60 percent, up twenty points, and revenue rises 39 percent. We chose the same weeks before as the baseline because one clear comparison is enough to read, and a peer comparison would need data a host does not have. The constraint is season, so the experimentation part keeps a permanent holdout on the old behaviour.</p><p>[Press] The second layer is versions. When a host changes a strategy, each version keeps its own period. So Version 1 and Version 2 on the same channel can be compared directly. The detail shows where they sit. About 45 seconds.</p></aside>
 </section>
 
 <section class="s" data-id="ds-autopilot" data-title="Autopilot, inside guardrails" data-stage="4" data-part="design" data-path="St" data-angle="both" data-min="0.7" data-req="R-116" data-ground="white">
@@ -585,14 +585,14 @@
     </div>
   </template>
   <div class="s-foot"><p class="hc-src"><span class="more-link" data-more="step">The Autopilot question</span></p></div>
-  <aside class="notes"><p>My premise is that hosts fear losing money and status far more than a sentence. So I made control follow the stakes. Autopilot is off by default, and the host chooses it per strategy. When it’s on, it may rewrite a sentence or reorder photos inside the host’s guardrails, because those are cheap to undo.</p><p>[Press] Anything that changes money, who can book, or what guests are promised always asks. That lock can’t be turned off.</p><p>[Press] With Autopilot on, the editor says so, here on Pricing, and offers the way out. I first designed a three-level dial per content type. One switch turned out simpler. In the prototype, the switch and its states are built. The automatic applying itself is specified, not built. About 50 seconds.</p></aside>
+  <aside class="notes"><p>Our premise is that hosts fear losing money and status far more than a sentence. So we made control follow the stakes. Autopilot is off by default, and the host chooses it per strategy. When it’s on, it may rewrite a sentence or reorder photos inside the host’s guardrails, because those are cheap to undo.</p><p>[Press] Anything that changes money, who can book, or what guests are promised always asks. That lock can’t be turned off.</p><p>[Press] With Autopilot on, the editor says so, here on Pricing, and offers the way out. We first designed a three-level dial per content type. One switch turned out simpler. In the prototype, the switch and its states are built. The automatic applying itself is specified, not built. About 50 seconds.</p></aside>
 </section>
 
 <section class="s" data-id="ds-mobile" data-title="In the pocket" data-stage="4" data-part="design" data-path="St" data-angle="both" data-min="0.6" data-req="R-076 R-140 R-141" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Design</span><span>Mobile & tablet</span></p>
     <h2 class="h2" data-a="rise" data-at="0.05">Fix a listing between turnovers, from your phone</h2>
-    <p class="hc-msg" data-a="rise" data-at="0.12">To make that possible, I built an app mode that runs every screen as Hostaway’s mobile app: sheets, swipe-back, tips in a bottom sheet.</p>
+    <p class="hc-msg" data-a="rise" data-at="0.12">To make that possible, we built an app mode that runs every screen as Hostaway’s mobile app: sheets, swipe-back, tips in a bottom sheet.</p>
   </header>
   <div class="s-body">
     <div class="hc-two" style="--l: 0.62fr; --r: 1.38fr">
@@ -613,14 +613,14 @@
       </div>
     </div>
   </div>
-  <div class="s-foot"><p class="hc-src"><span>Sample data</span></p></div>
-  <aside class="notes"><p>I designed for a host fixing a listing between turnovers, on a phone. That’s my design intent. It means mobile isn’t a shrunken desktop, and a bottom sheet beats a side panel because a thumb reaches it. The constraint is the 375 pixel width, so the same code has to serve three sizes. Here is the Wi-Fi tip again. On a phone, every side panel, tips included, becomes a bottom sheet you can drag away, with 44 pixel targets and 16 pixel inputs.</p><p>[Press] I built it so the same code runs as an installable app: Overview, Performance, and every screen I settled on. Pages slide in and out, and you swipe back from the edge.</p><p>[Press] Both the website and the app are live, so let me open the app and show it. Voice input shows the flow. In the prototype it is a stand-in without a speech model behind it. About 45 seconds.</p></aside>
+  
+  <aside class="notes"><p>We designed for a host fixing a listing between turnovers, on a phone. That’s our design intent. It means mobile isn’t a shrunken desktop, and a bottom sheet beats a side panel because a thumb reaches it. The constraint is the 375 pixel width, so the same code has to serve three sizes. Here is the Wi-Fi tip again. On a phone, every side panel, tips included, becomes a bottom sheet you can drag away, with 44 pixel targets and 16 pixel inputs.</p><p>[Press] we built it so the same code runs as an installable app: Overview, Performance, and every screen we settled on. Pages slide in and out, and you swipe back from the edge.</p><p>[Press] Both the website and the app are live, so let us open the app and show it. Voice input shows the flow. In the prototype it is a stand-in without a speech model behind it. About 45 seconds.</p></aside>
 </section>
 
-<section class="s" data-id="ds-challenged" data-title="Patterns I challenged" data-stage="4" data-part="design" data-path="E" data-angle="both" data-min="0.6" data-req="R-150 R-151" data-ground="white">
+<section class="s" data-id="ds-challenged" data-title="Patterns we challenged" data-stage="4" data-part="design" data-path="E" data-angle="both" data-min="0.6" data-req="R-150 R-151" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Design</span><span>Design system</span></p>
-    <h2 class="h2" data-a="rise" data-at="0.05">Four patterns I challenged</h2>
+    <h2 class="h2" data-a="rise" data-at="0.05">Four patterns we challenged</h2>
     <p class="hc-msg" data-a="rise" data-at="0.12">They change how every part of Hostaway is organised, not only listings.</p>
   </header>
   <div class="s-body">
@@ -668,14 +668,14 @@
           
     
   </div>
-  <div class="s-foot"><p class="hc-src"><span>Sample data</span><span>Built on Hostaway’s own components</span></p></div>
-  <aside class="notes"><p>Building Smart Listings, I didn’t only add to Hostaway’s design system. I challenged parts of it. Four matter most.</p><p>First, drill-down navigation. Only the main menu had it. Now each section opens to its own pages. Second, counts that move. A closed section shows its total, and once it’s open, each page shows its own. Third, stacked fields. The label sits above the input, not beside it, so Tips or Canvas fit as a second column. Fourth, Save changes shows only when something changed. And there’s one outlined close button everywhere. About 40 seconds.</p></aside>
+  <div class="s-foot"><p class="hc-src"><span>Built on Hostaway’s own components</span></p></div>
+  <aside class="notes"><p>Building Smart Listings, we didn’t only add to Hostaway’s design system. We challenged parts of it. Four matter most.</p><p>First, drill-down navigation. Only the main menu had it. Now each section opens to its own pages. Second, counts that move. A closed section shows its total, and once it’s open, each page shows its own. Third, stacked fields. The label sits above the input, not beside it, so Tips or Canvas fit as a second column. Fourth, Save changes shows only when something changed. And there’s one outlined close button everywhere. About 40 seconds.</p></aside>
 </section>
 
-<section class="s" data-id="ds-system" data-title="Patterns I introduced" data-stage="4" data-part="design" data-path="E" data-angle="both" data-min="0.75" data-req="R-150 R-151 R-152 R-153 R-154 R-155" data-ground="white">
+<section class="s" data-id="ds-system" data-title="Patterns we introduced" data-stage="4" data-part="design" data-path="E" data-angle="both" data-min="0.75" data-req="R-150 R-151 R-152 R-153 R-154 R-155" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Design</span><span>Design system</span></p>
-    <h2 class="h2" data-a="rise" data-at="0.05">Patterns I introduced, and where they reach</h2>
+    <h2 class="h2" data-a="rise" data-at="0.05">Patterns we introduced, and where they reach</h2>
     <p class="hc-msg" data-a="rise" data-at="0.12">Each pattern is weighed with the team that owns the area before it spreads.</p>
   </header>
   <div class="s-body">
@@ -767,7 +767,7 @@
         <span class="ds-imp__l">Canvas preview</span><i></i><i></i><i></i><i></i><i class="is-on"></i><i></i><i class="is-on"></i>
         <span class="ds-imp__l">Section tabs, tip counts</span><i></i><i></i><i class="is-on"></i><i></i><i class="is-on"></i><i></i><i class="is-on"></i>
       </div>
-      <p class="hc-src"><span>Raspberry names are the patterns I challenged</span></p>
+      <p class="hc-src"><span>Raspberry names are the patterns we challenged</span></p>
     </div>
     <div class="more__panel" data-title="How it is checked">
       <ol class="ds-plan">
@@ -779,6 +779,6 @@
       <p class="hc-src"><span>Each check sets the alternatives side by side before anything spreads</span></p>
     </div>
   </template>
-  <div class="s-foot"><p class="hc-src"><span>Built on Hostaway’s own tokens and components</span><span>The areas they reach are my design reading</span><span class="more-link" data-more="impact">The impact</span></p></div>
-  <aside class="notes"><p>I also added new pieces: the tip card and its drawer, the markers that lead to improvements, Rewrite with AI, the reach caption and channel badges under every field, Canvas, the save toast with Undo, and section tabs that show their tip counts.</p><p>[Press] None of these stays inside listings. Navigation, counts, tips and the save toast reach the Inbox, Calendar, Pricing, Operations, Metrics and the mobile app. So before they spread, each team weighs the impact, and each pattern is checked against an alternative. Save placement, tips as a drawer or inline, and the wording of Uses the Base each get a side-by-side check. The constraint is that these are shared patterns, so one team cannot decide alone. About 40 seconds.</p></aside>
+  <div class="s-foot"><p class="hc-src"><span>Built on Hostaway’s own tokens and components</span><span>The areas they reach are our design reading</span><span class="more-link" data-more="impact">The impact</span></p></div>
+  <aside class="notes"><p>We also added new pieces: the tip card and its drawer, the markers that lead to improvements, Rewrite with AI, the reach caption and channel badges under every field, Canvas, the save toast with Undo, and section tabs that show their tip counts.</p><p>[Press] None of these stays inside listings. Navigation, counts, tips and the save toast reach the Inbox, Calendar, Pricing, Operations, Metrics and the mobile app. So before they spread, each team weighs the impact, and each pattern is checked against an alternative. Save placement, tips as a drawer or inline, and the wording of Uses the Base each get a side-by-side check. The constraint is that these are shared patterns, so one team cannot decide alone. About 40 seconds.</p></aside>
 </section>

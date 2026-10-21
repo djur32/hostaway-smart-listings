@@ -185,7 +185,7 @@ html:not(.js) .s { position: relative; visibility: visible; height: var(--canvas
 .stage[data-chrome="none"]:not([data-chrome-late=""]) :is(.appbar, .hints, .byline) { transition-delay: 1.05s; }
 .stage.is-chrome-snap :is(.appbar, .hints, .byline) { transition: none !important; }   /* back to the cover: the bar is gone before it lands */
 /* the bookends fill the window, not only the 16:9 stage: the letterbox takes the plate's aubergine (4 Oct) */
-.viewport:has(> .stage[data-chrome="none"][data-cover="1"]) > .atmos { box-shadow: inset 0 0 0 100vmax var(--color-sidebar-bg); }
+.viewport:has(> .stage[data-chrome="none"][data-cover="1"]) > .atmos { box-shadow: inset 0 0 0 100vmax var(--deck-dark); }
 .viewport:has(> .stage[data-chrome="none"][data-cover="1"]:not([data-chrome-late=""])) > .atmos { transition-delay: 1.05s; }
 
 /* ── the case badge: whose case this is, opposite the title ──────────────── */
