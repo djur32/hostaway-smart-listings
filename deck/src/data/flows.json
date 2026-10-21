@@ -745,7 +745,7 @@
   },
   "hub-to-tips": {
    "title": "From a guest question to a better listing",
-   "caption": "A concept, not built in full: it shows how the Knowledge Hub can feed the tips. The Hub reads its facts from the Listing base and collects what guests ask in the Inbox, counted and marked answered or not. The assistant answers only from those facts. A gap becomes a tip, either a shared fact for the Listing base (“Add free parking”) or a better answer in one channel’s listing (Airbnb’s description). Accepted, a fact reaches every channel and the assistant, and a description change reaches that channel. Questions and counts are demo data, .",
+   "caption": "It shows how the Knowledge Hub can feed the tips. The Hub reads its facts from the Listing base and collects what guests ask in the Inbox, counted and marked answered or not. The assistant answers only from those facts. A gap becomes a tip, either a shared fact for the Listing base (“Add free parking”) or a better answer in one channel’s listing (Airbnb’s description). Accepted, a fact reaches every channel and the assistant, and a description change reaches that channel.",
    "look": "cards",
    "w": 1880,
    "h": 660,
@@ -938,7 +938,7 @@
   },
   "solution-map": {
    "title": "Smart Listings: the solution map",
-   "caption": "Every fact once in Shared, a page per channel, and a strategy per channel whose tips the host reviews. Prototype as built. Sample content .",
+   "caption": "Every fact once in Shared, a page per channel, and a strategy per channel whose tips the host reviews.",
    "w": 1760,
    "h": 600,
    "groups": [
@@ -1122,7 +1122,7 @@
   },
   "object-model": {
    "title": "The object model",
-   "caption": "The objects Smart Listings is built on, and how they relate. Prototype as built, . The channel rules behind it .",
+   "caption": "The objects Smart Listings is built on, and how they relate, with the channel rules behind them.",
    "w": 1720,
    "h": 540,
    "groups": [
