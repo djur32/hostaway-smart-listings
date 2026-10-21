@@ -99,12 +99,18 @@
  },
  {
   "name": "kh-drawer",
-  "path": "/property/neukolln/hub/arrival",
-  "settle": 1200,
+  "path": "/property/neukolln/hub/questions?smart=on",
+  "settle": 1500,
   "steps": [
    {
-    "click": "Is there free parking?",
-    "after": 1000
+    "click": "Transportation to/from property",
+    "after": 1500
+   },
+   {
+    "eval": "(() => { const el=[...document.querySelectorAll('li, a, div, button')].filter(e=>e.offsetParent && (e.innerText||'').trim().startsWith('Is there free parking?')).pop(); if(!el) return 'none'; (el.closest('a,button,[role=button],li,[tabindex]')||el).click(); return 'ok'; })()"
+   },
+   {
+    "wait": 1500
    }
   ],
   "w": 1440,
