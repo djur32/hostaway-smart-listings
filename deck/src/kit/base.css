@@ -55,6 +55,7 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; height: 100%; }
+*, *::before, *::after { font-size-adjust: 0.5 !important; }   /* Inter runs wider than the family the layouts were set in: shrink glyphs to the same x-height */
 html {
   background: var(--bg);
   color: var(--ink);
