@@ -8,7 +8,7 @@
      ia-bathtub    declarative only: the fact card, then one wire per channel, each row
                    arriving as its wire does (30-ia.html)
      ia-options    declarative only (4 Oct): five model cards rise; the press rings Channel-first,
-                   pops "My pick" and raises the "So" line (30-ia.html)
+                   pops "Our pick" and raises the "So" line (30-ia.html)
      ia-structure  the property menu (the design system's h-chnav, live HTML) assembles:
                    Shared on entry; beat 1 closes the Listing base, brings in Smart Listings
                    and Channels, opens Airbnb; beat 2 wipes in what each channel takes from

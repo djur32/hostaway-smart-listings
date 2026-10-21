@@ -1,6 +1,6 @@
 # Marketing patterns · Hostaway's site language, for the deck
 
-Added 3 Oct (evening) so the deck "embodies the design and the flair of Hostaway" (Antonio). Borrowed from hostaway.com: references in `research/references/hostaway-marketing/` (README lists what each image lends). These are **presentation patterns**, not product UI: they live in `deck/src/kit/hc.css` (styles) and `deck/src/kit/hc.js` (behaviour). The product's own components stay in `ds/components.css` (`h-*`) and are used on slides through `.h-root.hc-ui`.
+Added 3 Oct (evening) so the deck "embodies the design and the flair of Hostaway" (the team). Borrowed from hostaway.com: references in `research/references/hostaway-marketing/` (README lists what each image lends). These are **presentation patterns**, not product UI: they live in `deck/src/kit/hc.css` (styles) and `deck/src/kit/hc.js` (behaviour). The product's own components stay in `ds/components.css` (`h-*`) and are used on slides through `.h-root.hc-ui`.
 
 Rules that hold for every pattern below:
 

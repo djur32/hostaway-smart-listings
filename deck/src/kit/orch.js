@@ -56,7 +56,7 @@ function buildDom(el) {
       pc.className = 'orch__pc'; pc.dataset.kind = kind; pc.dataset.piece = li.dataset.piece;
       if (li.dataset.note) pc.title = li.dataset.note;
       const logo = li.dataset.logo ? `<i class="logo" data-logo="${li.dataset.logo}" aria-hidden="true"></i>` : '';
-      const inside = kind === 'me' ? '<b>Me</b>' : kind === 'artefact' || kind === 'skill' ? `<b>${label}</b>` : logo;
+      const inside = kind === 'me' ? '<b>Team</b>' : kind === 'artefact' || kind === 'skill' ? `<b>${label}</b>` : logo;
       const below = kind === 'me' || kind === 'artefact' || kind === 'skill' ? '' : `<span class="orch__lbl"><span>${label}</span></span>`;
       pc.innerHTML = `<span class="orch__mark">${inside}</span>${below}`;
       stage.append(pc);
@@ -68,7 +68,7 @@ function buildDom(el) {
        this component just made; it listens for this on the document. */
     el.dispatchEvent(new CustomEvent('deck:needs-logos', { bubbles: true }));
     if (!el.querySelector(':scope > .orch__legend')) {
-      const lg = document.createElement('p'); lg.className = 'orch__legend'; lg.innerHTML = '<i aria-hidden="true"></i>my call';
+      const lg = document.createElement('p'); lg.className = 'orch__legend'; lg.innerHTML = '<i aria-hidden="true"></i>our call';
       el.append(lg);
     }
   }

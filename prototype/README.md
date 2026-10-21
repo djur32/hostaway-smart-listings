@@ -1,6 +1,6 @@
 # prototype/ · Hostaway Smart Listings
 
-A hi-fi, interactive prototype of an independent design concept for Hostaway: Smart Listings, a per-channel listing strategy with tips, a canvas of the real guest page, experimentation and measurement.
+A hi-fi, interactive prototype of the project for Hostaway: Smart Listings, a per-channel listing strategy with tips, a canvas of the real guest page, experimentation and measurement.
 It is a design concept, not a Hostaway product. All hosts, properties, guests and numbers are sample data. Every page is `noindex`.
 
 ## Run

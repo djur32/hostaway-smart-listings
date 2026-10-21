@@ -1,9 +1,9 @@
 # Rules for every step (deck, website, Notion, file names, alt text, comments)
 
 ## Framing
-- Antonio Silva's independent design concept for Hostaway: Smart Listings, a per-channel listing strategy with tips, a canvas of the real guest page, experimentation and measurement.
+- The Smart Listings project for Hostaway, presented by and for the team: a per-channel listing strategy with tips, a canvas of the real guest page, experimentation and measurement. Never a case study, never one person's work.
 - Do not claim it shipped at Hostaway, that real hosts were interviewed, that experiments ran, or that any result was measured.
-- Write a complete, confident concept. First person singular. Present tense for the design, past tense for decisions made.
+- Write a complete, confident concept. First person plural ("we", "our team"). Never "I", "me" or "my". Present tense for the design, past tense for decisions made.
 - Example numbers and charts are allowed to show what the work looks like. They carry no caption and no provenance label of any kind (no "Sample data", no source chips).
 - No invented quotes attributed to real people, no invented customers, no real Hostaway figures, no claims of real metrics or lifts.
 - Avoid "planned", "roadmap", "next steps", "to be tested" for the concept's own parts. State what the design specifies.

@@ -1,6 +1,6 @@
 # Smart Listings · the Hostaway concept deck
 
-an independent design concept for Hostaway (angles A and B), as a code-built deck of at most 50 slides, in Hostaway's visual language. It's the script for a ~22-minute Loom.
+The Smart Listings project presentation for Hostaway, a code-built deck in Hostaway's visual language.
 
 This is a **detached copy** of the InvestEngine process deck (`~/Developer/process-deck`), made by S00 on 2026-09-29 and rebranded by S07. The original and the digimal.studio site are **never** edited, built or deployed from here (`tools/audit.mjs` checks). The InvestEngine content is parked in `_origin/`.
 

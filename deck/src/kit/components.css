@@ -638,12 +638,12 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
 .hc-src:not(:has(> :not(.is-kit-door))) { display: none; }
 
 /* ── the "me" strip: what was mine, the same four cells in the same place ──
-   One row on every main-case problem slide: My role · Team · I led · I decided.
+   One row on every main-case problem slide: Our role · Team · I led · I decided.
    As a direct child of the slide it is pinned above the source line, so it sits in
    exactly the same place on all six; the body makes room for it. Anywhere else (the
    intro's grammar slide, a detail) it flows where it is put.
      <dl class="me">
-       <div class="me__i"><dt>My role</dt><dd>Design lead, de facto PM</dd></div>
+       <div class="me__i"><dt>Our role</dt><dd>Design lead, de facto PM</dd></div>
        <div class="me__i"><dt>Team</dt><dd>PM, 2 engineers, Finance</dd></div>
        <div class="me__i"><dt>I led</dt><dd>Calls, synthesis, the PRD</dd></div>
        <div class="me__i me__i--call"><dt>I decided</dt><dd>Permissions, not screens</dd></div>
@@ -902,7 +902,7 @@ svg.links { position: absolute; inset: 0; width: 100%; height: 100%; overflow: v
 .orch--compact > .orch__tray, .orch--compact > .orch__legend { display: none; }
 /* the same diagram without its shelf of pieces: used where the slide is answering a
    question rather than introducing the vocabulary, so the only key worth keeping is
-   the one that says which marks are my call. */
+   the one that says which marks are our call. */
 .orch--no-tray > .orch__tray { display: none; }
 .orch__legend { grid-area: legend; display: flex; align-items: center; gap: 12px; margin: 18px 0 0; padding: 16px 0 0 24px; border-top: var(--hair) solid var(--line); font: 500 var(--t-label) / 1 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); white-space: nowrap; }
 .orch__legend i { width: 12px; height: 12px; background: var(--accent); transform: rotate(45deg); }

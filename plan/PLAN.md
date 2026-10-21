@@ -1,4 +1,4 @@
-# Plan: Hostaway Smart Listings (independent design concept)
+# Plan: Hostaway Smart Listings (project)
 
 Rules: plan/RULES.md is superseded where the task brief differs (TEXT RULES and FRAMING in the brief win).
 Branch main only. Source repo is read-only, cloned outside this repo. One commit per phase, one push at the end.

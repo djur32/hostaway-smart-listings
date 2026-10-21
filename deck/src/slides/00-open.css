@@ -228,7 +228,7 @@ html.is-print .op-launch__bob { animation: none; }
    a neutral dot.
    Part 2 (.op-flow): beat 2 slides part 1 up and out of the stage's mask and part 2 up into it,
    while the eyebrow, headline and message roll (.op-roll). The flow is drawn at a fixed 1728 x 524:
-   in → skill (lavender) → my gate (raspberry diamond on the raspberry line) → out, two stages a beat.
+   in → skill (lavender) → our gate (raspberry diamond on the raspberry line) → out, two stages a beat.
    Nothing fades on a coloured shape: plates and chips wipe (clip-path), pills and diamonds scale,
    lines draw. The CSS is the final state (part 2 complete), which is what motion off and print show;
    00-open.js sets the entry state. */

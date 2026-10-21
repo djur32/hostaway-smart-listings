@@ -39,7 +39,7 @@ One line each: what, and why.
 | Atmospheres (studio ink mesh, lumen fields), film grain, the thread | The product is flat. The atmosphere now only paints the window's ground (`atmos/hostaway.js`). The atmospheres are parked in `_origin/kit/atmos/`. |
 | The digimal.studio mark and the "The six stages" titles | They're replaced by the Hostaway lockup and "Hostaway Smart Listings". |
 | The case badge (`stories.json`, client logos) | This deck has one case. `data/stories.json` is left empty so the engine code stays untouched. |
-| Job Atlas and market-signal pieces, the three-lens grammar (did / hold / now), the "me" strip | They belonged to a portfolio talk, not to a concept. The CSS stays in `components.css` (unused) so nothing old breaks. |
+| Job Atlas and market-signal pieces, the three-lens grammar (did / hold / now), the "me" strip | They belonged to a personal talk, not to a concept. The CSS stays in `components.css` (unused) so nothing old breaks. |
 | InvestEngine, Adeslas, Santander, ASISA and Hostaway screens, videos, art and client logos | Moved to `_origin/assets/`. Hostaway's logo is kept, because it's a competitor (CMP). |
 | The light/dark screen switch (`L` still works; nothing in this deck has pairs) | Hostaway's product screens exist in one mode. |
 | Paths to the website | S00 deleted `web-bundle.mjs` and cut the gate key. `tools/audit.mjs` checks that nothing in `deck/` points at process-deck or digimal.studio. |
@@ -84,7 +84,7 @@ One line each: what, and why.
 
 ## D-073 · Guardrails on the wall (2026-09-29, S07)
 
-`<meta name="robots" content="noindex, nofollow">` sits on every page. The title and the close carry the line *"An independent design concept for Hostaway"* Hostaway's mark is redrawn for identification only. Provenance chips use CONVENTIONS §2's six labels, and reads **"Illustrative"** on the wall (its dot is hollow). Stand-in numbers in placeholders say "Layout only".
+`<meta name="robots" content="noindex, nofollow">` sits on every page. The title and the close carry the line *"An project for Hostaway"* Hostaway's mark is redrawn for identification only. Provenance chips use CONVENTIONS §2's six labels, and reads **"Illustrative"** on the wall (its dot is hollow). Stand-in numbers in placeholders say "Layout only".
 **Serves.** R-189 (guardrails), D-003. **Strength:** strong (the brief and CONVENTIONS).
 
 ## D-074 · Placeholders are wireframes of the intended component (2026-09-29, S07)

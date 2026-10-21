@@ -10,7 +10,7 @@
                       heads and Me arrive, the raspberry line draws down, Discovery and Research run
               → 3     Concept and Design run          → 4   Testing and Systems run
               A row runs: the stage name wipes in, what goes in wipes in, the wires draw to the
-              skill, the skill pops, the wire draws to my gate, the gate pops on the raspberry
+              skill, the skill pops, the wire draws to our gate, the gate pops on the raspberry
               line with its question, and the last wire draws to what comes out.
 
    Nothing fades on a coloured shape: wipes (clip-path), scale and lines that draw. The CSS rests
