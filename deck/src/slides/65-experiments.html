@@ -1,15 +1,90 @@
-<!-- 65-experiments · Experiments · structure placeholder (one valid slide so the build passes; replace it with the part's real slides).
-     Required on every slide: data-id (prefix ex-), data-title, data-stage="5", data-part="experiments", data-path (S | St | E),
-     data-angle (A | B | both | none), data-min, data-req, data-ground. Classes in 65-experiments.css are prefixed ex-. -->
+<!-- 65-experiments · the measurement design: framework, portfolio, readout, rollout (plan/EXPERIMENTS.md). Example numbers carry the caption Sample data. -->
 
-<section class="s" data-id="ex-placeholder" data-title="Experiments" data-stage="5" data-part="experiments" data-path="E" data-angle="B" data-min="0.3" data-req="R-170" data-ground="white">
+<section class="s" data-id="ex-method" data-title="Framework" data-stage="5" data-part="experiments" data-path="E" data-angle="B" data-min="0.8" data-req="R-170" data-ground="white">
   <header class="s-head">
-    <p class="eyebrow" data-a="rise"><span>Testing</span><span>Experiments</span></p>
-    <h2 class="h2" data-a="rise" data-at="0.05">Experiments</h2>
-    <p class="hc-msg" data-a="rise" data-at="0.12">The experiments this design specifies.</p>
+    <p class="eyebrow" data-a="rise"><span>Experiments</span><span>Framework</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Every experiment follows the same frame</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">One primary metric, a few guardrails and a decision rule written before launch.</p>
   </header>
   <div class="s-body">
-    <div class="ex-ph" data-a="rise" data-at="0.2"><p>Experiments</p></div>
+    <div class="ex-grid">
+      <div class="ex-card" data-a="rise" data-at="0.2"><b>Hypothesis</b><p>If we [change], [metric] moves by [MDE], because [reason].</p></div>
+      <div class="ex-card" data-a="rise" data-at="0.26"><b>Unit</b><p>The host account, stratified by listings and channels.</p></div>
+      <div class="ex-card" data-a="rise" data-at="0.32"><b>Sample size</b><p>MDE is the smallest change worth shipping. Alpha 0.05, power 0.80.</p></div>
+      <div class="ex-card" data-a="rise" data-at="0.38"><b>Run length</b><p>Whole weeks, at least 2. No peeking.</p></div>
+      <div class="ex-card" data-a="rise" data-at="0.44"><b>Ramp</b><p>1%, 5%, 25%, 50%. A 5% holdout for 90 days.</p></div>
+      <div class="ex-card" data-a="rise" data-at="0.5"><b>Kill criteria</b><p>A guardrail breached 2 days running, undo above 15%, or a live rule violation.</p></div>
+    </div>
   </div>
-  <aside class="notes"><p>Placeholder for the Experiments part. About 15 seconds.</p></aside>
+  <aside class="notes"><p>The frame every experiment follows. Hypothesis, one primary metric, guardrails, decision rule. About 30 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="ex-portfolio" data-title="Portfolio" data-stage="5" data-part="experiments" data-path="E" data-angle="B" data-min="0.8" data-req="R-170" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Experiments</span><span>Portfolio</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Seven experiments, one for each decision</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Each tests a decision from the concept against today’s behaviour.</p>
+  </header>
+  <div class="s-body">
+    <table class="ex-table">
+      <thead><tr><th></th><th>Experiment</th><th>Primary metric</th><th>Guardrails</th><th>Ship bar</th></tr></thead>
+      <tbody>
+        <tr data-a="rise" data-at="0.20"><td>E1</td><td><b>Strategy per channel</b></td><td>Channel-tailored fields</td><td>Undo, tickets</td><td>+8 pts</td></tr>
+        <tr data-a="rise" data-at="0.25"><td>E2</td><td><b>Tips with a why</b></td><td>Tip acceptance rate</td><td>Undo, violations</td><td>+5 pts</td></tr>
+        <tr data-a="rise" data-at="0.30"><td>E3</td><td><b>Rewrite per channel</b></td><td>Time to finish a description</td><td>Edit-after-accept</td><td>-25%</td></tr>
+        <tr data-a="rise" data-at="0.35"><td>E4</td><td><b>Canvas preview</b></td><td>Acceptance after preview</td><td>Undo, decision time</td><td>+4 pts</td></tr>
+        <tr data-a="rise" data-at="0.40"><td>E5</td><td><b>Performance view</b></td><td>Weekly editors</td><td>Tickets, load time</td><td>Above MDE</td></tr>
+        <tr data-a="rise" data-at="0.45"><td>E6</td><td><b>Autopilot setting</b></td><td>Tips applied per week</td><td>Undo, violations</td><td>Gate</td></tr>
+        <tr data-a="rise" data-at="0.50"><td>E7</td><td><b>Channel-first menu</b></td><td>Channel title task success</td><td>Time on task, tickets</td><td>+10 pts</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <aside class="notes"><p>Seven experiments, each with one primary metric and a ship bar. About 30 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="ex-readout" data-title="Reading a result" data-stage="5" data-part="experiments" data-path="E" data-angle="B" data-min="0.8" data-req="R-170" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Experiments</span><span>Reading a result</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">A result is read the same way every time</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Example readout for E2.</p>
+  </header>
+  <div class="s-body">
+    <div class="ex-read">
+      <div class="ex-big" data-a="rise" data-at="0.2"><p class="ex-k">Primary metric · tip acceptance</p><p class="ex-n">+5.4 pts</p><p class="ex-s">31.0% control, 36.4% treatment. 95% interval +3.1 to +7.7. 4,200 hosts per arm.</p></div>
+      <table class="ex-table" data-a="rise" data-at="0.3">
+        <thead><tr><th>Guardrail</th><th>Change</th><th>Bound</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Undo rate</td><td>6.1% to 6.4%</td><td>8%</td><td>Within</td></tr>
+          <tr><td>Rule violations</td><td>0</td><td>0</td><td>Within</td></tr>
+          <tr><td>Tickets per 1,000 hosts</td><td>flat</td><td>+5%</td><td>Within</td></tr>
+        </tbody>
+      </table>
+      <div class="ex-card" data-a="rise" data-at="0.4"><b>Decision: ship</b><p>The rule written before launch was +5 pts with undo not higher. Segment checks by channel and listing count are exploratory.</p></div>
+    </div>
+    <p class="ex-cap">Sample data</p>
+  </div>
+  <aside class="notes"><p>How a readout is laid out. Effect with interval, guardrails, decision. About 30 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="ex-rollout" data-title="Rollout and guardrails" data-stage="5" data-part="experiments" data-path="E" data-angle="B" data-min="0.8" data-req="R-170" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Experiments</span><span>Rollout and guardrails</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Rollout moves in stages, guardrails can stop it</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Each stage has an owner, a go criterion and the kill criteria.</p>
+  </header>
+  <div class="s-body">
+    <div class="ex-grid ex-grid--4">
+      <div class="ex-card" data-a="rise" data-at="0.20"><b>Stage 0 · Internal and plumbing</b><p>1%. Events fire, flags work, kill switch tested.</p></div>
+      <div class="ex-card" data-a="rise" data-at="0.27"><b>Stage 1 · Experiment</b><p>5% to 50%. Pre-computed sample reached, rule applied.</p></div>
+      <div class="ex-card" data-a="rise" data-at="0.34"><b>Stage 2 · Full rollout</b><p>100% with a 5% holdout. Holdout on the old behaviour for 90 days.</p></div>
+      <div class="ex-card" data-a="rise" data-at="0.41"><b>Stage 3 · Holdout read</b><p>Retire flags. Long-run effect read, flags removed.</p></div>
+    </div>
+    <div class="ex-grid ex-grid--4 ex-owners">
+      <div class="ex-card" data-a="rise" data-at="0.5"><b>Design</b><p>Hypothesis and variants.</p></div>
+      <div class="ex-card" data-a="rise" data-at="0.55"><b>Data</b><p>Analysis plan and readout.</p></div>
+      <div class="ex-card" data-a="rise" data-at="0.6"><b>Engineering</b><p>Flags and the kill switch.</p></div>
+      <div class="ex-card" data-a="rise" data-at="0.65"><b>Support</b><p>The ticket guardrail.</p></div>
+    </div>
+  </div>
+  <aside class="notes"><p>Four stages, four owners. Guardrails alone are monitored daily and can stop a run early. About 30 seconds.</p></aside>
 </section>
