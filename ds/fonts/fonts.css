@@ -14,5 +14,4 @@
   @font-face { font-family: "TT Norms"; font-style: normal; font-weight: 600 700; font-display: swap; src: url("./TTNorms-700.woff") format("woff"); }
 }
 
-/* Inter is the only family. */
-@font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("./Inter-Variable.woff2") format("woff2"); }
+@font-face { font-family: "TT Norms Mono"; font-style: normal; font-weight: 100 950; font-display: swap; src: url("./TTNormsProMonoVariable.woff2") format("woff2"); }

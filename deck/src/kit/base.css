@@ -5,11 +5,18 @@
 /* Hostaway's family: TT Norms (TypeType), review's licensed files (S02 D-093, replaces the Figtree stand-in).
    Static cuts, so the same files serve screen and PDF. 600 maps to Bold (no DemiBold in the set). */
 @font-face { font-family: "TT Norms"; font-style: normal; font-weight: 100 950; font-display: block;
-  src: url("fonts/Inter-Variable.woff2") format("woff2-variations"), url("fonts/Inter-Variable.woff2") format("woff2"); }
+  src: url("fonts/TTNormsProVariable.woff2") format("woff2-variations"), url("fonts/TTNormsProVariable.woff2") format("woff2"); }
+@supports not (font-variation-settings: normal) {
+@font-face { font-family: "TT Norms"; font-style: normal; font-weight: 400; font-display: block; src: url("fonts/TTNorms-400.woff") format("woff"); }
+@font-face { font-family: "TT Norms"; font-style: normal; font-weight: 500; font-display: block; src: url("fonts/TTNorms-500.woff") format("woff"); }
+@font-face { font-family: "TT Norms"; font-style: normal; font-weight: 600 700; font-display: block; src: url("fonts/TTNorms-700.woff") format("woff"); }
+}
+@font-face { font-family: "TT Norms Mono"; font-style: normal; font-weight: 100 950; font-display: block;
+  src: url("fonts/TTNormsProMonoVariable.woff2") format("woff2-variations"), url("fonts/TTNormsProMonoVariable.woff2") format("woff2"); }
 @font-face { font-family: "Geist"; font-style: normal; font-weight: 100 900; font-display: block;
-  src: url("fonts/Inter-Variable.woff2") format("woff2-variations"), url("fonts/Inter-Variable.woff2") format("woff2"); }
+  src: url("fonts/Geist-Variable.woff2") format("woff2-variations"), url("fonts/Geist-Variable.woff2") format("woff2"); }
 @font-face { font-family: "Geist Mono"; font-style: normal; font-weight: 100 900; font-display: block;
-  src: url("fonts/Inter-Variable.woff2") format("woff2-variations"), url("fonts/Inter-Variable.woff2") format("woff2"); }
+  src: url("fonts/GeistMono-Variable.woff2") format("woff2-variations"), url("fonts/GeistMono-Variable.woff2") format("woff2"); }
 @font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: block;
   src: url("fonts/Inter-Variable.woff2") format("woff2-variations"), url("fonts/Inter-Variable.woff2") format("woff2"); }
 /* Static cuts for the PDF only (tools/print-fonts.py): Chrome's PDF backend draws variable
@@ -55,7 +62,6 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; height: 100%; }
-*, *::before, *::after { font-size-adjust: 0.5 !important; }   /* Inter runs wider than the family the layouts were set in: shrink glyphs to the same x-height */
 html {
   background: var(--bg);
   color: var(--ink);
