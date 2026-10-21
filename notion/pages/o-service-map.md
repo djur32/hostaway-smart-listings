@@ -1,10 +1,10 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Planned** · The service map: where Smart Listings sits in Hospitable, what flows between it and each product area, and how far each connection has got. Provenance: "today" is `REAL·PRODUCT` / `REAL·PUBLIC`; "Built" means built in the prototype, its figures `SIMULATED`; "Next" and "Later" are `ASSUMPTION`.
+	**Output · Planned** · The service map: where Smart Listings sits in Hostaway, what flows between it and each product area, and how far each connection has got. Provenance: "today" is / ; "Built" means built in the prototype, its figures ; "Next" and "Later" are .
 </callout>
-![The service map. Smart Listings and Shared sit at the centre; each product area sits on a ring by when it is reached: Built (in the prototype, sample data SIMULATED), Next and Later (my plan, ASSUMPTION). Wires say what flows; dashed outlines are the four lines of work the build implies but doesn't do. Flows from the product map.](file-upload://3efe18af-1645-81e5-adbc-00b207cf7cc1)
+![The service map. Smart Listings and Shared sit at the centre; each product area sits on a ring by when it is reached: Built (in the prototype, sample data ), Next and Later (my plan, ). Wires say what flows; dashed outlines are the four lines of work the build implies but doesn't do. Flows from the product map.](file-upload://3efe18af-1645-81e5-adbc-00b207cf7cc1)
 ## The short version
 - **Shared is the record.** Listing details live once, in the Listing base. The Knowledge Hub reads them, adds the situations behind them, and learns from guests' questions. Smart Listings reads them, writes through Save, and learns from results.
-- **18 flows connect it to the rest of Hospitable.** 9 are built in the prototype (similar homes only on sample data), 2 are next and 7 are later.
+- **18 flows connect it to the rest of Hostaway.** 9 are built in the prototype (similar homes only on sample data), 2 are next and 7 are later.
 - **Three built flows make the listing smart:** similar homes into the strategy, Listing base facts and guest questions as a tip's why, and results per strategy period. All three run on sample data so far.
 - **Tips become a system** when any area can raise one through the same contract: Inbox, reviews and Calendar next; Devices, Operations and portfolios later.
 - **Two choices are platform decisions, not screens:** the Knowledge Hub API contract, and moving existing hosts onto one record.
@@ -32,13 +32,13 @@ Numbered as in the product map. Status: **Built** in the prototype · **Next** �
 	<tr>
 		<td>3</td>
 		<td>Similar homes → Smart Listings</td>
-		<td>Price and positioning, as the strategy's framing and a tip's why. Today comps live in point tools, outside the PMS `REAL·PUBLIC`</td>
+		<td>Price and positioning, as the strategy's framing and a tip's why. Today comps live in point tools, outside the PMS </td>
 		<td>**Built** on sample data · a real dataset is next</td>
 	</tr>
 	<tr>
 		<td>4</td>
 		<td>Knowledge Hub → Smart Listings</td>
-		<td>Guest questions, grouped and counted, cited as a tip's why; an unanswered or frequent question becomes a tip. Today the Hub feeds guest messaging only, and no one sees what guests ask `REAL·PRODUCT`</td>
+		<td>Guest questions, grouped and counted, cited as a tip's why; an unanswered or frequent question becomes a tip. Today the Hub feeds guest messaging only, and no one sees what guests ask </td>
 		<td>**Built** as a concept on demo data · real Inbox questions next</td>
 	</tr>
 	<tr>
@@ -68,7 +68,7 @@ Numbered as in the product map. Status: **Built** in the prototype · **Next** �
 	<tr>
 		<td>6</td>
 		<td>Shared → Save → channels</td>
-		<td>The Base for every field a channel uses; one send per change, a receipt per channel, Undo. Today Save shows no result `REAL·PRODUCT`</td>
+		<td>The Base for every field a channel uses; one send per change, a receipt per channel, Undo. Today Save shows no result </td>
 		<td>**Built**</td>
 	</tr>
 	<tr>
@@ -80,7 +80,7 @@ Numbered as in the product map. Status: **Built** in the prototype · **Next** �
 	<tr>
 		<td>8</td>
 		<td>→ Booking⁠.com</td>
-		<td>Facts, money and stay rules. Booking⁠.com writes its own description `REAL·PUBLIC`, so it is shown read-only</td>
+		<td>Facts, money and stay rules. Booking⁠.com writes its own description so it is shown read-only</td>
 		<td>**Built**</td>
 	</tr>
 	<tr>
@@ -97,14 +97,14 @@ Numbered as in the product map. Status: **Built** in the prototype · **Next** �
 	</tr>
 	<tr color="gray_bg">
 		<td></td>
-		<td>**Read by the rest of Hospitable**</td>
+		<td>**Read by the rest of Hostaway**</td>
 		<td></td>
 		<td></td>
 	</tr>
 	<tr>
 		<td>11</td>
-		<td>Shared → Copilot's guest messages</td>
-		<td>Facts for replies, read from the Listing base through the Hub, so the AI answers only what a fact backs. Today the AI reads the Hub's own copy of the listing `REAL·PRODUCT`</td>
+		<td>Shared → the assistant's guest messages</td>
+		<td>Facts for replies, read from the Listing base through the Hub, so the AI answers only what a fact backs. Today the AI reads the Hub's own copy of the listing </td>
 		<td>**Next**</td>
 	</tr>
 	<tr>
@@ -116,7 +116,7 @@ Numbered as in the product map. Status: **Built** in the prototype · **Next** �
 	<tr>
 		<td>18</td>
 		<td>Shared ↔ MCP and public API</td>
-		<td>Typed facts from the Listing base, and the Hub's questions and answers. Today the Hub is open to agents as sentences `REAL·PUBLIC`</td>
+		<td>Typed facts from the Listing base, and the Hub's questions and answers. Today the Hub is open to agents as sentences </td>
 		<td>**Later** · versioning the API comes next, so nothing breaks</td>
 	</tr>
 	<tr>
@@ -183,7 +183,7 @@ Today only channel pages raise tips. But a tip is already a contract, and any ar
 		<td>Built (<mention-page url="https://app.notion.com/p/3eee18af164581a693f6c6cc544b8c1a">KD-15</mention-page>)</td>
 	</tr>
 </table>
-Areas that could raise tips. Every example is illustrative `ASSUMPTION`.
+Areas that could raise tips. Every example is illustrative .
 <table header-row="true" fit-page-width="true">
 	<tr>
 		<td>Area</td>
@@ -203,7 +203,7 @@ Areas that could raise tips. Every example is illustrative `ASSUMPTION`.
 		<td>Knowledge Hub</td>
 		<td>Questions it can't answer, or that guests ask often</td>
 		<td>"Add a fact about parking: guests keep asking"</td>
-		<td>The Listing base, so every channel and Copilot use the fact</td>
+		<td>The Listing base, so every channel and the assistant use the fact</td>
 		<td>**Built** as a concept (the parking question raises a tip) · real questions next</td>
 	</tr>
 	<tr>
@@ -228,9 +228,9 @@ Areas that could raise tips. Every example is illustrative `ASSUMPTION`.
 		<td>**Next** · the tip always asks; Dynamic Pricing reading the same goal comes later (flow 13)</td>
 	</tr>
 	<tr>
-		<td>Performance, through Copilot</td>
+		<td>Performance, through the assistant</td>
 		<td>A measure moving against the stretch before</td>
-		<td>Copilot answers "why did Airbnb bookings drop?" and opens the matching tip</td>
+		<td>The assistant answers "why did Airbnb bookings drop?" and opens the matching tip</td>
 		<td>The tip's own page</td>
 		<td>**Next**</td>
 	</tr>
@@ -257,7 +257,7 @@ Areas that could raise tips. Every example is illustrative `ASSUMPTION`.
 	</tr>
 </table>
 **The rules that make it one system:**
-- **One voice.** Every tip is AI Copilot's (<mention-page url="https://app.notion.com/p/3efe18af164581ceabafdfe5275589dd">KD-20</mention-page>). No area invents its own assistant, card or colour.
+- **One voice.** Every tip is the assistant's (<mention-page url="https://app.notion.com/p/3efe18af164581ceabafdfe5275589dd">KD-20</mention-page>). No area invents its own assistant, card or colour.
 - **A tip lands where the change lives.** Raised in Inbox, it opens on the field or fact it changes, so nothing is edited in two places (<mention-page url="https://app.notion.com/p/3eee18af1645813ab697f55d6d253754">KD-02</mention-page>).
 - **One change, one tip.** When two areas notice the same thing, the host gets one tip with both sources.
 - **One tip at a time per page,** in the docked panel (<mention-page url="https://app.notion.com/p/3eee18af164581319e3afd8d876c7cb2">KD-09</mention-page>), and a budget per area, set with Data, so tips don't become noise.
@@ -291,7 +291,7 @@ Areas that could raise tips. Every example is illustrative `ASSUMPTION`.
 	</tr>
 	<tr>
 		<td>Measures per strategy period</td>
-		<td>Performance, Copilot</td>
+		<td>Performance, the assistant</td>
 		<td>Data & analytics lead</td>
 	</tr>
 	<tr>
@@ -317,6 +317,6 @@ Desk work. I traced the product map's 18 flows against the prototype and placed 
 - <mention-page url="https://app.notion.com/p/3eee18af164581b19c66d8d053ea6ab0">KD-12</mention-page>
 - <mention-page url="https://app.notion.com/p/3efe18af164581ceabafdfe5275589dd">KD-20</mention-page>
 **In the prototype**
-- [Airbnb › Listing with Tips](https://hospitable-case-web.digimal.studio/property/neukolln/ch/airbnb/listing/essentials?smart=on&autopilot=0&tip=t-a-name)
-- [Knowledge Hub › Questions › Parking](https://hospitable-case-web.digimal.studio/property/neukolln/hub/questions/ar-parking?smart=on)
-- [Performance](https://hospitable-case-web.digimal.studio/property/neukolln/smart/performance?smart=on)
+- [Airbnb › Listing with Tips]()
+- [Knowledge Hub › Questions › Parking]()
+- [Performance]()

@@ -59,7 +59,7 @@ const niceMax = (v: number) => {
   return m * p
 }
 
-/** The hover tooltip tracks the cursor horizontally but never overflows the chart's own box (Antonio, 1 Oct): measure
+/** The hover tooltip tracks the cursor horizontally but never overflows the chart's own box (review, 1 Oct): measure
  *  the tip's real rendered width against its plot container and clamp its centre, in pixels, so a long tooltip near
  *  either edge slides in rather than spilling past the card. Re-measures on every position/content change. */
 function Tip({ x, w, children }: { x: number; w: number; children: ReactNode }) {

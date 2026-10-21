@@ -1,16 +1,16 @@
-/* Channels as Hospitable shows them (ds/channels/README.md). Marks come from the DS sprite (#ch-*).
- * Limits and write reach: research/market/channel-constraints.md (REAL·PUBLIC) — the numbers the UI enforces before commit. */
+/* Channels as Hostaway shows them (ds/channels/README.md). Marks come from the DS sprite (#ch-*).
+ * Limits and write reach: research/market/channel-constraints.md — the numbers the UI enforces before commit. */
 import type { ChannelId } from './types'
 
 export interface ChannelInfo {
   id: ChannelId
   name: string
-  /** Sprite id of the mark, e.g. #ch-airbnb. Direct uses Hospitable's mark. */
-  mark: 'airbnb' | 'booking' | 'vrbo' | 'hospitable' | 'google'
+  /** Sprite id of the mark, e.g. #ch-airbnb. Direct uses Hostaway's mark. */
+  mark: 'airbnb' | 'booking' | 'vrbo' | 'hostaway' | 'google'
   /** Letter chip modifier (h-ch--*). */
   letter: 'airbnb' | 'booking' | 'vrbo' | 'direct' | 'google'
   titleLimit: number | null
-  /** Can Hospitable write the free-text description here today? (D-032) */
+  /** Can Hostaway write the free-text description here today? (D-032) */
   writesDescription: boolean
   /** One-line honesty about what the channel owns (I-06, channel-constraints §5). */
   note: string
@@ -19,7 +19,7 @@ export interface ChannelInfo {
 export const CHANNELS: Record<ChannelId, ChannelInfo> = {
   airbnb: {
     id: 'airbnb', name: 'Airbnb', mark: 'airbnb', letter: 'airbnb', titleLimit: 50, writesDescription: true,
-    note: 'An edit made on Airbnb stops that field syncing from Hospitable until you choose which one wins.',
+    note: 'An edit made on Airbnb stops that field syncing from Hostaway until you choose which one wins.',
   },
   booking: {
     id: 'booking', name: 'Booking.com', mark: 'booking', letter: 'booking', titleLimit: 255, writesDescription: false,
@@ -30,8 +30,8 @@ export const CHANNELS: Record<ChannelId, ChannelInfo> = {
     note: 'Vrbo reorders photos itself and overwrites edits made on Vrbo.',
   },
   direct: {
-    id: 'direct', name: 'Direct', mark: 'hospitable', letter: 'direct', titleLimit: 300, writesDescription: true,
-    note: 'Your own site: the only channel Hospitable fully owns.',
+    id: 'direct', name: 'Direct', mark: 'hostaway', letter: 'direct', titleLimit: 300, writesDescription: true,
+    note: 'Your own site: the only channel Hostaway fully owns.',
   },
   google: {
     id: 'google', name: 'Google', mark: 'google', letter: 'google', titleLimit: 300, writesDescription: true,

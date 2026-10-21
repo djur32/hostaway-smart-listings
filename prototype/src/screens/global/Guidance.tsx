@@ -1,4 +1,4 @@
-/* Settings › How Hospitable helps you · owner S12 · R-130 R-131 R-132 R-135 · D-150
+/* Settings › How Hostaway helps you · owner S12 · R-130 R-131 R-132 R-135 · D-150
  * Where persona modes stop being a demo control and become a product setting. We never tell a host "you are a Family
  * host": we show a preset, the signals that chose it, and every default it sets, each one changeable. Behaviour can
  * *suggest* a change; it never switches the mode silently. Capability is identical in every preset. */
@@ -11,10 +11,10 @@ import { useStore } from '../../store/store'
 import { Page } from '../../shell/AppShell'
 
 const SIGNAL: Record<PersonaId, Array<[string, string]>> = {
-  P1: [['At sign-up you said', '1–2 properties'], ['Channels connected', 'Airbnb, Booking.com'], ['Before Hospitable', 'Managed on Airbnb, Booking.com copied from it']],
+  P1: [['At sign-up you said', '1–2 properties'], ['Channels connected', 'Airbnb, Booking.com'], ['Before Hostaway', 'Managed on Airbnb, Booking.com copied from it']],
   P2: [['At sign-up you said', '3–10 properties'], ['Channels connected', 'Airbnb, Booking.com, Direct'], ['What you do here', 'You edit listing text most weeks']],
-  P3: [['At sign-up you said', '11–24 properties, with a team'], ['Properties in Hospitable', '12, imported in batches'], ['Team', '4 people: ops manager, listing coordinator, 2 VAs']],
-  P4: [['At sign-up you said', '1–2 properties'], ['Before Hospitable', 'Hostaway, one listing on Airbnb'], ['Joined', 'Recently. Your listing is already here']],
+  P3: [['At sign-up you said', '11–24 properties, with a team'], ['Properties in Hostaway', '12, imported in batches'], ['Team', '4 people: ops manager, listing coordinator, 2 VAs']],
+  P4: [['At sign-up you said', '1–2 properties'], ['Before Hostaway', 'Hostaway, one listing on Airbnb'], ['Joined', 'Recently. Your listing is already here']],
 }
 
 /** Smart Listings' words for what the AI may do (v3: tips you review, or Autopilot). */
@@ -33,7 +33,7 @@ export function Guidance() {
   const d = PERSONAS[m.persona]
   return (
     <Page>
-      <PageHeader title="How Hospitable helps you" sub="Settings · for you only. Your team keeps their own" />
+      <PageHeader title="How Hostaway helps you" sub="Settings · for you only. Your team keeps their own" />
       <div className="p-grid-2 p-mt6">
         <div>
           <section className="p-card">
@@ -65,7 +65,7 @@ export function Guidance() {
 
         <div className="p-col">
           <Explainer title="Why presets, not personas" icon="shield-check">
-            Hospitable adapts defaults and explanations, never what you can do. It doesn’t label you, doesn’t hide features, and won’t switch your preset because of how you behave. If your use changes (say you start editing listing text every week), it suggests a different preset once, and you decide.
+            Hostaway adapts defaults and explanations, never what you can do. It doesn’t label you, doesn’t hide features, and won’t switch your preset because of how you behave. If your use changes (say you start editing listing text every week), it suggests a different preset once, and you decide.
           </Explainer>
           <section className="p-card">
             <div className="p-label">Opened by default</div>

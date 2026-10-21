@@ -30,7 +30,7 @@ import { build } from './build.mjs';
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const args = process.argv.slice(2);
 const i = args.indexOf('--theme');
-const themes = ['hospitable'];                       // one theme (D-071)
+const themes = ['hostaway'];                       // one theme (D-071)
 const out = path.join(ROOT, 'export');
 fs.mkdirSync(out, { recursive: true });
 

@@ -1,4 +1,4 @@
-/* Hospitable DS replica · shell renderer (sidebar + property sub-nav).
+/* Hostaway DS replica · shell renderer (sidebar + property sub-nav).
    Shared by the gallery and the fidelity frames so the shell is written once.
    Usage: <aside data-shell="sidebar" data-active="properties" [data-collapsed]></aside>
           <nav data-shell="subnav" data-active="details"></nav>
@@ -25,7 +25,7 @@
     if (el.hasAttribute('data-collapsed')) el.classList.add('is-collapsed');
     el.innerHTML = `
       <div class="h-sidebar__brand">
-        <span class="h-logo">${mark}<span class="h-logo__word">hospitable</span></span>
+        <span class="h-logo">${mark}<span class="h-logo__word">hostaway</span></span>
         <button class="h-sidebar__collapse" aria-label="Collapse sidebar">${ic('arrow-bar-to-left', 'h-icon h-icon--24')}</button>
       </div>
       <ul class="h-nav">

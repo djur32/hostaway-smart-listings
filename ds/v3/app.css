@@ -106,7 +106,7 @@
 @keyframes app-sheet-out { to { transform: translateY(100%); } }
 
 /* ---------- A6 · large title → compact bar ----------
-   The phone layer owns it now (ds/components.css `.h-m-compactbar`, shell/PropertyLayout.tsx; Antonio, 4 Oct): the page
+   The phone layer owns it now (ds/components.css `.h-m-compactbar`, shell/PropertyLayout.tsx; review, 4 Oct): the page
    title is the section switcher, and once it scrolls away a 44px compact bar names the page and still opens Sections.
    The grey section bar is gone on phones, so nothing here restyles it. */
 .is-app .h-m-compactbar__btn:active { transform: scale(.97); }

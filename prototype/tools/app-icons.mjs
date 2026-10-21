@@ -1,4 +1,4 @@
-// App mode (APP-MODE.md): renders the Hospitable mark as PNG home-screen icons into public/pwa/.
+// App mode (APP-MODE.md): renders the Hostaway mark as PNG home-screen icons into public/pwa/.
 // Usage: node tools/app-icons.mjs   (needs the deck's headless Chrome helper)
 import fs from 'node:fs'
 import { launchChrome, sleep } from '../../deck/tools/lib/cdp.mjs'

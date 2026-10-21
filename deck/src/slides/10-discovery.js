@@ -118,7 +118,7 @@ function drawAm(fig, d) {
       const c = h('div', { class: `dc-am__c is-r${i}` + (test ? ' is-test' : '') + (build ? ' is-build' : '') + (e === 5 ? ' is-last' : '') + (i === 1 ? ' is-bottom' : ''), style: `grid-row: ${row}; grid-column: ${e + 2}` });
       const z = zone(i, e); if (z) c.append(h('span', { class: 'dc-am__zone' }, z));
       d.h.filter((x) => x.imp === i && x.ev === e).forEach((x) => {
-        // hover or focus a hypothesis to read it (Antonio, 4 Oct: "get a sense of what they refer to")
+        // hover or focus a hypothesis to read it (review, 4 Oct: "get a sense of what they refer to")
         const cat = (d.tags.find(([t]) => t === x.cat) || [x.cat, x.cat])[1];   // sentence case, the tag's own name
         c.append(h('span', { class: 'dc-am__h' + (x.rank ? ' is-risk' : '') + (x.refuted ? ' is-refuted' : '') + (e >= 4 ? ' is-tip-left' : ''), 'data-h': x.id, tabindex: '0' },
           x.id, h('small', {}, x.cat), x.rank ? h('span', { class: 'dc-am__rank' }, x.rank) : null,
@@ -142,7 +142,7 @@ for (const root of [document, ...[...document.querySelectorAll('template')].map(
 
 Deck.define('dc-two-truths', { enter: (api) => sceneIn(api) });
 
-/* ── dc-no-channel · the hunt for one channel's listing (4 Oct, Antonio: "something more visual"). One paused
+/* ── dc-no-channel · the hunt for one channel's listing (4 Oct, review: "something more visual"). One paused
    timeline with a label per step, like dc-today's, so a press forced to its end lands exactly on its step:
      s0  the host's question pops in, and its words rise
      s1  the empty frame at the route's end pops; the route draws across the five sections, each stop pops as

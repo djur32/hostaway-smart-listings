@@ -1,9 +1,9 @@
 {
-  "about": "Flows, maps and models, drawn live by kit/flowmap.js. Source of truth: the live prototype (prototype/src) and the Notion pages Flows, Solution overview and Object model. Coordinates are node centres on a 1720 px canvas. \"only\": \"deck\" or \"notion\" keeps a node or edge to one variant; \"v\": { \"notion\": {…} } overrides it there. Antonio, 4 Oct: a channel field has four cases, in the deck and in Notion alike: uses the Base · custom for one channel · only on that channel · set by the channel (\"Booking.com only\" beside a lock whose tooltip says why; a node takes it as \"capIcon\": \"i-lock\"). The Notion variant also documents the prototype’s listing-wide fields (N channels).",
+  "about": "Flows, maps and models, drawn live by kit/flowmap.js. Source of truth: the live prototype (prototype/src) and the Notion pages Flows, Solution overview and Object model. Coordinates are node centres on a 1720 px canvas. \"only\": \"deck\" or \"notion\" keeps a node or edge to one variant; \"v\": { \"notion\": {…} } overrides it there. review, 4 Oct: a channel field has four cases, in the deck and in Notion alike: uses the Base · custom for one channel · only on that channel · set by the channel (\"Booking.com only\" beside a lock whose tooltip says why; a node takes it as \"capIcon\": \"i-lock\"). The Notion variant also documents the prototype’s listing-wide fields (N channels).",
   "flows": {
     "turn-on": {
       "title": "Turn on Smart Listings",
-      "caption": "One toggle on the property Overview, then a full-screen wizard. Tips appear on each channel’s pages. Prototype behaviour. Sample content SIMULATED.",
+      "caption": "One toggle on the property Overview, then a full-screen wizard. Tips appear on each channel’s pages. Prototype behaviour. Sample content .",
       "w": 1720,
       "h": 540,
       "nodes": [
@@ -199,7 +199,7 @@
     },
     "tips": {
       "title": "Work through tips on an Airbnb listing",
-      "caption": "One docked panel, one tip at a time: Accept sends the change and Undo takes it back. Prototype behaviour. Sample content SIMULATED.",
+      "caption": "One docked panel, one tip at a time: Accept sends the change and Undo takes it back. Prototype behaviour. Sample content .",
       "w": 1720,
       "h": 540,
       "nodes": [
@@ -369,7 +369,7 @@
     },
     "one-field": {
       "title": "One field on a channel, in four cases",
-      "caption": "Every field is one of four cases: it uses the Base, is custom for one channel, exists only on that channel, or is set by the channel (read-only, beside a lock that says why). Switching back to the Base never loses work. Prototype behaviour. Sample content SIMULATED.",
+      "caption": "Every field is one of four cases: it uses the Base, is custom for one channel, exists only on that channel, or is set by the channel (read-only, beside a lock that says why). Switching back to the Base never loses work. Prototype behaviour. Sample content .",
       "w": 1720,
       "h": 560,
       "v": {
@@ -578,7 +578,7 @@
     },
     "performance": {
       "title": "Check Performance, then edit or replace a strategy",
-      "caption": "Performance compares each channel with the same stretch before its strategy. Strategy is where you edit or replace it. Prototype behaviour. Sample figures SIMULATED.",
+      "caption": "Performance compares each channel with the same stretch before its strategy. Strategy is where you edit or replace it. Prototype behaviour. Sample figures .",
       "w": 1720,
       "h": 540,
       "nodes": [
@@ -745,7 +745,7 @@
     },
     "hub-to-tips": {
       "title": "From a guest question to a better listing",
-      "caption": "A concept, not built in full: it shows how the Knowledge Hub can feed the tips. The Hub reads its facts from the Listing base and collects what guests ask in the Inbox, counted and marked answered or not. Copilot answers only from those facts. A gap becomes a tip, either a shared fact for the Listing base (“Add free parking”) or a better answer in one channel’s listing (Airbnb’s description). Accepted, a fact reaches every channel and Copilot, and a description change reaches that channel. Questions and counts are demo data, SIMULATED.",
+      "caption": "A concept, not built in full: it shows how the Knowledge Hub can feed the tips. The Hub reads its facts from the Listing base and collects what guests ask in the Inbox, counted and marked answered or not. The assistant answers only from those facts. A gap becomes a tip, either a shared fact for the Listing base (“Add free parking”) or a better answer in one channel’s listing (Airbnb’s description). Accepted, a fact reaches every channel and the assistant, and a description change reaches that channel. Questions and counts are demo data, .",
       "look": "cards",
       "w": 1880,
       "h": 660,
@@ -796,7 +796,7 @@
           "y": 110,
           "w": 280,
           "h": 112,
-          "t": "Copilot answers",
+          "t": "The assistant answers",
           "s": "only from listing details and Hub facts the host confirmed, and cites them"
         },
         {
@@ -860,7 +860,7 @@
           "w": 280,
           "h": 112,
           "t": "A fact in the Listing base",
-          "s": "every channel and Copilot use it"
+          "s": "every channel and the assistant use it"
         },
         {
           "id": "k",
@@ -938,7 +938,7 @@
     },
     "solution-map": {
       "title": "Smart Listings: the solution map",
-      "caption": "Every fact once in Shared, a page per channel, and a strategy per channel whose tips the host reviews. Prototype as built. Sample content SIMULATED.",
+      "caption": "Every fact once in Shared, a page per channel, and a strategy per channel whose tips the host reviews. Prototype as built. Sample content .",
       "w": 1760,
       "h": 600,
       "groups": [
@@ -1122,7 +1122,7 @@
     },
     "object-model": {
       "title": "The object model",
-      "caption": "The objects Smart Listings is built on, and how they relate. Prototype as built, REAL·PRODUCT. The channel rules behind it REAL·PUBLIC.",
+      "caption": "The objects Smart Listings is built on, and how they relate. Prototype as built, . The channel rules behind it .",
       "w": 1720,
       "h": 540,
       "groups": [

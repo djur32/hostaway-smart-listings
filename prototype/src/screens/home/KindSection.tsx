@@ -61,13 +61,13 @@ export function KindSection({ section }: { section: SectionId }) {
       } />
       <div className="p-mt4"><Tabs items={tabs.map((t) => ({ label: t, to: `${base}/${slug(t)}` }))} /></div>
       {/* S12 mode hooks (D-150): guidance only; nothing below changes by persona. */}
-      {p.deep && isStudio && <div className="p-mt4"><Guide id="studio-why" title="Why does Hospitable touch your listing text?"
+      {p.deep && isStudio && <div className="p-mt4"><Guide id="studio-why" title="Why does Hostaway touch your listing text?"
         line={<>Suggestions only: nothing reaches a <Term k="channel">booking site</Term> until you review and push.</>}>
-        Your Airbnb text stays exactly as it is until you choose. Hospitable can suggest improvements written only from your home’s facts and from similar homes nearby, and adapt one text for Booking.com. Nothing is sent until you press Review &amp; push, and every earlier version is kept.
+        Your Airbnb text stays exactly as it is until you choose. Hostaway can suggest improvements written only from your home’s facts and from similar homes nearby, and adapt one text for Booking.com. Nothing is sent until you press Review &amp; push, and every earlier version is kept.
       </Guide></div>}
       {p.deep && !isStudio && section === 'home' && <div className="p-mt4"><Guide id="home-facts" title="This is everything true about your home"
         line="Edit a fact once here; every booking site and the guest assistant get it at the next push.">
-        Hospitable keeps one copy of each fact (beds, Wi-Fi, check-in…) and shows where it came from. Airbnb, Booking.com and the guest assistant all read from here, so you only ever change it once.
+        Hostaway keeps one copy of each fact (beds, Wi-Fi, check-in…) and shows where it came from. Airbnb, Booking.com and the guest assistant all read from here, so you only ever change it once.
       </Guide></div>}
       {p.deep && (
         <div className="p-strip p-mt4">

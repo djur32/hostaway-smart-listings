@@ -1,7 +1,7 @@
 /* WS-CV · Canvas (V3-SPEC §1 "Listing editor", frames CV-01…CV-09). The channel's real guest page, fully readable, with
  * every part outlined in the colour of what it offers: purple = a tip waits, orange = editable here (Rewrite with AI),
  * no colour = owned elsewhere. WS-CH's ListingEditor renders this below its PageHead when ?view=canvas.
- * Antonio, 3 Oct: nothing is edited on the page itself ("inline editing doesn't work… the solution has to be in the
+ * review, 3 Oct: nothing is edited on the page itself ("inline editing doesn't work… the solution has to be in the
  * sidebar"). Tapping a part opens the field panel in the one right-hand slot (FieldPanel.tsx): a tip field shows only
  * its tip card; any other field shows Classic's FieldRow, with the Rewrite-with-AI card behind the orange trigger on the
  * panel's title row. Photos open the full-screen Manage photos takeover (no panel); the booking card's nightly line and
@@ -55,7 +55,7 @@ function fit(avail: number) {
   return { zoom, width: avail / zoom, narrow: true }
 }
 
-/** The channel's field edits still waiting on the shared Save (Antonio, 1 Oct, 2nd pass: one Discard/Save for
+/** The channel's field edits still waiting on the shared Save (review, 1 Oct, 2nd pass: one Discard/Save for
  *  everything). Shaped like sl3.custom[channel]/sl3.base so it overlays onto a copy of the real store (draftSl3/draftLib
  *  below) for every read; the store commit + channel send happens once, from the bar's Save (saveDraft). The field
  *  panel's FieldRow reads and writes it through `sectionDraft`, an adapter with Classic's SectionDraft shape.
@@ -182,7 +182,7 @@ export function CanvasView({ channel, tab }: { channel: ListingChannel; tab?: Li
   const policy = useChannelPolicy(channel)
   const cancel = useMemo(() => cancelFacts(channel, policy), [channel, policy])
   const guestsMax = maxGuests(p.id, channel, live ? sl3 : draftSl3)
-  /* "Show only editable sections" (Antonio, 3 Oct): off by default, kept in the URL (?editable=1) */
+  /* "Show only editable sections" (review, 3 Oct): off by default, kept in the URL (?editable=1) */
   const editableOnly = params.get('editable') === '1'
   const photosNav = usePhotosNav()
 
@@ -213,7 +213,7 @@ export function CanvasView({ channel, tab }: { channel: ListingChannel; tab?: Li
   const panelArea = selectedArea && !tipsOpen && selectedArea.field !== 'photos' ? selectedArea : undefined
   const docked = !mobile && !!panelArea
   // Photos never open a side panel: a tap on the photos opens the full-screen Manage photos takeover, the one Classic
-  // opens (screens/channel/PhotosShells.tsx), locked to this channel (Antonio, 3 Oct, 2nd pass)
+  // opens (screens/channel/PhotosShells.tsx), locked to this channel (review, 3 Oct, 2nd pass)
   const select = (id: string | null) => set(id && cvArea(channel, id)?.field === 'photos' ? { select: null, ask: null, tips: null, tip: null, [PHOTOS_OPEN_PARAM]: '1' }
     : id ? { select: id, ask: null, tips: null, tip: null } : { select: null, ask: null })
   // an old ?select=<photos> link opens the takeover too
@@ -253,7 +253,7 @@ export function CanvasView({ channel, tab }: { channel: ListingChannel; tab?: Li
     return () => ro.disconnect()
   }, [])
   // Opening a panel never rescales the page: keep the closed-panel zoom and let the page reflow to the narrower width
-  // (the channel's narrow layout when the desktop one no longer fits). Antonio, 30 Sep.
+  // (the channel's narrow layout when the desktop one no longer fits). review, 30 Sep.
   const closedZoom = useRef<number | null>(null)
   const fitted = fit(avail)
   const panelReflow = tipsOpen || docked
@@ -372,7 +372,7 @@ export function CanvasView({ channel, tab }: { channel: ListingChannel; tab?: Li
     if (priceKeysFor(channel, a.id)) return a.name
     return lockOf(a)?.title ?? a.name
   }
-  /** The title row: the field's name, then (Antonio, 3 Oct, 2nd pass) the orange Rewrite-with-AI trigger Classic puts
+  /** The title row: the field's name, then (review, 3 Oct, 2nd pass) the orange Rewrite-with-AI trigger Classic puts
    *  beside a field label, when the field can be typed into and has no tip. It reveals the Rewrite card under the
    *  field; nothing about it shows until then. */
   function panelHead(a: CvAreaDef) {
@@ -415,7 +415,7 @@ export function CanvasView({ channel, tab }: { channel: ListingChannel; tab?: Li
         edits={edits} onKeep={() => setKeep(true)}
         left={<label className="cv-bar__toggle"><Toggle checked={editableOnly} label="Show only editable sections" onChange={(v) => set({ editable: v ? '1' : null })} />Show only editable sections</label>} />
       <CvFrame url={content.url[channel]} note={note} live={live}>
-        {/* no dimming, ever (Antonio, 3 Oct: "make sure the content is readable") — outlines and markers only */}
+        {/* no dimming, ever (review, 3 Oct: "make sure the content is readable") — outlines and markers only */}
         <div className="cv-layer" ref={layerRef} onClick={() => selected && select(null)}>
           <div className="cv-stage" ref={stageRef}>
             <div className="cv-page" ref={pageRef} style={{ width: L.width, zoom: L.zoom }}>

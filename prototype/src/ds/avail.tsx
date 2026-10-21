@@ -17,7 +17,7 @@ export const formatDays = (days: string[]): string => {
   return on.length ? on.join(', ') : 'None'
 }
 
-/** Seven square toggle buttons, Sunday first (Hospitable's order). Pressed = guests can't arrive / leave that day. */
+/** Seven square toggle buttons, Sunday first (Hostaway's order). Pressed = guests can't arrive / leave that day. */
 export function Weekdays({ value, onChange, label, disabled, firstRef }: {
   value: string; onChange?: (v: string) => void; label: string; disabled?: boolean
   /** The first day, so "Customize for {channel}" / "Edit for all channels" can move focus into the picker. */
@@ -35,7 +35,7 @@ export function Weekdays({ value, onChange, label, disabled, firstRef }: {
   )
 }
 
-/** Hospitable's per-channel matrix (HS-39 Instant book): one row per channel, one radio column per option.
+/** Hostaway's per-channel matrix (HS-39 Instant book): one row per channel, one radio column per option.
  *  ≤ 767px it stacks (.h-matrix--stack): each channel, then its options as radio rows with title + sub-line. */
 export function ChannelMatrix({ name, label, columns, rows }: {
   name: string; label: string

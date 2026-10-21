@@ -1,7 +1,7 @@
 /* ============================================================================
    70 · NEXT STEPS · the service map (4 Oct).
 
-   Antonio, 4 Oct: "In the deck I want a service map: a visual that shows how this
+   review, 4 Oct: "In the deck I want a service map: a visual that shows how this
    implementation affects other future implementations and the product at large."
 
      nx-roadmap   Smart Listings and Shared at the centre, the product areas on three

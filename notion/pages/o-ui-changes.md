@@ -1,15 +1,15 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Done** · Where the prototype departs from Hospitable's current UI, and why. Everything else is copied. Provenance: "Hospitable today" is `REAL·PRODUCT` (screenshots and the trial account, cited by HS number); the reasons are design judgement (`ASSUMPTION`) unless marked.
+	**Output · Done** · Where the prototype departs from Hostaway's current UI, and why. Everything else is copied. Provenance: "Hostaway today" is (screenshots and the trial account, cited by HS number); the reasons are design judgement () unless marked.
 </callout>
 ## The short version
-- I replicate Hospitable and change only what the Smart Listings model needs: per-channel editing, saving, AI and the Knowledge Hub.
+- I replicate Hostaway and change only what the Smart Listings model needs: per-channel editing, saving, AI and the Knowledge Hub.
 - Ten departures matter most. Each one below is checked against the live prototype.
 - The rest of the product, from the shell to the dropdowns, is copied as it is.
 ## Ten departures
 <table header-row="true">
 	<tr>
 		<td>Area</td>
-		<td>Hospitable today</td>
+		<td>Hostaway today</td>
 		<td>What I do</td>
 		<td>Why</td>
 	</tr>
@@ -47,7 +47,7 @@
 		<td>**AI on listing fields**</td>
 		<td>AI exists for messaging and the Knowledge Hub, not for listing fields (HS-40, HS-48)</td>
 		<td>At most one AI affordance per field: its tip, or else Rewrite with AI on an editable text field</td>
-		<td>Per-channel AI is the brief's Angle B (`REAL·BRIEF`); one affordance keeps it calm</td>
+		<td>Per-channel AI is the brief's Angle B (); one affordance keeps it calm</td>
 	</tr>
 	<tr>
 		<td>**Preview**</td>
@@ -70,28 +70,28 @@
 	<tr>
 		<td>**Knowledge Hub**</td>
 		<td>One generated list with "Ask the AI" and "Sources (1)". New knowledge is free text under a topic, and the Hub feeds messaging only (HS-42, HS-57)</td>
-		<td>Questions, Insights, Facts and Sources. Listing details are read from the Listing base, Copilot answers guests only from them and from Facts the host wrote or confirmed, and gaps become tips. Labelled Concept</td>
+		<td>Questions, Insights, Facts and Sources. Listing details are read from the Listing base, the assistant answers guests only from them and from Facts the host wrote or confirmed, and gaps become tips. Labelled Concept</td>
 		<td>Listing details live once, and guests' questions become improvements to the listing</td>
 	</tr>
 </table>
 ## Before and after
 <columns>
 	<column>
-		![Today · Details › Arrival. Guest checkout tasks ("1 channel") sits among shared fields, and each text field offers "Edit per channel". REAL·PRODUCT, HS-23.](file-upload://3efe18af-1645-819f-aa05-00b266f039a7)
+		![Today · Details › Arrival. Guest checkout tasks ("1 channel") sits among shared fields, and each text field offers "Edit per channel". HS-23.](file-upload://3efe18af-1645-819f-aa05-00b266f039a7)
 	</column>
 	<column>
-		![Prototype · Airbnb › Listing › Arrival. Each field uses the Base or is custom for Airbnb, and Guest checkout tasks lives only on Airbnb. Values SIMULATED.](file-upload://3efe18af-1645-81e9-b6bd-00b24cb7e578)
+		![Prototype · Airbnb › Listing › Arrival. Each field uses the Base or is custom for Airbnb, and Guest checkout tasks lives only on Airbnb. Values .](file-upload://3efe18af-1645-81e9-b6bd-00b24cb7e578)
 	</column>
 </columns>
 <columns>
 	<column>
-		![Today · Knowledge Hub. One generated list under "Ask the AI" and "Sources (1)". REAL·PRODUCT, HS-42.](file-upload://3efe18af-1645-81b0-9227-00b22d975f4b)
+		![Today · Knowledge Hub. One generated list under "Ask the AI" and "Sources (1)". HS-42.](file-upload://3efe18af-1645-81b0-9227-00b22d975f4b)
 	</column>
 	<column>
-		![Prototype · Knowledge Hub › Questions: what guests ask, by topic, counted per channel and marked answered or not. Labelled Concept. Values SIMULATED.](file-upload://3efe18af-1645-81a2-afe8-00b24b47a9d9)
+		![Prototype · Knowledge Hub › Questions: what guests ask, by topic, counted per channel and marked answered or not. Labelled Concept. Values .](file-upload://3efe18af-1645-81a2-afe8-00b24b47a9d9)
 	</column>
 </columns>
-## Where I deliberately copied Hospitable
+## Where I deliberately copied Hostaway
 The global shell and property switcher, Details' five tabs and field order, the field row and its "ⓘ N channels" caption, Summary as the guest-facing text, dropdowns and chips, the Metrics chart cards behind Performance, and the Add-property wizard, reused for strategies and booking policies. In the global sidebar only Properties navigates; Getting started and the rest are shown but inert.
 ## How it was made
 Each "today" cell comes from the <mention-page url="https://app.notion.com/p/3eee18af16458140b622c2f52f500edf">Product audit</mention-page> and the <mention-page url="https://app.notion.com/p/3eee18af1645817899d8edd811bf9212">Heuristic evaluation</mention-page>. About twenty departures were logged while building (full list in the repo); these ten shape Smart Listings, and each was checked against the prototype’s code and live site.
@@ -111,5 +111,5 @@ Each "today" cell comes from the <mention-page url="https://app.notion.com/p/3ee
 **Decisions**
 - <mention-page url="https://app.notion.com/p/3eee18af164581ca9016ce7928ea3008">KD-16</mention-page>
 **In the prototype**
-- [Airbnb › Listing › Arrival](https://hospitable-case-web.digimal.studio/property/neukolln/ch/airbnb/listing/arrival)
-- [Knowledge Hub › Questions](https://hospitable-case-web.digimal.studio/property/neukolln/hub/questions)
+- [Airbnb › Listing › Arrival]()
+- [Knowledge Hub › Questions]()

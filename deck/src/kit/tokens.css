@@ -1,9 +1,9 @@
 /* ============================================================================
    TOKENS · the deck's semantic layer, and the only place it meets the design system.
 
-   ONE THEME: data-theme="hospitable"
+   ONE THEME: data-theme="hostaway"
      The InvestEngine deck had two committed variants (Studio, Lumen) switchable with Y.
-     The Hospitable case has one look, Hospitable's own (deck/DECISIONS.md, D-071), so
+     The Hostaway case has one look, Hostaway's own (deck/DECISIONS.md, D-071), so
      the two four-colour themes are gone and so is the switch.
 
    WHERE THE VALUES COME FROM
@@ -39,7 +39,7 @@
   --canvas-w: 1920px;
   --canvas-h: 1080px;
   --pad-x: 96px;             /* the content's left edge; the bar's mark sits on it too */
-  --pad-top: 120px;          /* clears the top bar (88px); 136 before 4 Oct (Antonio: the title closer to the eyebrow); was 172 (Antonio, 3 Oct: "the content should appear a little higher") */
+  --pad-top: 120px;          /* clears the top bar (88px); 136 before 4 Oct (review: the title closer to the eyebrow); was 172 (review, 3 Oct: "the content should appear a little higher") */
   --chrome-x: 96px;
   --chrome-top: 0px;
   --chrome-bottom: 34px;
@@ -49,15 +49,15 @@
   --gap: 32px;
   --content-w: 1728px;
 
-  /* Hospitable sets everything in one family (TT Norms, Antonio's licensed files, S02 D-093; replaces the Figtree stand-in).
+  /* Hostaway sets everything in one family (TT Norms, review's licensed files, S02 D-093; replaces the Figtree stand-in).
      Mono is only for IDs and codes (D-012, INT-3, R-031), never for labels. */
   --font-display: var(--font-sans);
   --font-text:    var(--font-sans);
   --font-ui:      var(--font-sans);
-  --font-code:    var(--font-sans);          /* IDs and numbers too: TT Norms everywhere (Antonio, 3 Oct); was Geist Mono */
+  --font-code:    var(--font-sans);          /* IDs and numbers too: TT Norms everywhere (review, 3 Oct); was Geist Mono */
   --font-mono:    var(--font-sans);          /* the kit's old "mono" labels read as the product's labels */
 
-  /* Type scale for the wall. Hospitable's product scale (24 / 16 / 14 at 1×) scaled for a
+  /* Type scale for the wall. Hostaway's product scale (24 / 16 / 14 at 1×) scaled for a
      room: headings semibold, tight but not display-tight; labels sentence case. */
   --t-mega:    220px;
   --t-display: 112px;
@@ -116,11 +116,11 @@
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
-   HOSPITABLE · the only theme
+   HOSTAWAY · the only theme
    --c1…--c4 are kept because kit/gen.js paints canvases from them.
    ══════════════════════════════════════════════════════════════════════════ */
 :root,
-[data-theme="hospitable"] {
+[data-theme="hostaway"] {
   --c1: var(--color-bg-app);          /* white      */
   --c2: var(--color-text-primary);    /* ink        */
   --c3: var(--color-action-primary);  /* raspberry  */

@@ -1,7 +1,7 @@
 /* ============================================================================
    PLAN · how much of the deck you want to see.
 
-   The Hospitable deck is at most 50 slides and every slide carries a path
+   The Hostaway deck is at most 50 slides and every slide carries a path
    (MASTER-PLAN §7): S (Short, ~18 slides), St (Standard, ~32, the ~22-minute
    Loom) or E (Everything). This dialog, reused from the InvestEngine deck
    (deck/DECISIONS.md, reuse log), asks once how much to show and keeps the

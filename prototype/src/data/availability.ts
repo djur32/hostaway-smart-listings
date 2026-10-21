@@ -1,4 +1,4 @@
-/* Channels › {channel} › Availability (Hospitable replica of Property › Availability, HS-37 General and HS-38 Booking rules).
+/* Channels › {channel} › Availability (Hostaway replica of Property › Availability, HS-37 General and HS-38 Booking rules).
  * The five stay rules that already exist are REUSED from data/v3-ch.ts AVAILABILITY (keys `avail:min_stay`, `avail:max_stay`,
  * `avail:advance`, `avail:prep`, `avail:window`), so the Knowledge Hub, the channel Overview and Review & push read the same
  * values from sl3.custom / sl3.base. Only the check-in / checkout day restrictions are new here.
@@ -46,7 +46,7 @@ const row = (k: string): AvailRow => {
 export const AVAIL_FIELDS: Record<Exclude<AvailTab, 'instant-book'>, AvailField[]> = {
   general: [
     { key: 'min_stay', label: 'Minimum stay length', help: 'The shortest stay guests can book.', control: 'nights', row: row('min_stay'), perDay: true,
-      // help.hospitable.com/15600605 + /9857547: pushed to Booking.com's "Minimum stay from arrival" on the parent rate plan only
+      // help.hostaway.com/15600605 + /9857547: pushed to Booking.com's "Minimum stay from arrival" on the parent rate plan only
       note: { booking: 'Booking.com gets this as the minimum stay from arrival on your standard rate plan. Rate plans you add in the Extranet keep their own.' } },
     { key: 'max_stay', label: 'Maximum stay length', help: 'The longest stay guests can book.', control: 'nights', row: row('max_stay') },
     { key: 'window', label: 'Availability window', help: 'How far in advance guests can book.', control: 'select', row: row('window') },
@@ -59,7 +59,7 @@ export const AVAIL_FIELDS: Record<Exclude<AvailTab, 'instant-book'>, AvailField[
   ],
 }
 
-/** Hospitable's limit for stay lengths (help.hospitable.com/9857547: maximum stay up to 1,125 nights). */
+/** Hostaway's limit for stay lengths (help.hostaway.com/9857547: maximum stay up to 1,125 nights). */
 export const MAX_NIGHTS = 1125
 export const nightsOf = (v: string): string => (v.match(/\d+/)?.[0] ?? '')
 export const nightsText = (n: string): string => (n === '' ? '' : `${n} ${n === '1' ? 'night' : 'nights'}`)
@@ -74,7 +74,7 @@ export const INSTANT_COLUMNS = [
   { id: 'low', label: 'Automatically accept low risk', sub: 'Accept low-risk guests' },
   { id: 'review', label: 'Review and approve', sub: 'Manually review all booking requests' },
 ]
-/** Booking.com has two booking modes (instant or request): no "low risk" (help.hospitable.com/15600605, /9857547). */
+/** Booking.com has two booking modes (instant or request): no "low risk" (help.hostaway.com/15600605, /9857547). */
 export const INSTANT_UNAVAILABLE: Partial<Record<ListingChannel, string[]>> = { booking: ['low'] }
 export const INSTANT_NOTE: Partial<Record<ListingChannel, string>> = {
   booking: 'Booking.com offers instant booking or requests to book. Requests are only for apartments, holiday homes and villas, and a listing created on Booking.com before you connected may stay on instant booking.',

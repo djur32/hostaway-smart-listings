@@ -1,7 +1,7 @@
 /* Knowledge Hub iteration KH-E · design-system components (concepts/knowledge-hub/KH-E.md). Owned by the KH-E build.
  * CSS: ds/v3/kh-e.css (tokens only). The lens is a comparison over one shared Base, never navigation: these pieces only
  * show whose values you are looking at and where a value comes from.
- * Rules (Antonio, 30 Sep): captions are plain text (no logo circles); the channel Mark sits on the lens segments and in
+ * Rules (review, 30 Sep): captions are plain text (no logo circles); the channel Mark sits on the lens segments and in
  * headers; action links are black, underlined, medium; no change markers; the drawer slides in from the right while the
  * form column narrows in step (no separator line). */
 import { useEffect, useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
@@ -13,7 +13,7 @@ import type { ChannelId } from '../data/types'
 type LensId = 'base' | ChannelId
 
 /* ---------- lens: Base · Airbnb · Booking.com · Direct ---------- */
-/** The segmented lens (Hospitable's segmented control). Base carries the stack icon; each channel its Mark. */
+/** The segmented lens (Hostaway's segmented control). Base carries the stack icon; each channel its Mark. */
 export function LensControl({ value, channels, onChange }: { value: LensId; channels: ChannelId[]; onChange: (v: LensId) => void }) {
   return (
     <span className="h-lens khe-lens" role="group" aria-label="Look at the values of">
@@ -198,7 +198,7 @@ export function KheSummary({ children }: { children: ReactNode }) {
   return <p className="khe-summary"><Icon name="info-circle" />{children}</p>
 }
 
-/* ---------- Guest checkout tasks (Hospitable HS-A02/A03, Paper KH-E1): a bordered list, drag grip, edit, "+ Add task" ---------- */
+/* ---------- Guest checkout tasks (Hostaway HS-A02/A03, Paper KH-E1): a bordered list, drag grip, edit, "+ Add task" ---------- */
 export interface KheTask { name: string; details: string }
 export function KheTaskList({ tasks, disabled, onChange, presets = [] }: { tasks: KheTask[]; disabled?: boolean; onChange?: (t: KheTask[]) => void; presets?: string[] }) {
   const [editing, setEditing] = useState<number | null>(null)
@@ -401,7 +401,7 @@ export function SourceCard({ icon, name, sub, when, facts, menu }: { icon: strin
 }
 
 /* ---------- Ask ---------- */
-/** Hospitable's dropdown (bordered trigger, menu below) whose options carry the channel Mark: "Answer as (●) Booking.com guest". */
+/** Hostaway's dropdown (bordered trigger, menu below) whose options carry the channel Mark: "Answer as (●) Booking.com guest". */
 export function ChannelSelect({ value, channels, onChange, suffix, label }: { value: ChannelId; channels: ChannelId[]; onChange: (c: ChannelId) => void; suffix?: string; label: string }) {
   const [open, setOpen] = useState(false)
   const wrap = useRef<HTMLDivElement>(null)

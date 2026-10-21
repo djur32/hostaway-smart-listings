@@ -48,7 +48,7 @@
 .sl-mode .h-icon { width: 14px; height: 14px; }
 .sl-mode--auto { background: var(--color-ai-surface); color: var(--color-ai-text); }
 
-/* ---------- setup wizard (embedded; Hospitable get-started pattern) ---------- */
+/* ---------- setup wizard (embedded; Hostaway get-started pattern) ---------- */
 .sl-setup .h-wizard__foot .h-btn { height: var(--button-height-lg); padding: 0 var(--space-6); font-size: var(--text-md); font-weight: var(--font-weight-semibold); }
 .sl-setup .h-wizard__body { padding-top: var(--space-12); min-height: 500px; }
 .sl-setup--done .h-wizard__foot > .h-btn:first-child { margin-left: auto; }
@@ -74,7 +74,7 @@
 
 /* ---------- plan cards (Done + Strategy) ---------- */
 /* minmax floor tuned so this property's 3 connected channels (Airbnb, Booking.com, Direct — the most ListingChannel
- * ever holds) sit in one row at normal desktop widths (Antonio, 1 Oct: "three columns… in my computer it's possible,
+ * ever holds) sit in one row at normal desktop widths (review, 1 Oct: "three columns… in my computer it's possible,
  * so why isn't it like this?"); 300px left only 2 columns inside --content-max-width (920px: 3×300 + 2×gap = 932px,
  * just over). auto-fit (not a fixed repeat(3,…)) still lets a 1- or 2-channel property's cards fill the full row
  * instead of sitting in fixed narrow thirds. */
@@ -112,7 +112,7 @@
 .sl-empty-row { margin: 0; padding: var(--space-4) 0; border-top: 1px solid var(--color-border-divider); font-size: var(--text-sm); color: var(--color-text-muted); }
 .sl-changes .h-changerow > .h-pill { justify-self: start; }
 
-/* ---------- setup as an in-page stepper (Antonio, 1 Oct voice note) ----------
+/* ---------- setup as an in-page stepper (review, 1 Oct voice note) ----------
  * "Through a stepper … not a dedicated page … you can have a horizontal stepper, but don't make it the way that it is
  * now, and adapt everything to the page that we have, and make sure that everything fits in one view — there should be
  * no scroll." So the setup drops the bordered get-started card (.h-wizard, which read as a different product surface)
@@ -258,7 +258,7 @@ button.sl-stp__b { cursor: pointer; }
 .sl-fig__line { margin: 2px 0 0; font-size: var(--text-sm); color: var(--color-text-secondary); }
 .sl-card { border: 1px solid var(--color-border-secondary); border-radius: var(--radius-lg); background: var(--color-surface-primary); padding: var(--space-4); min-width: 0; }
 /* a controls row (Measure/Chart) that sits inside the same card as the plot: just spacing above the chart, no rule
- * line (Antonio, 1 Oct, reversing his own earlier ask for a boundary here — "make sure you use the same style
+ * line (review, 1 Oct, reversing his own earlier ask for a boundary here — "make sure you use the same style
  * you're using elsewhere for this, segmented buttons," i.e. grouped buttons like Performance's filter row, divider
  * included, gone). */
 .sl-card > .sl-vbar { margin-bottom: var(--space-4); }
@@ -319,7 +319,7 @@ button.sl-stp__b { cursor: pointer; }
 .slc-dot { fill: var(--slc-ink); stroke: var(--color-surface-primary); stroke-width: 2; }
 .slc-endlabel { fill: var(--color-text-strong); font-size: 12px; font-weight: var(--font-weight-medium); font-variant-numeric: tabular-nums; }
 .slc-highlight { fill: var(--color-surface-tertiary); }
-/* The chart tooltip IS the product's tooltip (Antonio, 1 Oct: it should match .h-tooltip, ds/components.css "Tooltip
+/* The chart tooltip IS the product's tooltip (review, 1 Oct: it should match .h-tooltip, ds/components.css "Tooltip
    (screenshot 25)"), not a second dark box of its own: --color-bg-inverted, 10px/12px, --radius-sm, --text-sm/--leading-sm,
    --shadow-md, and the same short fade-and-rise .h-tooltip-anchor uses on hover. Only what a chart needs is added on
    top: absolute positioning above the hovered point, the stacked label/value rows, and the in-bounds clamping the
@@ -335,8 +335,8 @@ button.sl-stp__b { cursor: pointer; }
 .slc-tip__key { flex: none; background: var(--c); }
 .slc-tip__key--line { width: 12px; height: 2px; border-radius: 1px; }
 .slc-tip__key--rect { width: 8px; height: 8px; border-radius: 2px; }
-/* its own strip under the plot, not touching the axes (Antonio, 1 Oct revision 2); no divider line under the chart
-   (Antonio, 1 Oct revision 3) — spacing alone separates it */
+/* its own strip under the plot, not touching the axes (review, 1 Oct revision 2); no divider line under the chart
+   (review, 1 Oct revision 3) — spacing alone separates it */
 .slc-legend { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); margin-top: var(--space-2); padding-top: var(--space-2); font-size: var(--text-xs); color: var(--color-text-secondary); }
 .slc-legend__key { display: inline-flex; align-items: center; gap: 6px; }
 .slc-legend__swatch { flex: none; background: var(--c); }

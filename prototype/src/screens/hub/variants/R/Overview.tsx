@@ -1,10 +1,10 @@
 /* Knowledge Hub iteration R · Overview + a topic page (concepts/knowledge-hub/KH-NEXT-2.md, "Overview, rebuilt" / "A
  * topic page" — second revision, Agent R-overview2; punch list round 3, concepts/knowledge-hub/KH-NEXT-3.md, Agent R3).
  * Overview: coverage, the nine topics as clickable cards, then Gaps — demoted below the fold and collapsed by default
- * (round 3, Antonio: "I want the gaps to be more hidden"; still cross-referenced to a live AI suggestion elsewhere
+ * (round 3, review: "I want the gaps to be more hidden"; still cross-referenced to a live AI suggestion elsewhere
  * when one genuinely shares the gap's missing fact, that stays). No Sources summary here any more — Sources is its own
- * page (Antonio, KH-NEXT-2.md). A topic page is question-first (brings back C's pattern, calmer): its own search bar
- * to ask a question directly (round 3, Antonio: "bring back C's question-first UI, specifically its search bar"), then
+ * page (review, KH-NEXT-2.md). A topic page is question-first (brings back C's pattern, calmer): its own search bar
+ * to ask a question directly (round 3, review: "bring back C's question-first UI, specifically its search bar"), then
  * one listing-wide answer per question, its source facts as compact chips, a gap's "Add the answer" inline, and —
  * below the questions — every fact this topic holds, including ones a question already cites (round 3: facts no
  * longer get pulled out of this list just because a question also cites them). A property with no knowledge base yet
@@ -41,10 +41,10 @@ export function Overview({ tab }: { tab?: string | null }) {
   return <OverviewReady tab={tab} />
 }
 
-/** Questions the host added on a topic page (Antonio, 3 Oct: "add a new question with a button"). Unanswered until a
+/** Questions the host added on a topic page (review, 3 Oct: "add a new question with a button"). Unanswered until a
  *  fact answers them; kept per property like the Workflows store. */
 interface AddedQ { id: string; topic: string; q: string }
-export const useAddedQuestions = createPropertyStore('hospitable-kh-r-questions', (): { items: AddedQ[] } => ({ items: [] }), (set) => ({
+export const useAddedQuestions = createPropertyStore('hostaway-kh-r-questions', (): { items: AddedQ[] } => ({ items: [] }), (set) => ({
   add: (x: AddedQ) => set((s) => ({ items: [...s.items, x] })),
 }))
 
@@ -65,7 +65,7 @@ function OverviewReady({ tab }: { tab?: string | null }) {
           onAddFactForGap={(g) => openFact({ topic: active.id, lockTopic: true, gap: g })}
           onEditAdded={(f) => openFact({ topic: active.id, lockTopic: true, editing: f })} />
       ) : (
-        // Content (Antonio, 3 Oct): the page is titled by its section, not "Knowledge Hub"; the nine topics below
+        // Content (review, 3 Oct): the page is titled by its section, not "Knowledge Hub"; the nine topics below
         <KhrFrame title="Content" property={p} desc="Everything about this property in one place. Your channels start from it and your AI replies read it.">
           <TopicCards r={r} onOpen={(id) => nav(`${base}/hub/${id}`)} />
         </KhrFrame>
@@ -104,7 +104,7 @@ function factChipLabel(hub: Hub, f: FactRef): string {
   return hub.item(k0)?.label ?? k0
 }
 
-/** A topic page (Antonio, 3 Oct): the Strategy channel page's back chevron before the title; a tab row — Questions ·
+/** A topic page (review, 3 Oct): the Strategy channel page's back chevron before the title; a tab row — Questions ·
  *  Facts — and nothing else at its end. Each tab opens on its count and its primary add button, then a bordered table
  *  styled like Sources. A whole row is clickable (hover on the row) and opens a side DRAWER over the page — the same
  *  drawer as Add a fact — with the item's editor and Delete; its ··· menu has Edit · Delete. Add question opens the same
@@ -113,7 +113,7 @@ type TopicDrawer = { kind: 'q'; id: string } | { kind: 'f'; key: string; ref: Fa
 const STATE_TEXT: Record<KhcState, string> = { a: 'Answered', p: 'Partly answered', n: 'Not answered' }
 
 /** Questions and facts the host deleted from a topic (per property; the prototype hides them, nothing upstream changes). */
-const useRemoved = createPropertyStore('hospitable-kh-r-removed', (): { ids: string[] } => ({ ids: [] }), (set) => ({
+const useRemoved = createPropertyStore('hostaway-kh-r-removed', (): { ids: string[] } => ({ ids: [] }), (set) => ({
   remove: (id: string) => set((s) => ({ ids: s.ids.includes(id) ? s.ids : [...s.ids, id] })),
 }))
 
@@ -258,13 +258,13 @@ function QuestionRow({ state, label, meta, active, onOpen, menu }: { state: KhcS
   )
 }
 
-/** Host edits to a question: its wording and the answer the AI gives (kept per property; SIMULATED — the real answer
+/** Host edits to a question: its wording and the answer the AI gives (kept per property; — the real answer
  *  is generated from the facts, so this stands for "the answer you've reviewed"). */
-export const useQuestionEdits = createPropertyStore('hospitable-kh-r-question-edits', (): { items: Record<string, { q?: string; answer?: string }> } => ({ items: {} }), (set) => ({
+export const useQuestionEdits = createPropertyStore('hostaway-kh-r-question-edits', (): { items: Record<string, { q?: string; answer?: string }> } => ({ items: {} }), (set) => ({
   save: (id: string, v: { q?: string; answer?: string }) => set((s) => ({ items: { ...s.items, [id]: v } })),
 }))
 
-/** The question's drawer (Antonio, 3 Oct): edit the question and its answer, see and edit the facts it uses, the Smart
+/** The question's drawer (review, 3 Oct): edit the question and its answer, see and edit the facts it uses, the Smart
  *  Listing tips that touch those facts ("how that is related"), and Delete. */
 function QuestionDrawer({ hub, base, q, added, edit, gap, onClose, onDelete, onEditFact, onAddFact, onAddFactForGap }: {
   hub: Hub; base: string; q?: Question; added?: { id: string; q: string }; edit?: { q?: string; answer?: string }; gap?: Gap
@@ -336,9 +336,9 @@ function QuestionDrawer({ hub, base, q, added, edit, gap, onClose, onDelete, onE
   )
 }
 
-/** Add a question — the same drawer as Add a fact (Antonio, 3 Oct): type it or "Use voice" (simulated: a short
+/** Add a question — the same drawer as Add a fact (review, 3 Oct): type it or "Use voice" (simulated: a short
  *  "Listening…", then a sample guest question), and an optional answer. */
-const VOICE_QUESTION = 'Can we check in before 3 pm if the flat is ready?' // SIMULATED sample
+const VOICE_QUESTION = 'Can we check in before 3 pm if the flat is ready?' // sample
 /** `pick`: opened above the topics (the Knowledge Hub's Questions page), the topic is a dropdown first */
 export function AddQuestionDrawer({ topic, pick, onClose, onAdd }: { topic: string; pick?: ReactNode; onClose: () => void; onAdd: (q: string, answer: string) => void }) {
   const [text, setText] = useState('')

@@ -1,4 +1,4 @@
-/* Property › Calendar (Antonio, 3 Oct; HS-C01 / HS-32 replica). Inside the property shell, the same frame as every
+/* Property › Calendar (review, 3 Oct; HS-C01 / HS-32 replica). Inside the property shell, the same frame as every
  * other property page: `.ch-editor` with a fixed `.ch-editor__head` (title + property switcher, the description, then
  * the toolbar: Preview dynamic pricing · Layers · Occupancy | Tasks). Below it, two independent scrollers: the months
  * (Sun–Sat grid, one month under the other) and the docked settings sidebar (Pricing | Availability). Tokens only. */
@@ -12,10 +12,10 @@
  * its gutter always reserved) centred in that gap: months → bar = bar → sidebar = half the gutter minus half the bar
  * (16 | 8 | 16 at desktop). The sidebar's content is --calp-side-content wide, and the toolbar's Preview + Layers group
  * (.h-calp__tools) is exactly that wide and right-aligned under the same right padding, so Preview's left edge is the
- * left edge of the tabs and every field below (Antonio, 4 Oct: "drop the inset"). */
+ * left edge of the tabs and every field below (review, 4 Oct: "drop the inset"). */
 :root { --calp-side-content: 320px; } /* the sidebar's content width, shared by the body grid and the toolbar group */
 .ch-editor > .h-calp__body { flex: 1 1 auto; min-height: 0; display: grid;
-  grid-template-columns: minmax(0, 1fr) calc(var(--calp-side-content) + var(--content-padding-x) / 2 - var(--scrollbar-size) / 2 + var(--content-padding-x)); } /* no line under the head (Antonio, 4 Oct) */
+  grid-template-columns: minmax(0, 1fr) calc(var(--calp-side-content) + var(--content-padding-x) / 2 - var(--scrollbar-size) / 2 + var(--content-padding-x)); } /* no line under the head (review, 4 Oct) */
 .h-calp__months { min-height: 0; overflow-y: auto; overscroll-behavior-y: contain; scrollbar-gutter: stable;
   padding: var(--space-6) calc(var(--content-padding-x) / 2 - var(--scrollbar-size) / 2) var(--space-12) var(--content-padding-x); }
 /* the sidebar's own scrollbar sits inside its right-hand gutter (reserved, so nothing shifts when it appears): its
@@ -57,8 +57,8 @@
 .h-calp__info { color: var(--color-text-faint); }
 .h-calp__note { margin: var(--space-2) 0 0; font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
 
-/* Look only (Antonio, 3 Oct: "just show what it looks like… switch between pricing and availability, and that's it"):
- * the toolbar's Preview / Layers and the sidebar's drill-down rows have no handler, so they keep Hospitable's look but
+/* Look only (review, 3 Oct: "just show what it looks like… switch between pricing and availability, and that's it"):
+ * the toolbar's Preview / Layers and the sidebar's drill-down rows have no handler, so they keep Hostaway's look but
  * drop the pointer, the hover and the press — nothing suggests a click that does nothing. */
 .h-calp__bar .h-btn.h-calp__inert, .h-calp__inert-links > .h-pstack-link { cursor: default; }
 .h-calp__bar .h-btn--secondary.h-calp__inert:hover { background: var(--color-action-secondary-bg); border-color: var(--color-action-secondary-border); }

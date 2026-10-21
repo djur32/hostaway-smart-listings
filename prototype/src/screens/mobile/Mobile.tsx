@@ -73,7 +73,7 @@ export function Mobile() {
   }
   return (
     <main className="h-content" style={{ overflowY: 'auto' }}>
-      <PageHeader title="Mobile" sub="The same prototype at phone width (390 × 844), with Hospitable's mobile shell: tab bar, “···” property drawer, sticky Save." />
+      <PageHeader title="Mobile" sub="The same prototype at phone width (390 × 844), with Hostaway's mobile shell: tab bar, “···” property drawer, sticky Save." />
       <div className="p-mview">
         <nav className="p-mview__picker" aria-label="Screens">
           {ROUTES.map((r) => (

@@ -1,12 +1,12 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Done** · How a host manages a listing in Hospitable today, limited to what Smart Listings changes. Provenance: `REAL·PRODUCT` (trial account, one Airbnb listing in Berlin), plus the help centre where marked `REAL·PUBLIC`.
+	**Output · Done** · How a host manages a listing in Hostaway today, limited to what Smart Listings changes. Provenance: (trial account, one Airbnb listing in Berlin), plus the help centre where marked .
 </callout>
-![Today's listing management, mapped: the global sidebar, the properties list, a property's menu and the global Calendar. Red letters mark the seven per-channel patterns; red arrows mark where navigation leaves the property. Provenance: REAL·PRODUCT.](file-upload://3efe18af-1645-8178-93e3-00b2aebadb0f)
+![Today's listing management, mapped: the global sidebar, the properties list, a property's menu and the global Calendar. Red letters mark the seven per-channel patterns; red arrows mark where navigation leaves the property. Provenance: .](file-upload://3efe18af-1645-8178-93e3-00b2aebadb0f)
 ## The short version
 - The **property** is what the menu is built around. The **listing**, the thing a guest reads on Airbnb, isn't a place anywhere in it.
-- The **Knowledge Hub repeats the listing and has no job of its own.** It keeps its own copy, later edits don't reach it, Copilot answers guests from it, and nobody sees what guests ask.
+- The **Knowledge Hub repeats the listing and has no job of its own.** It keeps its own copy, later edits don't reach it, the assistant answers guests from it, and nobody sees what guests ask.
 - "Different per channel" is done **seven different ways**, field by field. No screen shows one listing on one channel.
-- **AI** today: **AI Copilot** answers hosts' business questions, writes replies and answers guests from the Knowledge Hub. None of it works on the listing. The only listing recommendations are **Airbnb's Opportunities**.
+- **AI** today: **The assistant** answers hosts' business questions, writes replies and answers guests from the Knowledge Hub. None of it works on the listing. The only listing recommendations are **Airbnb's Opportunities**.
 ## The property menu today
 <table header-row="true">
 	<tr>
@@ -31,7 +31,7 @@
 	</tr>
 	<tr>
 		<td>Knowledge Hub</td>
-		<td>Facts written as sentences under nine topics, for Copilot's answers to guests</td>
+		<td>Facts written as sentences under nine topics, for the assistant's answers to guests</td>
 	</tr>
 	<tr>
 		<td>Booking policies</td>
@@ -47,13 +47,13 @@
 	</tr>
 </table>
 ## How the Knowledge Hub works today
-Details holds typed fields that Hospitable pushes to the channels. Next to it, the Knowledge Hub holds sentences under nine topics, for Copilot's answers to guests. This is how it works for any host:
-1. **The Hub keeps its own copy of the listing.** It is generated on request, when the host presses Generate, from Details and past messages. Later edits to Details don't reach it, so the copy drifts by design. `REAL·PUBLIC` [help.hospitable.com · Knowledge Hub page](https://help.hospitable.com/en/articles/9716792-property-knowledge-hub-page)
-2. **It repeats the listing.** It restates amenities, rules and check-in as its own sentences, beside the fields that already hold them. On a trial listing, Details says "Washer" where the Hub says "Washing machine", and the house rules exist three times: a paragraph in Arrival › House manual, an empty Rules › House rules field, and six Hub sentences. `REAL·PRODUCT`, observed on a trial listing
-3. **"Ask the AI" answers from that copy, not from the listing.** So it can state what nothing backs. On a trial listing it told a guest "Yes, the apartment is wheelchair accessible", with no amenity or house-manual line saying so. `REAL·PRODUCT`, observed on a trial listing
-4. **No one sees what guests ask.** Guest questions live in the Inbox, and nothing turns them into knowledge or into improvements to the listing. `REAL·PRODUCT`, from the <mention-page url="https://app.notion.com/p/3eee18af16458140b622c2f52f500edf">Product audit</mention-page>
+Details holds typed fields that Hostaway pushes to the channels. Next to it, the Knowledge Hub holds sentences under nine topics, for the assistant's answers to guests. This is how it works for any host:
+1. **The Hub keeps its own copy of the listing.** It is generated on request, when the host presses Generate, from Details and past messages. Later edits to Details don't reach it, so the copy drifts by design. [help.hostaway.com · Knowledge Hub page](https://help.hostaway.com/en/articles/9716792-property-knowledge-hub-page)
+2. **It repeats the listing.** It restates amenities, rules and check-in as its own sentences, beside the fields that already hold them. On a trial listing, Details says "Washer" where the Hub says "Washing machine", and the house rules exist three times: a paragraph in Arrival › House manual, an empty Rules › House rules field, and six Hub sentences. observed on a trial listing
+3. **"Ask the AI" answers from that copy, not from the listing.** So it can state what nothing backs. On a trial listing it told a guest "Yes, the apartment is wheelchair accessible", with no amenity or house-manual line saying so. observed on a trial listing
+4. **No one sees what guests ask.** Guest questions live in the Inbox, and nothing turns them into knowledge or into improvements to the listing. from the <mention-page url="https://app.notion.com/p/3eee18af16458140b622c2f52f500edf">Product audit</mention-page>
 So the Hub has no job of its own. The design gives it one: it reads the listing details from the Listing base, adds the situations behind them, and learns from guests' questions (<mention-page url="https://app.notion.com/p/3eee18af1645811f8fcfcbffc7cbb69d">Knowledge Hub</mention-page>).
-![Knowledge Hub › Amenities on a trial listing: "Washing machine" (Details says "Washer") and "Wheelchair accessible" (not in Details at all), each dated and with one composite source. Provenance: REAL·PRODUCT.](file-upload://3efe18af-1645-8171-a71b-00b2ca50d90d)
+![Knowledge Hub › Amenities on a trial listing: "Washing machine" (Details says "Washer") and "Wheelchair accessible" (not in Details at all), each dated and with one composite source. Provenance: .](file-upload://3efe18af-1645-8171-a71b-00b2ca50d90d)
 ## How "different per channel" works today
 Seven patterns for one idea. The letters match the map above.
 <table header-row="true">
@@ -99,9 +99,9 @@ Seven patterns for one idea. The letters match the map above.
 	</tr>
 </table>
 Edit per channel splits a field in place into one box per channel ("Airbnb summary", "Direct bookings summary"), with "Set one value" to merge it back. The label says how many channels a field reaches, never which ones. To answer "what does Airbnb show right now?", a host checks about 15 places.
-![Pricing › Fees: the cleaning fee reads "ⓘ 1 channels · Edit per channel", and an Airbnb-only fee sits inline among the property's fees. Provenance: REAL·PRODUCT.](file-upload://3efe18af-1645-81d6-afad-00b2c3d2da0a)
+![Pricing › Fees: the cleaning fee reads "ⓘ 1 channels · Edit per channel", and an Airbnb-only fee sits inline among the property's fees. Provenance: .](file-upload://3efe18af-1645-81d6-afad-00b2c3d2da0a)
 ## Where AI exists today
-**AI Copilot** is Hospitable's assistant for hosts. It answers natural-language business questions across the portfolio, writes smart replies, and shows what's working and what isn't (`REAL·PUBLIC`, [hospitable.com](https://hospitable.com)). It is marked with a sparkle, purple on lavender, and the same sparkle sits in the product's sidebar footer (`REAL·PRODUCT`). Like the two surfaces below, it doesn't work on listing fields.
+**The assistant** is Hostaway's assistant for hosts. It answers natural-language business questions across the portfolio, writes smart replies, and shows what's working and what isn't ([hostaway.com](https://hostaway.com)). It is marked with a sparkle, purple on lavender, and the same sparkle sits in the product's sidebar footer (). Like the two surfaces below, it doesn't work on listing fields.
 <table header-row="true">
 	<tr>
 		<td></td>
@@ -119,10 +119,10 @@ Edit per channel splits a field in place into one box per channel ("Airbnb summa
 		<td>Airbnb listings only. For the trial listing: "No opportunities found"</td>
 	</tr>
 </table>
-![Overview: the listing as one row, with "Lead listing", "Fully managed" and the Review opportunities link. Provenance: REAL·PRODUCT.](file-upload://3efe18af-1645-81eb-ad50-00b21b032f01)
+![Overview: the listing as one row, with "Lead listing", "Fully managed" and the Review opportunities link. Provenance: .](file-upload://3efe18af-1645-81eb-ad50-00b21b032f01)
 ## What this means for Smart Listings
-- AI Copilot already has hosts' trust and its own look → Smart Listings expands Copilot into the listing instead of adding a new AI. <mention-page url="https://app.notion.com/p/3efe18af164581ceabafdfe5275589dd">KD-20</mention-page>
-- One place for the facts, read by the channels and Copilot alike → the Listing base in Shared, which the Knowledge Hub reads instead of copying. The Hub's own job becomes the situations behind the listing and guests' questions.
+- the assistant already has hosts' trust and its own look → Smart Listings expands the assistant into the listing instead of adding a new AI. <mention-page url="https://app.notion.com/p/3efe18af164581ceabafdfe5275589dd">KD-20</mention-page>
+- One place for the facts, read by the channels and the assistant alike → the Listing base in Shared, which the Knowledge Hub reads instead of copying. The Hub's own job becomes the situations behind the listing and guests' questions.
 - One rule for per-channel values, and a page per channel → every field uses the Base, is customised, exists only on that channel, or is set by the channel.
 - Recommendations on every channel, grounded in the home's facts → tips with their why and sources.
 ## How it was made

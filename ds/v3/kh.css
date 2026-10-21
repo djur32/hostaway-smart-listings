@@ -12,7 +12,7 @@
 .h-khnav { display: flex; flex-direction: column; gap: 2px; }
 .h-khnav__item { display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 12px; border: 0; border-radius: var(--radius-md); background: none; font: inherit; font-size: var(--text-md); font-weight: var(--font-weight-medium); color: var(--color-text-secondary); text-align: left; cursor: pointer; }
 .h-khnav__label { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.h-khnav__item[aria-current="page"] { color: var(--color-subnav-text-active); font-weight: var(--font-weight-semibold); } /* Antonio, 1 Oct (round 4): no background fill on the active item, matching the same fix on .h-chnav__child */
+.h-khnav__item[aria-current="page"] { color: var(--color-subnav-text-active); font-weight: var(--font-weight-semibold); } /* review, 1 Oct (round 4): no background fill on the active item, matching the same fix on .h-chnav__child */
 .h-khnav__item:focus-visible { outline: none; box-shadow: var(--color-focus-ring); }
 .h-khnav__count { font-size: var(--text-xs); color: var(--color-text-muted); font-weight: var(--font-weight-regular); }
 .h-khask-link { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; margin: 8px 0 0 12px; padding: 0; border: 0; background: none; font: inherit; font-size: var(--text-sm); font-weight: var(--font-weight-medium); color: var(--color-ai-text); cursor: pointer; }
@@ -98,7 +98,7 @@
 .h-fromtip { display: inline-flex; align-items: center; gap: 4px; font-size: var(--text-xs); line-height: var(--leading-xs); font-weight: var(--font-weight-semibold); color: var(--color-ai-text); }
 .h-fromtip .h-icon { width: 12px; height: 12px; color: var(--color-ai-accent); }
 
-/* the SIMULATED line, once, quietly */
+/* the line, once, quietly */
 .h-khfoot { margin-top: 48px; font-size: var(--text-xs); color: var(--color-text-faint); display: flex; align-items: center; gap: 8px; }
 
 /* ── overlays: dialog (fixed) + narrow drawer ── */

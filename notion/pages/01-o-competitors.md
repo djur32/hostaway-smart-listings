@@ -1,11 +1,11 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Done** · Eight products that already solve part of "one record, many channels, with AI help", and the pattern Smart Listings borrows from each; then every product reviewed, with its source. Provenance: `REAL·PUBLIC`, from each product's public help pages and docs.
+	**Output · Done** · Eight products that already solve part of "one record, many channels, with AI help", and the pattern Smart Listings borrows from each; then every product reviewed, with its source. Provenance: from each product's public help pages and docs.
 </callout>
 ## The short version
 - Inside short-term rental software, **per-channel copy is rare**: six of eleven platforms reviewed send one description everywhere. The sharper patterns come from product-information tools and e-commerce.
 - **AI listing copy is shallow and local to one field.** No one I found generates per-channel versions from one set of facts and shows which fact each suggestion came from.
 - **Comps inform price, almost never content.**
-- So the opening (my reading, `ASSUMPTION`): no PMS combines a fact record with per-channel versions, grounded AI suggestions with sources, and comps that inform content.
+- So the opening (my reading, ): no PMS combines a fact record with per-channel versions, grounded AI suggestions with sources, and comps that inform content.
 ## Eight products, eight patterns
 <table header-row="true">
 	<tr>
@@ -65,10 +65,10 @@
 </table>
 <columns>
 	<column>
-		![Pimcore: inherited values render grey with a green marker; a changed field renders solid. Provenance: REAL·PUBLIC, docs.pimcore.com.](file-upload://3eee18af-1645-8102-aa67-00b24862953c)
+		![Pimcore: inherited values render grey with a green marker; a changed field renders solid. Provenance: docs.pimcore.com.](file-upload://3eee18af-1645-8102-aa67-00b24862953c)
 	</column>
 	<column>
-		![Guesty: description sets, each tied to the channels it applies to. Provenance: REAL·PUBLIC, help.guesty.com.](file-upload://3eee18af-1645-8158-ad0f-00b2044aa372)
+		![Guesty: description sets, each tied to the channels it applies to. Provenance: help.guesty.com.](file-upload://3eee18af-1645-8158-ad0f-00b2044aa372)
 	</column>
 </columns>
 ## What I designed against
@@ -78,7 +78,7 @@ Each of these is documented by the vendor itself or in public host complaints.
 - **Bulk copy that overwrites with no history.**
 - **A Booking.com description box that goes nowhere,** because Booking.com writes its own.
 ## Every product reviewed
-All through their public help pages, docs and product pages (`REAL·PUBLIC`). The competitor scan covered 36 products; the Knowledge Hub and Smart Listings explorations then studied more tools for specific patterns. Each group opens below.
+All through their public help pages, docs and product pages (). The competitor scan covered 36 products; the Knowledge Hub and Smart Listings explorations then studied more tools for specific patterns. Each group opens below.
 <details>
 <summary>**Short-term rental software: PMS, channel managers and host tools (15)**</summary>
 	<table header-row="true">
@@ -88,9 +88,9 @@ All through their public help pages, docs and product pages (`REAL·PUBLIC`). Th
 			<td>Source</td>
 		</tr>
 		<tr>
-			<td>**Hospitable** (today)</td>
+			<td>**Hostaway** (today)</td>
 			<td>The baseline. "Edit per channel" on a few fields, for Airbnb and Direct only; no Booking⁠.com text; AI for guest messaging, not listings.</td>
-			<td>[Help centre](https://help.hospitable.com/en/articles/11596108-listing-management-overview)</td>
+			<td>[Help centre](https://help.hostaway.com/en/articles/11596108-listing-management-overview)</td>
 		</tr>
 		<tr>
 			<td>**Guesty**</td>

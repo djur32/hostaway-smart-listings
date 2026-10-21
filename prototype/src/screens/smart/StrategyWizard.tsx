@@ -1,17 +1,17 @@
 /* Smart Listings › strategy wizard (full screen) · WS-SL, 3 Oct · replaces Setup (screens/smart/Setup.tsx, deleted).
  * SCR: Smart Listings strategy wizard · R-072 / R-075 (decision record pending: Setup folded into Strategy, full-screen wizard).
- * Antonio, 3 Oct: "Maybe we remove Setup … and then we have everything in Strategy … editing takes you to the full-screen
- * wizard", styled after Hospitable's own Add-property wizard (research/current-state/antonio-2026-10-03-add-property/
- * 01–06, REAL·PRODUCT): top bar with square back / ×, progress line, one question per screen in a centred column,
- * radio cards, Back / Continue in a footer, a generating modal on save. No live preview card (Antonio, 3 Oct: "I don't
+ * review, 3 Oct: "Maybe we remove Setup … and then we have everything in Strategy … editing takes you to the full-screen
+ * wizard", styled after Hostaway's own Add-property wizard (research/current-state/review-2026-10-03-add-property/
+ * 01–06, ): top bar with square back / ×, progress line, one question per screen in a centred column,
+ * radio cards, Back / Continue in a footer, a generating modal on save. No live preview card (review, 3 Oct: "I don't
  * want to see the preview"). Every step is sized to fit one view at 1440×900 (grids where options are many).
  *
  * URL: /property/:id/smart/wizard?entry=first|add|edit|replace&ch=airbnb&from=overview|strategy|detail
  *   first    Overview's Smart Listings toggle, first use: intro, every connected channel pre-selected
  *   add      Strategy › Add strategy (no ch) or a channel row's Add a strategy (ch pre-selected)
- *   edit     a channel's current answers pre-filled; saving updates the strategy (no versions in the UI — Antonio, 3 Oct)
+ *   edit     a channel's current answers pre-filled; saving updates the strategy (no versions in the UI — review, 3 Oct)
  *   replace  a fresh strategy for one channel that has one; it takes the current one's place
- * The full spectrum (Antonio: "the same strategy for several channels … different strategies for different channels"):
+ * The full spectrum (review: "the same strategy for several channels … different strategies for different channels"):
  * with 2+ channels, one strategy for all, one each, or (3+) some channels share one — two strategies, each channel
  * assigned to one. The answers are a draft in sessionStorage until Save, so a reload keeps them; × asks first. */
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
@@ -78,7 +78,7 @@ function Flow({ pid, entry, ch, from }: { pid: string; entry: Entry; ch: Listing
   const mixes = useSlLocal((s) => s.mix)
   const props = propertyChannels(pid)
   const base = `/property/${pid}`
-  const storeKey = `hospitable-proto:sl-wizard:${pid}:${entry}:${ch ?? ''}`
+  const storeKey = `hostaway-proto:sl-wizard:${pid}:${entry}:${ch ?? ''}`
   const shared = ch ? sharedWith(sl3, ch) : []
   const editing = entry === 'edit'
 
@@ -253,7 +253,7 @@ function Flow({ pid, entry, ch, from }: { pid: string; entry: Entry; ch: Listing
   } else if (step.kind === 'audience') {
     title = 'Who do you want to attract?'
     const lines = AUDIENCE_LINES[suggestedKey(g)]
-    // a greyed-out audience (Families: this home sleeps 2) isn't offered at all (Antonio, 3 Oct)
+    // a greyed-out audience (Families: this home sleeps 2) isn't offered at all (review, 3 Oct)
     const offered = AUDIENCES.filter((a) => !a.disabled)
     const sel = ans.custom ? 'custom' : ans.plan.audience
     const def = AUDIENCE_MIX[sel]
@@ -370,7 +370,7 @@ function Flow({ pid, entry, ch, from }: { pid: string; entry: Entry; ch: Listing
   const back = () => (idx === 0 ? close() : go(idx - 1, null))
   const nextLabel = last ? (groups.length > 1 ? 'Save strategies' : 'Save strategy') : returning ? 'Back to review' : 'Continue'
 
-  // no side preview card (Antonio, 3 Oct: the channel-logo card with Goal / For / Price / Autopilot dashes "doesn't
+  // no side preview card (review, 3 Oct: the channel-logo card with Goal / For / Price / Autopilot dashes "doesn't
   // make sense") — the answers show on the Review step instead.
   const wizardTitle = entry === 'edit' ? `Edit ${names(groups[0])} strategy` : entry === 'replace' ? `Replace ${chName(ch!)} strategy` : 'Set up a strategy'
   return (

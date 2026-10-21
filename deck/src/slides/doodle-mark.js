@@ -1,12 +1,12 @@
 /* ============================================================================
    doodle-mark · emphasis without dimming (3 Oct).
 
-   Antonio: "Don't ever dim an element as a tool… a drawing where you draw the line
+   review: "Don't ever dim an element as a tool… a drawing where you draw the line
    and then undraw it, or maybe you make it bigger and smaller… really small."
 
    So a beat that moves focus never fades the rest. It draws a hand-made mark around
-   (loop) or under (under) the thing in focus, in Hospitable's raspberry or purple, the
-   way hospitable.com circles a word, and undraws it when focus moves on. Everything
+   (loop) or under (under) the thing in focus, in Hostaway's raspberry or purple, the
+   way hostaway.com circles a word, and undraws it when focus moves on. Everything
    else stays exactly as readable as it was.
 
      const p = markOn(el, { shape: 'loop', tone: 'raspberry', pad: 10, seed: 4 });

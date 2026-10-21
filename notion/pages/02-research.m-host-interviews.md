@@ -4,7 +4,7 @@
 ## Why this method
 Data shows what hosts change per channel. Only a conversation shows why, where the real version of their listing lives, and how far they'd let an AI go. Interviews follow the data review, so they probe what it found.
 ## How I'd run it
-**Who.** About 25 user interviews across the four personas, including hosts who churned or never joined after a trial, recruited by behaviour, not by label: the screener reuses Hospitable's sign-up question ("How many properties?", `REAL·PRODUCT`) and assigns the persona from the answers.
+**Who.** About 25 user interviews across the four personas, including hosts who churned or never joined after a trial, recruited by behaviour, not by label: the screener reuses Hostaway's sign-up question ("How many properties?", ) and assigns the persona from the answers.
 <table header-row="true">
 	<tr>
 		<td>Slot</td>
@@ -28,7 +28,7 @@ Data shows what hosts change per channel. Only a conversation shows why, where t
 	</tr>
 	<tr>
 		<td>Churned host</td>
-		<td>Left Hospitable within 90 days of signing up</td>
+		<td>Left Hostaway within 90 days of signing up</td>
 	</tr>
 	<tr>
 		<td>Never joined after a trial</td>
@@ -65,7 +65,7 @@ About 25 sessions, spread across the six slots. The trial group is a share of th
 		<td>Only if they raise it: "What do you think is in there? Who is it for?"</td>
 	</tr>
 </table>
-**Consent.** Written, before the session: purpose, recording, anonymised quotes, the right to withdraw. Door codes, addresses and guest names are redacted; recordings deleted after 90 days. Incentive: a gift card or two months of credit (`ASSUMPTION`).
+**Consent.** Written, before the session: purpose, recording, anonymised quotes, the right to withdraw. Door codes, addresses and guest names are redacted; recordings deleted after 90 days. Incentive: a gift card or two months of credit ().
 **Synthesis.** A 15-minute debrief after each session; one synthesis per interview on one template, every observation tagged (persona, channel, field, theme); then affinity, and insights with a signal strength.
 ## What I'd look for
 - Do hosts vary money and stay rules per channel, or words? Is a per-channel voice something everyone wants, or one persona?

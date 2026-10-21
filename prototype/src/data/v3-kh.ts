@@ -1,7 +1,7 @@
 /* Smart Listing v3 · WS-KH data: the Knowledge Hub as the one place that holds everything about the property (KH2,
- * Antonio's review 30 Sep: "centralize all of the information in here", pricing and availability included), and
- * Review & push. SIMULATED scenario content (concepts/SCENARIO.md); screen structure REAL·PRODUCT (HS-21…HS-47,
- * HS-A01…A03, HS-L01…L11); channel rules REAL·PUBLIC (research/market/channel-constraints.md).
+ * review's review 30 Sep: "centralize all of the information in here", pricing and availability included), and
+ * Review & push. scenario content (concepts/SCENARIO.md); screen structure (HS-21…HS-47,
+ * HS-A01…A03, HS-L01…L11); channel rules (research/market/channel-constraints.md).
  *
  * Nothing here copies a listing value: every Hub item is built from data/sl3.ts FIELDS, data/v3-ch.ts EXTRA_FIELDS,
  * PRICES and AVAILABILITY, so the Hub and the channel screens read the same Base and the same channel values.
@@ -14,7 +14,7 @@ import { AVAIL_DAYS } from './availability'
 
 export const LISTING_ALL: ListingChannel[] = LISTING_CHANNELS
 
-/* ---------- sections (Hospitable's names and order where they exist: Details tabs, Pricing, Availability, Booking policies) ---------- */
+/* ---------- sections (Hostaway's names and order where they exist: Details tabs, Pricing, Availability, Booking policies) ---------- */
 export type KhSectionId = 'property' | 'descriptions' | 'photos' | 'arrival' | 'location' | 'amenities' | 'rules' | 'pricing' | 'availability' | 'policies' | 'custom'
 export const KH_SECTIONS: Array<{ id: KhSectionId; label: string; desc: string }> = [
   { id: 'property', label: 'The property', desc: 'What kind of home this is. Every channel reads these facts.' },
@@ -61,7 +61,7 @@ const fromField = (section: KhSectionId, f: FieldDef, group?: string): KhItem =>
 })
 const fieldsOf = (keys: string[]) => keys.map((k) => fieldByKey(k)).filter((f): f is FieldDef => !!f)
 
-/** Property facts no listing tab holds (REAL·PRODUCT: Airbnb "Where you'll sleep", Booking.com "Unit size"). SIMULATED values. */
+/** Property facts no listing tab holds (Airbnb "Where you'll sleep", Booking.com "Unit size"). values. */
 const PROPERTY_FACTS: KhItem[] = [
   { key: 'kh.size', section: 'property', label: 'Size', help: 'Booking.com and your site show it; Airbnb doesn’t ask for it.', kind: 'text', base: '48 m²', state: { booking: 'listing', direct: 'listing' } },
   { key: 'kh.bedrooms', section: 'property', label: 'Bedrooms and beds', help: 'Where guests sleep.', kind: 'text', base: '1 bedroom · 1 double bed (160 × 200)', state: { airbnb: 'listing', booking: 'listing', direct: 'listing' } },
@@ -117,7 +117,7 @@ export const khItem = (key: string) => khItems().find((i) => i.key === key)
 
 /* ---------- amenities: one Base list, per-channel exceptions (`amenity:<name>` 'on'/'off' in sl3.custom) ---------- */
 export const khAmenities = () => AMENITIES
-/** Amenities a host can add, per group (REAL·PUBLIC Airbnb / Booking.com amenity names). */
+/** Amenities a host can add, per group (Airbnb / Booking.com amenity names). */
 export const AMENITY_CATALOG: Record<string, string[]> = {
   'Internet and office': ['Ethernet connection', 'Printer'],
   'Kitchen and dining': ['Coffee maker', 'Microwave', 'Oven', 'Toaster', 'Wine glasses'],
@@ -161,7 +161,7 @@ export const KH_DISCREPANCIES: KhDiscrepancy[] = [
   { id: 'd-address', key: 'address', section: 'location', label: 'Street address', question: 'Which spelling should every channel use?', options: [{ channel: 'airbnb', value: 'Weserstraße 1x, 12047 Berlin' }, { channel: 'booking', value: 'Weserstr. 1x, 12047 Berlin' }] },
 ]
 
-/** "Ask the AI" (HS-L08, kept light): guest questions and the Hub items that answer them. SIMULATED answers. */
+/** "Ask the AI" (HS-L08, kept light): guest questions and the Hub items that answer them. answers. */
 export const KH_ASK: Array<{ q: string; a: string; items: string[] }> = [
   { q: 'When can I check in?', a: 'Check-in is from 3:00 PM to 10:00 PM. The keypad code arrives 24 hours before you do.', items: ['Check-in from', 'Check-in time ends', 'Check-in method details'] },
   { q: 'Is there an elevator?', a: 'No, the flat is on the 4th floor and there is no elevator.', items: ['Other details to note'] },
@@ -170,7 +170,7 @@ export const KH_ASK: Array<{ q: string; a: string; items: string[] }> = [
 ]
 
 /* ---------- Review & push ---------- */
-/** What each channel does with a pushed change. SIMULATED outcomes; REAL·PUBLIC rules (channel-constraints §5, §9). */
+/** What each channel does with a pushed change. outcomes; rules (channel-constraints §5, §9). */
 export function receiptFor(ch: ListingChannel, field: string): { state: 'live' | 'review' | 'sending'; note: string } {
   if (ch === 'booking' && (field === 'name' || field === 'description')) return { state: 'review', note: 'Booking.com reviews this, usually within 48 h' }
   if (ch === 'booking' && field === 'photos') return { state: 'sending', note: 'Photos can take up to an hour' }

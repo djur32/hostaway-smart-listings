@@ -8,7 +8,7 @@
 
 /* ── layout ─────────────────────────────────────────────────────────────── */
 .s-head   { display: grid; gap: var(--s-3); flex: none; max-width: 1480px; }
-/* the eyebrow sits closer to its title (Antonio, 4 Oct): the title comes up to the hairline, the content follows */
+/* the eyebrow sits closer to its title (review, 4 Oct): the title comes up to the hairline, the content follows */
 .s-head > .eyebrow + :is(h1, h2, h3) { margin-top: var(--s-1); }
 /* A legend belongs to the headline, not under it. The head becomes two columns, the legend
    runs out to the right edge of the working area, and its baseline is set on the headline's
@@ -17,7 +17,7 @@
    slide's own legend marked .s-legend. One rule, so every one of them lands in the same place. */
 .s-head:has(> :is(.dots-key, .s-legend)) { max-width: none; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--s-8); }
 /* Since 3 Oct the key sits on the message line, not the headline: its baseline on the message's last
-   baseline, so the key and the line it explains end together (Antonio: "aligned bottom with the line
+   baseline, so the key and the line it explains end together (review: "aligned bottom with the line
    of the text"). The headline gets the full width back. */
 .s-head:has(> :is(.dots-key, .s-legend)) > .eyebrow { grid-column: 1 / -1; }
 .s-head:has(> :is(.dots-key, .s-legend)) > :is(h1, h2, h3) { grid-column: 1 / -1; grid-row: 2; }
@@ -29,7 +29,7 @@
 /* The byline in the chrome is a slide's real floor, not the invisible line --pad-bottom
    draws 80px above it. So the body fills down to just short of the byline and centres in
    the space a viewer actually sees, and a foot note sits between the content and the
-   byline rather than hanging off the content (Antonio, 2026-09-26). */
+   byline rather than hanging off the content (review, 2026-09-26). */
 .s:not(:has(> .me)) > .s-foot { transform: translateY(46px); }
 .s:not(:has(> .s-foot:not([hidden]))):not(:has(> .me)) > .s-body { margin-bottom: -64px; }
 .grid     { display: grid; grid-template-columns: repeat(12, var(--col)); column-gap: var(--gap); }
@@ -49,7 +49,7 @@
   text-transform: uppercase; color: var(--ink-3); line-height: 1;
 }
 .eyebrow__stage b { color: var(--ink); font-weight: 500; margin-right: 8px; }
-/* the stage already sits in the top navigation, so the eyebrow doesn't repeat it (Antonio,
+/* the stage already sits in the top navigation, so the eyebrow doesn't repeat it (review,
    2026-09-25). The appendix isn't in the navigation, so it keeps its A1…A14 label. */
 .s:not([data-stage="8"]) .eyebrow__stage { display: none; }
 html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before { content: none; }
@@ -69,7 +69,7 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
 .lens--did  i { background: transparent; }
 .lens--hold i { background: var(--ink); border-color: var(--ink); color: var(--bg); }
 /* The AI lens carries no number: it is the words alone, in the accent, because the numbered
-   three-lens grammar is not drawn on these slides any more (Antonio, 27 Sep). The colour stays
+   three-lens grammar is not drawn on these slides any more (review, 27 Sep). The colour stays
    --accent-ink, which is the accent as text: blue in lumen, and still legible on paper, where
    the raw amber accent would not pass at this size. */
 .lens--now  { color: var(--accent-ink); }
@@ -169,7 +169,7 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
   box-shadow: 0 0 0 1px var(--shot-ring), var(--shadow-1);
 }
 /* The corner is a proportion of the device, not a fixed radius: at 300px --r-phone is
-   right, at 172px the same 32px read as a much rounder phone (Antonio, 2026-09-28).
+   right, at 172px the same 32px read as a much rounder phone (review, 2026-09-28).
    0.107 is 32 / 300, so the default size is unchanged. */
 .shot--phone { width: var(--w, 300px); --r-phone: calc(var(--w, 300px) * 0.107); }
 .shot--phone img { border-radius: var(--r-phone); aspect-ratio: 786 / 1704; object-fit: cover; object-position: top; }
@@ -221,7 +221,7 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
 .term__l[data-k="ok"] { opacity: 1; color: var(--accent); }
 [data-scheme="dark"] .term__l[data-k="ok"] { color: var(--accent-ink); }
 .term__l[data-k="ok"]::before { content: "\2713  "; }
-/* A step of Antonio's own, inside a run that is otherwise the agent's. The mark is the deck's
+/* A step of review's own, inside a run that is otherwise the agent's. The mark is the deck's
    diamond for his call, the one the orchestration graph and the role strip already use, so the
    three read as one convention. The box takes exactly two character widths, the same advance as
    the text markers above it, so every line in the terminal still starts on the same column. */
@@ -273,12 +273,12 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
 /* ── STAGE OPENER: number and title on top, the vision, then the methods ──
    (docs/stories/openers.md holds the copy; no quote, no logos, no market bars)
 
-   ONE FIXED FRAME, SHARED BY EVERY OPENER (Antonio, 2026-09-25). The number, the
+   ONE FIXED FRAME, SHARED BY EVERY OPENER (review, 2026-09-25). The number, the
    name and the vision are one tight group, and that group sits in the same box on
    all seven openers whatever the copy does: the rows are reserved in px, not sized
    by their content, so a two-line vision and a four-line vision start at the same y.
    The group is centred between the top of the canvas area and the methods, which
-   stay pinned to the bottom; the leftover is the gap Antonio asked to open up.
+   stay pinned to the bottom; the leftover is the gap review asked to open up.
 
      --op-lead   150 + 108 → the group starts at y 258 on every opener
      --op-top-h  the numeral (210 × 0.82 = 172) + 6 + the name (104) = 282, +14 slack
@@ -450,7 +450,7 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
 @layer components {
 /* ── ELSEWHERE · the same move, in other projects ─────────────────────────
    "It's great to identify and draw lines between things that are kind of the
-   same. Reuse it everywhere and templatise it" (Antonio, 2026-09-25). Two or
+   same. Reuse it everywhere and templatise it" (review, 2026-09-25). Two or
    three columns, one project each, all making the same point about the stage
    in different words. A slide supplies only the words; every size, rule and
    space lives here, so a change here changes every instance.
@@ -476,7 +476,7 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
    A slide that wants its own beat may mark the block data-own and animate the
    same classes itself; the final state in CSS is already the correct one.   */
 /* One size everywhere, and three columns by default: two only when a stage has just two
-   projects to show (Antonio, 2026-09-28: "homogenize size for all the other projects pages
+   projects to show (review, 2026-09-28: "homogenize size for all the other projects pages
    as a template. you can have a 3 column by default and only use 2 if there are only 2").
    A stage may set its own row grid or measures; it does not set its own type sizes. */
 .els {
@@ -494,7 +494,7 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
    bought. A card that skips a row leaves it empty rather than pulling everything up. */
 .els { grid-template-rows: auto auto auto auto auto auto; }
 /* The card's own inset. Without it the content sat hard on the card's edges, which only showed
-   once a door took the accent wash on hover: the fill hugged the words (Antonio, 27 Sep, "fix
+   once a door took the accent wash on hover: the fill hugged the words (review, 27 Sep, "fix
    this so that it's not on the edges, also follow other similar interactions"). The rule still
    spans the whole column, because padding sits inside the border. */
 .els__c {
@@ -504,7 +504,7 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
 .els__logo  { --logo-h: 32px; color: var(--ink); align-self: center; margin-bottom: 0; }
 /* A label belongs to the line under it, not to the mark above it. The card runs on one
    row-gap, which spaced both the same and left the label floating between them, so the
-   label pushes off the mark and its line pulls back up to it (Antonio, 2026-09-26). */
+   label pushes off the mark and its line pulls back up to it (review, 2026-09-26). */
 .els__k {
   margin-top: 16px;
   font-family: var(--font-mono); font-size: var(--t-label); font-weight: 500;
@@ -512,7 +512,7 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
 }
 /* the before-line tucks up under its label; the figure on a plain card does the opposite,
    because the line above it is the card's biggest type and needs air under it before the
-   number starts (Antonio, 2026-09-28) */
+   number starts (review, 2026-09-28) */
 .els__before { margin-top: -16px; }
 .els--plain .els__fig { margin-top: 26px; }
 .els__before {
@@ -522,7 +522,7 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
 }
 /* The bar goes through the words, not under them. It used to sit at 54% of the element's height,
    which on one line of the display face lands on the baseline, so it read as an underline
-   (Antonio, 27 Sep: "they have to be on top of the text"). It is now measured in em from the text's
+   (review, 27 Sep: "they have to be on top of the text"). It is now measured in em from the text's
    own top, so it holds at any size: the first line's baseline is 0.905em down, the x-height
    is 0.571em, so its middle is 0.619em, and the bar's own half-height comes off that. Em, not a
    percentage, because a percentage moves with the box rather than with the line.
@@ -541,7 +541,7 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
 .els__fig {
   /* the figure is four times the size of its line, so a shared baseline reads as a step
      down. A label that wraps starts at the figure's top; a single line sits on its middle
-     (kit/engine.js fitFigs writes data-lines). Antonio, 2026-09-28. */
+     (kit/engine.js fitFigs writes data-lines). review, 2026-09-28. */
   margin-top: 26px; display: flex; align-items: start; gap: 14px; max-width: 32ch;
   font-size: var(--els-fig); line-height: 1.35; color: var(--ink-2); text-wrap: pretty;
 }
@@ -571,13 +571,13 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
 }
 /* It used to be hidden on cards and rows, on the argument that a card reading as clickable is
    enough (2026-09-26). In the room it was not: "you can't know what's interactive and what's
-   not" (Antonio, 2026-09-27). So every door carries the same visible plus-and-MORE badge, and
+   not" (review, 2026-09-27). So every door carries the same visible plus-and-MORE badge, and
    the per-component rules below place it. data-cue="none" is still the way out for a door that
    brings its own affordance. */
 .has-more > .more-cue--auto:not(.more-cue--inline) { position: absolute; top: 0; right: 0; }
 /* …except where the thing already lights up under the pointer. There the badge is
    redundant: "you can remove the + button, it's already clear from the hover effect"
-   (Antonio, 2026-09-27). Every selector here is a door with a hover state of its own,
+   (review, 2026-09-27). Every selector here is a door with a hover state of its own,
    a few lines below; the badge stays on the ones without. */
 :is(.mtx__r, .dv-rm__r, .door, .els__c, .dz-ap__c, .dz-door, .cl-ld__col).has-more > .more-cue--auto:not(.more-cue--inline) { display: none; }
 .more-cue i { position: relative; flex: none; width: 24px; height: 24px; border: 1.5px solid currentColor; border-radius: 50%; }
@@ -587,7 +587,7 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
 .has-more:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 6px; }
 .has-more.is-quiet-focus:focus { outline: none; }
 /* ── a door in words: .more-link, the site's text link ─────────────────────
-   It used to be a mono label in small caps, and Antonio read "HOW IT RAN" as exactly that: a
+   It used to be a mono label in small caps, and review read "HOW IT RAN" as exactly that: a
    label, with nothing saying it opens (27 Sep). It is now referenced the way the portfolio site
    references a link (portfolio-case-studies/src/kit/components.css, TEXT LINK, DECISIONS §116):
    the words in the ink, in the text face rather than the mono of a label, a hairline underline in
@@ -595,14 +595,14 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
    site's mark for leaving it). Pointed at, the ink wipes over the underline from the left and the
    arrow steps once its way. Colour, a hairline and an arrow only: nothing glows (CONTRACT §11). */
 /* A door made of words. It carries the same circled mark as every other door, placed after the
-   words, because Antonio chose one cue for the whole deck rather than one per kind of door. */
+   words, because review chose one cue for the whole deck rather than one per kind of door. */
 .more-link {
   display: inline-flex; align-items: center; gap: 0.6em;
   font: 500 var(--t-label) / 1 var(--font-mono); letter-spacing: var(--tr-label); text-transform: uppercase;
   color: var(--ink-3); white-space: nowrap; cursor: pointer;
   transition: color 240ms var(--ease-out);
 }
-/* It read too loud in the ink, "too in your face" (Antonio, 2026-09-27), and every door
+/* It read too loud in the ink, "too in your face" (review, 2026-09-27), and every door
    now says the same words, so the door is recognised by its mark rather than by its
    wording. It takes the accent under the pointer, where it is the only thing lit. */
 .more-link:is(:hover, :focus-visible) { color: var(--accent-ink); }
@@ -618,10 +618,10 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
 :is(.tag, .chip, .tile).has-more > .more-cue .more-cue__t { display: none; }
 
 /* ── More: the door to a slide's detail, opposite the headline (3 Oct) ──────
-   Antonio: "available from the top right of the content area, opposite the headline …
+   review: "available from the top right of the content area, opposite the headline …
    instead of a link like 'One field, three states', I want a More button". The engine adds
    one per detail (engine.js mountMoreButtons) and sets its top on the headline's first line;
-   it sits on the content's right edge. Hospitable's button, outlined (Antonio, 3 Oct: "rounded
+   it sits on the content's right edge. Hostaway's button, outlined (review, 3 Oct: "rounded
    corners, but sharp-ish edges … not circular (not a pill) … don't use any shadow, just show
    the outline, not the fill, and it should be all gray"): the product's 8 px corner at wall
    size, a gray hairline, no fill, gray words and a small plus. Above the slide's own blocks,
@@ -633,7 +633,7 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
 .more-btn {
   display: inline-flex; align-items: center; gap: 10px; height: var(--more-btn-h, 48px); padding: 0 20px 0 16px;
   /* the platform's secondary button (ds .h-btn--secondary: white, the action-secondary hairline, strong text) at wall size,
-     the same edge as the close X (Antonio, 4 Oct: "use exactly the same outline as the platform, everywhere") */
+     the same edge as the close X (review, 4 Oct: "use exactly the same outline as the platform, everywhere") */
   border: 1.5px solid var(--color-action-secondary-border); border-radius: 12px; background: var(--color-action-secondary-bg, var(--bg));
   box-shadow: var(--elevation-button, 0 1px 2px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent));
   font: var(--w-medium) 19px / 1 var(--font-ui); letter-spacing: 0; text-transform: none; color: var(--ink); white-space: nowrap; cursor: pointer;
@@ -671,7 +671,7 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
 .me dt { display: flex; align-items: center; gap: 10px; font: 500 var(--t-micro) / 1.2 var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
 .me dd { margin: 0; font-size: 22px; line-height: 1.3; letter-spacing: -0.005em; color: var(--ink-2); text-wrap: pretty; }
 /* what I led and who I led are two facts, so they take a line each rather than running
-   together behind a middot (Antonio, 2026-09-28). People are counted in numerals. */
+   together behind a middot (review, 2026-09-28). People are counted in numerals. */
 .me__who { display: block; margin-top: 4px; color: var(--ink-3); }
 .me__i--call dt { color: var(--ink-2); }
 .me__i--call dt::before { content: ""; flex: none; width: 9px; height: 9px; background: var(--accent); transform: rotate(45deg); }
@@ -695,7 +695,7 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
 .mtx__r > .dot { justify-self: center; }
 /* One hover for every row that opens something. It was drawn with --line-2, which on dark
    is 60% of the paper colour and read as a hard white outline: "too excessive like no other"
-   (Antonio, 2026-09-27). --hover-ring is the one hairline all of them share now. */
+   (review, 2026-09-27). --hover-ring is the one hairline all of them share now. */
 .mtx__r.has-more:hover::before { content: ""; position: absolute; inset: 0 -18px; z-index: -1; background: var(--accent-wash); border: var(--hair) solid var(--hover-ring); border-radius: 12px; }
 .mtx__r.has-more > .more-cue--auto:not(.more-cue--inline) { top: 50%; right: -48px; margin-top: -9px; }
 .mtx__r.has-more > .more-cue .more-cue__t { display: none; }
@@ -719,7 +719,7 @@ html[data-theme] .s:not([data-stage="8"]) .eyebrow > .eyebrow__stage + *::before
 .dot.is-used::before { background: transparent; border: 1.5px dashed var(--ink-3); }
 /* Half filled, half ring: a study I ran part of and led the rest of, which is what the
    Santander and ASISA interview rounds actually were. It answers to both keys, so the
-   legend's hover shows only the half that key claims (Antonio, 2026-09-27). */
+   legend's hover shows only the half that key claims (review, 2026-09-27). */
 .dot.is-half::before {
   background-color: transparent;
   background-image: linear-gradient(90deg, var(--ink) 0 50%, transparent 50%);
@@ -984,7 +984,7 @@ svg.links { position: absolute; inset: 0; width: 100%; height: 100%; overflow: v
    less, so the one you are on stays legible. */
 /* One size and one voice for every key in the deck. They had drifted into three sizes and
    two cases, and small caps on a key reads as shouting next to the chart it explains
-   (Antonio, 2026-09-27): sentence case, one size, the quiet ink. 13px was the deck's
+   (review, 2026-09-27): sentence case, one size, the quiet ink. 13px was the deck's
    micro size and read as too small once every key used it, so keys sit a step above it. */
 :is(.s-legend, .dots-key, [data-legend]) {
   font: 500 var(--t-label) / 1.3 var(--font-mono); letter-spacing: 0.04em;
@@ -992,20 +992,20 @@ svg.links { position: absolute; inset: 0; width: 100%; height: 100%; overflow: v
 }
 /* Each entry is one element, so its swatch and its words travel together and the space
    between entries is bigger than the space inside one. Without this the marks and the
-   labels ran together into one string (Antonio, 2026-09-27, on the research keys). */
+   labels ran together into one string (review, 2026-09-27, on the research keys). */
 :is(.s-legend, .dots-key, [data-legend]) > [data-k] { display: inline-flex; align-items: center; gap: 9px; }
 :is(.s-legend, .dots-key, [data-legend]) > [data-k] + [data-k] { margin-left: 22px; }
 [data-legend].is-live > [data-k] { cursor: default; }
 [data-legend].is-live > [data-k], [data-legend].is-live ~ * .is-mute { transition: opacity var(--dur-1) var(--ease-io); }
 /* !important on purpose, and it is the only place the kit uses it. A mark that arrived on
    an entry tween carries an inline opacity: 1 from GSAP, which beats a class, so the key
-   dimmed its own entries and left the chart untouched (Antonio, 2026-09-27). */
+   dimmed its own entries and left the chart untouched (review, 2026-09-27). */
 .is-mute { opacity: .16 !important; transition: opacity var(--dur-1) var(--ease-io); }
 [data-legend].is-live > [data-k].is-mute { opacity: .34 !important; }
 @media (prefers-reduced-motion: reduce) { .is-mute, [data-legend].is-live > [data-k] { transition: none; } }
 
 /* ── the lesson · what a stage's main case taught me ───────────────────────
-   Every stage's main case now closes on one line of what I learned (Antonio,
+   Every stage's main case now closes on one line of what I learned (review,
    2026-09-27: "add a lesson learned to all of the closing slides of the main case
    of each step"). Discovery had it as .dv-rule and Test as .t5-rule; this is the
    one component all of them use, so the line lands in the same place each time. */

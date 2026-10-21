@@ -1,7 +1,7 @@
-/* Property › Shared › Listing base › Availability (Antonio, 1 Oct: "Under Listing base you will have the details,
+/* Property › Shared › Listing base › Availability (review, 1 Oct: "Under Listing base you will have the details,
  * then pricing and availability, the same way that we have it on the channels"). The property-wide stay rules — the
  * rows of Channels › Availability's General and Booking rules tabs (data/availability.ts AVAIL_FIELDS) — as the Base
- * only. Antonio, 3 Oct: "We have the base, and off of the base others can act dissimilarly, but I don't need to see
+ * only. review, 3 Oct: "We have the base, and off of the base others can act dissimilarly, but I don't need to see
  * that here": each row is a plain SettingRow — the Base input, editable straight away, and the informational
  * "ⓘ N channels" caption (N = channels that use the Base; the tooltip names them) — with no action, no link and
  * nothing about a channel's own value. Saving writes the same `avail:<key>` Base keys the channel page reads (data/
@@ -21,7 +21,7 @@ import { PerDayStrip, PerDayToggle, perDayOn } from '../channel/Availability'
 
 const keyOf = (f: AvailField) => `avail:${f.key}`
 /** Instant book has no shared Base (each channel supports different options: Booking.com has no "low risk"), so it's
- *  a channel's own setting and isn't on the Base at all (Antonio, 3 Oct): Channels › {channel} › Availability has it. */
+ *  a channel's own setting and isn't on the Base at all (review, 3 Oct): Channels › {channel} › Availability has it. */
 type BaseTab = Exclude<AvailTab, 'instant-book'>
 const BASE_TABS = AVAIL_TABS.filter((t): t is (typeof AVAIL_TABS)[number] & { id: BaseTab } => t.id !== 'instant-book')
 
@@ -42,12 +42,12 @@ export function BaseAvailability() {
   const rows = availabilityFor(p.id)
   const rowOf = (f: AvailField) => rows.find((r) => r.key === f.key) ?? f.row
   const effective = (f: AvailField) => draft.base[keyOf(f)] ?? rowOf(f).base
-  // Antonio, 3 Oct ("We have the base, and off of the base others can act dissimilarly, but I don't need to see that
+  // review, 3 Oct ("We have the base, and off of the base others can act dissimilarly, but I don't need to see that
   // here"): each row is the Base input and the informational "ⓘ N channels" caption — N = the channels that use the
   // Base (a channel with its own value, e.g. Airbnb's minimum stay, isn't counted), named in the caption's tooltip.
   // Nothing about how another channel differs, no action, no link.
   const savedCustom = useStore((s) => s.sl3.custom)
-  // "N channels" only where a channel can differ (Antonio, 3 Oct)
+  // "N channels" only where a channel can differ (review, 3 Oct)
   const varies = (f: AvailField) => { const st = rowOf(f).state; return channels.some((c) => st[c] === 'inherit' || st[c] === 'override') }
   const users = (f: AvailField) => {
     const r = rowOf(f)
@@ -77,7 +77,7 @@ export function BaseAvailability() {
           : f.control === 'select' ? <SelectBox value={v} options={r.options} label={f.label} onChange={write} />
           : (
             // NumberField (ds/v3-ch.tsx), the shared numeric control: same clamp and nightsText storage as before,
-            // "nights" as Hospitable's plain unit word, plus the small arrows and Up/Down keys (Antonio, 3 Oct).
+            // "nights" as Hostaway's plain unit word, plus the small arrows and Up/Down keys (review, 3 Oct).
             <NumberField label={f.label} value={nightsOf(v)} unit="nights"
               invalid={f.key === 'max_stay' && maxTooShort} min={1} max={MAX_NIGHTS}
               onChange={(next) => { const d = next.replace(/\D/g, '').slice(0, 4); write(nightsText(d === '' ? '' : String(Math.min(MAX_NIGHTS, Math.max(1, Number(d)))))) }} />

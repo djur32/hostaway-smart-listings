@@ -23,7 +23,7 @@ export function wordDiff(a: string, b: string): Part[] {
   return out
 }
 
-/** How a version did while it was live (Early access · SIMULATED). */
+/** How a version did while it was live (Early access · ). */
 export function versionPerf(channel: ChannelId, n: number) {
   const pts = series(channel).filter((p) => p.version === n)
   if (!pts.length) return null

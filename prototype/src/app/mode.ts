@@ -1,4 +1,4 @@
-/* App mode (ds/mobile.md "App mode", prototype/APP-MODE.md): the prototype as Hospitable's mobile app.
+/* App mode (ds/mobile.md "App mode", prototype/APP-MODE.md): the prototype as Hostaway's mobile app.
  * On with the build env VITE_APP_MODE=mobile (the mobile Vercel project), or on any build by visiting /app (the router
  * then runs under the /app basename, so every link stays inside app mode). No dependencies: ds/mobile.tsx reads it. */
 

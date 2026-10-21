@@ -1,6 +1,6 @@
 /* ============================================================================
    TOUCH · what a finger needs that a keyboard does not. Nothing here runs on a
-   fine pointer, so the desk setup is untouched (Antonio presents from a laptop;
+   fine pointer, so the desk setup is untouched (review presents from a laptop;
    this is for the same deck opened on a phone or a tablet).
 
      swipe          left and right move the deck, exactly like → and ←
@@ -115,7 +115,7 @@ export function mountTouchChrome(Deck, viewport, brandMark) {
   const bar = document.createElement('div');
   bar.className = 'tbar';
   /* Two controls, nothing else: the slide number is on the bar at the top, the palette is in
-     the menu, the reading zoom is a double tap. The Hospitable deck has one theme, so the
+     the menu, the reading zoom is a double tap. The Hostaway deck has one theme, so the
      light/dark switch the InvestEngine deck carried here is gone (D-071). */
   bar.innerHTML = `
     <button type="button" class="tbar__b" data-touch="prev" aria-label="Previous">${ico('<path d="M15 5 8 12l7 7"/>')}</button>

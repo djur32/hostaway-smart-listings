@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Sample named colours from the Hospitable screenshots and match each to the nearest
-real Hospitable token.
+Sample named colours from the Hostaway screenshots and match each to the nearest
+real Hostaway token.
 
 Why this exists (S02 · design system): every colour in ds/tokens.css must be traceable
-to a pixel in the product (REAL·PRODUCT) and, where possible, to Hospitable's own
-public CSS custom properties (REAL·PUBLIC, see hospitable-root-vars.json).
+to a pixel in the product and, where possible, to Hostaway's own
+public CSS custom properties (see hostaway-root-vars.json).
 
 Method
 - Screenshots are macOS captures tagged with the "Display" (Display P3) ICC profile.
@@ -16,7 +16,7 @@ Method
 - mode "fill": median of a 5x5 patch (avoids anti-aliasing on flat fills).
 - mode "ink":  inside a box, the pixel furthest from the box's median colour (used for
   text and thin glyphs, where a patch average would blend ink with background).
-- Each sample is matched to the nearest token in hospitable-root-vars.json by
+- Each sample is matched to the nearest token in hostaway-root-vars.json by
   CIE76 ΔE in Lab. ΔE < 2.3 ≈ a just-noticeable difference.
 
 Usage: python3 ds/tools/sample.py            → prints a table, writes ds/tools/samples.json
@@ -25,7 +25,7 @@ import io, json, math, os, sys
 from PIL import Image, ImageCms
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-SHOTS = os.path.join(ROOT, 'Hospitable Screenshots')
+SHOTS = os.path.join(ROOT, 'Hostaway Screenshots')
 FILES = sorted(f for f in os.listdir(SHOTS) if f.endswith('.png'))  # HS-01..HS-59, filename order
 
 
@@ -200,7 +200,7 @@ def sample(im, mode, box):
 
 
 def main():
-    tokens = json.load(open(os.path.join(os.path.dirname(__file__), 'hospitable-root-vars.json')))
+    tokens = json.load(open(os.path.join(os.path.dirname(__file__), 'hostaway-root-vars.json')))
     palette = {k: parse_hex(v) for k, v in tokens.items()
                if k.startswith('--color') and v.startswith('#') and len(v) in (4, 7)}
     out = []
@@ -213,15 +213,15 @@ def main():
             'nearest_token': near[0][0], 'token_hex': hex_(near[0][1]),
             'delta_e': round(de(c, near[0][1]), 2),
             'alternatives': [f'{k} {hex_(v)} ΔE{de(c, v):.1f}' for k, v in near[1:]],
-            'provenance': 'REAL·PRODUCT (+ REAL·PUBLIC token match)',
+            'provenance': '(+ token match)',
         }
         out.append(row)
         flag = '' if row['delta_e'] < 2.3 else ('  ~' if row['delta_e'] < 6 else '  ✗ no token match')
         print(f"{name:34s} {hs}  {row['hex_srgb']}  → {near[0][0]:38s} {row['token_hex']}  ΔE {row['delta_e']:5.2f}{flag}")
     json.dump({
         'method': 'Display-P3 → sRGB via embedded ICC; fill = 5x5 median; ink = furthest-from-median pixel in box; '
-                  'nearest Hospitable token by CIE76 ΔE (hospitable-root-vars.json, captured from '
-                  'https://my.hospitable.com/static/styles-K7T6MMZ5.css on 2026-09-29).',
+                  'nearest Hostaway token by CIE76 ΔE (hostaway-root-vars.json, captured from '
+                  'https://my.hostaway.com/static/styles-K7T6MMZ5.css on 2026-09-29).',
         'samples': out,
     }, open(os.path.join(os.path.dirname(__file__), 'samples.json'), 'w'), indent=1, ensure_ascii=False)
 

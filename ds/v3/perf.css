@@ -1,5 +1,5 @@
 /* Smart Listings › Performance (WS-SL, 3 Oct). React parts: prototype/src/ds/perf.tsx. Tokens only.
- * Card styling from Hospitable's Metrics (research/current-state/antonio-2026-10-03-metrics/, REAL·PRODUCT): 08 equal-
+ * Card styling from Hostaway's Metrics (research/current-state/review-2026-10-03-metrics/, ): 08 equal-
  * height bordered filter controls; 07 widget cards (meta row with settings buttons, divider, title 18/600, a one-line
  * definition, the chart); 01/05/06 bars with rounded tops, grey axis labels and light gridlines.
  * 3 Oct, later (Antonio): no comparison mode. Two series only, on one timeline: before the strategy started in neutral
@@ -62,7 +62,7 @@
 .sl-perf-chart__grid { position: absolute; left: 0; right: 0; height: 0; border-top: 1px solid var(--color-chart-grid); }
 .sl-perf-chart__groups { position: absolute; inset: 0; display: flex; align-items: stretch; }
 .sl-perf-chart__group { position: relative; flex: 1 1 0; min-width: 0; display: flex; align-items: flex-end; justify-content: center; gap: 3px; border-radius: var(--radius-sm); outline: none; }
-/* hovering doesn't recolour the column: the tooltip says it all (Antonio, 3 Oct); keyboard focus keeps a ring */
+/* hovering doesn't recolour the column: the tooltip says it all (review, 3 Oct); keyboard focus keeps a ring */
 .sl-perf-chart__group:focus-visible { box-shadow: var(--color-focus-ring); }
 /* zero is nothing at all, never a sliver */
 .sl-perf-chart__bar { display: block; flex: 0 0 auto; width: min(36px, 60%); border-radius: 4px 4px 0 0; background: var(--perf-a); }

@@ -1,5 +1,5 @@
 /* Smart Listing v3 · WS-CV additions (V3-SPEC §2). Tokens only; shared patterns belong in components.css 'Smart Listing v3'.
- * 1 · Canvas chrome (bar, frame, areas, popovers, keep dialog) — Hospitable tokens.
+ * 1 · Canvas chrome (bar, frame, areas, popovers, keep dialog) — Hostaway tokens.
  * 2 · Channel replicas (.cv-ab Airbnb, .cv-bk Booking.com, .cv-dr Direct) — channel colours only inside the replica,
  *     as scoped custom properties mapped to DS tokens (memory: channel-previews-replicate-real-pages). */
 
@@ -31,7 +31,7 @@
 .cv-page { border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
 .cv-prov { display: flex; align-items: center; gap: 8px; margin: 0; font-size: var(--text-xs); line-height: var(--leading-xs); color: var(--color-text-muted); }
 
-/* areas (Antonio, 3 Oct): the page stays fully readable — never a wash over it, only outlines and one marker, in the
+/* areas (review, 3 Oct): the page stays fully readable — never a wash over it, only outlines and one marker, in the
    colour of the one AI affordance the part has. tip = purple (a tip waits), refine = orange (editable here: Rewrite
    with AI), none = read-only (owned elsewhere): no colour, a neutral outline on hover only. Selected = solid. */
 .cv-area { position: relative; border-radius: var(--radius-sm); outline: 1px dashed transparent; outline-offset: 4px; transition: outline-color var(--dur-1) var(--ease-standard); }
@@ -78,7 +78,7 @@
 .cv-fp { display: flex; flex-direction: column; gap: 24px; }
 .cv-fp__field:not(.cv-fp__field--labelled) .h-field-row__label { display: none; }
 .cv-fp__field:not(.cv-fp__field--labelled) .h-field-row__head:not(:has(.h-field-row__help)) { display: none; }
-/* Antonio, 3 Oct (2nd pass): "a massive gap between the title… and the actual description" — the panel title is the
+/* review, 3 Oct (2nd pass): "a massive gap between the title… and the actual description" — the panel title is the
    field's label, so its help line sits right under it as in a Classic row (label, then help ~4px below): no row
    margin, and the head's bottom padding taken back */
 .cv-fp__field .h-field-row { margin-top: 0; }
@@ -86,11 +86,11 @@
 /* the title row: the field's name, then (when it can be rewritten) Classic's orange trigger right after it */
 .cv-panel__titlerow { display: inline-flex; align-items: center; gap: 8px; }
 .cv-panel__titlerow .sy-wrap--label { vertical-align: baseline; }
-/* "Show only editable sections" (Antonio, 3 Oct): the toggle on the left of the canvas bar */
+/* "Show only editable sections" (review, 3 Oct): the toggle on the left of the canvas bar */
 .cv-bar__toggle { display: inline-flex; align-items: center; gap: 8px; font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-strong); cursor: pointer; white-space: nowrap; }
 .cv-fp__photos { display: flex; flex-direction: column; gap: 8px; }
 .cv-fp__photos .cv-strip__ph { cursor: default; }
-/* Photos panel, roomier (Antonio, 1 Oct 3rd pass: "make it bigger, keep it a panel") — widens the SHARED
+/* Photos panel, roomier (review, 1 Oct 3rd pass: "make it bigger, keep it a panel") — widens the SHARED
    --split-panel-width (ds/components.css .h-split, also used by Tips) only while CvEditPanel's own
    `cv-panel--photos` marker is somewhere inside it, so Tips and any other docked panel keep their usual width.
    :has() scopes this from CanvasView.tsx alone, with no prop plumbing through Split (ds/sl3.tsx, out of scope here). */
@@ -110,7 +110,7 @@
 .cv-edit__label q { font-weight: var(--font-weight-regular); }
 .cv-edit__askrow { display: flex; gap: 8px; }
 .cv-edit__askrow .h-input { flex: 1 1 auto; min-width: 0; }
-/* the input and "Suggest" matched heights (Antonio, 1 Oct, 2nd pass: they weren't the same height) */
+/* the input and "Suggest" matched heights (review, 1 Oct, 2nd pass: they weren't the same height) */
 .cv-edit__askrow .h-input, .cv-edit__askrow > .h-btn { height: var(--field-height); }
 .cv-edit__foot { display: flex; align-items: center; gap: 8px; margin-top: 2px; }
 .cv-edit__spacer { flex: 1 1 auto; }
@@ -510,7 +510,7 @@
   .cv-keep--sheet .cv-keep__lead { margin: 0 0 16px; }
   .cv-keep__row { grid-template-columns: minmax(0, 1fr); gap: 6px; }
 }
-/* the replicas at phone width: each channel's own mobile web layout (REAL·PUBLIC, m.airbnb.com / booking.com mobile, Sep 2026):
+/* the replicas at phone width: each channel's own mobile web layout (m.airbnb.com / booking.com mobile, Sep 2026):
    Airbnb = full-bleed photo first, then the title; one column; Booking.com = navy bar, stacked search, scrolling tabs, one photo. */
 @media (max-width: 767px) {
   .cv-ab.is-narrow .cv-ab__top { height: 56px; padding: 0 16px; }
@@ -594,7 +594,7 @@
   .cv-dr.is-narrow .cv-dr__foot { flex-direction: column; gap: 4px; padding: 20px 16px; }
 }
 
-/* The compact, opt-in "Describe the change" chip in the photos panel (ds/v3-cv.tsx CvPhotoPop). Antonio, 1 Oct:
+/* The compact, opt-in "Describe the change" chip in the photos panel (ds/v3-cv.tsx CvPhotoPop). review, 1 Oct:
    chip-sized and opt-in, never a box standing open. */
 .cv-askchip { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; height: 32px; padding: 0 12px; border: 1px solid var(--color-ai-border); border-radius: var(--radius-full); background: var(--color-ai-surface); color: var(--color-ai-text); font-size: var(--text-sm); font-weight: var(--font-weight-medium); cursor: pointer; }
 .cv-askchip:hover { border-color: var(--color-ai-border-strong); }

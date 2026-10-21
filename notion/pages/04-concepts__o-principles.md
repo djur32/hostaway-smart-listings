@@ -1,9 +1,9 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Done** · Seven design principles, written before any direction was drawn and checked against the build. Provenance: they rest on research insights that are partly `SIMULATED`; where you see them is `REAL·PRODUCT` (the live prototype).
+	**Output · Done** · Seven design principles, written before any direction was drawn and checked against the build. Provenance: they rest on research insights that are partly ; where you see them is (the live prototype).
 </callout>
-![A tip on Airbnb › Listing: the change is shown as a diff, and its why cites a Knowledge Hub fact, guest inquiries and similar homes. Nothing changes until Accept. Sample data SIMULATED.](file-upload://3eee18af-1645-81fd-87d2-00b2c5615109)
+![A tip on Airbnb › Listing: the change is shown as a diff, and its why cites a Knowledge Hub fact, guest inquiries and similar homes. Nothing changes until Accept. Sample data .](file-upload://3eee18af-1645-81fd-87d2-00b2c5615109)
 ## The short version
-- They start from the four pains in the research's problem statement (`SIMULATED`): repeated edits, content hosts can't read in context, not knowing what goes out, and not knowing whether it arrived. → <mention-page url="https://app.notion.com/p/3eee18af1645814c9da9f6fce430fb5c">Problem statement</mention-page>
+- They start from the four pains in the research's problem statement (): repeated edits, content hosts can't read in context, not knowing what goes out, and not knowing whether it arrived. → <mention-page url="https://app.notion.com/p/3eee18af1645814c9da9f6fce430fb5c">Problem statement</mention-page>
 - Each one settles a real tension, so it can lose an argument, and each says what it rules out.
 - The research rewrote three of the first drafts and added one, facts once.
 - Three are floors every direction had to meet (1, 2 and 7). The others are where the directions differed.
@@ -33,7 +33,7 @@
 	<tr>
 		<td>**4 · The AI says only what the home can back**</td>
 		<td>Claims the record can't support; explanation used as the only safety</td>
-		<td>Every tip's why names its sources. Copilot answers guests only from facts it can cite. Knowledge Hub › Questions marks each guest question answered or not, and when nothing backs an answer the AI asks the host and the gap becomes a tip.</td>
+		<td>Every tip's why names its sources. The assistant answers guests only from facts it can cite. Knowledge Hub › Questions marks each guest question answered or not, and when nothing backs an answer the AI asks the host and the gap becomes a tip.</td>
 	</tr>
 	<tr>
 		<td>**5 · Autonomy follows the stakes**</td>
@@ -67,7 +67,7 @@ The screens behind each row are on <mention-page url="https://app.notion.com/p/3
 	<tr>
 		<td>(none)</td>
 		<td>Facts once</td>
-		<td>The Knowledge Hub repeats the listing in a copy that drifts, and Copilot answers guests from that copy, not from the listing</td>
+		<td>The Knowledge Hub repeats the listing in a copy that drifts, and the assistant answers guests from that copy, not from the listing</td>
 	</tr>
 	<tr>
 		<td>Facts are shared; voice is local</td>
@@ -80,7 +80,7 @@ The screens behind each row are on <mention-page url="https://app.notion.com/p/3
 		<td>A reason raises acceptance, not scrutiny, so grounding has to be a hard rule</td>
 	</tr>
 </table>
-The evidence for the first, third and fourth leans most on the simulated interviews (`SIMULATED`). Real host conversations would upgrade them.
+The evidence for the first, third and fourth leans most on the simulated interviews (). Real host conversations would upgrade them.
 ## How it was made
 Drafted before the research, then reconciled with the research's insights and its diagnosis. Each principle got a tension, a resolution, what it looks like in the UI, and what it rules out. They became the lens for scoring the directions. → <mention-page url="https://app.notion.com/p/3eee18af1645815aa317e53bdcf8435d">Concept directions</mention-page>
 ---
@@ -97,4 +97,4 @@ Drafted before the research, then reconciled with the research's insights and it
 - <mention-page url="https://app.notion.com/p/3eee18af16458172b17ac84a5abb32ef">KD-11</mention-page>
 - <mention-page url="https://app.notion.com/p/3eee18af164581a693f6c6cc544b8c1a">KD-15</mention-page>
 **In the prototype**
-- [Airbnb › Listing with Tips](https://hospitable-case-web.digimal.studio/property/neukolln/ch/airbnb/listing?tips=1)
+- [Airbnb › Listing with Tips]()

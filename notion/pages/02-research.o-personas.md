@@ -1,8 +1,8 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Sampled · simulated** · The brief's four host types are real (`REAL·BRIEF`). The names, details and quotes are projected from one simulated interview each, so read them as directional. The churned host is kept as a lens, not a fifth persona.
+	**Output · Sampled · simulated** · The brief's four host types are real (). The names, details and quotes are projected from one simulated interview each, so read them as directional. The churned host is kept as a lens, not a fifth persona.
 </callout>
 ## The short version
-- Four hosts, four meanings of "listing management": it just works, every word tuned, change once for many, and "why would Hospitable touch it at all?".
+- Four hosts, four meanings of "listing management": it just works, every word tuned, change once for many, and "why would Hostaway touch it at all?".
 - They differ most on how much the AI may do. Family and new hosts over-trust it; the portfolio manager trusts rules, not cards.
 - So Smart Listings changes defaults and guidance per host, never what the product can do.
 <columns>
@@ -41,11 +41,11 @@
 		- **What Smart Listings does:** off by default; fewer, safer tips; facts never edited by AI; more explanations.
 	</column>
 </columns>
-*Quotes: Sampled · SIMULATED.* {color="gray"}
+*Quotes: Sampled · .* {color="gray"}
 **The churned host (a lens).** Rob left on day 52 because "I couldn't tell what it was doing". That is what any of the four becomes when the product's status is invisible.
 ## In the prototype
 - The account menu at the foot of the sidebar has **Act as**: Dana (the default), Callum, Marta and Priya. Each account keeps its own saved work.
-- An account changes defaults and guidance, never capability. **Settings › How Hospitable helps you** shows the preset (for example "One home · Standard guidance" for Marta), the sign-up answers that chose it, and every default, each one changeable.
+- An account changes defaults and guidance, never capability. **Settings › How Hostaway helps you** shows the preset (for example "One home · Standard guidance" for Marta), the sign-up answers that chose it, and every default, each one changeable.
 - Smart Listings starts off for Marta and Priya, and on for Dana and Callum. Priya already has her one listing, so she starts on it like everyone else. There is no first-time setup in the prototype.
 The accounts share the demo's Berlin homes rather than the research's cities and portfolio sizes, and there is no Vrbo. The research had Dana keep the main channel to drafts; the demo runs Autopilot on Dana's Airbnb (text and photo order only) to show the mode. The prototype wins. {color="gray"}
 ## How it was made
@@ -63,5 +63,5 @@ The brief's four types, refined with behaviour from <mention-page url="https://a
 - <mention-page url="https://app.notion.com/p/3eee18af16458160a7c1c703fcb2a033">KD-08</mention-page>
 **In the prototype**
 - Account menu › Act as
-- Settings › How Hospitable helps you
-- [open the prototype](https://hospitable-case-web.digimal.studio)
+- Settings › How Hostaway helps you
+- [open the prototype]()

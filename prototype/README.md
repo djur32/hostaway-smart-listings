@@ -1,8 +1,8 @@
-# prototype/ · Hospitable · Listing Management II
+# prototype/ · Hostaway · Listing Management II
 
-Hi-fi, interactive prototype that replicates Hospitable's UI. It uses the converged direction (`concepts/convergence/DIRECTION.md`, **D-123, Proposed pending G3**) on the recommended IA (`ia/recommendation.md`, D-110).
+Hi-fi, interactive prototype that replicates Hostaway's UI. It uses the converged direction (`concepts/convergence/DIRECTION.md`, **D-123, Proposed pending G3**) on the recommended IA (`ia/recommendation.md`, D-110).
 S09 built the scaffold (D-128). S10–S14 build the screens.
-**Sample data is illustrative (`SIMULATED`)**; the footer says so once. Every page is `noindex`.
+**Sample data is illustrative ()**; the footer says so once. Every page is `noindex`.
 
 ## Run
 
@@ -59,7 +59,7 @@ prototype/
 | `/portfolio` · `/portfolio/groups` · `/portfolio/rules` · `/portfolio/activity` | SCR-05: Grid view + bulk sheet (F-P1) · Groups (portfolio pricing) · Rules (sentence builder) · Activity (owner log) | **S12** (done) |
 | `/home/*` | Home › Needs you · all properties (grouped by kind, each opens the bulk sheet) | **S12** (done) |
 | `/calendar?property=&from=` | Calendar, filtered, with the return chip to the exact page (R-073, D-158) | **S12** (done) |
-| `/settings/guidance` | Settings › How Hospitable helps you: the persona preset, its signals, every default, changeable (D-150) | **S12** (done) |
+| `/settings/guidance` | Settings › How Hostaway helps you: the persona preset, its signals, every default, changeable (D-150) | **S12** (done) |
 | `/mobile/*` | Mobile & voice in a 390 × 844 device frame | **S13** |
 | `/inbox`, `/metrics`, `/direct`, `/devices`, `/operations`, `/guest-experience` | Unchanged, out of scope | — |
 
@@ -100,23 +100,23 @@ For screenshots, the Loom and reviewers. They aren't product behaviour.
 
 ## Accounts · act as Dana, Callum, Marta or Priya (3 Oct · D-160…D-163)
 
-Click the sidebar **avatar** (phones: **Menu › Act as**) to switch between the research's four hosts. **Dana is today's prototype, kept as built.** Callum has all 12 properties, Marta the one flat (Airbnb + Booking.com), and Priya joins with nothing and sets up first. Each account keeps its **own saved state**: `src/app/account.ts` parks every `hospitable…` storage key under the account you leave, restores the next one's, and reloads into its start page. `?as=<account>` on any URL does the same (handled in `src/entry.ts`, before any store loads). Model: `src/data/users.ts`; hook: `src/shell/useAccount.ts`; menu: `src/ds/account.tsx` (DS §10f). Stories and click paths: `explorations/S12/ACCOUNTS.md`.
+Click the sidebar **avatar** (phones: **Menu › Act as**) to switch between the research's four hosts. **Dana is today's prototype, kept as built.** Callum has all 12 properties, Marta the one flat (Airbnb + Booking.com), and Priya joins with nothing and sets up first. Each account keeps its **own saved state**: `src/app/account.ts` parks every `hostaway…` storage key under the account you leave, restores the next one's, and reloads into its start page. `?as=<account>` on any URL does the same (handled in `src/entry.ts`, before any store loads). Model: `src/data/users.ts`; hook: `src/shell/useAccount.ts`; menu: `src/ds/account.tsx` (DS §10f). Stories and click paths: `explorations/S12/ACCOUNTS.md`.
 
 ## Persona switcher
 
-The sidebar footer has "Demo · viewing as P1–P4" (R-130). `setPersona` applies the D-126 defaults (preview, Needs-you mode, comps, voice, studio autonomy) and clears the host's own tweaks. **S12 (D-150):** the column cross-fades (M-10), a toast lists what changed and offers the persona's start page, and screens read `useMode()` (`src/ds/s12.tsx`): `hints` (more · fewer · none) drive `Guide`, `plain` drives `Term` (P4 vocabulary), `density` sets `data-density`, `landing` is the start page. Settings › How Hospitable helps you (`/settings/guidance`) is where a host sees and changes these. **Rule: modes change defaults and guidance, never capability.** The full table is in `explorations/S12/README.md` §1.
+The sidebar footer has "Demo · viewing as P1–P4" (R-130). `setPersona` applies the D-126 defaults (preview, Needs-you mode, comps, voice, studio autonomy) and clears the host's own tweaks. **S12 (D-150):** the column cross-fades (M-10), a toast lists what changed and offers the persona's start page, and screens read `useMode()` (`src/ds/s12.tsx`): `hints` (more · fewer · none) drive `Guide`, `plain` drives `Term` (P4 vocabulary), `density` sets `data-density`, `landing` is the start page. Settings › How Hostaway helps you (`/settings/guidance`) is where a host sees and changes these. **Rule: modes change defaults and guidance, never capability.** The full table is in `explorations/S12/README.md` §1.
 
 ## Data, and where it comes from
 
 | File | Source | Provenance |
 |---|---|---|
-| `canonical.ts` | `ia/canonical-fields.csv` (100 rows, S06a), parsed at build | `REAL·PUBLIC` channel names / `ASSUMPTION` where marked |
-| `scenario.ts` | `concepts/SCENARIO.md` (D-082, D-086): Airbnb values from the trial, a simulated Booking.com twin, 142-field arithmetic | `REAL·PRODUCT` (HS-28, HS-30, HS-33, HS-42) + `SIMULATED` |
-| `portfolio.ts` | SCENARIO.md, 12 properties | `SIMULATED` |
-| `comps.ts` | SCENARIO.md market context | `SIMULATED` ("Sample market data") |
-| `channels.ts` | `research/market/channel-constraints.md` | `REAL·PUBLIC` rules |
-| `personas.ts` | D-126 + `MODES` (S12, D-150) | `ASSUMPTION` (tested in S15) |
-| `portfolio.ts` (S12 part) | Groups, per-property detail (group, owner, price owner, overrides, health per channel), seeded rules and owner log, 188 synthetic rows for scale | `SIMULATED` |
-| `performance.ts` | What each channel shares (`REAL·PUBLIC` rules / `ASSUMPTION`), the 90-days-later history and weekly series, switchback statistics, minimum detectable difference, competitiveness heuristic | `SIMULATED` · `ASSUMPTION` |
+| `canonical.ts` | `ia/canonical-fields.csv` (100 rows, S06a), parsed at build | channel names / where marked |
+| `scenario.ts` | `concepts/SCENARIO.md` (D-082, D-086): Airbnb values from the trial, a simulated Booking.com twin, 142-field arithmetic | (HS-28, HS-30, HS-33, HS-42) + |
+| `portfolio.ts` | SCENARIO.md, 12 properties | |
+| `comps.ts` | SCENARIO.md market context | ("Sample market data") |
+| `channels.ts` | `research/market/channel-constraints.md` | rules |
+| `personas.ts` | D-126 + `MODES` (S12, D-150) | (tested in S15) |
+| `portfolio.ts` (S12 part) | Groups, per-property detail (group, owner, price owner, overrides, health per channel), seeded rules and owner log, 188 synthetic rows for scale | |
+| `performance.ts` | What each channel shares (rules / ), the 90-days-later history and weekly series, switchback statistics, minimum detectable difference, competitiveness heuristic | |
 
 Photos are DS gradient placeholders (`h-photo--1…5`): no real people, no stock images.

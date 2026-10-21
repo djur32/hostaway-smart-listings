@@ -1,8 +1,8 @@
 /* Listing details (Property › Shared › Listing details): the property's source of truth, edited as the Base every channel
- * inherits. Field order, labels and copy: Hospitable's real Details editor (REAL·PRODUCT, concepts/smart-listing/refs/
- * listing-details/01–11). Amenity catalog: Airbnb's public amenity list, grouped in Hospitable's 14 categories (REAL·PUBLIC
- * airbnb.com/help/article/1307 for the names; per-channel support is an ASSUMPTION modelled on research/market/
- * channel-constraints.md). Parking details: Hospitable's "Update Free parking on premise" (REAL·PRODUCT refs 09–11).
+ * inherits. Field order, labels and copy: Hostaway's real Details editor (concepts/smart-listing/refs/
+ * listing-details/01–11). Amenity catalog: Airbnb's public amenity list, grouped in Hostaway's 14 categories (
+ * airbnb.com/help/article/1307 for the names; per-channel support is an modelled on research/market/
+ * channel-constraints.md). Parking details: Hostaway's "Update Free parking on premise" (refs 09–11).
  * The fields themselves are the shared definitions (data/sl3.ts FIELDS + data/v3-ch.ts TAB_FIELDS), patched per property by
  * data/property-seeds.ts; the property's amenity list is data/property-listing.ts amenitiesFor(pid). */
 import { LISTING_TABS, type ListingChannel, type ListingTab } from './sl3'
@@ -41,7 +41,7 @@ export const orList = (chs: ListingChannel[]) => {
 }
 
 /* ---------- amenities ---------- */
-/** Hospitable's amenity categories, in the Filters dialog's order (REAL·PRODUCT ref 08). */
+/** Hostaway's amenity categories, in the Filters dialog's order (ref 08). */
 export const AMENITY_CATEGORIES = [
   'Bathroom', 'Bedroom and laundry', 'Entertainment', 'Family', 'Heating and cooling', 'Home safety', 'Internet and office',
   'Kitchen and dining', 'Location features', 'Luxury amenities', 'Outdoor', 'Parking and facilities', 'Property views', 'Services',
@@ -102,7 +102,7 @@ export const DETAIL_CHOICES: Record<Exclude<DetailKind, 'parking'>, { question: 
   shared: { question: 'Is it private or shared?', options: ['Private', 'Shared'], fallback: 'Private' },
 }
 
-/** Hospitable's parking details (REAL·PRODUCT refs 09–11). The type is an Airbnb field (the mark beside each option). */
+/** Hostaway's parking details (refs 09–11). The type is an Airbnb field (the mark beside each option). */
 export const PARKING = {
   types: ['Parking Garage', 'Carport', 'Driveway', 'Residential Garage', 'Unknown Parking Type'],
   typeChannel: 'airbnb' as ListingChannel,

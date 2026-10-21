@@ -2,7 +2,7 @@
    BASE · fonts, reset, and the handful of type classes every slide uses.
    ========================================================================= */
 
-/* Hospitable's family: TT Norms (TypeType), Antonio's licensed files (S02 D-093, replaces the Figtree stand-in).
+/* Hostaway's family: TT Norms (TypeType), review's licensed files (S02 D-093, replaces the Figtree stand-in).
    Static cuts, so the same files serve screen and PDF. 600 maps to Bold (no DemiBold in the set). */
 @font-face { font-family: "TT Norms"; font-style: normal; font-weight: 100 950; font-display: block;
   src: url("fonts/TTNormsProVariable.woff2") format("woff2-variations"), url("fonts/TTNormsProVariable.woff2") format("woff2"); }
@@ -74,7 +74,7 @@ html {
 }
 body { overflow: hidden; }
 img, svg, video, canvas { display: block; max-width: 100%; }
-/* product UI is Hospitable's: no long-press save sheet, no drag out of the page.
+/* product UI is Hostaway's: no long-press save sheet, no drag out of the page.
    A fence, not a lock (see kit/engine.js, OWN_ART). */
 img, video { -webkit-user-drag: none; -webkit-touch-callout: none; user-select: none; }
 button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }

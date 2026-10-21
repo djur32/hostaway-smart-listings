@@ -3,7 +3,7 @@
  * source and updated. Built on the first Hub build's model (data/v3-kh.ts khItems, KH_CUSTOM; screens/hub/model.ts scopeOf),
  * so the document, its captions, the AI answers and the channel screens all read the same Base and channel values.
  * Two facts no listing field holds are added here (Floor and access, Checkout instructions); they live under `kh.*` keys,
- * like the first build's custom facts. Content SIMULATED (concepts/SCENARIO.md); structure REAL·PRODUCT. */
+ * like the first build's custom facts. Content (concepts/SCENARIO.md); structure . */
 import { CHANNELS } from '../../../../data/channels'
 import type { ListingChannel } from '../../../../data/sl3'
 import { AMENITY_CATALOG, type KhFact, type KhItem, type KhSectionId } from '../../../../data/v3-kh'
@@ -52,7 +52,7 @@ export const B_GROUPS: Partial<Record<KhSectionId, Array<{ id: string; title: st
 
 /* ---------- sources (the strip under the header) ---------- */
 export interface BSource { id: string; name: string; meta: string; icon: string; updated: string }
-/** Neukölln's sources (SIMULATED: message history and guidebook are the scenario's). */
+/** Neukölln's sources (message history and guidebook are the scenario's). */
 export const B_SOURCES: BSource[] = [
   { id: 'details', name: 'Property details', meta: '2 listings', icon: 'file-text', updated: 'Updated 29 Sep' },
   { id: 'messages', name: 'Message history', meta: '312 conversations', icon: 'message-circle', updated: 'Updated today' },
@@ -88,7 +88,7 @@ export interface BFact {
   source: string
   updated: string
 }
-/** Facts no listing field holds (SIMULATED values). Neukölln: its scripted Floor and access and Checkout instructions.
+/** Facts no listing field holds (values). Neukölln: its scripted Floor and access and Checkout instructions.
  *  Any other property: Floor and access from its own profile (data/property-seeds), no checkout instructions. */
 function extraFacts(pid: string): KhItem[] {
   const chs = propertyChannels(pid)
@@ -205,7 +205,7 @@ export function bAmenities(custom: Partial<Record<ListingChannel, Record<string,
 /** Categories the host picked for amenities they added (kept in this browser per property; the model's catalog covers the
  *  rest). The first build kept one plain `{ name: group }` map under this key: it is wrapped as the store's un-keyed
  *  version 0 here, so createPropertyStore hands it to Neukölln, where it was made. "Reset demo" clears every property. */
-const GROUPS_KEY = 'hospitable-khb-amenity-groups'
+const GROUPS_KEY = 'hostaway-khb-amenity-groups'
 try {
   const raw: unknown = JSON.parse(localStorage.getItem(GROUPS_KEY) ?? 'null')
   if (raw && typeof raw === 'object' && !('state' in raw)) localStorage.setItem(GROUPS_KEY, JSON.stringify({ state: { groups: raw }, version: 0 }))

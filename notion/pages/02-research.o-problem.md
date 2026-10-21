@@ -1,14 +1,10 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Sampled · simulated** · The diagnosis, rewritten for Smart Listings. The product facts are real (`REAL·PRODUCT`); what hosts vary and how they treat AI comes from simulated research (`SIMULATED`).
+	**Output · Sampled · simulated** · The diagnosis, rewritten for Smart Listings. The product facts are real (); what hosts vary and how they treat AI comes from simulated research ().
 </callout>
 ## The problem
-> Hosts keep the real version of their listing outside Hospitable and check each channel by hand, because the Knowledge Hub repeats the listing in its own copy, which Copilot answers guests from, and the product scatters "different per channel" across about 15 fields, while what hosts actually vary per channel is money and stay rules. And there is no safe way to tune each channel: the only listing AI today is Airbnb's Opportunities, and a suggestion that explains itself gets accepted without being checked.
+> Hosts keep the real version of their listing outside Hostaway and check each channel by hand, because the Knowledge Hub repeats the listing in its own copy, which the assistant answers guests from, and the product scatters "different per channel" across about 15 fields, while what hosts actually vary per channel is money and stay rules. And there is no safe way to tune each channel: the only listing AI today is Airbnb's Opportunities, and a suggestion that explains itself gets accepted without being checked.
 ## Root causes
-1. **The Knowledge Hub repeats the listing in its own copy, and learns nothing from guests' questions.** It is generated from Details and past messages, later edits don't reach it, and Copilot answers guests from that copy, not from the listing. The questions guests ask stay in the Inbox. `REAL·PUBLIC` · `REAL·PRODUCT`
-2. **"Per channel" is built field by field, around copy.** Customising a value for one channel happens one field at a time, while hosts vary fees and minimum stays far more than text. `REAL·PRODUCT` · `SIMULATED`
-3. **No screen shows one listing on one channel, and Save doesn't say where a change went.** Hosts can't see what a guest sees, or whether an edit arrived. `REAL·PRODUCT`
-4. **AI that persuades instead of being safe by construction.** An explanation raises acceptance without raising scrutiny, so a warning can't be the safety device. `SIMULATED`
-## How might we…
+1. **The Knowledge Hub repeats the listing in its own copy, and learns nothing from guests' questions.** It is generated from Details and past messages, later edits don't reach it, and the assistant answers guests from that copy, not from the listing. The questions guests ask stay in the Inbox. 2. **"Per channel" is built field by field, around copy.** Customising a value for one channel happens one field at a time, while hosts vary fees and minimum stays far more than text. 3. **No screen shows one listing on one channel, and Save doesn't say where a change went.** Hosts can't see what a guest sees, or whether an edit arrived. 4. **AI that persuades instead of being safe by construction.** An explanation raises acceptance without raising scrutiny, so a warning can't be the safety device. ## How might we…
 <table header-row="true">
 	<tr>
 		<td>How might we…</td>
@@ -16,7 +12,7 @@
 		<td>Signal</td>
 	</tr>
 	<tr>
-		<td>…keep one record of the home that every channel and Copilot read?</td>
+		<td>…keep one record of the home that every channel and the assistant read?</td>
 		<td>1</td>
 		<td>Strong</td>
 	</tr>
@@ -68,4 +64,4 @@ Root causes drawn from <mention-page url="https://app.notion.com/p/3eee18af16458
 - <mention-page url="https://app.notion.com/p/3eee18af164581b19c66d8d053ea6ab0">KD-12</mention-page>
 **In the prototype**
 - <mention-page url="https://app.notion.com/p/3eee18af164581828521eb27e3e50737">Solution overview</mention-page>
-- [open the prototype](https://hospitable-case-web.digimal.studio)
+- [open the prototype]()

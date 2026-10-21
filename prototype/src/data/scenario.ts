@@ -1,6 +1,6 @@
 /* The scenario property: Beautiful Artist Apt. in Neukölln (concepts/SCENARIO.md, D-082 / D-086).
- * REAL·PRODUCT values where the trial has them (check-in 3:00 PM and checkout 2:00 PM HS-28, cleaning €25 HS-33,
- * €44 / €55 HS-30, Knowledge Hub items HS-42). The Booking.com twin and everything else are SIMULATED.
+ * values where the trial has them (check-in 3:00 PM and checkout 2:00 PM HS-28, cleaning €25 HS-33,
+ * €44 / €55 HS-30, Knowledge Hub items HS-42). The Booking.com twin and everything else are .
  * Import arithmetic (SCENARIO.md): 142 fields read → 116 identical · 1 per channel by design · 4 to decide ·
  * 1 channel-owned · 9 only on one · 11 empty. S10 and S11 read these seeds through the store; don't fork them. */
 import { FIELD } from './canonical'
@@ -99,7 +99,7 @@ const SEEDS: Seed[] = [
   ['avail.restricted_days', 'None', 'airbnb'],
   ['price.base_nightly', '€44', 'host'],
   ['price.weekend', '€55', 'host'],
-  ['price.dynamic_pricing', 'Off in Hospitable · Airbnb Smart Pricing on', 'airbnb'],
+  ['price.dynamic_pricing', 'Off in Hostaway · Airbnb Smart Pricing on', 'airbnb'],
   ['price.min_max', null, 'host', 'gap'],
   ['price.channel_markup', '0% on both', 'host'],
   ['price.weekly_discount', '5% · 10% on Booking.com', 'airbnb'], // = Pricing: Base 5%, Booking.com 10% (data/v3-ch.ts)
@@ -192,13 +192,13 @@ export function seedDecisions(): Decision[] {
     },
     {
       id: 'smart-pricing', kind: 'consequence', group: 'money', fieldId: 'price.dynamic_pricing', title: 'Smart Pricing turns off on Airbnb',
-      meta: 'If Hospitable sets your nightly rate', channels: ['airbnb'], home: `${p}/pricing/rates`, status: 'open',
+      meta: 'If Hostaway sets your nightly rate', channels: ['airbnb'], home: `${p}/pricing/rates`, status: 'open',
       options: [
-        { id: 'hospitable', label: 'Hospitable sets €44 / €55 on both channels',
+        { id: 'hostaway', label: 'Hostaway sets €44 / €55 on both channels',
           consequence: 'Airbnb Smart Pricing turns off. Airbnb guests see €44 on weeknights from your first push.',
           queues: [{ channel: 'airbnb', label: 'Nightly rate', before: 'Smart Pricing', after: '€44 · weekends €55', fieldId: 'price.base_nightly' }] },
         { id: 'keep', label: 'Keep Airbnb Smart Pricing',
-          consequence: 'Hospitable reads Airbnb’s price and won’t send one. Booking.com gets €44 / €55 from Hospitable.' },
+          consequence: 'Hostaway reads Airbnb’s price and won’t send one. Booking.com gets €44 / €55 from Hostaway.' },
       ],
     },
     {
@@ -259,7 +259,7 @@ export function seedDecisions(): Decision[] {
     },
     {
       id: 'smart-listings', kind: 'opt-in', group: 'setup', title: 'Smart Listings',
-      meta: 'Let Hospitable suggest titles, descriptions and photo order per channel', channels: BOTH, home: `${p}/overview`, status: 'open',
+      meta: 'Let Hostaway suggest titles, descriptions and photo order per channel', channels: BOTH, home: `${p}/overview`, status: 'open',
       options: [
         { id: 'on', label: 'Turn on Smart Listings', consequence: 'Suggestions appear in Listing text and Needs you. Nothing changes without you. Turn off any time.' },
         { id: 'off', label: 'Not now', consequence: 'Everything else works the same: the home, Listings, receipts.' },

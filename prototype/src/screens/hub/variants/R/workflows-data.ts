@@ -1,4 +1,4 @@
-/* KH-R · Workflows data (concepts/knowledge-hub/R-BRIEF.md, "Agent 2 — R-workflows"). SIMULATED: the three seed
+/* KH-R · Workflows data (concepts/knowledge-hub/R-BRIEF.md, "Agent 2 — R-workflows"). the three seed
  * workflows below are plausible content for Neukölln (refs 04–06), not real host data. Every other property starts
  * with the template gallery only (no saved workflows) until the host creates one.
  * Step text carries chip tokens (`%guest_name%`, `%action:message%`…), the same `%shortcode%` convention as the rest
@@ -62,7 +62,7 @@ export function resolveStepText(text: string, data: Record<string, string>): { t
   return { text: out, action }
 }
 
-/* ---------- a sample reservation (SIMULATED: invented for the Test panel, not a real guest) ---------- */
+/* ---------- a sample reservation (invented for the Test panel, not a real guest) ---------- */
 export const SAMPLE_GUEST: Record<string, string> = { guest_name: 'Priya Shah', checkin_date: 'Fri, 10 Oct', checkout_date: 'Mon, 13 Oct' }
 
 /* ---------- workflows ---------- */
@@ -118,7 +118,7 @@ export const WORKFLOW_TEMPLATES: WfTemplate[] = [
     ] },
 ]
 
-/** Neukölln's three seeded, filled-in workflows (refs 04–06, SIMULATED content); every other property starts empty. */
+/** Neukölln's three seeded, filled-in workflows (refs 04–06, content); every other property starts empty. */
 export function seedWorkflowsFor(pid: string): Workflow[] {
   if (!isScenarioProperty(pid)) return []
   const from = (id: string, icon: string, title: string, trigger: string, steps: string[]): Workflow => ({ id, icon, title, trigger, steps: steps.map((text, i) => ({ id: `${id}-${sid(i)}`, text })) })

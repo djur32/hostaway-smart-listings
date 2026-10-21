@@ -1,5 +1,5 @@
 /* KH-E · Base and channel lens: data the lens needs that the shared data files don't carry (concepts/knowledge-hub/KH-E.md).
- * SIMULATED sample content (the Neukölln scenario); channel rules REAL·PUBLIC (Airbnb checkout instructions:
+ * sample content (the Neukölln scenario); channel rules (Airbnb checkout instructions:
  * airbnb.com/help/article/1926; Booking.com Genius). Everything else is read from data/v3-kh.ts (khItems), so the
  * lens shows the same Base and channel values the channel editors use. Store keys: FIELDS keys · `price:` · `avail:` ·
  * `amenity:<key>` ('on'/'off' per channel, the channel editor's key) · `kh.<id>` · `kh.x.<tab>.<slug>` (items added here,
@@ -22,7 +22,7 @@ export const TAB_LABEL: Record<KhSectionId, string> = {
 }
 export const isTab = (v: string | null): v is KhSectionId => !!v && ([...MAIN_TABS, ...MORE_TABS] as string[]).includes(v)
 
-/** Section head per tab under the Base lens (Arrival follows Hospitable's "Getting inside and setup" head). */
+/** Section head per tab under the Base lens (Arrival follows Hostaway's "Getting inside and setup" head). */
 export const TAB_HEAD: Record<KhSectionId, { title: string; desc: string }> = {
   property: { title: 'The property', desc: 'What kind of home this is. Edit here once; channels use it unless they have their own.' },
   descriptions: { title: 'Descriptions', desc: 'The name and texts guests read before they book. Edit here once; channels use them unless they have their own.' },
@@ -110,13 +110,13 @@ export const sourcesFor = (pid: string): ESource[] => (isScenarioProperty(pid) ?
   : genericSources(pid).map((x) => ({ id: x.id, name: x.title, sub: x.sub, icon: x.icon, when: x.meta, facts: `Gave ${x.facts} ${x.facts === 1 ? 'fact' : 'facts'}` })))
 export const NEW_SOURCES: Array<{ id: string; label: string; icon: string; card: Omit<ESource, 'id'> }> = [
   { id: 'pdf', label: 'Upload a PDF', icon: 'file-text', card: { name: 'Welcome letter (PDF)', sub: 'welcome-letter.pdf · 3 pages', icon: 'file-text', when: 'Added just now', facts: 'Reading…' } },
-  { id: 'link', label: 'Add a link', icon: 'link', card: { name: 'Your booking site', sub: 'artistflat.hospitable.rentals', icon: 'link', when: 'Added just now', facts: 'Reading…' } },
+  { id: 'link', label: 'Add a link', icon: 'link', card: { name: 'Your booking site', sub: 'artistflat.hostaway.rentals', icon: 'link', when: 'Added just now', facts: 'Reading…' } },
   { id: 'touchstay', label: 'Connect TouchStay', icon: 'book-2', card: { name: 'TouchStay guidebook', sub: 'Connected guidebook · 9 sections', icon: 'book-2', when: 'Added just now', facts: 'Reading…' } },
 ]
 
-/** "Add source" for a property: the scripted cards for Neukölln; another property's booking site is its own. ASSUMPTION. */
+/** "Add source" for a property: the scripted cards for Neukölln; another property's booking site is its own. . */
 export const newSourcesFor = (pid: string) => (isScenarioProperty(pid) ? NEW_SOURCES
-  : NEW_SOURCES.map((n) => (n.id === 'link' ? { ...n, card: { ...n.card, sub: `${pid.replace(/-/g, '')}.hospitable.rentals` } } : n)))
+  : NEW_SOURCES.map((n) => (n.id === 'link' ? { ...n, card: { ...n.card, sub: `${pid.replace(/-/g, '')}.hostaway.rentals` } } : n)))
 
 /* ---------- "+ Add": the types, pre-scoped to the tab (Paper KH-E2) ---------- */
 export type AddTypeId = 'task' | 'arrival' | 'resource' | 'amenity' | 'rule' | 'fee' | 'property' | 'place' | 'fact'

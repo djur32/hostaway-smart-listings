@@ -1,5 +1,5 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Done** · The objects Smart Listings is built on, and how they relate. Provenance: `REAL·PRODUCT` (the live prototype); the channel rules behind it are `REAL·PUBLIC`.
+	**Output · Done** · The objects Smart Listings is built on, and how they relate. Provenance: (the live prototype); the channel rules behind it are .
 </callout>
 ## The short version
 - A **property** keeps its listing details once, in **Shared**: the **Listing base** (the Details, Pricing and Availability every channel lists). The **Knowledge Hub** reads those details and keeps no copy. It adds what they don't say, the situations behind them, and its own job is the questions guests ask.
@@ -7,7 +7,7 @@
 - Every field on a channel page is one of four cases: it **uses the Base**, it is **custom for that channel**, it exists **only on that channel**, or it is **set by the channel** and the host can't change it.
 - **Smart Listings** adds a **strategy per channel**. The strategy produces **tips**, each with its why and sources. An accepted tip becomes a change that is sent with a receipt and Undo.
 ## The model
-![Object model · The objects Smart Listings is built on, and how they relate; every channel field is one of four cases. Prototype as built, REAL·PRODUCT; the channel rules behind it REAL·PUBLIC.](file-upload://3efe18af-1645-8169-8f87-00b22e771692)
+![Object model · The objects Smart Listings is built on, and how they relate; every channel field is one of four cases. Prototype as built, ; the channel rules behind it .](file-upload://3efe18af-1645-8169-8f87-00b22e771692)
 Booking policies have no Base: cancellation terms are each channel's own.
 ## Four cases for every channel field
 <table header-row="true">
@@ -38,7 +38,7 @@ Booking policies have no Base: cancellation terms are each channel's own.
 	</tr>
 </table>
 One edge case follows the same rule. A value that must match everywhere says **All channels** and is edited once for every channel (check-in time, Wi-Fi name). Airbnb's checkout tasks and short-stay cleaning fee are also **Airbnb only**.
-![Booking.com › Listing in the prototype. Photos and the property name are custom for Booking.com; the summary is locked because Booking.com decides it. Sample data SIMULATED.](file-upload://3efe18af-1645-8186-9267-00b207642382)
+![Booking.com › Listing in the prototype. Photos and the property name are custom for Booking.com; the summary is locked because Booking.com decides it. Sample data .](file-upload://3efe18af-1645-8186-9267-00b207642382)
 ## What Smart Listings adds
 - **Strategy:** one per channel, or one shared by several. It holds a goal, who to attract, guardrails (a price range and what always asks first) and Autopilot on or off.
 - **Tip:** a proposed value for one field on one channel. Its why cites Knowledge Hub facts, guest inquiries and similar homes. The host accepts or dismisses it, or generates alternatives.
@@ -65,6 +65,6 @@ Built up from the product audit (how Details, the Knowledge Hub and "Edit per ch
 - <mention-page url="https://app.notion.com/p/3eee18af164581b19c66d8d053ea6ab0">KD-12</mention-page>
 - <mention-page url="https://app.notion.com/p/3eee18af1645819d96d4cff8530e1600">KD-05</mention-page>
 **In the prototype**
-- [Booking.com › Listing](https://hospitable-case-web.digimal.studio/property/neukolln/ch/booking/listing)
+- [Booking.com › Listing]()
 - <mention-page url="https://app.notion.com/p/3eee18af164581178debffa0628f4703">Listing base & channels</mention-page>
 - <mention-page url="https://app.notion.com/p/3eee18af1645811f8fcfcbffc7cbb69d">Knowledge Hub</mention-page>

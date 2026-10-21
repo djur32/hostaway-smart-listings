@@ -1,5 +1,5 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Done** · 70 real screens from Mobbin, studied for the phone and tablet layouts: forms, overrides, AI suggestions, sheets, navigation, photos, wizards, dashboards, feedback and calendars. Third-party UI (`REAL·PUBLIC`), saved as local copies because Mobbin image links expire. Each screen links to its Mobbin page, which needs a Mobbin login. Internal reference: keep this page private.
+	**Output · Done** · 70 real screens from Mobbin, studied for the phone and tablet layouts: forms, overrides, AI suggestions, sheets, navigation, photos, wizards, dashboards, feedback and calendars. Third-party UI (), saved as local copies because Mobbin image links expire. Each screen links to its Mobbin page, which needs a Mobbin login. Internal reference: keep this page private.
 </callout>
 What came of them is on <mention-page url="https://app.notion.com/p/3eee18af164581daa8b7f210cb1c6f4e">Mobile & tablet</mention-page>.
 Each group opens below: the screen, then what I borrowed from it.
@@ -58,7 +58,7 @@ Each group opens below: the screen, then what I borrowed from it.
 	<columns>
 		<column>
 			![MD Vinyl (iOS): Grouped options where Theme and Vinyl selects show "Follow App" as their value, i.e. inheriting from the app-level setting](file-upload://3efe18af-1645-8195-874d-00b249177cfa)
-			**MD Vinyl (iOS)** · Put the inheritance in the value itself: a channel field reads "Same as Hospitable" until the host picks something else · [Open on Mobbin](https://mobbin.com/screens/84600193-f2da-441e-8612-ed385d7c1191) {color="gray"}
+			**MD Vinyl (iOS)** · Put the inheritance in the value itself: a channel field reads "Same as Hostaway" until the host picks something else · [Open on Mobbin](https://mobbin.com/screens/84600193-f2da-441e-8612-ed385d7c1191) {color="gray"}
 		</column>
 		<column>
 			![Shopify (iOS): Price sheet (Cancel / Save) with base price fields, derived Margin and Profit tiles, and an "International pricing" link below as the…](file-upload://3efe18af-1645-81e5-b38a-00b24cc2c041)
@@ -158,7 +158,7 @@ Each group opens below: the screen, then what I borrowed from it.
 	<columns>
 		<column>
 			![Airbnb (hosting mode) (iOS): Host tab bar Today / Calendar / Listings / Messages / Menu; the Menu tab is a grouped list (Hosting: Reservations…](file-upload://3efe18af-1645-8180-95fd-00b2a75d8a67)
-			**Airbnb (hosting mode) (iOS)** · The closest domain analogue for Hospitable's shell: 4 core tabs + a Menu tab that holds everything else as a grouped list · [Open on Mobbin](https://mobbin.com/screens/ec965d5f-a216-49db-b44b-7ee988a9d7d7) {color="gray"}
+			**Airbnb (hosting mode) (iOS)** · The closest domain analogue for Hostaway's shell: 4 core tabs + a Menu tab that holds everything else as a grouped list · [Open on Mobbin](https://mobbin.com/screens/ec965d5f-a216-49db-b44b-7ee988a9d7d7) {color="gray"}
 		</column>
 		<column>
 			![Airbnb (hosting mode) (iOS): Listings tab: "Your listing" with a big photo card, a "Listed" status pill with a green dot, name and location; + to add](file-upload://3efe18af-1645-811a-a271-00b2e1297b31)
@@ -232,7 +232,7 @@ Each group opens below: the screen, then what I borrowed from it.
 		</column>
 		<column>
 			![Tripadvisor (iOS): "Add caption" sheet for one photo: the photo, a "Room/Suite" category select, a caption textarea, Save](file-upload://3efe18af-1645-8141-a646-00b262fb0358)
-			**Tripadvisor (iOS)** · The per-photo edit sheet: photo on top, room select, caption, then (for Hospitable) per-channel visibility and Delete · [Open on Mobbin](https://mobbin.com/screens/28425944-849f-4d9f-8666-76d27be98a53) {color="gray"}
+			**Tripadvisor (iOS)** · The per-photo edit sheet: photo on top, room select, caption, then (for Hostaway) per-channel visibility and Delete · [Open on Mobbin](https://mobbin.com/screens/28425944-849f-4d9f-8666-76d27be98a53) {color="gray"}
 		</column>
 	</columns>
 ### Multi-step flows and wizards (8) {toggle="true"}
@@ -269,7 +269,7 @@ Each group opens below: the screen, then what I borrowed from it.
 	<columns>
 		<column>
 			![Wise (business) (iOS): "Confirm trading address": plain explainer, a learn-more link, the captured values as label/value pairs with one Edit link per…](file-upload://3efe18af-1645-81fa-934a-00b2ac343060)
-			**Wise (business) (iOS)** · A read-back of imported data with an Edit per block, used when the host confirms what Hospitable imported · [Open on Mobbin](https://mobbin.com/screens/21bae757-6c53-4604-9b8a-973c5937c5a2) {color="gray"}
+			**Wise (business) (iOS)** · A read-back of imported data with an Edit per block, used when the host confirms what Hostaway imported · [Open on Mobbin](https://mobbin.com/screens/21bae757-6c53-4604-9b8a-973c5937c5a2) {color="gray"}
 		</column>
 		<column>
 			![Affirm (iOS): Payment plan radio cards, each with a tag naming its trade-off ("0% APR", "Lowest monthly payment") and a consequence line ("\$2.89…](file-upload://3efe18af-1645-81c6-b778-00b2843d0e9b)
@@ -366,7 +366,7 @@ Each group opens below: the screen, then what I borrowed from it.
 		</column>
 		<column>
 			![Airbnb (hosting mode) (iOS): Host Calendar tab: listing thumbnail + name as a switcher in the header, calendar/settings icons, vertical month scroll…](file-upload://3efe18af-1645-8161-a218-00b22c9c62cf)
-			**Airbnb (hosting mode) (iOS)** · The baseline Hospitable hosts already know: entity switcher in the header, price in every cell, per-month promo link · [Open on Mobbin](https://mobbin.com/screens/9a897daa-8e70-4e8c-adef-072c9f8aba9c) {color="gray"}
+			**Airbnb (hosting mode) (iOS)** · The baseline Hostaway hosts already know: entity switcher in the header, price in every cell, per-month promo link · [Open on Mobbin](https://mobbin.com/screens/9a897daa-8e70-4e8c-adef-072c9f8aba9c) {color="gray"}
 		</column>
 	</columns>
 	<columns>

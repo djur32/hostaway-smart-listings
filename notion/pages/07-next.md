@@ -1,5 +1,5 @@
 <callout icon="🧭" color="gray_bg">
-	**In one line:** what Smart Listings sets off across Hospitable, where it still falls short, and what comes next: test and harden it, then import on the same model, then optimisation over time.
+	**In one line:** what Smart Listings sets off across Hostaway, where it still falls short, and what comes next: test and harden it, then import on the same model, then optimisation over time.
 </callout>
 ## What came out of it
 - Shared becomes the record the whole product reads, so a listing fact also reaches guest replies, pricing, operations and owner statements.
@@ -16,7 +16,7 @@
 	<column>
 		### Outputs
 		<page url="https://app.notion.com/p/3eee18af1645815caf9bc8e55ee265e9">Second-order effects</page>
-		<page url="https://app.notion.com/p/3efe18af164581ca9ab6d4324a44d082">Smart Listings across Hospitable</page>
+		<page url="https://app.notion.com/p/3efe18af164581ca9ab6d4324a44d082">Smart Listings across Hostaway</page>
 		<page url="https://app.notion.com/p/3efe18af164581ea8da9ebb89ab9b22f">Where it falls short</page>
 		<page url="https://app.notion.com/p/3eee18af1645818daddff9b46244175c">Roadmap</page>
 		All four planned: effects, connections, gaps and next steps. Nothing observed.

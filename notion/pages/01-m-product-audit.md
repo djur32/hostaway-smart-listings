@@ -1,9 +1,8 @@
 <callout icon="🔭" color="gray_bg">
-	**Method · Done** · A close read of Hospitable's listing management as it is today, from the supplied screenshots, a trial account and the public help centre. Provenance: `REAL·PRODUCT` and `REAL·PUBLIC`.
+	**Method · Done** · A close read of Hostaway's listing management as it is today, from the supplied screenshots, a trial account and the public help centre. Provenance: and .
 </callout>
 ## Why this method
-Smart Listings changes how a host edits one listing per channel. Before changing that, I needed the real map: where listing data lives, how "different per channel" works, what the AI already does, and where editing breaks down. The supplied screenshots and a free trial made this possible. `REAL·BRIEF`
-## What I did
+Smart Listings changes how a host edits one listing per channel. Before changing that, I needed the real map: where listing data lives, how "different per channel" works, what the AI already does, and where editing breaks down. The supplied screenshots and a free trial made this possible. ## What I did
 <table header-row="true">
 	<tr>
 		<td>Source</td>

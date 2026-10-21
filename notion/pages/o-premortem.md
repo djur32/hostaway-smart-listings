@@ -1,5 +1,5 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Planned** · Imagine it shipped and failed. Seven ways Smart Listings could fail, the early signal for each, the test that catches it, and what I'd do. Every row is `PROJECTED` or `ASSUMPTION`; nothing has shipped.
+	**Output · Planned** · Imagine it shipped and failed. Seven ways Smart Listings could fail, the early signal for each, the test that catches it, and what I'd do. Every row is or ; nothing has shipped.
 </callout>
 ## The short version
 - **The premise:** twelve months after launch, Smart Listings didn't work. Hosts didn't trust it, didn't use it, or it broke something. Why?
@@ -28,20 +28,20 @@
 		<td>Rework labels. If comprehension still fails after two rounds, mostly for family hosts and hosts new to a PMS, revisit the channel-first menu and test a record-first variant. Check the replica of today's product against real screenshots first, or the A/B leans toward the redesign.</td>
 	</tr>
 	<tr>
-		<td>**3 · The AI says something untrue in public.** A tip or an Autopilot rewrite claims an amenity the home doesn't have, as today's "Ask the AI" did with wheelchair access `REAL·PRODUCT`.</td>
+		<td>**3 · The AI says something untrue in public.** A tip or an Autopilot rewrite claims an amenity the home doesn't have, as today's "Ask the AI" did with wheelchair access .</td>
 		<td>AI copy reverted or complained about; dismissals by element</td>
-		<td>Nothing today. Needed: an offline set of about 200 real listings × tip types, scored for unsupported claims, channel limits and tone. Gate: zero unsupported claims before the pilot `ASSUMPTION`.</td>
+		<td>Nothing today. Needed: an offline set of about 200 real listings × tip types, scored for unsupported claims, channel limits and tone. Gate: zero unsupported claims before the pilot .</td>
 		<td>Above 10% reverted, turn that tip type off for that channel. Any channel strike pauses Autopilot for every host.</td>
 	</tr>
 	<tr>
-		<td>**4 · The channels won't take what Hospitable sends.** Rejections, rate limits, or terms against automated content updates.</td>
+		<td>**4 · The channels won't take what Hostaway sends.** Rejections, rate limits, or terms against automated content updates.</td>
 		<td>Fields rejected per field sent: ≤ 2%, never silent</td>
 		<td>Event check on channel sandboxes in the internal rollout step</td>
 		<td>Withdraw Autopilot on that channel; tips stay. The confirmation event per field and channel doesn't exist today, so it's the first engineering ask.</td>
 	</tr>
 	<tr>
 		<td>**5 · Smart Listings is ignored.** Some hosts never turn it on; those who do dismiss most tips.</td>
-		<td>Opt-in (35% of eligible properties at 6 months `PROJECTED`); acceptance by channel, element and source</td>
+		<td>Opt-in (35% of eligible properties at 6 months ); acceptance by channel, element and source</td>
 		<td>Trust probes in the think-aloud; the pilot</td>
 		<td>Stop investing in Autopilot and keep tips light. Report opt-in only for the personas it's on by default for (SEO optimizers and portfolio managers).</td>
 	</tr>
@@ -49,10 +49,10 @@
 		<td>**6 · Lab wins don't survive real use.** Faster in the A/B, no faster in the product.</td>
 		<td>Time to adjust in the lab vs in the product, on the same index</td>
 		<td>Pilot against a matched holdout</td>
-		<td>If the product lags the lab by more than 20 index points `ASSUMPTION`, review the field-level funnel before general release.</td>
+		<td>If the product lags the lab by more than 20 index points review the field-level funnel before general release.</td>
 	</tr>
 	<tr>
-		<td>**7 · Hospitable can't learn after launch.** Performance compares a strategy with the stretch before it, and season and price confound that.</td>
+		<td>**7 · Hostaway can't learn after launch.** Performance compares a strategy with the stretch before it, and season and price confound that.</td>
 		<td>Strategy periods too short to compare; wide ranges on occupancy and revenue</td>
 		<td>No test catches it; the screen has to say it</td>
 		<td>Give Performance a "not enough data yet" verdict before any host reads a change as proof. The build only holds results back in a strategy's first week. It has no minimum-run rule after that. Saved versions come back only if periods prove unusable.</td>
@@ -72,7 +72,7 @@
 - **Each rollout step:** the decision rules decide ship, iterate or roll back, written down with the numbers that decided it.
 - **Each quarter:** time to adjust and tickets against the holdout, and the <mention-page url="https://app.notion.com/p/3eee18af1645818daddff9b46244175c">Roadmap</mention-page>'s kill criteria: keep, change direction, or stop.
 ## How it was made
-A project pre-mortem: assume the launch failed, list why, then give each failure an early signal and a test before it can happen (`REAL·PUBLIC`, [Klein, "Performing a project premortem", HBR](https://hbr.org/2007/09/performing-a-project-premortem)). The original list also covered setup; those stories moved to the Roadmap with the import work.
+A project pre-mortem: assume the launch failed, list why, then give each failure an early signal and a test before it can happen ([Klein, "Performing a project premortem", HBR](https://hbr.org/2007/09/performing-a-project-premortem)). The original list also covered setup; those stories moved to the Roadmap with the import work.
 ---
 **Builds on**
 - <mention-page url="https://app.notion.com/p/3eee18af1645813d9391e336e308e3d7">Goals & KPIs</mention-page>
@@ -85,4 +85,4 @@ A project pre-mortem: assume the launch failed, list why, then give each failure
 - <mention-page url="https://app.notion.com/p/3eee18af16458160a7c1c703fcb2a033">KD-08</mention-page>
 - <mention-page url="https://app.notion.com/p/3eee18af1645812290f5e2113a9a0844">KD-07</mention-page>
 **In the prototype**
-- [Airbnb listing with Autopilot on](https://hospitable-case-web.digimal.studio/property/neukolln/ch/airbnb/listing?smart=on)
+- [Airbnb listing with Autopilot on]()

@@ -22,7 +22,7 @@ export function installAppHead() {
   meta('viewport', 'width=device-width, initial-scale=1, viewport-fit=cover')
   meta('apple-mobile-web-app-capable', 'yes')
   meta('mobile-web-app-capable', 'yes')
-  meta('apple-mobile-web-app-title', 'Hospitable')
+  meta('apple-mobile-web-app-title', 'Hostaway')
   // "default": a white status bar with dark text, the app's own top (the real app is white under the clock)
   meta('apple-mobile-web-app-status-bar-style', 'default')
   meta('theme-color', getComputedStyle(document.documentElement).getPropertyValue('--color-surface-primary').trim() || 'white')
@@ -30,5 +30,5 @@ export function installAppHead() {
   // /app on any deployment installs with start_url /app/; the mobile build installs the root
   link('manifest', `${BASE}pwa/${APP_PATH ? 'app' : 'root'}.webmanifest`)
   link('apple-touch-icon', `${BASE}pwa/apple-touch-icon.png`, { sizes: '180x180' })
-  document.title = 'Hospitable'
+  document.title = 'Hostaway'
 }

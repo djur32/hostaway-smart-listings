@@ -72,7 +72,7 @@ export function Found() {
       <StepTrail current="found" />
       <div className="p-row p-sb" style={{ alignItems: 'flex-end' }}>
         <div>
-          <h1 className="h-h1">Here’s your place in Hospitable</h1>
+          <h1 className="h-h1">Here’s your place in Hostaway</h1>
           <p className="h-intro" style={{ marginTop: 6 }}>
             {single ? <>We read <b>142</b> things from your Airbnb listing and put each one in its place.</>
               : <>We read <b>{IMPORT_COUNTS.read}</b> things from your 2 listings. <b>{IMPORT_COUNTS.identical} match.</b> {ny.open.length} need you: {differ} {differ === 1 ? 'difference' : 'differences'}{choices.length > 0 && <>, and {choices.length === 1 ? 'one choice' : `${choices.length} choices`} only you can make ({choices.join(', ')})</>}.</>}
@@ -82,7 +82,7 @@ export function Found() {
         <Button kind="primary" size="lg" className="p-flow__top-cta" onClick={toNeedsYou}>{reviewLabel}</Button>
       </div>
 
-      {demo === 'snoozed' && <div className="p-mt4"><Explainer title="Your Airbnb listing is snoozed on Airbnb" icon="eye-off">We imported it as it is. <b>It stays snoozed:</b> Hospitable never changes a listing’s status without asking. Unsnooze it here or on Airbnb when you’re ready.</Explainer></div>}
+      {demo === 'snoozed' && <div className="p-mt4"><Explainer title="Your Airbnb listing is snoozed on Airbnb" icon="eye-off">We imported it as it is. <b>It stays snoozed:</b> Hostaway never changes a listing’s status without asking. Unsnooze it here or on Airbnb when you’re ready.</Explainer></div>}
       {demo === 'drift' && <div className="p-mt4"><Explainer title="Your Airbnb title changed 2 minutes ago, on Airbnb" icon="alert-triangle">We read the new title (“Artist Apt. · Neukölln · Near Tempelhof”). The one we read first is in the copy of what we imported, so nothing is lost. From now on, an edit on Airbnb shows up as “Changed on Airbnb · Review”.</Explainer></div>}
 
       {!single && (
@@ -163,7 +163,7 @@ export function Found() {
 }
 
 /** P3 migration mode: every listing found, matched into properties, in batches (I-15, D-136). */
-/* Portfolio rules (P3, R-085 bulk): each maps to the scenario decision it settles. Other rows are SIMULATED counts. */
+/* Portfolio rules (P3, R-085 bulk): each maps to the scenario decision it settles. Other rows are counts. */
 const RULES: Array<{ decision: string; option: string }> = [
   { decision: 'fee-cleaning', option: 'keep' }, { decision: 'min-stay', option: 'keep' }, { decision: 'checkin', option: 'a' },
 ]

@@ -1,5 +1,5 @@
 /* Listing details › Add amenity › Filters (rebuilt; the real dialog, ref 08, offered static pills with no visible
- * selection and a raspberry "Remove filters"). Two chip multi-selects: Categories (Hospitable's 14) and Channels (the
+ * selection and a raspberry "Remove filters"). Two chip multi-selects: Categories (Hostaway's 14) and Channels (the
  * property's connected channels). Within a group a chip widens the match (any of); across groups they narrow it.
  * Footer: "Remove filters" (text link, left) · Cancel · Apply filters. Desktop: a centred dialog over the drawer. Phones:
  * the Add amenity sheet swaps its list for the same fields and footer (AddAmenityDrawer). */

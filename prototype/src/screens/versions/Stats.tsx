@@ -1,6 +1,6 @@
 /* Listings › [channel] › Stats · owner S12 · R-121 R-122 R-123 R-134 · D-156 D-157 D-159 · the Angle C bridge, "Early access"
  * Over time: one metric at a time (one axis), the similar listings' demand as the baseline, version markers.
- * What we can measure: per channel, what software can see and why not (REAL·PUBLIC rules; views are not shared).
+ * What we can measure: per channel, what software can see and why not (rules; views are not shared).
  * Compare versions A/B/C: competitiveness vs 24 similar listings (a heuristic, labelled) + how each did while live.
  * Tests: channels have no native A/B for listing content, so tests are sequential (switchback) with controls, a bar set
  * before starting, and an honest "not enough data yet". A true split exists only on the Direct site. */

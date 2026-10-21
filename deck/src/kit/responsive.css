@@ -4,7 +4,7 @@
    What this file handles is everything that does NOT scale with the stage: the
    orientation gate, the touch controls, and the reading zoom a finger needs.
 
-   Landscape from tablet up; portrait asks for a turn (Antonio, 2026-09-28: "from
+   Landscape from tablet up; portrait asks for a turn (review, 2026-09-28: "from
    tablet onwards make it horizontal… if you put it in vertical then create an
    overlay indicating you have to turn your phone"). Breakpoints are the site's:
    1024, 900, 768, 560.
@@ -42,7 +42,7 @@
 
 /* ── touch: the controls a finger needs, outside the stage so they never scale ── */
 /* A column on the right edge, halfway down: light/dark, back, forward, and nothing else
-   (Antonio, 2026-09-29: "the controls must be on the right in vertical... the slide numbers
+   (review, 2026-09-29: "the controls must be on the right in vertical... the slide numbers
    must be removed from the controls... remove the search and the zoom"). The edges carry the
    chrome on a phone so the slide keeps the middle. */
 .tbar {

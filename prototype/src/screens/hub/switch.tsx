@@ -1,5 +1,5 @@
-/* Knowledge Hub iterations (Antonio, 30 Sep: "four or five different iterations, and a dropdown to select which one to open").
- * ?v=a…e picks one; the choice is remembered for the session. Paper: "Hospitable v2" › KH · Knowledge Hub directions. */
+/* Knowledge Hub iterations (review, 30 Sep: "four or five different iterations, and a dropdown to select which one to open").
+ * ?v=a…e picks one; the choice is remembered for the session. Paper: "Hostaway v2" › KH · Knowledge Hub directions. */
 import { useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { Dropdown } from '../../ds'
@@ -14,7 +14,7 @@ export const HUB_VARIANTS = [
   { id: 's', label: 'S · Sections list (first build)' },
 ] as const
 export type HubVariant = (typeof HUB_VARIANTS)[number]['id']
-const KEY = 'hospitable-hub-variant'
+const KEY = 'hostaway-hub-variant'
 const read = (): HubVariant | null => { try { return sessionStorage.getItem(KEY) as HubVariant | null } catch { return null } }
 
 export function useHubVariant(): HubVariant {

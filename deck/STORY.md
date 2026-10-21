@@ -1,8 +1,8 @@
-# STORY · the Hospitable deck, slide by slide
+# STORY · the Hostaway deck, slide by slide
 
 > The narrative spine for S17. Each slide says **one thing**; this file is where that thing is written first. S17 sharpens a message here when the evidence says something better, then changes the slide. Outline from MASTER-PLAN §7 (S17 owns the final version). Slides live in `src/slides/NN-part.html`.
 
-**The story in three lines.** Hospitable already has two truths about every property (Details and the Knowledge Hub) and a silent moment after "You're connected". *A creates the truth*: import, reconcile, and a Knowledge Hub where every fact shows its source. *B puts it to work*: a Smart Listing studio that writes each channel's voice from those facts, with the host in the loop. The process (discovery, research, IA, concept, design, test, measure) is the spine. The tension is the problem.
+**The story in three lines.** Hostaway already has two truths about every property (Details and the Knowledge Hub) and a silent moment after "You're connected". *A creates the truth*: import, reconcile, and a Knowledge Hub where every fact shows its source. *B puts it to work*: a Smart Listing studio that writes each channel's voice from those facts, with the host in the loop. The process (discovery, research, IA, concept, design, test, measure) is the spine. The tension is the problem.
 
 **Paths** (Personalise, `V`): **S** Short · **St** Standard (the ~22-minute Loom) · **E** Everything. Today: Short 21, Standard 41 (21.3 min), Everything 49 (25.3 min). The plan's targets are ≈18 and ≈32 (OQ-070).
 **Angle** (`data-angle`): A · B · both · none. Scope guard: ≥ 70% of Standard slides are A, B or both. Today it's 36 of 41 (88%).
@@ -89,7 +89,7 @@
 | 38 | `ds-portfolio` | Portfolio: bulk, and pricing at two levels | Strategy set once for the portfolio, overridden per property where it matters. | E | B | 05-design | browser | R-115 R-114 R-133 | S12 · SCR-05 |
 | 39 | `ds-mobile` | Mobile and voice | On the phone, the host approves and steers by voice rather than editing fields. | St | both | 05-design | mobile | R-140 R-141 R-076 | S13 · /mobile |
 | 40 | `ds-states` | States and edge cases | Sync failed, a channel refused, a fact drifted: every state has a screen and a way out. | E | both | 05-design | states | R-064 R-165 R-020 | S14 · States DB |
-| 41 | `ds-system` | The design system, extended | New patterns join Hospitable's system first, then the screens use them. | E | none | 05-design | dsys | R-150 R-151 R-153 R-154 R-155 | S02 · ds/ |
+| 41 | `ds-system` | The design system, extended | New patterns join Hostaway's system first, then the screens use them. | E | none | 05-design | dsys | R-150 R-151 R-153 R-154 R-155 | S02 · ds/ |
 
 ## Test & measure · `60-test.html`
 

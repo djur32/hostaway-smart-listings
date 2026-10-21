@@ -1,4 +1,4 @@
-/* Knowledge Hub iteration R · the no-knowledge-base state (refs kh-next/01–02, REAL·PRODUCT, "keep it as is").
+/* Knowledge Hub iteration R · the no-knowledge-base state (refs kh-next/01–02, "keep it as is").
  * Four seeds start at kb:'none' (Charlottenburg, Moabit, Treptow, Potsdam); clicking Generate runs the six real steps
  * with a growing list (most recent on top, exactly as the product shows it) before landing on the normal Overview.
  * R drives the timing itself (R-BRIEF.md): ~0.8–1.2s a step, then `setKb('ready')`. */

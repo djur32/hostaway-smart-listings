@@ -1,13 +1,13 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Planned** · Where Smart Listings falls short: four lines of work the build implies but doesn't finish, and how I'd run each. Nothing here is built or measured. Provenance: "exists now" is the prototype, its figures `SIMULATED`; today's product `REAL·PRODUCT`; every step, owner and effect `ASSUMPTION`; targets `PROJECTED`.
+	**Output · Planned** · Where Smart Listings falls short: four lines of work the build implies but doesn't finish, and how I'd run each. Nothing here is built or measured. Provenance: "exists now" is the prototype, its figures ; today's product ; every step, owner and effect ; targets .
 </callout>
-![Where Smart Listings falls short, on one page: the four lines of work, each with what exists now, what is missing, how I'd run it, who is involved and the measure that says it worked. A sketch of planned work: the Performance chart has no data and the tips are sketches. Plans ASSUMPTION, targets PROJECTED.](file-upload://3efe18af-1645-817f-bc1a-00b2b2ab4ca7)
+![Where Smart Listings falls short, on one page: the four lines of work, each with what exists now, what is missing, how I'd run it, who is involved and the measure that says it worked. A sketch of planned work: the Performance chart has no data and the tips are sketches. Plans targets .](file-upload://3efe18af-1645-817f-bc1a-00b2b2ab4ca7)
 ## The short version
 - **Comps.** Similar homes already shape the wizard, a tip's why and Performance, but only as sample data. Where comps come from, what "similar" means on each channel and how they stay private are all undecided.
 - **Knowledge Hub.** Questions, Insights, Facts and Sources are built, as a concept on demo data. Real Inbox questions, answers that stay faithful to the Listing base, and facts that know which messages, tasks and workflows use them are still ahead.
 - **Performance** is the deepest gap. It compares a channel with the stretch before its strategy, but doesn't yet say whether that comparison is fair, what moved the number, or which lever to pull.
 - **Tips beyond the listing.** Only channel pages raise tips. Raised by Inbox, Calendar and other areas through one contract, tips become a system instead of a one-off.
-- Where each line sits in time is on the <mention-page url="https://app.notion.com/p/3eee18af1645818daddff9b46244175c">Roadmap</mention-page>; how the areas connect is in <mention-page url="https://app.notion.com/p/3efe18af164581ca9ab6d4324a44d082">Smart Listings across Hospitable</mention-page>.
+- Where each line sits in time is on the <mention-page url="https://app.notion.com/p/3eee18af1645818daddff9b46244175c">Roadmap</mention-page>; how the areas connect is in <mention-page url="https://app.notion.com/p/3efe18af164581ca9ab6d4324a44d082">Smart Listings across Hostaway</mention-page>.
 ## At a glance
 <table header-row="true" fit-page-width="true">
 	<tr>
@@ -19,7 +19,7 @@
 	</tr>
 	<tr>
 		<td>**Comps per channel**</td>
-		<td>One sample set of similar homes `SIMULATED`, read by the wizard, tips and Performance</td>
+		<td>One sample set of similar homes read by the wizard, tips and Performance</td>
 		<td>A real, private, per-channel dataset the host can inspect</td>
 		<td>Data · ML · Legal · Integrations</td>
 		<td>Tips backed by similar homes are accepted and kept</td>
@@ -33,13 +33,13 @@
 	</tr>
 	<tr>
 		<td>**Performance, done thoroughly**</td>
-		<td>Before vs since, eight cards, four charts `SIMULATED`</td>
+		<td>Before vs since, eight cards, four charts </td>
 		<td>A fair reading, what changed when, and the lever behind each number</td>
 		<td>Data · Integrations · ML · Research · Support</td>
 		<td>Hosts read the verdict right; bookings and requests rise against each listing's own weeks before</td>
 	</tr>
 	<tr>
-		<td>**Tips across Hospitable**</td>
+		<td>**Tips across Hostaway**</td>
 		<td>Tips on channel pages; a Hub question shows the tips that use its facts</td>
 		<td>One tip contract any area can raise</td>
 		<td>Design system · area PMs · ML · Support · Legal</td>
@@ -47,9 +47,9 @@
 	</tr>
 </table>
 ## 1 · Comps: similar homes, per channel
-**Exists now.** Similar homes are the quiet engine of the build. The strategy wizard quotes their price range and how many use each cancellation policy; a tip's "Strategy" bullet cites them ("8 of 24 similar homes state the speed in The space"); five Performance cards carry a "Similar homes" line, two of them a fixed stand-in. All of it reads one sample: 24 homes within 1.5 km with 2 guests and 1 bedroom, the host's own units excluded `SIMULATED`. No screen shows the host which homes those are.
+**Exists now.** Similar homes are the quiet engine of the build. The strategy wizard quotes their price range and how many use each cancellation policy; a tip's "Strategy" bullet cites them ("8 of 24 similar homes state the speed in The space"); five Performance cards carry a "Similar homes" line, two of them a fixed stand-in. All of it reads one sample: 24 homes within 1.5 km with 2 guests and 1 bedroom, the host's own units excluded . No screen shows the host which homes those are.
 **What's missing.**
-- **A data basis.** Comps live in point tools such as AirDNA and PriceLabs today, outside the PMS (`REAL·PUBLIC`, <mention-page url="https://app.notion.com/p/3eee18af164581a68ccdf6e48d114553">Competitive analysis</mention-page>). Whether Hospitable may use what it sees across listings is a Legal question first.
+- **A data basis.** Comps live in point tools such as AirDNA and PriceLabs today, outside the PMS (<mention-page url="https://app.notion.com/p/3eee18af164581a68ccdf6e48d114553">Competitive analysis</mention-page>). Whether Hostaway may use what it sees across listings is a Legal question first.
 - **"Similar" per channel.** Each channel shares different signals, so one comp set can't serve Airbnb, Booking⁠.com and Direct alike.
 - **Privacy by design:** aggregates only, a minimum group size, never another host's text.
 - **A comp set the host can see and challenge** ("that home isn't like mine"), with its date range, because comps move with the season.
@@ -93,7 +93,7 @@
 </table>
 **It worked when** tips backed by similar homes are accepted and kept (tip acceptance next to AI copy reverted), hosts agree the comp set looks like their home, and no comp group falls under the minimum size. The last two have no measure yet.
 ## 2 · Knowledge Hub: from guests' questions to a better listing
-**Exists now** (Done, as a concept). The Hub's job is guests' questions. It has Questions, Insights, Facts and Sources (<mention-page url="https://app.notion.com/p/3eee18af1645814fa326e55e940a5942">KD-13</mention-page>). Questions are grouped by Hospitable's nine topics (`REAL·PRODUCT`), counted per channel and marked answered or not. Facts are read from the Listing base, never copied. Copilot answers guests only from what backs an answer, otherwise it asks the host, and a gap becomes a tip whose accepted answer goes into the Listing base. Questions, counts and answers are scripted demo data (`SIMULATED`), and adding a document on Sources is a preview. The stakes are real: today the Hub keeps its own copy of the listing, which later edits don't reach, and on a trial listing Ask the AI said the flat is wheelchair accessible with nothing behind it (`REAL·PRODUCT`, <mention-page url="https://app.notion.com/p/3eee18af16458163b059f704859d3a6a">Current-state map</mention-page>).
+**Exists now** (Done, as a concept). The Hub's job is guests' questions. It has Questions, Insights, Facts and Sources (<mention-page url="https://app.notion.com/p/3eee18af1645814fa326e55e940a5942">KD-13</mention-page>). Questions are grouped by Hostaway's nine topics (), counted per channel and marked answered or not. Facts are read from the Listing base, never copied. The assistant answers guests only from what backs an answer, otherwise it asks the host, and a gap becomes a tip whose accepted answer goes into the Listing base. Questions, counts and answers are scripted demo data (), and adding a document on Sources is a preview. The stakes are real: today the Hub keeps its own copy of the listing, which later edits don't reach, and on a trial listing Ask the AI said the flat is wheelchair accessible with nothing behind it (<mention-page url="https://app.notion.com/p/3eee18af16458163b059f704859d3a6a">Current-state map</mention-page>).
 **What's missing** (Planned). It is marked Concept in the prototype for a reason: there are many ways to evolve it. Three directions matter most.
 <table header-row="true" fit-page-width="true">
 	<tr>
@@ -108,7 +108,7 @@
 	</tr>
 	<tr>
 		<td>**Faithful answers only**</td>
-		<td>Copilot answers guests only from listing details and from Facts the host wrote or confirmed. When nothing backs an answer, it says so and asks the host, and the host's answer is saved where it belongs: a listing detail in the Base, a situation in the Hub. A guidebook or other document comes in as candidate facts the host confirms, never trusted unseen. Each fact shows when it was last confirmed.</td>
+		<td>The assistant answers guests only from listing details and from Facts the host wrote or confirmed. When nothing backs an answer, it says so and asks the host, and the host's answer is saved where it belongs: a listing detail in the Base, a situation in the Hub. A guidebook or other document comes in as candidate facts the host confirms, never trusted unseen. Each fact shows when it was last confirmed.</td>
 		<td>A typed-fact model the Hub reads from the Base; a named owner for the amenity list; an offline evaluation set for unsupported claims</td>
 	</tr>
 	<tr>
@@ -161,7 +161,7 @@
 </table>
 **It worked when** more guest questions are answered from confirmed facts (the Hub already marks each one answered, partly answered or not; no baseline yet), unsupported claims stay at zero in the offline evaluation set, and a change touches fewer places. Guardrails: Undo rate, overwrite incidents.
 ## 3 · Performance: what to measure, and how to show it over time
-**Exists now** (prototype, figures `SIMULATED`, <mention-page url="https://app.notion.com/p/3eee18af1645816c86aee6acef674975">Strategy & performance</mention-page>):
+**Exists now** (prototype, figures <mention-page url="https://app.notion.com/p/3eee18af1645816c86aee6acef674975">Strategy & performance</mention-page>):
 - One channel at a time, against the same number of days before its strategy started (<mention-page url="https://app.notion.com/p/3eee18af1645812290f5e2113a9a0844">KD-07</mention-page>). Period: since the strategy started, or the last 30 or 90 days once it has run longer.
 - A one-line summary, eight cards (occupancy, nightly rate, RevPAR, revenue, next 30 nights booked, lead time, views → bookings, average rating) and four charts with the stretch before in grey and one marker where the strategy started.
 - Under a week, results are held back. Airbnb and Booking⁠.com don't share page views, so that card says "Not shared".
@@ -201,7 +201,7 @@
 	<tr>
 		<td>**From number to lever**</td>
 		<td>A host sees a drop and doesn't know which page to open</td>
-		<td>Each measure names its lever and links to the channel page whose tips pull it. Copilot answers "why did Airbnb bookings drop?" and opens the tip (Roadmap, next)</td>
+		<td>Each measure names its lever and links to the channel page whose tips pull it. The assistant answers "why did Airbnb bookings drop?" and opens the tip (Roadmap, next)</td>
 	</tr>
 	<tr>
 		<td>**Strategy periods**</td>
@@ -285,7 +285,7 @@
 		<td></td>
 	</tr>
 </table>
-**How I'd show it over time** `ASSUMPTION`:
+**How I'd show it over time** :
 1. One timeline per channel, with strategy periods as bands: the stretch before in grey and the period since in the brand colour, as built.
 2. A market line: similar homes over the same weeks.
 3. A tick for every saved change and accepted tip, each opening its receipt.
@@ -334,10 +334,10 @@
 		<td>One macro, and the same view the host sees</td>
 	</tr>
 </table>
-**It worked when** hosts read the verdict right in testing (comprehension of at least 4 of 5 for 80% of hosts, the bar in Goals & KPIs `PROJECTED`) and bookings and booking requests rise against each listing's own weeks before (the first goal: +5% at 30 days, +7% at 90, `PROJECTED`). Guardrail: no host reads noise as proof, so "Not enough data yet" shows until the rule is met.
+**It worked when** hosts read the verdict right in testing (comprehension of at least 4 of 5 for 80% of hosts, the bar in Goals & KPIs ) and bookings and booking requests rise against each listing's own weeks before (the first goal: +5% at 30 days, +7% at 90, ). Guardrail: no host reads noise as proof, so "Not enough data yet" shows until the rule is met.
 ## 4 · Tips beyond the listing: one contract, any area
-**Exists now.** Tips appear on each channel's Listing, Pricing, Availability and Booking policies, in one panel, one at a time (<mention-page url="https://app.notion.com/p/3eee18af164581319e3afd8d876c7cb2">KD-09</mention-page>). Each why cites the strategy and similar homes, guest questions in the Knowledge Hub, or a Listing base fact (`SIMULATED` content), and a Hub question lists the tips that use its facts. Everything comes from AI Copilot (<mention-page url="https://app.notion.com/p/3efe18af164581ceabafdfe5275589dd">KD-20</mention-page>). No area outside the listing raises a tip.
-**What's missing.** The tip already behaves like a contract: where it lands, the change, its scope, its why with sources, whether money is involved, and Accept, Dismiss, Undo with a receipt. It isn't written down as one, so a second area would build its own card. Also missing: routing (a tip raised in Inbox should open on the field it changes), one tip per change when two areas notice the same thing, a budget so tips don't turn into noise, and Autopilot per tip type. The contract and the areas are drawn in <mention-page url="https://app.notion.com/p/3efe18af164581ca9ab6d4324a44d082">Smart Listings across Hospitable</mention-page>.
+**Exists now.** Tips appear on each channel's Listing, Pricing, Availability and Booking policies, in one panel, one at a time (<mention-page url="https://app.notion.com/p/3eee18af164581319e3afd8d876c7cb2">KD-09</mention-page>). Each why cites the strategy and similar homes, guest questions in the Knowledge Hub, or a Listing base fact (content), and a Hub question lists the tips that use its facts. Everything comes from the assistant (<mention-page url="https://app.notion.com/p/3efe18af164581ceabafdfe5275589dd">KD-20</mention-page>). No area outside the listing raises a tip.
+**What's missing.** The tip already behaves like a contract: where it lands, the change, its scope, its why with sources, whether money is involved, and Accept, Dismiss, Undo with a receipt. It isn't written down as one, so a second area would build its own card. Also missing: routing (a tip raised in Inbox should open on the field it changes), one tip per change when two areas notice the same thing, a budget so tips don't turn into noise, and Autopilot per tip type. The contract and the areas are drawn in <mention-page url="https://app.notion.com/p/3efe18af164581ca9ab6d4324a44d082">Smart Listings across Hostaway</mention-page>.
 <table header-row="true" fit-page-width="true">
 	<tr>
 		<td>How I'd run it</td>
@@ -386,7 +386,7 @@ Desk work. I traced each capability the prototype implies to the code and sample
 - <mention-page url="https://app.notion.com/p/3eee18af1645815caf9bc8e55ee265e9">Second-order effects</mention-page>
 **Feeds**
 - <mention-page url="https://app.notion.com/p/3eee18af1645818daddff9b46244175c">Roadmap</mention-page>
-- <mention-page url="https://app.notion.com/p/3efe18af164581ca9ab6d4324a44d082">Smart Listings across Hospitable</mention-page>
+- <mention-page url="https://app.notion.com/p/3efe18af164581ca9ab6d4324a44d082">Smart Listings across Hostaway</mention-page>
 **Decisions**
 - <mention-page url="https://app.notion.com/p/3eee18af1645812290f5e2113a9a0844">KD-07</mention-page>
 - <mention-page url="https://app.notion.com/p/3eee18af16458160a7c1c703fcb2a033">KD-08</mention-page>
@@ -394,6 +394,6 @@ Desk work. I traced each capability the prototype implies to the code and sample
 - <mention-page url="https://app.notion.com/p/3eee18af1645814fa326e55e940a5942">KD-13</mention-page>
 - <mention-page url="https://app.notion.com/p/3efe18af164581ceabafdfe5275589dd">KD-20</mention-page>
 **In the prototype**
-- [Performance](https://hospitable-case-web.digimal.studio/property/neukolln/smart/performance?smart=on)
-- [Strategy wizard](https://hospitable-case-web.digimal.studio/property/neukolln/smart/wizard?entry=add&from=strategy&smart=on)
-- [Knowledge Hub › Questions](https://hospitable-case-web.digimal.studio/property/neukolln/hub/questions)
+- [Performance]()
+- [Strategy wizard]()
+- [Knowledge Hub › Questions]()

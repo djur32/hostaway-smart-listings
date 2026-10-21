@@ -19,7 +19,7 @@ The direction was chosen in design review. A concept test is where that judgemen
 	</tr>
 	<tr>
 		<td>Planted consequences</td>
-		<td>The same consequence hidden in every direction, e.g. a price change visible only inside a preview, or Hospitable's own warning that Airbnb Smart Pricing turns off when Hospitable sets rates (`REAL·PRODUCT` copy). I note whether each host notices it unprompted.</td>
+		<td>The same consequence hidden in every direction, e.g. a price change visible only inside a preview, or Hostaway's own warning that Airbnb Smart Pricing turns off when Hostaway sets rates (copy). I note whether each host notices it unprompted.</td>
 	</tr>
 	<tr>
 		<td>Tasks</td>
@@ -31,7 +31,7 @@ The direction was chosen in design review. A concept test is where that judgemen
 	</tr>
 	<tr>
 		<td>Incentive</td>
-		<td>€75 per 60-minute moderated session `ASSUMPTION`</td>
+		<td>€75 per 60-minute moderated session </td>
 	</tr>
 </table>
 ## What I'd look for

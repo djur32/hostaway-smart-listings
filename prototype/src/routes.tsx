@@ -65,13 +65,13 @@ export const router = createBrowserRouter(
   [
     { path: '/import/:step?', element: <Navigate to="/" replace /> },  // import is planned, not built (KD-01; audit, 4 Oct): the old flow (screens/import) is kept in code, unrouted
     { path: '/property/:id/ch/:channel/policies/:flow/:step?', element: <PropertyGate><PolicyFlow /></PropertyGate> },  // Booking policies › Configure: full-page step flow, outside the shell
-    { path: '/property/:id/smart/wizard', element: <PropertyGate><StrategyWizard /></PropertyGate> },  // Smart Listings strategy wizard (3 Oct): full-screen, outside the shell, Hospitable's Add-property layout
+    { path: '/property/:id/smart/wizard', element: <PropertyGate><StrategyWizard /></PropertyGate> },  // Smart Listings strategy wizard (3 Oct): full-screen, outside the shell, Hostaway's Add-property layout
     {
       element: <AppShell />,
       errorElement: <RouteError />, // a screen error never blanks the app with the router's default page (audit, 4 Oct)
       children: [
         // app mode (APP-MODE.md): the property is the app's home
-        { path: '/', element: <AccountHome /> }, // Antonio, 3 Oct: the property Overview is the landing page (website and app); AccountHome = the signed-in account's (D-160)                                  // Properties (S12 extends)
+        { path: '/', element: <AccountHome /> }, // review, 3 Oct: the property Overview is the landing page (website and app); AccountHome = the signed-in account's (D-160)                                  // Properties (S12 extends)
         { path: '/home/*', element: <Dashboard /> },                                 // global Home › Needs you (S12)
         { path: '/portfolio', element: <Navigate to="/" replace /> },            // Grid view retired (3 Oct): the Properties list reads live per-property data
         { path: '/portfolio/groups', element: <PortfolioOnly><Portfolio view="groups" /></PortfolioOnly> },
@@ -97,14 +97,14 @@ export const router = createBrowserRouter(
             { path: 'hub/:tab?', element: <Hub /> },
             { path: 'hub/:tab/:sub', element: <Hub /> },                                         // KH-R: /hub/workflows/:id
             { path: 'calendar', element: <CalendarPage inProperty /> },                        // rail › Calendar (30 Sep: internal, not external)                                          // WS-KH
-            { path: 'ch/:channel', element: <Navigate to="listing" replace /> },             // Antonio 1 Oct: no per-channel Overview; land on Listing (ChannelOverview.tsx kept, just unrouted)
+            { path: 'ch/:channel', element: <Navigate to="listing" replace /> },             // review 1 Oct: no per-channel Overview; land on Listing (ChannelOverview.tsx kept, just unrouted)
             { path: 'ch/:channel/listing/:tab?', element: <ListingEditor /> },                // WS-CH (Classic) + WS-CV (Canvas)
             { path: 'ch/:channel/pricing', element: <ChannelPricing /> },                     // WS-CH
             { path: 'ch/:channel/availability', element: <Availability /> },                  // Channels › Availability (HS-37/38)
-            { path: 'base/pricing', element: <BasePricing /> }, // Listing base › Pricing (Antonio 1 Oct): the Calendar's property-wide pricing sections, as a page
+            { path: 'base/pricing', element: <BasePricing /> }, // Listing base › Pricing (review 1 Oct): the Calendar's property-wide pricing sections, as a page
             { path: 'base/availability', element: <BaseAvailability /> }, // Listing base › Availability: the same stay rules as Channels › Availability, Base only
             { path: 'ch/:channel/policies', element: <Policies /> },                          // WS-CH
-            // the standalone All photos page is gone (Antonio, 3 Oct: "not a layout that should exist"): every old link opens
+            // the standalone All photos page is gone (review, 3 Oct: "not a layout that should exist"): every old link opens
             // the Listing base's own Manage photos takeover instead
             { path: 'photos', element: <Go to="details/essentials?photosOpen=1" /> },
             { path: 'smart/setup/:step?', element: <SetupRedirect /> },                       // Setup removed (3 Oct): old links land in the strategy wizard

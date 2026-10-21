@@ -1,19 +1,19 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Sampled · simulated** · The synthesis of a simulated sample of five host interviews. It is not research, and it shows the likely issues. The plan is about 25 user interviews, including hosts who churned or never joined after a trial. It covers what the simulated hosts said about managing a listing, what they need from it, and why that leads to a canvas. The hosts are not real people. The sessions follow a published spec that pins each story to public reviews (`REAL·PUBLIC`), the brief (`REAL·BRIEF`) and the product (`REAL·PRODUCT`). Read it as a shape to test, not as evidence.
+	**Output · Sampled · simulated** · The synthesis of a simulated sample of five host interviews. It is not research, and it shows the likely issues. The plan is about 25 user interviews, including hosts who churned or never joined after a trial. It covers what the simulated hosts said about managing a listing, what they need from it, and why that leads to a canvas. The hosts are not real people. The sessions follow a published spec that pins each story to public reviews (), the brief () and the product (). Read it as a shape to test, not as evidence.
 </callout>
 ## The story in one paragraph, from the simulated sample
 Hosts don't struggle to change a listing. They struggle to see what a change does. The listing lives in several places at once: on Airbnb, in a document, in a spreadsheet, and in an AI that speaks from a store no channel sees. Each channel differs in money and stay rules, so one setting can't cover them all. And when a host presses save, they can't tell where the change went or whether it arrived. So they ask for control: see each change before it's written, see where it landed, and handle exceptions in bulk. A form field can't show a change in context. A canvas can, because it shows each channel's real guest page with the change on it.
 ## Three things the simulated sample points to
-The names are simulated hosts, and every quote is Illustrative · `SIMULATED`. Each point is a hypothesis for the real interviews, not a finding. {color="gray"}
+The names are simulated hosts, and every quote is Illustrative · . Each point is a hypothesis for the real interviews, not a finding. {color="gray"}
 ### 1 · Managing a listing may be complex because it is scattered
-- **No simulated host's real version is Hospitable's.** Marta says Airbnb, Dana her document, Callum his sheet, and Priya Airbnb again. Rob drew the arrows both ways.
+- **No simulated host's real version is Hostaway's.** Marta says Airbnb, Dana her document, Callum his sheet, and Priya Airbnb again. Rob drew the arrows both ways.
 - **The AI speaks from a store no channel sees.** The simulated hosts file "what the AI knows" with guest information, not with the home. So the sample points against H-17 (the Hub is read as everything true about the home). The planned tree test can check it.
 ### 2 · Where an update lands may be unclear
 - **Saving says nothing about where it went.** Dana: "I press save and... it saved. Saved where? Did Airbnb take it?" Rob: "It's not about having a copy. It's about knowing what it's doing right now." Status per channel is what earns trust.
 - **The simulated hosts want to see the change before it's written.** Callum: "Show me what you're going to change before you change it. A dry run." The part about restoring a copy belongs to import, so I leave it out.
 - **Seeing a change as a field is hard to imagine.** Marta, shown a suggestion for a flat in Berlin "imagine it's yours": "When I imagine it on my real flat, I get nervous." She'd let the tool do less than it offered.
 ### 3 · Each channel may differ, so one strategy may not fit
-- **In simulated usage data, money and stay rules differ per channel, not words.** The cleaning fee is overridden per channel on 36% of simulated multi-channel properties, the minimum stay on 30%, and no text field goes above 4.1% (`SIMULATED`).
+- **In simulated usage data, money and stay rules differ per channel, not words.** The cleaning fee is overridden per channel on 36% of simulated multi-channel properties, the minimum stay on 30%, and no text field goes above 4.1% ().
 - **Only the SEO optimiser authors different copy per channel.** Callum wants one good text, adapted to each channel's rules. Marta and Priya treat the description as part of the home.
 - **On Booking.com the voice is the facts.** Marta and Callum accept that, as long as the facts are theirs and they see a preview. Dana doesn't: "What I can't work with is ticking boxes blind."
 - **The simulated portfolio manager wants apply-to-all, with exceptions shown.** Callum wants to see what changes, what doesn't and what's skipped.
@@ -135,7 +135,7 @@ In the sample, trust is a different risk for the family host and the new host. F
 - **Money and stay rules per channel, in one pattern.** Voice per channel is opt-in and off by default for the family and new hosts (<mention-page url="https://app.notion.com/p/3eee18af16458172b17ac84a5abb32ef">KD-11</mention-page>, <mention-page url="https://app.notion.com/p/3eee18af1645819d96d4cff8530e1600">KD-05</mention-page>).
 - **A strategy per channel, made once** in the wizard (<mention-page url="https://app.notion.com/p/3eee18af164581028d64c3d0ff9f7d48">KD-06</mention-page>), not a card per listing.
 - **Autopilot is on or off, and suggestions always arrive as tips** (<mention-page url="https://app.notion.com/p/3eee18af16458160a7c1c703fcb2a033">KD-08</mention-page>). So "hard stop" holds for money and rules, and nothing changes without the host.
-- **Every tip says why and where it goes, with an undo** (<mention-page url="https://app.notion.com/p/3eee18af164581319e3afd8d876c7cb2">KD-09</mention-page>, <mention-page url="https://app.notion.com/p/3eee18af164581b19c66d8d053ea6ab0">KD-12</mention-page>). The Hub's facts are cited, never invented, and the listing AI is AI Copilot (<mention-page url="https://app.notion.com/p/3eee18af1645814fa326e55e940a5942">KD-13</mention-page>, <mention-page url="https://app.notion.com/p/3efe18af164581ceabafdfe5275589dd">KD-20</mention-page>).
+- **Every tip says why and where it goes, with an undo** (<mention-page url="https://app.notion.com/p/3eee18af164581319e3afd8d876c7cb2">KD-09</mention-page>, <mention-page url="https://app.notion.com/p/3eee18af164581b19c66d8d053ea6ab0">KD-12</mention-page>). The Hub's facts are cited, never invented, and the listing AI is the assistant (<mention-page url="https://app.notion.com/p/3eee18af1645814fa326e55e940a5942">KD-13</mention-page>, <mention-page url="https://app.notion.com/p/3efe18af164581ceabafdfe5275589dd">KD-20</mention-page>).
 The measure is time to adjust: a change should take less time and land in the right place (<mention-page url="https://app.notion.com/p/3eee18af1645812eb43fd00ba5a5cd09">KD-19</mention-page>).
 ## Research questions: the sample's first answers
 - **When do hosts trust an AI suggestion?** When it shows where it goes and what it risks. Trust follows the stakes and past failures, not how well the host knows the channel.
@@ -171,4 +171,4 @@ A simulated sample of five sessions, written to a published spec, each synthesis
 - <mention-page url="https://app.notion.com/p/3eee18af164581339fabf0591e5d7f9c">KD-18</mention-page>
 **In the prototype**
 - <mention-page url="https://app.notion.com/p/3eee18af1645811a82c4e772997ac875">Tips & AI rewrite</mention-page>
-- [open the prototype](https://hospitable-case-web.digimal.studio)
+- [open the prototype]()

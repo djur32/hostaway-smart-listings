@@ -1,6 +1,6 @@
 /* Angle B studio content · S11 (D-140…D-146). The prototype's "AI" is canned, but every output is computed from the
  * record (`facts`), so it stays grounded (D-106): a claim the home can't back becomes a question, never text.
- * All copy, comps and market numbers are SIMULATED ("Sample market data"); channel rules are REAL·PUBLIC
+ * All copy, comps and market numbers are ("Sample market data"); channel rules are 
  * (research/market/channel-constraints.md). The title strength is our own heuristic, not a channel score (D-142). */
 import { CHANNELS } from './channels'
 import { COMPS } from './comps'
@@ -35,7 +35,7 @@ export interface Strategy {
   effect: string
   /** Pricing stance, linked to Pricing / Dynamic Pricing (R-114). */
   pricing: { text: string; tab: 'rates' | 'taxes-and-discounts' }
-  /** Comps on Airbnb that lead with this strategy, and how booked they are. SIMULATED. */
+  /** Comps on Airbnb that lead with this strategy, and how booked they are. . */
   comps: { count: number; occupancy: number; adr: number }
 }
 
@@ -307,7 +307,7 @@ const BREAKDOWN: Record<string, Breakdown> = {
 }
 export const breakdownOf = (c: Comp): Breakdown => BREAKDOWN[c.id] ?? { photos: c.similarity, amenities: c.similarity, facilities: c.similarity, conditions: c.similarity, size: c.similarity }
 
-/** Which strategy each comp leads with (for "comps using this strategy"). SIMULATED. */
+/** Which strategy each comp leads with (for "comps using this strategy"). . */
 export const COMP_STRATEGY: Record<string, StrategyId[]> = {
   'c-a1': ['creative', 'romantic'], 'c-a2': ['remote', 'business'], 'c-a3': ['fun'], 'c-a4': ['romantic'], 'c-a5': ['remote'],
   'c-b1': ['business'], 'c-b2': ['business', 'remote'], 'c-b3': ['creative'],
@@ -317,7 +317,7 @@ export const compsFor = (channel: ChannelId, strategy?: StrategyId | null) =>
   COMPS.filter((c) => c.channel === channel && (!strategy || (COMP_STRATEGY[c.id] ?? []).includes(strategy)))
     .sort((a, b) => b.similarity - a.similarity)
 
-/** Structure patterns among the top comps per channel (R-111). SIMULATED. */
+/** Structure patterns among the top comps per channel (R-111). . */
 export const PATTERNS: Partial<Record<ChannelId, Array<{ text: string; you: string }>>> = {
   airbnb: [
     { text: '17 of 24 name the neighbourhood and a landmark in the title', you: 'Yours names the neighbourhood only' },
@@ -332,7 +332,7 @@ export const PATTERNS: Partial<Record<ChannelId, Array<{ text: string; you: stri
   ],
 }
 
-/** Market snapshot per channel (R-113). SIMULATED; the "you" values are REAL·PRODUCT (HS-30). */
+/** Market snapshot per channel (R-113). ; the "you" values are (HS-30). */
 export const MARKET_SNAPSHOT: Partial<Record<ChannelId, { demand: string; adr: { min: number; max: number; median: number; you: number }; occupancy: { min: number; max: number; median: number; you: number } }>> = {
   airbnb: { demand: 'High on weekdays through November (trade fairs), softer in January.', adr: { min: 52, max: 84, median: 66, you: 44 }, occupancy: { min: 58, max: 88, median: 77, you: 81 } },
   booking: { demand: 'Weekend-led; lead time is 2 weeks shorter than on Airbnb.', adr: { min: 58, max: 90, median: 71, you: 44 }, occupancy: { min: 55, max: 84, median: 73, you: 69 } },
@@ -346,6 +346,6 @@ export const ASSISTANT_QA: Array<{ q: string; answer: (f: Facts) => { text: stri
   { q: 'Is there a balcony?', answer: (f) => (balconyConfirmed(f) ? { text: 'Yes.', uses: ['amenity.balcony'] } : { text: 'Booking.com says yes and Airbnb says no, so I don’t answer until you confirm.', uses: [], askId: 'balcony' }) },
   { q: 'Can I store a bike?', answer: () => ({ text: 'Yes, in the courtyard bike storage.', uses: ['custom.bike_storage'] }) },
   // Today's Ask the AI answered "Yes, the apartment is wheelchair accessible" with nothing in the listing to back it
-  // (REAL·PRODUCT HS-L08, HE-39, E-046, severity 4). Grounded, it says only what the home backs (D-106, D-141).
+  // (HS-L08, HE-39, E-046, severity 4). Grounded, it says only what the home backs (D-106, D-141).
   { q: 'Is it wheelchair accessible?', answer: () => ({ text: 'It’s on the 4th floor with no elevator, so it isn’t step-free. Your home says nothing else about accessibility, so I don’t claim more.', uses: ['space.floor_and_access', 'custom.stairs'] }) },
 ]

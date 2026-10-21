@@ -184,7 +184,7 @@ function LensField({ row, ctx }: { row: LensRow; ctx: LensCtx }) {
   )
 }
 
-/* ---------------- the control for a value (Hospitable's inputs and dropdown); no `write` = the DS disabled state ---------------- */
+/* ---------------- the control for a value (Hostaway's inputs and dropdown); no `write` = the DS disabled state ---------------- */
 function Control({ item, value, write }: { item: KhItem; value: string; write?: (v: string) => void }) {
   const disabled = !write
   const w = write ?? (() => {})

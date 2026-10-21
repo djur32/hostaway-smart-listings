@@ -64,7 +64,7 @@ def run(name):
     ours = Image.open(tmp).convert('RGB')
     ref = sample.load(hs).crop((0, TOP, 3024, TOP + 1724))
     full = Image.new('RGB', (1512 * 2 + 12, 862), 'white')
-    full.paste(label(ref.resize((1512, 862)), f'{hs} · Hospitable (REAL·PRODUCT)'), (0, 0))
+    full.paste(label(ref.resize((1512, 862)), f'{hs} · Hostaway'), (0, 0))
     full.paste(label(ours.resize((1512, 862)), 'DS replica (ours)'), (1524, 0))
     full.save(os.path.join(FID, f'{name}--full.png'))
     for part, (x0, y0, x1, y1) in parts.items():
@@ -72,7 +72,7 @@ def run(name):
         a, o = ref.crop(b), ours.crop(b)
         w, h = a.size
         sbs = Image.new('RGB', (w * 2 + 16, h), 'white')
-        sbs.paste(label(a, f'{hs} · Hospitable'), (0, 0)); sbs.paste(label(o, 'DS replica'), (w + 16, 0))
+        sbs.paste(label(a, f'{hs} · Hostaway'), (0, 0)); sbs.paste(label(o, 'DS replica'), (w + 16, 0))
         sbs.save(os.path.join(FID, f'{name}--{part}.png'))
     os.remove(tmp)
     print(name, 'ok', list(parts))

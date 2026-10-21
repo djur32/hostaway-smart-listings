@@ -1,22 +1,22 @@
 #!/usr/bin/env python3
-"""Generate the case-study illustrations in Hospitable's mascot style (v4b, 3 Oct, fourth pass).
+"""Generate the case-study illustrations in Hostaway's mascot style (v4b, 3 Oct, fourth pass).
 
-Style, from Hospitable's own site (research/references/hospitable-marketing/08 laptop mascot,
+Style, from Hostaway's own site (research/references/hostaway-marketing/08 laptop mascot,
 10 trumpet mascot: one mascot, ONE prop, a lot of air) and the in-product empty states (HS-06, HS-31):
 - one bold raspberry figure (primary-500 #f24167): a broad rounded torso, two thick tube legs with
   little feet, thick tube arms, mitten fists with aubergine finger marks;
 - an ABSTRACT head: a raspberry blob with one quirk (a curl, two tufts, a bun, a ponytail, a quiff,
   a sprout, a darker cap...) and at most one small aubergine mark, different in every scene (HEADS);
-- CONCEPTUAL, ONE IDEA PER SCENE (Antonio, 3 Oct, on v3: "way too much information, it's massive.
+- CONCEPTUAL, ONE IDEA PER SCENE (review, 3 Oct, on v3: "way too much information, it's massive.
   Make it smaller and minimalistic, as much as you can, and conceptual"): the mascot plus ONE prop or
   symbol that carries the idea. No clusters of cards, notes, coins or calendars;
-- but not empty (Antonio, on v4: "a little too empty: add a little more detail, not a lot, and maybe
+- but not empty (review, on v4: "a little too empty: add a little more detail, not a lot, and maybe
   some decorative elements"): a small amount of supporting detail (a window and a chimney, a spark
-  between two values, a channel dot per line) and one or two decorative touches in Hospitable's
+  between two values, a channel dot per line) and one or two decorative touches in Hostaway's
   style: a soft rounded blob behind the prop (blob()), "///" marker strokes (strokes()), a small
   sparkle, at most one hand-drawn ring;
 - smaller than v3: the figure is drawn at k = 1.0 (v3: 1.32), about two thirds of the frame's height,
-  with air above and beside it; NO ground line (Antonio: "I don't like that all of the people are
+  with air above and beside it; NO ground line (review: "I don't like that all of the people are
   standing on a line"), only a very soft contact shadow (shadow(): aubergine at 7 %);
 - aubergine (secondary-900 #321e52) contour strokes only where a limb crosses the body, finger marks
   and the odd object outline; a yellow/amber prop (warning-400 / -500 / -600); no limb is cropped by
@@ -196,7 +196,7 @@ CLIP = {'n': 0, 'p': 'x'}
 
 def arm(d, outline=None, color=None, w=14):
     """A tube arm. outline=(x, y, w, h): draw the aubergine contour only inside that box (where the
-    arm crosses the body), like the contour strokes on Hospitable's mascots; outline=True: all along."""
+    arm crosses the body), like the contour strokes on Hostaway's mascots; outline=True: all along."""
     color = color or F
     out = ''
     if outline is True:
@@ -482,7 +482,7 @@ sizes['conflict-resolved.svg'] = svg(
 
 # 4 · AI writing per channel ─────────────────────────────────────────────────────────────────
 # One idea: AI writes it for you, a version per channel. A giant yellow pencil, held in both hands
-# (the near arm crosses the chest cleanly, v4b: Antonio saw it "cut off"), draws three lavender
+# (the near arm crosses the chest cleanly, v4b: review saw it "cut off"), draws three lavender
 # lines (lavender = AI), each led by its channel's dot. A blush blob behind the lines; two sparkles.
 # Head: an egg with a darker cap of hair (v4b: the heart head read as childish).
 CLIP['p'] = 'aw'
@@ -534,7 +534,7 @@ sizes['ai-writing-per-channel.svg'] = svg(
 # One idea: the system keeps growing. The host waters a small sprout whose stem branches into
 # connected rounded nodes (raspberry, yellow, lavender), with a new bud on a dotted link: the next
 # thing to grow. A yellow watering can (the one prop), three water drops, a lavender blob behind the
-# plant; a sparkle by the bud and "///" strokes. v4b: Antonio found v4's receipts and undo arrow
+# plant; a sparkle by the bud and "///" strokes. v4b: review found v4's receipts and undo arrow
 # "very off brand"; this replaces them (no documents, no arrow). Head: an oval with a quiff.
 CLIP['p'] = 'nl'
 m = Fig(100, GY, K)
@@ -727,7 +727,7 @@ sizes['test-measuring.svg'] = svg(
 
 # 9 · Earn: more bookings, more money (the hero, 320 × 320) ─────────────────────────────────
 # One idea: it pays off. The intro animation ends on this: the mascot celebrating, both arms up,
-# and one abstract growth motif beside it. No calendar, no coins (Antonio, 3 Oct: "I don't like how
+# and one abstract growth motif beside it. No calendar, no coins (review, 3 Oct: "I don't like how
 # literal the calendar and the money are; it should be more of an interpretation... not busy").
 # Head: round with a two-leaf sprout (growth) and the one smile.
 #
@@ -769,7 +769,7 @@ ea_body = (
 )
 sizes['mascot-earn.svg'] = svg(
     'mascot-earn.svg', 'ea', 'More bookings, more money',
-    'The Hospitable mascot celebrates, both arms up, beside three soft yellow bars rising: it pays off.',
+    'The Hostaway mascot celebrates, both arms up, beside three soft yellow bars rising: it pays off.',
     ea_body,
     [('.ei-up', 'transform:translateY(-3px)', 3.2, None),
      ('.ei-arm', 'transform:rotate(6deg)', 1.6, m.o(*SN)),

@@ -1,9 +1,9 @@
-/* Listing details › Add amenity: Hospitable's drawer as it works today (refs 07, 12, 13): "Search amenities", Filters,
+/* Listing details › Add amenity: Hostaway's drawer as it works today (refs 07, 12, 13): "Search amenities", Filters,
  * every amenity by category as a bordered card row: the name, its scope caption beside it ("All channels", or the mark
  * of each channel that carries it), and at the right end "+" (not added, white row) or a check (added, grey row).
  * A tap toggles the row and saves it right away (adding = every channel that has a field for it; the check takes it off
  * again) and sends it. While a save is in flight the row's icon turns and the footer reads "Updating…" until every save
- * settles, then "Done". Closing (×, Done, Esc, backdrop) only closes: everything is already saved (Antonio, 1 Oct).
+ * settles, then "Done". Closing (×, Done, Esc, backdrop) only closes: everything is already saved (review, 1 Oct).
  * The save latency is simulated (600–900 ms). The tap target is the whole row (≥ 44px on phones).
  * Desktop: a right drawer that slides in subtly. Phones: a full-screen sheet. */
 import { useEffect, useRef, useState } from 'react'
@@ -37,7 +37,7 @@ export function AddAmenityDrawer({ open, onClose }: { open: boolean; onClose: ()
     .filter((g) => !filter.cats.length || filter.cats.includes(g.category))
     .map((g) => ({ ...g, items: g.items.filter((i) => (!q || i.name.toLowerCase().includes(q)) && (!filter.chs.length || filter.chs.some((c) => amenityChannels(i.name, chs).includes(c)))) }))
     .filter((g) => g.items.length > 0)
-  // a tap saves at once; the save "takes" 600–900 ms (SIMULATED), during which the row shows it is updating
+  // a tap saves at once; the save "takes" 600–900 ms, during which the row shows it is updating
   const toggle = (name: string, added: boolean) => {
     setBusy((b) => [...b, name])
     timers.current.push(window.setTimeout(() => {

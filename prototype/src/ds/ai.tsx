@@ -11,7 +11,7 @@ import { Button, ChannelChip, Icon, Mark, Pill, cx } from './primitives'
  *  — Listing base › Pricing's own Dynamic Pricing card (screens/base/Pricing.tsx) does this, opening DynamicPanel in
  *  a PanelStack. Without `onClick` this stays the non-interactive teaser — a plain <div>, cursor forced back to
  *  default (is-static, ds/components.css) — for call sites with nowhere to send the click. */
-/** Antonio, 3 Oct: no sparkle on the left and no "Learn more" — the whole card is the link; its chevron takes the
+/** review, 3 Oct: no sparkle on the left and no "Learn more" — the whole card is the link; its chevron takes the
  *  body text's purple. `learnMore` is kept for older callers and ignored. */
 export function AiPromoCard({ title, body, onClick }: { title: ReactNode; body: ReactNode; learnMore?: boolean; onClick?: () => void }) {
   const inner = (

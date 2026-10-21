@@ -1,4 +1,4 @@
-/* Channels › {channel} › Availability (Hospitable replica of Property › Availability: HS-37 General, HS-38 Booking rules).
+/* Channels › {channel} › Availability (Hostaway replica of Property › Availability: HS-37 General, HS-38 Booking rules).
  * Same frame as Pricing: page head + property switcher, underline tabs, section head with Discard changes / Save, stacked
  * rows whose caption says "Uses the Base" / "Custom for {channel}" / "All channels" with the one text-link action
  * (common.tsx ScopedRow + useSectionDraft: edits wait for Save, "Use the Base" keeps the custom value in `@stash`).
@@ -92,7 +92,7 @@ function AvailabilityPage({ c }: { c: ListingChannel }) {
           if (f.control === 'select') return <SelectBox selectRef={refs.select} value={v} options={r.options} label={f.label} disabled={disabled} onChange={write} />
           if (f.perDay && perDayOn(draft, 'custom')) return <PerDayStrip label={f.label} fallback={nightsOf(v)} disabled={disabled} />
           // NumberField (ds/v3-ch.tsx): the same input + "nights" affix as before, plus the shared up/down spinner
-          // and Up/Down keys (Antonio, 1 Oct). The clamp to 1…MAX_NIGHTS and the nightsText storage format are
+          // and Up/Down keys (review, 1 Oct). The clamp to 1…MAX_NIGHTS and the nightsText storage format are
           // unchanged, so the draft, the min ≤ max check and Discard/Save all behave exactly as they did.
           return (
             <NumberField label={f.label} value={nightsOf(v)} disabled={disabled} inputRef={refs.input} unit="nights"
@@ -151,7 +151,7 @@ function InstantBook({ c }: { c: ListingChannel }) {
   return (
     <div className="ch-mt">
       <h3 className="h-matrix-q">{INSTANT_QUESTION}</h3>
-      {/* Antonio, 4 Oct: the page is already this channel, so no one-row channel matrix: the strategy wizard's single-select
+      {/* review, 4 Oct: the page is already this channel, so no one-row channel matrix: the strategy wizard's single-select
        *  cards at the form column's width; an option the channel doesn't support isn't offered */}
       <div className="ch-instant">
         <WizardChoices label={INSTANT_QUESTION}>
@@ -167,7 +167,7 @@ function InstantBook({ c }: { c: ListingChannel }) {
 }
 
 /* ---------------- Minimum stay per night of the week ---------------- */
-/** Antonio, 1 Oct, rejecting the earlier seven stacked full-width rows ("I don't think it's optimal… create a
+/** review, 1 Oct, rejecting the earlier seven stacked full-width rows ("I don't think it's optimal… create a
  *  different version that is a little more clear"): seven numbers is a *week*, so it reads as a week strip — the same
  *  Mon-first order the Calendar already uses — with each small input directly under its own day label. That removes
  *  the dead horizontal gap between a day name on the far left and its input on the far right, and lets you compare
@@ -185,7 +185,7 @@ const PERDAY_DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] as const
  *  break actually starts on, which is what a per-night minimum keys off. */
 const PERDAY_WEEKEND = [4, 5, 6]
 
-/** Per-night minimum stay (Antonio, 3 Oct): "Edit per day" REPLACES the single nights field with the week itself — a value
+/** Per-night minimum stay (review, 3 Oct): "Edit per day" REPLACES the single nights field with the week itself — a value
  *  under each day name, in the field's own place, no box, no title or hint repeated, no "apply to…" shortcuts and no footer —
  *  and one plain link switches between the two: "Edit per day" / "Use one minimum for every night". The value still lives in
  *  the section draft under its own key. `scope`: 'custom' (a channel's own, default) or 'base' (Listing base). */
@@ -235,7 +235,7 @@ export function PerDayStrip({ label, fallback, scope = 'custom', disabled }: { l
     </div>
   )
 }
-/** The per-day switch sits on the right of the "N channels" caption row, not under it (Antonio, 4 Oct). */
+/** The per-day switch sits on the right of the "N channels" caption row, not under it (review, 4 Oct). */
 export function PerDayToggle({ fallback, scope = 'custom' }: { fallback: string; scope?: 'custom' | 'base' }) {
   const { on, vals, put } = usePerDay(fallback, scope)
   return (
@@ -244,9 +244,9 @@ export function PerDayToggle({ fallback, scope = 'custom' }: { fallback: string;
 }
 
 /* ---------- Availability tips (shared by this screen and the property rail's per-page count) ----------
- * Antonio, 3 Oct: "…also in Pricing, sometimes in Availability… next to whatever it is that the tip is for":
+ * review, 3 Oct: "…also in Pricing, sometimes in Availability… next to whatever it is that the tip is for":
  * "sometimes" = at most two here, each tied to the row it would change (`field` = that row's id) with the purple dot
- * after its label (SettingRow tips/onTip via screenTips rowTip) and a count on its tab. SIMULATED: one step from what
+ * after its label (SettingRow tips/onTip via screenTips rowTip) and a count on its tab. one step from what
  * is saved today, never a fixed target; the reasoning is strategy, not measured data. Gated like every channel tip
  * (screenTips useTipsGate); a hidden or read-only row (Field visibility) has no tip. `propose` is the screen's own
  * Accept (the rail passes none: it only counts). */

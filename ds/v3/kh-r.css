@@ -132,7 +132,7 @@
 .h-khr-chipmenu { position: relative; display: inline-flex; }
 /* R2: the menu now hangs off the step editor's own "+" (left end of the edit toolbar, KhrStepItem) — left-anchored,
  * so it opens into the content column instead of off its left edge toward the rail (ds/kh-r.tsx KhrChipMenu). */
-/* the shared menu surface and rows (.h-menu / .h-dropdown__menu, Antonio 3 Oct) */
+/* the shared menu surface and rows (.h-menu / .h-dropdown__menu, review 3 Oct) */
 .h-khr-chipmenu__pop { position: absolute; left: 0; top: calc(100% + 4px); z-index: 20; min-width: 240px; padding: 0 0 var(--space-2); border-radius: var(--radius-sm); background: var(--color-surface-primary); box-shadow: var(--elevation-dropdown), 0 0 0 1px var(--color-border-secondary-alt); display: flex; flex-direction: column; animation: h-drop var(--dur-2) var(--ease-enter); }
 .h-khr-chipmenu__head { margin: 12px 24px 4px; font-size: var(--text-xs); font-weight: var(--font-weight-semibold); color: var(--color-text-muted); text-transform: uppercase; letter-spacing: .02em; }
 .h-khr-chipmenu__item { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 48px; padding: 0 24px; border: 0; background: none; font: inherit; font-size: var(--text-md); font-weight: var(--font-weight-regular); color: var(--color-text-secondary); text-align: left; cursor: pointer; }
@@ -243,7 +243,7 @@
 .h-khr-addfact__hint { font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
 
 /* ── Overview: Gaps demoted — smaller heading, muted rows, no card border/background, follows the coverage bar and
-   the topic grid instead of leading them (item 5, Antonio: "I want the gaps to be more hidden"). Collapsed by
+   the topic grid instead of leading them (item 5, review: "I want the gaps to be more hidden"). Collapsed by
    default; "Show" reveals the same KhcGapRow list used before. ── */
 .h-khr-ov3-gapsquiet { padding: var(--space-4) 2px 0; border: 0; border-radius: 0; background: none; border-top: 1px solid var(--color-border-divider); gap: 10px; }
 .h-khr-ov3-gapsquiet .h-khc-card__title { font-size: var(--text-md); font-weight: var(--font-weight-medium); color: var(--color-text-secondary); }
@@ -267,7 +267,7 @@
   .h-khr-addfact__number .h-numfield { flex: 1 1 100%; width: auto; }
 }
 
-/* ── Knowledge Hub page frame, rewired (Antonio, 3 Oct): the channel template's head + tab row + Split, a "Concept" chip
+/* ── Knowledge Hub page frame, rewired (review, 3 Oct): the channel template's head + tab row + Split, a "Concept" chip
  *    on every title. KhrFrame (ds/kh-r.tsx). ── */
 .h-concept-chip { margin-left: 12px; vertical-align: middle; }
 .h-khr2__page { padding-bottom: 80px; }
@@ -285,7 +285,7 @@
 /* a bordered list ("table"): rows separated by dividers, equal top/bottom padding */
 .h-khr2-table { border: 1px solid var(--color-border-card); border-radius: var(--radius-lg); background: var(--color-surface-primary); padding: 0 var(--space-5); }
 
-/* ── Sources, rewired (Antonio, 3 Oct): KhrSourceItem / KhrSourceAddItem (ds/kh-r.tsx) inside `.h-khr2-table`. One row
+/* ── Sources, rewired (review, 3 Oct): KhrSourceItem / KhrSourceAddItem (ds/kh-r.tsx) inside `.h-khr2-table`. One row
  *    shape for both tables: icon · name over one "{desc} · {meta}" line · trailing status or "Add", vertically centred,
  *    equal top and bottom padding, a divider between rows. ── */
 .h-khr2-src-row { display: grid; grid-template-columns: 18px minmax(0, 1fr) auto; gap: 12px; align-items: center; width: 100%; padding: var(--space-3) 0; border: 0; border-bottom: 1px solid var(--color-border-divider); background: transparent; font: inherit; text-align: left; color: inherit; }
@@ -304,7 +304,7 @@
 /* ── Workflows, rewired: the topic card, static — cancel the clickable card's hover, pointer and transition. ── */
 .h-khr2-wf-card.h-khr-ov2-topiccard { cursor: default; transition: none; }
 .h-khr2-wf-card.h-khr-ov2-topiccard:hover { border-color: var(--color-border-card); box-shadow: none; }
-/* the topic page's questions: one plain list — no box around it, none around each question (Antonio, 3 Oct) */
+/* the topic page's questions: one plain list — no box around it, none around each question (review, 3 Oct) */
 .h-khr2 .h-khc-qs { border: 0; border-radius: 0; background: none; border-top: 1px solid var(--color-border-divider); }
 .h-khr2 .h-khc-q { border-bottom: 1px solid var(--color-border-divider); }
 .h-khr2 .h-khc-q + .h-khc-q { border-top: 0; }
@@ -313,9 +313,9 @@
 .h-khr2 .h-khr-facts, .h-khr2 .h-khc-facts { border-top: 1px solid var(--color-border-divider); }
 .h-khr2 .h-khr-fact:last-child, .h-khr2 .h-khc-fact:last-child { border-bottom: 1px solid var(--color-border-divider); }
 .h-khr2-ask { display: flex; flex-direction: column; gap: var(--space-4); }
-/* the ask box: ONE focus ring, on the outside (the inner input's global focus style doubled it — Antonio, 3 Oct) */
+/* the ask box: ONE focus ring, on the outside (the inner input's global focus style doubled it — review, 3 Oct) */
 .h-khr-ask__input:focus, .h-khr-ask__input:focus-visible { outline: none; box-shadow: none; border: 0; }
-/* a fact's channel caption never runs past its column (the House manual's Airbnb text overflowed — Antonio, 3 Oct):
+/* a fact's channel caption never runs past its column (the House manual's Airbnb text overflowed — review, 3 Oct):
  * the channel name, then its own value cut to one line; the hover still shows every value in full */
 .h-khc-fact__scope { overflow: hidden; }
 .h-khc-own { display: flex; align-items: baseline; gap: 6px; min-width: 0; max-width: 100%; }
@@ -324,10 +324,10 @@
 .h-khr2 .h-valhover { max-width: 100%; }
 /* the Test side panel's body */
 .h-khr2-test { display: flex; flex-direction: column; gap: var(--space-4); }
-/* a topic's tab counts are plain counts, not tips: the photo-count chip's look, never purple (Antonio, 3 Oct) */
+/* a topic's tab counts are plain counts, not tips: the photo-count chip's look, never purple (review, 3 Oct) */
 .h-khr2 .ch-tab__count { box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--color-border-secondary); background: none; color: var(--color-text-muted); font-weight: var(--font-weight-medium); line-height: 1; font-variant-numeric: tabular-nums; }
 
-/* ── topic page tables, styled like Sources (Antonio, 3 Oct) ── */
+/* ── topic page tables, styled like Sources (review, 3 Oct) ── */
 .h-khr2-qrow { cursor: pointer; text-align: left; color: inherit; }
 .h-khr2-qrow .h-khr2-src-row__icon { display: inline-flex; }
 .h-khr2-qrow:hover .h-btn-icon, .h-khr2-qrow.is-active .h-btn-icon { background: var(--color-action-secondary-hover-bg); }
@@ -362,7 +362,7 @@
 .h-tips .h-khc-fact__label { font-size: var(--text-md); }
 .h-tips .h-khc-fact__editor { padding-top: var(--space-3); }
 
-/* ── clickable rows + ··· menu + drawers (Antonio, 3 Oct) ── */
+/* ── clickable rows + ··· menu + drawers (review, 3 Oct) ── */
 .h-khr2-table { padding: 0; overflow: visible; }
 .h-khr2-table > .h-khr2-src-row, .h-khr2-table > .h-khr2-rowclick { padding-left: var(--space-5); padding-right: var(--space-4); }
 .h-khr2-rowclick { cursor: pointer; transition: background var(--dur-1) var(--ease-standard); border-bottom: 1px solid var(--color-border-divider); }

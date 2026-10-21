@@ -1,4 +1,4 @@
-/* Knowledge Hub, reframed · the two primary actions (Antonio, 4 Oct): Add question and Add a fact. They reuse iteration
+/* Knowledge Hub, reframed · the two primary actions (review, 4 Oct): Add question and Add a fact. They reuse iteration
  * R's drawers and stores (R/Overview.tsx AddQuestionDrawer + useAddedQuestions, R/AddFact.tsx + useRFacts), so what a
  * host adds here also shows in R. Opened from a topic, the topic is fixed; from the overview, it's a dropdown. */
 import { useState } from 'react'

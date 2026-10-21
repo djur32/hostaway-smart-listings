@@ -1,7 +1,7 @@
 /* Knowledge Hub, reframed · Facts (KH-REFRAME §1, "Facts are read, not copied"): what the AI can read to answer guests,
- * by Hospitable's nine topics — each one a reference to where it lives ("Listing base · Location", a link to that field),
+ * by Hostaway's nine topics — each one a reference to where it lives ("Listing base · Location", a link to that field),
  * never a second copy and never edited here. Answers the host confirmed (no Listing base field holds them) say so.
- * Antonio, 4 Oct: the topics are clustered as cards (iteration R's topic grid); a card opens that topic's full view.
+ * review, 4 Oct: the topics are clustered as cards (iteration R's topic grid); a card opens that topic's full view.
  * `?topic=<id>` (old /hub/<topic> links, Canvas's "Open in Knowledge Hub") opens that topic directly. */
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { KqFactRef, Pill } from '../../../../ds'
@@ -11,7 +11,7 @@ import { factsByTopic, useKQ, type KQ } from './model'
 import { HubFrame } from './frame'
 import { AddFactButton, AddedFactRow, useAddedFacts } from './add'
 
-/** open tips that answer a question in this topic: the topic card's chip (Antonio, 4 Oct) */
+/** open tips that answer a question in this topic: the topic card's chip (review, 4 Oct) */
 const tipsIn = (kq: KQ, id: string) => new Set(kq.topics.find((t) => t.id === id)?.questions.flatMap((x) => (x.tip?.status === 'open' ? [x.tip.def.id] : [])) ?? []).size
 
 export function FactsPage() {

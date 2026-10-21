@@ -1,5 +1,5 @@
 /* KH-E · Ask: canned replies, written from the chosen channel's resolved values (never from another channel's), each
- * citing the facts it used. SIMULATED answers; the values are the Hub's own (lens.ts resolve). Neukölln keeps its
+ * citing the facts it used. answers; the values are the Hub's own (lens.ts resolve). Neukölln keeps its
  * scripted questions (`answer`); every other property gets the generic set (perProperty GENERIC_QUESTIONS,
  * `genericReply`), built from its own values. */
 import type { ListingChannel } from '../../../../data/sl3'

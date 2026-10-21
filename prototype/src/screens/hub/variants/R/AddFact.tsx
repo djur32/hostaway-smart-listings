@@ -1,5 +1,5 @@
 /* Knowledge Hub iteration R · the Add-fact flow (R-BRIEF.md "Adding a fact — the flow"; restructured round 3,
- * KH-NEXT-3.md, Antonio: "The text of the type is really massive when you add a fact — simplify. Maybe describe
+ * KH-NEXT-3.md, review: "The text of the type is really massive when you add a fact — simplify. Maybe describe
  * loosely and use AI to refine it: 'I have AC', and it transforms that into an actual fact with the other elements
  * filled in"). The host's own "+ Add a fact" now opens on one plain text box ("Describe the fact"); "Continue" runs a
  * simulated AI pass (`guessFact` below — canned keyword rules, not a real model, the same convention as
@@ -11,7 +11,7 @@
  * the simplification this round asks for — it resolves through C's `useKhc` as before (model.ts), not through this
  * flow's new AI step.
  *
- * Round 4 (Antonio, voice 3 Oct): two ways in on the first step — describe the fact (type it, or "Use voice", a
+ * Round 4 (review, voice 3 Oct): two ways in on the first step — describe the fact (type it, or "Use voice", a
  * simulated dictation that fills the box with a canned sentence for the topic after ~1.5 s), or "I prefer to fill in
  * the form instead", which skips to the blank form. "Continue" still structures the description into the full,
  * prefilled form. The Type picker is a plain DS Dropdown now (the icon tiles were "really, really big"), and so is
@@ -67,7 +67,7 @@ function guessTopic(text: string, fallback: RTopicId): RTopicId {
   return bestMatch(text, R_TOPICS, (t) => `${t.label} ${t.desc}`, 0.1)?.item.id ?? fallback
 }
 
-/** What the simulated dictation "hears", per topic — SIMULATED sample host speech, not real data. */
+/** What the simulated dictation "hears", per topic — sample host speech, not real data. */
 const VOICE_SAMPLES: Record<RTopicId, string> = {
   amenities: 'We have a dishwasher, the tablets are under the kitchen sink.',
   arrival: 'Check-in is from 3 pm, the key box is to the left of the front door.',
@@ -324,7 +324,7 @@ function ValueField({ kind, yn, onYn, text, onText, numN, onNumN, numUnit, onNum
     case 'text': return <textarea className="h-textarea" rows={4} placeholder="Write the fact as you’d want a guest to read it." value={text} onChange={(e) => onText(e.target.value)} />
     case 'number': return (
       <div className="h-khr-addfact__number">
-        {/* NumberField (ds/v3-ch.tsx), the product-wide numeric control: ▲/▼ spinner + Up/Down keys (Antonio, 1 Oct) —
+        {/* NumberField (ds/v3-ch.tsx), the product-wide numeric control: ▲/▼ spinner + Up/Down keys (review, 1 Oct) —
             replaces the −/+ NumberStepper, which had no keyboard stepping. Same string value as before. */}
         <NumberField label="Amount" value={numN} onChange={(v) => onNumN(v.replace(',', '.').replace(/[^\d.]/g, ''))} inputMode="decimal" decimals={1} max={99999} />
         <input className="h-input" placeholder="Unit (e.g. nights, minutes, €)" value={numUnit} onChange={(e) => onNumUnit(e.target.value)} />

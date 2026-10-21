@@ -16,7 +16,7 @@ import { E, d } from '../kit/motion.js';
 const g = () => window.gsap;
 
 /** the press lands on one card: it grows a touch while its hand-drawn ring draws (the ring is
-    declarative, data-a="draw" on .rs-ring). Nothing else changes: Antonio, 3 Oct, never dim. */
+    declarative, data-a="draw" on .rs-ring). Nothing else changes: review, 3 Oct, never dim. */
 function lift(api, sel) {
   const el = api.q(sel); if (!el) return api.tl();
   return api.tl().fromTo(el, { scale: 1 }, { scale: 1.04, duration: d(2), ease: E.out, immediateRender: false }, 0);

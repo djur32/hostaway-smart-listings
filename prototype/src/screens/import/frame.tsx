@@ -1,10 +1,10 @@
-/* F-A1 frame · owner S10. The connect flow keeps Hospitable's full-page takeover (HS-07…HS-15: logo ⇄ channel header,
- * progress rule, close) — "keep Hospitable's existing connect screens; the redesign starts right after authorization".
+/* F-A1 frame · owner S10. The connect flow keeps Hostaway's full-page takeover (HS-07…HS-15: logo ⇄ channel header,
+ * progress rule, close) — "keep Hostaway's existing connect screens; the redesign starts right after authorization".
  * Also: the demo-state catalogue for failure and edge states (S10 prompt §3; S14 owns the full matrix, ST-###).
  * D-130 D-137 · R-080 R-020 */
 import { useState, type ReactNode } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { BottomSheet, HospitableMark, Icon, IconSprite, Mark, MobileActionBar, useIsMobile } from '../../ds'
+import { BottomSheet, HostawayMark, Icon, IconSprite, Mark, MobileActionBar, useIsMobile } from '../../ds'
 import { CHANNELS } from '../../data/channels'
 import type { ChannelId } from '../../data/types'
 import { useStore } from '../../store/store'
@@ -17,7 +17,7 @@ export const STEP_LABEL: Record<Step, string> = {
   found: 'What we found', 'go-live': 'Review & go live', done: 'Done',
 }
 
-/** Failure and edge states designed in S10 (Gong themes, REAL·BRIEF §3.4). `?demo=<id>` or the picker in the frame. */
+/** Failure and edge states designed in S10 (Gong themes, §3.4). `?demo=<id>` or the picker in the frame. */
 export const DEMO_STATES: Array<{ id: string; label: string; gong: string; step: Step | 'needs-you' }> = [
   { id: 'auth-expired', label: 'Booking.com authorization expired mid-import', gong: 'Connection errors', step: 'importing' },
   { id: 'partial-photos', label: '3 Booking.com photos failed to import', gong: 'Sync failures', step: 'importing' },
@@ -54,7 +54,7 @@ export function ConnectFrame({ channel, progress, children, wide }: { channel: C
     <div className="p-flow">
       <IconSprite />
       <header className={`h-connect-head p-flow__head${chans.length > 1 ? ' p-flow__head--both' : ''}`}>
-        <span className="h-logo p-flow__logo"><span className="p-flow__mark">{HospitableMark()}</span>hospitable</span>
+        <span className="h-logo p-flow__logo"><span className="p-flow__mark">{HostawayMark()}</span>hostaway</span>
         <Icon name="arrows-shuffle" size={16} className="p-faint" />
         {chans.map((c) => <span key={c} className="p-row p-flow__ch" style={{ gap: 6 }}><Mark channel={c} /><b className={`p-ch-${CHANNELS[c].letter}`}>{CHANNELS[c].name}</b></span>)}
         <span className="h-connect-head__rule" style={{ ['--value' as string]: `${Math.round(progress * 100)}%` }} />

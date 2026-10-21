@@ -1,7 +1,7 @@
 /* Data model for the prototype · S09 scaffold (D-128).
  * Mirrors ia/object-model.md (S06a): Fact · Source · Projection · Override · Copy · Photo · Suggestion · Version · Sync state.
  * Direction-neutral on purpose: any G3 pick needs these objects (D-123 "If G3 picks differently").
- * All sample content is SIMULATED (concepts/SCENARIO.md); the footer says so once. */
+ * All sample content is (concepts/SCENARIO.md); the footer says so once. */
 
 export type ChannelId = 'airbnb' | 'booking' | 'vrbo' | 'direct' | 'google'
 
@@ -231,7 +231,7 @@ export interface Listing {
   description: string
   photoOrder: string[]
   highlightedAmenities: string[]
-  /** Booking.com Page Score (Property Scores API) — SIMULATED value. */
+  /** Booking.com Page Score (Property Scores API) — value. */
   pageScore?: number
   lastPush?: string
   /** Booking.com writes its own description (D-032, I-06). */
@@ -314,7 +314,7 @@ export interface CustomFactInput {
 /* ---------------- Portfolio, pricing, versions, stats, persona modes (S12, additive) ---------------- */
 
 /** Who sets the nightly price on a channel (D-154). "Pricing not syncing as expected" is mostly this being unclear. */
-export type PriceOwner = 'hospitable-dynamic' | 'hospitable-fixed' | 'channel' | 'tool' | 'manual'
+export type PriceOwner = 'hostaway-dynamic' | 'hostaway-fixed' | 'channel' | 'tool' | 'manual'
 
 /** A pricing strategy: set on a group (portfolio level), inherited by each property, overridable per property (R-115). */
 export interface PricingStrategy {
@@ -344,7 +344,7 @@ export interface PortfolioGroup {
   pricing: PricingStrategy
 }
 
-/** Per property, per channel: what the Grid shows (SIMULATED). */
+/** Per property, per channel: what the Grid shows. */
 export interface ChannelHealth {
   status: 'in-sync' | 'needs-you' | 'failed' | 'drifted' | 'unlisted'
   /** Listing strength: Booking.com Page Score where it exists, our heuristic elsewhere (D-159). */

@@ -186,7 +186,7 @@
 .rs-range__mid { position: absolute; left: calc((var(--lo) + var(--hi)) / 2); transform: translateX(-50%); color: var(--color-text-secondary); white-space: nowrap; }
 
 /* panel 2 · the listing against the same comp set: a table, the row with a tip marked by the product's tip dot,
-   and the tip itself in the product's one recommendation container (AI Copilot's lavender head and sparkle) */
+   and the tip itself in the product's one recommendation container (the assistant's lavender head and sparkle) */
 .rs-ui .rs-lc { width: 434px; }   /* with the tip, fills the plate: (1018 − 2 × 26 − 20) / 1.3 */
 .rs-lc__t { width: 100%; border-collapse: collapse; font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-strong); font-variant-numeric: tabular-nums; }
 .rs-lc__t th { padding: var(--space-2) var(--space-4) var(--space-1); font-size: var(--text-xs); line-height: var(--leading-xs); font-weight: var(--font-weight-medium); color: var(--color-text-muted); text-align: right; }
@@ -288,7 +288,7 @@
    Choosing a host dims the cards that aren't theirs (opacity only, so nothing reflows on hover). ── */
 .rs-syn { display: grid; gap: 26px; }
 .rs-syn__bar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
-/* a fixed legend, not a filter (Antonio, 4 Oct): each initial with its host */
+/* a fixed legend, not a filter (review, 4 Oct): each initial with its host */
 .rs-syn__leg { display: inline-flex; align-items: center; gap: 10px; font: var(--w-medium) 20px / 1 var(--font-ui); color: var(--ink-2); }
 .rs-syn__leg .syn-av { margin-left: 0; }
 .rs-syn__lbl { margin-right: 6px; font: var(--w-medium) 17px / 1 var(--font-ui); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
@@ -322,7 +322,7 @@
 .rs-syn__need b { font: var(--w-head) 19px / 1.2 var(--font-ui); color: var(--ink); }
 .rs-syn__need span { font-size: 17px; line-height: 1.3; color: var(--ink-3); }
 
-/* the signal is its bars alone, on the insights and the pains (Antonio, 4 Oct): the word is in the title, not the chip */
+/* the signal is its bars alone, on the insights and the pains (review, 4 Oct): the word is in the title, not the chip */
 .rs-in .hc-signal__l, .rs-pain__sig .hc-signal__l, .rs-meter .hc-signal__l { display: none; }
 .rs-meter__legend .hc-signal { display: inline-flex; }
 .rs-in > .hc-signal { align-self: start; }

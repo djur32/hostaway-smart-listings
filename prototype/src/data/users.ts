@@ -1,8 +1,8 @@
 /* Accounts you can act as (S12 follow-up, 3 Oct · D-160…D-163). The four hosts are the research's own (personas.md,
- * INT-1…INT-4 pseudonyms: Marta, Dana, Callum, Priya; SIMULATED people, REAL·BRIEF persona types). No surnames, emails
+ * INT-1…INT-4 pseudonyms: Marta, Dana, Callum, Priya; people, persona types). No surnames, emails
  * or photos are made up: first name, the persona, and what their account holds.
  *
- * Dana is today's account, kept exactly as built (Antonio, 3 Oct: "the current one is the default"). Each account keeps
+ * Dana is today's account, kept exactly as built (review, 3 Oct: "the current one is the default"). Each account keeps
  * its own saved prototype state (app/account.ts), so switching never loses anyone's work. Accounts change WHAT you own
  * and the DEFAULTS and GUIDANCE you get (D-150), never what the product can do. */
 import type { PersonaId } from './types'
@@ -44,9 +44,9 @@ export const USERS: Record<UserId, UserDef> = {
     properties: [PROPERTY_ID],
     context: 'One home on Airbnb and Booking.com. Wants it to just work, and to hear only when something differs.', tone: 'marta',
     channels: ['airbnb', 'booking'] },
-  priya: { id: 'priya', name: 'Priya', initials: 'P', persona: 'P4', role: 'Just joined Hospitable',
+  priya: { id: 'priya', name: 'Priya', initials: 'P', persona: 'P4', role: 'Just joined Hostaway',
     properties: [PROPERTY_ID],
-    // Antonio, 4 Oct: Priya is a new host on one listing already — no first-time setup anywhere (web or app)
+    // review, 4 Oct: Priya is a new host on one listing already — no first-time setup anywhere (web or app)
     context: 'Just joined from Hostaway with one listing on Airbnb. It is already here, with no setup.', tone: 'priya',
     channels: ['airbnb'] },
 }
@@ -56,7 +56,7 @@ export const DEFAULT_USER: UserId = 'dana'
 export const userForPersona = (p: PersonaId): UserId => USER_ORDER.find((u) => USERS[u].persona === p) ?? DEFAULT_USER
 
 /* ---------- the current account (per browser tab, like the rest of the prototype's state) ---------- */
-export const USER_KEY = 'hospitable-proto:user'
+export const USER_KEY = 'hostaway-proto:user'
 export function currentUserId(): UserId {
   try {
     const v = sessionStorage.getItem(USER_KEY) as UserId | null
@@ -65,7 +65,7 @@ export function currentUserId(): UserId {
 }
 export const currentUser = (): UserDef => USERS[currentUserId()]
 
-/** What an account owns right now. Priya already has her one listing (Antonio, 4 Oct: no setup). */
+/** What an account owns right now. Priya already has her one listing (review, 4 Oct: no setup). */
 export function propertiesOf(u: UserDef, _setupConnected: readonly string[]): string[] {
   return u.properties
 }

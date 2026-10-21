@@ -1,4 +1,4 @@
-/* WS-KH · Knowledge Hub model: the section draft (Hospitable's Discard changes / Save) and where each value goes.
+/* WS-KH · Knowledge Hub model: the section draft (Hostaway's Discard changes / Save) and where each value goes.
  * Base edits → sl3Base(key). A channel's own value → sl3Custom(c, key, value); `null` = back to the Base; `undefined` =
  * drop the entry (back to how the listing was). Everything waits for the section's Save. */
 import { useMemo, useState } from 'react'

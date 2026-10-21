@@ -1,9 +1,8 @@
 /* ============================================================================
-   HC · the Hospitable case's own components (S07). Templates: src/slides/_kit.html.
+   HC · the Hostaway case's own components (S07). Templates: src/slides/_kit.html.
    Behaviour (charts, Notion links, frames, the concept grid): kit/hc.js.
 
-     .hc-prov        provenance chip: REAL·BRIEF · REAL·PRODUCT · REAL·PUBLIC ·
-                     SIMULATED ("Illustrative") · PROJECTED · ASSUMPTION
+     .hc-prov        provenance chip: ("Illustrative") · 
      .hc-id          an ID tag (D-012, I-04, INT-3); a link when Notion knows it
      .hc-notion      "In Notion ↗" (every slide gets one in its foot, automatically)
      .hc-quote       a quote card: persona, words, INT-# and time, provenance
@@ -11,7 +10,7 @@
                      line (before/after) · svg (an imported dendrogram)
      .hc-kpi         a KPI tile        .hc-signal   a signal-strength meter
      .hc-stat        the KPI card (label · value · one quiet line); .hc-stats rows, .hc-stats--stack
-     .hc-browser     my.hospitable.com in a browser frame   .hc-phone   a phone
+     .hc-browser     my.hostaway.com in a browser frame   .hc-phone   a phone
      .hc-live        the live prototype, embedded, with a poster
      .hc-grid        the 7 × 5 concept matrix (click a cell to zoom)
      .hc-decision    a decision card: D-###, the call, the options, why, strength
@@ -27,7 +26,7 @@
 @layer components {
 
 /* ── provenance, one colour per kind (3 Oct, late) ─────────────────────────
-   Antonio: the kinds were coloured on one slide and grey on the others. One colour per kind,
+   review: the kinds were coloured on one slide and grey on the others. One colour per kind,
    the same everywhere (footer chips, legends, the covers' Outputs), built from ds tokens:
      Real        --prov-real   / --prov-real-bg     green  (success-700 / -50)   brief · product · public
      Simulated   --prov-sim    / --prov-sim-bg      orange (orange-700 / -50)   never purple: lavender/purple means AI
@@ -37,7 +36,7 @@
    colour: ● real (filled) · ○ simulated (hollow) · ◐ projected · ◇ assumption.
    A slide's sources sit in its foot as one line (.hc-src), the chip names the kind. */
 :root {
-  /* the quiet gray plate behind cards, rows and chips. Gray-50 read as white on the wall (Antonio, 4 Oct: "the light gray is too light") */
+  /* the quiet gray plate behind cards, rows and chips. Gray-50 read as white on the wall (review, 4 Oct: "the light gray is too light") */
   --plate-quiet: var(--color-gray-100);
   --prov-real:   var(--color-success-700);   --prov-real-bg:   var(--color-success-50);
   --prov-sim:    var(--color-orange-700);    --prov-sim-bg:    var(--color-orange-50);
@@ -79,7 +78,7 @@
 .hc-mark[data-mark="planned"]  { --mark-c: var(--prov-plan); --mark-bg: var(--bg); box-shadow: none; border: 1.5px dashed var(--prov-plan-line); padding: 0 10.5px 0 8.5px; }
 .hc-mark[data-mark="planned"]::before { background: none; box-shadow: inset 0 0 0 1.4px currentColor; }
 /* the source line: kind, then what it is */
-.hc-src { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px; font-size: 15px; line-height: 1.4; color: var(--ink-3); max-width: 1400px; }   /* centred: an inline-flex chip's baseline is its dot, so baseline let the words ride high (Antonio, 4 Oct) */
+.hc-src { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px; font-size: 15px; line-height: 1.4; color: var(--ink-3); max-width: 1400px; }   /* centred: an inline-flex chip's baseline is its dot, so baseline let the words ride high (review, 4 Oct) */
 .hc-src > * { line-height: 1.4; }
 .hc-src > span:not(.hc-prov) { color: var(--ink-3); }
 .hc-src .hc-prov + span::before { content: ""; }
@@ -207,7 +206,7 @@ html.is-print .hint--proto { display: none; }
 .hc-chart { position: relative; margin: 0; display: grid; gap: var(--s-2); width: var(--w, 100%); min-width: 0; }
 .hc-chart__svg { display: block; width: 100%; height: auto; overflow: visible; }
 /* a chart's caption reads as the slide's source line (.hc-src): 15 px, quiet ink, the chip first and on the left
-   (Antonio, 4 Oct). Inside a detail, engine.js lifts it into the panel's one source line at the card's bottom left. */
+   (review, 4 Oct). Inside a detail, engine.js lifts it into the panel's one source line at the card's bottom left. */
 .hc-chart__cap { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 4px 18px; font-size: 15px; line-height: 1.4; color: var(--ink-3); }
 .hc-chart__cap .hc-prov { order: -1; margin-left: 0; }
 .hc-chart text { font-family: var(--font-ui); fill: var(--ink-2); }
@@ -241,7 +240,7 @@ html.is-print .hint--proto { display: none; }
 
 /* ── screen frames ──────────────────────────────────────────────────────── */
 /* The browser the 59 screenshots were taken in, without the macOS menu bar: one tab, the
-   address bar with my.hospitable.com, then the product. Drawn in tokens, not an image. */
+   address bar with my.hostaway.com, then the product. Drawn in tokens, not an image. */
 .hc-browser {
   position: relative; margin: 0; width: var(--w, 1100px); flex: none;
   border-radius: var(--r-3); overflow: hidden; background: var(--bg);
@@ -372,9 +371,9 @@ html.is-print .hint--proto { display: none; }
 }
 
 /* ── a part's cover (D-072; a feature moment since 3 Oct, evening) ────────
-   The first beat of a part's first slide. Antonio, 3 Oct: "the covers to be a feature: much
+   The first beat of a part's first slide. review, 3 Oct: "the covers to be a feature: much
    bolder, and embody the thing they represent in a playful manner". So a cover is one of
-   Hospitable's marketing panels (references 06, 08, 10): a big tinted plate, the part's name,
+   Hostaway's marketing panels (references 06, 08, 10): a big tinted plate, the part's name,
    question, methods and outputs in aubergine on the left, the mascot on the right, hand-drawn
    rings and strokes around it in tones that hold on the plate. No part number, no "With AI"
    line (3 Oct, late). kit/hc.js covers() builds the plate and the art, picks the tint and
@@ -383,21 +382,21 @@ html.is-print .hint--proto { display: none; }
   position: absolute; inset: 0; z-index: 3; padding: 0;
   background: var(--bg); color: var(--ink); overflow: hidden;
 }
-/* the plate sits in even white bands: as much white under it as over it (Antonio, 4 Oct) */
+/* the plate sits in even white bands: as much white under it as over it (review, 4 Oct) */
 .hc-cover__plate {
   position: absolute; left: 40px; right: 40px; top: var(--plate-y); bottom: var(--plate-y); z-index: 0; overflow: hidden;
   border-radius: 48px; background: var(--tint-halo, var(--color-primary-200));
 }
 /* the words, all in the left column: the name, the question, the methods, the outputs */
 /* the plate's inset on every side (80px, as on the left). The name and its question stay together at the
-   top, always; the methods and outputs sit on the bottom inset, never centred (Antonio, 4 Oct: "they should
+   top, always; the methods and outputs sit on the bottom inset, never centred (review, 4 Oct: "they should
    always be together… discovery on top of the text"). Only the foot is pushed down (margin-top: auto). */
 .hc-cover .opener {
   position: absolute; z-index: 2; left: 120px; top: calc(var(--plate-y) + 72px); bottom: calc(var(--plate-y) + 80px); width: 780px;
   display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 0; padding: 0; height: auto;
 }
 .hc-cover .opener__top { display: grid; justify-items: start; gap: 0; }
-.hc-cover .opener__n { display: none; }                  /* no "Part N of 6" (Antonio, 3 Oct); hc.js drops it too */
+.hc-cover .opener__n { display: none; }                  /* no "Part N of 6" (review, 3 Oct); hc.js drops it too */
 .hc-cover .opener__name {
   margin: 0; max-width: 800px; font-family: var(--font-display); font-size: 128px; font-weight: var(--w-head);
   line-height: 0.95; letter-spacing: -0.04em; color: var(--tint-title, var(--color-sidebar-bg)); text-wrap: balance;
@@ -412,12 +411,12 @@ html.is-print .hint--proto { display: none; }
   letter-spacing: 0; text-transform: none;
 }
 .hc-cover .opener__methods { gap: 10px; }
-.hc-cover .opener__methods > :is(span, a):not(.opener__k) {         /* Hospitable's white chips, floating on the plate */
+.hc-cover .opener__methods > :is(span, a):not(.opener__k) {         /* Hostaway's white chips, floating on the plate */
   height: 44px; padding: 0 18px; border: 0; border-radius: var(--r-pill); background: var(--bg);
   color: var(--ink); font: var(--w-medium) 18px / 1 var(--font-ui);
   box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent), 0 10px 22px -14px color-mix(in oklab, var(--color-sidebar-bg) 40%, transparent);
 }
-/* the outputs: chips in the same style as the methods, one text colour (Antonio, 3 Oct: "too complex,
+/* the outputs: chips in the same style as the methods, one text colour (review, 3 Oct: "too complex,
    produced / sampled / planned doesn't look great here"). The status stays, quietly: a small dot inside
    each chip (filled green: produced · hollow orange: sampled · dashed gray ring: planned). */
 .hc-cover .opener__out { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
@@ -434,14 +433,14 @@ html.is-print .hint--proto { display: none; }
 .hc-cover .opener__outrow:has(> [data-mark="planned"]) .opener__outs > :is(span, a)::before { background: transparent; border: 1.5px dashed var(--prov-plan-line); width: 8px; height: 8px; }
 
 /* the art: the part's drawing, big (about 62% of the slide's height), standing on the plate and
-   cropped by its bottom edge like hospitable.com's mascots (references 08, 10); doodles around it.
+   cropped by its bottom edge like hostaway.com's mascots (references 08, 10); doodles around it.
    Coordinates are in the plate's box. */
 .hc-cover__art { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
-/* oversized on purpose (Antonio, 3 Oct: "overblown", references 08 and 10): the drawing is about
+/* oversized on purpose (review, 3 Oct: "overblown", references 08 and 10): the drawing is about
    1.15 × the plate's height, so the plate crops it at the bottom and the right edge and it
    dominates the slide; the words keep the left column (z-index 2) and the drawing starts after it.
    Nothing here depends on the drawing's head or pose: only the 320 × 220 frame. */
-.hc-cover__mascot { position: absolute; right: 30px; bottom: -8px; width: 960px; aspect-ratio: 320 / 220; }   /* moderate again (Antonio, 3 Oct: "way too big"): about 60% of the slide's height, standing on the plate's bottom edge */
+.hc-cover__mascot { position: absolute; right: 30px; bottom: -8px; width: 960px; aspect-ratio: 320 / 220; }   /* moderate again (review, 3 Oct: "way too big"): about 60% of the slide's height, standing on the plate's bottom edge */
 .hc-cover .hc-illo {
   position: absolute; inset: 0; width: auto; height: auto; border-radius: 0; background: none; overflow: visible;
   animation: hc-bob 6.5s ease-in-out infinite; transform-origin: 50% 100%;
@@ -481,7 +480,7 @@ html.is-print .s > .hc-cover { display: none; }
 .s[data-ground="aubergine"] .hc-ph { background: none; border-color: var(--on-dark-line); }
 .s[data-ground="aubergine"] .hc-ph__k { color: var(--on-dark); }
 
-/* ── slide head, the Hospitable way: eyebrow, a title, the one-line message ── */
+/* ── slide head, the Hostaway way: eyebrow, a title, the one-line message ── */
 .hc-msg { font-size: var(--t-lead); line-height: 1.35; color: var(--ink-3); max-width: 58ch; text-wrap: pretty; }
 .s[data-ground="aubergine"] .hc-msg { color: var(--on-dark-2); }
 
@@ -490,7 +489,7 @@ html.is-print .s > .hc-cover { display: none; }
 } /* @layer components */
 
 /* ════════════════════════════════════════════════════ 3 Oct · the selling kit ══
-   Antonio, 3 Oct: "more of a selling tool than a pure presentation", with mock-ups that
+   review, 3 Oct: "more of a selling tool than a pure presentation", with mock-ups that
    float, realistic but not 3D. Everything below is tokens only. */
 @layer components {
 
@@ -524,7 +523,7 @@ html.is-print .s > .hc-cover { display: none; }
 .hc-scr > img { display: block; width: 100%; height: auto; }
 .hc-scr--crop { aspect-ratio: var(--ar, 4 / 3); }
 .hc-scr--crop > img { width: calc(100% * var(--z, 1)); max-width: none; height: auto; transform: translate(var(--cx, 0), var(--cy, 0)); }
-.hc-scr.is-back { }   /* back layer: depth from overlap and shadow only, never muted (Antonio, 3 Oct: no dimming) */
+.hc-scr.is-back { }   /* back layer: depth from overlap and shadow only, never muted (review, 3 Oct: no dimming) */
 .hc-scr.is-float { animation: hc-float 7s ease-in-out infinite alternate; }
 .hc-scr.is-float-2 { animation: hc-float 8.5s ease-in-out -3s infinite alternate; }
 @keyframes hc-float { from { transform: translateY(0); } to { transform: translateY(-8px); } }
@@ -560,7 +559,7 @@ html.is-print .s > .hc-cover { display: none; }
 .hc-open a:hover { box-shadow: 0 0 0 1.5px var(--accent); }
 .hc-open small { font-size: 15px; color: var(--ink-3); font-weight: 400; }
 
-/* ── a statement in Antonio's voice ─────────────────────────────────────── */
+/* ── a statement in review's voice ─────────────────────────────────────── */
 .hc-say { font: var(--w-head) var(--t-h3) / 1.22 var(--font-display); letter-spacing: -0.012em; color: var(--ink); max-width: 30ch; text-wrap: balance; }
 .hc-say .tone-2 { color: var(--ink-3); }
 .hc-kicker { font: var(--w-medium) var(--t-label) / 1.2 var(--font-ui); color: var(--accent-ink); }
@@ -613,8 +612,8 @@ html.is-print .s > .hc-cover { display: none; }
 .hc-table .num { font-variant-numeric: tabular-nums; }
 
 /* ── stats: the KPI card (4 Oct, restyled the same day) ───────────────────────
-   Antonio: the big bare numbers were "really old school"; then the pastel-tile, blush-filled cards "don't feel
-   aligned to Hospitable's UI". So a stat is exactly the product's KPI card (Smart Listings › Performance and
+   review: the big bare numbers were "really old school"; then the pastel-tile, blush-filled cards "don't feel
+   aligned to Hostaway's UI". So a stat is exactly the product's KPI card (Smart Listings › Performance and
    Metrics: ds/v3/perf.css .sl-perf-kpi), drawn at wall size (the product's px × about 2): a white card, the
    product's gray hairline and card radius, no shadow; the label on top in the product's label style (medium,
    secondary ink), the value in its number style (semibold, strong ink, tabular), one quiet muted line at the foot.
@@ -674,7 +673,7 @@ html.is-print .s > .hc-cover { display: none; }
 .hc-points li::before { content: ""; width: 10px; height: 10px; margin-top: 11px; border-radius: 50%; background: var(--accent); }
 .hc-points li b { color: var(--ink); font-weight: var(--w-head); }
 .hc-points--quiet li::before { background: var(--ink-4); }
-/* AI lists: the lavender arrow bullets of Copilot's pages (reference 07) */
+/* AI lists: the lavender arrow bullets of the assistant's pages (reference 07) */
 .hc-points--ai li { grid-template-columns: 40px minmax(0, 1fr); gap: 16px; align-items: center; }
 .hc-points--ai li::before {
   content: "\2192"; width: 40px; height: 40px; margin: 0; border-radius: 50%; display: grid; place-items: center;
@@ -699,10 +698,10 @@ html.is-print .s > .hc-cover { display: none; }
 .hc-two--top { align-items: start; }
 }
 
-/* ════════════════════════════════ 3 Oct, evening · Hospitable's marketing language ══
-   Antonio: "embody the design and the flair of Hospitable in a much more profound way… a lot
-   more playful… slightly animated". Borrowed from hospitable.com (research/references/
-   hospitable-marketing/, README): tinted feature plates with a pill badge, UI on a soft halo
+/* ════════════════════════════════ 3 Oct, evening · Hostaway's marketing language ══
+   review: "embody the design and the flair of Hostaway in a much more profound way… a lot
+   more playful… slightly animated". Borrowed from hostaway.com (research/references/
+   hostaway-marketing/, README): tinted feature plates with a pill badge, UI on a soft halo
    plate, floating chips, the highlighted comparison column, hand-drawn rings and strokes.
    Colour lives in covers, plates, tiles and accents; content slides stay mostly white.
    Every pattern is documented with its token recipe in ds/marketing-patterns.md. */
@@ -730,14 +729,14 @@ html.is-print .s > .hc-cover { display: none; }
   --tint-ink: var(--color-success-700); --tint-line: var(--color-success-600); --tint-title: var(--color-sidebar-bg); --tint-body: var(--ink-2);
 }
 
-/* ── the pill badge ("Hospitable exclusive") ──────────────────────────────── */
+/* ── the pill badge ("Hostaway exclusive") ──────────────────────────────── */
 .hc-badge {
   display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 18px; border-radius: var(--r-pill);
   background: var(--tint-ink, var(--accent-ink)); color: var(--on-accent); font: var(--w-head) 18px / 1 var(--font-ui); white-space: nowrap;
 }
 .hc-badge svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
 
-/* ── chips: the Copilot question chips and AI answers, floating ─────────────
+/* ── chips: the the assistant question chips and AI answers, floating ─────────────
    <span class="hc-chip"><svg class="hc-chip__i"><use href="#i-sparkles"/></svg>How many check-ins…?</span>
    --q: a question (rounded rectangle, roomier) · --ai: the answer's lavender label · --ok: a receipt.
    On a scene: .is-at with --x --y. .is-drift idles 4px. A group can stagger in: data-a="stagger". */
@@ -814,7 +813,7 @@ html.is-print .s > .hc-cover { display: none; }
 .hc-check, .hc-x { flex: none; display: inline-grid; place-items: center; border-radius: 50%; }
 .hc-check { width: 36px; height: 36px; background: var(--color-primary-700); }
 .hc-check::before { content: ""; width: 13px; height: 7px; margin-top: -4px; border: solid var(--on-accent); border-width: 0 0 2.5px 2.5px; transform: rotate(-45deg); }
-/* the "today" mark: the row's own grey, the check's size, a drawn × dead centre (Antonio, 4 Oct: "I can barely see the X") */
+/* the "today" mark: the row's own grey, the check's size, a drawn × dead centre (review, 4 Oct: "I can barely see the X") */
 .hc-x { position: relative; width: 36px; height: 36px; color: var(--ink-3); box-shadow: inset 0 0 0 2px currentColor; }
 .hc-x::before, .hc-x::after { content: ""; position: absolute; left: 50%; top: 50%; width: 15px; height: 2.5px; border-radius: 2px;
   background: currentColor; transform: translate(-50%, -50%) rotate(45deg); }
@@ -822,7 +821,7 @@ html.is-print .s > .hc-cover { display: none; }
 
 /* ── doodles: hand-drawn rings and strokes (reference 11) ─────────────────────
    <span class="hc-doodle" data-doodle="ring|strokes|squiggle|swoosh" data-tone="raspberry|purple|aubergine|yellow|mint" style="--size: 140px"></span>
-   Pairings that hold (Antonio, 3 Oct: "you cannot put yellow on red… or on purple"): on blush,
+   Pairings that hold (review, 3 Oct: "you cannot put yellow on red… or on purple"): on blush,
    purple and aubergine; on lavender, raspberry and aubergine; on butter and mint, raspberry and
    purple. Yellow only on white or aubergine grounds. kit/hc.js DOODLE_TONES sets the covers'.
    kit/hc.js draws the SVG; data-a="draw" on the span draws it in. The ring sways a few degrees. */
@@ -866,7 +865,7 @@ html.is-print :is(.hc-pillar__i svg, .hc-doodle, .hc-idle, .hc-idle-2, .is-drift
 .hc-tree li b { color: var(--ink); font-weight: var(--w-head); }
 }
 
-/* ── vertical balance (Antonio, 3 Oct: "content always vertically aligned with the available space; more space between the description and the table"):
+/* ── vertical balance (review, 3 Oct: "content always vertically aligned with the available space; more space between the description and the table"):
    the body starts a step below the message and reaches into the footer's padding, so its centred content sits mid-way between them */
 @layer components {
   .s > .s-head + .s-body { margin-top: 28px; }
@@ -963,7 +962,7 @@ html.is-print :is(.hc-pillar__i svg, .hc-doodle, .hc-idle, .hc-idle-2, .is-drift
     background: var(--surface); border: 1px solid var(--color-gray-200); font: var(--w-medium) 20px / 1.1 var(--font-ui); color: var(--ink-2); }
   .hc-flow__lbl.is-host > span { color: var(--accent-ink); border-color: var(--color-primary-200); }
 
-  /* "look": "cards" (4 Oct, Antonio on the Hub flow: "don't make everything so round"): every node is the same card,
+  /* "look": "cards" (4 Oct, review on the Hub flow: "don't make everything so round"): every node is the same card,
      the deck's white card on a hairline at one radius. The meaning rides in the lead inside the card: lavender and a
      sparkle only for the AI, a diamond for a question, a check for an outcome. Labels take the product's pill corner. */
   .is-cards .hc-flow__n { border-radius: var(--r-2); padding: 14px 18px; gap: 12px; border: 1px solid var(--color-gray-200); background: var(--surface); color: var(--ink); box-shadow: none; }
@@ -992,8 +991,8 @@ html.is-print :is(.hc-pillar__i svg, .hc-doodle, .hc-idle, .hc-idle-2, .is-drift
 /* every slide laid out once at boot, so hidden ones can be measured (kit/hc.js) */
 html.is-measuring .deck > .s { content-visibility: visible !important; }
 
-/* a cover chip that opens Notion shows the external-link arrow on hover, sliding in (Antonio, 4 Oct).
-   The chip never changes width, so nothing ever re-wraps (Antonio, 4 Oct: "no wrap change ever"): the arrow
+/* a cover chip that opens Notion shows the external-link arrow on hover, sliding in (review, 4 Oct).
+   The chip never changes width, so nothing ever re-wraps (review, 4 Oct: "no wrap change ever"): the arrow
    is out of flow, and the hover moves 8px of padding from the left to the right, where the arrow sits.
    The two paddings always add up to the chip's 36px. */
 .hc-cover .opener a.is-link {
@@ -1017,7 +1016,7 @@ html.is-measuring .deck > .s { content-visibility: visible !important; }
 .s-foot.has-so > .dc-so, .s-foot.has-so > .hc-so { margin: 0; }
 
 /* ── the brand plate: the talk's bookends (4 Oct) ─────────────────────────────
-   Hospitable's own marketing panels (research/references/hospitable-marketing/brand-*.{webp,png}):
+   Hostaway's own marketing panels (research/references/hostaway-marketing/brand-*.{webp,png}):
    a deep aubergine plate, big white sentence-case words, and playful marks at its edges, cropped by
    the plate: hand-drawn rings, a raspberry blob, small coloured dots, a lighter band across it.
    Used by the opening (op-cover) and the close (cl-thanks). The plate has the cover plate's geometry.

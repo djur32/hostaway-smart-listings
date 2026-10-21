@@ -1,5 +1,5 @@
 /* Smartify — the yellow, user-initiated "refine what's already there" primitive (CLAUDE.md "Design established
- * patterns"; Antonio relayed, round 2: "tips and recommendations will always appear with a purple thing...
+ * patterns"; review relayed, round 2: "tips and recommendations will always appear with a purple thing...
  * customizations/refinements will be in yellow... same icon, but the functionality is a little different").
  *
  * Distinct from Tips (ds/sl3.tsx TipsToggle/TipCard/TipDot — purple, the system proactively pushes a suggestion the
@@ -9,11 +9,11 @@
  * there as a RESULT CARD. Nothing changes in the field until the host clicks Accept, which writes the text as a normal draft
  * (it then waits for the section's own Discard/Save, ds/unsaved.tsx, like typing it by hand). Below the comparison,
  * quick follow-ups (Shorter, Warmer, More detail, Try again, or a typed instruction) each add a new version; versions
- * stay navigable with the card's x-of-n stepper. (Antonio, 3 Oct: "instead of just making the change altogether, there
+ * stay navigable with the card's x-of-n stepper. (review, 3 Oct: "instead of just making the change altogether, there
  * is a card that appears where the tips appear that allows you to see the original versus the new one".)
  *
  * The result card IS the Tip card (ds/sl3.tsx TipCard, tone="refine") inside the same panel (TipsPanel, tone="refine")
- * — same container, head, title, before/after Diff and footer; only the accent is yellow (Antonio, 3 Oct: "the same
+ * — same container, head, title, before/after Diff and footer; only the accent is yellow (review, 3 Oct: "the same
  * style for the recommendations for the tips as we're using for the change").
  *
  * Shared DS primitive (CONVENTIONS §6.3). Consumed by screens/channel/ListingEditor.tsx's Classic free-text fields
@@ -29,7 +29,7 @@ import { Diff, TipCard, TipsPanel } from './sl3'
 /** One-line definition in the trigger's tooltip — parallel to the purple dot's (sl3.tsx TIP_DOT_HINT). */
 export const SMARTIFY_HINT = 'Rewrite with AI: describe a change, or pick a quick action'
 
-/** The quick actions offered in the composer (Antonio, 3 Oct: "options… for example summarize, shorten, make more
+/** The quick actions offered in the composer (review, 3 Oct: "options… for example summarize, shorten, make more
  *  formal… quick actions"), and again as follow-ups under a result. */
 export const SMARTIFY_QUICK: Array<{ label: string; instruction: string }> = [
   { label: 'Shorten', instruction: 'make it shorter' },
@@ -51,7 +51,7 @@ export interface SmartifyTriggerProps {
   className?: string
 }
 
-/** The orange sparkle beside a field's label. Antonio, 3 Oct: no floating prompt — clicking opens the side panel
+/** The orange sparkle beside a field's label. review, 3 Oct: no floating prompt — clicking opens the side panel
  *  straight into the composer (type a change, or pick a quick action). Inline elements only, so it can sit in the
  *  label's <p>. */
 export function SmartifyTrigger({ label, onOpen, disabled, active, className }: SmartifyTriggerProps) {
@@ -108,7 +108,7 @@ function Composer({ onSend, busy, placeholder, autoFocus }: { onSend: (t: string
     <div className="sy-composer">
       <textarea ref={ref} className="sy-composer__input" rows={2} value={text} placeholder={placeholder} aria-label="Describe the change you want"
         onChange={(e) => setText(e.target.value)} onKeyDown={onKey} disabled={busy} />
-      {/* Antonio, 3 Oct: the send arrow appears only once something is typed — hidden (not just disabled) when empty. */}
+      {/* review, 3 Oct: the send arrow appears only once something is typed — hidden (not just disabled) when empty. */}
       {text.trim() && (
         <button type="button" className="sy-pop__go" aria-label="Rewrite" onClick={send} disabled={busy}>
           <Icon name="arrow-right" size={16} />
@@ -131,7 +131,7 @@ function QuickActions({ onPick, busy, retry, label }: { onPick: (instruction: st
 }
 
 /** The docked panel for one field's rewrite. Opens on the composer — the cursor already in it, quick actions below
- *  (Antonio, 3 Oct: "when you click on that, you already are in the composer and you can type"). Once there is a
+ *  (review, 3 Oct: "when you click on that, you already are in the composer and you can type"). Once there is a
  *  version, it becomes the result card (TipCard, tone="refine"): the change, Accept / Dismiss, versions x of n, and
  *  the same quick actions plus a composer to keep refining. Nothing writes the field until Accept. */
 export function SmartifyPanel(p: SmartifyPanelProps) {

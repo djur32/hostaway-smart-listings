@@ -22,7 +22,7 @@ export function Connect({ channel = 'airbnb' }: { channel?: ChannelId }) {
       <h1 className="h-h1">Connect {CHANNELS[channel].name}</h1>
       <p className="h-intro">
         {p.id === 'P4'
-          ? <>Hospitable will read your {CHANNELS[channel].name} listing so it can answer guests and keep your calendar right. <b>It won’t change anything on {CHANNELS[channel].name} until you’ve seen exactly what, and said yes.</b></>
+          ? <>Hostaway will read your {CHANNELS[channel].name} listing so it can answer guests and keep your calendar right. <b>It won’t change anything on {CHANNELS[channel].name} until you’ve seen exactly what, and said yes.</b></>
           : <>We’ll read everything on your {CHANNELS[channel].name} {channel === 'booking' ? 'property' : 'listings'} first. <b>Nothing is written to {CHANNELS[channel].name} until you’ve reviewed what will change.</b></>}
       </p>
       <div className="p-grid-2c p-mt6">
@@ -37,14 +37,14 @@ export function Connect({ channel = 'airbnb' }: { channel?: ChannelId }) {
         <div className="p-card">
           <div className="p-label">Only after you review it</div>
           <ul className="p-list">
-            <li><Icon name="coin" size={18} /><span><b>Prices.</b> If Hospitable sets your nightly rate, {channel === 'airbnb' ? 'Airbnb Smart Pricing turns off' : 'Booking.com rates come from Hospitable'}. You’ll choose.</span></li>
+            <li><Icon name="coin" size={18} /><span><b>Prices.</b> If Hostaway sets your nightly rate, {channel === 'airbnb' ? 'Airbnb Smart Pricing turns off' : 'Booking.com rates come from Hostaway'}. You’ll choose.</span></li>
             <li><Icon name="send" size={18} /><span><b>Any change to your listing</b> is shown as a before and after, per {plain(p, 'channel')}, before it’s sent.</span></li>
             <li><Icon name="history" size={18} /><span><b>Nothing changes on your listing</b> until you review and send it. We keep a copy of what we imported.</span></li>
           </ul>
         </div>
       </div>
       {channel === 'airbnb' && (
-        <p className="h-small h-muted p-mt4"><Icon name="info-circle" size={16} /> Airbnb’s service fee may change from split fee to host-only fee. Already connected to other software? Airbnb gives it limited access while Hospitable is connected.{/* REAL·PRODUCT HS-07 */}</p>
+        <p className="h-small h-muted p-mt4"><Icon name="info-circle" size={16} /> Airbnb’s service fee may change from split fee to host-only fee. Already connected to other software? Airbnb gives it limited access while Hostaway is connected.{/* HS-07 */}</p>
       )}
       {/* phones: Cancel is the head's × */}
       <FlowActions note={<>You’ll sign in on {CHANNELS[channel].name} and come back here.</>}
@@ -109,9 +109,9 @@ function ChannelImport({ channel, rows, demo, alreadyRead }: { channel: ChannelI
         </div>
       ))}
       {/* phones: the error is also pinned to the top until dismissed (images/45) */}
-      {mobile && failed && <TopToast open={toast} message="Booking.com signed Hospitable out. Nothing was changed on either channel." onDismiss={() => setToast(false)} />}
+      {mobile && failed && <TopToast open={toast} message="Booking.com signed Hostaway out. Nothing was changed on either channel." onDismiss={() => setToast(false)} />}
       {failed && (
-        <div className="p-pad"><Explainer title="Booking.com signed Hospitable out" icon="cloud-x">
+        <div className="p-pad"><Explainer title="Booking.com signed Hostaway out" icon="cloud-x">
           Your Booking.com connection expired while we were reading it. Nothing was changed on Booking.com, and what we read from Airbnb is safe.
           <div className="p-row p-mt3">
             <Button kind="primary" size="md" onClick={clearDemo}>Reconnect Booking.com</Button>
@@ -176,8 +176,8 @@ export function SecondChannel() {
       <h1 className="h-h1">Do you also take bookings on Booking.com, Vrbo or Direct?</h1>
       <p className="h-intro">
         {p.id === 'P4'
-          ? <>If you add Booking.com now, Hospitable fills it from what you already have on Airbnb, <b>without you typing it all again</b>, and shows you anything that doesn’t match.</>
-          : <>Connect them now and we’ll read both and line them up with Airbnb in one go. You told us you’re on Airbnb and Booking.com.{/* REAL·PRODUCT HS-02: the sign-up asks which channels you use */}</>}
+          ? <>If you add Booking.com now, Hostaway fills it from what you already have on Airbnb, <b>without you typing it all again</b>, and shows you anything that doesn’t match.</>
+          : <>Connect them now and we’ll read both and line them up with Airbnb in one go. You told us you’re on Airbnb and Booking.com.{/* HS-02: the sign-up asks which channels you use */}</>}
       </p>
       <div className="h-choice-tiles h-choice-tiles--grid p-mt6">
         {(['booking', 'vrbo', 'direct'] as ChannelId[]).map((c) => (
@@ -208,7 +208,7 @@ export function Match() {
     <ConnectFrame channel="both" progress={0.55}>
       <StepTrail current="match" />
       <h1 className="h-h1">These look like the same place</h1>
-      <p className="h-intro">Hospitable keeps one record per place, with a listing on each channel. Nothing changes on either channel when you confirm.</p>
+      <p className="h-intro">Hostaway keeps one record per place, with a listing on each channel. Nothing changes on either channel when you confirm.</p>
       <div className="p-grid-2c p-mt6">
         {(['airbnb', 'booking'] as ChannelId[]).map((c) => (
           <div key={c} className="p-card">

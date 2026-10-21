@@ -1,7 +1,7 @@
 /* Smart Listing v3 · WS-CH additions (V3-SPEC §2). Tokens only; shared patterns belong in components.css 'Smart Listing v3'.
  * Channel overview, Classic listing editor, channel pricing, channel policies. React: prototype/src/ds/v3-ch.tsx. */
 
-/* page frame for the channel screens (content column, Hospitable widths) */
+/* page frame for the channel screens (content column, Hostaway widths) */
 .ch-page { max-width: var(--content-max-width); display: flex; flex-direction: column; }
 .ch-page--wide { max-width: none; }
 .ch-stack { display: flex; flex-direction: column; gap: var(--space-6); }
@@ -107,7 +107,7 @@
 .ch-spec__state .h-state { margin-top: 0; }
 /* values read as text, never raw data: two lines at most (QA B12) */
 .ch-spec__value { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
-/* the scope caption is plain, neutral text (Antonio 30 Sep: no colours, icons or change markers) */
+/* the scope caption is plain, neutral text (review 30 Sep: no colours, icons or change markers) */
 .ch-spec__scope { font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
 .ch-spec__state .h-textlink { font-size: var(--text-sm); line-height: var(--leading-sm); }
 
@@ -154,7 +154,7 @@
 .ch-sameall__text { flex: 1; min-width: 0; }
 .ch-sameall__text b { display: block; font-weight: var(--font-weight-semibold); }
 .ch-sameall__text span { font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-muted); }
-/* Homogenisation note as an ⓘ with the product's shared tooltip (Antonio, 1 Oct round 4), instead of a second text line. */
+/* Homogenisation note as an ⓘ with the product's shared tooltip (review, 1 Oct round 4), instead of a second text line. */
 .ch-amenity__info { color: var(--color-text-muted); border-radius: var(--radius-full); }
 .ch-amenity__info:hover { color: var(--color-text-secondary); }
 .ch-amenity__info:focus-visible { outline: none; box-shadow: var(--shadow-focus-neutral); }
@@ -223,7 +223,7 @@
 .ch-canvas > .h-split > .h-split__main { padding-top: var(--space-6); }
 .ch-canvas .h-split__sheet .h-tips__head { padding-top: 12px; }
 
-/* Classic view: the same frame. Task 2 (Antonio, round 4 — reversing round 3's "only the tab row" build, which had
+/* Classic view: the same frame. Task 2 (review, round 4 — reversing round 3's "only the tab row" build, which had
  * itself reversed an earlier "stick everything" build): "I only have the tab bar sticky but it should be anything
  * that is on top of that... the Listing, Classic/Canvas and the listing selector... should be able to keep sticky as
  * such." The WHOLE head — title, Classic | Canvas switcher, property switcher, and the tab row below it — now stays
@@ -232,7 +232,7 @@
  * inside that same flow instead of scrolling on its own. */
 /* A flex column, not a single scrolling block: the head is a fixed row OUTSIDE the scroller and the content
  * column scrolls inside it. Same pinned-head result as the earlier sticky approach, but the Tips panel beside the
- * content no longer scrolls away with it, and its top can't slide under the head (Antonio, 1 Oct: "always the tips
+ * content no longer scrolls away with it, and its top can't slide under the head (review, 1 Oct: "always the tips
  * on top, don't allow that to be scrolled"). */
 .ch-editor { display: flex; flex-direction: column; height: 100%; min-height: 0; overflow: hidden; }
 .ch-editor__head {
@@ -246,7 +246,7 @@
  * Tips chip's own alignment, task 3, is easier to reason about with one sticky box, not two stacked ones). */
 .ch-editor__head > .ch-tabrow { position: static; top: auto; max-width: var(--content-max-width); }
 .ch-editor > .ch-editor__head { flex: none; }
-/* ═══ the one property-page head (Antonio, 4 Oct: "all of the headers — the title with the selection of the property and
+/* ═══ the one property-page head (review, 4 Oct: "all of the headers — the title with the selection of the property and
  * the description — are sticky… they all follow the same structure… no bottom separator"). PageHead (ds/sl3.tsx):
  * [title (+ chips) … property selector] · the page description (+ its action at the right of the line: Tips, Add
  * strategy) · any other page row; then, when the page has them, its tabs or toolbar. All of it is .ch-editor__head,
@@ -266,12 +266,12 @@
  * section heading 18px below Listing's and Availability's (measured 215 vs 197). Same zero top as the plain split. */
 .ch-editor > .h-split > .h-split__main > .h-pstack > .h-pstack__main { padding-top: 0; }
 /* with a PanelStack (Pricing) only the stack's own column scrolls — the outer one scrolling too drew a second, stray
- * scrollbar line beside the Tips panel (Antonio, 3 Oct) */
+ * scrollbar line beside the Tips panel (review, 3 Oct) */
 .ch-editor > .h-split > .h-split__main:has(> .h-pstack) { overflow: hidden; }
 .ch-editor > .h-split > .h-split__main:has(> .h-pstack) > .h-pstack { height: 100%; min-height: 0; }
 .ch-editor > .h-split > .h-split__main > .h-pstack > .h-pstack__main { min-height: 0; overflow-y: auto; }
 .ch-editor > .h-split > .h-split__main > .h-loading { height: 50vh; }
-/* the panel's content starts right under the tab bar (Antonio 30 Sep; QA A05) */
+/* the panel's content starts right under the tab bar (review 30 Sep; QA A05) */
 .ch-editor .h-split__sheet .h-tips__head { padding-top: 12px; }
 @media (min-width: 768px) {
   /* the confirmation beside Save may be longer than "Saved" ("Saved · sent to Airbnb"): it wraps before the buttons do */
@@ -281,7 +281,7 @@
 @media (min-width: 768px) and (max-width: 1366px) {
   .ch-editor .h-split, .ch-canvas .h-split { --split-panel-width: 340px; }
   /* the same centred gap as on wider screens (components.css .h-split.has-panel): 20 either side of the boundary, the
-   * form's 8px scrollbar counted inside its 20 — the total stays what Antonio found right (12 + a ~15px system bar + 12),
+   * form's 8px scrollbar counted inside its 20 — the total stays what review found right (12 + a ~15px system bar + 12),
    * now split evenly. The panel keeps 24 on the right. */
   :is(.ch-editor, .ch-canvas) .h-split__sheet .h-tips__head { padding-right: 24px; }
   :is(.ch-editor, .ch-canvas) .h-split__sheet .h-tips__body { padding-right: 24px; }
@@ -309,7 +309,7 @@
 .ch-contents .h-tip__nav, .ch-contents .h-tip__section { white-space: nowrap; } /* workaround, see CH.md requested changes */
 
 /* tab bar row: Essentials · Arrival · …, then the Tips button on Listing. Stays pinned to the top of the page's
- * scroller while the rest of the page scrolls underneath it (Antonio, 1 Oct, third round: "I like that it's sticky"
+ * scroller while the rest of the page scrolls underneath it (review, 1 Oct, third round: "I like that it's sticky"
  * — Listing, Pricing and Availability all share this row, so all three keep it pinned the same way). */
 .ch-tabrow { display: flex; align-items: flex-start; gap: 16px; margin-top: 10px; border-bottom: 1px solid var(--color-border-input); position: sticky; top: 0; z-index: var(--z-sticky); background: var(--color-surface-primary); }
 .ch-tabrow > .h-tabs { flex: 1 1 auto; min-width: 0; margin-top: 0; border-bottom: 0; }
@@ -351,7 +351,7 @@
   .ch-tabrow { margin-top: 0; }
   .ch-autoline { order: 5; flex: 1 1 100%; font-size: var(--text-md); flex-wrap: wrap; }
   .ch-editor__head:has(> .ch-tabrow) > .ch-page { padding-bottom: 20px; } /* every head with a tab row: 20px + the tab's 4px between the head's last line and the tab labels */
-  .ch-tabrow > .h-tabs { margin-top: 0; } /* title to tabs: 24px below the title + the tab's own 4px, close but never touching (Antonio, 4 Oct) */
+  .ch-tabrow > .h-tabs { margin-top: 0; } /* title to tabs: 24px below the title + the tab's own 4px, close but never touching (review, 4 Oct) */
 
   /* section head (§8): title 28/600, description 18 muted; Discard / Save live in the sticky bar */
   .ch-sechead { padding-top: var(--space-8); }
@@ -472,7 +472,7 @@
 }
 
 /* ═══ "Manage photos" from a channel's Listing (prototype/src/screens/channel/photosNav.tsx / PhotosShells.tsx /
- * ListingEditor.tsx). Antonio, 3 Oct: Pattern A (full screen) for every channel, laid out like the real product;
+ * ListingEditor.tsx). review, 3 Oct: Pattern A (full screen) for every channel, laid out like the real product;
  * B (drawer) and C (tab) stay URL-only (?photosNav=drawer|tab) and the visible A/B/C switcher is gone. Motion reuses
  * the drawer tokens already used for Split/PanelStack/the sheet modal (--dur-drawer/--ease-drawer). ═══ */
 
@@ -498,7 +498,7 @@
 .h-photos-takeover .h-photos-page__head > div { min-width: 0; }
 .h-photos-takeover .h-photos-page__title { display: flex; align-items: center; gap: 10px; margin-bottom: var(--space-1); } /* + the count chip (.h-photos-count), as on the listing Photos row */
 .h-photos-takeover .h-photos-page__bar { min-height: 32px; }
-/* Antonio, 3 Oct (2nd pass): the grid sits higher — the count moved into the title's chip, so the count line is gone
+/* review, 3 Oct (2nd pass): the grid sits higher — the count moved into the title's chip, so the count line is gone
    (or, with photos hidden on this channel, a tight one) */
 .h-photos-takeover .h-photos-page__bar--tight { margin: var(--space-4) 0; min-height: 0; }
 .h-photos-takeover .h-photos-page__head + .h-photos-grid { margin-top: var(--space-6); }
@@ -522,13 +522,13 @@
 /* NumberField itself (.h-numfield) lives in ds/components.css, next to the affix group it extends (3 Oct). */
 
 /* ── Minimum stay per night of the week (screens/channel/Availability.tsx PerDayNights) ──────────────
-   Antonio, 1 Oct, on the earlier seven stacked full-width rows: "I don't think it's optimal… create a different
+   review, 1 Oct, on the earlier seven stacked full-width rows: "I don't think it's optimal… create a different
    version that is a little more clear." The value set is seven small numbers, so it reads as a week strip — the same
    Mon-first row the Calendar already uses — with each input directly under its own day label instead of stranded at
    the far side of a full-width row. "Apply to all / weekdays / weekend" covers the common case in one click. */
 .h-perday__week { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--space-2); }
 .h-perday__day { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
-.h-perday__dayname { font-size: var(--text-xs); line-height: var(--leading-xs); font-weight: var(--font-weight-semibold); letter-spacing: .06em; text-transform: uppercase; color: var(--color-text-muted); text-align: center; } /* MON / TUE…, left with its input (Antonio, 3 Oct) */
+.h-perday__dayname { font-size: var(--text-xs); line-height: var(--leading-xs); font-weight: var(--font-weight-semibold); letter-spacing: .06em; text-transform: uppercase; color: var(--color-text-muted); text-align: center; } /* MON / TUE…, left with its input (review, 3 Oct) */
 .h-perday__day.is-weekend .h-perday__dayname { color: var(--color-text-strong); }
 /* the week strip is seven narrow cells: the shared NumberField as-is (arrows inside the right edge), with a tighter
    left padding so a two-digit night count and the arrows both fit in a cell */
@@ -544,7 +544,7 @@
 
 /* Pricing's standalone blocks — the "guests see €X" note, the Dynamic Pricing card and the Security deposit entry —
  * sat at the page's full 848px while every field row above them is capped at --form-column-width (640px), so they
- * visibly overhung the form (Antonio, 1 Oct: "same width as the rest of the content"). Scoped to the page body
+ * visibly overhung the form (review, 1 Oct: "same width as the rest of the content"). Scoped to the page body
  * inside PanelStack's main column, so the drill-down panels' own .h-pstack-link rows keep their full width. */
 .h-pstack__main > .ch-page > .h-note,
 .h-pstack__main > .ch-page > .h-ai-card,
@@ -565,8 +565,8 @@
 .h-pstack__main > .ch-page > .ch-mt > .h-ld-fieldset { max-width: var(--form-column-width); }
 
 /* Booking policies (screens/channel/Policies.tsx + policies/PolicyCard.tsx, 3 Oct): the same frame as Listing — tab row,
- * h2, then the 640px form column. Content from Hospitable's own card (REAL·PRODUCT HS-47, `Screenshot 2026-09-29 at
- * 13.54.55.png`), laid out tighter and as one structure per card (Antonio, 3 Oct: "right now it doesn't look good"):
+ * h2, then the 640px form column. Content from Hostaway's own card (HS-47, `Screenshot 2026-09-29 at
+ * 13.54.55.png`), laid out tighter and as one structure per card (review, 3 Oct: "right now it doesn't look good"):
  *   optional eyebrow  14/20 medium, secondary ("Long-term stays (28+ nights)")
  *   title row         policy name 16/24 medium + TipDot · Configure (32px DS small button) top-right
  *   description       14/20 regular, secondary — the DS small text on its normal leading, not 28
@@ -592,7 +592,7 @@
   /* the first card sits where the first field does on Listing (h2 + description, then --space-8) */
   .ch-page > .ch-polcards { margin-top: var(--space-8); }
 }
-/* One header height on every editor page (Antonio, 3 Oct: "use the channels template for everything"): the channel
+/* One header height on every editor page (review, 3 Oct: "use the channels template for everything"): the channel
  * pages' head is 60px (the title row plus the empty phone-only actions row), so the Listing base's head — which has
  * no second row — matches it, and the tab bar, h2 and first field land on the same lines everywhere. */
 @media (min-width: 768px) { .ch-editor__head .h-pagehead { min-height: 60px; } }
@@ -606,7 +606,7 @@
 .ch-editor > .h-pstack { flex: 1 1 auto; min-height: 0; }
 /* the Dynamic Pricing card keeps the same 32px from the last field as fields keep from each other */
 .ch-page > .h-ai-card, .ch-page .h-field-row + .h-ai-card { margin-top: var(--space-8); }
-/* Taxes (Listing base › Pricing): the empty box sits well clear of the subtitle, like Hospitable's */
+/* Taxes (Listing base › Pricing): the empty box sits well clear of the subtitle, like Hostaway's */
 .ch-page--base-pricing .h-pstack-box--empty { margin-top: var(--space-8); }
 
 /* ═══ Mobile pass · listing base + channel editors (3 Oct, ds/mobile.md §2/§4/§8) ═══════════════════════════════
@@ -725,12 +725,12 @@
   .h-perday__week { row-gap: var(--space-4); }
 }
 
-/* the per-day switch: right of the channel caption row (Antonio, 4 Oct) */
+/* the per-day switch: right of the channel caption row (review, 4 Oct) */
 .h-perday__switch { margin-left: auto; white-space: nowrap; }
-/* Instant book: the wizard's single-select cards at the form column width (Antonio, 4 Oct) */
+/* Instant book: the wizard's single-select cards at the form column width (review, 4 Oct) */
 .ch-instant { max-width: var(--form-column-width); margin-top: var(--space-3); }
 
-/* Phones: one rhythm between items, 4px tighter than the desktop 32 / 40 (Antonio, 4 Oct): fields 28, sub headings 36 */
+/* Phones: one rhythm between items, 4px tighter than the desktop 32 / 40 (review, 4 Oct): fields 28, sub headings 36 */
 @media (max-width: 767px) {
   .h-field-row--stacked, .ch-page--base-pricing .h-field-row--stacked { margin-top: 28px; }
   .ch-page > .ch-polcards, .ch-page > .h-ai-card, .ch-page .h-field-row + .h-ai-card { margin-top: 28px; }

@@ -1,7 +1,7 @@
 /* ============================================================================
    FLOWMAP · user flows, maps and models drawn live from JSON (4 Oct).
 
-   Antonio, 4 Oct: "For the flows, the user flows, and any diagram you have, create
+   review, 4 Oct: "For the flows, the user flows, and any diagram you have, create
    them dynamically in web … a visual output for anything." One renderer serves the
    deck (a detail panel, the kit gallery) and the Notion renders (deck/qa/diagrams).
 
@@ -33,7 +33,7 @@
                     "lp": [x, y], "lt": 0.5,                   label at a point / along the path
                     "dash": true, "only": "deck",
                     "who": "host" }] }                         a host's choice on a line: a raspberry label
-       "look": "cards"                                          every node the same card (4 Oct, Antonio on the Hub
+       "look": "cards"                                          every node the same card (4 Oct, review on the Hub
                                                                 flow: "don't make everything so round"): one radius,
                                                                 white on a hairline, lavender only for the AI, the
                                                                 question a plain card led by a diamond, an end led by
@@ -146,8 +146,8 @@ function longestMid(pts) {
 }
 
 /* ── pieces ────────────────────────────────────────────────────────────── */
-const MARK = { airbnb: 'airbnb', booking: 'booking', vrbo: 'vrbo', direct: 'hospitable', hospitable: 'hospitable', google: 'google' };
-const CH_NAME = { airbnb: 'Airbnb', booking: 'Booking.com', vrbo: 'Vrbo', direct: 'Direct', hospitable: 'Direct', google: 'Google' };
+const MARK = { airbnb: 'airbnb', booking: 'booking', vrbo: 'vrbo', direct: 'hostaway', hostaway: 'hostaway', google: 'google' };
+const CH_NAME = { airbnb: 'Airbnb', booking: 'Booking.com', vrbo: 'Vrbo', direct: 'Direct', hostaway: 'Direct', google: 'Google' };
 const markSvg = (c) => { const m = MARK[c] || c; return `<svg class="h-mark h-mark--badge h-mark--${m}" viewBox="0 0 24 24" role="img" aria-label="${esc(CH_NAME[c] || c)}"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-${m}" width="24" height="24"/></svg>`; };
 const icon = (id, cls = 'hc-flow__i') => `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true"><use href="#${id}"/></svg>`;
 /* a tiny UI glyph: the product's frame, its aubergine rail and what the screen holds */

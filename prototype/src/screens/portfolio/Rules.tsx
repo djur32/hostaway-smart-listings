@@ -1,6 +1,6 @@
 /* SCR-05 · Properties › Rules · owner S12 · R-116 R-133 · D-153
  * A rule is a sentence with slots. It does three things: the AI drafts inside it, push checks it (hard stop or warning),
- * and it sets the autonomy Hospitable has inside its bounds (portfolio-level autonomy). Where a channel doesn't take the
+ * and it sets the autonomy Hostaway has inside its bounds (portfolio-level autonomy). Where a channel doesn't take the
  * field, the builder says so and offers what does work (Booking.com's description was the example until v3 made it editable). */
 import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
@@ -43,7 +43,7 @@ export function Rules() {
     from === 'fee' ? { channel: (q.get('channel') as ChannelId) ?? 'booking', field: 'cleaning-fee', scope: 'Berlin', picked: ['band'] }
       : from === 'titles' ? { channel: (q.get('channel') as ChannelId) ?? 'booking', field: 'title', scope: 'All properties', picked: ['superlatives', 'area'] }
         : from === 'strategy' ? { channel: 'airbnb', field: 'description', scope: 'Berlin', picked: ['transport'] }
-          : { channel: 'booking', field: 'description', scope: 'Berlin', picked: ['under', 'transport'] } // Antonio's example, verbatim
+          : { channel: 'booking', field: 'description', scope: 'Berlin', picked: ['under', 'transport'] } // review's example, verbatim
   const [channel, setChannel] = useState<ChannelId | 'all'>(pre.channel)
   const [scope, setScope] = useState(pre.scope)
   const [field, setField] = useState<Field>(pre.field)
@@ -70,8 +70,8 @@ export function Rules() {
   return (
     <div className="p-grid-2 p-mt4">
       <div>
-        <Guide id="rules" title="Rules are how you let Hospitable do more, safely" line="A rule bounds the AI, is checked before every push, and sets how much Hospitable may do inside it.">
-          Write the rule once. The AI drafts inside it, a change that breaks it is stopped before it reaches a guest, and inside it you can let Hospitable apply changes without asking each time.
+        <Guide id="rules" title="Rules are how you let Hostaway do more, safely" line="A rule bounds the AI, is checked before every push, and sets how much Hostaway may do inside it.">
+          Write the rule once. The AI drafts inside it, a change that breaks it is stopped before it reaches a guest, and inside it you can let Hostaway apply changes without asking each time.
         </Guide>
         <div className="p-label p-mt4">New rule</div>
         <div className="h-rule p-mt2" aria-label="Rule sentence">
@@ -104,7 +104,7 @@ export function Rules() {
               </div>
               <p className="h-caption h-muted" style={{ margin: '8px 0 0' }}>
                 {asked ? <><Icon name="circle-check" size={16} /> Asked your team for the nearest station on the 7 Berlin properties that don’t have it. Booking.com leads with location when it has it.</>
-                  : <>“Nearest transit” is set on 4 of 11 Berlin properties. Booking.com uses location facts near the top of what it writes.</>}{/* ASSUMPTION, OQ-081 */}
+                  : <>“Nearest transit” is set on 4 of 11 Berlin properties. Booking.com uses location facts near the top of what it writes.</>}{/* OQ-081 */}
               </p>
             </Explainer>
           </div>
@@ -119,7 +119,7 @@ export function Rules() {
             </span>
           </div>
           <div className="p-row p-sb p-mt3">
-            <span className="h-small">Inside this rule, Hospitable may:</span>
+            <span className="h-small">Inside this rule, Hostaway may:</span>
             <span className="h-lens" role="group" aria-label="Autonomy inside the rule">
               {(['suggest', 'auto-review', 'autopilot'] as Autonomy[]).map((a) => <button key={a} className="h-lens__seg" aria-pressed={autonomy === a} onClick={() => setAutonomy(a)}>{AUTONOMY_NAME[a]}</button>)}
             </span>

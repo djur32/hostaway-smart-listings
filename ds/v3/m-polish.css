@@ -1,4 +1,4 @@
-/* Phones: the last polish pass (Antonio, 5 Oct). One type scale, one rhythm, lone buttons full width. Desktop untouched.
+/* Phones: the last polish pass (review, 5 Oct). One type scale, one rhythm, lone buttons full width. Desktop untouched.
    Type: 24 page title · 20 section title · 16 body, labels, descriptions · 14 hints and meta · 12 chips, badges, counts, chart axes.
    Rhythm: fields 28 · sub-headings 36 · sections 28 · cards 16 apart. The lone-button marks (data-solo) come from src/ds/mPolish.ts. */
 @media (max-width: 767px) {

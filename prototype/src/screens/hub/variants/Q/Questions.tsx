@@ -1,8 +1,8 @@
 /* Knowledge Hub, reframed · Questions (KH-REFRAME "The Hub's new job" §2): every guest question from the Inbox, grouped
- * by Hospitable's nine Knowledge Hub topics (the real product's accordion, HS-42), counted per channel and over the last
+ * by Hostaway's nine Knowledge Hub topics (the real product's accordion, HS-42), counted per channel and over the last
  * 12 months, each marked Answered, Partly answered or Not answered. A row opens the question (list → detail); a
  * question a tip can answer carries the tip indicator, which opens the Tips panel on that tip.
- * Antonio, 4 Oct: the topics are cards (as on Facts); a card opens the topic (`?topic=<id>`), and only there do the
+ * review, 4 Oct: the topics are cards (as on Facts); a card opens the topic (`?topic=<id>`), and only there do the
  * All · Needs an answer · Answered tabs show. */
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { KqCounts, KqQuestionRow, Pill, QueryTabs, TIP_DOT_HINT, TipDot } from '../../../../ds'
@@ -30,7 +30,7 @@ export function QuestionsPage() {
   const active = kq.topics.find((t) => t.id === params.get('topic') && (t.questions.length || addedIn(t.id).length))
   if (active) return <TopicQuestions kq={kq} topic={active} added={addedIn(active.id)} />
   const shown = kq.topics.filter((t) => t.questions.length || addedIn(t.id).length)
-  // one count, the sum of the cards below (Antonio, 4 Oct): no conversations, no period
+  // one count, the sum of the cards below (review, 4 Oct): no conversations, no period
   const total = shown.reduce((s, t) => s + t.questions.length + addedIn(t.id).length, 0)
   return (
     <HubFrame kq={kq} title="Questions" test lead={`${total} ${total === 1 ? 'question' : 'questions'}`} add={<AddQuestionButton />}>

@@ -69,7 +69,7 @@ export const MODES: Record<PersonaId, ModeSpec> = {
     signals: 'Sign-up = 11–24 with a team, or 25+; or ≥ 10 listings imported' },
   P4: { id: 'P4', preset: 'One home · Guided', autonomy: 'Tips to review, fewer and safer; facts never AI-edited',
     voice: 'One text, adapted per channel', density: 'comfortable',
-    open: ['Property Overview', 'Coach marks', '“Why Hospitable manages this”'], collapsed: ['Similar listings', 'Autopilot', 'Smart Listings › Performance'],
+    open: ['Property Overview', 'Coach marks', '“Why Hostaway manages this”'], collapsed: ['Similar listings', 'Autopilot', 'Smart Listings › Performance'],
     hints: 'more', vocabulary: 'Plain: “booking site” for channel, “send” for push, every term explained once',
     landing: 'Property › Overview (with the welcome)', deeper: ['Channel listing editor', 'Smart Listings › Performance', 'Properties list'],
     signals: 'First channel connected < 30 days ago; previously managed directly on Airbnb (sign-up answer)' },

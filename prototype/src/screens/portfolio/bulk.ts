@@ -1,5 +1,5 @@
 /* F-P1 · bulk actions: what each one proposes per unit, and why a unit is an exception · owner S12 · R-133 · D-151 D-152 D-153
- * Proposals are SIMULATED and deterministic. Exceptions are the point (I-15): they show BEFORE apply, unticked, with the reason. */
+ * Proposals are and deterministic. Exceptions are the point (I-15): they show BEFORE apply, unticked, with the reason. */
 import { CHANNELS } from '../../data/channels'
 import { STRATEGIES } from '../../data/studio'
 import type { ChannelId, PortfolioRule, StrategyId } from '../../data/types'

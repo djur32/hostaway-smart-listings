@@ -1,6 +1,6 @@
-/* Photos (Hospitable replica) · React ports of ds/components.css "PHOTOS (Hospitable replica)".
+/* Photos (Hostaway replica) · React ports of ds/components.css "PHOTOS (Hostaway replica)".
  * Photos row, All photos tile, "Cover for" pill, hidden label, channel filter, warning banner, checkbox cards and the
- * large Edit photo modal (REAL·PRODUCT screenshots 3, 8, 9, 10, 11). Presentational: state lives in the screen/store. */
+ * large Edit photo modal (screenshots 3, 8, 9, 10, 11). Presentational: state lives in the screen/store. */
 import { useEffect, useLayoutEffect, useRef, useState, type HTMLAttributes, type KeyboardEvent, type MouseEvent, type ReactNode, type Ref } from 'react'
 import { Link } from 'react-router-dom'
 import { CloseButton, Icon, Mark, cx } from './primitives'
@@ -9,7 +9,7 @@ import type { ChannelId } from '../data/types'
 /** Essentials › Photos: "Photos (n)", description, "Manage photos" link, five thumbnails and "+n more". */
 export function PhotosRow({ label = 'Photos', count, desc = 'Manage photos and add details.', manageTo, photos, max = 5, extra, after, onManage }: {
   label?: ReactNode; count: number; desc?: ReactNode; manageTo: string; photos: Array<{ key: string; src: string; alt: string }>; max?: number; extra?: ReactNode
-  /** After the count, e.g. the channel badge when this channel has its own order (Antonio, 30 Sep). */
+  /** After the count, e.g. the channel badge when this channel has its own order (review, 30 Sep). */
   after?: ReactNode
   /** Intercepts "Manage photos" (and "+n more") instead of letting the Link navigate — e.g. opening an in-page
    *  overlay rather than a route change (screens/channel/photosNav.tsx's full-screen/drawer patterns, Airbnb only).
@@ -18,7 +18,7 @@ export function PhotosRow({ label = 'Photos', count, desc = 'Manage photos and a
   onManage?: (e: MouseEvent) => void
 }) {
   // Thumbnails keep one size (the closed-panel size); a narrower column fits fewer per row. At most two rows:
-  // when the tiles don't fit, fewer photos show and the last tile is "+n more" (Antonio, 30 Sep).
+  // when the tiles don't fit, fewer photos show and the last tile is "+n more" (review, 30 Sep).
   const grid = useRef<HTMLDivElement>(null)
   const [cols, setCols] = useState(max + 1)
   useLayoutEffect(() => {
@@ -29,7 +29,7 @@ export function PhotosRow({ label = 'Photos', count, desc = 'Manage photos and a
     ro.observe(el); read()
     return () => ro.disconnect()
   }, [])
-  // ONE row only (Antonio 30 Sep, replacing the two-row rule): fewer tiles + "+n more" when the column narrows
+  // ONE row only (review 30 Sep, replacing the two-row rule): fewer tiles + "+n more" when the column narrows
   const tiles = Math.min(max + 1, cols)
   const fitsAll = Math.min(photos.length, count) <= tiles && count <= tiles
   const shown = photos.slice(0, fitsAll ? tiles : Math.min(max, tiles - 1))
@@ -64,7 +64,7 @@ export function HiddenPill({ children, label }: { children: ReactNode; label?: s
 
 /** A tile on All photos: select (top-left), edit or drag handle (top-right), labels (bottom-left).
  *  Drag to reorder (ds/sortable.tsx): spread `useSortable().itemProps(key)` onto it; the grip (re-order mode) is the
- *  Hospitable 6-dot `.h-drag-grip` and the touch drag handle (`data-drag-handle`). */
+ *  Hostaway 6-dot `.h-drag-grip` and the touch drag handle (`data-drag-handle`). */
 export function PhotoTile({ src, alt, selected, onSelect, onEdit, foot, hidden, reorder, grip, className, ref, ...rest }: {
   src: string; alt: string; selected?: boolean; onSelect?: (on: boolean) => void; onEdit?: () => void; foot?: ReactNode; hidden?: boolean
   reorder?: boolean; grip?: HTMLAttributes<HTMLButtonElement> & { 'aria-label': string; ref?: Ref<HTMLButtonElement> }; className?: string
@@ -99,7 +99,7 @@ export function PhotosFilter<T extends string>({ items, value, onChange, label =
   )
 }
 
-/** Amber banner: "Manage your photos in Hospitable". */
+/** Amber banner: "Manage your photos in Hostaway". */
 export function Banner({ title, children, icon = 'alert-triangle' }: { title: ReactNode; children?: ReactNode; icon?: string }) {
   return (
     <div className="h-banner" role="note">

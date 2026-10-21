@@ -1,4 +1,4 @@
-/* Demo mode (QA B08, Antonio's rule "no demo chrome on screens"). Demo-only controls (the import "Demo state" picker,
+/* Demo mode (QA B08, review's rule "no demo chrome on screens"). Demo-only controls (the import "Demo state" picker,
  * "Show at 200 properties", the sidebar / Menu persona box, Reset, the persona toast) render only in demo mode.
  *   ?demo=1          turns demo mode on for this tab (sessionStorage), until
  *   ?demo=0          turns it off.
@@ -7,7 +7,7 @@
  * The persona itself stays a product setting in Settings › Guidance (/settings/guidance), which is not demo chrome. */
 import { useLocation } from 'react-router-dom'
 
-const KEY = 'hospitable-proto:demo-mode'
+const KEY = 'hostaway-proto:demo-mode'
 
 /** `?demo=1` / `?demo=0` are the switch; any other `?demo=` value is a demo state id. */
 export const isDemoSwitch = (v: string | null) => v === '1' || v === '0'

@@ -1,11 +1,11 @@
-/* Visit analytics for the deck (Antonio, 6 Oct): PostHog EU, project 278593 (shared with the digimal.studio site and the
+/* Visit analytics for the deck (review, 6 Oct): PostHog EU, project 278593 (shared with the digimal.studio site and the
  * prototype). Anonymous, no cookies, Do Not Track respected, no recording. Records page views, page leaves (time on the
  * deck) and one `slide_view` per slide (slide id, index, ms since the previous slide) so time per slide can be read.
  * Off on unknown hosts, and for a browser opened once with ?internal=1 (?internal=0 turns it back on). The token is a
  * write-only public project token. Same property names as the prototype: site, app. */
 (function () {
   var TOKEN = 'phc_zKDtHsfUdsz3u2YTrZeQrBwRcPkZWEGtBZpMiYvawwj9';
-  var OFF = 'hospitable-no-analytics';
+  var OFF = 'hostaway-no-analytics';
   try {
     var q = new URLSearchParams(location.search).get('internal');
     if (q === '1') localStorage.setItem(OFF, '1');
@@ -28,7 +28,7 @@
     disable_session_recording: true,
     person_profiles: 'identified_only',
     respect_dnt: true,
-    loaded: function (ph) { ph.register({ site: 'hospitable-case', app: 'deck' }); }
+    loaded: function (ph) { ph.register({ site: 'hostaway-case', app: 'deck' }); }
   });
 
   /* one event per slide: the engine moves between slides with history.replaceState(…, '#<id>') */

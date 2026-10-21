@@ -44,7 +44,7 @@ export function DocSection({ sec, facts, ctx, descOverride }: { sec: BSection; f
   const addLabel = sec.add ?? `Add a fact to ${sec.label}`
   const add = ctx.addCard(sec.id)
   const foot = sec.id === 'photos' ? undefined : add ?? <KhbAddLink onClick={() => ctx.onAdd(sec.id)}>{addLabel}</KhbAddLink>
-  // Photos: the library row carries Hospitable's own "Manage photos" link, so the section has no Edit
+  // Photos: the library row carries Hostaway's own "Manage photos" link, so the section has no Edit
   const action = sec.id === 'photos' ? undefined
     : <button type="button" className="h-textlink khb-sec__link" onClick={() => ctx.onEdit(sec.id)}>Edit</button>
   let body: ReactNode
@@ -306,7 +306,7 @@ function EditRow({ f, d, chs }: { f: BFact; d: HubDraft; chs: ListingChannel[] }
   return <KhField dataKey={f.id} label={label} help={f.item.help} caption={<><Icon name="info-circle" />{plainScope(f, s, chs)}</>} action={action}>{control}</KhField>
 }
 
-/** Hospitable's controls for a value: input, textarea, Dropdown, toggle, tags, map, checkout tasks, number with affix. */
+/** Hostaway's controls for a value: input, textarea, Dropdown, toggle, tags, map, checkout tasks, number with affix. */
 function Control({ f, value, write }: { f: BFact; value: string; write: (v: string) => void }) {
   const it = f.item
   switch (it.kind) {
@@ -323,7 +323,7 @@ function Control({ f, value, write }: { f: BFact; value: string; write: (v: stri
     case 'tasks': return <KhTasks tasks={parseTasks(value)} catalog={[...CHECKOUT_PRESETS, 'Additional requests']} onChange={(t) => write(formatTasks(t))} />
     case 'money': case 'percent': case 'guests':
       return (
-        // NumberField (ds/v3-ch.tsx), Antonio 3 Oct: € before the value, the unit as a plain word, the shared small arrows
+        // NumberField (ds/v3-ch.tsx), review 3 Oct: € before the value, the unit as a plain word, the shared small arrows
         <div className="h-khnum"><NumberField label={it.label} value={value} onChange={(v) => write(v.replace(/[^0-9.]/g, ''))}
           currency={it.kind === 'money' ? '€' : undefined} unit={it.kind === 'percent' ? '%' : it.kind === 'guests' ? 'guests' : undefined}
           decimals={it.kind === 'money' ? 2 : 0} max={it.kind === 'percent' ? 100 : 99999} /></div>

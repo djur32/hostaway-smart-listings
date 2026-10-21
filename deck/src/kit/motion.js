@@ -92,7 +92,7 @@ export const M = {
 
   rise(t, o = {}) {
     // colour arrives early: opacity is full within the first third of the move, so a tinted tile never
-    // lingers half-transparent (Antonio, 3 Oct: "no animation that dims the colour and shows it lighter")
+    // lingers half-transparent (review, 3 Oct: "no animation that dims the colour and shows it lighter")
     const dur = o.duration ?? d(2), st = o.stagger ?? stag(1.4);
     return g().timeline({ delay: o.delay || 0 })
       .from(t, { y: o.y ?? num('--rise'), duration: dur, ease: o.ease ?? E.out, stagger: st }, 0)

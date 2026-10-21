@@ -255,7 +255,7 @@
 .nx-act__o.is-host svg { stroke: var(--ink-3); }
 }
 
-/* the roadmap's three cards: identical in size, the stage badge on the left with room under it, no halo outline (Antonio, 4 Oct) */
+/* the roadmap's three cards: identical in size, the stage badge on the left with room under it, no halo outline (review, 4 Oct) */
 .nx-road { align-items: stretch; }
 .nx-road .hc-feature { grid-template-rows: 1fr auto; }
 .nx-road .hc-feature__plate { place-items: start stretch; min-height: 0; padding: 30px 30px 32px; align-content: start; }
@@ -263,7 +263,7 @@
 .nx-road .hc-feature__halo { padding: 0; background: none; }
 .nx-road .hc-feature__halo > * { border-radius: 18px; box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent); }
 
-/* the key: every swatch centred on its word's line, one height for all four (Antonio, 4 Oct: "align") */
+/* the key: every swatch centred on its word's line, one height for all four (review, 4 Oct: "align") */
 .nx-key [data-k] { display: inline-flex; align-items: center; gap: 10px; line-height: 1; }
 .nx-key .nx-k { flex: none; vertical-align: middle; }
 .s-head > .nx-key { display: flex; align-items: center; }

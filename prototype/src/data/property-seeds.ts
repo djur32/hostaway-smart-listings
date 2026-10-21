@@ -1,4 +1,4 @@
-/* Light per-property seeds (QA B01/B02; Antonio: "model them lightly"). SIMULATED.
+/* Light per-property seeds (QA B01/B02; review: "model them lightly"). .
  * Neukölln (PROPERTY_ID) stays the deep, scripted scenario: its data lives in data/sl3.ts, data/v3-ch.ts, data/v3-cv.ts
  * and data/v3-kh.ts, untouched. Every other property in PORTFOLIO gets a short, factual profile here, and from it:
  *   · the imported listing (each field's Base value, plus a channel's own value where the field is per channel),
@@ -17,7 +17,7 @@ import { isScenarioProperty, propertyById, propertyChannels, PROPERTY_PHOTO } fr
 import { seedPhotoLib, type PhotoLib, type PhotoMeta, type RoomTag } from './photos'
 import type { Property } from './types'
 
-/* ---------- profiles (SIMULATED, concepts/SCENARIO.md: 12 Berlin/Potsdam homes) ---------- */
+/* ---------- profiles (concepts/SCENARIO.md: 12 Berlin/Potsdam homes) ---------- */
 export interface PropertyProfile {
   type: 'Apartment' | 'Loft' | 'Studio' | 'House' | 'Guest suite'
   /** "1-bedroom loft", "studio": how the summary names the place. */
@@ -125,11 +125,11 @@ export const PROFILES: Record<string, PropertyProfile> = {
 }
 export const profileOf = (pid: string): PropertyProfile | undefined => PROFILES[pid]
 
-/** Properties whose Knowledge Hub has never been generated (Antonio, 1 Oct: "3 or 4 of the existing properties should
+/** Properties whose Knowledge Hub has never been generated (review, 1 Oct: "3 or 4 of the existing properties should
  *  have no knowledge base"). Their Hub opens on the real empty state and runs the creation process (refs kh-next/01–02). */
 export const NO_KNOWLEDGE_BASE: readonly string[] = ['charlottenburg-classic', 'moabit-studio', 'treptow-riverside', 'potsdam-lake']
 
-/** The real generation steps, in order (REAL·PRODUCT, concepts/knowledge-hub/refs/kh-next/01–02). */
+/** The real generation steps, in order (concepts/knowledge-hub/refs/kh-next/01–02). */
 export const KB_GENERATION_STEPS = [
   'Researching property details…', 'Scanning past conversations…', 'Inspecting house rules & policies…',
   'Compiling knowledge…', 'Aggregating knowledge items…', 'Finishing up…',
@@ -150,7 +150,7 @@ export function listingSeed(p: Property, f: PropertyProfile): Record<string, Fie
   const sleeps = f.bedrooms === 0 ? `One room with ${f.beds.replace(/^1 /, 'a ')}` : `${f.bedrooms === 1 ? 'One bedroom' : `${cap(numWord(f.bedrooms))} bedrooms`} (${f.beds})`
   const summary = `${cap(a(f.kind))} ${f.kind} in ${p.area}, ${f.walk} minutes on foot from ${f.station}. ${cap(f.feature)}, fast Wi-Fi and room for ${f.guests} guests.`
   const space = `${f.size} m² on the ${f.floor}. ${sleeps}. ${cap(f.baths.replace(' · ', ' with '))}.`
-  const site = `https://${slug(p.nickname)}.hospitable.rentals`
+  const site = `https://${slug(p.nickname)}.hostaway.rentals`
   const methodText: Record<PropertyProfile['method'], string> = {
     Keypad: 'Enter the code on the keypad by the front door; the same code opens the flat. You get it 24 hours before arrival.',
     Lockbox: 'The keys are in the lockbox next to the front door. You get the lockbox code 24 hours before arrival.',
@@ -189,7 +189,7 @@ export function listingSeed(p: Property, f: PropertyProfile): Record<string, Fie
     city: { base: f.city },
     neighbourhood: { base: `${p.area}: ${f.landmark} within easy reach, and everyday shops around the corner.`, value: { airbnb: `${p.area}, ${f.walk} minutes from ${f.station}.` } },
     getting_around: { base: `${f.station} is ${f.walk} minutes on foot. Bike share and buses nearby; street parking is paid during the day.` },
-    directions: { base: `From ${f.station}, walk ${f.walk} minutes to ${f.street.replace(/ \d.*$/, '')}.`, value: { booking: `From ${f.station}, walk ${f.walk} minutes to ${f.street.replace(/ \d.*$/, '')}. The entrance is the door with the Hospitable keypad sign.` } },
+    directions: { base: `From ${f.station}, walk ${f.walk} minutes to ${f.street.replace(/ \d.*$/, '')}.`, value: { booking: `From ${f.station}, walk ${f.walk} minutes to ${f.street.replace(/ \d.*$/, '')}. The entrance is the door with the Hostaway keypad sign.` } },
     checkin: { base: am(p.checkIn) },
     checkout: { base: f.checkout },
     house_rules: {

@@ -1,4 +1,4 @@
-/* Mobile (≤ 767px) primitives, replicating Hospitable's real mobile web app (Antonio's iPhone captures, 30 Sep).
+/* Mobile (≤ 767px) primitives, replicating Hostaway's real mobile web app (review's iPhone captures, 30 Sep).
  * Spec: ds/mobile.md (breakpoint, shell anatomy, when to use a sheet, a page or a drawer).
  * CSS: ds/components.css, section "MOBILE". Tokens: ds/tokens.css "MOBILE" (--m-*). One breakpoint, one query. */
 import { createContext, useContext, useEffect, useId, useLayoutEffect, useRef, useState, useSyncExternalStore, type PointerEvent as RPointerEvent, type ReactNode, type RefObject } from 'react'
@@ -86,7 +86,7 @@ function useDialog(ref: RefObject<HTMLElement | null>, open: boolean, onClose: (
   }, [open, ref])
 }
 
-/* Hospitable's "···": three small hollow circles in raspberry (images/33). Drawn here: Tabler's `dots` is filled. */
+/* Hostaway's "···": three small hollow circles in raspberry (images/33). Drawn here: Tabler's `dots` is filled. */
 const Dots = () => (
   <svg className="h-m-more__dots" viewBox="0 0 24 8" aria-hidden="true">
     <circle cx="4" cy="4" r="2.6" /><circle cx="12" cy="4" r="2.6" /><circle cx="20" cy="4" r="2.6" />
@@ -349,13 +349,13 @@ export function MobileActionSlot() {
   useLayoutEffect(() => { slots++; emit(); return () => { slots--; emit() } }, [])
   const ref = (el: HTMLDivElement | null) => { if (target !== el) { target = el; emit() } }
   // onSave may return a confirmation ("Saved · sent to Airbnb"): show it briefly above the bar, like desktop's quiet
-  // "Saved". onDiscard flashes the same way (Antonio, 1 Oct evening: discarding needs to read as clearly as saving
+  // "Saved". onDiscard flashes the same way (review, 1 Oct evening: discarding needs to read as clearly as saving
   // does) when it returns a string ('Discarded', the shared bar's own convention — ds/unsaved.tsx's useMobileActions call).
   const [flash, setFlash] = useState<string | null>(null)
   useEffect(() => { if (!flash) return; const t = setTimeout(() => setFlash(null), 2400); return () => clearTimeout(t) }, [flash])
   const save = (e: SaveEntry) => () => { const r = e.onSave(); if (typeof r === 'string' && r) setFlash(r) }
   const discard = (e: SaveEntry) => () => { const r = e.onDiscard(); if (typeof r === 'string' && r) setFlash(r) }
-  // Antonio, 4 Oct: the bar shows only while there is something to act on — unsaved changes (a dirty Discard / Save)
+  // review, 4 Oct: the bar shows only while there is something to act on — unsaved changes (a dirty Discard / Save)
   // or a page's own content (photo selection, Re-order) — and then it REPLACES the tab bar (ds/components.css: the dock
   // hides the tab bar while the bar is shown; the bar carries the safe area). A clean pair shows nothing.
   const shown = !!top && (top.kind === 'portal' || top.dirty)

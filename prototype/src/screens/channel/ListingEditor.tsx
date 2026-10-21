@@ -1,10 +1,10 @@
 /* Channels › {channel} › Listing · Classic editor (V3-SPEC §1 "Listing editor", CL-01…CL-08, NV-4b). Owner WS-CH.
- * Hospitable's real Details editor (HS-22…HS-29), scoped to one channel: every row says where its value comes from
+ * Hostaway's real Details editor (HS-22…HS-29), scoped to one channel: every row says where its value comes from
  * (Uses the Base · Custom for {channel} · All channels · Knowledge Hub · set by the channel) and offers one action.
  * Rows are stacked (label, control, caption); Base values show disabled until "Customize for {channel}". Edits wait for the
- * section's Save (Discard changes / Save, as in Hospitable; the only unsaved-edit signal). With Autopilot on, every row is
+ * section's Save (Discard changes / Save, as in Hostaway; the only unsaved-edit signal). With Autopilot on, every row is
  * read-only until "Turn off Autopilot to edit". Classic view: the title row scrolls away with the page; the tab row
- * (Essentials/Arrival/…) stays pinned under it while the form scrolls beneath (Antonio, 1 Oct, third round).
+ * (Essentials/Arrival/…) stays pinned under it while the form scrolls beneath (review, 1 Oct, third round).
  * `?view=canvas` hands over to WS-CV's CanvasView, which keeps its own fixed header unchanged.
  * URL states: ?tips=1 (panel open) · ?tip=<id> (panel open on that tip) · ?smart=on|off · ?autopilot=1|0 · ?accept=<id> · ?view=canvas */
 import {
@@ -123,7 +123,7 @@ function useListingHeadState(c: ListingChannel, tab: ListingTab) {
 }
 type ListingHeadState = ReturnType<typeof useListingHeadState>
 
-/** Row 1: title + property switcher + Classic | Canvas, next to the title (Antonio, 1 Oct, third round: back out of
+/** Row 1: title + property switcher + Classic | Canvas, next to the title (review, 1 Oct, third round: back out of
  *  the tab row). Canvas keeps this fixed above the canvas (unchanged, WS-CV); Classic lets it scroll away with the
  *  page — only the tab row below it (ListingTabs) stays pinned. */
 function ListingPageHead({ c, tab, view, s }: { c: ListingChannel; tab: ListingTab; view: 'classic' | 'canvas'; s: ListingHeadState }) {
@@ -142,11 +142,11 @@ function ListingPageHead({ c, tab, view, s }: { c: ListingChannel; tab: ListingT
       lead={<ChannelLead c={c} />}
       title="Listing"
       property={p}
-      // Antonio, 1 Oct (clarifying the third-round move): next to "Listing" itself, not grouped with the property
+      // review, 1 Oct (clarifying the third-round move): next to "Listing" itself, not grouped with the property
       // switcher at the row's far end.
       titleEnd={<ViewSwitch value={view} onChange={switchView} />}
       actions={<>
-        {/* no strategy line here (Antonio: "overkill"); only the way out of Autopilot, and only while it runs */}
+        {/* no strategy line here (review: "overkill"); only the way out of Autopilot, and only while it runs */}
         {/* phones: Tips sits at the right end of the Classic | Canvas row, so the tab rail keeps the full width (ds/mobile.md §5) */}
         {on && <HeadTips><TipsToggle count={pending.length} open={tipsOpen} onToggle={togglePanel} /></HeadTips>}
         {autopilot && <span className="ch-autoline" role="status"><Icon name="rocket" size={16} />Autopilot is on<button type="button" className="h-textlink" onClick={turnOff}>Turn off to edit</button></span>}
@@ -155,7 +155,7 @@ function ListingPageHead({ c, tab, view, s }: { c: ListingChannel; tab: ListingT
   )
 }
 
-/** Row 2: Essentials · Arrival · Location · Amenities · Rules. Antonio, 1 Oct, third round: this row stays pinned
+/** Row 2: Essentials · Arrival · Location · Amenities · Rules. review, 1 Oct, third round: this row stays pinned
  *  ("I like that it's sticky") while the title above it and the body below it both scroll normally.
  *  `extraTabs`/a widened `tab` type: Pattern C of the photos-navigation exploration (ListingPhotosTab, above)
  *  appends "Photos" to this exact row rather than building its own — every other caller leaves it unset, unaffected. */
@@ -207,9 +207,9 @@ function Classic({ c, tab }: { c: ListingChannel; tab: ListingTab }) {
   const base$ = `/property/${p.id}/ch/${c}/listing`
   const openTip = (id: string) => setParams((prev) => { const n = new URLSearchParams(prev); n.delete('tips'); n.set('tip', id); return n }, { replace: true })
   const closePanel = () => setParams((prev) => { const n = new URLSearchParams(prev); n.delete('tips'); n.delete('tip'); return n }, { replace: true })
-  // only one right-side panel at a time (D-927, Antonio 1 Oct item 3): Tips force-closes if a pricing/availability panel claims the slot
+  // only one right-side panel at a time (D-927, review 1 Oct item 3): Tips force-closes if a pricing/availability panel claims the slot
   useExclusivePanel('tips', tipsOpen, closePanel)
-  // Smartify (ds/smartify.tsx, Antonio 3 Oct): a host's rewrite opens as a result card in this SAME one-panel slot —
+  // Smartify (ds/smartify.tsx, review 3 Oct): a host's rewrite opens as a result card in this SAME one-panel slot —
   // opening it closes Tips and opening Tips closes it (panelSlot.ts). Nothing changes in the field until Accept, which
   // writes the chosen version as a normal draft (Discard/Save bar); Dismiss leaves the field untouched.
   const [refine, setRefine] = useState<RefineSession | null>(null)
@@ -332,7 +332,7 @@ function Classic({ c, tab }: { c: ListingChannel; tab: ListingTab }) {
   return (
     <DraftProvider value={draft}>
       <div className="ch-editor">
-        {/* task 2 (Antonio, round 4): the WHOLE head — title, Classic|Canvas switcher, property switcher and the tab
+        {/* task 2 (review, round 4): the WHOLE head — title, Classic|Canvas switcher, property switcher and the tab
          * row — stays pinned together as one sticky block while only the form below scrolls. Both pieces share one
          * wrapper (.ch-editor__head, sticky) instead of the tab row sticking on its own, so there's one sticky
          * context, not two (ds/v3/ch.css). */}
@@ -360,9 +360,9 @@ function Classic({ c, tab }: { c: ListingChannel; tab: ListingTab }) {
 }
 
 /* ---------------- Amenities: the inherited list, read-only, plus what this channel adds (HS-26/27, CL-07) ----------------
- * Antonio, 1 Oct (round 4): the amenities in a channel are inherited from the Listing base, so the inherited rows carry
+ * review, 1 Oct (round 4): the amenities in a channel are inherited from the Listing base, so the inherited rows carry
  * no Remove, no Hide and no edit here; the one list is managed in Listing base › Details › Amenities.
- * Antonio, 4 Oct: "you cannot change it at this level" — inherited rows stay read-only — but a channel can ADD:
+ * review, 4 Oct: "you cannot change it at this level" — inherited rows stay read-only — but a channel can ADD:
  *  - an amenity on the Base list that isn't on this channel ("Not on Airbnb") gets "Add to Airbnb" on its row;
  *  - an amenity only this channel's catalogue has (data/property-listing.ts channelOnlyAmenities), from
  *    "Add {channel} amenities", which now sits on the section title's line, as "Add amenity" does on the Base page.
@@ -401,7 +401,7 @@ function Amenities({ c }: { c: ListingChannel }) {
     return x
   }
   for (const g of amenitiesFor(p.id)) {
-    // not-on-this-channel first within the group (Antonio, 1 Oct: "whatever has not been added, put it at the top of
+    // not-on-this-channel first within the group (review, 1 Oct: "whatever has not been added, put it at the top of
     // the list"), the rest keep the Base order. Sorted by what is SAVED, so "Add to Airbnb" never makes a row jump.
     groupOf(g.group).base = g.items.map((i) => {
       const where = channels.filter((ch) => onFor(ch, i))
@@ -434,7 +434,7 @@ function Amenities({ c }: { c: ListingChannel }) {
           <h3 className="ch-amenity-group">{g.group}</h3>
           <div className="ch-amenities">
             {g.base.map((i) => {
-              // exception-only (Antonio, 1 Oct): no caption when every connected channel has it, and never name the
+              // exception-only (review, 1 Oct): no caption when every connected channel has it, and never name the
               // OTHER channels from inside one; the only captions left are the facts about THIS channel.
               const scope = i.staged && i.isOn ? `Added to ${name}, not saved yet`
                 : !i.isOn ? `Not on ${name}` : i.where.length === 1 ? `Only on ${name}` : undefined
@@ -494,10 +494,10 @@ function Amenities({ c }: { c: ListingChannel }) {
 }
 
 /* ---------------- "Add {channel} amenities": only this channel's own catalogue ----------------
- * Antonio, 1 Oct (round 4): "add only Airbnb-specific amenities… add only the ones that are specific to Airbnb here".
+ * review, 1 Oct (round 4): "add only Airbnb-specific amenities… add only the ones that are specific to Airbnb here".
  * Rows: name, the channel's mark, grey + ✓ once picked, white + when not; a tap toggles. An amenity the channel wants
  * structured detail for opens a small form of grouped single choices with Cancel / Add amenity.
- * Antonio, 4 Oct: the drawer never saves. Picks are held here while it is open; Done (or closing it any other way, so a
+ * review, 4 Oct: the drawer never saves. Picks are held here while it is open; Done (or closing it any other way, so a
  * pick is never silently lost) hands them to the page's section draft and closes, and the page's own Discard / Save
  * bar takes over from there. */
 function AddChannelAmenities({ c, open, onClose, extras }: { c: ListingChannel; open: boolean; onClose: () => void; extras: ChOnlyAmenity[] }) {

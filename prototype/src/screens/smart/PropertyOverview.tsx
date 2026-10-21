@@ -1,5 +1,5 @@
 /* Property › Overview (V3-SPEC §1 IA) · WS-SL.
- * One property's own page, replicated from Hospitable (REAL·PRODUCT screenshots 22–27): opportunities accordion,
+ * One property's own page, replicated from Hostaway (screenshots 22–27): opportunities accordion,
  * Connected channels (a row per listing with status chips, tooltips and the Listed / Unlisted select), Imported iCals,
  * Export calendar, Property nickname, Sync, then the Smart Listings opt-in (off by default; turning it on leads into
  * Setup when no strategy exists; turning it off confirms that nothing is lost), and Mute Property · Copy ID · Copy UUID.
@@ -24,7 +24,7 @@ import { useListingChannels } from '../../store/selectors'
 import { useStore, type FieldVisibility, type OvFieldKey } from '../../store/store'
 import { listingName, useSmartDemo } from './shared'
 
-/** One Show / Edit / Don't-show control for the whole category of shared fields (sharedFieldKeys) — Antonio, 1 Oct
+/** One Show / Edit / Don't-show control for the whole category of shared fields (sharedFieldKeys) — review, 1 Oct
  *  third round, after seeing a per-field row for all 19: "nonsense… I just want to basically be able to toggle
  *  whether I want non-channel-specific fields to appear to be editable… it should be the same for all, either we
  *  see all of these, none of this, or we could edit them." One control, one value, applied to every qualifying
@@ -33,7 +33,7 @@ import { listingName, useSmartDemo } from './shared'
  *  each change, so the Listing editor's `FieldRow` and Pricing/Availability's `ScopedRow` each read one key.
  *  Reading the current value (3 Oct): the value every written key agrees on; nothing written yet reads as **Edit**,
  *  because that is what unset does on every channel page (normal behaviour — unset never locks anything). It used to
- *  read "Show" while every field stayed editable, which is the mismatch Antonio hit. */
+ *  read "Show" while every field stayed editable, which is the mismatch review hit. */
 function FieldVisibilitySection({ keys, value, onChange }: {
   keys: string[]
   value: Partial<Record<OvFieldKey, FieldVisibility>>
@@ -52,17 +52,17 @@ function FieldVisibilitySection({ keys, value, onChange }: {
 }
 
 const HOST = currentUser().name // the signed-in account (D-160); accounts switch with a reload
-/** What each connection is in Hospitable today (kind of place, management level). */
+/** What each connection is in Hostaway today (kind of place, management level). */
 const CONNECTION: Record<ListingChannel, { kind: string; chips: Array<{ tone: ChipTone; label: string; tip: string }> }> = {
   airbnb: { kind: 'Entire Home', chips: [
     { tone: 'lead', label: 'Lead listing', tip: 'This listing is a lead listing.' },
-    { tone: 'managed-full', label: 'Fully managed', tip: 'Hospitable manages this listing’s content, calendar, prices and messages.' },
+    { tone: 'managed-full', label: 'Fully managed', tip: 'Hostaway manages this listing’s content, calendar, prices and messages.' },
   ] },
   booking: { kind: 'Entire apartment', chips: [
-    { tone: 'managed', label: 'Partially managed', tip: 'Hospitable manages this listing’s content, calendar and prices. A few settings stay in the Booking.com extranet.' },
+    { tone: 'managed', label: 'Partially managed', tip: 'Hostaway manages this listing’s content, calendar and prices. A few settings stay in the Booking.com extranet.' },
   ] },
   direct: { kind: 'Entire Home', chips: [
-    { tone: 'managed-full', label: 'Fully managed', tip: 'Your own booking site. Hospitable manages everything on it.' },
+    { tone: 'managed-full', label: 'Fully managed', tip: 'Your own booking site. Hostaway manages everything on it.' },
   ] },
 }
 const SCENARIO_IDS = { id: '1428357', uuid: '9d5c1f0a-6b2e-4c71-8f3d-2a7e4b90c615' }
@@ -108,7 +108,7 @@ export function PropertyOverview() {
   const [icals, setIcals] = useState<Array<{ name: string; url: string }>>([])
   const [icalGen, setIcalGen] = useState(0)
   const IDS = idsFor(p.id)
-  const ICAL = `https://my.hospitable.com/ical/${IDS.uuid}${icalGen ? `-${icalGen}` : ''}.ics`
+  const ICAL = `https://my.hostaway.com/ical/${IDS.uuid}${icalGen ? `-${icalGen}` : ''}.ics`
   const dismissed: string[] = []
   const [copied, copy] = useCopy()
 
@@ -127,9 +127,9 @@ export function PropertyOverview() {
       outcome: ['Fewer Questions', 'Higher Performance'], onSetUp: () => nav(`${base}/ch/airbnb/listing/essentials`) },
   ] as Opportunity[]).filter((o) => !dismissed.includes(o.id) && connected.includes(o.channel as ListingChannel))
 
-  // Antonio, 3 Oct: no opportunities accordion on this page and "Review opportunities" is a plain label (nothing on click)
+  // review, 3 Oct: no opportunities accordion on this page and "Review opportunities" is a plain label (nothing on click)
   /* QA B16: on before any setup = go to Setup; it turns on when Setup finishes (Setup.tsx finish()). Off keeps the setup,
-   * so turning it on again restores the same strategies; turning it off asks first and says so (Antonio, 1 Oct). */
+   * so turning it on again restores the same strategies; turning it off asks first and says so (review, 1 Oct). */
   const [confirmOff, setConfirmOff] = useState(false)
   const toggleSmart = (v: boolean) => {
     if (v && !sl3.setupDone) { nav(`${base}/smart/wizard?entry=first&from=overview`); return }
@@ -156,7 +156,7 @@ export function PropertyOverview() {
           <hr className="h-ov-divider" />
         </>}
 
-        {/* phones (Antonio, 4 Oct): Groups, Rules and Activity are out of the case study's reach */}
+        {/* phones (review, 4 Oct): Groups, Rules and Activity are out of the case study's reach */}
         {portfolio && !mobile && <>
           <OvSection title="Portfolio"
             desc={`One of your ${acct.properties.length} properties · ${groupById(portfolio.groupId).name} group · ${portfolio.owner === 'You' ? 'self-managed' : `owner ${portfolio.owner}`}`}
@@ -184,7 +184,7 @@ export function PropertyOverview() {
         </OvSection>
 
         <div className="h-ov-group">
-          <OvSection title="Imported iCals" desc="Import bookings from OTAs without an official connection to Hospitable."
+          <OvSection title="Imported iCals" desc="Import bookings from OTAs without an official connection to Hostaway."
             action={<button type="button" className="h-textlink" onClick={() => setAddIcal(true)}>Add External iCal</button>}>
             {icals.length > 0 && <ul className="h-ov-icals">{icals.map((x) => <li key={x.url}><b>{x.name}</b>{x.url}</li>)}</ul>}
           </OvSection>
@@ -205,7 +205,7 @@ export function PropertyOverview() {
 
         <hr className="h-ov-divider" />
 
-        {/* Antonio, 1 Oct: title, one line, the toggle. The strategies live under Smart Listings in the rail. */}
+        {/* review, 1 Oct: title, one line, the toggle. The strategies live under Smart Listings in the rail. */}
         <OvSection title="Smart Listings"
           desc={firstTimer ? 'A strategy for each channel, and tips to improve every part of the listing. Available once first-time setup is done.' : 'A strategy for each channel, and tips to improve every part of the listing.'}
           action={firstTimer ? <Link className="h-textlink" to={`${base}/overview/needs-you`}>Finish first-time setup</Link> : <>

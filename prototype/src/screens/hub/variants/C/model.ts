@@ -21,7 +21,7 @@ interface KhcState {
   added: Record<string, Array<{ key: string; label: string }>>
 }
 /** Same persist name as the un-keyed store it replaces: data saved before multi-property migrates to Neukölln. */
-export const useKhc = createPropertyStore('hospitable-kh-c', (): KhcState => ({ filled: {}, dismissed: {}, added: {} }), (set) => ({
+export const useKhc = createPropertyStore('hostaway-kh-c', (): KhcState => ({ filled: {}, dismissed: {}, added: {} }), (set) => ({
   fill: (id: string, f: Filled) => set((s) => ({ filled: { ...s.filled, [id]: f } })),
   dismiss: (id: string) => set((s) => ({ dismissed: { ...s.dismissed, [id]: true as const } })),
   addFact: (qid: string, key: string, label: string) => set((s) => ({ added: { ...s.added, [qid]: [...(s.added[qid] ?? []), { key, label }] } })),

@@ -16,7 +16,7 @@
 
 /* ── live product UI on a scene (3 Oct: "outputs as HTML, not images") ─────────────────────────────
    .ds-live is placed like a screen (--x --y --sw, in scene px) and animated by the module; inside it,
-   .h-root.hc-ui.ds-ui is Hospitable's own component at the product's 1×, zoomed to wall size. The zoom
+   .h-root.hc-ui.ds-ui is Hostaway's own component at the product's 1×, zoomed to wall size. The zoom
    sits on the inner block, so the placement stays in scene px and the type re-lays out crisp. */
 .ds-scene > .ds-live { position: absolute; left: var(--x, 0); top: var(--y, 0); width: var(--sw, 600px); z-index: 3; }
 .ds-scene > .ds-live.is-float { animation: ds-float 7s ease-in-out -1.5s infinite alternate; }
@@ -74,7 +74,7 @@
 .ds-hq__use .h-pill { margin-left: var(--space-1); }
 .ds-hq__wires { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; z-index: 1; }
 .ds-hq__wires path { fill: none; stroke: var(--color-gray-400); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
-/* ds-hub is a concept, not built in full (Antonio, 4 Oct): a tag in the eyebrow, the dashed outline the deck uses for what is planned */
+/* ds-hub is a concept, not built in full (review, 4 Oct): a tag in the eyebrow, the dashed outline the deck uses for what is planned */
 .eyebrow > * + .ds-concept:not(.hc-prov) { display: inline-flex; align-items: center; height: 30px; margin-left: 16px; padding: 0 12px; border: 1.5px dashed var(--color-primary-400);
   border-radius: var(--radius-md); color: var(--accent-ink); letter-spacing: 0.08em; vertical-align: middle; }
 .eyebrow > * + .ds-concept:not(.hc-prov)::before { content: none; }
@@ -84,11 +84,11 @@
 .ds-loopc__n { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: var(--on-accent); font: var(--w-head) 16px / 1 var(--font-ui); }
 .hc-callout--ai .ds-loopc__n { background: var(--ai-accent); }
 
-/* channel field rows (ds-channels): Hospitable's stacked setting rows, in a card headed by the channel */
+/* channel field rows (ds-channels): Hostaway's stacked setting rows, in a card headed by the channel */
 .ds-fields { display: flex; flex-direction: column; gap: var(--space-5); padding: var(--space-4) var(--space-5) var(--space-5); border-radius: var(--radius-lg); background: var(--color-surface-primary); }
 .ds-fields__head { display: flex; align-items: center; gap: var(--space-2); margin: 0; font-size: var(--text-sm); font-weight: var(--font-weight-semibold); color: var(--color-text-muted); }
 .ds-fields > [data-state] { margin-top: 0; max-width: none; }
-/* ds-channels (Antonio, 4 Oct, second pass): three cases side by side on Airbnb's page, each a deck-type kicker over the
+/* ds-channels (review, 4 Oct, second pass): three cases side by side on Airbnb's page, each a deck-type kicker over the
    product's field card. The cards share one height so the three captions line up. */
 .ds-case__k { margin: 0; font: var(--w-head) 30px / 1.2 var(--font-ui); color: var(--ink); }
 .ds-case__d { margin: 6px 0 22px; font-size: 22px; line-height: 1.35; color: var(--ink-2); }
@@ -180,7 +180,7 @@
 .ds-steps .hc-step__t { font-size: 26px; }
 .ds-wz__cards--1 { grid-template-columns: minmax(0, 1fr); }
 
-/* ds-system (4 Oct, Antonio): what the new patterns mean for the product. Left, the Hospitable patterns I challenged;
+/* ds-system (4 Oct, Antonio): what the new patterns mean for the product. Left, the Hostaway patterns I challenged;
    right, the new ones as the kit's own product components on white cards (the product's card: gray hairline, 16 px
    corners, no shadow); below, the product areas they reach, Planned. */
 .ds-sys { display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 30px; height: 100%; }

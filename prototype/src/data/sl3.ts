@@ -1,5 +1,5 @@
-/* Smart Listing v3 data (concepts/smart-listing/V3-SPEC.md). SIMULATED scenario content; channel rules REAL·PUBLIC
- * (research/market/channel-constraints.md). Field lists follow Hospitable's real Details › Essentials / Arrival /
+/* Smart Listing v3 data (concepts/smart-listing/V3-SPEC.md). scenario content; channel rules 
+ * (research/market/channel-constraints.md). Field lists follow Hostaway's real Details › Essentials / Arrival /
  * Location / Amenities / Rules editors (HS-21…HS-29). */
 import type { ChannelId } from './types'
 import type { FieldState } from '../ds/sl3'
@@ -57,21 +57,21 @@ export interface FieldDef {
   options?: string[]
 }
 const B = 'Beautiful Artist Apt. in Neukölln'
-/** Booking.com writes the property's description itself (D-032, D-086): the reason on its lock (Antonio, 4 Oct).
+/** Booking.com writes the property's description itself (D-032, D-086): the reason on its lock (review, 4 Oct).
  *  His line, trimmed so it fits three lines of the shared 240px tooltip (the full one ran to four). */
 const BOOKING_WRITES = 'Booking.com writes this from your facts, photos and amenities, so it can’t be edited here.'
 /** The reason a channel-set field can't be edited here: the field's own `why`, else a plain default. */
 export const setByWhy = (def: Pick<FieldDef, 'why'>, c: ListingChannel, name: string) =>
   def.why?.[c] ?? `${name} sets this itself, so it can’t be edited here.`
 export const FIELDS: FieldDef[] = [
-  // Essentials (Hospitable Details › Essentials, HS-L01/L02). Every field carries a full Base value (Antonio, 30 Sep: "a value for everything").
+  // Essentials (Hostaway Details › Essentials, HS-L01/L02). Every field carries a full Base value (review, 30 Sep: "a value for everything").
   { key: 'photos', tab: 'essentials', label: 'Photos', help: 'Order and cover for this channel. The photo library lives in the Knowledge Hub.', kind: 'photos',
     state: { airbnb: 'override', booking: 'override', direct: 'inherit' }, // the seed library (data/photos.ts): 11 photos; Airbnb shows all 11, Booking.com 9. Screens derive counts from store.photoLib (QA B18)
     base: '11 photos in the Knowledge Hub', value: { airbnb: '11 photos · cover: Living room', booking: '9 photos · cover: Bedroom' } },
   { key: 'name', tab: 'essentials', label: 'Property name', help: 'Guests see it in search.', kind: 'text', limit: 50,
     state: { airbnb: 'inherit', booking: 'override', direct: 'inherit' }, base: B, value: { booking: 'Artist Apartment Neukölln · Balcony & Fast Wi-Fi' } },
   // Booking.com writes its own description from the property's facts — never an editable per-channel text there
-  // (D-032, D-086; Antonio 3 Oct via the deck session): 'set' = shown read-only. Antonio, 4 Oct: the caption reads
+  // (D-032, D-086; review 3 Oct via the deck session): 'set' = shown read-only. review, 4 Oct: the caption reads
   // "Booking.com only" beside a lock, and the lock's tooltip says why it can't be changed (`why`)
   { key: 'summary', tab: 'essentials', label: 'Summary', help: 'The property description guests see.', kind: 'textarea', limit: 500,
     state: { airbnb: 'override', booking: 'set', direct: 'inherit' }, why: { booking: BOOKING_WRITES },
@@ -91,9 +91,9 @@ export const FIELDS: FieldDef[] = [
   { key: 'room', tab: 'essentials', label: 'Room type', help: 'What guests book.', kind: 'select', state: { airbnb: 'hub', booking: 'hub', direct: 'hub' }, base: 'Entire place' },
   { key: 'tags', tab: 'essentials', label: 'Tags', help: 'Add tags to describe your property (e.g., Log cabin, Beach, City)', kind: 'tags', state: { airbnb: 'listing', booking: 'listing', direct: 'listing' }, base: 'City · Art · Workspace' },
   { key: 'languages', tab: 'essentials', label: 'Languages', help: 'Languages your property supports', kind: 'tags', state: { airbnb: 'listing', booking: 'listing', direct: 'listing' }, base: 'English · German · Spanish' },
-  // Arrival · Getting inside and setup (REAL·PRODUCT: Antonio's Arrival screenshots, research/current-state/antonio-2026-09-30/)
-  // Check-in method and its details are Airbnb's own (Antonio, 3 Oct: the other channels have no field for them, so they
-  // aren't on the Listing base either — the real Hospitable shows them as "1 channel")
+  // Arrival · Getting inside and setup (review's Arrival screenshots, research/current-state/review-2026-09-30/)
+  // Check-in method and its details are Airbnb's own (review, 3 Oct: the other channels have no field for them, so they
+  // aren't on the Listing base either — the real Hostaway shows them as "1 channel")
   { key: 'method', tab: 'arrival', group: 'inside', label: 'Check-in method', kind: 'select', state: { airbnb: 'only' }, base: 'Keypad', value: { airbnb: 'Keypad' } },
   { key: 'method_details', tab: 'arrival', group: 'inside', label: 'Check-in method details', help: 'Any important details for getting inside your place.', kind: 'textarea',
     state: { airbnb: 'only' }, base: 'Enter the code on the keypad by the green street door, then take the stairs to the 4th floor. The flat is the door on the left; the same code opens it. You get the code 24 hours before arrival.', value: { airbnb: 'Enter the code on the keypad by the green street door, then take the stairs to the 4th floor. The flat is the door on the left; the same code opens it. You get the code 24 hours before arrival.' } },
@@ -110,15 +110,15 @@ export const FIELDS: FieldDef[] = [
     base: 'Check-in is self-service, but I live nearby and I’m happy to meet you. I reply to messages within an hour between 8:00 and 22:00.',
     value: { airbnb: 'Self check-in, so arrive whenever suits you. I reply within an hour from 8:00 to 22:00, and I’m happy to share my favourite quiet cafés to work from.' } },
   { key: 'checkout_tasks', tab: 'arrival', group: 'inside', label: 'Guest checkout tasks', help: 'List any tasks guests should complete before leaving.', kind: 'tasks',
-    // Airbnb only (REAL·PUBLIC https://www.airbnb.com/help/article/1926 · Airbnb 2023 Summer Release "Checkout instructions"; Hospitable shows "1 channel")
+    // Airbnb only (https://www.airbnb.com/help/article/1926 · Airbnb 2023 Summer Release "Checkout instructions"; Hostaway shows "1 channel")
     state: { airbnb: 'only' }, base: '', value: { airbnb: 'Gather used towels | Leave them in the bathtub\nThrow rubbish away | Recycling bins are in the courtyard\nTurn things off | Heating to 1, lights off\nLock up | Pull the door until it clicks' } },
   // Arrival · Guest resources (shortcodes used in messaging rules)
   { key: 'guidebook', tab: 'arrival', group: 'resources', label: 'Guidebook', help: 'A link to your property guidebook, which will be populated anytime the %guidebook% short code is used in your messaging rules.', kind: 'url',
-    state: { airbnb: 'listing', booking: 'listing', direct: 'listing' }, base: 'https://artistflat.hospitable.rentals/guidebook' },
+    state: { airbnb: 'listing', booking: 'listing', direct: 'listing' }, base: 'https://artistflat.hostaway.rentals/guidebook' },
   { key: 'rental_agreement', tab: 'arrival', group: 'resources', label: 'Rental Agreement', help: 'A link to your property rental agreement, which will be populated anytime the %rental_agreement% short code is used in your messaging rules.', kind: 'url',
-    state: { airbnb: 'listing', booking: 'listing', direct: 'listing' }, base: 'https://artistflat.hospitable.rentals/rental-agreement' },
+    state: { airbnb: 'listing', booking: 'listing', direct: 'listing' }, base: 'https://artistflat.hostaway.rentals/rental-agreement' },
   { key: 'upsell', tab: 'arrival', group: 'resources', label: 'Upsell', help: 'A link to your property’s upsell or add-on storefront, which will be populated anytime the %upsell% short code is used in your messaging rules.', kind: 'url',
-    state: { airbnb: 'listing', booking: 'listing', direct: 'listing' }, base: 'https://artistflat.hospitable.rentals/extras' },
+    state: { airbnb: 'listing', booking: 'listing', direct: 'listing' }, base: 'https://artistflat.hostaway.rentals/extras' },
   // Location (HS-24/25)
   { key: 'address', tab: 'location', label: 'Street address', help: 'Guests get the exact address after booking.', kind: 'text', state: { airbnb: 'listing', booking: 'listing', direct: 'listing' }, base: 'Weserstraße 1x, 12047 Berlin' },
   { key: 'city', tab: 'location', label: 'City', help: 'Where the property is.', kind: 'text', state: { airbnb: 'listing', booking: 'listing', direct: 'listing' }, base: 'Berlin' },
@@ -135,19 +135,19 @@ export const FIELDS: FieldDef[] = [
   { key: 'checkout', tab: 'rules', label: 'Checkout time', help: 'When guests leave.', kind: 'time', state: { airbnb: 'listing', booking: 'listing', direct: 'listing' }, base: '2:00 PM' },
   { key: 'house_rules', tab: 'rules', label: 'House rules', help: 'Your own rules, in your words.', kind: 'textarea', state: { airbnb: 'override', booking: 'inherit', direct: 'inherit' },
     base: 'No parties or events. Quiet hours 22:00–7:00. Please don’t smoke inside or on the balcony. Maximum 2 guests.', value: { airbnb: 'Shoes off inside · quiet after 22:00 · no parties · no smoking, balcony included.' } },
-  // Toggles: only Pets offers Edit per channel in Hospitable today (HS-29); the others are listing-wide.
+  // Toggles: only Pets offers Edit per channel in Hostaway today (HS-29); the others are listing-wide.
   { key: 'children', tab: 'rules', label: 'Allow children', help: 'Aged 2 - 12', kind: 'toggle', state: { airbnb: 'listing', booking: 'listing', direct: 'listing' }, base: 'Yes' },
   { key: 'infants', tab: 'rules', label: 'Allow infants', help: 'Under 2', kind: 'toggle', state: { airbnb: 'listing', booking: 'listing', direct: 'listing' }, base: 'Yes' },
   { key: 'pets', tab: 'rules', label: 'Allow pets', kind: 'toggle', state: { airbnb: 'inherit', booking: 'override', direct: 'inherit' }, base: 'No', value: { booking: 'Yes' } },
   { key: 'smoking', tab: 'rules', label: 'Allow smoking', kind: 'toggle', state: { airbnb: 'listing', booking: 'listing', direct: 'listing' }, base: 'No' },
   { key: 'events', tab: 'rules', label: 'Allow events', kind: 'toggle', state: { airbnb: 'listing', booking: 'listing', direct: 'listing' }, base: 'No' },
 ]
-/** Arrival sub-sections, as in Hospitable today. */
+/** Arrival sub-sections, as in Hostaway today. */
 export const ARRIVAL_GROUPS: Array<{ id: 'inside' | 'resources'; title: string; desc?: string }> = [
   { id: 'inside', title: 'Getting inside and setup' },
   { id: 'resources', title: 'Guest resources', desc: 'Add links that can be shared automatically in messages using shortcodes.' },
 ]
-/** Hospitable's check-in methods (REAL·PRODUCT dropdown, HS-A01; the last two are below the fold there: ASSUMPTION). */
+/** Hostaway's check-in methods (dropdown, HS-A01; the last two are below the fold there: ). */
 export const CHECKIN_METHODS = ['Reception', 'Host Greeting', 'Keypad', 'Lockbox', 'Smart Lock', 'Key in Secret Spot', 'Building Staff', 'Other']
 /** Does this channel have the field at all? (e.g. checkout tasks exist only on Airbnb). */
 export const fieldOn = (f: FieldDef, c: ListingChannel) => f.state[c] !== undefined
@@ -162,11 +162,11 @@ export const AMENITIES: Array<{ group: string; items: Array<{ name: string; on: 
 ]
 
 /* ---------- tips (renamed from recommendations) ---------- */
-/** Where a WHY bullet's reasoning actually comes from (Antonio, live review, reference image: a target icon + small
+/** Where a WHY bullet's reasoning actually comes from (review, live review, reference image: a target icon + small
  *  "Strategy" pill for market/strategy reasoning, a speech-bubble icon + "Inbox" pill for reasoning grounded in real
  *  guest messages/inquiries) — so a tip never reads as an arbitrary, unsourced AI claim. Classified honestly per
  *  bullet by its actual wording, not alternated. */
-/** 'hub': the reason is a fact from the property's Knowledge Hub (Antonio, 3 Oct: tips should show facts the Hub holds) */
+/** 'hub': the reason is a fact from the property's Knowledge Hub (review, 3 Oct: tips should show facts the Hub holds) */
 export type WhySource = 'strategy' | 'inbox' | 'hub' | 'listing' // listing: a Listing base detail (Wi-Fi is an amenity, audit 4 Oct)
 export interface WhyPoint { text: string; source: WhySource }
 export interface TipDef {
@@ -207,15 +207,15 @@ export const TIPS: TipDef[] = [
     why: [{ text: 'From your Knowledge Hub · Arrival: the green door next to the bakery; the keypad code works at any hour.', source: 'hub' }, { text: 'Booking.com guests asked for directions 3× more than Airbnb guests in the last 90 days (12 of 31 threads).', source: 'inbox' }, { text: 'Booking.com has no check-in method field, so its directions are where guests learn how to get in.', source: 'strategy' }] },
   { id: 't-d-name', channel: 'direct', tab: 'essentials', field: 'name', type: 'Property name', section: 'Essentials', title: 'Use your own brand on your site',
     from: B, to: 'The Artist\'s Flat · Neukölln', why: [{ text: 'On your own site there is no 50-character search limit and no competing listings.', source: 'strategy' }] },
-  /* Coverage across every Listing tab, per channel (Antonio, 3 Oct: "several recommendations across all of the different
-   * categories" and "how it would look when we have recommendations for the photos"). SIMULATED: every count, inbox
+  /* Coverage across every Listing tab, per channel (review, 3 Oct: "several recommendations across all of the different
+   * categories" and "how it would look when we have recommendations for the photos"). every count, inbox
    * question and comparable-listing figure below is invented; every fact in a suggestion comes from this property's
    * own FIELDS / AMENITIES above (U7 Rathaus Neukölln, the green street door, the 22:00 door lock, Booking.com pets…).
    * Each tab keeps some long-text fields without a tip, so the Smartify icon still shows beside the tip markers.
    * Amenity tips use the field "amenity:<name>" (the Amenities editor's per-channel key) and write "on". */
   // Airbnb · remote workers
   // On a field that uses the Base: the tip is an Airbnb version, written for how Airbnb guests read it (in the app, at
-  // the door, often late) — not a general fix that belongs on the Base (Antonio, 3 Oct: "just a replacement… more
+  // the door, often late) — not a general fix that belongs on the Base (review, 3 Oct: "just a replacement… more
   // customized for Airbnb"). The card shows only the new text and says it creates an Airbnb-only version.
   { id: 't-a-method', channel: 'airbnb', tab: 'arrival', field: 'method_details', type: 'Check-in method details', section: 'Arrival', title: 'Write Airbnb’s own check-in steps',
     from: 'Enter the code on the keypad by the green street door, then take the stairs to the 4th floor. The flat is the door on the left; the same code opens it. You get the code 24 hours before arrival.',
@@ -272,8 +272,8 @@ export const TIPS: TipDef[] = [
     to: 'No parties or events. Quiet hours 22:00–7:00. Please don’t smoke inside or on the balcony. Maximum 2 guests. Booking here means you accept the rental agreement, sent with your confirmation.',
     why: [{ text: 'No Airbnb or Booking.com terms sit behind a direct booking: your rules and agreement are the terms.', source: 'strategy' }, { text: '1 direct guest asked what happens if something breaks during the stay.', source: 'inbox' }] },
 ]
-/* Tips were the scenario property's only at first (QA B01/B02); extended (Antonio, 1 Oct voice note) so every property
- * Smart Listings defaults to on for also has its own, generated SIMULATED tips (data/property-listing.ts
+/* Tips were the scenario property's only at first (QA B01/B02); extended (review, 1 Oct voice note) so every property
+ * Smart Listings defaults to on for also has its own, generated tips (data/property-listing.ts
  * propertyTipsFor, grounded in that property's own seed data). The three "off" properties (data/portfolio.ts
  * SMART_LISTINGS_OFF) still get none, so their Tips panel shows the empty state and their tip dots and counts are 0.
  * data/property-listing.ts registers both rules, reading the property the shared listing definitions describe

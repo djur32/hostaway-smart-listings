@@ -32,7 +32,7 @@
 .dc-tl__gen { position: absolute; left: calc(var(--at) + 16px); bottom: calc(50% + 14px); font: var(--w-medium) 19px / 1 var(--font-ui); color: var(--ink-2); }
 .dc-tl__end { position: absolute; right: 0; bottom: calc(50% + 12px); font: var(--w-medium) 20px / 1 var(--font-ui); color: var(--ink-2); }
 
-/* ── dc-two-truths · the Hub repeats the listing (4 Oct, KH-REFRAME), recreated in Hospitable's own components ──
+/* ── dc-two-truths · the Hub repeats the listing (4 Oct, KH-REFRAME), recreated in Hostaway's own components ──
    .dc-live is placed like a screen (--x --y --sw, in scene px); inside it .h-root.hc-ui.dc-ui is the product at 1×,
    zoomed to wall size (50-design's .ds-live recipe). Cards rise with the kit's data-a; their float is on the inner card. */
 .dc-tt > .dc-live { position: absolute; left: var(--x, 0); top: var(--y, 0); width: var(--sw, 500px); z-index: 2; }
@@ -84,7 +84,7 @@
 .dc-roles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 18px; margin: 0; padding: 0; list-style: none; }
 .dc-roles li { display: flex; align-items: center; gap: 18px; min-height: 100px; padding: 14px 22px 14px 14px; border-radius: 26px; background: var(--bg); box-shadow: 0 0 0 1px var(--line);
   font: var(--w-medium) 24px / 1.25 var(--font-ui); color: var(--ink); }
-/* ── dc-today · how property management is structured today (4 Oct, Antonio: "a little bit higher level …
+/* ── dc-today · how property management is structured today (4 Oct, review: "a little bit higher level …
    represent it a little more abstractly"). Purely descriptive: the problems come on the slides after it.
    A blush plate: four short statements on the left, and the property on the right as a white card holding its
    ten sections as plain blocks, in the product's menu order. The card and the statements are both centred in
@@ -170,7 +170,7 @@
 .dc-how .dc-src { font-size: 19px; }
 
 /* ── dc-risks · the assumptions map, importance × evidence (drawn by 10-discovery.js) ──
-   Restyled 4 Oct (Antonio: "take over all of the space… fit with the rest of the content"): soft tiles in the
+   Restyled 4 Oct (review: "take over all of the space… fit with the rest of the content"): soft tiles in the
    deck's plates instead of a hairline table, white chips like the covers', and each hypothesis readable on hover. */
 .dc-risks { align-items: stretch; }
 .dc-am { margin: 0; display: grid; grid-template-columns: 28px 112px repeat(5, minmax(0, 1fr)); grid-template-rows: 116px 128px 96px 45px 45px auto auto auto;   /* importance 3 holds two lines of chips since all seventeen are plotted (4 Oct) */
@@ -221,7 +221,7 @@
 .dc-am__key b { font-weight: var(--w-head); color: var(--ink-2); }
 /* ── dc-plan · three weeks (and a prep week) as tinted blocks, the first asks as question chips ── */
 .dc-weeks { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 0.95fr); gap: 40px; align-items: stretch; min-height: 400px; }
-/* one treatment for every stage (Antonio, 4 Oct): the stage chip and a bare icon on top, the padding equal on every side,
+/* one treatment for every stage (review, 4 Oct): the stage chip and a bare icon on top, the padding equal on every side,
    the question the stage answers under its name, the methods resting on the bottom */
 .dc-week { --wk-pad: 30px; position: relative; display: flex; flex-direction: column; gap: 0; padding: var(--wk-pad); border-radius: 32px; background: var(--tint-plate); }
 .dc-week--prep { --tint-plate: var(--plate-quiet); --tint-ink: var(--ink-2); --tint-line: var(--ink-3); --tint-title: var(--ink); }
@@ -268,7 +268,7 @@
 .dc-first__n { display: grid; place-items: center; flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--color-sidebar-bg); color: var(--on-dark);
   font: var(--w-head) 15px / 1 var(--font-ui); }
 
-/* ── the heuristic a finding breaks (4 Oct, Antonio: "use the same names we have in the Notion page") ──
+/* ── the heuristic a finding breaks (4 Oct, review: "use the same names we have in the Notion page") ──
    The kit's compact tag (.hc-mark's pill and hairline): the heuristic's name as the Heuristic evaluation page
    writes it, then its severity on Nielsen's 0 to 4 scale (one evaluator, so the foot carries an Assumption chip).
    4 fills in raspberry ink, 3 is the blush, 2 and below stay gray. */
@@ -284,7 +284,7 @@
 /* a bullet or a lead line with its tag at the end */
 .hc-points .dc-he, .hc-msg .dc-he { margin-left: 8px; }
 
-/* ── dc-no-channel · the hunt for one channel's listing (4 Oct, Antonio: "something more visual … it doesn't work well")
+/* ── dc-no-channel · the hunt for one channel's listing (4 Oct, review: "something more visual … it doesn't work well")
    A blush plate in two bands. Above, the host's question, a route that hops across the five sections that hold
    per-channel fields (a dot per field, counted as they land) and an empty dashed frame at its end: no page shows the
    answer. Below, the seven controls that mean "different on each channel", each drawn as it looks in the product

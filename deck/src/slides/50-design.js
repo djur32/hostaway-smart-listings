@@ -10,7 +10,7 @@
                      the same data-shot, from exactly the region it shows, toward the
                      viewer (computed from --x --y --sw --z --cx --cy --ar)
      data-in="fan"   on a phone: it slides out from behind the scene's [data-hub] phone
-     .ds-ui          live product UI (Hospitable's own h-* components, ds-ui layer) placed on
+     .ds-ui          live product UI (Hostaway's own h-* components, ds-ui layer) placed on
                      the scene like a screen. Inside it, a nested data-st="N" part rises in on
                      the Nth press, and data-swap="N" crossfades its [data-was] child out and
                      the rest in (a receipt's Sent → Live). .ds-wk bars grow as their card lands.

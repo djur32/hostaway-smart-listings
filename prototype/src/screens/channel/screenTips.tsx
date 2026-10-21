@@ -1,5 +1,5 @@
 /* Shared "Tips" treatment for the channel-level screens outside the Listing editor — Pricing, Availability, Booking
- * policies (Antonio, relayed: "reasonable recommendations" at the pricing, availability and booking-policy level,
+ * policies (review, relayed: "reasonable recommendations" at the pricing, availability and booking-policy level,
  * like the ones already on the Listing editor — only at the per-channel listing level, never on the property-wide
  * Base Pricing/Availability screens, which keep no Tips by design).
  * Reuses the exact Tips chrome the Listing editor already has (ds/sl3.tsx: TipsToggle · Split · TipsPanel · TipCard,
@@ -7,13 +7,13 @@
  * shell/ChannelTips.tsx is the data behind it: that file drives the real `data/sl3.ts` TIPS dataset, which is
  * field-level and scoped to the Listing editor's own FieldDef model. These three screens have no such field model
  * (Pricing's PriceRow, Availability's AvailField and Policies' PolicyModel are all shaped differently and owned by
- * other sessions) and Antonio's ask here is specifically a *new*, screen-scoped set of suggestions — so this hook
- * owns its own small, local, SIMULATED suggestion list per screen instead of extending the Listing editor's.
+ * other sessions) and review's ask here is specifically a *new*, screen-scoped set of suggestions — so this hook
+ * owns its own small, local, suggestion list per screen instead of extending the Listing editor's.
  * Accept/Dismiss/Undo write the tip's status to the store (`sl3.tips` through `sl3Tip`, the same map the Listing
  * editor's Tips use), so the property rail's per-page counts (shell/PropertyLayout.tsx) and these screens agree and the
- * status survives navigation (Antonio, 3 Oct: the counts sit on Listing / Pricing / Availability / Booking policies once
+ * status survives navigation (review, 3 Oct: the counts sit on Listing / Pricing / Availability / Booking policies once
  * a channel is open). Accept is still never a silent background write — the only other effect is an optional
- * `onAccept` (e.g. putting the number into the row's unsaved draft so Antonio's "prices always ask you first" rule
+ * `onAccept` (e.g. putting the number into the row's unsaved draft so review's "prices always ask you first" rule
  * still holds: Accept hands the number to the real control, it never writes one on its own).
  * Each screen's list is built by an exported hook (ChannelPricing.tsx usePricingTips, Availability.tsx
  * useAvailabilityTips, Policies.tsx usePolicyTips) that the screen and the rail both call; ids carry the channel
@@ -82,7 +82,7 @@ export interface ScreenTipDef {
    *  another tab switches there first, then scrolls — otherwise the field isn't mounted and nothing would happen. */
   tab?: string
   /** The id of the element this tip is about, so opening or stepping through tips scrolls the form to the row the
-   *  suggestion would change (Antonio, 1 Oct: "make sure that the tips always makes the content area travel to
+   *  suggestion would change (review, 1 Oct: "make sure that the tips always makes the content area travel to
    *  where the content of the tip is related"). The Listing editor already does this; this brings the three
    *  channel screens in line. Optional: a tip about the whole screen can leave it out and nothing scrolls. */
   field?: string
@@ -92,7 +92,7 @@ export interface ScreenTipDef {
   drafted?: boolean
 }
 
-/** One Tips chip + exclusive side panel for a screen's own SIMULATED suggestion list (from its usePricingTips /
+/** One Tips chip + exclusive side panel for a screen's own suggestion list (from its usePricingTips /
  *  useAvailabilityTips / usePolicyTips hook). Status lives in the store, keyed by each def's id. */
 export function useScreenTips(
   channel: ListingChannel,
@@ -215,7 +215,7 @@ export function useScreenTips(
     return () => window.clearInterval(timer)
   }, [tipsOpen, t?.id, t?.field, t?.tab, curTab, goTo, firstOnTab])
   const chip = <TipsToggle count={pending.length} open={tipsOpen} onToggle={toggle} />
-  /** The purple marker beside the thing a tip is about (Antonio, 3 Oct: "you should always have the icon that there's
+  /** The purple marker beside the thing a tip is about (review, 3 Oct: "you should always have the icon that there's
    *  a tip available next to the thing that there is a tip for") — same rule as the Listing editor's field rows.
    *  Clicking opens the panel on that field's first tip. Returns null when no open tip names this field. */
   const dotFor = (field: string): ReactNode => {

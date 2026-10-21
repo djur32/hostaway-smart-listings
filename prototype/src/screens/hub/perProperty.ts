@@ -1,4 +1,4 @@
-/* Knowledge Hub · multi-property (QA B01/B02, Antonio: "each property has its own separate data, modelled lightly, the
+/* Knowledge Hub · multi-property (QA B01/B02, review: "each property has its own separate data, modelled lightly, the
  * same on mobile and desktop"). Every Hub iteration (A–E, S) reads the active property through this file:
  *   · its listing channels (store/selectors useListingChannels; `hubChannels()` for code outside a component),
  *   · its items (`hubItems(pid)`: data/v3-kh khItems(), read at call time so S10's patched FIELDS show, with the
@@ -6,7 +6,7 @@
  *   · its amenities, custom facts, tips, discrepancies, sources and Ask the AI answers: Neukölln (the deep, scripted
  *     scenario) keeps its scripted ones; every other property gets a generic set built from its own values,
  *   · its Hub-only UI state (`createPropertyStore`: facts added, flags resolved…), keyed by property id.
- * SIMULATED values (concepts/SCENARIO.md, data/portfolio.ts, data/property-seeds.ts). Generic wording is an ASSUMPTION. */
+ * values (concepts/SCENARIO.md, data/portfolio.ts, data/property-seeds.ts). Generic wording is an . */
 import { useMemo } from 'react'
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'

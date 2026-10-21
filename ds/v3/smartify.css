@@ -31,10 +31,10 @@
 .sy-field > .h-input, .sy-field > .h-textarea { flex: 1 1 auto; min-width: 0; }
 .sy-field > .sy-wrap { margin-top: 2px; } /* optical alignment with the input's own text baseline */
 
-/* ── Smartify (Antonio, 3 Oct): an orange trigger beside the field LABEL opens the docked panel on a composer; the
+/* ── Smartify (review, 3 Oct): an orange trigger beside the field LABEL opens the docked panel on a composer; the
  * result is the refine-toned Tip card (ds/sl3.tsx TipCard/TipsPanel tone="refine"). Canvas uses the same panel. ── */
 
-/* the trigger beside the label. Antonio, 3 Oct: the tip marker and this one "are not styled the same" — so they are now
+/* the trigger beside the label. review, 3 Oct: the tip marker and this one "are not styled the same" — so they are now
  * one shape: a 22px round tint with a 12px sparkle, no border (.h-tipdot, ds/components.css), the hue alone telling
  * them apart (purple tip, orange rewrite). Pressed/open fills solid, as an active tip dot does. Tooltips come from the
  * shared floating layer (ds/tooltipLayer.tsx): above, centred, clear of the content. */
@@ -102,11 +102,11 @@
  * (.h-root :focus-visible, components.css) would draw a second box inside it */
 .sy-prompt__row .sy-prompt__input:focus-visible, .sy-follow__ask .sy-follow__input:focus-visible { box-shadow: none; border-radius: 0; }
 
-/* the composer the panel opens on (Antonio, 3 Oct: no floating prompt — "you already are in the composer and you can
+/* the composer the panel opens on (review, 3 Oct: no floating prompt — "you already are in the composer and you can
  * type", quick actions below). Same field shape as the follow-up box, two lines tall, Enter sends, Shift+Enter breaks. */
 .sy-compose .h-tip__body { gap: 16px; }
 .sy-composer { display: flex; align-items: flex-end; gap: 6px; padding: 8px 8px 8px 12px; border: 1px solid var(--color-border-secondary); border-radius: var(--radius-md); background: var(--color-surface-primary); }
-.sy-composer:focus-within { border-color: var(--color-gray-400); box-shadow: var(--shadow-focus-neutral); } /* neutral, not yellow (Antonio, 3 Oct): grey ring, near-black send */
+.sy-composer:focus-within { border-color: var(--color-gray-400); box-shadow: var(--shadow-focus-neutral); } /* neutral, not yellow (review, 3 Oct): grey ring, near-black send */
 .sy-composer__input { flex: 1; min-width: 0; min-height: 40px; resize: none; border: 0; outline: 0; padding: 0; background: transparent; font: inherit; font-size: var(--text-sm); line-height: var(--leading-sm); color: var(--color-text-strong); }
 .sy-composer__input::placeholder { color: var(--color-text-faint); }
 .sy-composer__input:focus-visible { box-shadow: none; }

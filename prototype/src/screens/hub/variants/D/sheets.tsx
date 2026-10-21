@@ -1,5 +1,5 @@
 /* KH-D · the side sheets: a category (stacked fields), Photos, Amenities, Pricing and availability, Policies, Custom facts,
- * Ask the AI, Sources and Add anything. Every edit waits in the sheet's draft until Save (Hospitable's Discard changes /
+ * Ask the AI, Sources and Add anything. Every edit waits in the sheet's draft until Save (Hostaway's Discard changes /
  * Save); Save writes through sl3Base / sl3Custom, so the channel screens and the Overview cards read the same values. */
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -408,7 +408,7 @@ export function SourcesSheet({ nav, sources, onAdd }: { nav: SheetNav; sources: 
           <Button type="button" onClick={() => setAdding(false)}>Cancel</Button>
         </form>
       ) : (
-        <div className="h-khd-srcadd"><Button icon="plus" onClick={() => setAdding(true)}>Add source</Button><span>PDF, link, or a Hospitable guidebook</span></div>
+        <div className="h-khd-srcadd"><Button icon="plus" onClick={() => setAdding(true)}>Add source</Button><span>PDF, link, or a Hostaway guidebook</span></div>
       )}
     </KhdSheet>
   )

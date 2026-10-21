@@ -47,7 +47,7 @@ export function seedSmartOn() {
   }
 }
 
-/* ---------- the other properties' history (1 Oct · Antonio, repeated: "I want to pretend that all of the different
+/* ---------- the other properties' history (1 Oct · review, repeated: "I want to pretend that all of the different
  * channels have been running on Smart Listings for a long time") ----------
  * data/performance.ts generates a per-property history (propertyVersionSeed) and baselineSim simulates against it.
  * This is the other half: writing those versions into the store, so Strategy's cards and Performance's Versions table
@@ -81,9 +81,9 @@ export function seedPropertyHistory(pid: string, channels: ListingChannel[]) {
   if (seeded && !st.smartHistory) st.setSmartHistory(true)
 }
 
-/* ---------- the scenario property's past strategies, on every path (Antonio, 3 Oct: "I don't have the possibility to
+/* ---------- the scenario property's past strategies, on every path (review, 3 Oct: "I don't have the possibility to
  * choose which other strategy I'm using… fill this up at least for Beautiful Artist Apt. in Neukölln") ----------
- * SIMULATED. ?smart=on wrote SL_SEED (data/performance.ts) as the History, but the first-use wizard saved v1 with
+ * . ?smart=on wrote SL_SEED (data/performance.ts) as the History, but the first-use wizard saved v1 with
  * nothing under it, so History was empty and "Replace with a previous strategy" offered nothing. This puts the seeded
  * past strategies under whatever the host has saved, on any path: a fresh wizard save, a session that already has a
  * lone "v1 since 1 Oct", or "Use this strategy". The host's own versions keep their order and go on top (renumbered
@@ -211,7 +211,7 @@ export function syncVersions(channels: ListingChannel[] = LISTING_CHANNELS) {
 /* ---------- Strategy management (3 Oct: Setup removed; Strategy lists, the full-screen wizard creates and edits) ----------
  * A channel "has a strategy" when it has a plan and is in sl3.channels. One current strategy per channel, edited or
  * replaced through the wizard. Saves are still recorded internally as versions (they drive the simulated numbers), but
- * nothing in the UI lists, numbers or restores them (Antonio, 3 Oct). Remove takes the channel out of sl3.channels and
+ * nothing in the UI lists, numbers or restores them (review, 3 Oct). Remove takes the channel out of sl3.channels and
  * drops its live plan. */
 export type StrategyState = 'live' | 'paused' | 'none'
 export const hasStrategy = (sl3: SL3State, c: ListingChannel) => !!sl3.plans[c] && sl3.channels.includes(c)
@@ -238,7 +238,7 @@ export function saveStrategies(drafts: StrategyDraft[], by: VersionBy, opts: { r
   // only channels that end up with a strategy (the store's first-visit default lists Airbnb and Booking.com regardless)
   s0.sl3Setup({ setupDone: true, sameForAll: false, channels: props.filter((c) => hasStrategy(s0.sl3, c) || all.includes(c)) })
   const out: Array<{ c: ListingChannel; n: number | null; created: boolean }> = []
-  ensureScenarioHistory(all, { evenIfEmpty: true }) // the scenario's past strategies go under this save (SIMULATED)
+  ensureScenarioHistory(all, { evenIfEmpty: true }) // the scenario's past strategies go under this save
   for (const d of drafts) for (const c of d.channels) {
     const st = useStore.getState()
     st.sl3Plan(c, { ...d.plan, asks: [...d.plan.asks] })
@@ -262,10 +262,10 @@ export function removeStrategy(c: ListingChannel) {
     return { sl3: { ...st.sl3, plans, channels: st.sl3.channels.filter((x) => x !== c), paused: { ...st.sl3.paused, [c]: false }, groups: ungroup(st.sl3.groups, [c]) } }
   })
 }
-/** When the channel's current strategy started (ISO date). Versions stay internal (Antonio, 3 Oct: "remove the versions
+/** When the channel's current strategy started (ISO date). Versions stay internal (review, 3 Oct: "remove the versions
  *  from the concept of the strategy"): a channel has one strategy, and an edit is still that strategy. So this is the
  *  start of the latest saved version that has run for at least two weeks, which keeps an edit made today from resetting
- *  "since your strategy started" to an empty window (ASSUMPTION: the data can't tell an edit from a replacement). A
+ *  "since your strategy started" to an empty window (the data can't tell an edit from a replacement). A
  *  channel with nothing that old reads from its first saved version. Strategy ("Live since …") and Performance ("Strategy
  *  started …") both read this, so the two pages agree. */
 export function strategyStart(sl3: SL3State, c: ListingChannel): string | undefined {

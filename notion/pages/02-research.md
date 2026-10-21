@@ -4,11 +4,11 @@
 </callout>
 ## What the simulated sample suggests
 Sampled · simulated. A shape to test with about 25 real hosts, not evidence. {color="gray"}
-- **Per channel likely means money and stay rules.** In simulated "Edit per channel" usage (`SIMULATED`), the cleaning fee and minimum stay are customised far more than any text field. So tips cover pricing, availability and booking policies, not only copy.
+- **Per channel likely means money and stay rules.** In simulated "Edit per channel" usage (), the cleaning fee and minimum stay are customised far more than any text field. So tips cover pricing, availability and booking policies, not only copy.
 - **A channel's own voice looks like a choice, not a default.** In the sample, only the simulated optimiser wanted different words per channel. The simulated family and new hosts treated the description as a fact about the home. So every channel field uses the Base until the host customises it, and Smart Listings is opt-in.
-- **Explaining a suggestion may raise acceptance, not checking.** Only 2 of 5 simulated hosts caught an invented claim unprompted (`SIMULATED`). So a tip states only what the facts back, and shows its sources.
-- **The Knowledge Hub repeats the listing, and misses what guests ask.** Its copy can drift, and none of the simulated hosts treated Hospitable as their "real version". So listing details live once, in the Listing base, the Hub reads them, and guests' questions feed the tips.
-- **Hosts already ask for this.** "Ability to update all listing content from Hospitable" has 322 votes and is In Progress on Hospitable's feedback board (`REAL·PUBLIC`, [feedback.hospitable.com](https://feedback.hospitable.com/p/two-way-sync-of-updates-to-listing-details)).
+- **Explaining a suggestion may raise acceptance, not checking.** Only 2 of 5 simulated hosts caught an invented claim unprompted (). So a tip states only what the facts back, and shows its sources.
+- **The Knowledge Hub repeats the listing, and misses what guests ask.** Its copy can drift, and none of the simulated hosts treated Hostaway as their "real version". So listing details live once, in the Listing base, the Hub reads them, and guests' questions feed the tips.
+- **Hosts already ask for this.** "Ability to update all listing content from Hostaway" has 322 votes and is In Progress on Hostaway's feedback board ([feedback.hostaway.com](https://feedback.hostaway.com/p/two-way-sync-of-updates-to-listing-details)).
 <columns>
 	<column>
 		### Methods

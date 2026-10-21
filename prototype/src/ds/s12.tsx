@@ -46,7 +46,7 @@ export function Guide({ id, title, children, line, icon = 'bulb' }: { id: string
           <button onClick={() => dismiss(id)}>Got it</button>
           <button onClick={() => setWhy(!why)}>{why ? 'Hide' : 'Why am I seeing this?'}</button>
         </div>
-        {why && <div className="h-guide__body" style={{ marginTop: 6 }}>You’re seeing more explanations because you’re new to managing listings in Hospitable. Change it in <Link to="/settings/guidance" style={{ color: 'inherit' }}>Settings › How Hospitable helps you</Link>.</div>}
+        {why && <div className="h-guide__body" style={{ marginTop: 6 }}>You’re seeing more explanations because you’re new to managing listings in Hostaway. Change it in <Link to="/settings/guidance" style={{ color: 'inherit' }}>Settings › How Hostaway helps you</Link>.</div>}
       </div>
     </div>
   )

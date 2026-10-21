@@ -7,15 +7,15 @@ import path from 'node:path';
 import { serveSite } from './lib/cdp.mjs';
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 
-const links = (origin) => `deck    ${origin}/dist/pages/hospitable.html\n\nediting build (no bundle step): ${origin}/src/pages/hospitable.html\ncomponent gallery:              ${origin}/src/pages/kit-hospitable.html`;
+const links = (origin) => `deck    ${origin}/dist/pages/hostaway.html\n\nediting build (no bundle step): ${origin}/src/pages/hostaway.html\ncomponent gallery:              ${origin}/src/pages/kit-hostaway.html`;
 
 // what is on this port? 'deck' (this deck, already served), 'other', or 'free'
 async function probe(port) {
   try {
-    // only recognise *this* deck: the marker file exists in hospitable-case/deck only, never in process-deck
-    const r = await fetch(`http://127.0.0.1:${port}/.hospitable-deck`, { signal: AbortSignal.timeout(1500) });
+    // only recognise *this* deck: the marker file exists in hostaway-case/deck only, never in process-deck
+    const r = await fetch(`http://127.0.0.1:${port}/.hostaway-deck`, { signal: AbortSignal.timeout(1500) });
     const t = r.ok ? await r.text() : '';
-    return t.includes('hospitable-deck') ? 'deck' : 'other';
+    return t.includes('hostaway-deck') ? 'deck' : 'other';
   } catch { return 'free'; }
 }
 

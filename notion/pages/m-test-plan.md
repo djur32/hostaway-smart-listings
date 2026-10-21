@@ -1,9 +1,9 @@
 <callout icon="🔭" color="gray_bg">
-	**Method · Planned** · Not run. This is how I'd test it. Sample sizes and norms are from public sources; every threshold is `PROJECTED`. No result exists yet.
+	**Method · Planned** · Not run. This is how I'd test it. Sample sizes and norms are from public sources; every threshold is . No result exists yet.
 </callout>
-![What tasks 4 and 7 look like: a tip with its why, accepted, with Undo (here on Airbnb's property name). Live prototype; sample data SIMULATED.](file-upload://3f0e18af-1645-811b-b1b5-00b222df92f3)
+![What tasks 4 and 7 look like: a tip with its why, accepted, with Undo (here on Airbnb's property name). Live prototype; sample data .](file-upload://3f0e18af-1645-811b-b1b5-00b222df92f3)
 ## Why this method
-- **Benchmark first.** Today's Hospitable is measured with the same tasks before the new design, so "faster" has a "from".
+- **Benchmark first.** Today's Hostaway is measured with the same tasks before the new design, so "faster" has a "from".
 - **One task set, reused everywhere,** from the benchmark to the product, so lab numbers and product numbers sit on one scale.
 - **Each study answers one kind of question.** Think-aloud explains why. Unmoderated tests measure how much. The tree test isolates structure. The pilot shows weeks of real use. The rollout shows the business effect.
 - **The riskiest change is tested hardest.** The channel-first menu is the biggest change. So the structure gets its own tree test and its own A/B.
@@ -18,7 +18,7 @@
 	<tr>
 		<td>**Benchmark of today's product**</td>
 		<td>How long today's tasks take, how easy they feel, and today's SUS and CSAT. Sets the index: today = 100.</td>
-		<td>Existing Hospitable hosts, from 1–2 to 25+ properties. 40 unmoderated on a seeded trial account, plus 5 moderated sessions for the why.</td>
+		<td>Existing Hostaway hosts, from 1–2 to 25+ properties. 40 unmoderated on a seeded trial account, plus 5 moderated sessions for the why.</td>
 		<td>Nothing is a target until this has run. Public norms (SUS 68, ease ≈ 5.5 of 7) are reported next to it, never instead.</td>
 	</tr>
 	<tr>
@@ -58,7 +58,7 @@
 		<td>Any severity-3+ issue blocks the next rollout step.</td>
 	</tr>
 </table>
-Every study uses the same questionnaires: ease after each task (1–7), SUS once per study, CSAT at the end (and after each change in the pilot), five comprehension probes and five perceived-control statements. Recruiting goes through Hospitable's in-app research opt-in, CS for large portfolios, the community, and a panel for the unmoderated studies. No incentive depends on positive feedback.
+Every study uses the same questionnaires: ease after each task (1–7), SUS once per study, CSAT at the end (and after each change in the pilot), five comprehension probes and five perceived-control statements. Recruiting goes through Hostaway's in-app research opt-in, CS for large portfolios, the community, and a panel for the unmoderated studies. No incentive depends on positive feedback.
 ## The tasks hosts would do
 Eight tasks, five of them timed: a per-channel fee, a fact changed once, the source of the assistant's Wi-Fi answer, a tip's why, an Airbnb-only rewrite, a strategy, undoing an accepted tip, and Booking.com's own description.
 Scenario for everyone: the Neukölln flat in the prototype, on Airbnb, Booking.com and Direct, sleeps 2. Smart Listings is on and Autopilot is off, so tips wait for the host. The benchmark seeds today's product with the same listing.
@@ -134,7 +134,7 @@ Scenario for everyone: the Neukölln flat in the prototype, on Airbnb, Booking.c
 **Re-scoped from the original plan:** the import and calendar tasks are out. Three tasks follow the build: the home sleeps 2, so the audience is remote workers rather than families; Rewrite with AI shows only on a field without a tip; and Save sends each change straight away, so the undo task starts from an accepted tip.
 ## The probes, after the task, never during
 - **Comprehension (scored 0–5):** "Where does this fact live?" · "What happens on Airbnb if you change it here?" · "If you change the Base cleaning fee now, what happens on Booking.com?" · "Who writes Booking.com's description?" · "What does Undo take back?"
-- **Trust and control:** "Why was this suggested? Which channel does it change?" · "Would you let it apply this kind of change by itself? Which kinds never?" · "Tips or Autopilot: which would you pick, and for what?" · "How sure are you Booking.com wasn't changed?" · "Would you trust Copilot to answer guests from this?"
+- **Trust and control:** "Why was this suggested? Which channel does it change?" · "Would you let it apply this kind of change by itself? Which kinds never?" · "Tips or Autopilot: which would you pick, and for what?" · "How sure are you Booking.com wasn't changed?" · "Would you trust the assistant to answer guests from this?"
 - **Open, last 10 minutes:** "What would you want this to do that it doesn't?" · "What would you still do directly on Airbnb or Booking.com?" Answers go to an unknowns log, reviewed weekly.
 ## What I'd look for
 The riskiest assumptions from <mention-page url="https://app.notion.com/p/3eee18af1645819282b2f11c14720c03">Research questions & assumptions</mention-page>, now on real screens:
@@ -158,4 +158,4 @@ Any belief that the wrong thing went to a channel is at least severity 3: it's t
 - <mention-page url="https://app.notion.com/p/3eee18af164581339fabf0591e5d7f9c">KD-18</mention-page>
 - <mention-page url="https://app.notion.com/p/3eee18af164581f59e84e075de884cde">KD-03</mention-page>
 **In the prototype**
-- [the scenario property](https://hospitable-case-web.digimal.studio/property/neukolln/overview?smart=on)
+- [the scenario property]()

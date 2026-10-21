@@ -1,6 +1,6 @@
-/* Direct: the host's own booking site (Hospitable Direct), in the property's own branding. A clean direct-booking
+/* Direct: the host's own booking site (Hostaway Direct), in the property's own branding. A clean direct-booking
  * layout: site header, hero gallery, title and facts, booking card, about, amenities, location, rules.
- * Content SIMULATED: the property's (c.content, data/property-listing.ts), Neukölln's scripted site or a plain one. */
+ * Content the property's (c.content, data/property-listing.ts), Neukölln's scripted site or a plain one. */
 import { Icon } from '../../ds'
 import { PHOTO_CAPTION, STAY, photoUrl } from '../../data/v3-cv'
 import { chAmenityLine, priceTotal } from '../../data/property-listing'
@@ -72,7 +72,7 @@ export function DirectPage({ narrow }: { narrow: boolean }) {
           </aside>
         </div>
       </main>
-      <footer className="cv-dr__foot"><span>{k.brand} · {k.city}</span><span>Powered by Hospitable</span></footer>
+      <footer className="cv-dr__foot"><span>{k.brand} · {k.city}</span><span>Powered by Hostaway</span></footer>
     </div>
   )
 }

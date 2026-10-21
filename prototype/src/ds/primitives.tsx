@@ -20,7 +20,7 @@ export function Icon({ name, size, className, style }: { name: string; size?: 16
   )
 }
 
-/** Channel mark as a badge (Antonio 30 Sep): rounded square in the channel's colour, glyph in white (ds/channels/glyph,
+/** Channel mark as a badge (review 30 Sep): rounded square in the channel's colour, glyph in white (ds/channels/glyph,
  *  sprite #chg-*). Sized by CSS like before (.h-mark 18px, --14/--24 and context rules); `inactive` = grey badge. */
 export function Mark({ channel, size, inactive }: { channel: ChannelId; size?: 14 | 24; inactive?: boolean }) {
   const m = CHANNELS[channel].mark
@@ -55,7 +55,7 @@ export function IconButton({ icon, label, ...rest }: ButtonHTMLAttributes<HTMLBu
   return <button className="h-btn-icon" aria-label={label} {...rest}><Icon name={icon} /></button>
 }
 
-/** The outlined × (ds/components.css "CLOSE", DS.md): every close / dismiss / remove × in the product (Antonio, 4 Oct).
+/** The outlined × (ds/components.css "CLOSE", DS.md): every close / dismiss / remove × in the product (review, 4 Oct).
  *  32px box by default; `size="lg"` (40) for full-screen takeovers' top bar, `size="sm"` (20) inside a chip, tag or toast;
  *  `onDark` on a dark surface. Phones: 44 × 44 (sm: 28 with a 44px hit area). */
 export function CloseButton({ label = 'Close', size, onDark, className, type = 'button', ...rest }: ButtonHTMLAttributes<HTMLButtonElement> & { label?: string; size?: 'sm' | 'lg'; onDark?: boolean }) {

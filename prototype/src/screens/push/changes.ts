@@ -1,6 +1,6 @@
 /* WS-KH / WS-CH · channel changes: what was sent to each channel, and what is still waiting.
  *
- * Save = the commit (Antonio, 30 Sep; QA A08). Saving a section in a channel editor (Listing, Pricing, Availability,
+ * Save = the commit (review, 30 Sep; QA A08). Saving a section in a channel editor (Listing, Pricing, Availability,
  * Photos, a Canvas popover, accepting a tip) writes the store AND sends that channel's saved changes straight away:
  * one receipt per change (channel, field, from → to, time), "Sent" for a moment, then "Live" (or "In review" for a
  * Booking.com name or description). Nothing sits in a silent queue.
@@ -9,7 +9,7 @@
  *
  * `pendingChanges` derives the waiting list from the sl3 slice (accepted tips, per-channel custom values, Base edits)
  * minus what was already sent (`sent`: the last raw value sent per `channel:field`). The receipts and that map live in
- * `usePushUi` (sessionStorage, like the main store; cleared by Reset demo). SIMULATED outcomes; REAL·PUBLIC channel rules
+ * `usePushUi` (sessionStorage, like the main store; cleared by Reset demo). outcomes; channel rules
  * (research/market/channel-constraints.md §5, §9).
  * Multi-property (QA B01/B02): everything here is the active property's. The waiting list and receipts cover only its
  * connected channels; `usePushUi` keeps receipts, decisions and what was sent per property (the active one at the top
@@ -126,7 +126,7 @@ export interface Receipt {
   note: string
 }
 export type ReceiptStatus = 'sent' | 'live' | 'review'
-/** How long a receipt says "Sent" before the channel confirms (SIMULATED). */
+/** How long a receipt says "Sent" before the channel confirms. */
 export const SENT_MS = 4000
 export const receiptStatus = (r: Receipt, now = Date.now()): ReceiptStatus => (now - r.sentAt < SENT_MS ? 'sent' : r.review ? 'review' : 'live')
 
@@ -153,7 +153,7 @@ export const usePushUi = create<PushUi>()(persist((set) => ({
   ...emptyPush(), pid: PROPERTY_ID, byProperty: {},
   decide: (key, d) => set((s) => ({ decisions: { ...s.decisions, [key]: d } })),
 }), {
-  name: 'hospitable-v3-changes', version: 2,
+  name: 'hostaway-v3-changes', version: 2,
   partialize: (s) => ({ ...pickPush(s), pid: s.pid, byProperty: s.byProperty }),
   // v1 kept one un-keyed list: it was the scenario property's (Neukölln), so it stays Neukölln's
   migrate: (persisted, version) => {
@@ -297,7 +297,7 @@ export const ago = (t: number, now = Date.now()) => {
 }
 export const clockTime = (t: number) => { const d = new Date(t); return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}` }
 
-/* ---------- demo seed (?seed=tips): a realistic waiting list for screenshots and the Loom. SIMULATED. ----------
+/* ---------- demo seed (?seed=tips): a realistic waiting list for screenshots and the Loom. . ----------
  * The scenario property's (Neukölln) only: its tips and its Direct name. Other properties ignore ?seed=tips. */
 export const SEED_BASE: Record<string, string> = { checkout: '10:00 AM' }
 export const SEED_TIPS: Array<{ id: string; kb?: boolean }> = [{ id: 't-a-name', kb: true }, { id: 't-a-photos' }, { id: 't-a-summary' }, { id: 't-b-directions', kb: true }, { id: 't-b-photos' }, { id: 't-a-neigh', kb: true }]

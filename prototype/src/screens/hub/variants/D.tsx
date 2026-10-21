@@ -1,4 +1,4 @@
-/* Knowledge Hub iteration KH-D · "Overview cards → sheet" (concepts/knowledge-hub/KH-D.md; Paper "Hospitable v2" › KH, row 4).
+/* Knowledge Hub iteration KH-D · "Overview cards → sheet" (concepts/knowledge-hub/KH-D.md; Paper "Hostaway v2" › KH, row 4).
  * The first tab is an Overview: Sources and Ask the AI as two slim cards, then one card per category (two key values,
  * per-channel coverage, what's missing, "+ Add …") and a dashed "Add anything" card. A card, or a category tab, opens
  * that category in a right side sheet over the dimmed Overview; Save writes through sl3Base / sl3Custom.

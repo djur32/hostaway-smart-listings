@@ -3,7 +3,7 @@
  * reads and writes the same store keys as the channel screens: FIELDS keys, `price:*`, `avail:*`, `amenity:<name>`
  * ('on'/'off' per channel, the ListingEditor's keys) and `policy:instant`. Only the amenity list is richer than
  * data/sl3.ts AMENITIES: items that exist there keep its per-channel defaults; the rest come from the Paper frame KH-A1.
- * Content is SIMULATED (the case study's sample property). Channel vocabularies and matches are an ASSUMPTION until
+ * Content is (the case study's sample property). Channel vocabularies and matches are an until
  * checked against research/market/raw/amenities-crosswalk.md. */
 import { AMENITIES, type ListingChannel } from '../../../../data/sl3'
 import type { KhItem } from '../../../../data/v3-kh'
@@ -85,7 +85,7 @@ export function parseCell(id: string | null): { key: string; col: Col } | null {
   const col = id.slice(i + 1) as Col
   return i > 0 && (col === 'base' || hubChannels().includes(col as ListingChannel)) ? { key: id.slice(0, i), col } : null
 }
-/** "Guests see" on a weeknight: the nightly rate plus the channel markup (SIMULATED arithmetic, rounded). */
+/** "Guests see" on a weeknight: the nightly rate plus the channel markup (arithmetic, rounded). */
 export function guestsSee(items: KhItem[], d: HubDraft, c: Col): string {
   const n = items.find((i) => i.key === 'price:nightly')!
   const m = items.find((i) => i.key === 'price:markup')!
@@ -127,7 +127,7 @@ const SCENARIO_DEFS: AmenityDef[] = RAW.flatMap(([group, rows]) => rows.map(([ke
   const one = (c: ListingChannel, v: 1 | 0 | '-'): boolean | 'na' => (v === '-' ? 'na' : data ? data.on.includes(c) : v === 1)
   return { key, label, group, base, alias, on: { airbnb: one('airbnb', a), booking: one('booking', b), direct: one('direct', d) } }
 }))
-/** What Booking.com calls an amenity when its name differs (ASSUMPTION: channel vocabularies, simplified; the same table
+/** What Booking.com calls an amenity when its name differs (channel vocabularies, simplified; the same table
  *  the add row matches against). Used for the generic list of every property but the scenario one. */
 const BOOKING_ALIAS: Record<string, string> = {
   'Dedicated workspace': 'Desk', 'Coffee maker': 'Coffee machine', Washer: 'Washing machine', 'Self check-in': 'Express check-in',
@@ -147,7 +147,7 @@ export const amenityGroups = (pid: string): string[] => (isScenarioProperty(pid)
 export const amenityKey = (a: { key: string }) => `amenity:${a.key}`
 
 /** Amenities the host added here (the rows; their ticks and Base go through the store), per property. Cleared by Reset demo. */
-export const useKhaAdded = createPropertyStore('hospitable-kh-a', (): { added: AmenityDef[] } => ({ added: [] }), (set) => ({
+export const useKhaAdded = createPropertyStore('hostaway-kh-a', (): { added: AmenityDef[] } => ({ added: [] }), (set) => ({
   add: (a: AmenityDef) => set((s) => ({ added: [...s.added, a] })),
 }))
 
@@ -170,7 +170,7 @@ export function setAmenity(def: AmenityDef, c: ListingChannel, on: boolean) {
   useStore.getState().sl3Custom(c, amenityKey(def), on === def.on[c] ? undefined : on ? 'on' : 'off')
 }
 
-/** What each channel calls an amenity the host types (the add row). ASSUMPTION: channel vocabularies, simplified. */
+/** What each channel calls an amenity the host types (the add row). channel vocabularies, simplified. */
 const MATCH: Array<[string[], Partial<Record<ListingChannel, string | null>>]> = [
   [['smart tv', 'tv', 'television', 'flat-screen tv'], { airbnb: 'TV', booking: 'Flat-screen TV' }],
   [['coffee machine', 'espresso machine', 'nespresso'], { airbnb: 'Coffee maker', booking: 'Coffee machine' }],
@@ -195,7 +195,7 @@ export function matchAmenity(typed: string): Record<ListingChannel, string | nul
 }
 
 /* ---------------- sources and Ask the AI ---------------- */
-/** SIMULATED (Paper kit SOURCES). The scenario property's; others get perProperty genericSources (no message history). */
+/** (Paper kit SOURCES). The scenario property's; others get perProperty genericSources (no message history). */
 const SCENARIO_SOURCES: Array<{ title: string; sub: string; icon: string; meta: string; facts: number }> = [
   { title: 'Property details', sub: 'From your listings · Airbnb, Booking.com', icon: 'file-text', meta: 'Updated 29 Sep', facts: 64 },
   { title: 'Message history', sub: '312 conversations, last 12 months', icon: 'message-circle', meta: 'Updated today', facts: 9 },
@@ -227,7 +227,7 @@ export const matchQuestion = (text: string) => {
 }
 
 const srcOf = (st: CellState | 'amenity', on?: boolean): Src => (st === 'amenity' ? (on ? 'listed' : 'unlisted') : st === 'own' ? 'own' : st === 'set' ? 'set' : 'base')
-/** Scripted, channel-aware answers built from live values (SIMULATED wording). */
+/** Scripted, channel-aware answers built from live values (wording). */
 export function answer(id: string, c: ListingChannel, look: Lookup): Answer | null {
   const facts: Fact[] = []
   const cite = (key: string) => {

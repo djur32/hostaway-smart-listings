@@ -11,7 +11,7 @@ import { Dropdown } from './fieldscope'
 import { scrollActiveTab } from './mobile'
 import { useUnsavedChanges } from './unsaved'
 
-/** Underline tabs (Hospitable's h-tabs) whose links carry their own query (e.g. keep `?tips=1` open across tabs).
+/** Underline tabs (Hostaway's h-tabs) whose links carry their own query (e.g. keep `?tips=1` open across tabs).
  *  Listing's 5 tabs and ChannelPricing's 4 always fit the content column, but a longer row — Listing base › Pricing's
  *  6 (base/Pricing.tsx, 1 Oct) — can genuinely overflow it at normal (not just phone) desktop widths, where `.h-tabs`'s
  *  own `overflow-x: auto` already lets the row scroll but gives no visual sign there's more to it, and nothing
@@ -54,8 +54,8 @@ export function QueryTabs({ items, active }: { items: Array<{ id: string; label:
   )
 }
 
-/** Hospitable's section actions (HS-22) — now delegated to the shared unsaved-changes bar (ds/unsaved.tsx,
- *  concepts/smart-listing/UNSAVED-PATTERN.md, Antonio 1 Oct: "I don't want to see Discard changes or Save unless
+/** Hostaway's section actions (HS-22) — now delegated to the shared unsaved-changes bar (ds/unsaved.tsx,
+ *  concepts/smart-listing/UNSAVED-PATTERN.md, review 1 Oct: "I don't want to see Discard changes or Save unless
  *  there are changes"). Nothing renders here while clean; once dirty, the sticky top strip (mounted once in
  *  AppShell) carries Discard/Save for every dirty section at once, and navigating away is guarded. This still
  *  registers the draft (`useUnsavedChanges`); the confirmation is the shared save toast (ds/unsaved.tsx, 4 Oct), with
@@ -88,8 +88,8 @@ export function ScopeConfirm({ text, confirmLabel, onConfirm, onCancel }: { text
 
 /* PhotoStrip was replaced by the real Photos row (PhotosRow, ./photos.tsx) and the All photos page (screens/channel/Photos.tsx). */
 
-/** Hospitable's select (native, styled by .h-select). */
-/** Hospitable's dropdown (HS-A01), not a native select: see Dropdown in ./fieldscope. */
+/** Hostaway's select (native, styled by .h-select). */
+/** Hostaway's dropdown (HS-A01), not a native select: see Dropdown in ./fieldscope. */
 export function SelectBox({ value, options, placeholder, onChange, label, disabled, selectRef }: { value?: string; options: string[]; placeholder?: string; onChange?: (v: string) => void; label: string; disabled?: boolean; selectRef?: Ref<HTMLButtonElement> }) {
   return <Dropdown buttonRef={selectRef} value={value} options={options} placeholder={placeholder} label={label} disabled={disabled} onChange={onChange} />
 }
@@ -107,8 +107,8 @@ export function TagBox({ tags, onAdd, onRemove, addLabel = 'Add tag', disabled }
 }
 
 /** A map placeholder with the pin (HS-25 "Pin location"). */
-/** The pin map. Unlike the address (locked), the pin can be nudged: an "Edit" button on the map (Antonio, 3 Oct, as on
- *  Hospitable's own map); editing the pin itself isn't modelled in the prototype. */
+/** The pin map. Unlike the address (locked), the pin can be nudged: an "Edit" button on the map (review, 3 Oct, as on
+ *  Hostaway's own map); editing the pin itself isn't modelled in the prototype. */
 export function MapBox({ label, disabled, onEdit }: { label: string; disabled?: boolean; onEdit?: () => void }) {
   return (
     <div className={cx('ch-map', disabled && 'is-disabled')} role="img" aria-label={`Map: ${label}`}>
@@ -145,7 +145,7 @@ export function SummaryCard({ eyebrow, title, children, foot }: { eyebrow: React
   )
 }
 
-/** Plain-text scope captions (Antonio 30 Sep: neutral text, no colours, icons or change markers). */
+/** Plain-text scope captions (review 30 Sep: neutral text, no colours, icons or change markers). */
 const SCOPE_TEXT: Partial<Record<FieldState, (ch: string) => string>> = {
   override: (ch) => `Custom for ${ch}`, only: (ch) => `${ch} only`, channel: (ch) => `Only on ${ch}`, inherit: () => 'Uses the Base',
   listing: () => 'All channels', set: (ch) => `Set by ${ch}`, hub: () => 'Knowledge Hub', linked: () => 'From another section',
@@ -164,7 +164,7 @@ export function SpecificRow({ label, sub, value, state, channel, to, toLabel = '
 }
 
 /** One change sent to a channel (Save = commit, QA A08): what, where, from → to, the channel's answer, when.
- *  Status copies Hospitable's chips: Sent (grey) → Live (green), or In review (orange). */
+ *  Status copies Hostaway's chips: Sent (grey) → Live (green), or In review (orange). */
 export function ChangeReceipt({ what, section, origin, from, to, status, note, time }: {
   what: ReactNode; section?: ReactNode; origin?: ReactNode; from?: string; to: string; status: 'sent' | 'live' | 'review'; note?: ReactNode; time: ReactNode
 }) {
@@ -191,7 +191,7 @@ export function SpecificList({ children }: { children: ReactNode }) {
 
 /** Amenity row (HS-26/27 + CL-07): name, scope, optional note and tag, one trailing action.
  *  `info` is a homogenisation note — a decision taken to reconcile the channels, e.g. Booking.com calling a dedicated
- *  workspace a "Desk" (Antonio, 1 Oct round 4: "any decisions that have been made to homogenize the content put in an
+ *  workspace a "Desk" (review, 1 Oct round 4: "any decisions that have been made to homogenize the content put in an
  *  i icon with a tooltip for texts like this"). It is the product's shared tooltip (.h-tooltip-anchor + .h-tooltip),
  *  the same anchor the Tips panel's WHY sources use, never a second tooltip style.
  *  `side` is the phone form of the action (ds/mobile.md §8, images/38–39): a separate square icon button to the right of
@@ -220,7 +220,7 @@ export function AmenityRow({ name, scope, info, note, tag, tone = 'base', action
   )
 }
 
-/** A row in a channel's "Add amenities" drawer (Antonio, 1 Oct round 4, reference screenshots): the amenity's name, its
+/** A row in a channel's "Add amenities" drawer (review, 1 Oct round 4, reference screenshots): the amenity's name, its
  *  scope on the right — a channel mark when the amenity belongs to one channel, or the words when it is shared — and one
  *  trailing state icon. Not added = white row with a "+"; added = grey-filled row with a "✓". The whole row is the
  *  toggle (≥ 44px). `opens` marks an amenity that cannot be a one-tap yes because the channel wants structured
@@ -257,7 +257,7 @@ export function PriceExample({ label, from, to, unit = 'guest total before fees'
 }
 
 
-/** Section title + description + right-hand actions (Hospitable's "Arrival · Discard changes / Save" head). */
+/** Section title + description + right-hand actions (Hostaway's "Arrival · Discard changes / Save" head). */
 export function SectionHead({ title, desc, actions }: { title: ReactNode; desc?: ReactNode; actions?: ReactNode }) {
   return (
     <div className="ch-sechead">
@@ -268,22 +268,22 @@ export function SectionHead({ title, desc, actions }: { title: ReactNode; desc?:
 }
 
 /* ---------------- NumberField: the one numeric control, product-wide ---------------- */
-/** Antonio, 1 Oct: "when you have these numbers, you always have this type of selector that allows you to go up and
+/** review, 1 Oct: "when you have these numbers, you always have this type of selector that allows you to go up and
  *  down with the keyboard — make sure that this is available in all of the items that are numbers."
- *  Antonio, 3 Oct, with two crops of Hospitable's real money input: "All the money values should have the currency
+ *  review, 3 Oct, with two crops of Hostaway's real money input: "All the money values should have the currency
  *  before, then the up and down arrows small, not taking up the whole thing, styled exactly the same. The ones that are
  *  not money but are numbers: the up and down arrows work the same and sit at the same place."
  *
  *  Anatomy (CSS `.h-numfield` in ds/components.css, next to the affix group it extends):
  *    [€ grey box]  value ………… [unit word] [▴▾]  [per-stay grey box]
- *  - `currency` (money): Hospitable's grey start affix, € in semibold — HS-L10 "Extra guest fee", HS-33 "Cleaning fee".
+ *  - `currency` (money): Hostaway's grey start affix, € in semibold — HS-L10 "Extra guest fee", HS-33 "Cleaning fee".
  *    A `unit` of "€"/"$"/"£" is read as a currency too, so every caller gets the currency on the left.
  *  - `unit` (non-money: %, guests, nights): a plain word inside the white field at the right, NOT a grey box —
- *    Hospitable's own treatment ("1 guest", "5 %", "4 guests": HS-L10, HS-C06, HS-C10).
+ *    Hostaway's own treatment ("1 guest", "5 %", "4 guests": HS-L10, HS-C06, HS-C10).
  *  - The stepper: two tiny stacked arrows (16px column, light grey, 2px radius) inset 4px from the right edge of the
  *    white field, so it sits in the same spot on every numeric field; like the native spinner in the reference it is
  *    hidden at rest and shows on hover / focus, and is always shown (with bigger targets) on touch screens.
- *  - `per` ("per stay"): Hospitable's grey end affix (HS-33), after the field — the stepper stays inside the white part.
+ *  - `per` ("per stay"): Hostaway's grey end affix (HS-33), after the field — the stepper stays inside the white part.
  *
  *  Deliberately a *string* value with numeric `min`/`max`/`step`: each screen keeps its own parsing, clamping and
  *  storage format (Availability stores "2 nights", Pricing stores a bare decimal), so the control changes no screen's
@@ -301,7 +301,7 @@ export function NumberField({
   unit?: ReactNode
   /** a grey end box after the field ("per stay", HS-33) */
   per?: ReactNode
-  /** the end box as a dropdown (Hospitable's Fees: "per stay ⌄", Antonio 3 Oct) / the currency box as a dropdown ("€ ⌄") */
+  /** the end box as a dropdown (Hostaway's Fees: "per stay ⌄", review 3 Oct) / the currency box as a dropdown ("€ ⌄") */
   perSelect?: { value: string; options: string[]; onChange: (v: string) => void }
   currencySelect?: { value: string; options: string[]; onChange: (v: string) => void }
   label: string
@@ -353,7 +353,7 @@ export function NumberField({
       <input ref={setRef} className="h-input" inputMode={inputMode} value={value} aria-label={label} disabled={disabled} autoFocus={autoFocus}
         aria-invalid={invalid || undefined} aria-describedby={describedBy}
         onChange={(e) => onChange(e.target.value)} onKeyDown={onKeyDown}
-        // a number field is never left empty (Antonio, 3 Oct: "if it's zero, put zero"): leaving it blank sets the minimum
+        // a number field is never left empty (review, 3 Oct: "if it's zero, put zero"): leaving it blank sets the minimum
         onBlur={() => { if (!disabled && value.trim() === '') onChange(fmt(clamp(min))) }} />
       {word != null && <span className="h-numfield__unit">{word}</span>}
       {/* aria-hidden + tabIndex -1: the input already takes Up/Down, so these are a pointer affordance only and would

@@ -2,7 +2,7 @@
  * navy header with nav pills · yellow-bordered search bar · breadcrumbs · tab row · title with address, show map and
  * Reserve · photo grid with thumbnails and "+N photos" · review-score box and map beside it · description ·
  * Property highlights · Most popular facilities · Availability table with "I'll reserve" · guest reviews with category
- * bars · House rules table · The fine print. Content SIMULATED; layout REAL·PUBLIC (booking.com, Sep 2026). The content
+ * bars · House rules table · The fine print. Content ; layout (booking.com, Sep 2026). The content
  * is the property's (c.content, data/property-listing.ts): Neukölln's scripted page, or a plain one from its data. */
 import { Icon } from '../../ds'
 import { PHOTO_CAPTION, STAY, photoUrl } from '../../data/v3-cv'

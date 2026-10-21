@@ -1,5 +1,5 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Done** · 20 real screens from Mobbin, studied for the Knowledge Hub: how AI support tools and listing editors handle sources, testing, gaps and per-channel facts. Third-party UI (`REAL·PUBLIC`), saved as local copies because Mobbin image links expire. Each screen links to its Mobbin page, which needs a Mobbin login. Internal reference: keep this page private.
+	**Output · Done** · 20 real screens from Mobbin, studied for the Knowledge Hub: how AI support tools and listing editors handle sources, testing, gaps and per-channel facts. Third-party UI (), saved as local copies because Mobbin image links expire. Each screen links to its Mobbin page, which needs a Mobbin login. Internal reference: keep this page private.
 </callout>
 What came of them is on <mention-page url="https://app.notion.com/p/3eee18af1645811f8fcfcbffc7cbb69d">Knowledge Hub</mention-page>.
 Each group opens below: the screen, then what I borrowed from it.

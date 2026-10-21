@@ -1,4 +1,4 @@
-/* Scrollbars show only while scrolling (Antonio, 3 Oct: "the scroll bar should only be seen when you scroll;
+/* Scrollbars show only while scrolling (review, 3 Oct: "the scroll bar should only be seen when you scroll;
  * otherwise it should disappear"). Every scrollbar keeps its fixed --scrollbar-size gutter (so layouts never shift and
  * the form/Tips gap stays centred) but its thumb is transparent at rest; a scroll marks the scrolling element
  * `is-scrolling` for a moment, which paints the thumb (ds/components.css "Scrollbars"). Installed once in main.tsx. */

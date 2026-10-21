@@ -1,4 +1,4 @@
-/* WS-CV · where each area's marker sits (Antonio, 3 Oct: a marker at the area's top-right corner, "never overlapping
+/* WS-CV · where each area's marker sits (review, 3 Oct: a marker at the area's top-right corner, "never overlapping
  * text or each other"). The replicas pack text right up to their column edges and their side margins differ (Airbnb
  * 40px, Booking.com 24px, 16–24px in the narrow layouts), so no single CSS offset is clear everywhere. This tries a
  * few spots around the top-right corner, nearest first, and keeps the first one that touches no text, no other marker

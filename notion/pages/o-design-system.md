@@ -1,18 +1,18 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Done** · The design system behind the prototype: Hospitable's own tokens as the base, plus the few patterns Smart Listings needed. Provenance: the base tokens are Hospitable's public CSS (`REAL·PUBLIC`, [their stylesheet](https://my.hospitable.com/static/styles-K7T6MMZ5.css)); colour roles are traced to the product's screenshots (`REAL·PRODUCT`).
+	**Output · Done** · The design system behind the prototype: Hostaway's own tokens as the base, plus the few patterns Smart Listings needed. Provenance: the base tokens are Hostaway's public CSS ([their stylesheet](https://my.hostaway.com/static/styles-K7T6MMZ5.css)); colour roles are traced to the product's screenshots ().
 </callout>
-![The design-system gallery: Hospitable's raw colour scales under Hospitable's own names, used verbatim. REAL·PUBLIC.](file-upload://3eee18af-1645-8111-8bad-00b20b3b1c16)
+![The design-system gallery: Hostaway's raw colour scales under Hostaway's own names, used verbatim. .](file-upload://3eee18af-1645-8111-8bad-00b20b3b1c16)
 ## The short version
-- The base is Hospitable's own: **244 root CSS variables** captured from the app's public stylesheet and used as they are, under their own names.
+- The base is Hostaway's own: **244 root CSS variables** captured from the app's public stylesheet and used as they are, under their own names.
 - On top sits a role layer that says what each colour does, matched to pixels in the screenshots. The prototype and the deck use these tokens only, never a raw colour.
 - Ten patterns were added for Smart Listings. Each was added to the system first, then used on screens.
-- I also challenged some of Hospitable's own patterns, such as where Save changes appears. These reach far beyond listings, so I'd weigh them with each product team and test them before they spread.
+- I also challenged some of Hostaway's own patterns, such as where Save changes appears. These reach far beyond listings, so I'd weigh them with each product team and test them before they spread.
 ## The base
-- **Raw layer:** Hospitable's palette (gray, primary, secondary, success, error, warning…) and semantic names, copied verbatim, so an engineer there recognises every token.
-- **Role layer:** sidebar, actions, pills, AI, channels, type, space, radius, motion, elevation. Most roles match a Hospitable token exactly; anything guessed is marked `ASSUMPTION`.
+- **Raw layer:** Hostaway's palette (gray, primary, secondary, success, error, warning…) and semantic names, copied verbatim, so an engineer there recognises every token.
+- **Role layer:** sidebar, actions, pills, AI, channels, type, space, radius, motion, elevation. Most roles match a Hostaway token exactly; anything guessed is marked .
 - **Colour means one thing:** raspberry to act (one primary per view), purple for what the AI proposes (tips), orange for Rewrite with AI, which the host starts, green for chosen or done.
 - **Type and icons:** TT Norms, from my licensed files, and Tabler outline icons.
-- **The AI speaks AI Copilot's language:** the sparkle icon and purple on lavender are the ones Hospitable uses for AI Copilot (`REAL·PUBLIC`, hospitable.com) and in the product's sidebar footer (`REAL·PRODUCT`). Tips, the Tips panel and Rewrite reuse them, so every AI surface reads as the same assistant. <mention-page url="https://app.notion.com/p/3efe18af164581ceabafdfe5275589dd">KD-20</mention-page>
+- **The AI speaks the assistant's language:** the sparkle icon and purple on lavender are the ones Hostaway uses for the assistant (hostaway.com) and in the product's sidebar footer (). Tips, the Tips panel and Rewrite reuse them, so every AI surface reads as the same assistant. <mention-page url="https://app.notion.com/p/3efe18af164581ceabafdfe5275589dd">KD-20</mention-page>
 ## What I added
 <table header-row="true">
 	<tr>
@@ -32,7 +32,7 @@
 	</tr>
 	<tr>
 		<td>**Lock with a reason**</td>
-		<td>A disabled field with a lock where the chevron was, and the reason in Hospitable's dark tooltip</td>
+		<td>A disabled field with a lock where the chevron was, and the reason in Hostaway's dark tooltip</td>
 		<td>Property type, Room type and the address on the Base. Booking.com's Summary shows the lock with "Booking.com only", and its tooltip says why</td>
 	</tr>
 	<tr>
@@ -52,12 +52,12 @@
 	</tr>
 	<tr>
 		<td>**Full-screen wizard**</td>
-		<td>Hospitable's Add-property flow made reusable: top bar, progress line, one question per screen, Back and Continue</td>
+		<td>Hostaway's Add-property flow made reusable: top bar, progress line, one question per screen, Back and Continue</td>
 		<td>Smart Listings strategy; Booking policies › Configure</td>
 	</tr>
 	<tr>
 		<td>**KPI and chart cards**</td>
-		<td>From Hospitable's Metrics: compact KPI cards and widget cards with a Bar or Line setting, showing the period before the strategy and the period since</td>
+		<td>From Hostaway's Metrics: compact KPI cards and widget cards with a Bar or Line setting, showing the period before the strategy and the period since</td>
 		<td>Smart Listings › Performance</td>
 	</tr>
 	<tr>
@@ -71,44 +71,44 @@
 		<td>Tips, Rewrite, Hub drawers, panel stack, the unsaved bar</td>
 	</tr>
 </table>
-![Rewrite with AI in the docked panel: the orange composer and quick actions, beside fields with their scope captions. Live prototype, values SIMULATED.](file-upload://3eee18af-1645-815b-9e6f-00b21009a9ac)
+![Rewrite with AI in the docked panel: the orange composer and quick actions, beside fields with their scope captions. Live prototype, values .](file-upload://3eee18af-1645-815b-9e6f-00b21009a9ac)
 ## Patterns I challenged and introduced
-Smart Listings didn't only add to Hospitable's system. Some of its own patterns I questioned and changed, and I would consolidate those changes elsewhere in the platform rather than keep two versions. Each row below exists in the prototype's code. Four matter most, as in the deck: drill-down navigation, counts that move, stacked fields, and a Save that shows only when something changed.
+Smart Listings didn't only add to Hostaway's system. Some of its own patterns I questioned and changed, and I would consolidate those changes elsewhere in the platform rather than keep two versions. Each row below exists in the prototype's code. Four matter most, as in the deck: drill-down navigation, counts that move, stacked fields, and a Save that shows only when something changed.
 <table header-row="true">
 	<tr>
-		<td>Hospitable pattern I challenged</td>
+		<td>Hostaway pattern I challenged</td>
 		<td>Today</td>
 		<td>What I did</td>
 	</tr>
 	<tr>
 		<td>**Drill-down navigation**</td>
-		<td>Only the main menu opens to sub-pages. A property's sections are flat links (`REAL·PRODUCT`)</td>
+		<td>Only the main menu opens to sub-pages. A property's sections are flat links ()</td>
 		<td>Each section opens to its pages in the side menu: Listing base to Details, Pricing and Availability, each channel to its own pages</td>
 	</tr>
 	<tr>
 		<td>**Counts in the menu**</td>
-		<td>No counts on the property menu (`REAL·PRODUCT`)</td>
+		<td>No counts on the property menu ()</td>
 		<td>Counts that move: the total sits on the parent while it's closed, and each page shows its own once it's open</td>
 	</tr>
 	<tr>
 		<td>**Inline fields**</td>
-		<td>Label on the left, input on the right (`REAL·PRODUCT`)</td>
+		<td>Label on the left, input on the right ()</td>
 		<td>Stacked fields: the label sits above the input, so Tips or Canvas fit as a second column</td>
 	</tr>
 	<tr>
 		<td>**Where Save changes appears**</td>
-		<td>Discard and Save sit on each section's header, always visible, disabled until something changes (`REAL·PRODUCT`)</td>
+		<td>Discard and Save sit on each section's header, always visible, disabled until something changes ()</td>
 		<td>A bar at the bottom of the area being edited, only when something changed. Leaving asks first: Keep editing, Discard changes, Save changes. Then a toast: "Changes saved", the channels it reached, and Undo</td>
 	</tr>
 	<tr>
 		<td>**Close ×**</td>
-		<td>The outlined × of Hospitable's dialogs</td>
+		<td>The outlined × of Hostaway's dialogs</td>
 		<td>The same outlined ×, in three sizes, for every close, dismiss and remove</td>
 	</tr>
 	<tr>
 		<td>**Locked fields**</td>
-		<td>Disabled, with a chevron and no reason (`REAL·PRODUCT`)</td>
-		<td>A lock, and the reason in Hospitable's dark tooltip</td>
+		<td>Disabled, with a chevron and no reason ()</td>
+		<td>A lock, and the reason in Hostaway's dark tooltip</td>
 	</tr>
 </table>
 And these are new, each added to the system before any screen used it:
@@ -121,9 +121,9 @@ And these are new, each added to the system before any screen used it:
 - **Canvas preview**: the Classic | Canvas switch, and Your edits | Live now on the guest page.
 - **Section tabs with tip counts**: Essentials 5, Arrival 2, Location 2, so a host sees where the improvements are.
 - **Performance**: KPI and chart cards that compare the period since the strategy with the one before.
-- **AI Copilot's sparkle, purple on lavender**, now on every AI surface in the listing. <mention-page url="https://app.notion.com/p/3efe18af164581ceabafdfe5275589dd">KD-20</mention-page>
-## Impact on the rest of Hospitable
-None of these stays inside listings. This is my reading of where each would land, to check with each product team (`ASSUMPTION`).
+- **The assistant's sparkle, purple on lavender**, now on every AI surface in the listing. <mention-page url="https://app.notion.com/p/3efe18af164581ceabafdfe5275589dd">KD-20</mention-page>
+## Impact on the rest of Hostaway
+None of these stays inside listings. This is my reading of where each would land, to check with each product team ().
 <table header-row="true">
 	<tr>
 		<td>Pattern</td>
@@ -236,7 +236,7 @@ None of these stays inside listings. This is my reading of where each would land
 		<td>●</td>
 	</tr>
 </table>
-The biggest questions: a Save that appears only when something changed would have to behave the same on every settings screen, or hosts learn two rules. A tip drawer beside AI Copilot's smart replies in the Inbox would need one shared panel, not two. And tip counts in the menu would meet the other counts the product shows, so they must not compete.
+The biggest questions: a Save that appears only when something changed would have to behave the same on every settings screen, or hosts learn two rules. A tip drawer beside the assistant's smart replies in the Inbox would need one shared panel, not two. And tip counts in the menu would meet the other counts the product shows, so they must not compete.
 ## How I'd evaluate and test them
 **Planned.** Not run. Each test puts the alternatives side by side before a pattern spreads.
 <table header-row="true">
@@ -267,7 +267,7 @@ The biggest questions: a Save that appears only when something changed would hav
 	</tr>
 </table>
 ## How it was made
-Hospitable's public stylesheet was captured, and colours were sampled from the screenshots and converted from Display-P3 to sRGB before matching. Components live in one stylesheet and a gallery. The gallery also keeps patterns from earlier rounds, such as the channel lens and conflict card, that the converged build no longer uses. The drawer timing was first 240 ms; I made it quicker, and 160 ms is what ships.
+Hostaway's public stylesheet was captured, and colours were sampled from the screenshots and converted from Display-P3 to sRGB before matching. Components live in one stylesheet and a gallery. The gallery also keeps patterns from earlier rounds, such as the channel lens and conflict card, that the converged build no longer uses. The drawer timing was first 240 ms; I made it quicker, and 160 ms is what ships.
 ---
 **Builds on**
 - <mention-page url="https://app.notion.com/p/3eee18af1645811087cecfef47d6bfe3">UI changes</mention-page>
@@ -276,5 +276,5 @@ Hospitable's public stylesheet was captured, and colours were sampled from the s
 **Decisions**
 - <mention-page url="https://app.notion.com/p/3eee18af164581ca9016ce7928ea3008">KD-16</mention-page>
 **In the prototype**
-- [Airbnb › Listing](https://hospitable-case-web.digimal.studio/property/neukolln/ch/airbnb/listing/essentials)
-- [Smart Listings › Performance](https://hospitable-case-web.digimal.studio/property/neukolln/smart/performance)
+- [Airbnb › Listing]()
+- [Smart Listings › Performance]()

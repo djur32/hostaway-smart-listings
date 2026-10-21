@@ -1,6 +1,6 @@
 /* Act as another account (S12 follow-up, 3 Oct · D-161). Each account has its own saved prototype: every store and draft
  * the app persists (sessionStorage, plus the Knowledge Hub's localStorage stores) is parked under the account when you
- * leave it and restored when you come back, so switching never loses anyone's work (Antonio: "make sure we don't lose
+ * leave it and restored when you come back, so switching never loses anyone's work (review: "make sure we don't lose
  * any information"). Dana's saved world is simply what this tab already had: today's prototype, untouched.
  *
  * A switch reloads the page into the next account's start page, the way a real account switch does: every store then
@@ -10,32 +10,32 @@ import { APP_MODE, ROUTER_BASENAME } from './mode'
 import { USERS, USER_KEY, currentUserId, type UserId } from '../data/users'
 import { PROPERTY_ID } from '../data/scenario'
 
-const BUCKET = (u: UserId) => `hospitable-proto:account:${u}`
-const JUST = 'hospitable-proto:just-switched'
+const BUCKET = (u: UserId) => `hostaway-proto:account:${u}`
+const JUST = 'hostaway-proto:just-switched'
 /** Keys that belong to the tab, not to an account: the current account, the parked accounts, demo mode. */
-const tabOnly = (k: string) => k.startsWith('hospitable-proto:')
+const tabOnly = (k: string) => k.startsWith('hostaway-proto:')
 
 interface Bucket { session: Record<string, string>; local: Record<string, string> }
 
 function snapshot(): Bucket {
   const session: Record<string, string> = {}, local: Record<string, string> = {}
   for (let i = 0; i < sessionStorage.length; i++) { const k = sessionStorage.key(i)!; if (!tabOnly(k)) session[k] = sessionStorage.getItem(k)! }
-  for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i)!; if (k.startsWith('hospitable') && !tabOnly(k)) local[k] = localStorage.getItem(k)! }
+  for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i)!; if (k.startsWith('hostaway') && !tabOnly(k)) local[k] = localStorage.getItem(k)! }
   return { session, local }
 }
 
 function clearAccountKeys() {
   for (const k of Object.keys(sessionStorage)) if (!tabOnly(k)) sessionStorage.removeItem(k)
-  for (const k of Object.keys(localStorage)) if (k.startsWith('hospitable') && !tabOnly(k)) localStorage.removeItem(k)
+  for (const k of Object.keys(localStorage)) if (k.startsWith('hostaway') && !tabOnly(k)) localStorage.removeItem(k)
 }
 
-/** Where an account starts: the property Overview, for every account (Antonio, 3 Oct; Priya has her listing, 4 Oct). */
+/** Where an account starts: the property Overview, for every account (review, 3 Oct; Priya has her listing, 4 Oct). */
 export function landingFor(u: UserId, _hasProperties = true): string {
   return `/property/${USERS[u].properties[0] ?? PROPERTY_ID}/overview`
 }
 
 /** The page to land on after switching: the property page you're on when the next account has that property too
- *  (Antonio, 4 Oct: switching keeps you on the property, never on Properties' groups, rules or activity), else its start. */
+ *  (review, 4 Oct: switching keeps you on the property, never on Properties' groups, rules or activity), else its start. */
 function stayOrLand(next: UserId, hasProps: boolean): string {
   const base = ROUTER_BASENAME === '/' ? '' : ROUTER_BASENAME
   const path = window.location.pathname.startsWith(base) ? window.location.pathname.slice(base.length) || '/' : window.location.pathname
@@ -107,5 +107,5 @@ export function applyAsParam() {
 
 /** Has a parked account connected a channel yet? (Priya's line in the account menu while you're someone else.) */
 export function parkedHasConnection(u: UserId): boolean {
-  try { return /"connected":\["/.test((JSON.parse(sessionStorage.getItem(BUCKET(u)) ?? '{}') as Partial<Bucket>).session?.['hospitable-proto-v1'] ?? '') } catch { return false }
+  try { return /"connected":\["/.test((JSON.parse(sessionStorage.getItem(BUCKET(u)) ?? '{}') as Partial<Bucket>).session?.['hostaway-proto-v1'] ?? '') } catch { return false }
 }

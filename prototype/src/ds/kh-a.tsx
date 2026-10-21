@@ -241,7 +241,7 @@ export function KhaPanel({ head, children, foot }: { head: ReactNode; children: 
   )
 }
 
-/** "Guest books on [Airbnb ▾]": Hospitable's dropdown, with the channel mark in the trigger and options. */
+/** "Guest books on [Airbnb ▾]": Hostaway's dropdown, with the channel mark in the trigger and options. */
 export function KhaChannelSelect({ value, options, onChange, label }: { value: ChannelId; options: ChannelId[]; onChange: (c: ChannelId) => void; label: string }) {
   const [open, setOpen] = useState(false)
   const wrap = useRef<HTMLDivElement>(null)

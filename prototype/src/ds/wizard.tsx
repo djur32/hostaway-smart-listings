@@ -1,9 +1,9 @@
-/* Full-screen wizard (Hospitable "Add property" replica) · WS-SL, 3 Oct. CSS: ds/v3/wizard.css (tokens only).
- * Source: research/current-state/antonio-2026-10-03-add-property/01–06 (REAL·PRODUCT). Generic parts — shell, step,
+/* Full-screen wizard (Hostaway "Add property" replica) · WS-SL, 3 Oct. CSS: ds/v3/wizard.css (tokens only).
+ * Source: research/current-state/review-2026-10-03-add-property/01–06. Generic parts — shell, step,
  * choice card, intro rows, voice field, config row, review summary, generating modal — so any create/edit flow can
  * use them; Smart Listings › Strategy's wizard is the first (screens/smart/StrategyWizard.tsx).
- * No live preview card (Antonio, 3 Oct: "I don't want to see the preview") — the column is centred on its own and the
- * answers show on the Review step. Sized to fit one view at 1440×900 (Antonio, 3 Oct: "way too big … fit everything in
+ * No live preview card (review, 3 Oct: "I don't want to see the preview") — the column is centred on its own and the
+ * answers show on the Review step. Sized to fit one view at 1440×900 (review, 3 Oct: "way too big … fit everything in
  * one screen, without having to scroll"). */
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import type { ChannelId } from '../data/types'
@@ -59,7 +59,7 @@ export function WizardQuestion({ eyebrow, title, titleIcon, sub, children }: { e
 }
 
 /** Footer: Back (secondary) left, the primary action right — the same two buttons on every step, the same width
- *  (Antonio, 3 Oct: "the Back and Continue buttons have to be the same size, the same width"). */
+ *  (review, 3 Oct: "the Back and Continue buttons have to be the same size, the same width"). */
 export function WizardFoot({ onBack, backLabel = 'Back', onNext, nextLabel = 'Continue', nextDisabled, hint }: {
   onBack?: () => void; backLabel?: string; onNext: () => void; nextLabel?: string; nextDisabled?: boolean; hint?: ReactNode
 }) {
@@ -86,7 +86,7 @@ export function WizardLocked({ title, line }: { title: ReactNode; line?: ReactNo
 
 /** The selected option's settings as one horizontal row of small value blocks (label above value). Read-only first;
  *  clicking a value turns that block into its control. `onReset` shows "Reset to default" once anything differs
- *  (Antonio, 3 Oct: "you will see the default, and then you can reset if you make any changes"). */
+ *  (review, 3 Oct: "you will see the default, and then you can reset if you make any changes"). */
 export function WizardConfig({ title, tag, onReset, top, children }: { title: ReactNode; tag?: ReactNode; onReset?: () => void; top?: ReactNode; children: ReactNode }) {
   return (
     <section className="h-wz-config" aria-label={typeof title === 'string' ? title : undefined}>
@@ -148,7 +148,7 @@ export function WizardIntro({ rows }: { rows: Array<{ icon: string; title: strin
 }
 
 /** Free text with "Use voice" (ref 02). The voice button is a prototype stand-in: it listens for a moment and appends
- *  `voiceSample` (the caller's SIMULATED transcript). */
+ *  `voiceSample` (the caller's transcript). */
 export function WizardVoiceField({ id, label, value, onChange, placeholder, voiceSample }: {
   id: string; label: string; value: string; onChange: (v: string) => void; placeholder?: string; voiceSample?: string
 }) {

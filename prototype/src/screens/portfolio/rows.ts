@@ -89,7 +89,7 @@ export function buildRows(s: State): Row[] {
 
 export const ago = (days: number | null) => (days === null ? 'Never' : days === 0 ? 'Today' : days === 1 ? 'Yesterday' : `${days} days ago`)
 
-/** Saved views = Hospitable's Properties segments and tags (HS-16), plus the ones a portfolio needs. */
+/** Saved views = Hostaway's Properties segments and tags (HS-16), plus the ones a portfolio needs. */
 export const VIEWS: Array<{ id: string; label: string; test: (r: Row) => boolean; group?: string }> = [
   { id: 'all', label: 'All properties', test: () => true },
   { id: 'needs-you', label: 'Needs you', test: (r) => r.pending.conflicts + r.pending.suggestions + r.pending.questions > 0 || !!r.alert },

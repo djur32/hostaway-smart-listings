@@ -33,7 +33,7 @@ import { build } from './build.mjs';
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const args = process.argv.slice(2);
 const opt = (k, d) => { const i = args.indexOf('--' + k); return i >= 0 ? args[i + 1] : d; };
-const themes = ['hospitable'];                       // one theme (D-071)
+const themes = ['hostaway'];                       // one theme (D-071)
 const ids = opt('ids', '') ? opt('ids').split(',') : null;
 const early = +opt('early', '300');
 const budget = +opt('budget', '2');

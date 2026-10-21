@@ -1,7 +1,7 @@
 /* Knowledge Hub iteration KH-D · "Overview cards → sheet" · design-system components (concepts/knowledge-hub/KH-D.md).
  * CSS: ds/v3/kh-d.css (tokens only). Owned by the KH-D build.
  *
- * - KhdTabs: Hospitable's underline tabs, one line, with a "More ▾" overflow using Hospitable's dropdown menu.
+ * - KhdTabs: Hostaway's underline tabs, one line, with a "More ▾" overflow using Hostaway's dropdown menu.
  * - KhdCoverage / KhdLegend: a channel's Mark + ✓ (uses the Base) or the number of its own values; hover lists them.
  * - KhdCard: one category on the Overview (header, two key values, coverage, caption, what's missing, "+ Add …").
  * - KhdAddAnyCard: the dashed 12th card.
@@ -12,7 +12,7 @@
  * - KhdAddBox: search-or-add in one box ("Add amenity, e.g. Air conditioning · Adds to all channels").
  * - KhdFlag: "Channels disagree: Balcony" with two plain answers.
  * - KhdAmenityRow: an amenity, where it's listed (All channels / Marks + names), expandable into "Listed on" checkboxes.
- * Rules (Antonio, 30 Sep): captions are plain text (no channel logo); Marks only in identity spots. */
+ * Rules (review, 30 Sep): captions are plain text (no channel logo); Marks only in identity spots. */
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import { CloseButton, Icon, Mark, cx } from './primitives'
 import { BottomSheet, useIsMobile } from './mobile'

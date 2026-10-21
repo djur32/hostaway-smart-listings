@@ -2,7 +2,7 @@
 	**Method · Planned** · Not run. No stakeholder conversations were held for this case study. This is how I would run them, and what each would settle.
 </callout>
 ## Why this method
-Smart Listings depends on things only Hospitable's own people know: what each channel's API really accepts, whether the Knowledge Hub can take facts back from the listing, what support already sees, and what is allowed for AI-written listing content. Inventing their answers would be worse than admitting I don't know. So each question stays open, with me as its owner, and the design covers both outcomes where it must. <mention-page url="https://app.notion.com/p/3eee18af164581339fabf0591e5d7f9c">KD-18</mention-page>
+Smart Listings depends on things only Hostaway's own people know: what each channel's API really accepts, whether the Knowledge Hub can take facts back from the listing, what support already sees, and what is allowed for AI-written listing content. Inventing their answers would be worse than admitting I don't know. So each question stays open, with me as its owner, and the design covers both outcomes where it must. <mention-page url="https://app.notion.com/p/3eee18af164581339fabf0591e5d7f9c">KD-18</mention-page>
 ## How I'd run it
 - **Format:** 30-minute one-to-ones, semi-structured. Each person gets their questions in writing a few days ahead, so the call is spent on answers, not context. The first conversation is a longer one (45 minutes) with the team that owns listing management today.
 - **When:** before host research, so the interviews probe what the platform and the data allow, not what I assume.
@@ -15,7 +15,7 @@ Smart Listings depends on things only Hospitable's own people know: what each ch
 	</tr>
 	<tr>
 		<td>Integrations engineering lead</td>
-		<td>Per field, for every channel (Airbnb, Booking.com, Vrbo, Expedia, Direct): can Hospitable write it, how fast does it go live, and what does the channel overwrite? What comes back that Hospitable can show as a receipt? Does Hospitable learn when a host edits a field on the channel? Where a channel writes its own text, as Booking.com does with its description, is that an API limit or Hospitable's choice?</td>
+		<td>Per field, for every channel (Airbnb, Booking.com, Vrbo, Expedia, Direct): can Hostaway write it, how fast does it go live, and what does the channel overwrite? What comes back that Hostaway can show as a receipt? Does Hostaway learn when a host edits a field on the channel? Where a channel writes its own text, as Booking.com does with its description, is that an API limit or Hostaway's choice?</td>
 		<td>Field states; receipts; Undo on tips · <mention-page url="https://app.notion.com/p/3eee18af16458164b971f07e49e0fa84">KD-04</mention-page> <mention-page url="https://app.notion.com/p/3eee18af164581a693f6c6cc544b8c1a">KD-15</mention-page></td>
 	</tr>
 	<tr>
@@ -50,7 +50,7 @@ Smart Listings depends on things only Hospitable's own people know: what each ch
 	</tr>
 	<tr>
 		<td>Head of Product</td>
-		<td>Who owns listing quality today; the planned order for "Hospitable as source of truth"; appetite for opt-in AI per property</td>
+		<td>Who owns listing quality today; the planned order for "Hostaway as source of truth"; appetite for opt-in AI per property</td>
 		<td>Opt-in per property · <mention-page url="https://app.notion.com/p/3eee18af1645819d96d4cff8530e1600">KD-05</mention-page></td>
 	</tr>
 	<tr>
@@ -66,7 +66,7 @@ Smart Listings depends on things only Hospitable's own people know: what each ch
 </table>
 ## What I'd look for
 - For every channel, fields the design promises but the channel won't accept or overwrites.
-- How fast a change reaches each channel, and what Hospitable can honestly show as a receipt.
+- How fast a change reaches each channel, and what Hostaway can honestly show as a receipt.
 - Whether the Knowledge Hub can read its facts from the Listing base instead of keeping a copy, and see the questions guests ask in the Inbox.
 - Limits on AI-written content and on automation.
 ## What it produces

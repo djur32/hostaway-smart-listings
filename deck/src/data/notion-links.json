@@ -134,16 +134,16 @@
   "slides": {
     "op-cover": {
       "url": "https://app.notion.com/p/3eee18af164581ada1e4ebc3d3838613",
-      "title": "Hospitable · Smart Listings",
+      "title": "Hostaway · Smart Listings",
       "key": "hub",
-      "label": "Hospitable · Smart Listings",
+      "label": "Hostaway · Smart Listings",
       "kind": "Workspace"
     },
     "op-title": {
       "url": "https://app.notion.com/p/3eee18af164581ada1e4ebc3d3838613",
-      "title": "Hospitable · Smart Listings",
+      "title": "Hostaway · Smart Listings",
       "key": "hub",
-      "label": "Hospitable · Smart Listings",
+      "label": "Hostaway · Smart Listings",
       "kind": "Workspace"
     },
     "op-burden": {
@@ -470,9 +470,9 @@
     },
     "nx-roadmap": {
       "url": "https://app.notion.com/p/3efe18af164581ca9ab6d4324a44d082",
-      "title": "Smart Listings across Hospitable",
+      "title": "Smart Listings across Hostaway",
       "key": "07-next/o-service-map",
-      "label": "Smart Listings across Hospitable",
+      "label": "Smart Listings across Hostaway",
       "kind": "Output"
     },
     "cl-monday": {
@@ -484,9 +484,9 @@
     },
     "cl-thanks": {
       "url": "https://app.notion.com/p/3eee18af164581ada1e4ebc3d3838613",
-      "title": "Hospitable · Smart Listings",
+      "title": "Hostaway · Smart Listings",
       "key": "hub",
-      "label": "Hospitable · Smart Listings",
+      "label": "Hostaway · Smart Listings",
       "kind": "Workspace"
     }
   },
@@ -1169,9 +1169,9 @@
       },
       {
         "url": "https://app.notion.com/p/3eee18af164581ca9016ce7928ea3008",
-        "title": "KD-16 · Replicate Hospitable's UI and depart only where the model needs it",
+        "title": "KD-16 · Replicate Hostaway's UI and depart only where the model needs it",
         "key": "KD-16",
-        "label": "Replicate Hospitable's UI",
+        "label": "Replicate Hostaway's UI",
         "kind": "Decision"
       }
     ],
@@ -1192,9 +1192,9 @@
       },
       {
         "url": "https://app.notion.com/p/3eee18af164581ca9016ce7928ea3008",
-        "title": "KD-16 · Replicate Hospitable's UI and depart only where the model needs it",
+        "title": "KD-16 · Replicate Hostaway's UI and depart only where the model needs it",
         "key": "KD-16",
-        "label": "Replicate Hospitable's UI",
+        "label": "Replicate Hostaway's UI",
         "kind": "Decision"
       }
     ],
@@ -1254,9 +1254,9 @@
     "nx-roadmap": [
       {
         "url": "https://app.notion.com/p/3efe18af164581ca9ab6d4324a44d082",
-        "title": "Smart Listings across Hospitable",
+        "title": "Smart Listings across Hostaway",
         "key": "07-next/o-service-map",
-        "label": "Smart Listings across Hospitable",
+        "label": "Smart Listings across Hostaway",
         "kind": "Output"
       },
       {
@@ -1739,11 +1739,11 @@
         "label": "Where it falls short",
         "kind": "Output"
       },
-      "Smart Listings across Hospitable": {
+      "Smart Listings across Hostaway": {
         "url": "https://app.notion.com/p/3efe18af164581ca9ab6d4324a44d082",
-        "title": "Smart Listings across Hospitable",
+        "title": "Smart Listings across Hostaway",
         "key": "07-next/o-service-map",
-        "label": "Smart Listings across Hospitable",
+        "label": "Smart Listings across Hostaway",
         "kind": "Output"
       }
     }

@@ -1,5 +1,5 @@
 {
- "method": "Display-P3 → sRGB via embedded ICC; fill = 5x5 median; ink = furthest-from-median pixel in box; nearest Hospitable token by CIE76 ΔE (hospitable-root-vars.json, captured from https://my.hospitable.com/static/styles-K7T6MMZ5.css on 2026-09-29).",
+ "method": "Display-P3 → sRGB via embedded ICC; fill = 5x5 median; ink = furthest-from-median pixel in box; nearest Hostaway token by CIE76 ΔE (hostaway-root-vars.json, captured from https://my.hostaway.com/static/styles-K7T6MMZ5.css on 2026-09-29).",
  "samples": [
   {
    "name": "sidebar.bg",
@@ -20,7 +20,7 @@
     "--color-grape-darker #230b41 ΔE9.1",
     "--color-theme-chrome #230b41 ΔE9.1"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "sidebar.getting-started.bg",
@@ -41,7 +41,7 @@
     "--color-secondary-900 #321e52 ΔE14.2",
     "--color-calendar-bar-booking #003580 ΔE16.3"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "sidebar.item-active.bg",
@@ -62,7 +62,7 @@
     "--color-grape-darker #230b41 ΔE8.3",
     "--color-theme-chrome #230b41 ΔE8.3"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "sidebar.text",
@@ -83,7 +83,7 @@
     "--color-text-inverted #ffffff ΔE0.0",
     "--color-text-white #ffffff ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "sidebar.icon",
@@ -104,7 +104,7 @@
     "--color-secondary-500 #936acd ΔE9.9",
     "--color-secondary-400 #b18ce2 ΔE10.5"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "sidebar.badge",
@@ -125,7 +125,7 @@
     "--color-text-inverted #ffffff ΔE0.0",
     "--color-text-white #ffffff ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "sidebar.collapse-icon",
@@ -146,7 +146,7 @@
     "--color-secondary-500 #936acd ΔE9.9",
     "--color-secondary-400 #b18ce2 ΔE10.5"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "sidebar.trial-card.bg",
@@ -167,7 +167,7 @@
     "--color-secondary-800 #4c3172 ΔE8.9",
     "--color-grape-darker #230b41 ΔE9.9"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "sidebar.trial-card.cta",
@@ -188,7 +188,7 @@
     "--color-text-brand-secondary #8155be ΔE0.0",
     "--color-secondary-600 #8155be ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "sidebar.footer-divider",
@@ -209,7 +209,7 @@
     "--color-secondary-900 #321e52 ΔE14.1",
     "--color-calendar-bar-vrbo #0f214b ΔE18.4"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "subnav.bg",
@@ -230,7 +230,7 @@
     "--color-text-inverted #ffffff ΔE0.0",
     "--color-text-white #ffffff ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "subnav.text",
@@ -251,7 +251,7 @@
     "--color-gray-900 #191b1f ΔE0.5",
     "--color-gray-950 #121417 ΔE3.5"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "subnav.text-active",
@@ -272,7 +272,7 @@
     "--color-border-brand #f24167 ΔE4.4",
     "--color-primary-500 #f24167 ΔE4.4"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "subnav.icon",
@@ -293,7 +293,7 @@
     "--color-border-primary #d3d6da ΔE3.7",
     "--color-gray-300 #d3d6da ΔE3.7"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "subnav.back",
@@ -314,7 +314,7 @@
     "--color-border-brand #f24167 ΔE4.4",
     "--color-primary-500 #f24167 ΔE4.4"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "subnav.divider",
@@ -335,7 +335,7 @@
     "--color-gray-300 #d3d6da ΔE0.4",
     "--color-smoke-darker #d0cdd4 ΔE3.7"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "content.bg",
@@ -356,7 +356,7 @@
     "--color-text-inverted #ffffff ΔE0.0",
     "--color-text-white #ffffff ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "text.primary",
@@ -377,7 +377,7 @@
     "--color-gray-900 #191b1f ΔE0.5",
     "--color-gray-950 #121417 ΔE3.5"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "text.secondary (description)",
@@ -398,7 +398,7 @@
     "--color-border-bold #53575b ΔE0.0",
     "--color-gray-600 #53575b ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "text.tab-inactive",
@@ -419,7 +419,7 @@
     "--color-border-bold #53575b ΔE0.0",
     "--color-gray-600 #53575b ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "tab.underline",
@@ -440,7 +440,7 @@
     "--color-calendar-bar-direct #e1295a ΔE0.0",
     "--color-text-brand-primary #e1295a ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "tab.divider",
@@ -461,7 +461,7 @@
     "--color-gray-300 #d3d6da ΔE0.4",
     "--color-smoke-darker #d0cdd4 ΔE3.7"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "input.border",
@@ -482,7 +482,7 @@
     "--color-gray-300 #d3d6da ΔE0.4",
     "--color-smoke-darker #d0cdd4 ΔE3.7"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "input.placeholder",
@@ -503,7 +503,7 @@
     "--color-night-lighter #b3afbb ΔE6.6",
     "--color-smoke-darker #d0cdd4 ΔE15.6"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "input.chevron",
@@ -524,7 +524,7 @@
     "--color-border-bold #53575b ΔE0.0",
     "--color-gray-600 #53575b ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "field.channels-hint",
@@ -545,7 +545,7 @@
     "--color-border-bold #53575b ΔE0.0",
     "--color-gray-600 #53575b ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "button.disabled.bg",
@@ -566,7 +566,7 @@
     "--color-border-quaternary #f3f4f6 ΔE0.0",
     "--color-gray-100 #f3f4f6 ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "button.disabled.text",
@@ -587,7 +587,7 @@
     "--color-text-placeholder #70747b ΔE0.0",
     "--color-text-disabled #70747b ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "button.disabled.border",
@@ -608,7 +608,7 @@
     "--color-gray-300 #d3d6da ΔE0.4",
     "--color-smoke-darker #d0cdd4 ΔE3.7"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "button.primary.bg",
@@ -629,7 +629,7 @@
     "--color-calendar-bar-direct #e1295a ΔE0.0",
     "--color-text-brand-primary #e1295a ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "button.secondary.border",
@@ -650,7 +650,7 @@
     "--color-border-secondary #e6e7ea ΔE0.0",
     "--color-gray-200 #e6e7ea ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "link.brand",
@@ -671,7 +671,7 @@
     "--color-primary-500 #f24167 ΔE0.0",
     "--color-raspberry-darker #ed3c6a ΔE4.1"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "floating-chat.bg",
@@ -692,7 +692,7 @@
     "--color-smoke-lighter #f8f7f9 ΔE0.8",
     "--color-text-primary-dark #f3f4f6 ΔE1.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "floating-chat.dot",
@@ -713,7 +713,7 @@
     "--color-bg-error-solid #c02619 ΔE12.3",
     "--color-text-error #c02619 ΔE12.3"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "radio.selected",
@@ -734,7 +734,7 @@
     "--color-text-success-primary #188668 ΔE0.0",
     "--color-success-600 #188668 ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "radio.card.border",
@@ -755,7 +755,7 @@
     "--color-border-secondary #e6e7ea ΔE0.0",
     "--color-gray-200 #e6e7ea ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "pill.recommended.bg",
@@ -776,7 +776,7 @@
     "--color-success-25 #f8fcfb ΔE0.0",
     "--color-surface-secondary #f9fafb ΔE1.5"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "pill.recommended.text",
@@ -797,7 +797,7 @@
     "--color-text-success-primary #188668 ΔE0.0",
     "--color-success-600 #188668 ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "radio.description",
@@ -818,7 +818,7 @@
     "--color-border-bold #53575b ΔE0.0",
     "--color-gray-600 #53575b ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "input.affix.bg",
@@ -839,7 +839,7 @@
     "--color-bg-disabled-subtle #f9fafb ΔE0.0",
     "--color-gray-50 #f9fafb ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "ai-card.bg",
@@ -860,7 +860,7 @@
     "--color-bg-secondary-brand-secondary #f7f0ff ΔE0.4",
     "--color-secondary-50 #faf5ff ΔE3.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "ai-card.border",
@@ -881,7 +881,7 @@
     "--color-border-primary #d3d6da ΔE3.7",
     "--color-gray-300 #d3d6da ΔE3.7"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "ai-card.title",
@@ -902,7 +902,7 @@
     "--color-theme-chrome #230b41 ΔE0.0",
     "--color-secondary-900 #321e52 ΔE8.3"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "ai-card.body",
@@ -923,7 +923,7 @@
     "--color-secondary-500 #936acd ΔE9.9",
     "--color-secondary-400 #b18ce2 ΔE10.5"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "ai-card.new-pill.bg",
@@ -944,7 +944,7 @@
     "--color-primary-25 #fff8f9 ΔE0.0",
     "--color-error-25 #fff8f7 ΔE1.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "ai-card.new-pill.text",
@@ -965,7 +965,7 @@
     "--color-calendar-bar-direct #e1295a ΔE0.0",
     "--color-text-brand-primary #e1295a ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "pill.lead-listing.bg",
@@ -986,7 +986,7 @@
     "--color-success-25 #f8fcfb ΔE0.0",
     "--color-surface-secondary #f9fafb ΔE1.5"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "pill.lead-listing.text",
@@ -1007,7 +1007,7 @@
     "--color-text-success-primary #188668 ΔE0.0",
     "--color-success-600 #188668 ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "pill.fully-managed.bg",
@@ -1028,7 +1028,7 @@
     "--color-text-brand-secondary #8155be ΔE0.0",
     "--color-secondary-600 #8155be ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "link.underlined (neutral)",
@@ -1049,7 +1049,7 @@
     "--color-bg-quarternary #414347 ΔE0.0",
     "--color-calendar-bar-blocked #414347 ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "link.green (help links)",
@@ -1070,7 +1070,7 @@
     "--color-grass-darker #47c693 ΔE0.6",
     "--color-success-400 #6abf9c ΔE14.4"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "filter.add (green)",
@@ -1091,7 +1091,7 @@
     "--color-grass-darker #47c693 ΔE0.6",
     "--color-success-400 #6abf9c ΔE14.4"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "pill.unlisted.bg",
@@ -1112,7 +1112,7 @@
     "--color-surface-primary #ffffff ΔE0.8",
     "--color-text-inverted #ffffff ΔE0.8"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "pill.unlisted.text",
@@ -1133,7 +1133,7 @@
     "--color-night-lighter #b3afbb ΔE6.3",
     "--color-smoke-darker #d0cdd4 ΔE13.3"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "checkbox.checked",
@@ -1154,7 +1154,7 @@
     "--color-success-200 #b5e4d1 ΔE8.3",
     "--color-calendar-selected #afead2 ΔE10.1"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "list-row.title (faded)",
@@ -1175,7 +1175,7 @@
     "--color-text-quaternary #70747b ΔE10.4",
     "--color-text-placeholder #70747b ΔE10.4"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "selection-bar.bg",
@@ -1196,7 +1196,7 @@
     "--color-bg-disabled-subtle #f9fafb ΔE0.0",
     "--color-gray-50 #f9fafb ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "search.icon",
@@ -1217,7 +1217,7 @@
     "--color-border-bold #53575b ΔE0.0",
     "--color-gray-600 #53575b ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "pill.scoped.bg",
@@ -1238,7 +1238,7 @@
     "--color-grass-darker #47c693 ΔE0.2",
     "--color-success-400 #6abf9c ΔE14.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "pill.all.bg",
@@ -1259,7 +1259,7 @@
     "--color-border-brand #f24167 ΔE4.4",
     "--color-primary-500 #f24167 ΔE4.4"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "button.onboarding-assistant.bg",
@@ -1280,7 +1280,7 @@
     "--color-border-brand #f24167 ΔE4.4",
     "--color-primary-500 #f24167 ΔE4.4"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "filter-chip.bg",
@@ -1301,7 +1301,7 @@
     "--color-smoke-lighter #f8f7f9 ΔE0.0",
     "--color-surface-secondary #f9fafb ΔE1.2"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "filter-chip.text",
@@ -1322,7 +1322,7 @@
     "--color-night-lighter #b3afbb ΔE10.7",
     "--color-text-quaternary #70747b ΔE15.2"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "filter.active (green)",
@@ -1343,7 +1343,7 @@
     "--color-grass-darker #47c693 ΔE0.6",
     "--color-success-400 #6abf9c ΔE14.4"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "table.header",
@@ -1364,7 +1364,7 @@
     "--color-gray-400 #a0a5ab ΔE6.6",
     "--color-smoke-darker #d0cdd4 ΔE11.1"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "table.divider",
@@ -1385,7 +1385,7 @@
     "--color-border-tertiary #e5e7eb ΔE2.5",
     "--color-text-secondary-dark #e6e7ea ΔE2.8"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "channel.direct",
@@ -1406,7 +1406,7 @@
     "--color-border-brand #f24167 ΔE4.4",
     "--color-primary-500 #f24167 ΔE4.4"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "channel.airbnb",
@@ -1427,7 +1427,7 @@
     "--color-rose-darker #d43b3b ΔE13.2",
     "--color-error-400 #f95842 ΔE13.5"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "channel.vrbo",
@@ -1448,7 +1448,7 @@
     "--color-blue-500 #0ba5ec ΔE28.7",
     "--color-secondary-500 #936acd ΔE31.1"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "channel.booking",
@@ -1469,7 +1469,7 @@
     "--color-secondary-800 #4c3172 ΔE13.5",
     "--color-secondary-900 #321e52 ΔE17.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "channel.google (faded)",
@@ -1490,7 +1490,7 @@
     "--color-error-200 #ffc2b5 ΔE8.0",
     "--color-border-error-subtle #ffe1dc ΔE12.7"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "onboarding.bg (blush)",
@@ -1511,7 +1511,7 @@
     "--color-primary-25 #fff8f9 ΔE0.0",
     "--color-error-25 #fff8f7 ΔE1.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "onboarding.progress",
@@ -1532,7 +1532,7 @@
     "--color-primary-500 #f24167 ΔE0.0",
     "--color-raspberry-darker #ed3c6a ΔE4.1"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "onboarding.progress-track",
@@ -1553,7 +1553,7 @@
     "--color-text-inverted #ffffff ΔE0.0",
     "--color-text-white #ffffff ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "onboarding.tile.border",
@@ -1574,7 +1574,7 @@
     "--color-gray-300 #d3d6da ΔE0.4",
     "--color-smoke-darker #d0cdd4 ΔE3.7"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "onboarding.stat-icon",
@@ -1595,7 +1595,7 @@
     "--color-primary-500 #f24167 ΔE0.0",
     "--color-raspberry-darker #ed3c6a ΔE4.1"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "onboarding.continue.bg",
@@ -1616,7 +1616,7 @@
     "--color-bg-brand-solid #e1295a ΔE3.8",
     "--color-calendar-bar-direct #e1295a ΔE3.8"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "import.progress (green)",
@@ -1637,7 +1637,7 @@
     "--color-grass-darker #47c693 ΔE0.2",
     "--color-success-400 #6abf9c ΔE14.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "import.success-check",
@@ -1658,7 +1658,7 @@
     "--color-grass-darker #47c693 ΔE0.2",
     "--color-success-400 #6abf9c ΔE14.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "import.row-highlight.bg",
@@ -1679,7 +1679,7 @@
     "--color-primary-25 #fff8f9 ΔE0.0",
     "--color-error-25 #fff8f7 ΔE1.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "connect.header-rule",
@@ -1700,7 +1700,7 @@
     "--color-theme-chrome #230b41 ΔE0.0",
     "--color-secondary-900 #321e52 ΔE8.3"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "illustration.figure",
@@ -1721,7 +1721,7 @@
     "--color-rose-lighter #fadfdf ΔE8.7",
     "--color-border-brand-subtle #ffe4e7 ΔE9.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "illustration.cloud",
@@ -1742,7 +1742,7 @@
     "--color-border-quaternary #f3f4f6 ΔE0.0",
     "--color-gray-100 #f3f4f6 ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "illustration.outline",
@@ -1763,7 +1763,7 @@
     "--color-primary-500 #f24167 ΔE0.0",
     "--color-raspberry-darker #ed3c6a ΔE4.1"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "card.border (empty state)",
@@ -1784,7 +1784,7 @@
     "--color-border-secondary #e6e7ea ΔE0.0",
     "--color-gray-200 #e6e7ea ΔE0.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "illustration.dynamic-pricing",
@@ -1805,7 +1805,7 @@
     "--color-border-brand #f24167 ΔE3.8",
     "--color-primary-500 #f24167 ΔE3.8"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "kh.progress (green)",
@@ -1826,7 +1826,7 @@
     "--color-grass-darker #47c693 ΔE0.2",
     "--color-success-400 #6abf9c ΔE14.0"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "kh.researching-text",
@@ -1847,7 +1847,7 @@
     "--color-grass-darker #47c693 ΔE0.6",
     "--color-success-400 #6abf9c ΔE14.4"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "accordion.border",
@@ -1868,7 +1868,7 @@
     "--color-border-tertiary #e5e7eb ΔE2.5",
     "--color-text-secondary-dark #e6e7ea ΔE2.8"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "modal.scrim-over-white",
@@ -1889,7 +1889,7 @@
     "--color-night-lighter #b3afbb ΔE6.9",
     "--color-smoke-darker #d0cdd4 ΔE12.7"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "modal.scrim-over-sidebar",
@@ -1910,7 +1910,7 @@
     "--color-night-darker #17141c ΔE12.8",
     "--color-calendar-bar-vrbo #0f214b ΔE16.3"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "modal.add-topic (green)",
@@ -1931,7 +1931,7 @@
     "--color-grass-darker #47c693 ΔE0.6",
     "--color-success-400 #6abf9c ΔE14.4"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "dropdown.option-active.text",
@@ -1952,7 +1952,7 @@
     "--color-bg-secondary-brand-solid #8155be ΔE8.4",
     "--color-text-brand-secondary #8155be ΔE8.4"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "dropdown.option-active.bg",
@@ -1973,7 +1973,7 @@
     "--color-border-quaternary #f3f4f6 ΔE1.1",
     "--color-gray-100 #f3f4f6 ΔE1.1"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   },
   {
    "name": "calendar.day.price-muted",
@@ -1994,7 +1994,7 @@
     "--color-text-tertiary #53575b ΔE10.7",
     "--color-border-bold #53575b ΔE10.7"
    ],
-   "provenance": "REAL·PRODUCT (+ REAL·PUBLIC token match)"
+   "provenance": "(+ token match)"
   }
  ]
 }

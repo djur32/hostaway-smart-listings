@@ -1,5 +1,5 @@
 /* Persona variants of F-A1 (S10 §2, D-136). Modes change defaults and words, never capability (S12 rule).
- * P4 vocabulary: "booking site" for "channel" until S14 decides the glossary (ASSUMPTION, OQ-133). */
+ * P4 vocabulary: "booking site" for "channel" until S14 decides the glossary (OQ-133). */
 import { PERSONAS } from '../../data/personas'
 import { useStore } from '../../store/store'
 

@@ -1,5 +1,5 @@
 /* Listing details › Amenities › the pencil: an amenity's details.
- * Parking (Free / Paid parking on premises) replicates Hospitable's "Update Free parking on premise" (refs 09–11) as
+ * Parking (Free / Paid parking on premises) replicates Hostaway's "Update Free parking on premise" (refs 09–11) as
  * three steps with progress: 1 Parking type (an Airbnb field: the mark beside each option), 2 Parking access and
  * Requires reservation, 3 Number of spaces, Max height and the options that apply. Back / Continue, Save on the last step.
  * Washer, Dryer, Hot tub, Pool: one question. Save writes the Base and sends it to every channel that lists the amenity.

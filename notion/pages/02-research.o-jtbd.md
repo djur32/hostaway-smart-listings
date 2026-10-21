@@ -1,5 +1,5 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Done** · The jobs hosts hire the property tool for, rebuilt from the tool's own sections and flows. Each job has a journey map. Functions and gaps are `REAL·PRODUCT` (HS refs) and `REAL·PUBLIC` (Help Center). Smart Listings functions are prototype features on sample data (`SIMULATED`). The grouping into jobs is my reading (`ASSUMPTION`).
+	**Output · Done** · The jobs hosts hire the property tool for, rebuilt from the tool's own sections and flows. Each job has a journey map. Functions and gaps are (HS refs) and (Help Center). Smart Listings functions are prototype features on sample data (). The grouping into jobs is my reading ().
 </callout>
 ## The goal
 Keep one property's listing right on every channel, and be able to check it without going channel by channel. Each job serves one of four goals.
@@ -92,7 +92,7 @@ The property tool's sections, from the current information architecture , with t
 ## The four jobs
 Each job is stated the way a host would hire the tool, then placed on a journey: what changes, where I edit it, what I see before I save, what happens when I save, what I see after, and what happens over time.
 ### 1 · Change a fact once
-> When a fact about my home changes, I want to change it once and have every channel and Copilot use it, so guests never get two answers.
+> When a fact about my home changes, I want to change it once and have every channel and the assistant use it, so guests never get two answers.
 **When.** Any time a fact changes: check-out time, Wi-Fi, a house rule, an amenity.
 **Gaps today.**
 - Nothing shows which channels will change.
@@ -103,11 +103,11 @@ Each job is stated the way a host would hire the tool, then placed on a journey:
 - Details › Arrival: Wi-Fi, check-in method · HS-22.
 **Smart Listings adds.**
 - Each channel shows 'Uses the Base' · KD-04.
-- Copilot answers guests with the new time.
+- the assistant answers guests with the new time.
 - Guest questions show as Questions, answered or not · KD-13.
 - A repeated question becomes a tip · KD-12.
-![Journey map · Change a fact once. Functions and gaps REAL·PRODUCT and REAL·PUBLIC; Smart Listings on sample data, SIMULATED.](file-upload://3efe18af-1645-8145-943c-00b20b797e38)
-**Evidence.** The 322-vote board request to edit once and update every channel (REAL·PUBLIC). Help Center: the Hub reads Details once (row 26).
+![Journey map · Change a fact once. Functions and gaps and ; Smart Listings on sample data, .](file-upload://3efe18af-1645-8145-943c-00b20b797e38)
+**Evidence.** The 322-vote board request to edit once and update every channel. Help Center: the Hub reads Details once (row 26).
 ### 2 · Set money and stay rules per channel
 > When prices, fees or stay rules differ by channel, I want to set each one per channel and see what it does, so I earn what I intend on each.
 **When.** When a season changes the price, a channel needs its own fee, or a stay rule differs.
@@ -126,8 +126,8 @@ Each job is stated the way a host would hire the tool, then placed on a journey:
 - Each channel's value sits beside the Base.
 - Save per channel, with one receipt each · KD-15.
 - Performance against the period before the strategy · KD-07.
-![Journey map · Set money and stay rules per channel. Functions and gaps REAL·PRODUCT and REAL·PUBLIC; Smart Listings on sample data, SIMULATED.](file-upload://3efe18af-1645-8194-a959-00b2da049ec9)
-**Evidence.** Four mechanisms for one 'different on each channel' intent (flows F-c). Cleaning fee overridden on 36% of multi-channel properties (SIMULATED, overrides data).
+![Journey map · Set money and stay rules per channel. Functions and gaps and ; Smart Listings on sample data, .](file-upload://3efe18af-1645-8194-a959-00b2da049ec9)
+**Evidence.** Four mechanisms for one 'different on each channel' intent (flows F-c). Cleaning fee overridden on 36% of multi-channel properties (overrides data).
 ### 3 · Write for each channel
 > When a channel needs its own title, description or photo order, I want to shape it from one base, so the listing reads right where its guests look.
 **When.** When a channel's title rules or its own description need a different text.
@@ -145,8 +145,8 @@ Each job is stated the way a host would hire the tool, then placed on a journey:
 - An accepted tip can be undone · KD-15.
 - Performance against the strategy's period · KD-07.
 - Guest questions become tips · KD-12.
-![Journey map · Write for each channel. Functions and gaps REAL·PRODUCT and REAL·PUBLIC; Smart Listings on sample data, SIMULATED.](file-upload://3efe18af-1645-81f2-a050-00b274d68b11)
-**Evidence.** Booking.com's own description is set by the channel (REAL·PUBLIC). Per-channel copy is wanted by one host type only (SIMULATED interviews, I-05).
+![Journey map · Write for each channel. Functions and gaps and ; Smart Listings on sample data, .](file-upload://3efe18af-1645-81f2-a050-00b274d68b11)
+**Evidence.** Booking.com's own description is set by the channel. Per-channel copy is wanted by one host type only (interviews, I-05).
 ### 4 · Confirm what went where
 > When I've saved, or a guest asks, I want to see where a change reached and what guests see, so I don't have to check each channel by hand.
 **When.** Right after a save, and any time a guest asks whether the listing says something.
@@ -160,8 +160,8 @@ Each job is stated the way a host would hire the tool, then placed on a journey:
 - Canvas: each channel's guest page · KD-14.
 - Knowledge Hub › Questions: answered or not · KD-13.
 - Status per channel, always visible on Overview.
-![Journey map · Confirm what went where. Functions and gaps REAL·PRODUCT and REAL·PUBLIC; Smart Listings on sample data, SIMULATED.](file-upload://3efe18af-1645-8135-b3fa-00b239a1098e)
-**Evidence.** Save gives no per-channel result, history or undo (REAL·PRODUCT, gap list in flows F-b). Sampled hosts checked each channel by hand (SIMULATED).
+![Journey map · Confirm what went where. Functions and gaps and ; Smart Listings on sample data, .](file-upload://3efe18af-1645-8135-b3fa-00b239a1098e)
+**Evidence.** Save gives no per-channel result, history or undo (gap list in flows F-b). Sampled hosts checked each channel by hand.
 ---
 **Builds on**
 - <mention-page url="https://app.notion.com/p/3eee18af16458163b059f704859d3a6a">Current-state map</mention-page>
@@ -179,4 +179,4 @@ Each job is stated the way a host would hire the tool, then placed on a journey:
 - <mention-page url="https://app.notion.com/p/3eee18af164581a693f6c6cc544b8c1a">KD-15</mention-page>
 **In the prototype**
 - <mention-page url="https://app.notion.com/p/3eee18af164581828521eb27e3e50737">Solution overview</mention-page>
-- [open the prototype](https://hospitable-case-web.digimal.studio)
+- [open the prototype]()

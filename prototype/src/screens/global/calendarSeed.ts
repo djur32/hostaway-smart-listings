@@ -11,7 +11,7 @@ export const TODAY = 1
 export const TODAY_DATE = calDay(TODAY)
 
 export interface Stay { from: number; to: number; guest: string; channel: ChannelId }
-/** Seeded reservations for the scenario property (SIMULATED): nights `from` … `to - 1`, as indices from 28 Sep 2026. */
+/** Seeded reservations for the scenario property: nights `from` … `to - 1`, as indices from 28 Sep 2026. */
 export const STAYS: Stay[] = [
   { from: 3, to: 6, guest: 'Lena K.', channel: 'airbnb' }, { from: 10, to: 13, guest: 'Marco R.', channel: 'booking' },
   { from: 17, to: 19, guest: 'Aiko T.', channel: 'airbnb' }, { from: 23, to: 30, guest: 'Sam & Jo', channel: 'airbnb' },

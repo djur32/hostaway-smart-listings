@@ -1,8 +1,8 @@
-/* Photos · Hospitable's "All photos" model, made per channel (replica of the real Photos row, All photos page,
- * Re-order mode and Edit photo modal; REAL·PRODUCT screenshots 3, 8, 9, 10, 11).
+/* Photos · Hostaway's "All photos" model, made per channel (replica of the real Photos row, All photos page,
+ * Re-order mode and Edit photo modal; screenshots 3, 8, 9, 10, 11).
  * One library (the Base order) + per channel: which photos show, the order, the cover (= first shown photo),
  * a caption per platform, and one standardised "Room or area" tag that each channel uses its own way.
- * Values are SIMULATED; channel rules are REAL·PUBLIC (research/market/channel-constraints.md: Booking.com shows no
+ * Values are ; channel rules are (research/market/channel-constraints.md: Booking.com shows no
  * captions and tags photos from its own list; Airbnb's photo tour groups by room; Direct groups by page section). */
 import type { ListingChannel } from './sl3'
 import { tipsFor } from './sl3'
@@ -20,14 +20,14 @@ const activePid = () => appliedProperty() ?? PROPERTY_ID
 export const photoChannels = (): ListingChannel[] => propertyChannels(activePid())
 /** Names as the real Edit photo modal writes them ("Direct bookings", not "Direct"). */
 export const PHOTO_CH_NAME: Record<ListingChannel, string> = { airbnb: 'Airbnb', booking: 'Booking.com', direct: 'Direct bookings' }
-/** Channels that show a caption under a photo. Booking.com doesn't (REAL·PUBLIC, channel-constraints.md). */
+/** Channels that show a caption under a photo. Booking.com doesn't (channel-constraints.md). */
 export const CAPTION_CHANNELS: ListingChannel[] = ['airbnb', 'direct']
 export const NO_CAPTION_REASON = 'Booking.com doesn’t show photo captions. It uses the room tag below instead.'
 
 /* ---------- the standardised room tag (replaces Direct's "Direct section tag") ---------- */
 export type RoomTag = 'living' | 'bedroom' | 'kitchen' | 'bathroom' | 'workspace' | 'balcony' | 'building' | 'neighbourhood' | 'other'
 /** One tag, three uses: Airbnb's photo-tour room, Booking.com's photo tag, the Direct site's page section.
- * Direct sections are the real ones (screenshot 11). Airbnb/Booking.com names are ASSUMPTION (close to their public lists). */
+ * Direct sections are the real ones (screenshot 11). Airbnb/Booking.com names are (close to their public lists). */
 export const ROOM_TAGS: Array<{ id: RoomTag; label: string; airbnb: string; booking: string; direct: string }> = [
   { id: 'living', label: 'Living room', airbnb: 'Living room', booking: 'Living room', direct: 'Our Property' },
   { id: 'bedroom', label: 'Bedroom', airbnb: 'Bedroom 1', booking: 'Bedroom', direct: 'Our Property' },
@@ -62,7 +62,7 @@ export interface PhotoLib {
   /** The visible order last mirrored into sl3.custom[ch]['photos.order'] (what Canvas reads). */
   mirror: Partial<Record<ListingChannel, string>>
   /** "Use the Base" per channel: the channel shows the Base set in the Base order. Its own order and hidden photos are
-   *  kept, so "Customize" brings them back (Antonio 30 Sep). */
+   *  kept, so "Customize" brings them back (review 30 Sep). */
   useBase?: Partial<Record<ListingChannel, boolean>>
 }
 
@@ -74,7 +74,7 @@ const SEED_TAG: Record<PhotoKey, RoomTag> = {
  * at the active property later, and the scenario library must not pick that up (e.g. a Reset while on another property). */
 const NK_ORDER = [...PHOTO_ORDER.direct]
 const NK_CAPTION = { ...PHOTO_CAPTION }
-/** The scenario property's (Neukölln) library. SIMULATED: the Base order is the Direct site's; Booking.com never got the
+/** The scenario property's (Neukölln) library. the Base order is the Direct site's; Booking.com never got the
  *  paintings close-up or the hallway. Other properties: data/property-seeds.ts seedPhotoLibFor(pid). */
 export function seedPhotoLib(): PhotoLib {
   const base = [...NK_ORDER]

@@ -1,4 +1,4 @@
-/* F-A1 · Connect & import (SCR-01) · owner S10. Full-page takeover like Hospitable's connect flow (HS-07…15).
+/* F-A1 · Connect & import (SCR-01) · owner S10. Full-page takeover like Hostaway's connect flow (HS-07…15).
  * Steps: connect → importing → second-channel → connect-booking → importing?second=1 → match → found → [Overview › Needs you]
  *        → go-live → done.   Persona variants: P1/P4 plain + one by one, P2 every difference, P3 migration mode (D-136).
  * Demo failure/edge states: ?demo=<id> or the picker in the header (DEMO_STATES, D-137).

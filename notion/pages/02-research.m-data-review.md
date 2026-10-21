@@ -1,5 +1,5 @@
 <callout icon="🔭" color="gray_bg">
-	**Method · Planned** · Not run. No Hospitable data was available to me; this is what I'd pull and why. There are no results yet. The "Edit per channel" chart on <mention-page url="https://app.notion.com/p/3eee18af1645818094e8d80d9ddf2acd">Insights</mention-page> is a simulated illustration, not a result.
+	**Method · Planned** · Not run. No Hostaway data was available to me; this is what I'd pull and why. There are no results yet. The "Edit per channel" chart on <mention-page url="https://app.notion.com/p/3eee18af1645818094e8d80d9ddf2acd">Insights</mention-page> is a simulated illustration, not a result.
 </callout>
 ## Why this method
 Data before people. Exports show what hosts actually change and where they get stuck, across thousands of properties, so the interviews can explain a pattern instead of guessing one. The known bias: tickets and sales calls over-represent hosts who had problems, and larger accounts. In-app recruiting for the interviews balances it.
@@ -19,7 +19,7 @@ Data before people. Exports show what hosts actually change and where they get s
 	</tr>
 	<tr>
 		<td>Sales calls (Gong)</td>
-		<td>618 calls across 457 accounts `REAL·BRIEF`. All of them for counts; a stratified 60 (15 per portfolio size) listened to at the listing moments, with a second coder on 20%.</td>
+		<td>618 calls across 457 accounts . All of them for counts; a stratified 60 (15 per portfolio size) listened to at the listing moments, with a second coder on 20%.</td>
 		<td>Whether listing content and per-channel control come up in deals, and at which portfolio sizes.</td>
 		<td>RevOps / Gong owner</td>
 	</tr>
@@ -38,7 +38,7 @@ Data before people. Exports show what hosts actually change and where they get s
 	<tr>
 		<td>Public feedback board</td>
 		<td>Listing requests and their votes.</td>
-		<td>Demand nobody prompted. Example: "Ability to update all listing content from Hospitable", 322 votes, In Progress (`REAL·PUBLIC`, [feedback.hospitable.com](https://feedback.hospitable.com/p/two-way-sync-of-updates-to-listing-details)).</td>
+		<td>Demand nobody prompted. Example: "Ability to update all listing content from Hostaway", 322 votes, In Progress ([feedback.hostaway.com](https://feedback.hostaway.com/p/two-way-sync-of-updates-to-listing-details)).</td>
 		<td>Me</td>
 	</tr>
 </table>

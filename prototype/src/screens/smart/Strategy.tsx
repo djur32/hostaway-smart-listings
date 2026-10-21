@@ -6,7 +6,7 @@
  * summary · Open / Edit / ⋯ (Pause or Resume, Replace with a new strategy, Remove).
  * A channel without one says so, with Add a strategy. Open goes to the channel's detail (StrategyChannel.tsx): every
  * answer of its current strategy. Numbers stay in Performance.
- * 3 Oct, later (Antonio, overriding the above where they differ): no versions anywhere — no version numbers, no History,
+ * 3 Oct, later (review, overriding the above where they differ): no versions anywhere — no version numbers, no History,
  * no "Replace with a previous strategy". A channel has one current strategy; edit it or replace it in the wizard.
  * SCR: Strategy · R-072 / R-075. URL: ?smart=on seeds the demo strategies. */
 import { useEffect } from 'react'
@@ -65,7 +65,7 @@ export function Strategy() {
   )
 
   return (
-    // Antonio, 3 Oct: Add strategy sits on the description's line, not the title's; the line says what a strategy does,
+    // review, 3 Oct: Add strategy sits on the description's line, not the title's; the line says what a strategy does,
     // and stays one line at 1440. The head (title, description, Add strategy) stays while the rows scroll (4 Oct).
     <PageFrame head={<PageHead title="Strategy" property={p} desc={desc} descAction={add} />}>
       <div className="sl-page">

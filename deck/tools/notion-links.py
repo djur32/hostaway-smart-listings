@@ -14,19 +14,19 @@ for f in glob.glob(os.path.join(ROOT, 'plan/notion-v2/pages/*.md')):
 for u, t in re.findall(r'<page url="(https://app\.notion\.com/p/[0-9a-f]+)">([^<]+)</page>', open(os.path.join(ROOT, 'plan/notion-v2/pages/hub.md')).read()):
     NAMES[u] = re.sub(r'^\d\d · ', '', t.strip()) if False else t.strip()
 def resolve(key):
-    if key == 'hub': return M['hub'], 'Hospitable · Smart Listings'
+    if key == 'hub': return M['hub'], 'Hostaway · Smart Listings'
     if key == 'decision_log_db': return M['decision_log_db'], 'Decision log'
     if key.startswith('KD-'): u, t = M['decisions'][key]; return u, f'{key} · {t}'
     if '/' in key:
         sec, slug = key.split('/', 1); return M['pages'][sec][slug], None
     return M['sections'][key], None
-SHORT = {  # streamlined labels for the hint's list (Antonio, 4 Oct)
+SHORT = {  # streamlined labels for the hint's list (review, 4 Oct)
     'KD-01': 'Why Smart Listings only', 'KD-02': 'Facts live once, in Shared', 'KD-03': 'Why a channel-first menu',
     'KD-04': 'Four cases for every field', 'KD-05': 'Opt-in per property', 'KD-06': 'One strategy per channel',
     'KD-07': 'No versions: before and after', 'KD-08': 'Autopilot on or off', 'KD-09': 'Tips in one docked panel',
     'KD-10': 'One AI action per field', 'KD-11': 'Tips cover money too', 'KD-12': 'Hub facts feed tips',
     'KD-13': 'How the Hub is organised', 'KD-14': "The Canvas, the guests' page", 'KD-15': 'Save sends, with receipts',
-    'KD-16': "Replicate Hospitable's UI", 'KD-17': 'Bottom sheets on phones', 'KD-18': 'Label the sample, plan the tests',
+    'KD-16': "Replicate Hostaway's UI", 'KD-17': 'Bottom sheets on phones', 'KD-18': 'Label the sample, plan the tests',
     'KD-19': 'The north star, kept honest'}
 def kind_of(key):
     if key.startswith('KD-'): return 'Decision'

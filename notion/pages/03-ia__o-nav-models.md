@@ -1,7 +1,7 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Done** · Five ways Smart Listings could enter Hospitable's navigation, drawn in Paper and compared, and the one I chose. Provenance: the marks and click counts are `ASSUMPTION` (a review of the frames, not a test).
+	**Output · Done** · Five ways Smart Listings could enter Hostaway's navigation, drawn in Paper and compared, and the one I chose. Provenance: the marks and click counts are (a review of the frames, not a test).
 </callout>
-![Channel-first as drawn in Paper: Shared first, then one group per channel, here Airbnb's. The prototype's menu grew from this frame. Frame values SIMULATED and PROJECTED.](file-upload://3eee18af-1645-815f-a2b3-00b2a21c36e2)
+![Channel-first as drawn in Paper: Shared first, then one group per channel, here Airbnb's. The prototype's menu grew from this frame. Frame values and .](file-upload://3eee18af-1645-815f-a2b3-00b2a21c36e2)
 ## The short version
 - The IA work first recommended a **record-first** menu: one record of the home grouped by kind, a Listings page per channel and a "Needs you" layer. It was never built.
 - That recommendation came from an earlier exploration: seven structures compared by me against the product's own menu, not with hosts. Two ideas carried over into the menu as built: record-first's one home per fact became Shared, and state-first's "what needs you" became the tip counts on each channel page.
@@ -50,14 +50,14 @@
 </table>
 <details>
 <summary>The comparison board: criteria, host types, clicks per task</summary>
-	![The comparison board from the Paper round: five models scored on five criteria and four host types, where each piece lives, and clicks per task. All marks ASSUMPTION.](file-upload://3eee18af-1645-815f-b9e8-00b2dc586aed)
+	![The comparison board from the Paper round: five models scored on five criteria and four host types, where each piece lives, and clicks per task. All marks .](file-upload://3eee18af-1645-815f-b9e8-00b2dc586aed)
 </details>
 ## Why channel-first
 The evidence pointed two ways at once, and channel-first serves both:
-- What hosts keep **different per channel** is money and stay rules: the cleaning fee differs on 36% of multi-channel properties and the minimum stay on 30%, while no text field goes above 4.1% (`SIMULATED`).
-- Today no screen shows one listing, as a whole, on one channel (`REAL·PRODUCT`).
+- What hosts keep **different per channel** is money and stay rules: the cleaning fee differs on 36% of multi-channel properties and the minimum stay on 30%, while no text field goes above 4.1% ().
+- Today no screen shows one listing, as a whole, on one channel ().
 
-So pages stay grouped by kind inside Shared and inside each channel, and the channel is where a difference is made, which is also where tips act. On the frames, channel-first needed 12 clicks for five tasks, against 15–17 for the others (`ASSUMPTION`).
+So pages stay grouped by kind inside Shared and inside each channel, and the channel is where a difference is made, which is also where tips act. On the frames, channel-first needed 12 clicks for five tasks, against 15–17 for the others ().
 ## How its risk was designed out
 - **Shared values have one home, the Listing base.** A channel page shows them read-only ("Uses the Base") until the host customises them for that channel. A value that must match everywhere says "All channels".
 - **A channel page speaks only about its own channel.** No other channel's values appear on it, so it needs no channel selector.
@@ -65,7 +65,7 @@ So pages stay grouped by kind inside Shared and inside each channel, and the cha
 - **Smart Listings sits in Shared** and appears only when it's on.
 - **Still open:** the menu grows with each channel. With three, one open group at a time keeps it short; more channels are untested.
 ## How it was made
-Each model was drawn in Paper as two screens on Hospitable's real chrome, then reviewed against five criteria (findability, low overwhelm, per-channel clarity, fit with Hospitable's patterns, scale to 12 properties) and the four host types, with clicks counted on the frames for five tasks. It is an expert review, so the tree test is the real check. → <mention-page url="https://app.notion.com/p/3eee18af1645814595defdaab694e87d">Tree testing</mention-page>
+Each model was drawn in Paper as two screens on Hostaway's real chrome, then reviewed against five criteria (findability, low overwhelm, per-channel clarity, fit with Hostaway's patterns, scale to 12 properties) and the four host types, with clicks counted on the frames for five tasks. It is an expert review, so the tree test is the real check. → <mention-page url="https://app.notion.com/p/3eee18af1645814595defdaab694e87d">Tree testing</mention-page>
 ---
 **Builds on**
 - <mention-page url="https://app.notion.com/p/3eee18af16458168b8ede129bf1dc3a9">Object model</mention-page>
@@ -78,5 +78,5 @@ Each model was drawn in Paper as two screens on Hospitable's real chrome, then r
 - <mention-page url="https://app.notion.com/p/3eee18af164581f59e84e075de884cde">KD-03</mention-page>
 - <mention-page url="https://app.notion.com/p/3eee18af1645813ab697f55d6d253754">KD-02</mention-page>
 **In the prototype**
-- [The property menu](https://hospitable-case-web.digimal.studio/property/neukolln/overview)
+- [The property menu]()
 - <mention-page url="https://app.notion.com/p/3eee18af164581178debffa0628f4703">Listing base & channels</mention-page>

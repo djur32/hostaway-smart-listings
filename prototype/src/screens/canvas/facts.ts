@@ -3,7 +3,7 @@
  * Every one is read from the same place its settings page reads it, as this channel's effective value — the Rules
  * fields through the Canvas's own `text()` (Base › this channel's value › your edit), Policies through
  * useChannelPolicy / BOOKING_POLICY, Pricing through the same `price:<key>` rows (with this channel's markup) — so the
- * page can never contradict its settings. Wording follows each channel's real page (REAL·PUBLIC layout, SIMULATED values). */
+ * page can never contradict its settings. Wording follows each channel's real page (layout, values). */
 import { AIRBNB_CANCELLATION, AIRBNB_LONG_TERM, BOOKING_POLICY, DIRECT_CANCELLATION, optionById, type ChannelPolicy } from '../../data/policies'
 import { pricesFor, type PriceLine } from '../../data/property-listing'
 import type { ListingChannel } from '../../data/sl3'
@@ -25,7 +25,7 @@ export function priceNum(pid: string, ch: ListingChannel, s: SL3State, tab: Pric
 }
 
 /** What a guest pays on this channel's page: Pricing's rates plus this channel's markup, its cleaning fee, and Airbnb's
- *  guest service fee (14%, SIMULATED). The same for every property, the scenario one included. */
+ *  guest service fee (14%, ). The same for every property, the scenario one included. */
 export function canvasPriceLine(pid: string, ch: ListingChannel, s: SL3State): PriceLine {
   const markup = priceNum(pid, ch, s, 'base', 'markup')
   const up = (x: number) => Math.round(x * (1 + markup / 100))

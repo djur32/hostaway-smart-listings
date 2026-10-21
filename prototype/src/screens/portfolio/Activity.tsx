@@ -14,7 +14,7 @@ export function Activity() {
   const exportCsv = () => {
     const rows = [['When', 'Who', 'What', 'Property', 'Result', 'Note'], ...list.flatMap((e) => e.details.map((d) => [e.at, e.who, e.what, d.property, d.result, d.note ?? '']))]
     const blob = new Blob([rows.map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(',')).join('\n')], { type: 'text/csv' })
-    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'hospitable-activity.csv'; a.click()
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'hostaway-activity.csv'; a.click()
   }
   return (
     <div className="p-mt4">

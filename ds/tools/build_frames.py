@@ -41,7 +41,7 @@ def page(title, sub, body, active='properties', app_style='', outside=''):
   <aside data-shell="sidebar" data-active="{active}"></aside>
   {subnav}
   {body}
-  <button class="h-chat-fab h-chat-fab--fixed" aria-label="Chat with Hospitable" data-hmark></button>
+  <button class="h-chat-fab h-chat-fab--fixed" aria-label="Chat with Hostaway" data-hmark></button>
 </div>{outside}
 </div></body></html>
 '''
@@ -83,7 +83,7 @@ F['security-deposit'] = page('Pricing › Security deposit (HS-35)', 'pricing', 
 <p style="margin:8px 0 0">Learn more:&nbsp; <a class="h-link">Security deposit overview</a>&nbsp; <a class="h-link">What guests see</a>&nbsp; <a class="h-link">Submitting charge request</a></p>
 <h3 class="h-h3" style="margin-top:48px">Who collects the deposit from guests?</h3>
 <div class="h-radio-cards" style="margin-top:12px">
-<label class="h-radio-card"><input class="h-radio" type="radio" name="d"><div><div class="h-radio-card__title">Hospitable collects and refunds it <span class="h-pill h-pill--lg h-pill--recommended">Recommended</span></div><div class="h-radio-card__desc">We'll automatically charge the guest 2 days before check-in and refund them 2 days after checkout. A 2% fee applies.</div></div></label>
+<label class="h-radio-card"><input class="h-radio" type="radio" name="d"><div><div class="h-radio-card__title">Hostaway collects and refunds it <span class="h-pill h-pill--lg h-pill--recommended">Recommended</span></div><div class="h-radio-card__desc">We'll automatically charge the guest 2 days before check-in and refund them 2 days after checkout. A 2% fee applies.</div></div></label>
 <label class="h-radio-card"><input class="h-radio" type="radio" name="d" checked><div><div class="h-radio-card__title">Host collects it manually</div><div class="h-radio-card__desc">You handle payment and refund off-platform.</div></div></label>
 <label class="h-radio-card"><input class="h-radio" type="radio" name="d"><div><div class="h-radio-card__title">Leave my booking unsecured</div></div></label>
 </div>
@@ -95,7 +95,7 @@ F['security-deposit'] = page('Pricing › Security deposit (HS-35)', 'pricing', 
 ROWS = [('New request to book', 'New request to book'), ('New reservation', 'New reservation'),
         ('First morning', '18 hours after check-in'), ('Check-out instructions', '18 hours before check-out'),
         ('Review request', '3 days after check-out')]
-PLAT = f'<span class="h-marks">{M("hospitable")}{M("airbnb")}{M("vrbo")}{M("booking")}{M("agoda", "h-mark is-inactive")}</span>'
+PLAT = f'<span class="h-marks">{M("hostaway")}{M("airbnb")}{M("vrbo")}{M("booking")}{M("agoda", "h-mark is-inactive")}</span>'
 trs = ''.join(f'<tr><td><span class="h-badge-scoped">Scoped</span></td><td class="h-table__name">{a}</td><td>{b}</td>'
               f'<td><span class="h-badge-count">All</span></td><td><span class="h-badge-count">All</span></td><td>{PLAT}</td></tr>'
               for a, b in ROWS)
@@ -123,12 +123,12 @@ F['properties-all'] = page('Properties › All (HS-16)', None, f'''<nav class="h
 <div class="h-segnav__group">{I('tag')}Tag</div></nav>
 <main class="h-content"><div class="h-content__inner">
 <h1 class="h-h1" style="margin-top:-16px">All</h1>
-<p class="h-intro" style="margin-top:12px">Group identical listings into a property on Hospitable by merging them, or configure parent-child relationships between your properties. Use these features to easily manage your availability calendar and pricing across connected booking platforms.</p>
+<p class="h-intro" style="margin-top:12px">Group identical listings into a property on Hostaway by merging them, or configure parent-child relationships between your properties. Use these features to easily manage your availability calendar and pricing across connected booking platforms.</p>
 <div class="h-helplinks h-intro--rule" style="margin-top:8px">{links}</div>
 <div style="margin-top:20px"><a class="h-action-green" style="margin-left:6px">+ Filter</a></div>
 <div class="h-input-wrap" style="margin-top:22px">{I('search', 'h-icon h-icon--24')}<input class="h-input" placeholder="Property or listing name"></div>
 <div class="h-prop-row is-inactive" style="margin-top:14px"><input class="h-checkbox" type="checkbox" checked><span class="h-prop-row__thumb"></span><div class="h-prop-row__main"><div class="h-prop-row__title">Beautiful Artist Apt. in Neukolln <span class="h-pill h-pill--unlisted">Unlisted</span></div><div class="h-prop-row__meta">1 listing</div></div>
-<span class="h-marks">{M("hospitable", "h-mark is-inactive")}{M("airbnb")}{M("vrbo", "h-mark is-inactive")}{M("booking", "h-mark is-inactive")}{M("agoda", "h-mark is-inactive")}</span></div>
+<span class="h-marks">{M("hostaway", "h-mark is-inactive")}{M("airbnb")}{M("vrbo", "h-mark is-inactive")}{M("booking", "h-mark is-inactive")}{M("agoda", "h-mark is-inactive")}</span></div>
 </div>
 <div class="h-selection-bar" style="position:absolute;left:118px;bottom:40px"><span class="h-selection-bar__count">1 property selected {I('chevron-down', 'h-icon h-icon--16')}</span><button class="h-btn h-btn--secondary">Clear</button></div>
 </main>''', app_style=' style="grid-template-columns:var(--sidebar-width) var(--subnav-width) minmax(0,1fr)"')
@@ -157,7 +157,7 @@ F['knowledge-modal'] = page('Knowledge Hub › New knowledge (HS-57)', 'knowledg
 
 # HS-01 · Onboarding, property count (no app shell)
 stats = ''.join(f'<div class="h-stat"><span class="h-stat__icon">{I(i)}</span><div><div class="h-stat__value">{v}</div><div class="h-stat__label">{l}</div></div></div>'
-                for i, v, l in [('user', '24,000+', 'Hosts like you trust Hospitable'),
+                for i, v, l in [('user', '24,000+', 'Hosts like you trust Hostaway'),
                                 ('sparkles', '55,000+', 'AI-crafted replies sent every day'),
                                 ('coin', '$19.5+ Million', 'In booking income processed daily')])
 tiles = ''.join(f'<button class="h-choice-tile">{t}</button>' for t in ['1 - 2', '3 - 10', '11 - 24', '25+', "I don't manage a property yet"])
@@ -166,10 +166,10 @@ F['onboarding-count'] = f'''<!doctype html><html lang="en"><head><title>Fidelity
 <body class="h-root"><div class="frame">
 <div class="h-onboarding">
  <aside class="h-onboarding__aside">
-  <span class="h-logo" style="color:var(--color-grape-darker);font-size:22px"><span data-hmark style="display:inline-flex;width:18px;height:22px;color:var(--color-channel-direct)"></span>hospitable</span>
+  <span class="h-logo" style="color:var(--color-grape-darker);font-size:22px"><span data-hmark style="display:inline-flex;width:18px;height:22px;color:var(--color-channel-direct)"></span>hostaway</span>
   <p class="h-onboarding__tagline" style="margin-top:18px">Put your short-term<br>rental on autopilot.</p>
   {stats}
-  <div class="h-testimonial"><span class="h-avatar h-avatar--24"></span><p style="margin:12px 0 0">"I don't think you could even calculate the time Hospitable would save us in a week, to be honest."</p><div class="h-testimonial__who">Tammy and Jade at Ready Set Stay</div><div class="h-muted">Melbourne, Australia</div></div>
+  <div class="h-testimonial"><span class="h-avatar h-avatar--24"></span><p style="margin:12px 0 0">"I don't think you could even calculate the time Hostaway would save us in a week, to be honest."</p><div class="h-testimonial__who">Tammy and Jade at Ready Set Stay</div><div class="h-muted">Melbourne, Australia</div></div>
  </aside>
  <section class="h-onboarding__card">
   <div class="h-onboarding__body"><div class="h-onboarding__q">

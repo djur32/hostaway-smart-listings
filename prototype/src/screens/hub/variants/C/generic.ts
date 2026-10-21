@@ -1,6 +1,6 @@
 /* KH-C · the standard guest questions for a property that isn't the scenario one (multi-property, QA B01/B02).
- * Neukölln keeps its 48 questions clustered from 312 conversations (data.ts, SIMULATED). Every other property has no message
- * history yet, so its questions are the standard ones every host gets (ASSUMPTION), spread over the journey stages. Each
+ * Neukölln keeps its 48 questions clustered from 312 conversations (data.ts, ). Every other property has no message
+ * history yet, so its questions are the standard ones every host gets, spread over the journey stages. Each
  * answer is built from the property's own Hub facts per channel (perProperty genericAnswer where it fits), and its coverage
  * is computed from them: answered when every channel has the facts, partly when some do, not answered when none do.
  * No "asked N times" counts, no gaps (they come from guest messages), no message history or guidebook. */

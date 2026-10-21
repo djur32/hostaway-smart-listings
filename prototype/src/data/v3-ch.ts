@@ -1,11 +1,11 @@
 /* Smart Listing v3 · WS-CH data (channel overview, Classic editor layout, pricing, policies).
- * SIMULATED scenario values (concepts/SCENARIO.md); screen structure REAL·PRODUCT (HS-21…HS-39, HS-47, HS-L10/L11).
+ * scenario values (concepts/SCENARIO.md); screen structure (HS-21…HS-39, HS-47, HS-L10/L11).
  * Appends to data/sl3.ts; never edits it. */
 import { CHECKIN_METHODS, FIELDS, fieldOn, type FieldDef, type ListingChannel, type ListingTab, type WhyPoint } from './sl3'
 import { currentUser } from './users'
 import type { FieldState } from '../ds/sl3'
 
-/* ---------- Classic editor: which fields each tab shows, in Hospitable's order ---------- */
+/* ---------- Classic editor: which fields each tab shows, in Hostaway's order ---------- */
 /** Extra rows the Classic editor needs that data/sl3.ts doesn't carry (Location facts as in HS-24/25). */
 export const EXTRA_FIELDS: FieldDef[] = [
   { key: 'country', tab: 'location', label: 'Country / region', help: 'Where the property is.', kind: 'text', state: { airbnb: 'listing', booking: 'listing', direct: 'listing' }, base: 'Germany' },
@@ -16,9 +16,9 @@ export const EXTRA_FIELDS: FieldDef[] = [
   { key: 'checkin_end', tab: 'rules', label: 'Check-in time ends', help: 'The latest guests can arrive.', kind: 'time', state: { airbnb: 'listing', booking: 'listing', direct: 'listing' }, base: '10:00 PM' },
 ]
 
-/** V3-SPEC §1: Essentials is complete. Neighbourhood and Getting around stay in Location, as in Hospitable today (HS-25). */
-/** Fields nobody edits after the listing exists (Antonio, 3 Oct): the disabled field with a lock and this reason, on the
- *  Base and on every channel. ASSUMPTION wording. The pin keeps its own Edit (it can be nudged). */
+/** V3-SPEC §1: Essentials is complete. Neighbourhood and Getting around stay in Location, as in Hostaway today (HS-25). */
+/** Fields nobody edits after the listing exists (review, 3 Oct): the disabled field with a lock and this reason, on the
+ *  Base and on every channel. wording. The pin keeps its own Edit (it can be nudged). */
 const LOCATION_FIXED = 'The address is set when the listing is created and can’t be changed afterwards.'
 export const FIXED_FIELDS: Record<string, string> = {
   type: 'Property type is set when the listing is created and can’t be changed afterwards.',
@@ -27,7 +27,7 @@ export const FIXED_FIELDS: Record<string, string> = {
 }
 export const TAB_FIELDS: Record<Exclude<ListingTab, 'amenities'>, string[]> = {
   essentials: ['photos', 'name', 'summary', 'space', 'other', 'type', 'room', 'tags', 'languages'],
-  // Hospitable's real Arrival order (HS-A01…A03): Getting inside and setup, then Guest resources
+  // Hostaway's real Arrival order (HS-A01…A03): Getting inside and setup, then Guest resources
   arrival: ['method', 'method_details', 'wifi_name', 'wifi_password', 'manual', 'access', 'interaction', 'checkout_tasks', 'guidebook', 'rental_agreement', 'upsell'],
   location: ['country', 'address', 'unit', 'city', 'state', 'zip', 'pin', 'directions', 'neighbourhood', 'getting_around'],
   rules: ['checkin', 'checkin_end', 'checkout', 'house_rules', 'children', 'infants', 'pets', 'smoking', 'events'],
@@ -41,7 +41,7 @@ export const tabOfField = (key: string): ListingTab => {
   for (const [t, keys] of Object.entries(TAB_FIELDS)) if (keys.includes(key)) return t as ListingTab
   return 'amenities'
 }
-/** Options for the select rows, and help lines Hospitable shows on the Rules toggles (HS-28/29). */
+/** Options for the select rows, and help lines Hostaway shows on the Rules toggles (HS-28/29). */
 export const FIELD_OPTIONS: Record<string, string[]> = {
   checkin: ['12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', 'Flexible'],
   method: CHECKIN_METHODS,
@@ -97,7 +97,7 @@ export const CHANNEL_META: Record<ListingChannel, ChannelMeta> = {
     ],
   },
   direct: {
-    connection: 'Your booking site', account: 'artistflat.hospitable.rentals', synced: 'Instant', live: 'Live on your site', liveSub: 'Anyone with the link can book',
+    connection: 'Your booking site', account: 'artistflat.hostaway.rentals', synced: 'Instant', live: 'Live on your site', liveSub: 'Anyone with the link can book',
     kpis: { occ: 12, adr: 51, stay: 3.0, revpar: 6, occDelta: '+2 pts', adrDelta: '+€1', stayDelta: '0', revparDelta: '+€1' },
     owned: [],
     only: [],
@@ -105,12 +105,12 @@ export const CHANNEL_META: Record<ListingChannel, ChannelMeta> = {
 }
 
 /* ---------- pricing (HS-30, HS-33, HS-L10, HS-L11) ---------- */
-/** How a fee is charged (Antonio, 3 Oct, from Hospitable's Fees tab): which rows let the host pick the basis ("per stay",
+/** How a fee is charged (review, 3 Oct, from Hostaway's Fees tab): which rows let the host pick the basis ("per stay",
  *  "per guest", "per night"…) and which also pick the currency. Cleaning is always once per stay. Kept as ordinary Base
  *  keys `price:<key>@unit` / `price:<key>@cur` in the section draft, so they save with the rest. */
 export const FEE_BASES: Record<string, { options: string[]; dflt: string; currency?: boolean }> = {
   linens: { options: ['per guest', 'per stay'], dflt: 'per stay' },
-  resort: { options: ['per stay', 'per guest', 'per night', 'per guest per night'], dflt: 'per stay' }, // a fixed € on every fee row (Antonio, 6 Oct); the currency picker was dropped
+  resort: { options: ['per stay', 'per guest', 'per night', 'per guest per night'], dflt: 'per stay' }, // a fixed € on every fee row (review, 6 Oct); the currency picker was dropped
   management: { options: ['per stay', 'per guest', 'per night', 'per guest per night'], dflt: 'per stay' },
   community: { options: ['per stay', 'per guest', 'per night', 'per guest per night'], dflt: 'per stay' },
   pet: { options: ['per stay', 'per night', 'per pet per stay', 'per pet per night'], dflt: 'per pet per stay' },
@@ -131,21 +131,21 @@ export const PRICES: Record<PriceTab, PriceRow[]> = {
   occupancy: [
     { key: 'included', label: 'Guests included', help: 'Guests included in the nightly rate.', unit: 'guests', base: 1, state: { airbnb: 'inherit', booking: 'inherit', direct: 'inherit' } },
     { key: 'extra', label: 'Extra guest fee', help: 'Per extra guest, per night.', unit: '€', base: 10, state: { airbnb: 'inherit', booking: 'inherit', direct: 'inherit' } },
-    { key: 'max', label: 'Maximum occupancy', help: 'The most guests a booking can have.', unit: 'guests', base: 2, state: { airbnb: 'inherit', booking: 'inherit', direct: 'inherit' } }, // editable, and per channel (Antonio, 3 Oct)
+    { key: 'max', label: 'Maximum occupancy', help: 'The most guests a booking can have.', unit: 'guests', base: 2, state: { airbnb: 'inherit', booking: 'inherit', direct: 'inherit' } }, // editable, and per channel (review, 3 Oct)
   ],
   fees: [
     { key: 'cleaning', label: 'Cleaning fee', help: 'Charged once per stay to cover cleaning between guests.', unit: '€', base: 25, state: { airbnb: 'inherit', booking: 'override', direct: 'inherit' }, value: { booking: 30 } },
     { key: 'short_clean', label: 'Airbnb short term cleaning fee', help: 'Charged on Airbnb reservations that are 1-2 nights long.', unit: '€', base: 0, state: { airbnb: 'only' }, value: { airbnb: 15 } },
     { key: 'pet', label: 'Pet fee', help: 'Charged for each pet. Does not include service animals.', unit: '€', base: 20, state: { airbnb: 'inherit', booking: 'inherit', direct: 'inherit' } },
     // Listing base › Pricing (base/Pricing.tsx, 1 Oct): the real product's Fees tab shows these as real editable
-    // rows, not static "€0 per stay" text (concepts/smart-listing/refs/base-pricing/README.md). SIMULATED defaults.
+    // rows, not static "€0 per stay" text (concepts/smart-listing/refs/base-pricing/README.md). defaults.
     { key: 'linens', label: 'Linens fee', help: 'Covers fresh linens and laundry for each stay.', unit: '€', base: 0, state: { airbnb: 'inherit', booking: 'inherit', direct: 'inherit' } },
     { key: 'resort', label: 'Resort fee', help: 'For resort-style properties: pools, gyms and other on-site facilities.', unit: '€', base: 0, state: { airbnb: 'inherit', booking: 'inherit', direct: 'inherit' } },
     { key: 'management', label: 'Management fee', help: 'Covers the cost of managing the booking and the stay.', unit: '€', base: 0, state: { airbnb: 'inherit', booking: 'inherit', direct: 'inherit' } },
     { key: 'community', label: 'Community fee', help: 'Charged by the building or community for shared spaces.', unit: '€', base: 0, state: { airbnb: 'inherit', booking: 'inherit', direct: 'inherit' } },
   ],
   discounts: [
-    // Antonio, 3 Oct: Weekly and Monthly, each a Base value that Airbnb and Direct use and that Booking.com sets for itself
+    // review, 3 Oct: Weekly and Monthly, each a Base value that Airbnb and Direct use and that Booking.com sets for itself
     // (its own value, edited on Booking.com's page; its Genius deals aren't mentioned on the Base). Replaces the earlier
     // "monthly is Airbnb-only" and the "Booking.com sets it" lock.
     { key: 'weekly', label: 'Weekly discount', help: 'Applies for any stays of 7 nights or longer.', unit: '%', base: 5, state: { airbnb: 'inherit', booking: 'override', direct: 'inherit' }, value: { booking: 10 } },

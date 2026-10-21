@@ -1,15 +1,15 @@
 /* Knowledge Hub iteration R · data (concepts/knowledge-hub/KH-NEXT.md, "Revision · 1 Oct").
- * The nine topics are Hospitable's real Knowledge Hub categories (REAL·PRODUCT, ref 08); the fact-type taxonomy and the
- * question→topic remap are this iteration's own (SIMULATED), built on top of C's 48 scripted questions (C/data.ts) and
+ * The nine topics are Hostaway's real Knowledge Hub categories (ref 08); the fact-type taxonomy and the
+ * question→topic remap are this iteration's own, built on top of C's 48 scripted questions (C/data.ts) and
  * the generic question set (C/generic.ts) so every answer and every fact is reused, never re-authored. */
 import type { ListingChannel } from '../../../../data/sl3'
 import { detailOf } from '../../../../data/portfolio'
 import { currentUser } from '../../../../data/users'
 import type { Answer, Question, Reader } from '../C/data'
 
-/* ---------- the nine topics (REAL·PRODUCT, ref 08-hospitable-kh-topics.png) ----------
+/* ---------- the nine topics (ref 08-hostaway-kh-topics.png) ----------
  * `icon` and `desc` (Agent R-overview2, second revision): the Overview's topic cards need an icon and a one-line
- * description per topic; both are this iteration's own words (SIMULATED), the icons picked from the sprite we already
+ * description per topic; both are this iteration's own words, the icons picked from the sprite we already
  * ship (ds/icons/sprite.svg) rather than inventing new art. */
 export type RTopicId = 'amenities' | 'arrival' | 'cleaning' | 'contact' | 'departure' | 'rules' | 'transport' | 'trash' | 'wifi'
 export const R_TOPICS: Array<{ id: RTopicId; label: string; icon: string; desc: string }> = [
@@ -28,7 +28,7 @@ export const topicLabel = (id: RTopicId) => R_TOPICS.find((t) => t.id === id)!.l
 export const topicIcon = (id: RTopicId) => R_TOPICS.find((t) => t.id === id)!.icon
 export const topicDesc = (id: RTopicId) => R_TOPICS.find((t) => t.id === id)!.desc
 
-/* ---------- the fact-type taxonomy (Antonio, revision: "different types of facts… added in a way that is meaningful") ---------- */
+/* ---------- the fact-type taxonomy (review, revision: "different types of facts… added in a way that is meaningful") ---------- */
 export type RFactKind = 'yesno' | 'text' | 'number' | 'time' | 'steps' | 'contact' | 'place' | 'link'
 export const R_FACT_KINDS: Array<{ id: RFactKind; label: string; icon: string }> = [
   { id: 'yesno', label: 'Yes / No', icon: 'circle-check' },
@@ -42,7 +42,7 @@ export const R_FACT_KINDS: Array<{ id: RFactKind; label: string; icon: string }>
 ]
 export const kindOf = (id: RFactKind) => R_FACT_KINDS.find((k) => k.id === id)!
 
-/* ---------- where an added fact comes from (KH-NEXT-3.md, Antonio: "if you add a fact and it comes from somewhere,
+/* ---------- where an added fact comes from (KH-NEXT-3.md, review: "if you add a fact and it comes from somewhere,
  * make sure you can choose that, and you should be able to see where something comes from") — a short fixed list, the
  * same vocabulary Sources.tsx already uses for what the AI reads ("Listing details", "Past guest conversations"), not
  * a new subsystem. The host picks one in the Add-fact flow; every fact (seeded or added) shows it via `RFactRow`'s
@@ -50,7 +50,7 @@ export const kindOf = (id: RFactKind) => R_FACT_KINDS.find((k) => k.id === id)!
 export const R_FACT_SOURCES = ['Told by the host', 'From a past guest conversation', 'From the listing', 'From a guidebook or document'] as const
 export type RFactSource = typeof R_FACT_SOURCES[number]
 
-/** A plain time list for the "Time" fact type (half-hour steps; no native time input, Antonio's rule). */
+/** A plain time list for the "Time" fact type (half-hour steps; no native time input, review's rule). */
 export const R_TIME_OPTIONS: string[] = (() => {
   const out: string[] = []
   for (let h = 6; h <= 23; h++) for (const m of [0, 30]) {
@@ -92,7 +92,7 @@ const QUESTION_TOPIC: Record<string, RTopicId> = {
   // wifi/internet
   'a-wifi': 'wifi',
 }
-/** Dropped outright (Antonio, 1 Oct: "don't talk about specific weeks"). */
+/** Dropped outright (review, 1 Oct: "don't talk about specific weeks"). */
 export const DROPPED_QUESTIONS = new Set(['p-week'])
 /** Reworded away from a relative-to-today phrasing ("book for tomorrow" depends on when you ask). */
 export const REWORDED_TEXT: Record<string, string> = { 'p-tomorrow': 'How much notice do you need before a booking?' }
@@ -107,8 +107,8 @@ export const answerFor = (q: Question, r: Reader, c: ListingChannel): Answer => 
 /** Every question R shows: has a topic, isn't dropped. */
 export const rQuestions = (qs: Question[]) => qs.filter((q) => !DROPPED_QUESTIONS.has(q.id) && topicOf(q.id))
 
-/* ---------- the Contact topic's seed fact (Antonio: "seed 1 new Contact-type fact… build it from profile data") ----------
- * No phone/email field exists anywhere in the data model (SIMULATED: deterministic per property, not randomised, so it
+/* ---------- the Contact topic's seed fact (review: "seed 1 new Contact-type fact… build it from profile data") ----------
+ * No phone/email field exists anywhere in the data model (deterministic per property, not randomised, so it
  * reads the same every time). The name is real data (data/portfolio.ts detailOf().owner). */
 export function hostContactOf(pid: string): { name: string; phone: string; email: string } {
   const owner = detailOf(pid).owner

@@ -1,5 +1,5 @@
 /* Channels › {channel} › Pricing (V3-SPEC §3). Owner WS-CH.
- * Hospitable's Pricing screens (HS-30 Base price, HS-L10 Occupancy based, HS-33 Fees, HS-L11 Discounts) for one channel:
+ * Hostaway's Pricing screens (HS-30 Base price, HS-L10 Occupancy based, HS-33 Fees, HS-L11 Discounts) for one channel:
  * every row says whether it is shared by all channels, uses the Base, is custom here or is set by the channel.
  * Money never changes on its own: with Autopilot on, a price tip still waits for Accept (CV-07).
  * URL states: ?tab=base|occupancy|fees|discounts · ?smart=on|off · ?tip=p-a-weekly
@@ -33,14 +33,14 @@ const DESC: Record<PriceTab, string> = {
 }
 
 /** The channel's own ceiling on a fee. Save is blocked above it and the host reads why in a top toast (and inline).
- *  Airbnb cleaning fee ≤ €627.73: REAL·PRODUCT, Hospitable's mobile web app (Antonio's capture, images/45, 30 Sep 2026). */
+ *  Airbnb cleaning fee ≤ €627.73: Hostaway's mobile web app (review's capture, images/45, 30 Sep 2026). */
 const FEE_LIMITS: Partial<Record<ListingChannel, Record<string, { max: number; what: string }>>> = {
   airbnb: { cleaning: { max: 627.73, what: 'cleaning fee' } },
 }
 const eur = (n: number) => `€${n.toFixed(2)}`
 
 /* ---------- the property-wide panels (Dynamic Pricing, Security deposit, "Edit per channel") ---------- *
- * D-927 (Antonio, 1 Oct): Hospitable's own drill-downs replace the whole screen; ours slide in instead and keep what you
+ * D-927 (review, 1 Oct): Hostaway's own drill-downs replace the whole screen; ours slide in instead and keep what you
  * came from in view (ds/panels.tsx). Reuses the Calendar's panel content (screens/pricing/PricingPanels.tsx) rather than
  * re-deriving it, since it already reads/writes the same price:* keys this page does. This page's own inline Customize
  * (ScopedRow, above) is unaffected — the panel is a second, independent draft that commits on its own Save, the same way
@@ -202,7 +202,7 @@ function Pricing({ c }: { c: ListingChannel }) {
           : r.key === 'short_clean' ? <><p className="h-field-note">Price pushed to Airbnb: €{r.value?.airbnb ?? r.base}</p><p className="h-field-note"><button type="button" className="h-textlink" onClick={() => setHideShort(true)}>Hide short term cleaning fee</button></p></> : undefined}
         control={(v, write, locked, disabled, refs) => locked ? <Locked fixed={!!r.setBy?.[c]}>{r.setBy?.[c] ? 'Set on Booking.com' : `${v} ${r.unit === 'guests' ? 'guests' : r.unit}`}</Locked> : (
           /* NumberField (ds/v3-ch.tsx): the same input + unit as before, now with the shared up/down spinner and
-             Up/Down key support (Antonio, 1 Oct). The sanitising below is unchanged, so the draft/validation path
+             Up/Down key support (review, 1 Oct). The sanitising below is unchanged, so the draft/validation path
              and the over-limit error are exactly what they were. Money steps by 1, percentages and guests by 1 too. */
           <NumberField label={r.label} value={v} disabled={disabled} invalid={invalid}
             describedBy={invalid ? `err-${r.key}` : undefined} inputRef={refs.input}
@@ -227,7 +227,7 @@ function Pricing({ c }: { c: ListingChannel }) {
     <div className="ch-editor">
       <div className="ch-editor__head">
         <div className="ch-page">
-          {/* strategy / Autopilot as one short line (Antonio 30 Sep), never a banner; prices always ask, even on Autopilot */}
+          {/* strategy / Autopilot as one short line (review 30 Sep), never a banner; prices always ask, even on Autopilot */}
           <PageHead lead={<ChannelLead c={c} />} title="Pricing" property={p}
             actions={<>
               {active && plan.mode === 'autopilot' && !paused && <span className="ch-autoline" role="status"><Icon name="rocket" size={16} />Autopilot is on · prices always ask you first</span>}
@@ -286,10 +286,10 @@ function Pricing({ c }: { c: ListingChannel }) {
 }
 
 /* ---------- Pricing tips (shared by this screen and the property rail's per-page count) ----------
- * Antonio, 3 Oct: "recommendations not only in the Listing page, but also in Pricing… the tips should appear next to
+ * review, 3 Oct: "recommendations not only in the Listing page, but also in Pricing… the tips should appear next to
  * whatever it is that the tip is for": one per tab, each tied to the row it would change (`field` = that row's id),
  * with the purple dot after the row's label (SettingRow tips/onTip via screenTips rowTip) and a count on its tab.
- * SIMULATED: every number is derived from this channel's own saved rows; the reasoning is strategy, not measured data.
+ * every number is derived from this channel's own saved rows; the reasoning is strategy, not measured data.
  * Gated like every channel tip (screenTips useTipsGate); a hidden or read-only row (Field visibility) has no tip.
  * `propose` is the screen's own Accept for the three draft tips (the rail passes none: it only counts). The money tip
  * (CV-07, Weekly discount) is the scenario property's Airbnb only, unchanged: its Accept is the reviewed commit through

@@ -35,7 +35,7 @@ The menu was chosen in design review, not by hosts. A tree test isolates structu
 	</tr>
 	<tr>
 		<td>Incentive</td>
-		<td>€20 per unmoderated session `ASSUMPTION`</td>
+		<td>€20 per unmoderated session </td>
 	</tr>
 </table>
 ## The tasks

@@ -1,5 +1,5 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Done** · 57 real screens from Mobbin, studied for the twelve Smart Listings directions explored in Paper, plus the review, publish and undo moments every direction shares. Third-party UI (`REAL·PUBLIC`), saved as local copies because Mobbin image links expire. Each screen links to its Mobbin page, which needs a Mobbin login. Internal reference: keep this page private.
+	**Output · Done** · 57 real screens from Mobbin, studied for the twelve Smart Listings directions explored in Paper, plus the review, publish and undo moments every direction shares. Third-party UI (), saved as local copies because Mobbin image links expire. Each screen links to its Mobbin page, which needs a Mobbin login. Internal reference: keep this page private.
 </callout>
 Each direction was built on established patterns from these products. What survived is on <mention-page url="https://app.notion.com/p/3eee18af1645815aa317e53bdcf8435d">Concept directions</mention-page>.
 Each group opens below: the screen, then what I borrowed from it.
@@ -47,7 +47,7 @@ Each group opens below: the screen, then what I borrowed from it.
 			**Klaviyo** · Pinned preview that shows each state of the section being edited · [Open on Mobbin](https://mobbin.com/screens/c35d3e1b-68e2-47cb-8645-3231321a7de7) {color="gray"}
 		</column>
 	</columns>
-### B3 · Copilot on every screen (4) {toggle="true"}
+### B3 · the assistant on every screen (4) {toggle="true"}
 	Became the docked Tips panel and Rewrite with AI. {color="gray"}
 	<columns>
 		<column>
@@ -203,7 +203,7 @@ Each group opens below: the screen, then what I borrowed from it.
 	<columns>
 		<column>
 			![HoneyBook: "Let's start step-by-step" 6/7 with a check per task, minutes per task, and a sidebar "Set up your account" progress widget](file-upload://3efe18af-1645-818a-8f4c-00b254543369)
-			**HoneyBook** · Time estimate per task ("2 min") and a persistent progress widget in the Hospitable sidebar · [Open on Mobbin](https://mobbin.com/screens/7c915d6b-2a99-4eb0-956d-e7a3a97bb265) {color="gray"}
+			**HoneyBook** · Time estimate per task ("2 min") and a persistent progress widget in the Hostaway sidebar · [Open on Mobbin](https://mobbin.com/screens/7c915d6b-2a99-4eb0-956d-e7a3a97bb265) {color="gray"}
 		</column>
 		<column>
 			![Vanta: "Finish Starter Guide 15/20" with sections "x of y complete", an expanded section showing locked sub-steps](file-upload://3efe18af-1645-8110-815f-00b2b5688c99)
@@ -243,7 +243,7 @@ Each group opens below: the screen, then what I borrowed from it.
 	</columns>
 	<columns>
 		<column>
-			![Profound: Heat-matrix of competitors × platforms (ChatGPT, Google AI Overviews, Copilot) with the user's row marked "Selected"](file-upload://3efe18af-1645-81c7-b8a1-00b288463eb1)
+			![Profound: Heat-matrix of competitors × platforms (ChatGPT, Google AI Overviews, the assistant) with the user's row marked "Selected"](file-upload://3efe18af-1645-81c7-b8a1-00b288463eb1)
 			**Profound** · Comps × channel matrix (Airbnb vs Booking⁠.com) on Overview to show where the gap is channel-specific · [Open on Mobbin](https://mobbin.com/screens/58b40c44-7fe9-4085-9340-aa12d196c8a1) {color="gray"}
 		</column>
 		<column>
@@ -251,7 +251,7 @@ Each group opens below: the screen, then what I borrowed from it.
 		</column>
 	</columns>
 ### B11 · Rate calendar first (5) {toggle="true"}
-	Not kept; the Calendar stays Hospitable's own. {color="gray"}
+	Not kept; the Calendar stays Hostaway's own. {color="gray"}
 	<columns>
 		<column>
 			![Turo: Host calendar strip with prices per day, a multi-day selection, side panel tabs Prices / Unavailability / Trips with Adjust (by \$ or %), Set…](file-upload://3efe18af-1645-8135-9314-00b23ce0cec1)
@@ -308,7 +308,7 @@ Each group opens below: the screen, then what I borrowed from it.
 	<columns>
 		<column>
 			![Arcade: 'Review changes': a checkbox per field, Before → After, '12 of 12 selected', Confirm changes](file-upload://3efe18af-1645-8196-a1e4-00b2476c117a)
-			**Arcade** · Every field Hospitable will push, each one untickable · [Open on Mobbin](https://mobbin.com/screens/b850abdb-2418-47b3-adaf-eac362756c6d) {color="gray"}
+			**Arcade** · Every field Hostaway will push, each one untickable · [Open on Mobbin](https://mobbin.com/screens/b850abdb-2418-47b3-adaf-eac362756c6d) {color="gray"}
 		</column>
 		<column>
 			![ElevenLabs: 'Review Changes': Published version vs Current changes diff, optional version description, Publish](file-upload://3efe18af-1645-81fc-909a-00b29da7fe25)

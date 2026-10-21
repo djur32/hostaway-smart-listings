@@ -26,7 +26,7 @@
 .h-valhover__value.is-empty { font-style: italic; color: var(--color-text-faint); }
 .h-valhover__note { font-size: var(--text-xs); color: var(--color-text-muted); }
 
-/* Hospitable's dropdown (HS-A01) */
+/* Hostaway's dropdown (HS-A01) */
 .h-dropdown { position: relative; width: 100%; }
 .h-dropdown__trigger {
   width: 100%; height: var(--field-height); display: flex; align-items: center; gap: 8px; padding: 0 12px;
@@ -34,7 +34,7 @@
   font: inherit; font-size: var(--text-md); color: var(--color-text-strong); text-align: left; cursor: pointer;
   transition: border-color var(--dur-1) var(--ease-standard), box-shadow var(--dur-1) var(--ease-standard);
 }
-/* no hover change on a dropdown trigger (Antonio, 3 Oct) — only its focus/open ring */
+/* no hover change on a dropdown trigger (review, 3 Oct) — only its focus/open ring */
 /* open or focused = the same grey ring as the inputs (HS-A01 / images 12–13); --shadow-focus-neutral lands with the S10 input pass */
 .h-dropdown__trigger:focus-visible, .h-dropdown.is-open .h-dropdown__trigger { outline: none; border-color: var(--color-border-input); box-shadow: var(--shadow-focus-neutral); }
 .h-dropdown__trigger.is-placeholder .h-dropdown__value { color: var(--color-text-faint); }
@@ -42,7 +42,7 @@
 .h-dropdown__trigger > .h-icon { flex: none; color: var(--color-text-muted); transition: transform var(--dur-1) var(--ease-standard); }
 .h-dropdown.is-open .h-dropdown__trigger > .h-icon { transform: rotate(180deg); }
 .h-dropdown__trigger:disabled { background: var(--color-bg-disabled-subtle); color: var(--color-text-muted); border-color: var(--color-border-secondary); cursor: not-allowed; box-shadow: none; }
-.h-dropdown__trigger:disabled > .h-icon { color: var(--color-text-muted); } /* one disabled look for every control (Antonio, 3 Oct): the same grey fill, border and muted-but-readable text as a disabled input */
+.h-dropdown__trigger:disabled > .h-icon { color: var(--color-text-muted); } /* one disabled look for every control (review, 3 Oct): the same grey fill, border and muted-but-readable text as a disabled input */
 .h-dropdown__menu {
   /* the trigger's width; a narrow trigger (a table cell) lets the menu grow to fit its options, up to 320px */
   position: absolute; z-index: 50; left: 0; top: calc(100% + 2px); min-width: 100%; width: max-content; max-width: max(100%, 320px); max-height: 336px; overflow-y: auto;
@@ -62,7 +62,7 @@
 .h-tasks__del:hover { color: var(--color-text-strong); }
 .h-tasks__add { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; }
 .h-tasks.is-disabled .h-tasks__name { color: var(--color-text-faint); }
-/* no tasks yet: "+ Add task" sits on the right of the field's title row, not alone under the help text (Antonio, 3 Oct);
+/* no tasks yet: "+ Add task" sits on the right of the field's title row, not alone under the help text (review, 3 Oct);
  * once there are tasks it returns below them */
 .h-field-row:has(> .h-field-row__control > .h-tasks--empty) { position: relative; }
 .h-field-row:has(> .h-field-row__control > .h-tasks--empty) .h-field-row__head { padding-right: 120px; }
@@ -92,7 +92,7 @@
   .h-dropdown__option { min-height: var(--m-tap); padding: 0 16px; }
 }
 
-/* Guest resources link item (ds/fieldscope.tsx LinkField, Antonio 3 Oct): once a URL is in, it reads as an item —
+/* Guest resources link item (ds/fieldscope.tsx LinkField, review 3 Oct): once a URL is in, it reads as an item —
  * link glyph, the address (opens in a new tab), Copy · Edit · Remove — the input's own height and border, so swapping
  * between the two never shifts the row. Read-only: Copy only, the address in the muted text colour. */
 .h-linkitem { display: flex; align-items: center; gap: 10px; min-height: var(--field-height); padding: 0 6px 0 12px; border: 1px solid var(--color-border-input); border-radius: var(--radius-sm); background: var(--color-surface-primary); }

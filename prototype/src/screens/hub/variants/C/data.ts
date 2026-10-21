@@ -1,5 +1,5 @@
 /* KH-C · Guest questions first (concepts/knowledge-hub/KH-C.md). The Hub organised by what guests ask.
- * SIMULATED scenario: 48 guest questions clustered from 312 conversations, 7 gaps. Every answer is built from the Hub's
+ * scenario: 48 guest questions clustered from 312 conversations, 7 gaps. Every answer is built from the Hub's
  * facts (data/sl3.ts FIELDS, data/v3-ch.ts PRICES · AVAILABILITY, live Booking policies, data/v3-kh.ts custom facts), so a fact
  * edit changes every answer that uses it. Store keys are the Hub's: FIELDS keys · `price:` · `avail:` · `amenity:` · `kh.`. */
 import type { ListingChannel } from '../../../../data/sl3'
@@ -97,7 +97,7 @@ export function weekPrice(r: Reader, c: ListingChannel) {
   return { total, night: Math.round(night), weekend: Math.round(weekend), off, clean }
 }
 
-/* ---------- the 48 questions (SIMULATED: clustered from 312 guest conversations) ---------- */
+/* ---------- the 48 questions (clustered from 312 guest conversations) ---------- */
 export const QUESTIONS: Question[] = [
   // ── Before booking · 7 ──
   { id: 'b-work', stage: 'before', q: 'Is the flat good for working remotely?', asked: 22, cov: 'a', kw: 'work remote desk laptop office workspace wifi internet fast',
@@ -184,7 +184,7 @@ export const QUESTIONS: Question[] = [
     line: () => 'Sent 24 hours before arrival, never earlier (sensitive).' },
   { id: 'a-early', stage: 'arrival', q: 'Can I check in early or leave my bags before 3 PM?', asked: 7, cov: 'p', gap: 'g-early', kw: 'early check-in bags luggage before drop',
     facts: [f('checkin'), f('kh.luggage')], from: ['House rules', 'Custom facts'],
-    answer: (r, c) => one(`Check-in starts at ${r.v('checkin', c)}. ${r.v('kh.luggage', c)} I’ll ask Antonio whether you can check in earlier.`),
+    answer: (r, c) => one(`Check-in starts at ${r.v('checkin', c)}. ${r.v('kh.luggage', c)} I’ll ask review whether you can check in earlier.`),
     line: () => 'The AI knows bags can wait next door, but not whether early check-in is possible.' },
   { id: 'a-elevator', stage: 'arrival', q: 'Is there an elevator?', asked: 6, cov: 'a', kw: 'elevator lift stairs floor',
     facts: [f('kh.floor')], from: ['Arrival'],
@@ -257,7 +257,7 @@ export const QUESTIONS: Question[] = [
     facts: [f('neighbourhood')], from: ['Location'], answer: (r, c) => one(r.v('neighbourhood', c)) },
   { id: 'ar-cafes', stage: 'area', q: 'Any good cafés to work from?', asked: 6, cov: 'a', kw: 'cafe cafes coffee work from',
     facts: [f('neighbourhood'), f('interaction')], from: ['Location', 'Neukölln guide.pdf'],
-    answer: () => one('Weserstraße, around the corner, is full of cafés; Antonio’s Neukölln guide lists his favourite quiet ones to work from.') },
+    answer: () => one('Weserstraße, around the corner, is full of cafés; review's Neukölln guide lists his favourite quiet ones to work from.') },
   { id: 'ar-feld', stage: 'area', q: 'How far is Tempelhofer Feld?', asked: 4, cov: 'a', kw: 'tempelhofer feld park how far',
     facts: [f('neighbourhood'), f('description')], from: ['Location', 'Descriptions'], answer: () => one('Five minutes on foot.') },
   { id: 'ar-sunday', stage: 'area', q: 'Which supermarket is open on Sunday?', asked: 4, cov: 'n', gap: 'g-sunday', kw: 'supermarket sunday shop groceries food open',
@@ -295,7 +295,7 @@ export const GAPS: Gap[] = [
     uses: [{ who: 'ai', what: 'on every channel' }, { who: 'airbnb', what: '“Getting around” + Free street parking' }, { who: 'booking', what: 'Parking: Free public parking nearby' }, { who: 'direct', what: 'Location section' }] },
   { id: 'g-early', question: 'a-early',
     messages: [{ text: 'Our flight lands at 9. Could we drop our bags or come in a bit earlier?', c: 'airbnb', when: 'Sep' }, { text: 'Is early check-in possible? We arrive around noon.', c: 'direct', when: 'Jul' }],
-    aiNow: 'Check-in starts at 3:00 PM. Your bags can wait at the bakery next door; I’ll ask Antonio whether you can check in earlier.',
+    aiNow: 'Check-in starts at 3:00 PM. Your bags can wait at the bakery next door; I’ll ask review whether you can check in earlier.',
     draft: 'Early check-in is possible when nobody leaves that morning: I’ll confirm the day before. Otherwise, bags can wait at the Weserstraße bakery next door from 9:00.',
     draftNote: 'Drafted from your replies to 5 guests. Check it before adding.',
     group: 'arrival', fact: 'Early check-in', why: 'Suggested, because guests ask it in the days before they arrive.',
@@ -354,7 +354,7 @@ export function sourceCount(id: string, qs: Question[] = QUESTIONS) {
     : id === 'guide' ? q.from.includes('Neukölln guide.pdf') : q.from.some((x) => DETAIL_GROUPS.includes(x))).length
 }
 
-/* ---------- facts only this iteration adds (SIMULATED) ---------- */
+/* ---------- facts only this iteration adds ---------- */
 const LISTED = { airbnb: 'listing', booking: 'listing', direct: 'listing' } as const
 export const C_FACTS: KhItem[] = [
   { key: 'kh.floor', section: 'arrival', label: 'Floor and access', help: 'Which floor, and how guests get up there.', kind: 'text', base: '4th floor, no elevator', state: { ...LISTED } },

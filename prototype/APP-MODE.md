@@ -1,4 +1,4 @@
-# App mode · the prototype as Hospitable's mobile app
+# App mode · the prototype as Hostaway's mobile app
 
 Two environments from one codebase:
 
@@ -24,7 +24,7 @@ On a desktop browser the app is drawn inside a 390 × 844 iPhone (it iframes the
 ## Install on an iPhone
 
 1. Open the app URL in **Safari** (`https://<website>/app`, or the mobile project's URL).
-2. Share › **Add to Home Screen** › Add. The icon is the Hospitable mark; the name is "Hospitable".
+2. Share › **Add to Home Screen** › Add. The icon is the Hostaway mark; the name is "Hostaway".
 3. Open it from the Home Screen: it runs full screen (no Safari bars), white status bar, safe areas respected, back by swiping from the left edge.
 
 Android (Chrome): menu › Install app / Add to Home screen.

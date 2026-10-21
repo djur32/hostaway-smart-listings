@@ -2,7 +2,7 @@
 """Build ds/icons/sprite.svg from ds/icons/*.svg (Tabler outline, MIT) + ds/channels/*.svg.
 
 - Tabler icons become <symbol id="i-NAME">; the hard-coded stroke-width="2" is removed so
-  CSS sets it (Hospitable's glyphs read as ~1.5px at 24px → .icon { stroke-width: 1.5 }).
+  CSS sets it (Hostaway's glyphs read as ~1.5px at 24px → .icon { stroke-width: 1.5 }).
 - Channel marks become <symbol id="ch-NAME"> and keep their own colours.
 - Badge glyphs (ds/channels/glyph) become <symbol id="chg-NAME">, drawn in currentColor for the white-on-brand badge.
 Usage: python3 ds/tools/build_icons.py

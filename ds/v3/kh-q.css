@@ -143,18 +143,18 @@
 /* the Performance chart's colours (perf.css scopes them to Smart Listings' `.sl-page`): the same ones in the Hub */
 .h-khr2 { --perf-a: var(--color-primary-500); --perf-before: var(--color-gray-300); --perf-before-line: var(--color-gray-400); }
 
-/* Facts: one card per topic, with its facts listed inside (Antonio, 4 Oct: not in a dropdown) */
+/* Facts: one card per topic, with its facts listed inside (review, 4 Oct: not in a dropdown) */
 .h-kq-topiccard { border: 1px solid var(--color-border-card); border-radius: var(--radius-lg); background: var(--color-surface-primary); padding: var(--space-5); margin-bottom: var(--space-4); }
 .h-kq-topiccard__head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3); margin-bottom: var(--space-2); }
 .h-kq-topiccard__title { margin: 0; font-size: var(--text-lg); line-height: var(--leading-lg); font-weight: var(--font-weight-medium); color: var(--color-text-strong); }
 .h-kq-topiccard__count { font-size: var(--text-sm); color: var(--color-text-muted); }
 .h-kq-topiccard.is-hl { box-shadow: var(--shadow-focus-neutral); }
-/* the Listing base source row is one link: clickable as a whole, no "Open" text (Antonio, 4 Oct) */
+/* the Listing base source row is one link: clickable as a whole, no "Open" text (review, 4 Oct) */
 .h-khr2-src-link { display: block; color: inherit; text-decoration: none; }
 .h-khr2-src-link:hover .h-khr2-src-row { background: var(--color-bg-subtle); }
 .h-khr2-src-link:focus-visible { outline: none; box-shadow: var(--shadow-focus-neutral); border-radius: var(--radius-sm); }
 
-/* Sources: the Listing base row is wrapped in a link, so it takes the table's row padding and divider itself (Antonio,
+/* Sources: the Listing base row is wrapped in a link, so it takes the table's row padding and divider itself (review,
  * 4 Oct: the icons and text line up with the other rows) */
 .h-khr2-table > .h-khr2-src-link { border-bottom: 1px solid var(--color-border-divider); border-top-left-radius: var(--radius-lg); border-top-right-radius: var(--radius-lg); }
 .h-khr2-table > .h-khr2-src-link > .h-khr2-src-row { padding-left: var(--space-5); padding-right: var(--space-4); border-bottom: 0; border-radius: inherit; }
@@ -162,7 +162,7 @@
 /* a topic's questions: one bordered table; the last row drops its divider */
 .h-kq-qtable > .h-kq-qrow:last-child { border-bottom: 0; }
 
-/* topic cards (Antonio, 4 Oct): icon · name over its count and a small chip */
+/* topic cards (review, 4 Oct): icon · name over its count and a small chip */
 .h-khr-ov2-topiccard__head { display: flex; align-items: flex-start; gap: var(--space-3); color: var(--color-text-muted); }
 .h-khr-ov2-topiccard__head > .h-icon, .h-khr-ov2-topiccard__head > svg { flex: none; margin-top: 2px; }
 .h-khr-ov2-topiccard__name { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1 1 auto; }
@@ -175,7 +175,7 @@
 .h-kq-qtable, .h-kq-topicbody { margin-top: var(--space-6); }
 
 /* Phones: a topic card reads name (16 semibold) · count and chip (14 muted) · description (14), the description lined up
- * under the name rather than under the icon (Antonio, 4 Oct: bad layout and hierarchy) */
+ * under the name rather than under the icon (review, 4 Oct: bad layout and hierarchy) */
 @media (max-width: 767px) {
   .h-khr-ov2-topiccard { gap: var(--space-3); padding: var(--space-4); }
   .h-khr-ov2-topiccard__head { gap: var(--space-3); align-items: flex-start; }

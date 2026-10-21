@@ -3,7 +3,7 @@
    SMOKE · open a page cold, the way a laptop on venue wifi would, and report
    what it cost: requests, bytes, time to ready, and any error.
 
-     node tools/smoke.mjs            → dist/pages/hospitable.html (run tools/dist.mjs first)
+     node tools/smoke.mjs            → dist/pages/hostaway.html (run tools/dist.mjs first)
      node tools/smoke.mjs --src      → the source pages (run tools/build.mjs first)
    ========================================================================= */
 import path from 'node:path';
@@ -15,7 +15,7 @@ const server = await serveSite(ROOT);
 const chrome = await launchChrome();
 let bad = 0;
 try {
-  for (const theme of ['hospitable']) {
+  for (const theme of ['hostaway']) {
     const page = await chrome.newPage();
     await page.send('Page.enable'); await page.send('Runtime.enable'); await page.send('Network.enable');
     await page.send('Network.setCacheDisabled', { cacheDisabled: true });
@@ -53,7 +53,7 @@ try {
       const row = document.querySelector('.palette__it:nth-child(3)'); const want = row && +row.dataset.i;
       row?.click(); await wait(300);
       if (!row || D.current !== want) bad.push('palette row click did not jump');
-      // the Hospitable lockup, top left, goes back to the first slide
+      // the Hostaway lockup, top left, goes back to the first slide
       D.go(Math.min(12, D.slides.length - 1)); await wait(300);
       const brand = document.querySelector('.appbar__brand');
       brand?.dispatchEvent(new MouseEvent('click', { bubbles: true, detail: 1 })); await wait(300);

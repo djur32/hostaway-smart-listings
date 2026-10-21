@@ -5,7 +5,7 @@ import type { KhFact } from '../../data/v3-kh'
 import { createPropertyStore } from './perProperty'
 
 interface HubUiState { resolved: Record<string, string>; added: KhFact[] }
-export const useHubUi = createPropertyStore('hospitable-v3-kh-hub', (): HubUiState => ({ resolved: {}, added: [] }), (set) => ({
+export const useHubUi = createPropertyStore('hostaway-v3-kh-hub', (): HubUiState => ({ resolved: {}, added: [] }), (set) => ({
   resolve: (id: string, value: string) => set((s) => ({ resolved: { ...s.resolved, [id]: value } })),
   add: (f: KhFact) => set((s) => ({ added: [...s.added, f] })),
 }))

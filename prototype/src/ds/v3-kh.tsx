@@ -1,6 +1,6 @@
 /* Smart Listing v3 · WS-KH design-system additions (CSS in ds/v3/kh.css). Screens import from '../../ds'.
  * Knowledge Hub (KH2: one place for everything about the property): KhNav, KhField, KhScopeText, KhSplit/KhSplitRow
- * (Hospitable's "Edit per channel" inline split, HS-L03), KhTasks (checkout tasks, HS-A03), KhHelp (%shortcode% help,
+ * (Hostaway's "Edit per channel" inline split, HS-L03), KhTasks (checkout tasks, HS-A03), KhHelp (%shortcode% help,
  * HS-A03), KhAmenity, KhChannelLine, KhFlag, KhFromTip, KhConfirmItem, KhDialog, KhSheet, KhSec.
  * Review & push: KhPushGroup, KhKeep, KhReceipt, KhPushBar, KhToast. Tokens only, no one-off styles. */
 import { useEffect, useRef, useState, type ReactNode } from 'react'
@@ -106,7 +106,7 @@ export function KhSplitRow({ channel, base, note, action, children }: {
   )
 }
 
-/* ---------- help text with Hospitable's highlighted %shortcode% ---------- */
+/* ---------- help text with Hostaway's highlighted %shortcode% ---------- */
 export function KhHelp({ text }: { text?: string }) {
   if (!text) return null
   const parts = text.split(/(%[a-z_]+%)/g)

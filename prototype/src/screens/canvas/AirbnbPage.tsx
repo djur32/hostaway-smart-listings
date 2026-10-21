@@ -2,7 +2,7 @@
  * header with the search pill · title row with Share / Save · 5-photo mosaic · summary line · Guest favourite ·
  * host strip · three highlights · description with Show more · Where you'll sleep · What this place offers ·
  * two-month calendar · sticky booking card · reviews · Where you'll be · Meet your host · Things to know.
- * Content SIMULATED; layout REAL·PUBLIC (airbnb.com listing pages, Sep 2026). The content is the property's
+ * Content ; layout (airbnb.com listing pages, Sep 2026). The content is the property's
  * (c.content, data/property-listing.ts): Neukölln's scripted page, or a plain one from another property's data. */
 import { useState } from 'react'
 import { Icon, TipDot } from '../../ds'
@@ -178,7 +178,7 @@ export function AirbnbPage({ narrow }: { narrow: boolean }) {
               <span className="cv-ab__hoststats"><span><b>{count}</b><small>Reviews</small></span><span><b>{rating}★</b><small>Rating</small></span><span><b>2</b><small>Years hosting</small></span></span>
             </div>
             <div className="cv-ab__hostinfo">
-              <b>Antonio is a Superhost</b>
+              <b>review is a Superhost</b>
               <p>Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.</p>
               <b>Host details</b>
               <p>Response rate: 100%<br />Responds within an hour</p>

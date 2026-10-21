@@ -1,4 +1,4 @@
-/* Smart Listings › Performance · WS-SL. Reworked 3 Oct over several rounds of Antonio's feedback the same day. The last
+/* Smart Listings › Performance · WS-SL. Reworked 3 Oct over several rounds of review's feedback the same day. The last
  * round overrides every earlier one where they differ ("these last changes are the ones that have to override all of
  * the other ones"):
  *   · no versions: no strategy picker, no per-version pages (old URLs redirect, routes.tsx), nothing numbered;
@@ -11,9 +11,9 @@
  *   · controls on one line: the channel on the left; the period, with its own "Period" label, flush right, same height;
  *   · one short sentence above the cards says how the channel is doing against the stretch before.
  * Earlier rounds that still hold: one channel at a time (no All), a one-line page description, no recommendations,
- * chart tooltips inside the plot, Hospitable Metrics card styling (research/current-state/antonio-2026-10-03-metrics/,
- * REAL·PRODUCT), each chart card with its own settings (Bar / Line, By day / week / month).
- * Data: data/performance.ts — SIMULATED (labelled in the case study, not on screen): scenarioSim for Neukölln, the
+ * chart tooltips inside the plot, Hostaway Metrics card styling (research/current-state/review-2026-10-03-metrics/,
+ * ), each chart card with its own settings (Bar / Line, By day / week / month).
+ * Data: data/performance.ts — (labelled in the case study, not on screen): scenarioSim for Neukölln, the
  * generated baselineSim for any other property. Every number, the summary sentence included, is read from it.
  * "When the strategy started" is shared.ts strategyStart (the same date Strategy › channel shows).
  * URL: ?ch=airbnb|booking|direct, ?period=since|last30|last90, ?smart=on. */
@@ -33,7 +33,7 @@ import { useStore } from '../../store/store'
 import { hasStrategy, strategyStart, syncVersions, useSmartDemo } from './shared'
 import { daysText, eur, pct, range, relPct } from './perf'
 
-/** Similar homes' typical lead time and rating (ASSUMPTION: market data has no per-day lead time; a constant stands in). */
+/** Similar homes' typical lead time and rating (market data has no per-day lead time; a constant stands in). */
 const COMPS_LEAD = 21, COMPS_RATING = 4.8
 /** Under a week since the strategy started there is nothing to read yet. */
 const EARLY = 7
@@ -69,7 +69,7 @@ function kpis(ch: ListingChannel, sim: SlSim, m: SlMetrics): Array<{ label: stri
 }
 
 /** The one-line summary: occupancy and revenue for the period against the same number of days before the strategy.
- *  SIMULATED (both figures read from the dataset). */
+ *  (both figures read from the dataset). */
 function summary(period: PeriodId, len: number, startLabel: string, a: SlMetrics, b: SlMetrics): string {
   const lead = period === 'since' ? `Since the strategy started on ${startLabel}` : `Over the last ${len} days`
   const than = period === 'since' ? 'the same stretch before' : `the ${len} days before the strategy started on ${startLabel}`
@@ -218,7 +218,7 @@ function measure(sim: SlSim, ch: ListingChannel, from: number, to: number, id: C
 /** The section line's words for the charts' default grouping (S-1: the copy follows the bars, not "every day"). */
 const STEP: Record<PerfGrouping, string> = { day: 'day by day', week: 'week by week', month: 'month by month' }
 const GROUPED: Record<PerfGrouping, string> = { day: 'one bar a day', week: 'one bar a week', month: 'one bar a month' }
-/** By day up to ~10 days a side, by week up to ~3 months, by month beyond (Antonio: a month or so groups by week). */
+/** By day up to ~10 days a side, by week up to ~3 months, by month beyond (review: a month or so groups by week). */
 const defaultGrouping = (len: number): PerfGrouping => (len <= 10 ? 'day' : len <= 92 ? 'week' : 'month')
 const groupingsFor = (len: number): PerfGrouping[] => [...(len <= 92 ? ['day' as const] : []), ...(len >= 8 ? ['week' as const] : []), ...(len >= 45 ? ['month' as const] : [])]
 

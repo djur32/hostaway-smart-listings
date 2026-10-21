@@ -58,8 +58,8 @@ export function NeedsYou() {
       <SetupBanner decided={decided} total={s.decisions.length} />
       {p.id === 'P4' && decided === 0 && (
         <div className="h-coach p-mt3" role="note" style={{ position: 'static', maxWidth: 640 }}>
-          <div className="h-coach__title">Why is Hospitable asking you this?</div>
-          Your Airbnb and Booking.com {plain(p, 'channels')} don’t agree on a few things. Hospitable won’t guess: you choose, once. Money comes first. Nothing changes on Airbnb until you say so.
+          <div className="h-coach__title">Why is Hostaway asking you this?</div>
+          Your Airbnb and Booking.com {plain(p, 'channels')} don’t agree on a few things. Hostaway won’t guess: you choose, once. Money comes first. Nothing changes on Airbnb until you say so.
         </div>
       )}
       <div className={one ? 'p-one p-mt4' : 'p-ny p-mt4'}>
@@ -339,10 +339,10 @@ function PricingTool({ onDone }: { onDone: () => void }) {
   return (
     <div className="p-card">
       <div className="p-row p-sb"><b>Your prices come from PriceLabs</b><ChannelChip channel="airbnb" /></div>
-      <p className="h-small" style={{ margin: '8px 0 0' }}>PriceLabs sets your nightly rates on Airbnb and Booking.com today. Only one tool can. Until you change it, <b>Hospitable reads your prices and never sends a rate.</b></p>
+      <p className="h-small" style={{ margin: '8px 0 0' }}>PriceLabs sets your nightly rates on Airbnb and Booking.com today. Only one tool can. Until you change it, <b>Hostaway reads your prices and never sends a rate.</b></p>
       <div className="h-radio-cards p-mt3">
-        <label className="h-radio-card" aria-checked="true"><input className="h-radio" type="radio" defaultChecked name="pt" /><div><div className="h-radio-card__title">Keep PriceLabs in charge <Pill kind="recommended">Recommended</Pill></div><div className="h-radio-card__desc">Fees, minimum stays and rules still come from Hospitable.</div></div></label>
-        <label className="h-radio-card"><input className="h-radio" type="radio" name="pt" /><div><div className="h-radio-card__title">Let Hospitable set prices</div><div className="h-radio-card__desc">Disconnect PriceLabs first, or it will overwrite Hospitable’s rates.</div></div></label>
+        <label className="h-radio-card" aria-checked="true"><input className="h-radio" type="radio" defaultChecked name="pt" /><div><div className="h-radio-card__title">Keep PriceLabs in charge <Pill kind="recommended">Recommended</Pill></div><div className="h-radio-card__desc">Fees, minimum stays and rules still come from Hostaway.</div></div></label>
+        <label className="h-radio-card"><input className="h-radio" type="radio" name="pt" /><div><div className="h-radio-card__title">Let Hostaway set prices</div><div className="h-radio-card__desc">Disconnect PriceLabs first, or it will overwrite Hostaway’s rates.</div></div></label>
       </div>
       <div className="p-row p-mt3"><Button kind="primary" className="p-ny-confirm" onClick={() => { s.decide('smart-pricing', 'keep'); onDone() }}>Confirm</Button></div>
     </div>

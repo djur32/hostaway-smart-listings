@@ -1,4 +1,4 @@
-/* The one phone presentation of every tooltip (Antonio, 4 Oct): a bottom sheet fitted to its content (title, body 16/24,
+/* The one phone presentation of every tooltip (review, 4 Oct): a bottom sheet fitted to its content (title, body 16/24,
  * ×, scrim and grip close it). Never a sheet on a sheet (ds/mobile.md §7): when the trigger already sits inside an open
  * sheet, the same content expands inline at the end of that sheet's body instead, closed by a tap anywhere else.
  * Used by TooltipLayer (every .h-tooltip-anchor and title hint), CaptionTip, KhaTip and Cite. Desktop never mounts it. */

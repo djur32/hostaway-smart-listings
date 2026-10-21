@@ -1,4 +1,4 @@
-/* Property › Overview, the real replica (REAL·PRODUCT screenshots 22–27) · WS-SL.
+/* Property › Overview, the real replica (screenshots 22–27) · WS-SL.
  * CSS: ds/components.css "OVERVIEW (real replica)". Tokens only. Screens: screens/smart/PropertyOverview.tsx. */
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import { Button, CloseButton, Icon, IconButton, Mark, cx } from './primitives'

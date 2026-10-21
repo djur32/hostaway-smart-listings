@@ -59,7 +59,7 @@ function Channels() {
             <div className="p-col p-mt3" style={{ gap: 8 }}>
               <div className="p-row p-sb h-small"><span>Connection</span><SyncBadge state="in-sync" channel={c} /></div>
               <div className="p-row p-sb h-small"><span>Calendar &amp; reservations</span><span className="h-sync h-sync--ok"><span className="h-sync__dot" />Live since connect</span></div>
-              <div className="p-row p-sb h-small"><span>Listing content</span>{s.setup.live ? <span className="h-sync h-sync--ok"><span className="h-sync__dot" />Managed by Hospitable</span> : <span className="h-caption h-muted">Read only until you go live</span>}</div>
+              <div className="p-row p-sb h-small"><span>Listing content</span>{s.setup.live ? <span className="h-sync h-sync--ok"><span className="h-sync__dot" />Managed by Hostaway</span> : <span className="h-caption h-muted">Read only until you go live</span>}</div>
               <div className="p-row p-sb h-small"><span>{c === 'booking' ? 'Description' : 'Rooms & beds'}</span><span className="h-caption h-muted">{c === 'booking' ? 'Written by Booking.com' : 'Owned by Airbnb'}</span></div>
             </div>
             <div className="p-label p-mt4">Last receipts</div>

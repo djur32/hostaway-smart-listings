@@ -1,4 +1,4 @@
-/* WS-CV · the Canvas's field panel (Antonio, 3 Oct: "the solution has to be in the sidebar… distinguish what is a tip
+/* WS-CV · the Canvas's field panel (review, 3 Oct: "the solution has to be in the sidebar… distinguish what is a tip
  * versus the field itself"). Tapping an area on the replica opens this in the one right-hand slot. 2nd pass (3 Oct):
  *   (b) a field with a tip shows ONLY the tip card — the same purple TipCard as the Tips panel, Accept / Dismiss doing
  *       what they do there; no field, no Uses the Base / Custom row;
@@ -94,7 +94,7 @@ function PhotoTipMain({ t, now }: { t: TipDef; now: PhotoKey[] }) {
 }
 
 /* ---------- the text field panel: (a) or (b), (c) on request ----------
- * Antonio, 3 Oct (2nd pass): a field with a tip shows ONLY the tip card ("don't show the actual content, the text area
+ * review, 3 Oct (2nd pass): a field with a tip shows ONLY the tip card ("don't show the actual content, the text area
  * should be gone 100%"). A field without one shows only the field (label help, control, Uses the Base / Custom); the
  * Rewrite-with-AI card stays closed until the orange trigger on the panel's title row is clicked (CanvasView puts it
  * there, reading this hook), exactly as the trigger beside a Classic field label opens it. */

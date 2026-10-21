@@ -1,6 +1,6 @@
 <!-- ═══════════════════════════════════════════════════════════════════════════
-     _kit.html · the Hospitable deck's templates (S07, 2026-09-29)
-     Build and look:  node tools/build.mjs --kit  →  src/pages/kit-hospitable.html
+     _kit.html · the Hostaway deck's templates (S07, 2026-09-29)
+     Build and look:  node tools/build.mjs --kit  →  src/pages/kit-hostaway.html
      Shoot:           node tools/shoot.mjs --kit --scale 0.5 --out qa/kit
      Copy the markup, not the words. The data in these charts is EXAMPLE DATA: it only
      shows the layout. Real data comes from Notion and research/charts (CONTRACT.md §6).
@@ -8,9 +8,9 @@
      ═══════════════════════════════════════════════════════════════════════════ -->
 
 <!-- 1 · anatomy of a content slide -->
-<section class="s" data-id="kit-anatomy" data-title="Kit · A content slide" data-stage="1" data-part="discovery" data-min="0.5" data-notion="01-discovery" data-ground="white">
+<section class="s" data-id="kit-anatomy" data-title="Kit · A content slide" data-stage="1" data-part="discovery" data-min="0.5" data-ground="white">
   <header class="s-head">
-    <p class="eyebrow" data-a="rise"><span>Discovery</span><span class="hc-prov" data-prov="product"></span><span class="hc-ids"><span class="hc-id">D-012</span><span class="hc-id">I-04</span></span></p>
+    <p class="eyebrow" data-a="rise"><span>Discovery</span><span class="hc-ids"><span class="hc-id">D-012</span><span class="hc-id">I-04</span></span></p>
     <h2 class="h2" data-a="lines" data-at="0.1">A headline that is a claim. <span class="tone-2">The second tone says why it matters.</span></h2>
     <p class="hc-msg" data-a="rise" data-at="0.25">One sentence: the slide's single message, as written in deck/STORY.md.</p>
   </header>
@@ -25,7 +25,7 @@
 </section>
 
 <!-- 2 · a part's cover (the first beat of the part's first slide; press → to lift it) -->
-<section class="s" data-id="kit-cover" data-title="Kit · A part's cover" data-stage="2" data-part="research" data-min="0.3" data-notion="02-research" data-ground="white">
+<section class="s" data-id="kit-cover" data-title="Kit · A part's cover" data-stage="2" data-part="research" data-min="0.3" data-ground="white">
   <template class="hc-cover-tpl" data-stage="2">
     <header class="hc-cover" aria-label="Research">
       <div class="opener">
@@ -48,14 +48,14 @@
 </section>
 
 <!-- 3 · the small pieces -->
-<section class="s" data-id="kit-chips" data-title="Kit · Provenance, IDs, signal, channels, AI" data-stage="1" data-min="0.5" data-notion="01-discovery" data-ground="white">
+<section class="s" data-id="kit-chips" data-title="Kit · Provenance, IDs, signal, channels, AI" data-stage="1" data-min="0.5" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>The small pieces</span></p>
     <h2 class="h2" data-a="lines" data-at="0.1">Where every claim comes from</h2>
   </header>
   <div class="s-body">
     <div class="stack" style="--gap-y: 40px" data-a="rise" data-at="0.3">
-      <p class="chips"><span class="hc-prov" data-prov="brief"></span><span class="hc-prov" data-prov="product"></span><span class="hc-prov" data-prov="public"></span><span class="hc-prov" data-prov="simulated"></span><span class="hc-prov" data-prov="projected"></span><span class="hc-prov" data-prov="assumption"></span></p>
+      <p class="chips"></p>
       <p class="chips"><span class="hc-id">D-001</span><span class="hc-id">I-04</span><span class="hc-id">INT-3</span><span class="hc-id">R-031</span><span class="hc-notion" data-no-auto>Notion page pending</span></p>
       <p class="chips" style="gap: 32px"><span class="hc-signal" data-strength="strong"></span><span class="hc-signal" data-strength="moderate"></span><span class="hc-signal" data-strength="weak"></span><span class="hc-signal" data-strength="hypothesis"></span></p>
       <p class="chips"><span class="hc-ch" data-ch="airbnb">Airbnb</span><span class="hc-ch" data-ch="booking">Booking.com</span><span class="hc-ch" data-ch="vrbo">Vrbo</span><span class="hc-ch" data-ch="direct">Direct</span><span class="hc-ch" data-ch="google">Google</span></p>
@@ -66,20 +66,20 @@
 </section>
 
 <!-- 4 · quote cards -->
-<section class="s" data-id="kit-quotes" data-title="Kit · Quote cards" data-stage="2" data-min="0.5" data-notion="02-research" data-ground="white">
+<section class="s" data-id="kit-quotes" data-title="Kit · Quote cards" data-stage="2" data-min="0.5" data-ground="white">
   <header class="s-head">
-    <p class="eyebrow" data-a="rise"><span>In their words</span><span class="hc-prov" data-prov="simulated"></span></p>
+    <p class="eyebrow" data-a="rise"><span>In their words</span></p>
     <h2 class="h2" data-a="lines" data-at="0.1">Quotes, attributed</h2>
   </header>
   <div class="s-body">
     <div class="hc-quotes" style="--n: 2" data-a="rise" data-at="0.3">
       <figure class="hc-quote">
         <blockquote>A short quote, in the host's own words.</blockquote>
-        <figcaption><span class="hc-avatar" data-persona="P1">P1</span><span class="hc-quote__who"><b>Family host</b></span><span class="hc-id">INT-1</span><span class="hc-quote__t">12:40</span><span class="hc-prov" data-prov="simulated"></span></figcaption>
+        <figcaption><span class="hc-avatar" data-persona="P1">P1</span><span class="hc-quote__who"><b>Family host</b></span><span class="hc-id">INT-1</span><span class="hc-quote__t">12:40</span></figcaption>
       </figure>
       <figure class="hc-quote">
         <blockquote>A second voice, from another persona.</blockquote>
-        <figcaption><span class="hc-avatar" data-persona="P3">P3</span><span class="hc-quote__who"><b>Portfolio manager</b></span><span class="hc-id">INT-3</span><span class="hc-quote__t">04:15</span><span class="hc-prov" data-prov="simulated"></span></figcaption>
+        <figcaption><span class="hc-avatar" data-persona="P3">P3</span><span class="hc-quote__who"><b>Portfolio manager</b></span><span class="hc-id">INT-3</span><span class="hc-quote__t">04:15</span></figcaption>
       </figure>
     </div>
   </div>
@@ -87,7 +87,7 @@
 </section>
 
 <!-- 5 · bar chart (horizontal, sorted) -->
-<section class="s" data-id="kit-bar" data-title="Kit · Bar chart" data-stage="1" data-min="0.5" data-notion="01-discovery" data-ground="white">
+<section class="s" data-id="kit-bar" data-title="Kit · Bar chart" data-stage="1" data-min="0.5" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Chart · bar</span></p>
     <h2 class="h2" data-a="lines" data-at="0.1">Sorted bars, the ones that argue in raspberry</h2>
@@ -95,14 +95,14 @@
   <div class="s-body">
     <figure class="hc-chart" data-chart="bar" data-a="rise" data-at="0.2">
       <script type="application/json">{ "items": [{ "label": "Example theme A", "value": 34, "hi": true }, { "label": "Example theme B", "value": 21, "hi": true }, { "label": "Example theme C", "value": 17 }, { "label": "Example theme D", "value": 9 }, { "label": "Example theme E", "value": 6 }], "unit": "%", "w": 1500 }</script>
-      <figcaption class="hc-chart__cap">Example data · layout only <span class="hc-prov hc-prov--sm" data-prov="simulated"></span></figcaption>
+      <figcaption class="hc-chart__cap">Example data · layout only </figcaption>
     </figure>
   </div>
   <aside class="notes"><p>data-chart="bar". JSON inline, or data-src="charts/name.json" from src/data.</p></aside>
 </section>
 
 <!-- 6 · funnel -->
-<section class="s" data-id="kit-funnel" data-title="Kit · Funnel" data-stage="1" data-min="0.5" data-notion="01-discovery" data-ground="white">
+<section class="s" data-id="kit-funnel" data-title="Kit · Funnel" data-stage="1" data-min="0.5" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Chart · funnel</span></p>
     <h2 class="h2" data-a="lines" data-at="0.1">Where people drop out, and how many</h2>
@@ -110,14 +110,14 @@
   <div class="s-body">
     <figure class="hc-chart" data-chart="funnel" data-a="rise" data-at="0.2">
       <script type="application/json">{ "steps": [{ "label": "Example step 1", "value": 1000 }, { "label": "Example step 2", "value": 820 }, { "label": "Example step 3", "value": 610 }, { "label": "Example step 4", "value": 240 }], "w": 1500 }</script>
-      <figcaption class="hc-chart__cap">Example data · layout only <span class="hc-prov hc-prov--sm" data-prov="simulated"></span></figcaption>
+      <figcaption class="hc-chart__cap">Example data · layout only </figcaption>
     </figure>
   </div>
   <aside class="notes"><p>data-chart="funnel". The tint shows what each step lost.</p></aside>
 </section>
 
 <!-- 7 · matrix / heatmap -->
-<section class="s" data-id="kit-matrix" data-title="Kit · Matrix" data-stage="2" data-min="0.5" data-notion="02-research" data-ground="white">
+<section class="s" data-id="kit-matrix" data-title="Kit · Matrix" data-stage="2" data-min="0.5" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Chart · matrix</span></p>
     <h2 class="h2" data-a="lines" data-at="0.1">A heatmap: personas against content</h2>
@@ -125,14 +125,14 @@
   <div class="s-body">
     <figure class="hc-chart" data-chart="matrix" data-a="rise" data-at="0.2">
       <script type="application/json">{ "rows": ["P1 Family host", "P2 SEO optimizer", "P3 Portfolio manager", "P4 New to a PMS"], "cols": ["Titles", "Photos", "Amenities", "Rules", "Pricing"], "values": [[1, 4, 2, 3, 1], [5, 4, 3, 1, 4], [2, 2, 1, 2, 5], [3, 3, 4, 4, 2]], "max": 5, "w": 1500, "cell": 72 }</script>
-      <figcaption class="hc-chart__cap">Example data · layout only <span class="hc-prov hc-prov--sm" data-prov="simulated"></span></figcaption>
+      <figcaption class="hc-chart__cap">Example data · layout only </figcaption>
     </figure>
   </div>
   <aside class="notes"><p>data-chart="matrix" (or heatmap). Values over max set each cell's strength.</p></aside>
 </section>
 
 <!-- 8 · journey emotion curve -->
-<section class="s" data-id="kit-journey" data-title="Kit · Journey curve" data-stage="2" data-min="0.5" data-notion="02-research" data-ground="white">
+<section class="s" data-id="kit-journey" data-title="Kit · Journey curve" data-stage="2" data-min="0.5" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Chart · journey</span></p>
     <h2 class="h2" data-a="lines" data-at="0.1">The emotion curve of a journey</h2>
@@ -140,47 +140,47 @@
   <div class="s-body">
     <figure class="hc-chart" data-chart="journey" data-a="rise" data-at="0.2">
       <script type="application/json">{ "steps": [{ "label": "Example 1", "score": 1, "note": "a note" }, { "label": "Example 2", "score": 1.5 }, { "label": "Example 3", "score": -1.5, "note": "the low point" }, { "label": "Example 4", "score": -0.5 }, { "label": "Example 5", "score": 1 }], "w": 1600, "h": 520 }</script>
-      <figcaption class="hc-chart__cap">Example data · layout only <span class="hc-prov hc-prov--sm" data-prov="simulated"></span></figcaption>
+      <figcaption class="hc-chart__cap">Example data · layout only </figcaption>
     </figure>
   </div>
   <aside class="notes"><p>data-chart="journey", scores from minus two to plus two. The line draws itself.</p></aside>
 </section>
 
 <!-- 9 · before / after line -->
-<section class="s" data-id="kit-line" data-title="Kit · Before and after" data-stage="6" data-min="0.5" data-notion="06-test-measure" data-ground="white">
+<section class="s" data-id="kit-line" data-title="Kit · Before and after" data-stage="6" data-min="0.5" data-ground="white">
   <header class="s-head">
-    <p class="eyebrow" data-a="rise"><span>Chart · line</span><span class="hc-prov" data-prov="projected"></span></p>
+    <p class="eyebrow" data-a="rise"><span>Chart · line</span></p>
     <h2 class="h2" data-a="lines" data-at="0.1">Today, and what we project</h2>
   </header>
   <div class="s-body">
     <figure class="hc-chart" data-chart="line" data-a="rise" data-at="0.2">
       <script type="application/json">{ "x": ["M0", "M1", "M2", "M3", "M4", "M5", "M6"], "series": [{ "name": "Today", "values": [40, 41, 40, 42, 41, 41, 42], "kind": "before" }, { "name": "Projected", "values": [40, 44, 49, 55, 59, 62, 64], "hi": true }], "unit": "%", "min": 0, "max": 80, "w": 1600, "h": 500 }</script>
-      <figcaption class="hc-chart__cap">Example data · layout only <span class="hc-prov hc-prov--sm" data-prov="projected"></span></figcaption>
+      <figcaption class="hc-chart__cap">Example data · layout only </figcaption>
     </figure>
   </div>
   <aside class="notes"><p>data-chart="line": a dotted before, a drawn after, named at their ends.</p></aside>
 </section>
 
 <!-- 10 · KPI tiles -->
-<section class="s" data-id="kit-kpi" data-title="Kit · KPI tiles" data-stage="6" data-min="0.5" data-notion="06-test-measure" data-ground="white">
+<section class="s" data-id="kit-kpi" data-title="Kit · KPI tiles" data-stage="6" data-min="0.5" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>KPI tiles</span></p>
     <h2 class="h2" data-a="lines" data-at="0.1">A number, its label, its change, its source</h2>
   </header>
   <div class="s-body">
     <div class="hc-kpis" style="--n: 3" data-a="rise" data-at="0.2">
-      <div class="hc-kpi"><p class="hc-kpi__l">Example north star</p><p class="hc-kpi__v" data-a="count" data-at="0.4">62<small>%</small></p><p class="hc-kpi__d">+22 pts</p><p class="hc-kpi__f"><span class="hc-id">K-01</span><span class="hc-prov hc-prov--sm" data-prov="projected"></span></p></div>
-      <div class="hc-kpi"><p class="hc-kpi__l">Example lever</p><p class="hc-kpi__v">4.2<small>min</small></p><p class="hc-kpi__d is-down">+0.8 min</p><p class="hc-kpi__f"><span class="hc-id">K-02</span><span class="hc-prov hc-prov--sm" data-prov="simulated"></span></p></div>
-      <div class="hc-kpi"><p class="hc-kpi__l">Example guardrail</p><p class="hc-kpi__v">0.3<small>%</small></p><p class="hc-kpi__d is-flat">no change</p><p class="hc-kpi__f"><span class="hc-id">K-03</span><span class="hc-prov hc-prov--sm" data-prov="assumption"></span></p></div>
+      <div class="hc-kpi"><p class="hc-kpi__l">Example north star</p><p class="hc-kpi__v" data-a="count" data-at="0.4">62<small>%</small></p><p class="hc-kpi__d">+22 pts</p><p class="hc-kpi__f"><span class="hc-id">K-01</span></p></div>
+      <div class="hc-kpi"><p class="hc-kpi__l">Example lever</p><p class="hc-kpi__v">4.2<small>min</small></p><p class="hc-kpi__d is-down">+0.8 min</p><p class="hc-kpi__f"><span class="hc-id">K-02</span></p></div>
+      <div class="hc-kpi"><p class="hc-kpi__l">Example guardrail</p><p class="hc-kpi__v">0.3<small>%</small></p><p class="hc-kpi__d is-flat">no change</p><p class="hc-kpi__f"><span class="hc-id">K-03</span></p></div>
     </div>
   </div>
   <aside class="notes"><p>hc-kpi. The delta takes is-down or is-flat.</p></aside>
 </section>
 
 <!-- 10b · KPI cards (4 Oct): .hc-stats > .hc-stat, the product's KPI card at wall size. Rows of 1 to 4, or a side-column stack. -->
-<section class="s" data-id="kit-stats" data-title="Kit · KPI cards" data-stage="1" data-part="discovery" data-min="0.5" data-notion="01-discovery" data-ground="white">
+<section class="s" data-id="kit-stats" data-title="Kit · KPI cards" data-stage="1" data-part="discovery" data-min="0.5" data-ground="white">
   <header class="s-head">
-    <p class="eyebrow" data-a="rise"><span>KPI cards · .hc-stats</span><span class="hc-prov" data-prov="simulated"></span></p>
+    <p class="eyebrow" data-a="rise"><span>KPI cards · .hc-stats</span></p>
     <h2 class="h2" data-a="lines" data-at="0.1">The label, the value, one quiet line</h2>
     <p class="hc-msg" data-a="rise" data-at="0.25">Example numbers. A row of cards on the right, a side-column stack on the left. The key card puts its value in brand ink.</p>
   </header>
@@ -201,7 +201,7 @@
           <div class="hc-stat"><p class="hc-stat__v">59</p><p class="hc-stat__l">old markup: value, then the line</p></div>
           <div class="hc-stat"><p class="hc-stat__k">With a label</p><p class="hc-stat__v">135</p></div>
           <div class="hc-stat is-key"><p class="hc-stat__v">14<small>of 28</small></p><p class="hc-stat__l">a unit in small</p></div>
-          <div class="hc-stat"><p class="hc-stat__v">46</p><span class="hc-prov hc-prov--sm" data-prov="public"></span></div>
+          <div class="hc-stat"><p class="hc-stat__v">46</p></div>
         </div>
       </div>
     </div>
@@ -209,15 +209,15 @@
   <aside class="notes"><p>.hc-stats with --n (1 to 4) is a row of equal cards, .hc-stats--stack is one card per row, for a side column. Each .hc-stat is the product's Performance KPI card at wall size: optional .hc-stat__k (the label), .hc-stat__v (data-a="count" works, small for a unit), optional .hc-stat__l (the quiet foot line). .is-key puts the value in brand ink (data-tint changes it); the card stays white. .hc-stat__i is no longer drawn. --stat-v resizes the value.</p></aside>
 </section>
 
-<!-- 11 · a product screen in a browser frame (REAL·PRODUCT: HS-30, cropped) -->
-<section class="s" data-id="kit-browser" data-title="Kit · Browser frame" data-stage="1" data-min="0.5" data-notion="01-discovery" data-ground="white">
+<!-- 11 · a product screen in a browser frame (HS-30, cropped) -->
+<section class="s" data-id="kit-browser" data-title="Kit · Browser frame" data-stage="1" data-min="0.5" data-ground="white">
   <header class="s-head">
-    <p class="eyebrow" data-a="rise"><span>Screen · browser</span><span class="hc-prov" data-prov="product"></span></p>
-    <h2 class="h2" data-a="lines" data-at="0.1">my.hospitable.com, framed the way it was captured</h2>
+    <p class="eyebrow" data-a="rise"><span>Screen · browser</span></p>
+    <h2 class="h2" data-a="lines" data-at="0.1">my.hostaway.com, framed the way it was captured</h2>
   </header>
   <div class="s-body">
     <div class="row" style="--gap-x: 48px; align-items: flex-start" data-a="rise" data-at="0.2">
-      <figure class="hc-browser" data-url="my.hospitable.com/properties/property/2509769/pricing/base-price" data-tab="Beautiful Artist Apt. in Neukolln" style="--w: 900px">
+      <figure class="hc-browser" data-url="my.hostaway.com/properties/property/2509769/pricing/base-price" data-tab="Beautiful Artist Apt. in Neukolln" style="--w: 900px">
         <div class="hc-browser__view"><img data-shot="hs-30" alt="HS-30 · Pricing › Base price"></div>
       </figure>
       <p class="small" style="max-width: 32ch">HS-30, Pricing › Base price. The frame is drawn in tokens. The menu bar is gone. Click to open it full size.</p>
@@ -227,16 +227,16 @@
 </section>
 
 <!-- 12 · phone + live prototype -->
-<section class="s" data-id="kit-live" data-title="Kit · Phone and live prototype" data-stage="5" data-min="0.5" data-notion="05-design" data-ground="white">
+<section class="s" data-id="kit-live" data-title="Kit · Phone and live prototype" data-stage="5" data-min="0.5" data-ground="white">
   <header class="s-head">
-    <p class="eyebrow" data-a="rise"><span>Screen · phone and live</span><span class="hc-prov" data-prov="simulated"></span></p>
+    <p class="eyebrow" data-a="rise"><span>Screen · phone and live</span></p>
     <h2 class="h2" data-a="lines" data-at="0.1">A phone, and the prototype running in the slide</h2>
   </header>
   <div class="s-body">
     <div class="row" style="--gap-x: 64px; align-items: flex-end" data-a="rise" data-at="0.2">
       <figure class="hc-phone" style="--w: 230px"><img data-shot="hs-12" alt="Placeholder screen"></figure>
-      <figure class="hc-live" data-route="/" data-tab="Smart Listing | Hospitable" style="--w: 860px">
-        <div class="hc-browser" data-url="my.hospitable.com/properties/property/2509769/knowledge" data-tab="Knowledge Hub"><div class="hc-browser__view"><img data-shot="hs-40" alt="Poster: Knowledge Hub today (HS-40)"></div></div>
+      <figure class="hc-live" data-route="/" data-tab="Smart Listing | Hostaway" style="--w: 860px">
+        <div class="hc-browser" data-url="my.hostaway.com/properties/property/2509769/knowledge" data-tab="Knowledge Hub"><div class="hc-browser__view"><img data-shot="hs-40" alt="Poster: Knowledge Hub today (HS-40)"></div></div>
       </figure>
     </div>
   </div>
@@ -244,9 +244,9 @@
 </section>
 
 <!-- 13 · the 7 × 5 concept grid -->
-<section class="s" data-id="kit-grid" data-title="Kit · Concept grid" data-stage="4" data-min="0.5" data-notion="04-concepts" data-ground="white">
+<section class="s" data-id="kit-grid" data-title="Kit · Concept grid" data-stage="4" data-min="0.5" data-ground="white">
   <header class="s-head">
-    <p class="eyebrow" data-a="rise"><span>The 7 × 5 grid</span><span class="hc-prov" data-prov="assumption"></span></p>
+    <p class="eyebrow" data-a="rise"><span>The 7 × 5 grid</span></p>
     <h2 class="h2" data-a="lines" data-at="0.1">Directions in rows, screens in columns</h2>
   </header>
   <div class="s-body">
@@ -254,14 +254,14 @@
       <span></span><p class="hc-grid__h"><b>SCR-01</b>Connect</p><p class="hc-grid__h"><b>SCR-02</b>Reconcile</p><p class="hc-grid__h"><b>SCR-03</b>Hub</p><p class="hc-grid__h"><b>SCR-04</b>Studio</p><p class="hc-grid__h"><b>SCR-05</b>Portfolio</p>
       <p class="hc-grid__r"><b>C1</b><span>Channel Canvas</span></p><div class="hc-grid__c"><img data-shot="hs-12" alt="C1 · SCR-01"></div><div class="hc-grid__c" data-label="C1 · SCR-02"></div><div class="hc-grid__c is-pick"><img data-shot="hs-40" alt="C1 · SCR-03"></div><div class="hc-grid__c" data-label="C1 · SCR-04"></div><div class="hc-grid__c" data-label="C1 · SCR-05"></div>
       <p class="hc-grid__r"><b>C2</b><span>Golden Record</span></p><div class="hc-grid__c" data-label="C2 · SCR-01"></div><div class="hc-grid__c" data-label="C2 · SCR-02"></div><div class="hc-grid__c" data-label="C2 · SCR-03"></div><div class="hc-grid__c is-dim"><img data-shot="hs-30" alt="C2 · SCR-04"></div><div class="hc-grid__c" data-label="C2 · SCR-05"></div>
-      <p class="hc-grid__r"><b>C3</b><span>Copilot</span></p><div class="hc-grid__c" data-label="C3 · SCR-01"></div><div class="hc-grid__c" data-label="C3 · SCR-02"></div><div class="hc-grid__c" data-label="C3 · SCR-03"></div><div class="hc-grid__c" data-label="C3 · SCR-04"></div><div class="hc-grid__c" data-label="C3 · SCR-05"></div>
+      <p class="hc-grid__r"><b>C3</b><span>The assistant</span></p><div class="hc-grid__c" data-label="C3 · SCR-01"></div><div class="hc-grid__c" data-label="C3 · SCR-02"></div><div class="hc-grid__c" data-label="C3 · SCR-03"></div><div class="hc-grid__c" data-label="C3 · SCR-04"></div><div class="hc-grid__c" data-label="C3 · SCR-05"></div>
     </div>
   </div>
   <aside class="notes"><p>hc-grid with --cols. A cell holds an img data-shot (click to zoom) or shows its data-label while empty. is-pick outlines a finalist, is-dim quietens the rest. The real grid is seven rows.</p></aside>
 </section>
 
 <!-- 14 · decision card, with an "In Notion" deep dive one layer below -->
-<section class="s" data-id="kit-decision" data-title="Kit · Decision card" data-stage="4" data-min="0.5" data-notion="04-concepts D-001" data-ground="white">
+<section class="s" data-id="kit-decision" data-title="Kit · Decision card" data-stage="4" data-min="0.5" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Decision</span></p>
     <h2 class="h2" data-a="lines" data-at="0.1">A decision, and why</h2>
@@ -277,14 +277,14 @@
   <template class="more" data-more="why" data-title="The evidence behind D-001">
     <div class="more__panel" data-title="Evidence">
       <p class="lead">A detail is a layer below the slide: a deep dive that stays in the talk, with its way into Notion.</p>
-      <p class="chips"><span class="hc-id">D-001</span><span class="hc-prov" data-prov="brief"></span></p>
+      <p class="chips"><span class="hc-id">D-001</span></p>
     </div>
   </template>
   <aside class="notes"><p>hc-decision. The detail layer (template class more) is the "In Notion" deep dive on the wall.</p></aside>
 </section>
 
 <!-- 15 · problem → response → screen -->
-<section class="s" data-id="kit-pr" data-title="Kit · Problem to response" data-stage="5" data-min="0.5" data-notion="05-design" data-ground="white">
+<section class="s" data-id="kit-pr" data-title="Kit · Problem to response" data-stage="5" data-min="0.5" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Problem → response</span></p>
     <h2 class="h2" data-a="lines" data-at="0.1">Each problem, the move, the screen</h2>
@@ -292,13 +292,13 @@
   <div class="s-body">
     <div class="hc-prs" data-a="rise" data-at="0.2">
       <div class="hc-pr">
-        <div class="hc-pr__p"><p class="hc-pr__k"><span>Gong theme</span><span class="hc-prov hc-prov--sm" data-prov="brief"></span></p><p class="hc-pr__t">The problem, in the words it arrived in.</p></div>
+        <div class="hc-pr__p"><p class="hc-pr__k"><span>Gong theme</span></p><p class="hc-pr__t">The problem, in the words it arrived in.</p></div>
         <span class="hc-pr__arrow" aria-hidden="true"></span>
         <div class="hc-pr__r"><p class="hc-pr__k"><span class="hc-id">D-0xx</span></p><p class="hc-pr__t">The design response, in one line.</p></div>
         <div class="hc-pr__s"><img data-shot="hs-40" alt="The screen that answers it"></div>
       </div>
       <div class="hc-pr">
-        <div class="hc-pr__p"><p class="hc-pr__k"><span class="hc-id">I-04</span><span class="hc-prov hc-prov--sm" data-prov="simulated"></span></p><p class="hc-pr__t">An insight from research.</p></div>
+        <div class="hc-pr__p"><p class="hc-pr__k"><span class="hc-id">I-04</span></p><p class="hc-pr__t">An insight from research.</p></div>
         <span class="hc-pr__arrow" aria-hidden="true"></span>
         <div class="hc-pr__r"><p class="hc-pr__k"><span class="hc-id">D-0xx</span></p><p class="hc-pr__t">What we did about it.</p></div>
         <div class="hc-pr__s" data-label="SCR-04"></div>
@@ -309,9 +309,9 @@
 </section>
 
 <!-- 16 · product UI on a slide: one real S02 component, zoomed (.h-root.hc-ui) -->
-<section class="s" data-id="kit-ui" data-title="Kit · A design-system component on a slide" data-stage="5" data-min="0.5" data-notion="05-design" data-ground="white">
+<section class="s" data-id="kit-ui" data-title="Kit · A design-system component on a slide" data-stage="5" data-min="0.5" data-ground="white">
   <header class="s-head">
-    <p class="eyebrow" data-a="rise"><span>Product UI · from ds/components</span><span class="hc-prov" data-prov="simulated"></span></p>
+    <p class="eyebrow" data-a="rise"><span>Product UI · from ds/components</span></p>
     <h2 class="h2" data-a="lines" data-at="0.1">One real component, at wall size</h2>
     <p class="hc-msg" data-a="rise" data-at="0.25">S02's h-* markup, zoomed as a block. Screens stay screenshots.</p>
   </header>
@@ -330,9 +330,9 @@
 </section>
 
 <!-- 17 · a flow, a map or a model, drawn live from data/flows.json (kit/flowmap.js, 4 Oct) -->
-<section class="s" data-id="kit-flow" data-title="Kit · Flow diagram" data-stage="5" data-min="0.5" data-notion="05-design" data-ground="white">
+<section class="s" data-id="kit-flow" data-title="Kit · Flow diagram" data-stage="5" data-min="0.5" data-ground="white">
   <header class="s-head">
-    <p class="eyebrow" data-a="rise"><span>Flow diagram · kit/flowmap.js</span><span class="hc-prov" data-prov="simulated"></span></p>
+    <p class="eyebrow" data-a="rise"><span>Flow diagram · kit/flowmap.js</span></p>
     <h2 class="h2" data-a="lines" data-at="0.1">A flow, drawn live from JSON</h2>
     <p class="hc-msg" data-a="rise" data-at="0.25">Cards, decisions and plates from data/flows.json. Lines draw and cards pop in as a ladder.</p>
   </header>
@@ -342,7 +342,7 @@
   <aside class="notes"><p>figure.hc-flow with data-flow naming a diagram in data/flows.json, and data-variant="notion" draws the Notion variant (deck is the default). Node kinds: start, step, screen (with a glyph), ai, decision (who: host is raspberry), end, root. Plates are groups with a tint. "only": "deck" or "notion" keeps a node or a branch to one variant. The renderer sets data-a="flow", and data-still turns the motion off. Notion PNGs: node qa/diagrams/render.mjs.</p></aside>
 </section>
 
-<section class="s" data-id="kit-brand" data-title="Kit · The brand plate" data-stage="0" data-part="open" data-min="0.2" data-notion="hub" data-ground="white" data-chrome="min">
+<section class="s" data-id="kit-brand" data-title="Kit · The brand plate" data-stage="0" data-part="open" data-min="0.2" data-ground="white" data-chrome="min">
   <!-- The talk's bookends (op-cover, cl-thanks): kit/hc.css .hc-brand. Aubergine plate, white words, marks at its edges
        placed in plate coordinates (1840 × 904). The blob and the dots scale in from the slide's module. -->
   <div class="art art--full hc-brand" aria-hidden="true">
@@ -360,7 +360,7 @@
     <p class="hc-brand__k">Kicker</p>
     <h2 class="hc-brand__t">Big white words.</h2>
     <p class="hc-brand__d">A sentence-case line under them, in the quiet on-dark ink.</p>
-    <p class="hc-lockup"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#ch-hospitable"/></svg>hospitable</p>
+    <p class="hc-lockup"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#ch-hostaway"/></svg>hostaway</p>
   </div>
   <aside class="notes"><p>.hc-brand on an .art.art--full: .hc-brand__plate holds a .hc-brand__band, .hc-doodle rings and strokes, a .hc-blob and .hc-dot marks, each a .hc-brand__at with --x --y in plate coordinates. Words: .hc-brand__k, .hc-brand__t, .hc-brand__d, and the .hc-lockup. A bookend slide carries data-bookend and is not counted against the 50 (R-185).</p></aside>
 </section>

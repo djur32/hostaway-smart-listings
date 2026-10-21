@@ -1,4 +1,4 @@
-/* The one open-at-a-time right-side-panel slot (D-927, Antonio 1 Oct, item 3: "you can have tips or this sidebar, you
+/* The one open-at-a-time right-side-panel slot (D-927, review 1 Oct, item 3: "you can have tips or this sidebar, you
  * cannot have both"). Today there are two independent panel systems — Split/TipsPanel (ds/sl3.tsx, the Listing editor's
  * Tips) and PanelStack (ds/panels.tsx, Calendar/Pricing/Availability drill-downs) — and neither knows about the other.
  * This is the shared primitive that lets any panel system claim a single slot: claiming it tells whoever held it

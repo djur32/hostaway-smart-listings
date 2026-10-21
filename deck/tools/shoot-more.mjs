@@ -16,7 +16,7 @@ const args = process.argv.slice(2);
 const opt = (k, d) => { const i = args.indexOf('--' + k); return i >= 0 ? args[i + 1] : d; };
 const parts = opt('parts', null)?.split(',') ?? null;
 const out = path.join(ROOT, opt('out', 'qa/v2/more'));
-const themes = ['hospitable'];                       // one theme (D-071)
+const themes = ['hostaway'];                       // one theme (D-071)
 const FIRST = args.includes('--first');
 const built = build({ suffix: `_ms${process.pid}`, quiet: true, parts });
 const server = await serveSite(ROOT);

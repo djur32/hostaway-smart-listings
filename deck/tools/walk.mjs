@@ -18,14 +18,14 @@ import { build } from './build.mjs';
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const args = process.argv.slice(2);
 const opt = (k, dflt) => { const i = args.indexOf('--' + k); return i >= 0 ? args[i + 1] : dflt; };
-const themes = ['hospitable'];                       // one theme (D-071)
+const themes = ['hostaway'];                       // one theme (D-071)
 const motion = opt('motion', 'full');
 const settle = motion === 'off' ? 250 : 2600;
 
 // --dist walks the production pages (dist/pages/*.html, run tools/dist.mjs first)
 const DISTMODE = args.includes('--dist');
 const suffix = `_walk${process.pid}`;
-const built = DISTMODE ? { files: { hospitable: 'hospitable.html' } } : build({ suffix, quiet: true, parts: opt('parts', null)?.split(',') ?? null });
+const built = DISTMODE ? { files: { hostaway: 'hostaway.html' } } : build({ suffix, quiet: true, parts: opt('parts', null)?.split(',') ?? null });
 const PAGES = DISTMODE ? 'dist/pages' : 'src/pages';
 const server = await serveSite(ROOT);
 const chrome = await launchChrome();

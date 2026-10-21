@@ -1,4 +1,4 @@
-/* The 12-property portfolio (concepts/SCENARIO.md, SIMULATED) — SCR-05 and the Properties list.
+/* The 12-property portfolio (concepts/SCENARIO.md, ) — SCR-05 and the Properties list.
  * Only the scenario property (#1) is modelled in depth; the others are portfolio rows (deep: false). */
 import type { ChannelHealth, ChannelId, OwnerLogEntry, PortfolioGroup, PortfolioRule, PricingStrategy, Property, PropertyDetail } from './types'
 import { PROPERTY_ID, PROPERTY_NAME } from './scenario'
@@ -36,7 +36,7 @@ export const PROPERTY_PHOTO: Record<string, PhotoKey> = {
   'moabit-studio': 'bedroom', 'schoneberg-balcony': 'balcony', 'treptow-riverside': 'bathroom', 'potsdam-lake': 'building',
 }
 
-/* ---------------- S12 · groups, pricing inheritance, health per channel, rules, owner log (SIMULATED) ----------------
+/* ---------------- S12 · groups, pricing inheritance, health per channel, rules, owner log ----------------
  * Grounded in: SCENARIO.md (12 Berlin/Potsdam units), P3 (INT-3: owners, VAs, "a dry run"), Gong themes (sync, pricing),
  * channel-constraints.md (Page Score via API on Booking.com; no numeric score on Airbnb). */
 
@@ -55,40 +55,40 @@ const h = (status: ChannelHealth['status'], strength: number, lastPushDays: numb
 /** Detail per portfolio row. The scenario property mirrors scenario.ts: €44 base, €25 / €30 cleaning, Airbnb Smart Pricing on. */
 export const DETAIL: Record<string, PropertyDetail> = {
   [PROPERTY_ID]: { id: PROPERTY_ID, groupId: 'berlin', owner: 'You', tags: ['Self-managed'], base: 44,
-    priceOwner: { airbnb: 'channel', booking: 'hospitable-fixed' }, overrides: { dynamic: false }, channelFees: { airbnb: 25, booking: 30 },
+    priceOwner: { airbnb: 'channel', booking: 'hostaway-fixed' }, overrides: { dynamic: false }, channelFees: { airbnb: 25, booking: 30 },
     health: { airbnb: h('needs-you', 64, null), booking: h('needs-you', 72, null) }, pending: { conflicts: 4, suggestions: 3, questions: 5 }, descriptionAgeMonths: 14, wifiSpeedKnown: false },
   'kreuzberg-loft': { id: 'kreuzberg-loft', groupId: 'berlin', owner: 'Weber', tags: ['Owner: Weber', 'Canal'], base: 72,
-    priceOwner: { airbnb: 'hospitable-dynamic', booking: 'hospitable-dynamic', vrbo: 'hospitable-dynamic' }, overrides: { cleaningFee: 35 },
+    priceOwner: { airbnb: 'hostaway-dynamic', booking: 'hostaway-dynamic', vrbo: 'hostaway-dynamic' }, overrides: { cleaningFee: 35 },
     health: { airbnb: h('in-sync', 81, 3), booking: h('failed', 77, 3, { failed: 'Photo 4 rejected: under 1,280 px wide' }), vrbo: h('in-sync', 70, 3) }, pending: { conflicts: 0, suggestions: 1, questions: 0 }, descriptionAgeMonths: 4, wifiSpeedKnown: true },
   'friedrichshain-studio': { id: 'friedrichshain-studio', groupId: 'berlin', owner: 'Weber', tags: ['Owner: Weber', 'Studio'], base: 49,
-    priceOwner: { airbnb: 'hospitable-dynamic' }, overrides: { cleaningFee: 20, minStay: 1 },
+    priceOwner: { airbnb: 'hostaway-dynamic' }, overrides: { cleaningFee: 20, minStay: 1 },
     health: { airbnb: h('needs-you', 58, 40) }, pending: { conflicts: 0, suggestions: 2, questions: 1 }, descriptionAgeMonths: 13, wifiSpeedKnown: false },
   'mitte-courtyard': { id: 'mitte-courtyard', groupId: 'berlin', owner: 'Lindqvist', tags: ['Owner: Lindqvist'], base: 88,
-    priceOwner: { airbnb: 'hospitable-dynamic', booking: 'hospitable-dynamic', direct: 'hospitable-dynamic' }, overrides: { cleaningFee: 40 },
+    priceOwner: { airbnb: 'hostaway-dynamic', booking: 'hostaway-dynamic', direct: 'hostaway-dynamic' }, overrides: { cleaningFee: 40 },
     health: { airbnb: h('in-sync', 86, 6), booking: h('in-sync', 91, 6), direct: h('in-sync', 78, 6) }, pending: { conflicts: 0, suggestions: 0, questions: 0 }, descriptionAgeMonths: 2, wifiSpeedKnown: true },
   'prenzlauer-family': { id: 'prenzlauer-family', groupId: 'berlin', owner: 'Lindqvist', tags: ['Owner: Lindqvist', 'Family'], base: 96,
     priceOwner: { airbnb: 'tool', vrbo: 'tool' }, overrides: { cleaningFee: 45, minStay: 3 },
     health: { airbnb: h('in-sync', 79, 12), vrbo: h('drifted', 66, 12, { drift: 'Title changed on Vrbo 2 days ago' }) }, pending: { conflicts: 1, suggestions: 0, questions: 1 }, descriptionAgeMonths: 7, wifiSpeedKnown: false },
   'wedding-garden': { id: 'wedding-garden', groupId: 'berlin', owner: 'Okafor', tags: ['Owner: Okafor', 'Garden'], base: 52,
-    priceOwner: { airbnb: 'hospitable-dynamic', booking: 'hospitable-dynamic' }, overrides: { cleaningFee: 20 }, channelFees: { airbnb: 20, booking: 26 },
+    priceOwner: { airbnb: 'hostaway-dynamic', booking: 'hostaway-dynamic' }, overrides: { cleaningFee: 20 }, channelFees: { airbnb: 20, booking: 26 },
     health: { airbnb: h('in-sync', 71, 21), booking: h('needs-you', 63, 21) }, pending: { conflicts: 1, suggestions: 1, questions: 1 }, descriptionAgeMonths: 16, wifiSpeedKnown: false },
   'charlottenburg-classic': { id: 'charlottenburg-classic', groupId: 'berlin', owner: 'Okafor', tags: ['Owner: Okafor'], base: 81,
     priceOwner: { booking: 'manual' }, overrides: { cleaningFee: 38, minStay: 2 },
     health: { booking: h('in-sync', 88, 9) }, pending: { conflicts: 0, suggestions: 0, questions: 0 }, descriptionAgeMonths: 5, wifiSpeedKnown: true },
   'tempelhof-park': { id: 'tempelhof-park', groupId: 'berlin', owner: 'You', tags: ['Self-managed'], base: 58,
-    priceOwner: { airbnb: 'hospitable-dynamic', booking: 'hospitable-dynamic' }, overrides: { cleaningFee: 25 }, channelFees: { airbnb: 25, booking: 25 },
+    priceOwner: { airbnb: 'hostaway-dynamic', booking: 'hostaway-dynamic' }, overrides: { cleaningFee: 25 }, channelFees: { airbnb: 25, booking: 25 },
     health: { airbnb: h('in-sync', 74, 15), booking: h('needs-you', 69, 15) }, pending: { conflicts: 1, suggestions: 0, questions: 1 }, descriptionAgeMonths: 9, wifiSpeedKnown: false },
   'moabit-studio': { id: 'moabit-studio', groupId: 'berlin', owner: 'Weber', tags: ['Owner: Weber', 'Studio', 'Just renovated'], base: 47,
-    priceOwner: { airbnb: 'hospitable-dynamic' }, overrides: { cleaningFee: 20, minStay: 1 },
+    priceOwner: { airbnb: 'hostaway-dynamic' }, overrides: { cleaningFee: 20, minStay: 1 },
     health: { airbnb: h('in-sync', 83, 2) }, pending: { conflicts: 0, suggestions: 0, questions: 1 }, descriptionAgeMonths: 1, wifiSpeedKnown: false },
   'schoneberg-balcony': { id: 'schoneberg-balcony', groupId: 'berlin', owner: 'Lindqvist', tags: ['Owner: Lindqvist', 'Balcony'], base: 63,
-    priceOwner: { airbnb: 'hospitable-dynamic', booking: 'hospitable-dynamic', direct: 'hospitable-dynamic' }, overrides: { cleaningFee: 25 },
+    priceOwner: { airbnb: 'hostaway-dynamic', booking: 'hostaway-dynamic', direct: 'hostaway-dynamic' }, overrides: { cleaningFee: 25 },
     health: { airbnb: h('in-sync', 76, 8), booking: h('in-sync', 80, 8), direct: h('needs-you', 61, 8) }, pending: { conflicts: 0, suggestions: 1, questions: 1 }, descriptionAgeMonths: 13, wifiSpeedKnown: false },
   'treptow-riverside': { id: 'treptow-riverside', groupId: 'berlin', owner: 'Okafor', tags: ['Owner: Okafor', 'River'], base: 66,
-    priceOwner: { airbnb: 'hospitable-dynamic', vrbo: 'hospitable-dynamic' }, overrides: {},
+    priceOwner: { airbnb: 'hostaway-dynamic', vrbo: 'hostaway-dynamic' }, overrides: {},
     health: { airbnb: h('in-sync', 72, 30), vrbo: h('in-sync', 68, 30) }, pending: { conflicts: 0, suggestions: 1, questions: 1 }, descriptionAgeMonths: 11, wifiSpeedKnown: false },
   'potsdam-lake': { id: 'potsdam-lake', groupId: 'potsdam', owner: 'Lindqvist', tags: ['Owner: Lindqvist', 'Family', 'House'], base: 189,
-    priceOwner: { airbnb: 'hospitable-dynamic', booking: 'hospitable-dynamic', vrbo: 'hospitable-dynamic', direct: 'hospitable-dynamic' }, overrides: {},
+    priceOwner: { airbnb: 'hostaway-dynamic', booking: 'hostaway-dynamic', vrbo: 'hostaway-dynamic', direct: 'hostaway-dynamic' }, overrides: {},
     health: { airbnb: h('in-sync', 84, 5), booking: h('in-sync', 82, 5), vrbo: h('in-sync', 75, 5), direct: h('in-sync', 70, 5) }, pending: { conflicts: 0, suggestions: 2, questions: 1 }, descriptionAgeMonths: 6, wifiSpeedKnown: true },
 }
 export const detailOf = (id: string) => DETAIL[id] ?? DETAIL[PROPERTY_ID]
@@ -161,10 +161,10 @@ const LISTING_ORDER: PropertyListingChannel[] = ['airbnb', 'booking', 'direct']
 /** True only for the deep, scripted property (Neukölln): import story, tips, comps, Hub facts. */
 export const isScenarioProperty = (id: string | undefined | null) => id === PROPERTY_ID
 
-/** Properties that keep Smart Listings OFF by default (Antonio, 1 Oct voice note): the last three in the switcher
+/** Properties that keep Smart Listings OFF by default (review, 1 Oct voice note): the last three in the switcher
  *  dropdown, deliberately left as "before you turn this on" — no setup, no tips. Every other non-scenario property
  *  seeds with Smart Listings already on, past setup, with its own per-channel tips (store.ts seedProperty,
- *  data/property-listing.ts propertyTipsFor). SIMULATED. */
+ *  data/property-listing.ts propertyTipsFor). . */
 export const SMART_LISTINGS_OFF: readonly string[] = ['schoneberg-balcony', 'treptow-riverside', 'potsdam-lake']
 /** Smart Listings' seeded default for a property: on (past setup, with tips) for every property except the scenario
  *  one (it has its own richer import story) and the three named above. */

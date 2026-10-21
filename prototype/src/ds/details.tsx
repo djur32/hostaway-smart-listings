@@ -12,7 +12,7 @@ import type { ChannelId } from '../data/types'
 /* ---------- source of truth ---------- */
 /** A compact single-line strip under the page head: this page holds the property's facts; channel pages adapt them.
  *  Provenance colours (--prov-truth-*), quiet: no card, no shadow, one text link.
- *  Superseded in the page head by SourceOfTruthBadge below (Antonio, 1 Oct: more evident, no explainer sentence,
+ *  Superseded in the page head by SourceOfTruthBadge below (review, 1 Oct: more evident, no explainer sentence,
  *  integrated with the title rather than a separate bordered row) — kept here in case another Shared screen wants
  *  the fuller strip with its own explainer text. */
 export function SourceOfTruthBanner({ children, linkLabel = 'How channels use it', onLink }: { children?: ReactNode; linkLabel?: string; onLink?: () => void }) {
@@ -24,7 +24,7 @@ export function SourceOfTruthBanner({ children, linkLabel = 'How channels use it
     </p>
   )
 }
-/** The page-head version (Antonio, 1 Oct): sits right next to the "Listing details" title as a small tinted pill
+/** The page-head version (review, 1 Oct): sits right next to the "Listing details" title as a small tinted pill
  *  — same recipe as the real status chips (pill shape, light tinted fill, thin tinted border, coloured text) — no
  *  explainer sentence. The whole pill is the "How channels use it" trigger (reducing text, not adding a second
  *  element beside it); it opens the same HowChannelsUseIt dialog as before. */
@@ -36,7 +36,7 @@ export function SourceOfTruthBadge({ onClick }: { onClick: () => void }) {
   )
 }
 
-/** A Listing base page title with its "Source of truth" chip and the dialog it opens (Antonio, 3 Oct: the chip belongs on
+/** A Listing base page title with its "Source of truth" chip and the dialog it opens (review, 3 Oct: the chip belongs on
  *  every Listing base page — Details, Pricing, Availability — so it's always clear this is the source of truth). */
 export function TruthTitle({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false)
@@ -179,7 +179,7 @@ export function FiltersButton({ count, onClick }: { count: number; onClick: () =
 /** An amenity on the property: bordered card (name, an exception label only when it isn't on every channel, a detail
  *  line) and separate square icon buttons to its right: pencil (details) and trash. Same at every width. */
 export function AmenityLine({ name, flag, note, onEdit, onRemove, channels }: { name: string; flag?: ReactNode; note?: ReactNode; onEdit?: () => void; onRemove?: () => void
-  /** Only when it isn't on every channel: the marks of the channels that list it, right after the name (Antonio, 3 Oct:
+  /** Only when it isn't on every channel: the marks of the channels that list it, right after the name (review, 3 Oct:
    *  "show the ones that are specific to a certain channel by adding the logo next to the name — just the main thing"). */
   channels?: ChannelId[] }) {
   return (
@@ -195,7 +195,7 @@ export function AmenityLine({ name, flag, note, onEdit, onRemove, channels }: { 
 }
 /** The scope caption a pick row carries: 'all' (every connected channel has a field for it) or the channels that do.
  *  Unlike the amenity *list*, which labels exceptions only, every row in the picker says what adding it will cover
- *  (REAL·PRODUCT refs 07, 12) — you are choosing, so the reach is part of the choice. */
+ *  (refs 07, 12) — you are choosing, so the reach is part of the choice. */
 export type AmenityScope = ChannelId[] | 'all'
 const scopeLabel = (scope: AmenityScope) =>
   scope === 'all' ? 'All channels' : scope.map((c) => CHANNELS[c].name).join(', ')
@@ -232,7 +232,7 @@ export function StepProgress({ step, total, label }: { step: number; total: numb
     </div>
   )
 }
-/** Radio cards (Hospitable's option cards): one choice; an optional trailing node (a channel mark). */
+/** Radio cards (Hostaway's option cards): one choice; an optional trailing node (a channel mark). */
 export function RadioCards({ legend, name, options, value, onChange }: { legend: string; name: string; options: Array<{ value: string; label: string; trail?: ReactNode }>; value?: string; onChange: (v: string) => void }) {
   return (
     <fieldset className="h-ld-fieldset">

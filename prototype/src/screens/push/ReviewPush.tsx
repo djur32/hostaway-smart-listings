@@ -3,7 +3,7 @@
  *   an accepted tip), one receipt per change: Sent → Live, or In review (Booking.com names and descriptions).
  * - Not sent yet: changes committed somewhere that doesn't send by itself, mainly Knowledge Hub edits to the Base,
  *   which reach every channel that uses the Base. Keep / Dismiss per channel, then Send. No drafts, no version names.
- * `?channel=<id>` filters to one channel. Demo: `?seed=tips` fills a realistic waiting list. SIMULATED data.
+ * `?channel=<id>` filters to one channel. Demo: `?seed=tips` fills a realistic waiting list. data.
  * Multi-property (QA B01/B02): the active property's changes and connected channels only. */
 import { useMemo, type ReactNode } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
@@ -66,7 +66,7 @@ function Changes() {
 
       {pending.length > 0 && (
         <section className="ch-changes__sec">
-          <SectionHead title="Not sent yet" desc="Saved in Hospitable, not on the channels yet. Most come from the Knowledge Hub, where one edit to the Base reaches every channel that uses it. Send them, or dismiss one for a channel." />
+          <SectionHead title="Not sent yet" desc="Saved in Hostaway, not on the channels yet. Most come from the Knowledge Hub, where one edit to the Base reaches every channel that uses it. Send them, or dismiss one for a channel." />
           {byChannel(pending).map((g) => (
             <KhPushGroup key={g.channel} channel={g.channel} meta={plural(g.items.length, 'change')}
               right={<Link className="h-textlink" to={`${base}/ch/${g.channel}/listing`}>Open listing</Link>}

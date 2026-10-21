@@ -280,7 +280,7 @@ function BookingStudio({ propertyId }: { propertyId: string }) {
           <section className="p-card">
             <div className="p-row p-sb"><div className="p-label">Property name · Booking.com</div><SourceChip source={{ kind: 'booking', at: '', detail: 'v0' }} /></div>
             <div className="h-small p-mt2"><b>{listing.title}</b> <span className="h-caption h-muted">{listing.title.length} / 255</span></div>
-            <p className="h-caption h-muted" style={{ margin: '6px 0 8px' }}>Booking.com reviews name changes (usually 48 h). Hospitable doesn’t send names to Booking.com today; this assumes Integrations turns it on (OQ-082).</p>
+            <p className="h-caption h-muted" style={{ margin: '6px 0 8px' }}>Booking.com reviews name changes (usually 48 h). Hostaway doesn’t send names to Booking.com today; this assumes Integrations turns it on (OQ-082).</p>
             {s.smartListings && names.filter((n) => n.text !== listing.title).slice(0, 2).map((n) => (
               <div key={n.text} className="h-suggestion p-mt2" onClick={() => s.setListingField('booking', 'title', n.text)} role="button" tabIndex={0}>
                 <div className="h-suggestion__text">{n.text}</div>

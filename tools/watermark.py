@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Mark an image as part of this case study before it goes into Notion (Antonio, 4 Oct:
-"all of the images … have the mark … Hospitable · Smart Listings, Antonio Silva").
+"""Mark an image as part of this case study before it goes into Notion (review, 4 Oct:
+"all of the images … have the mark … Hostaway · Smart Listings, review Silva").
 
 The mark is a band added UNDER the image, so it never covers content:
-  left   the Hospitable ring, then "Hospitable · Smart Listings"
-  right  "Antonio Silva · Head of Design case study"
+  left   the Hostaway ring, then "Hostaway · Smart Listings"
+  right  "review Silva · Head of Design case study"
 Colours are ds/tokens.css values (primary-500, sidebar aubergine, gray-500, gray-200); the type is TT Norms
 from ds/fonts. Usage:
 
@@ -53,11 +53,11 @@ def mark(src, dst, max_width=2400):
     f_b = ImageFont.truetype(F700, fs)
     f_m = ImageFont.truetype(F500, fs)
     x = rx + r + fs * 0.55
-    left_a, left_b = 'Hospitable', '  ·  Smart Listings'
+    left_a, left_b = 'Hostaway', '  ·  Smart Listings'
     d.text((x, cy), left_a, font=f_b, fill=AUBERGINE, anchor='lm')
     x += d.textlength(left_a, font=f_b)
     d.text((x, cy), left_b, font=f_m, fill=AUBERGINE, anchor='lm')
-    right = 'Antonio Silva  ·  Head of Design case study'
+    right = 'review Silva  ·  Head of Design case study'
     d.text((w - pad, cy), right, font=f_m, fill=GRAY, anchor='rm')
     ext = os.path.splitext(dst)[1].lower()
     if ext in ('.jpg', '.jpeg'):

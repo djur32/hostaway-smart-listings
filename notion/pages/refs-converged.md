@@ -1,5 +1,5 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Done** · 50 real screens from Mobbin, studied for the final design: strategy and performance, the listing editor, the Canvas and navigation. Third-party UI (`REAL·PUBLIC`), saved as local copies because Mobbin image links expire. Each screen links to its Mobbin page, which needs a Mobbin login. Internal reference: keep this page private.
+	**Output · Done** · 50 real screens from Mobbin, studied for the final design: strategy and performance, the listing editor, the Canvas and navigation. Third-party UI (), saved as local copies because Mobbin image links expire. Each screen links to its Mobbin page, which needs a Mobbin login. Internal reference: keep this page private.
 </callout>
 These shaped the build described in <mention-page url="https://app.notion.com/p/3eee18af164581828521eb27e3e50737">Solution overview</mention-page>.
 Each group opens below: the screen, then what I borrowed from it.

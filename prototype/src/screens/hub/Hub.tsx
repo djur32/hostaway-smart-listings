@@ -1,9 +1,9 @@
-/* WS-KH · Knowledge Hub, KH2 "Sections list" (Antonio, 30 Sep: "centralize all of the information in here", pricing and
+/* WS-KH · Knowledge Hub, KH2 "Sections list" (review, 30 Sep: "centralize all of the information in here", pricing and
  * availability included; "anything that is editable on a per-channel basis should be editable in here as well").
  * One place for everything about the property: a left list of sections, one section at a time, every field with its
  * Base value as a stacked row (label + help, control, caption). The caption says where the value goes (hover shows the
  * Base and each channel's own value); "Edit per channel" splits a field inline into one control per channel (HS-L03).
- * Hospitable's section save (Discard changes / Save); one confirmation when a channel keeps its own value.
+ * Hostaway's section save (Discard changes / Save); one confirmation when a channel keeps its own value.
  * URL states: /hub/:tab · ?q= · ?hover=<key> · ?split=<key> · ?confirm=<key> · ?resolve=1 · ?ask=1 · ?add=1 · ?seed=tips */
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, Navigate, useNavigate, useParams, useSearchParams } from 'react-router-dom'
@@ -35,7 +35,7 @@ import { HubE } from './variants/E'
 import { VariantR } from './variants/R'
 import { VariantQ } from './variants/Q'
 
-/** The route: the chosen iteration (?v=a…e, s), or iteration R with no `?v=` at all (Antonio's converged direction,
+/** The route: the chosen iteration (?v=a…e, s), or iteration R with no `?v=` at all (review's converged direction,
  *  concepts/knowledge-hub/R-BRIEF.md "Routing"): `/hub` and `?v=r` render R directly, tab/sub and all — R owns its own
  *  topic routes (`/hub/:category`) and isn't translated through the old iterations' query-string states below.
  *  `/hub/:tab` deep links for the older iterations (Canvas locks, "Open in Knowledge Hub") name a shared section id;
@@ -71,7 +71,7 @@ export function Hub() {
 const NAME = (c: ListingChannel) => CHANNELS[c].name
 const names = (cs: ListingChannel[]) => { const n = cs.map(NAME); return n.length <= 1 ? n.join('') : `${n.slice(0, -1).join(', ')} and ${n[n.length - 1]}` }
 const CHECKOUT_TASKS = ['Gather used towels', 'Throw rubbish away', 'Turn things off', 'Lock up', 'Return keys', 'Additional requests']
-/** Sample new values for the `?confirm=` demo state (the scenario property's; others get "(edited)"). SIMULATED. */
+/** Sample new values for the `?confirm=` demo state (the scenario property's; others get "(edited)"). . */
 const DEMO_EDIT: Record<string, string> = { house_rules: 'No parties or events. Quiet hours 22:00–7:00. No smoking inside or on the balcony. Shoes off inside, please.', neighbourhood: 'North Neukölln: Weserstraße’s cafés and bakeries on the doorstep, the Landwehr canal a short walk away and Tempelhofer Feld five minutes on foot.', 'price:cleaning': '28' }
 
 export function HubSections() {
@@ -309,7 +309,7 @@ function ItemRow({ item, ctx }: { item: KhItem; ctx: RowCtx }) {
   return <KhField dataKey={item.key} label={item.label} help={help} caption={caption} action={action}>{control}</KhField>
 }
 
-/* ---------------- the control for a value (Hospitable's inputs, Dropdown, toggle, tags, tasks) ---------------- */
+/* ---------------- the control for a value (Hostaway's inputs, Dropdown, toggle, tags, tasks) ---------------- */
 function Control({ item, value, write }: { item: KhItem; value: string; write: (v: string) => void }) {
   switch (item.kind) {
     case 'textarea':
@@ -325,7 +325,7 @@ function Control({ item, value, write }: { item: KhItem; value: string; write: (
     case 'tasks': return <KhTasks tasks={parseTasks(value)} catalog={CHECKOUT_TASKS} onChange={(t) => write(formatTasks(t))} />
     case 'money': case 'percent': case 'guests':
       // NumberField (ds/v3-ch.tsx): the product-wide numeric control — the ▲/▼ spinner plus Up/Down (PageUp/PageDown ×10)
-      // on the input (Antonio, 1 Oct: "make sure that this is available in all of the items that are numbers"). Same
+      // on the input (review, 1 Oct: "make sure that this is available in all of the items that are numbers"). Same
       // sanitising and the same write() as before, so the draft/Save path is unchanged; the unit sits at the end, as on
       // the channel Pricing screen the same values come from.
       return (

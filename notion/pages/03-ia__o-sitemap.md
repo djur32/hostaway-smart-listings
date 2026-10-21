@@ -1,19 +1,19 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Done** · The property menu exactly as the prototype builds it, with one line on what each page holds. Provenance: `REAL·PRODUCT` (the live prototype and its code).
+	**Output · Done** · The property menu exactly as the prototype builds it, with one line on what each page holds. Provenance: (the live prototype and its code).
 </callout>
 ## The short version
 - The property menu has three parts: **Overview**, **Shared** (what every channel reads) and **Channels** (one group per connected channel).
 - Every channel group has the same four pages, each with its count of open tips.
 - **Smart Listings** (Strategy, Performance) appears in Shared only when it's on.
 - Two flows run full screen, outside the menu: the **strategy wizard** and the **Booking-policy flow**.
-- The global sidebar is Hospitable's own. Only Properties navigates.
+- The global sidebar is Hostaway's own. Only Properties navigates.
 ## The property menu
 <columns>
 	<column ratio="36">
-		![The property menu in the prototype, Airbnb open: Overview, then Shared, then Channels, with open tips counted per page. Sample data SIMULATED.](file-upload://3eee18af-1645-81fd-9881-00b227f325c3)
+		![The property menu in the prototype, Airbnb open: Overview, then Shared, then Channels, with open tips counted per page. Sample data .](file-upload://3eee18af-1645-81fd-9881-00b227f325c3)
 	</column>
 	<column ratio="64">
-		- **Overview** · Hospitable's property page: connected channels, calendars, sync, the Smart Listings switch and Field visibility.
+		- **Overview** · Hostaway's property page: connected channels, calendars, sync, the Smart Listings switch and Field visibility.
 		- **Shared**
 			- **Listing base** › Details · Pricing · Availability · the values every channel uses. Each field says how many channels use it.
 			- **Knowledge Hub** › Questions · Insights · Facts · Sources · what guests ask, what it teaches, the listing details it reads from the Listing base plus the host's own situations, and where it learns from. Labelled a concept in the build.
@@ -25,7 +25,7 @@
 			- **Airbnb · Booking.com · Direct**, each › Listing · Pricing · Availability · Booking policies · the channel's own version of each page. Every field shows which of four cases it is: uses the Base, custom, only on that channel, or set by the channel.
 	</column>
 </columns>
-A channel's Listing has two views, Classic and Canvas, and Hospitable's five tabs: Essentials, Arrival, Location, Amenities, Rules.
+A channel's Listing has two views, Classic and Canvas, and Hostaway's five tabs: Essentials, Arrival, Location, Amenities, Rules.
 ## Outside the menu
 <table header-row="true">
 	<tr>
@@ -46,7 +46,7 @@ A channel's Listing has two views, Classic and Canvas, and Hospitable's five tab
 </table>
 Links from earlier builds redirect: the old Setup page opens the strategy wizard, and old version pages open Performance.
 ## The global sidebar
-Hospitable's own, replicated: Search, Getting started, Home, Inbox, Properties, Calendar, Guest experience, Metrics, Direct bookings, Devices, Operations. Only **Properties** navigates, straight to the property. The rest is shown but inert, because the case doesn't rebuild those areas. On phones the property menu becomes a section bar that opens the whole menu in a bottom sheet. → <mention-page url="https://app.notion.com/p/3eee18af164581daa8b7f210cb1c6f4e">Mobile & tablet</mention-page>
+Hostaway's own, replicated: Search, Getting started, Home, Inbox, Properties, Calendar, Guest experience, Metrics, Direct bookings, Devices, Operations. Only **Properties** navigates, straight to the property. The rest is shown but inert, because the case doesn't rebuild those areas. On phones the property menu becomes a section bar that opens the whole menu in a bottom sheet. → <mention-page url="https://app.notion.com/p/3eee18af164581daa8b7f210cb1c6f4e">Mobile & tablet</mention-page>
 ## How it was made
 Read from the prototype's code (the property layout and its routes) and checked against the live site. Why the menu has this shape: <mention-page url="https://app.notion.com/p/3eee18af16458180a645fc510d470034">Navigation options</mention-page>.
 ---
@@ -63,6 +63,6 @@ Read from the prototype's code (the property layout and its routes) and checked 
 - <mention-page url="https://app.notion.com/p/3eee18af164581028d64c3d0ff9f7d48">KD-06</mention-page>
 - <mention-page url="https://app.notion.com/p/3eee18af164581ca9016ce7928ea3008">KD-16</mention-page>
 **In the prototype**
-- [Property Overview](https://hospitable-case-web.digimal.studio/property/neukolln/overview)
-- [Strategy wizard](https://hospitable-case-web.digimal.studio/property/neukolln/smart/wizard)
+- [Property Overview]()
+- [Strategy wizard]()
 - <mention-page url="https://app.notion.com/p/3eee18af164581178debffa0628f4703">Listing base & channels</mention-page>

@@ -1,6 +1,6 @@
 /* Insights below the page (R-111…R-114) and Listings › Performance & similar. SCR-04 · owner S11 · D-144
  * Comps per channel with similarity % and *why similar*, structure patterns, market snapshot per channel, linked to
- * Pricing. Everything here is SIMULATED and labelled "Sample market data"; your own units are excluded (OQ-108). */
+ * Pricing. Everything here is and labelled "Sample market data"; your own units are excluded (OQ-108). */
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Band, Icon } from '../../ds'

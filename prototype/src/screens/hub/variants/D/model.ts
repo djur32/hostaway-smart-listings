@@ -1,7 +1,7 @@
 /* KH-D · Overview cards → sheet: the model behind the Overview (concepts/knowledge-hub/KH-D.md).
  * Everything is derived from the prototype's field model (data/v3-kh.ts khItems(), which reads data/sl3.ts FIELDS and
  * data/v3-ch.ts PRICES / AVAILABILITY) and the store (sl3.base / sl3.custom), so a Save in a sheet updates the cards.
- * Values are SIMULATED (concepts/SCENARIO.md); the structure is Hospitable's Details, Pricing, Availability, Knowledge Hub. */
+ * Values are (concepts/SCENARIO.md); the structure is Hostaway's Details, Pricing, Availability, Knowledge Hub. */
 import { LISTING_CHANNELS, type ListingChannel } from '../../../../data/sl3'
 import { isScenarioProperty, propertyById, propertyChannels } from '../../../../data/portfolio'
 import { profileOf } from '../../../../data/property-seeds'
@@ -61,7 +61,7 @@ export function valueOn(item: KhItem, d: HubDraft, c: ListingChannel): { value: 
 
 /* ---------- amenities (the Paper frame's 17, per channel; keys `amenity:<name>` as in the channel editor) ---------- */
 export interface Amenity { name: string; label?: string; on: ListingChannel[]; note?: string; disagree?: boolean }
-/** Neukölln's amenities, with the scenario's import quirks (SIMULATED). */
+/** Neukölln's amenities, with the scenario's import quirks. */
 const ALL = SCENARIO_CHANNELS
 export const AMENITY_GROUPS: Array<{ group: string; items: Amenity[] }> = [
   { group: 'Internet and office', items: [{ name: 'Wi-Fi', label: 'Wi-Fi (250 Mbps)', on: ALL }, { name: 'Dedicated workspace', on: ['airbnb', 'direct'], note: 'Booking.com calls it “Desk”' }, { name: 'Monitor 27"', on: ['airbnb'] }] },
@@ -110,7 +110,7 @@ export const cancellationOn = (c: ListingChannel) => cancellationCards(c, useSto
 
 /* ---------- sources, suggested questions ---------- */
 export interface Source { icon: string; name: string; detail: string; when: string }
-/** Neukölln's sources (SIMULATED message history and guidebook). */
+/** Neukölln's sources (message history and guidebook). */
 export const SOURCES: Source[] = [
   { icon: 'file-text', name: 'Property details', detail: 'From Airbnb and Booking.com', when: 'Updated 29 Sep' },
   { icon: 'message-circle', name: 'Message history', detail: '312 conversations, last 12 months', when: 'Updated today' },

@@ -1,8 +1,8 @@
 <callout icon="🔭" color="gray_bg">
-	**Method · Planned** · Not run. This is the research plan I'd run for Smart Listings with Hospitable's teams and hosts: four stages, data first, then people. Provenance: `ASSUMPTION` (the plan itself).
+	**Method · Planned** · Not run. This is the research plan I'd run for Smart Listings with Hostaway's teams and hosts: four stages, data first, then people. Provenance: (the plan itself).
 </callout>
 ## Why this plan
-I already had a direction for Smart Listings, and a direction makes it easy to go looking for agreement. So the plan is built around what would prove me wrong. Data comes first, because exports need no recruiting and they show what hosts actually do. Hosts come second, so the interviews explain a pattern instead of guessing one. Hosts can be simulated to show the method. What Hospitable's own teams know never is: those answers stay as 19 open questions, each with an owner. <mention-page url="https://app.notion.com/p/3eee18af164581339fabf0591e5d7f9c">KD-18</mention-page>
+I already had a direction for Smart Listings, and a direction makes it easy to go looking for agreement. So the plan is built around what would prove me wrong. Data comes first, because exports need no recruiting and they show what hosts actually do. Hosts come second, so the interviews explain a pattern instead of guessing one. Hosts can be simulated to show the method. What Hostaway's own teams know never is: those answers stay as 19 open questions, each with an owner. <mention-page url="https://app.notion.com/p/3eee18af164581339fabf0591e5d7f9c">KD-18</mention-page>
 ## The four stages
 <table header-row="true">
 	<tr>
@@ -18,7 +18,7 @@ I already had a direction for Smart Listings, and a direction makes it easy to g
 	<tr>
 		<td>**Week 1** · Data and teams</td>
 		<td>Sales call analysis (Gong) · Ticket analysis · Field override usage · Knowledge Hub usage · Stakeholder interviews</td>
-		<td>For each channel, what can Hospitable write, how fast does it go live, and what does the channel overwrite? Which performance signals exist for each listing?</td>
+		<td>For each channel, what can Hostaway write, how fast does it go live, and what does the channel overwrite? Which performance signals exist for each listing?</td>
 	</tr>
 	<tr>
 		<td>**Weeks 2 and 3** · Hosts</td>
@@ -46,7 +46,7 @@ Each stage ends with a check. After prep: are the riskiest assumptions still the
 	</tr>
 	<tr>
 		<td>Sales calls, tickets, usage</td>
-		<td>618 calls across 457 accounts `REAL·BRIEF`, a stratified 60 listened to (15 per portfolio size). 12 months of tickets: a random 300 tagged listing, sync or connection, plus 100 untagged. Field overrides and Knowledge Hub usage by portfolio size.</td>
+		<td>618 calls across 457 accounts a stratified 60 listened to (15 per portfolio size). 12 months of tickets: a random 300 tagged listing, sync or connection, plus 100 untagged. Field overrides and Knowledge Hub usage by portfolio size.</td>
 		<td><mention-page url="https://app.notion.com/p/3eee18af16458150add8ef7c753dbd12">Data review</mention-page></td>
 	</tr>
 	<tr>
@@ -56,9 +56,9 @@ Each stage ends with a check. After prep: are the riskiest assumptions still the
 	</tr>
 </table>
 **Known bias.** Tickets, sales calls and CS referrals over-represent hosts who had problems, and larger accounts. So interviews also recruit in-app, to hear hosts for whom it just worked.
-**Recruiting.** An in-app banner on Properties for new accounts, CS referrals (capped, so problem cases don't dominate), the churned list from the CS lead, Sales introductions for enterprise evaluators, Hospitable's host community channels, and a recruiting panel as the fallback. Incentives are proposed, not confirmed: a gift card or subscription credit for an hour-long interview,  `ASSUMPTION` until Marketing confirms the policy.
+**Recruiting.** An in-app banner on Properties for new accounts, CS referrals (capped, so problem cases don't dominate), the churned list from the CS lead, Sales introductions for enterprise evaluators, Hostaway's host community channels, and a recruiting panel as the fallback. Incentives are proposed, not confirmed: a gift card or subscription credit for an hour-long interview,  until Marketing confirms the policy.
 ## The 19 open questions
-What only Hospitable's teams can answer. None is answered, and none is simulated. Each would go out in prep or week 1, to the owner named here. Two belong to import, which is on the <mention-page url="https://app.notion.com/p/3eee18af1645818daddff9b46244175c">Roadmap</mention-page>, and are kept here so they aren't lost.
+What only Hostaway's teams can answer. None is answered, and none is simulated. Each would go out in prep or week 1, to the owner named here. Two belong to import, which is on the <mention-page url="https://app.notion.com/p/3eee18af1645818daddff9b46244175c">Roadmap</mention-page>, and are kept here so they aren't lost.
 <table header-row="true">
 	<tr>
 		<td>Question</td>
@@ -66,8 +66,8 @@ What only Hospitable's teams can answer. None is answered, and none is simulated
 		<td>Owner</td>
 	</tr>
 	<tr>
-		<td>Listing text: API limit or Hospitable's choice?</td>
-		<td>Some text is never pushed, and a channel can write its own description. Is that an API limit or a Hospitable choice, for every property type? Which structured fields feed its description, so better facts give better copy?</td>
+		<td>Listing text: API limit or Hostaway's choice?</td>
+		<td>Some text is never pushed, and a channel can write its own description. Is that an API limit or a Hostaway choice, for every property type? Which structured fields feed its description, so better facts give better copy?</td>
 		<td>Integrations engineering lead</td>
 	</tr>
 	<tr>
@@ -77,7 +77,7 @@ What only Hospitable's teams can answer. None is answered, and none is simulated
 	</tr>
 	<tr>
 		<td>Drift detection</td>
-		<td>When a host edits a listing directly on a channel, does Hospitable get a webhook or poll? Per field or per listing? With what lag?</td>
+		<td>When a host edits a listing directly on a channel, does Hostaway get a webhook or poll? Per field or per listing? With what lag?</td>
 		<td>Integrations engineering lead</td>
 	</tr>
 	<tr>
@@ -151,7 +151,7 @@ What only Hospitable's teams can answer. None is answered, and none is simulated
 		<td>Sales lead (enterprise)</td>
 	</tr>
 	<tr>
-		<td>The story Hospitable can tell</td>
+		<td>The story Hostaway can tell</td>
 		<td>Would Marketing position listing management as a differentiator, and which claims about AI-written listings are safe to make?</td>
 		<td>Marketing lead · Legal / trust</td>
 	</tr>

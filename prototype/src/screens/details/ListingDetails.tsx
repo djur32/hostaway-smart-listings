@@ -1,10 +1,10 @@
-/* Property › Shared › Listing details: the property's source of truth (Antonio, 1 Oct).
- * Hospitable's real Details editor (refs concepts/smart-listing/refs/listing-details/01–11): the same five tabs
+/* Property › Shared › Listing details: the property's source of truth (review, 1 Oct).
+ * Hostaway's real Details editor (refs concepts/smart-listing/refs/listing-details/01–11): the same five tabs
  * (Essentials, Arrival, Location, Amenities, Rules), the same fields in the same order and each tab's Discard changes /
- * Save head. No "ⓘ N channels · Edit per channel" caption (Antonio, 1 Oct: these facts are the same for everybody;
+ * Save head. No "ⓘ N channels · Edit per channel" caption (review, 1 Oct: these facts are the same for everybody;
  * per-channel versions live on each channel's Listing page). What it edits is the Base: the value every channel's listing inherits. The channel-first Smart Listing
  * editor (Channels › {channel} › Listing) adapts and projects from it; a quiet banner under the page head says so.
- * Fields are stacked (label and help above a full-width control, then the caption row), Antonio's rule for every
+ * Fields are stacked (label and help above a full-width control, then the caption row), review's rule for every
  * listing screen, rather than the reference's label-left / control-right rows.
  * Saving: shared.ts useBaseDraft (sl3Base + commitAndSend → "Saved · sent to Airbnb and Booking.com"). Amenities: amenities/.
  * Per property: field values come from the shared definitions, patched for the active property
@@ -47,7 +47,7 @@ function DetailsPage({ tab }: { tab: ListingTab }) {
     return () => clearTimeout(t)
   }, [loading, hash])
   return (
-    // The channel editor's frame, so the two pages behave identically (Antonio, 1 Oct, third round on this topic:
+    // The channel editor's frame, so the two pages behave identically (review, 1 Oct, third round on this topic:
     // "everything on top of the tab row should be sticky too"). The WHOLE head — "Listing details" + the Source of
     // truth badge + the property switcher + the tab row — is one sticky `.ch-editor__head` block, with only the
     // fields scrolling beneath it in `.h-split__main`; see screens/channel/ListingEditor.tsx (Classic) and
@@ -78,7 +78,7 @@ function FieldsTab({ tab }: { tab: Exclude<ListingTab, 'amenities'> }) {
   const p = useProperty()
   const chs = useListingChannels()
   const draft = useBaseDraft(`${p.id}:${tab}`, chs)
-  const fields = classicFields(tab) // every field of the tab, in Hospitable's order; rows hide the ones no channel has
+  const fields = classicFields(tab) // every field of the tab, in Hostaway's order; rows hide the ones no channel has
   const row = (f: FieldDef) => f.kind === 'photos'
     ? <BasePhotosRow key={f.key} />
     : <DetailsField key={f.key} def={f} draft={draft} />

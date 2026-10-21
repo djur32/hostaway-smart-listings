@@ -1,4 +1,4 @@
-/* Toast (Antonio, 3 Oct: "They should appear below, centred to the area where that reference is (the content section,
+/* Toast (review, 3 Oct: "They should appear below, centred to the area where that reference is (the content section,
  * e.g. the Strategy section), and fade away after a few seconds."). The one toast every screen uses: SlConfirm, KhToast
  * and the demo persona toast are thin wrappers over it.
  *

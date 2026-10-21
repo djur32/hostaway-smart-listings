@@ -2,8 +2,8 @@
 @layer slides {
 
 /* ── ia-objects · the model as live nodes, wired (kit/links.js) ─────────────
-   One colour meaning on the wall and in its detail (Antonio, 4 Oct: "make the backgrounds
-   meaningful"): blush soft plate + raspberry ring = a new object Hospitable lacks today;
+   One colour meaning on the wall and in its detail (review, 4 Oct: "make the backgrounds
+   meaningful"): blush soft plate + raspberry ring = a new object Hostaway lacks today;
    white + gray hairline = from the brief, or exists today. Nothing else is tinted. */
 .ia-map { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: auto auto; column-gap: 92px; row-gap: 56px; align-items: stretch; width: 100%; max-width: 1660px; margin: 0 auto; }
 .ia-node { display: flex; flex-direction: column; gap: 10px; padding: 26px 28px 28px; border-radius: var(--r-3); background: var(--bg);
@@ -74,7 +74,7 @@
 
 .ia-st__side { display: grid; gap: 56px; align-content: start; padding-top: 16px; }
 .ia-k { font: var(--w-medium) var(--t-label) / 1.2 var(--font-ui); color: var(--ink-3); margin-bottom: 18px; }
-/* what each channel takes from the Base (Antonio, 4 Oct): one bar per channel, a segment per case, the count inside it */
+/* what each channel takes from the Base (review, 4 Oct): one bar per channel, a segment per case, the count inside it */
 .ia-reach [data-s="base"] { --seg: var(--color-gray-200); --seg-ink: var(--ink-2); }
 .ia-reach [data-s="own"]  { --seg: var(--color-orange-500); --seg-ink: var(--on-dark); }
 .ia-reach [data-s="only"] { --seg: var(--color-sidebar-bg); --seg-ink: var(--on-dark); }
@@ -99,7 +99,7 @@
 .ia-ctl__in { display: flex; align-items: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .ia-ctl .h-field-hint__action { cursor: default; }
 
-/* ── ia-options · five navigation models (Antonio, 4 Oct: no scores, no weightings; the five from Notion's
+/* ── ia-options · five navigation models (review, 4 Oct: no scores, no weightings; the five from Notion's
    Navigation options). One card each, in rs-channels' spirit: a quiet plate holding a tiny sidebar of the model
    (bars, not words: lavender is Smart Listings, raspberry the place you land), then the name, how it works, its
    strength and its risk. Channel-first is the blush card; the press rings it and the "So" line rises. ── */
@@ -197,7 +197,7 @@
 [data-kind="H"] { --kind: var(--color-gray-400); }
 
 /* the object model: four bands, 22 entities, the four new ones ringed */
-/* the detail's card is white (Antonio, 4 Oct); the bands are split by hairlines, not tints, so blush means only "new" */
+/* the detail's card is white (review, 4 Oct); the bands are split by hairlines, not tints, so blush means only "new" */
 .more-sheet:has(.ia-om, .ia-one) { --more-card: var(--bg); }
 .ia-om { margin: 0; display: grid; gap: 8px; }
 .ia-om__band { display: grid; grid-template-columns: 136px repeat(7, minmax(0, 1fr)); gap: 8px; align-items: stretch; padding: 8px 0; border-top: 1px solid var(--line); }
@@ -251,7 +251,7 @@
   box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--tint-line) 10%, transparent); }
 .ia-tile svg { width: 38px; height: 38px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
-/* ── the IA details at card size (Antonio, 3 Oct: "resize the elements to the available space") ── */
+/* ── the IA details at card size (review, 3 Oct: "resize the elements to the available space") ── */
 .ia-om { gap: 8px; }
 .ia-om__band { grid-template-columns: 150px repeat(7, minmax(0, 1fr)); gap: 8px; padding: 8px; }
 .ia-om__bl { font-size: 18px; }

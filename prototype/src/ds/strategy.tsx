@@ -1,5 +1,5 @@
 /* Smart Listings › Strategy list + channel detail · WS-SL, 3 Oct. CSS: ds/v3/strategy.css (tokens only).
- * One horizontal row per connected channel (Antonio: the three-column cards "don't look good"), the detail's
+ * One horizontal row per connected channel (review: the three-column cards "don't look good"), the detail's
  * definition list. (History, the list of earlier strategies, was removed with versions, 3 Oct.) */
 import type { ReactNode } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
@@ -11,7 +11,7 @@ import { Chip } from './overview'
 const cx = (...c: Array<string | false | null | undefined>) => c.filter(Boolean).join(' ')
 
 export type StrategyStatus = 'live' | 'paused' | 'none'
-/** Antonio, 3 Oct: the product's own status chips (Overview's Lead listing / Calendar restricted / grey, screenshots 22, 24),
+/** review, 3 Oct: the product's own status chips (Overview's Lead listing / Calendar restricted / grey, screenshots 22, 24),
  *  not a dotted pill. Live green, Paused amber, No strategy grey. Shared by the list rows and the channel detail head. */
 export function StrategyStatusPill({ status }: { status: StrategyStatus }) {
   if (status === 'live') return <Chip tone="lead">Live</Chip>
@@ -33,7 +33,7 @@ export function StrategyLead({ children, action }: { children: ReactNode; action
 export function StrategyRows({ label, children }: { label: string; children: ReactNode }) {
   return <ul className="sl-strats" aria-label={label}>{children}</ul>
 }
-/** Three fixed tracks, so every row lines up and every row is the same height (Antonio, 3 Oct): channel with its status
+/** Three fixed tracks, so every row lines up and every row is the same height (review, 3 Oct): channel with its status
  *  chip right after the name · strategy (two lines only: the name, then price · Autopilot), set well clear of the chip ·
  *  actions. When it started lives on the channel's own page (Open), not in the list. ≤ 767px: channel + status on
  *  one line, then the strategy, then the actions. */

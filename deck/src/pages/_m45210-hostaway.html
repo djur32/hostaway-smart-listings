@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en" data-theme="hostaway" data-scheme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Smart Listings · review Silva's Case Study for Hostaway's Head of Design role. Concept work; product UI © Hostaway.">
+<title>Smart Listings · Head of Design Case Study · review Silva</title>
+  <script src="../assets/analytics.js" defer></script><link rel="icon" type="image/svg+xml" href="../assets/favicon.svg"><link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preload" href="../kit/fonts/TTNormsProVariable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../kit/fonts/GeistMono-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../kit/tokens.css">
+<link rel="stylesheet" href="../kit/base.css">
+<link rel="stylesheet" href="../kit/deck.css">
+<link rel="stylesheet" href="../kit/components.css">
+<link rel="stylesheet" href="../kit/plan.css">
+<link rel="stylesheet" href="../kit/hc.css">
+<link rel="stylesheet" href="../kit/responsive.css">
+<link rel="stylesheet" href="../kit/themes/hostaway.css">
+<link rel="stylesheet" href="../slides/10-discovery.css">
+<script src="../kit/ds/sprite.js"></script>   <!-- S02 icons + channel marks: <svg><use href="#i-sparkles"/></svg> -->
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/CustomEase.min.js"></script>
+<script src="../vendor/Flip.min.js"></script>
+<script src="../vendor/SplitText.min.js"></script>
+<script src="../vendor/DrawSVGPlugin.min.js"></script>
+<script src="../vendor/MorphSVGPlugin.min.js"></script>
+<script src="../vendor/MotionPathPlugin.min.js"></script>
+<script src="../vendor/ScrambleTextPlugin.min.js"></script>
+</head>
+<body>
+<div class="veil" aria-hidden="true"><i></i></div>
+<div class="viewport">
+  <div class="stage">
+    <main class="deck">
+
+<!-- ═════════════ 10-discovery.html ═════════════ -->
+<!-- 10-discovery · content (3 Oct): today's product, two truths, no channel view, the signals, the riskiest bets, the plan. Sources: research/current-state/*, research/data/*, research/discovery/*. -->
+
+<section class="s" data-id="dc-today" data-title="Today's product, mapped" data-stage="1" data-part="discovery" data-path="S" data-angle="both" data-min="0.7" data-req="R-066 R-067 R-022" data-ground="white">
+  <template class="hc-cover-tpl" data-stage="1">
+    <header class="hc-cover" aria-label="Discovery">
+      <div class="opener">
+        <div class="opener__top"><h2 class="opener__name">Discovery</h2></div>
+        <p class="opener__vision">What is really going on in the product today, and what must I learn before designing anything?</p>
+        <div class="opener__foot">
+          <p class="opener__methods"><span class="opener__k">Methods</span><span>Product audit</span><span>Desk research</span><span>Assumption mapping</span><span>Stakeholder interviews</span></p>
+          <div class="opener__out"><p class="opener__k">Outputs</p>
+            <p class="opener__outrow"><span class="hc-mark" data-mark="produced"></span><span class="opener__outs"><span>Current-state map</span><span>Heuristic evaluation</span><span>Channel constraints</span><span>Competitive analysis</span><span>Research questions & assumptions</span></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="hc-illo" data-illo="listings-together"></div>
+    </header>
+  </template>
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Discovery</span><span>Product audit</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Today, the listing isn't a place in Hostaway</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">I mapped the product end to end. Everything hangs off the property; the listing a guest reads appears nowhere as one object.</p>
+  </header>
+  <div class="s-body">
+    <!-- The story, one step per press (10-discovery.js): the cover lifts as the property builds its ten sections;
+         → the listing turns out to be a row on Overview; → the per-channel controls light up across five sections,
+         counted; → the facts live twice and Calendar leaves; → So. Nothing fades or dims: blocks scale, highlights
+         wipe up, lines draw, words rise out of their masks. The CSS rests on the last state, so motion off and print
+         show the whole story. The dense map moved to the detail ("The full map"). -->
+    <figure class="dc-story" data-tint="blush" aria-label="Today's product, abstracted: the property holds ten sections. Each channel's listing is only a row on Overview. What differs per channel hides in about fifteen fields across five sections, handled seven ways. The Knowledge Hub keeps the facts a second time, for the AI, and Calendar leaves the property with no way back.">
+      <ol class="dc-says">
+        <li class="dc-say" data-step="1"><span class="dc-say__i"><svg aria-hidden="true"><use href="#i-home"/></svg></span><span class="dc-say__b"><span class="dc-say__t"><span>Everything hangs off the property</span></span></span></li>
+        <li class="dc-say dc-say--rows" data-step="2"><span class="dc-say__i"><svg aria-hidden="true"><use href="#i-list-details"/></svg></span><span class="dc-say__b"><span class="dc-say__t"><span>Each listing is a row, not a page</span></span></span></li>
+        <li class="dc-say dc-say--marks" data-step="3"><span class="dc-say__i"><svg aria-hidden="true"><use href="#i-arrows-shuffle"/></svg></span><span class="dc-say__b"><span class="dc-say__t"><span><b class="dc-say__n">~<i data-count="fields">15</i></b> scattered fields, <b class="dc-say__n"><i data-count="patterns">7</i></b> patterns</span></span>
+          <span class="dc-say__hes"><span class="dc-he" title="Heuristic evaluation · severity 4 of 4">Per-channel awareness<span class="dc-he__s" data-sev="4">Sev 4</span></span></span></span></li>
+        <li class="dc-say dc-say--twice" data-step="4"><span class="dc-say__i"><svg aria-hidden="true"><use href="#i-copy"/></svg></span><span class="dc-say__b"><span class="dc-say__t"><span>The facts live twice, once for the AI</span></span>
+          <span class="dc-say__hes"><span class="dc-he" title="Heuristic evaluation · severity 4 of 4">Source-of-truth clarity<span class="dc-he__s" data-sev="4">Sev 4</span></span><span class="dc-he" title="Heuristic evaluation · severity 4 of 4">AI transparency<span class="dc-he__s" data-sev="4">Sev 4</span></span></span></span></li>
+        <li class="dc-say dc-say--exit" data-step="5"><span class="dc-say__i"><svg aria-hidden="true"><use href="#i-external-link"/></svg></span><span class="dc-say__b"><span class="dc-say__t"><span>Calendar leaves, with no way back</span></span></span></li>
+      </ol>
+      <div class="dc-prop">
+        <p class="dc-prop__k"><span class="dc-prop__tile"><svg aria-hidden="true"><use href="#i-home"/></svg></span><span class="dc-prop__t"><span>Property</span></span><span class="dc-prop__n"><span>10 sections</span></span></p>
+        <div class="dc-secs">
+          <div class="dc-sec dc-sec--ov"><i class="dc-sec__hi" aria-hidden="true"></i><b>Overview</b>
+            <span class="dc-sec__rows">
+              <span class="dc-row"><svg class="h-mark h-mark--badge h-mark--airbnb" viewBox="0 0 24 24" aria-hidden="true"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-airbnb" width="24" height="24"/></svg>Airbnb</span>
+              <span class="dc-row"><svg class="h-mark h-mark--badge h-mark--booking" viewBox="0 0 24 24" aria-hidden="true"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-booking" width="24" height="24"/></svg>Booking.com</span>
+              <span class="dc-row"><svg class="h-mark h-mark--badge h-mark--hostaway" viewBox="0 0 24 24" aria-hidden="true"><rect class="h-mark__bg" width="24" height="24" rx="5.5"/><use class="h-mark__glyph" href="#chg-hostaway" width="24" height="24"/></svg>Direct</span>
+            </span></div>
+          <div class="dc-sec dc-sec--twin" data-marks="a ab ab c ab"><i class="dc-sec__hi" aria-hidden="true"></i><b>Details</b></div>
+          <div class="dc-sec" data-marks="e a d d g"><b>Pricing</b></div>
+          <div class="dc-sec" data-marks="a a f"><b>Availability</b></div>
+          <div class="dc-sec dc-sec--exit"><b>Calendar</b><span class="dc-sec__out" aria-hidden="true"><svg><use href="#i-external-link"/></svg></span>
+            <svg class="dc-exit" viewBox="0 0 60 130" aria-hidden="true"><path d="M30 128V14"/><path d="M17 27L30 14L43 27"/></svg></div>
+          <div class="dc-sec dc-sec--twin"><i class="dc-sec__hi" aria-hidden="true"></i><b>Knowledge Hub</b></div>
+          <div class="dc-sec" data-marks="g"><b>Booking policies</b></div>
+          <div class="dc-sec"><b>Guest experience</b></div>
+          <div class="dc-sec"><b>Operations</b></div>
+          <div class="dc-sec" data-marks="g"><b>Direct</b></div>
+          <span class="dc-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span>
+        </div>
+      </div>
+    </figure>
+    <p class="dc-so" data-a="rise" data-beat="4"><span class="dc-so__k">So<svg aria-hidden="true"><use href="#i-arrow-right"/></svg></span><span><b>Each channel's listing gets its own pages,</b> with tips on every channel.</span></p>
+  </div>
+  <template class="more" data-more="map" data-title="Today's product, the full map" data-label="The full map">
+    <div class="more__panel" data-title="The map">
+      <figure class="dc-ia" aria-label="Today's information architecture: the global sidebar, the Properties list and the property's ten sections with their pages, each per-channel control lettered by its pattern">
+        <script type="application/json">{
+          "sidebar": ["Search ⌘K", "Getting started", "Home", "Inbox", "Properties", "Calendar", "Guest experience", "Metrics", "Direct bookings", "Devices", "Operations"],
+          "active": "Properties",
+          "rows": [
+            { "n": "Overview", "t": [["Connected channels › a row per listing", "L"], ["Review opportunities: Airbnb's own"]], "call": "The listing: one row" },
+            { "n": "Details", "t": [["Essentials", "a"], ["Arrival", "ab"], ["Location", "ab"], ["Amenities", "c"], ["Rules", "ab"]] },
+            { "n": "Pricing", "t": [["Base price", "e"], ["Occupancy based", "a"], ["Fees", "d"], ["Security deposits", "d"], ["Discounts", "g"], ["Taxes"]] },
+            { "n": "Availability", "t": [["General", "a"], ["Booking rules", "a"], ["Instant book", "f"]] },
+            { "n": "Calendar", "exit": "Leaves for the global Calendar, with no way back" },
+            { "n": "Knowledge Hub", "t": [["Ask the AI"], ["Sources"], ["9 topics of free-text facts"], ["New knowledge"]] },
+            { "n": "Booking policies", "t": [["Cancellation policies, a section per channel", "g"]] },
+            { "n": "Guest experience", "t": [["Messaging rules"], ["Review rules"], ["Canned responses"], ["Custom codes"]], "note": "Global rules" },
+            { "n": "Operations", "t": [["Task rules"], ["Team"], ["Notification rules"]], "note": "Global rules" },
+            { "n": "Direct", "t": [["Sites"], ["Bank account"], ["Cancellation policy", "g"], ["Promo codes"]] }
+          ],
+          "key": [["a", "Edit per channel"], ["b", "Label only"], ["c", "\"All channels\""], ["d", "One channel's field"], ["e", "Row per listing"], ["f", "Channel grid"], ["g", "Channel as a page"]]
+        }</script>
+      </figure>
+    </div>
+    <div class="more__panel" data-title="How I mapped it">
+      <div class="hc-stats" style="--n: 4" data-a="stagger" data-s="2">
+        <div class="hc-stat"><p class="hc-stat__v" data-a="count" data-at="0.1">59</p><p class="hc-stat__l">screenshots, plus 14 live captures</p></div>
+        <div class="hc-stat"><p class="hc-stat__v" data-a="count" data-at="0.16">135</p><p class="hc-stat__l">fields inventoried</p></div>
+        <div class="hc-stat is-key"><p class="hc-stat__v" data-a="count" data-at="0.22">26</p><p class="hc-stat__l">heuristic findings on listing management</p></div>
+        <div class="hc-stat"><p class="hc-stat__v" data-a="count" data-at="0.28">46</p><p class="hc-stat__l">help-centre articles and changelog posts</p></div>
+      </div>
+      <p class="dc-src"><span>A real trial account with a real Airbnb listing</span><span>Hostaway's help centre</span></p>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span>A real trial account with a real Airbnb listing</span><span>Hostaway's help centre</span><span>Severity 0 to 4, one evaluator</span><span class="more-link" data-more="map">The full map</span></p></div>
+  <aside class="notes"><p>I started by mapping today's product, from a real trial account with a real Airbnb listing in Berlin. Everything hangs off the property: ten sections, from Overview to Direct.</p><p>[Press] And the listing, the thing a guest reads, isn't one of them. Each connected channel, Airbnb, Booking.com or Direct, is a row on Overview, and none gets a page of its own.</p><p>[Press] What's different per channel is scattered instead: about fifteen fields across five sections, handled seven different ways. In my heuristic evaluation that breaks per-channel awareness at severity 4, the top of Nielsen's scale.</p><p>[Press] Then the facts live twice: the Knowledge Hub keeps its own copy, in its own words, for the guest AI. That breaks source-of-truth clarity and AI transparency, both at 4. And Calendar leaves the property for the global Calendar, with no way back. The severities are my own judgement, so I treat them as assumptions.</p><p>[Press] Today the only listing advice is Airbnb's own Opportunities. So each channel's listing gets its own pages, with tips on every channel. The full map, and how I made it, sit in the detail. About 50 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="dc-two-truths" data-title="Two truths about every property" data-stage="1" data-part="discovery" data-path="S" data-angle="both" data-min="1" data-req="R-016 R-072" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Discovery</span><span>Current-state map</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Two truths about every property, and they drift apart</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Hostaway holds two versions of the same flat, and its AI answers guests from the one no channel reads.</p>
+  </header>
+  <div class="s-body">
+    <div class="hc-two" style="--l: 1fr; --r: 1fr">
+      <div class="stack" style="--gap-y: 30px">
+        <div class="hc-stat is-key" data-a="rise" data-at="0.2"><div class="dc-stat-v"><p class="hc-stat__v" data-a="count" data-at="0.24">14<small>of 28</small></p><span class="dc-he" title="Heuristic evaluation · severity 4 of 4">Source-of-truth clarity<span class="dc-he__s" data-sev="4">Sev 4</span></span></div><p class="hc-stat__l">facts match between Details and the Knowledge Hub</p></div>
+        <ul class="hc-points">
+          <li data-a="rise" data-beat="1"><span><b>House rules, three times.</b> A paragraph in the wrong field, an empty field in the right place, six facts only the AI reads.</span></li>
+          <li data-a="rise" data-beat="2"><span><b>The AI says "Yes, the apartment is wheelchair accessible"</b> while no amenity says so.<span class="dc-he" title="Heuristic evaluation · severity 4 of 4">AI transparency<span class="dc-he__s" data-sev="4">Sev 4</span></span></span></li>
+        </ul>
+      </div>
+      <div class="hc-scene" style="--w: 860px; --h: 560px">
+        <div class="hc-scene__bg hc-scene__bg--quiet" data-a="fade" data-at="0.2"></div>
+        <figure class="hc-scr is-float-2" style="--x: 230px; --y: 20px; --sw: 610px"><img data-shot="hs-44" alt="HS-44 · Knowledge Hub, the rules as AI facts"></figure>
+        <figure class="hc-scr is-float" style="--x: 20px; --y: 210px; --sw: 610px"><img data-shot="hs-28" alt="HS-28 · Details › Rules: House rules empty"></figure>
+        <p class="hc-callout" style="--x: 460px; --y: 470px" data-a="pop" data-beat="2" data-at="0.15">Same flat, two answers</p>
+      </div>
+    </div>
+    <p class="dc-so" data-a="rise" data-beat="3"><span class="dc-so__k">So<svg aria-hidden="true"><use href="#i-arrow-right"/></svg></span><span><b>Every fact lives once, in Shared,</b> where every channel and the guest AI read the same one.</span></p>
+  </div>
+  <template class="more" data-more="why" data-title="Why the two drift apart">
+    <div class="more__panel" data-title="By design, not by accident">
+      <div class="dc-drift">
+        <p class="dc-drift__lead" data-a="rise">Content is filed by where it came from, not where it belongs.</p>
+        <ol class="dc-drift__why" data-a="stagger" data-beat="1" data-s="2">
+          <li data-tint="blush"><span class="dc-drift__n">1</span><b>Generated, not bound</b><span>Hostaway's help says the Hub "only reads the data in Property Details page once".</span></li>
+          <li data-tint="butter"><span class="dc-drift__n">2</span><b>Five tabs, nine topics</b><span>The tabs force facts to be re-filed.</span></li>
+          <li data-tint="mint"><span class="dc-drift__n">3</span><b>Qualifiers drop</b><span>Sentences lose their qualifiers on the way.</span></li>
+        </ol>
+      </div>
+      <figure class="dc-facts" data-a="rise" data-beat="2">
+        <figcaption class="dc-facts__k">Of 28 facts</figcaption>
+        <div class="dc-facts__bar" aria-hidden="true">
+          <span class="is-same" style="--n: 14"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <span class="is-reword" style="--n: 3"><i></i><i></i><i></i></span>
+          <span class="is-moved" style="--n: 5"><i></i><i></i><i></i><i></i><i></i></span>
+          <span class="is-part" style="--n: 1"><i></i></span>
+          <span class="is-hub" style="--n: 2"><i></i><i></i></span>
+          <span class="is-det" style="--n: 3"><i></i><i></i><i></i></span>
+        </div>
+        <ul class="dc-facts__key">
+          <li class="is-same"><b>14</b> the same</li><li class="is-reword"><b>3</b> reworded</li><li class="is-moved"><b>5</b> moved and reshaped</li>
+          <li class="is-part"><b>1</b> partial</li><li class="is-hub"><b>2</b> only in the Hub</li><li class="is-det"><b>3</b> only in Details</li>
+        </ul>
+      </figure>
+      <p class="dc-src"><span>A real listing</span><span>Hostaway's help centre</span></p>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span>Hostaway today, a real listing</span><span>Severity 0 to 4, one evaluator</span><span class="more-link" data-more="why">Why they drift</span></p></div>
+  <aside class="notes"><p>This is the slide the whole case rests on. When I looked at one real Airbnb listing in Hostaway, Details and the Knowledge Hub agreed on only 14 of 28 facts. Land the number: 14 of 28. In the heuristic evaluation that breaks source-of-truth clarity, at severity 4.</p><p>[Press] Take the house rules: they exist three times, a paragraph in the wrong field, an empty field in the right place, and six sentences only the AI reads.</p><p>[Press] Then I asked the AI whether the flat is wheelchair accessible. It said yes, which the listing never claims, and showed no source: AI transparency, also a 4. Same flat, two answers. This isn't a copy problem; the product is built to drift, and the detail shows why.</p><p>[Press] So in Smart Listings every fact lives once, in Shared, where the channels and the guest AI read the same one. About 50 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="dc-no-channel" data-title="No screen shows one listing on one channel" data-stage="1" data-part="discovery" data-path="St" data-angle="both" data-min="0.7" data-req="R-101 R-016" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Discovery</span><span>Heuristic evaluation</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">No screen shows one listing on one channel</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">To answer "what does my Airbnb listing say?", a host checks about fifteen fields.</p>
+  </header>
+  <div class="s-body">
+    <div class="hc-two" style="--l: 0.8fr; --r: 1.2fr">
+      <div class="hc-stats" style="--n: 1">
+        <div class="hc-stat is-key" data-a="rise" data-at="0.2"><span class="hc-stat__i" aria-hidden="true"><svg><use href="#i-search"/></svg></span><p class="hc-stat__k">Fields to check</p><div class="dc-stat-v"><p class="hc-stat__v" data-a="count" data-at="0.24">~15</p><span class="dc-he" title="Heuristic evaluation · severity 4 of 4">Per-channel awareness<span class="dc-he__s" data-sev="4">Sev 4</span></span></div><p class="hc-stat__l">to read one channel's listing</p></div>
+        <div class="hc-stat" data-a="rise" data-beat="1"><span class="hc-stat__i" aria-hidden="true"><svg><use href="#i-arrows-shuffle"/></svg></span><p class="hc-stat__k">Different patterns</p><div class="dc-stat-v"><p class="hc-stat__v" data-a="count" data-beat="1" data-at="0.04">7</p><span class="dc-he" title="Heuristic evaluation · severity 3 of 4">Consistency and standards<span class="dc-he__s" data-sev="3">Sev 3</span></span></div><p class="hc-stat__l">for "different on each channel"</p></div>
+        <div class="hc-stat" data-a="rise" data-beat="1" data-at="0.2"><span class="hc-stat__i" aria-hidden="true"><svg><use href="#i-device-laptop"/></svg></span><p class="hc-stat__k">Screens with the channel as an axis</p><p class="hc-stat__v">1</p><p class="hc-stat__l">Instant book</p></div>
+      </div>
+      <div class="hc-scene" style="--w: 960px; --h: 580px">
+        <div class="hc-scene__bg hc-scene__bg--quiet" data-a="fade" data-at="0.2"></div>
+        <figure class="hc-scr is-float-2" style="--x: 300px; --y: 10px; --sw: 640px" data-in-beat="1"><img data-shot="hs-39" alt="HS-39 · Instant book, the only channel matrix"></figure>
+        <figure class="hc-scr is-float" style="--x: 30px; --y: 210px; --sw: 640px"><img data-shot="hs-33" alt="HS-33 · Fees: 1 channels · Edit per channel"></figure>
+        <p class="hc-callout" style="--x: 520px; --y: 500px" data-a="pop" data-beat="2">"ⓘ 1 channels · Edit per channel"</p>
+      </div>
+    </div>
+    <p class="dc-so" data-a="rise" data-beat="3"><span class="dc-so__k">So<svg aria-hidden="true"><use href="#i-arrow-right"/></svg></span><span><b>One rule on every field:</b> it uses the Base, is custom for that channel, exists only there, or the channel sets it.</span></p>
+  </div>
+  <div class="s-foot"><p class="hc-src"><span>Product audit</span><span>Severity 0 to 4, one evaluator</span></p></div>
+  <aside class="notes"><p>The second structural gap is the channel view. If a host wants to know what their Airbnb listing says right now, they check about fifteen fields, one info icon at a time, like this one on Fees. In the heuristic evaluation that breaks per-channel awareness, at severity 4.</p><p>[Press] Hostaway can hold different values per channel, but only field by field, through seven different patterns, which breaks consistency and standards, a 3. And exactly one screen, Instant book, treats the channel as an axis.</p><p>[Press] And here is the trap: opening Edit per channel just to look marks the form as changed, so a host who only looked and then saved has created overrides.</p><p>[Press] So each channel gets its own pages in Smart Listings, and every field there is one of four cases: it uses the Base, it's custom for that channel, it exists only on that channel, or the channel sets it itself, like the description Booking.com writes, which is read-only with a lock that says why. Looking never changes anything. About 45 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="dc-signals" data-title="What hosts complain about" data-stage="1" data-part="discovery" data-path="St" data-angle="B" data-min="0.8" data-req="R-020 R-054 R-055" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Discovery</span><span>Data analysis</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Listing trouble likely grows with portfolio size, and costs deals</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">In my sample, the costliest moments are when Hostaway writes to a channel without showing it. The product agrees: Save never says what reached each channel.<span class="dc-he" title="Heuristic evaluation · severity 3 of 4">Visibility of system status<span class="dc-he__s" data-sev="3">Sev 3</span></span></p>
+  </header>
+  <div class="s-body">
+    <div class="hc-two" style="--l: 1.15fr; --r: 0.85fr">
+      <div class="dc-sig">
+      <figure class="hc-chart dc-grow" data-chart="bar" data-own>
+        <script type="application/json">{ "items": [
+          { "label": "25+ properties", "value": 51.2, "hi": true },
+          { "label": "11 to 24", "value": 41.2, "hi": true },
+          { "label": "3 to 10", "value": 29.9 },
+          { "label": "1 to 2", "value": 29.5 }
+        ], "sort": false, "unit": "%", "max": 60, "w": 1060, "labelW": 300, "row": 70 }</script>
+        <figcaption class="hc-chart__cap">Share of sales calls raising a listing theme, by portfolio size</figcaption>
+      </figure>
+      <p class="dc-so" data-a="rise" data-beat="4"><span class="dc-so__k">So<svg aria-hidden="true"><use href="#i-arrow-right"/></svg></span><span><b>Every saved change goes out with a receipt,</b> channel by channel.</span></p>
+      </div>
+      <div class="hc-stats" style="--n: 1">
+        <div class="hc-stat" data-a="rise" data-at="0.2"><span class="hc-stat__i" aria-hidden="true"><svg><use href="#i-microphone"/></svg></span><p class="hc-stat__k">Gong calls</p><p class="hc-stat__v" data-a="count" data-at="0.24">618</p><p class="hc-stat__l">across 457 accounts, listing management a top theme</p></div>
+        <div class="hc-stat is-key" data-a="rise" data-beat="2"><span class="hc-stat__i" aria-hidden="true"><svg><use href="#i-thumb-down"/></svg></span><p class="hc-stat__k">Closed-lost calls</p><p class="hc-stat__v" data-a="count" data-beat="2" data-at="0.04">58<small>%</small></p><p class="hc-stat__l">raise it, against 36% of closed-won</p></div>
+        <div class="hc-stat" data-a="rise" data-beat="3"><span class="hc-stat__i" aria-hidden="true"><svg><use href="#i-alert-triangle"/></svg></span><p class="hc-stat__k">"Content overwritten" tickets</p><p class="hc-stat__v" data-a="count" data-beat="3" data-at="0.04">71<small>%</small></p><p class="hc-stat__l">escalate; median 58 hours to close</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="s-foot"><p class="hc-src"><span>618 calls, 457 accounts</span><span>Call breakdowns and support tickets</span><span>Save, on a real listing</span><span>Severity 0 to 4, one evaluator</span></p></div>
+  <aside class="notes"><p>The brief gave me one real number: 618 sales calls across 457 accounts, with listing management as a top theme. I built simulated breakdowns on top to show how I'd read a real export, so read these as shapes, not sizes.</p><p>[Press] In my sample, listing trouble comes up in 29% of calls with the smallest hosts and climbs to 51% at 25 properties or more.</p><p>[Press] It likely costs deals: closed-lost calls raise it 58% of the time, against 36% of closed-won.</p><p>[Press] And support: 71% of content-overwritten tickets escalate. The expensive ones are content overwritten and prices not syncing, moments where Hostaway wrote to a channel without showing the host. The product confirms that part for real: editing the base price "will overwrite the price on Airbnb", said once in a paragraph, and Save never says what reached each channel. In the heuristic evaluation that breaks visibility of system status, a severity 3.</p><p>[Press] So in Smart Listings every saved change goes out with a receipt. About 55 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="dc-risks" data-title="Riskiest assumptions, re-ranked by evidence" data-stage="1" data-part="discovery" data-path="St" data-angle="both" data-min="0.7" data-req="R-051 R-050" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Discovery</span><span>Research questions & assumptions</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">I re-ranked my riskiest bets when evidence moved</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">The hypotheses behind a view per channel, scored by importance against evidence. Booking.com's own docs refuted one.</p>
+  </header>
+  <div class="s-body">
+    <div class="hc-two" style="--l: 0.66fr; --r: 1.34fr">
+      <div class="stack" style="--gap-y: 26px">
+        <div class="hc-panel" data-a="rise" data-beat="1"><p class="hc-panel__k">Refuted, then turned into a rule</p><p class="small">Writing back to Booking.com was my number two bet. <b>Booking.com writes its own description,</b> so a host's voice there is the quality of their facts.</p></div>
+        <div class="hc-panel" data-a="rise" data-beat="2"><p class="hc-panel__k">Test these first</p><ol class="dc-first"><li><span class="dc-first__n">1</span>Trust in AI tips</li><li><span class="dc-first__n">2</span>Who wants a voice per channel</li><li><span class="dc-first__n">3</span>What Autopilot may touch</li></ol></div>
+      </div>
+      <figure class="dc-am" data-a="rise" data-at="0.2" aria-label="Assumptions map: the Smart Listings hypotheses placed by importance to the thesis against the evidence I already had">
+        <script type="application/json">{
+          "imp": ["1 · a detail", "2", "3", "4", "5 · thesis changes"],
+          "ev": ["1 · belief only", "2 · one indirect signal", "3 · one direct source", "4 · several sources", "5 · settled"],
+          "zones": [[5, 1, "Test first"], [5, 4, "Build on it"], [2, 1, "Watch"], [2, 4, "Park"]],
+          "tags": [["DES", "desirability"], ["VIA", "viability"], ["FEA", "feasibility"], ["USE", "usability"], ["ETH", "ethics"]],
+          "h": [{"id": "H-03", "cat": "DES", "imp": 4, "ev": 3}, {"id": "H-04", "cat": "DES", "imp": 5, "ev": 2, "rank": 2}, {"id": "H-05", "cat": "FEA", "imp": 5, "ev": 3, "refuted": true}, {"id": "H-06", "cat": "FEA", "imp": 4, "ev": 2}, {"id": "H-09", "cat": "USE", "imp": 5, "ev": 1, "rank": 1}, {"id": "H-10", "cat": "VIA", "imp": 4, "ev": 1}, {"id": "H-13", "cat": "DES", "imp": 4, "ev": 2}, {"id": "H-14", "cat": "ETH", "imp": 4, "ev": 2}, {"id": "H-15", "cat": "ETH", "imp": 4, "ev": 1, "rank": 3}, {"id": "H-16", "cat": "FEA", "imp": 3, "ev": 2}, {"id": "H-17", "cat": "USE", "imp": 4, "ev": 1}, {"id": "H-19", "cat": "USE", "imp": 4, "ev": 3}, {"id": "H-20", "cat": "DES", "imp": 4, "ev": 1}]
+        }</script>
+      </figure>
+    </div>
+  </div>
+  <div class="s-foot"><p class="hc-src"><span>Booking.com and Hostaway help pages</span></p></div>
+  <aside class="notes"><p>I turned my thesis into hypotheses, each with what would disprove it, and scored them by importance and evidence. These are the thirteen that decide Smart Listings. Write-back to Booking.com ranked second, until Hostaway's help centre and Booking.com's partner docs showed that Booking.com writes the description itself.</p><p>[Press] So it left the list and became a design constraint: on Booking.com, a host's voice is the quality of their facts.</p><p>[Press] What I test first: whether a why, a source and an undo earn trust in AI tips, who wants a different voice on each channel, and what hosts will let Autopilot touch. Almost nobody asks for AI listing copy in public, so that demand is a bet too. Three of my first riskiest five were about import; they wait for the next release. About 50 seconds.</p></aside>
+</section>
+
+<section class="s" data-id="dc-plan" data-title="Discovery plan and who to talk to" data-stage="1" data-part="discovery" data-path="E" data-angle="none" data-min="0.6" data-req="R-050 R-043" data-ground="white">
+  <header class="s-head">
+    <p class="eyebrow" data-a="rise"><span>Discovery</span><span>Research plan</span></p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Data first, then people, with an owner for every unknown</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Ten methods over four weeks. Hosts can be simulated to show the method; what Hostaway's own teams know never is.</p>
+  </header>
+  <div class="s-body">
+    <div class="dc-weeks">
+      <div class="dc-week dc-week--prep" data-a="rise" data-at="0.2">
+        <div class="dc-week__top"><span class="hc-badge">Prep</span><span class="dc-week__i"><svg><use href="#i-clipboard-check"/></svg></span></div>
+        <p class="dc-week__t">Get ready</p>
+        <p class="dc-week__m"><span>Kick-off</span><span>Assumption mapping</span><span>Data access</span><span>Recruiting</span></p>
+      </div>
+      <div class="dc-week is-key" data-tint="butter" data-a="rise" data-at="0.3">
+        <div class="dc-week__top"><span class="hc-badge">Week 1</span><span class="dc-week__i"><svg><use href="#i-database"/></svg></span></div>
+        <p class="dc-week__t">Data and teams</p>
+        <p class="dc-week__m"><span>Call analysis</span><span>Ticket analysis</span><span>"Edit per channel" usage</span><span>Knowledge Hub usage</span><span>Stakeholder interviews</span></p>
+      </div>
+      <div class="dc-week" data-tint="blush" data-a="rise" data-beat="1">
+        <div class="dc-week__top"><span class="hc-badge">Weeks 2 and 3</span><span class="dc-week__i"><svg><use href="#i-users"/></svg></span></div>
+        <p class="dc-week__t">Hosts</p>
+        <p class="dc-week__m"><span>User interviews, about 25</span><span>Card sorting, 15</span></p>
+      </div>
+      <div class="dc-week" data-tint="mint" data-a="rise" data-beat="1" data-at="0.14">
+        <div class="dc-week__top"><span class="hc-badge">Week 4</span><span class="dc-week__i"><svg><use href="#i-bulb"/></svg></span></div>
+        <p class="dc-week__t">Synthesis</p>
+        <p class="dc-week__m"><span>Cluster analysis</span><span>Affinity mapping</span><span>The readout</span></p>
+      </div>
+    </div>
+    <div class="dc-asks" data-a="stagger" data-beat="2" data-s="1.2">
+      <p class="dc-asks__k"><svg><use href="#i-send"/></svg>First asks, day one</p>
+      <p><span class="hc-chip hc-chip--q is-drift"><svg class="hc-chip__i"><use href="#i-help-circle"/></svg>Booking.com text: an API limit, or Hostaway's choice?</span></p>
+      <p><span class="hc-chip hc-chip--q is-drift-2"><svg class="hc-chip__i"><use href="#i-help-circle"/></svg>What are Airbnb's field write limits?</span></p>
+      <p><span class="hc-chip hc-chip--q is-drift-3"><svg class="hc-chip__i"><use href="#i-help-circle"/></svg>How can Hostaway detect drift on a channel?</span></p>
+    </div>
+  </div>
+  <template class="more" data-more="who" data-title="Who I'd talk to first">
+    <div class="more__panel" data-title="Ten roles, week one">
+      <div class="dc-who">
+        <div class="dc-who__l" data-a="rise">
+          <p class="dc-who__v">19</p>
+          <p class="dc-who__d">open questions between them, each with an owner</p>
+          <p class="dc-who__note"><span class="hc-chip"><svg class="hc-chip__i"><use href="#i-shield-check"/></svg>None of their answers is simulated</span></p>
+        </div>
+        <ul class="dc-roles" data-a="stagger" data-at="0.15" data-s="1.2">
+          <li data-tint="blush"><span class="dc-tile"><svg><use href="#i-topology-star-3"/></svg></span>Integrations engineering lead</li>
+          <li data-tint="butter"><span class="dc-tile"><svg><use href="#i-message-circle"/></svg></span>CS lead</li>
+          <li data-tint="mint"><span class="dc-tile"><svg><use href="#i-microphone"/></svg></span>RevOps and Gong owner</li>
+          <li data-tint="blush"><span class="dc-tile"><svg><use href="#i-chart-line"/></svg></span>Data and analytics lead</li>
+          <li data-tint="lavender"><span class="dc-tile"><svg><use href="#i-sparkles"/></svg></span>AI and ML lead</li>
+          <li data-tint="butter"><span class="dc-tile"><svg><use href="#i-target"/></svg></span>Head of Product</li>
+          <li data-tint="mint"><span class="dc-tile"><svg><use href="#i-pencil"/></svg></span>Listing-management PM and designer</li>
+          <li data-tint="blush"><span class="dc-tile"><svg><use href="#i-shield-check"/></svg></span>Legal and trust</li>
+          <li data-tint="butter"><span class="dc-tile"><svg><use href="#i-briefcase"/></svg></span>Enterprise sales lead</li>
+          <li data-tint="mint"><span class="dc-tile"><svg><use href="#i-send"/></svg></span>Marketing lead</li>
+        </ul>
+      </div>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span class="more-link" data-more="who">Who I'd talk to</span></p></div>
+  <aside class="notes"><p>This is the plan I'd run with a team. A prep week re-scores the assumptions, opens data access and starts recruiting. Week one is data first, because exports need no recruiting: call and ticket analysis, how hosts use Edit per channel and the Knowledge Hub today, and ten stakeholder interviews with Hostaway's own teams.</p><p>[Press] Hosts come second, sharpened by what the data shows: about twenty-five user interviews over two weeks, and card sorting with fifteen hosts. Week four is synthesis and the readout.</p><p>[Press] The first asks go out on day one: is Booking.com text an API limit or Hostaway's choice, what are Airbnb's write limits, and how can Hostaway detect drift. I simulated the host side to show the method, but not what Integrations or Legal would say. Those stay as nineteen open questions, each with an owner. About 55 seconds.</p></aside>
+</section>
+
+    </main>
+  </div>
+</div>
+<script type="module">
+import { boot } from '../kit/engine.js';
+const mods = ["../kit/hc.js","../kit/atmos/hostaway.js","../slides/10-discovery.js"];
+const res = await Promise.allSettled(mods.map((m) => import(m)));
+res.forEach((r, i) => { if (r.status === 'rejected') console.error('[deck] module failed to load', mods[i], String(r.reason)); });
+boot();
+</script>
+</body>
+</html>

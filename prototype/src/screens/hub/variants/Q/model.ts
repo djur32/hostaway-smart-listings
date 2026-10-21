@@ -30,7 +30,7 @@ import {
 type Where = 'base' | ListingChannel
 interface Accepted { where: Where; at: number; prev?: Record<string, string | null>; missing?: string[]; sent?: ListingChannel[] }
 interface KqTipsState { accepted: Record<string, Accepted>; dismissed: Record<string, true> }
-export const useKqTips = createPropertyStore('hospitable-kh-q-tips', (): KqTipsState => ({ accepted: {}, dismissed: {} }), (set) => ({
+export const useKqTips = createPropertyStore('hostaway-kh-q-tips', (): KqTipsState => ({ accepted: {}, dismissed: {} }), (set) => ({
   accept: (id: string, a: Accepted) => set((s) => ({ accepted: { ...s.accepted, [id]: a } })),
   unaccept: (id: string) => set((s) => { const accepted = { ...s.accepted }; delete accepted[id]; return { accepted } }),
   dismiss: (id: string) => set((s) => ({ dismissed: { ...s.dismissed, [id]: true as const } })),

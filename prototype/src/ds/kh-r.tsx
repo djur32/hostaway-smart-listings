@@ -48,7 +48,7 @@ export function RFactRow({ icon, label, value, scope, source, onEdit, action }: 
   )
 }
 
-/* ---------- generation progress (refs kh-next/01–02, REAL·PRODUCT: keep exactly) ---------- */
+/* ---------- generation progress (refs kh-next/01–02, keep exactly) ---------- */
 export function RGenerateIcon() {
   return (
     <span className="h-khr-genicon" aria-hidden="true">
@@ -72,8 +72,8 @@ export function RProgressBar({ pct }: { pct: number }) {
 /* ---- Workflows + Test (Agent R-workflows) ----
  * Template gallery cards, the step editor's chip pickers, the two simulate/test surfaces (a single workflow, and the
  * Hub-wide "Test" that replaces "Ask the AI", ref 07) and the drawer they both slide in from. Tokens only. No
- * "answer as {channel}" anywhere below (Antonio, KH-NEXT.md).
- * R2 revision (1 Oct, Antonio: "basically not rendered fine… not even how I envision this happening"): rebuilt the
+ * "answer as {channel}" anywhere below (review, KH-NEXT.md).
+ * R2 revision (1 Oct, review: "basically not rendered fine… not even how I envision this happening"): rebuilt the
  * editor closer to Intercom Fin's procedure editor (refs 05–06) — a weighted trigger box (KhrTrigger) and steps that
  * rest as flowing, chip-woven sentences (KhrStepItem) instead of a raw %token%-filled textarea shown at all times.
  * New pieces are kept in this same section; genuinely new CSS is prefixed `h-khr-wf2-` (ds/v3/kh-r.css) so it can't
@@ -190,7 +190,7 @@ export function KhrStepItem({ index, value, onChange, onRemove }: { index: numbe
 
 /* ---------- simulate / test result pieces, shared by a workflow's own Test and the Hub-wide Test (ref 06, ref 07) ---------- */
 /** `only`: a sentence just one channel's guests get (e.g. Airbnb's checkout tasks) — labelled, never folded silently
- *  into the plain-answer lines (Antonio, 1 Oct: channel-specific content must say so, the same way KhcAnswer already
+ *  into the plain-answer lines (review, 1 Oct: channel-specific content must say so, the same way KhcAnswer already
  *  does on a topic page). Reuses KhcAnswer's own classes so the two read identically. */
 export function KhrAnswer({ lines, only }: { lines: string[]; only?: { channel: ChannelId; text: string } }) {
   return (
@@ -215,7 +215,7 @@ export function KhrSourceRow({ icon, label, quote, onEdit }: { icon: string; lab
 /** The plain ask input (no channel picker — one answer, listing-wide). */
 export function KhrAsk({ value, onChange, onSubmit, placeholder, plain, autoFocus }: {
   value: string; onChange: (v: string) => void; onSubmit: () => void; placeholder: string
-  /** no sparkles (Antonio, 3 Oct: testing the Hub isn't a recommendation) */
+  /** no sparkles (review, 3 Oct: testing the Hub isn't a recommendation) */
   plain?: boolean; autoFocus?: boolean
 }) {
   return (
@@ -235,7 +235,7 @@ export function KhrAsk({ value, onChange, onSubmit, placeholder, plain, autoFocu
 
 /** One topic, as a clickable card (icon, name, fact count, a one-line description). Built on `.h-khr-tplcard`'s shape
  *  so it reads as the same family as Workflows' template cards, with its own class for the whole-card button reset. */
-/** A topic card (Antonio, 4 Oct): the icon, then the topic's name with its count under it ("10 questions"), then an
+/** A topic card (review, 4 Oct): the icon, then the topic's name with its count under it ("10 questions"), then an
  *  optional small chip after the count ("1 needs an answer" in yellow, "2 tips" in AI purple); the description below.
  *  `meta` replaces the "N facts" count. */
 export function ROverviewTopicCard({ icon, label, count, desc, meta, chip, onClick }: { icon: string; label: string; count: number; desc: string; meta?: ReactNode; chip?: ReactNode; onClick: () => void }) {
@@ -259,7 +259,7 @@ export function ROverviewTopicGrid({ children }: { children: ReactNode }) {
   return <div className="h-khr-tplgrid h-khr-ov2-topicgrid">{children}</div>
 }
 
-/* ---------- the Knowledge Hub page frame (Antonio, 3 Oct) ----------
+/* ---------- the Knowledge Hub page frame (review, 3 Oct) ----------
  * Every Knowledge Hub page is a CONCEPT — where the facts behind Smart Listing tips come from, not a developed feature —
  * so its title carries the "Concept" chip. The frame is the channel template's: the sticky head (title + property
  * switcher, then an optional tab row) and a Split body whose right column is the side panel (Test). A sub-page (a topic)
@@ -269,7 +269,7 @@ export function ConceptChip() {
 }
 export function KhrFrame({ title, property, back, desc, descAction, tabs, panel, children, titleEnd, right }: {
   title: ReactNode; property: Property; back?: { to: string; label: string }; desc?: ReactNode
-  /** an action (e.g. Tips) at the right of the description's line, in the sticky head (Antonio, 4 Oct) */
+  /** an action (e.g. Tips) at the right of the description's line, in the sticky head (review, 4 Oct) */
   descAction?: ReactNode
   /** the tab row, `.ch-tabrow` (QueryTabs + an optional chip at its right end, like Tips) */
   tabs?: ReactNode; panel?: ReactNode; children: ReactNode
@@ -280,7 +280,7 @@ export function KhrFrame({ title, property, back, desc, descAction, tabs, panel,
   return (
     <div className="ch-editor h-khr2">
       <div className="ch-editor__head">
-        {/* the description (and its Tips) is part of the sticky head, like every property page's (Antonio, 4 Oct) */}
+        {/* the description (and its Tips) is part of the sticky head, like every property page's (review, 4 Oct) */}
         <div className="ch-page"><PageHead lead={lead} compactTitle={typeof title === 'string' ? title : undefined} title={<>{title}<ConceptChip /></>} titleEnd={titleEnd} right={right} property={property} desc={desc} descAction={descAction} /></div>
         {tabs}
       </div>
@@ -289,7 +289,7 @@ export function KhrFrame({ title, property, back, desc, descAction, tabs, panel,
   )
 }
 
-/* ---------- Sources, rewired (Antonio, 3 Oct): one row shape for both the Sources table and the Add-a-source table —
+/* ---------- Sources, rewired (review, 3 Oct): one row shape for both the Sources table and the Add-a-source table —
  * icon, name, then ONE line "{desc} · {meta}", equal top/bottom padding, the trailing status/actions centred. An add
  * option is the same row as a whole-row button, with a trailing "Add" button look (a span: no nested buttons). ---------- */
 export function KhrSourceItem({ icon, name, desc, meta, action }: { icon: string; name: string; desc: string; meta?: string; action?: ReactNode }) {
@@ -317,7 +317,7 @@ export function KhrSourceAddItem({ icon, name, desc, onClick }: { icon: string; 
   )
 }
 
-/* ---------- Workflows, rewired (Antonio, 3 Oct): a static concept gallery — the Content page's topic card, exactly
+/* ---------- Workflows, rewired (review, 3 Oct): a static concept gallery — the Content page's topic card, exactly
  * (`.h-khr-tplcard .h-khr-ov2-topiccard` in `.h-khr-tplgrid`), but an <article>: no hover, no pointer, not focusable. ---------- */
 export function KhrWorkflowConceptCard({ icon, meta, title, desc }: { icon: string; meta: string; title: string; desc: string }) {
   return (

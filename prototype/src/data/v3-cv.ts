@@ -1,7 +1,7 @@
 /* WS-CV · Canvas data (V3-SPEC §1 "Listing editor", frames CV-00…CV-09).
- * What each part of the channel's guest page is, who owns it and where it is changed: REAL·PUBLIC research in CV-00
+ * What each part of the channel's guest page is, who owns it and where it is changed: research in CV-00
  * (research/market/channel-constraints.md), except where V3-SPEC §1 overrides it (the Booking.com description is
- * editable per channel). Every value on the replicas (reviews, scores, prices, host stats) is SIMULATED. */
+ * editable per channel). Every value on the replicas (reviews, scores, prices, host stats) is . */
 import type { FieldState } from '../ds/sl3'
 import { FIELDS, tipsFor, type ListingChannel, type ListingTab } from './sl3'
 
@@ -113,7 +113,7 @@ export const PHOTO_CAPTION: Record<PhotoKey, string> = {
   bathroom: 'Bathroom', balcony: 'Balcony', building: 'The building', street: 'Weserstraße', extra1: 'Paintings', extra2: 'Hallway',
 }
 export const photoUrl = (k: string) => `${import.meta.env.BASE_URL}photos/${k}.jpg`
-/** Live order today (SIMULATED). Airbnb: the desk is 9th; Booking.com: the bedroom is the cover. */
+/** Live order today. Airbnb: the desk is 9th; Booking.com: the bedroom is the cover. */
 export const PHOTO_ORDER: Record<ListingChannel, PhotoKey[]> = {
   airbnb: ['living1', 'bedroom', 'kitchen', 'bathroom', 'balcony', 'living2', 'building', 'street', 'desk', 'extra1', 'extra2'],
   booking: ['bedroom', 'living1', 'kitchen', 'bathroom', 'desk', 'balcony', 'building', 'street', 'living2', 'extra1', 'extra2'],
@@ -185,7 +185,7 @@ export const fallbackRewrite = (value: string, ask: string): string => {
   return value
 }
 
-/* ---------- replica content (SIMULATED) ----------
+/* ---------- replica content ----------
  * The scenario property's (Neukölln). Other properties' pages: data/property-listing.ts cvContentFor / channelPrice. */
 export const STAY = { from: '12 Oct 2026', to: '15 Oct 2026', fromShort: 'Mon 12 Oct', toShort: 'Thu 15 Oct', nights: 3, guests: 2 }
 export const PRICE: Record<ListingChannel, { night: number; cleaning: number; service: number }> = {

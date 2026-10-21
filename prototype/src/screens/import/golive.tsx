@@ -1,5 +1,5 @@
 /* F-A1 steps 8–11 · Sync direction · first push · done · owner S10 (consumes S11's push/receipts, D-129).
- * Replaces "You're connected · Setup ✓ Ready" (HS-15) with something true: what Hospitable will now keep up to date,
+ * Replaces "You're connected · Setup ✓ Ready" (HS-15) with something true: what Hostaway will now keep up to date,
  * what stays on each channel, the per-channel diff of the first push, then receipts.
  * R-004 R-020 R-087 R-090 R-091 · D-104 D-129 D-134 D-135 D-137 D-139 */
 import { useState } from 'react'
@@ -19,16 +19,16 @@ const CH: ChannelId[] = ['airbnb', 'booking']
 function useDirection(demo: string | null) {
   const s = useStore()
   const sp = s.decisions.find((d) => d.id === 'smart-pricing')
-  const hospitablePrices = sp?.choice !== 'keep'
+  const hostawayPrices = sp?.choice !== 'keep'
   return [
-    { area: 'Calendar & reservations', airbnb: 'Hospitable · live now', booking: 'Hospitable · live now', note: 'Started at connect, so you can’t be double-booked.' },
-    { area: 'Nightly prices', airbnb: demo === 'pricing-tool' ? 'Your pricing tool' : hospitablePrices ? 'Hospitable' : 'Airbnb Smart Pricing', booking: demo === 'pricing-tool' ? 'Your pricing tool' : 'Hospitable', note: demo === 'pricing-tool' ? 'Prices come from PriceLabs. Hospitable reads them and never sends a rate.' : hospitablePrices ? '€44, weekends €55. Airbnb Smart Pricing turns off at your first push.' : 'Booking.com: €44, weekends €55. On Airbnb, Hospitable reads Smart Pricing’s price and never sends one.' },
-    { area: 'Fees & stay rules', airbnb: 'Hospitable', booking: 'Hospitable', note: 'Values can differ per channel, as you decided.' },
-    { area: 'Details, amenities, house rules', airbnb: 'Hospitable', booking: 'Hospitable', note: 'One record; each channel gets its own wording of the same fact.' },
-    { area: 'Photos', airbnb: 'Hospitable · your order', booking: demo === 'bdc-not-writable' ? 'Booking.com Extranet' : 'Hospitable · Booking.com may reorder', note: demo === 'bdc-not-writable' ? 'This Booking.com property has several room types; photos stay managed in the Extranet for now.' : 'Channels can reorder photos themselves (smart ordering).' },
-    { area: 'Title & description', airbnb: 'Hospitable', booking: 'Booking.com writes the description', note: 'Booking.com writes its own text from your facts; a new name goes through its review.' },
+    { area: 'Calendar & reservations', airbnb: 'Hostaway · live now', booking: 'Hostaway · live now', note: 'Started at connect, so you can’t be double-booked.' },
+    { area: 'Nightly prices', airbnb: demo === 'pricing-tool' ? 'Your pricing tool' : hostawayPrices ? 'Hostaway' : 'Airbnb Smart Pricing', booking: demo === 'pricing-tool' ? 'Your pricing tool' : 'Hostaway', note: demo === 'pricing-tool' ? 'Prices come from PriceLabs. Hostaway reads them and never sends a rate.' : hostawayPrices ? '€44, weekends €55. Airbnb Smart Pricing turns off at your first push.' : 'Booking.com: €44, weekends €55. On Airbnb, Hostaway reads Smart Pricing’s price and never sends one.' },
+    { area: 'Fees & stay rules', airbnb: 'Hostaway', booking: 'Hostaway', note: 'Values can differ per channel, as you decided.' },
+    { area: 'Details, amenities, house rules', airbnb: 'Hostaway', booking: 'Hostaway', note: 'One record; each channel gets its own wording of the same fact.' },
+    { area: 'Photos', airbnb: 'Hostaway · your order', booking: demo === 'bdc-not-writable' ? 'Booking.com Extranet' : 'Hostaway · Booking.com may reorder', note: demo === 'bdc-not-writable' ? 'This Booking.com property has several room types; photos stay managed in the Extranet for now.' : 'Channels can reorder photos themselves (smart ordering).' },
+    { area: 'Title & description', airbnb: 'Hostaway', booking: 'Booking.com writes the description', note: 'Booking.com writes its own text from your facts; a new name goes through its review.' },
     // research/market/channel-constraints.md §4 "Rooms / beds / baths": Airbnb-owned (pulled, never pushed); Booking.com not synced
-    { area: 'Rooms & beds', airbnb: 'Airbnb', booking: 'Booking.com Extranet', note: 'Edited on each channel. Hospitable reads Airbnb’s rooms and beds, sends them nowhere, and tells you if Booking.com’s don’t match.' },
+    { area: 'Rooms & beds', airbnb: 'Airbnb', booking: 'Booking.com Extranet', note: 'Edited on each channel. Hostaway reads Airbnb’s rooms and beds, sends them nowhere, and tells you if Booking.com’s don’t match.' },
   ]
 }
 
@@ -117,7 +117,7 @@ export function Done() {
   const [toast, setToast] = useState(true)
   const primary = p.id === 'P2' ? <Button kind="primary" size={mobile ? 'lg' : undefined} onClick={() => nav(`/property/${PROPERTY_ID}/listing/airbnb/preview`)}>Open Listings › Airbnb</Button>
     : p.id === 'P3' ? <Button kind="primary" size={mobile ? 'lg' : undefined} onClick={() => nav('/')}>Review Batch 2</Button>
-    : <Button kind="primary" size={mobile ? 'lg' : undefined} onClick={() => nav(`/property/${PROPERTY_ID}/home`)}>See your place in Hospitable</Button>
+    : <Button kind="primary" size={mobile ? 'lg' : undefined} onClick={() => nav(`/property/${PROPERTY_ID}/home`)}>See your place in Hostaway</Button>
   // what's still in Needs you, named honestly: questions and suggestions aren't unfinished setup
   const waiting = [
     ny.open.length && `${ny.open.length} to decide`,

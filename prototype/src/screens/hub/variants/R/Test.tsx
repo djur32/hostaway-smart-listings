@@ -102,7 +102,7 @@ function TestContent({ t, plain }: { t: ReturnType<typeof useTest>; plain?: bool
   )
 }
 
-/** Test, from a topic page's tab bar (Antonio, 3 Oct: "instead of Ask a question, just say Test", in a drawer like
+/** Test, from a topic page's tab bar (review, 3 Oct: "instead of Ask a question, just say Test", in a drawer like
  *  Add question / Add a fact, available from Questions and Facts; no sparkles, no purple). "Ask another question"
  *  clears the box and the answer so the host can try a different one. */
 export function TestDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {

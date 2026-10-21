@@ -1,4 +1,4 @@
-/* Comparable listings per channel (R-108, R-111…R-113) — SIMULATED ("Sample market data" in the UI).
+/* Comparable listings per channel (R-108, R-111…R-113) — ("Sample market data" in the UI).
  * Grounded in the scenario's market context (SCENARIO.md): 24 comps within 1.5 km, 2 guests / 1 bedroom, the host's own
  * units excluded (OQ-108), median cleaning fee €28, 71% name the neighbourhood in the title. S11 extends this file. */
 import type { Comp } from './types'

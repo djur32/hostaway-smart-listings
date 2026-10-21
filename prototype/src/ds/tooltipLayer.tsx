@@ -1,4 +1,4 @@
-/* One floating layer for every shared tooltip (.h-tooltip-anchor > .h-tooltip). Antonio, 3 Oct: tooltips always sit
+/* One floating layer for every shared tooltip (.h-tooltip-anchor > .h-tooltip). review, 3 Oct: tooltips always sit
  * ABOVE the thing they explain, centred on it, separated from the content, and may wrap to two lines.
  * A CSS-only tooltip can't do that reliably here: the form column and the Tips panel are scrollers, so a tooltip
  * centred on an icon near their edge was clipped (the reason several callers had been pushed to open rightwards).
@@ -116,7 +116,7 @@ export function TooltipLayer() {
     const r = shown.anchor.getBoundingClientRect()
     const { width: w, height: h } = tip.current.getBoundingClientRect()
     // `.h-tooltip-anchor--start` (a wide anchor, e.g. a locked field): left-aligned with the field's own text, not
-    // centred on a 600px box (Antonio, 3 Oct)
+    // centred on a 600px box (review, 3 Oct)
     const start = shown.start || r.width > WIDE // any wide anchor reads from its left edge, never centred on it
     const want = start ? r.left + START_INSET : r.left + r.width / 2 - w / 2
     const left = Math.min(Math.max(want, EDGE), window.innerWidth - w - EDGE)
@@ -124,7 +124,7 @@ export function TooltipLayer() {
     setPos({ left, top: above >= EDGE ? above : r.bottom + GAP })
   }, [shown])
 
-  // phones (Antonio, 4 Oct): a tooltip is a bottom sheet with a title, its text and × — never a floating bubble.
+  // phones (review, 4 Oct): a tooltip is a bottom sheet with a title, its text and × — never a floating bubble.
   // Desktop keeps the floating layer above (hover and focus are unchanged there).
   if (mobile && shown) return (
     <TipSheet open title={sheetTitle(shown.anchor)} onClose={() => setShown(null)} host={{ current: shown.anchor }}>

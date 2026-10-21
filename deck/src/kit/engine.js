@@ -35,11 +35,11 @@ const atmosSpecs = new Map();
 export function define(id, spec) { specs.set(id, spec); }
 export function atmos(theme, spec) { atmosSpecs.set(theme, spec); }
 
-/* The tabs: the seven parts of the Hospitable story (deck/DECISIONS.md, D-070, revised 3 Oct).
+/* The tabs: the seven parts of the Hostaway story (deck/DECISIONS.md, D-070, revised 3 Oct).
    Intro (data-stage="0") is the prologue. IA folds into Research as what the research became
-   (Antonio, 3 Oct); Test and Measure share one, and Systems & next holds the close.
+   (review, 3 Oct); Test and Measure share one, and Systems & next holds the close.
    data-stage 8 is the appendix, which is not a tab. Set like the product's own tabs:
-   sentence case, the active one underlined in raspberry (themes/hospitable.css). */
+   sentence case, the active one underlined in raspberry (themes/hostaway.css). */
 const STAGES = [
   { n: 0, name: 'Intro' },
   { n: 1, name: 'Discovery' }, { n: 2, name: 'Research' },
@@ -60,7 +60,7 @@ let resolveReady; const ready = new Promise((r) => (resolveReady = r));
 async function boot() {
   registerPlugins();
   html.classList.add('js');
-  html.dataset.theme = 'hospitable';                 // one theme (D-071); ?theme= is ignored
+  html.dataset.theme = 'hostaway';                 // one theme (D-071); ?theme= is ignored
   html.dataset.scheme = 'light';
   if (qs.get('motion')) html.dataset.motion = qs.get('motion');
   if (MODE.static) html.dataset.motion = 'off';
@@ -89,7 +89,7 @@ async function boot() {
   // would resolve too early: load all three variable families explicitly (one file each).
   try { await Promise.all(['16px "TT Norms"', '500 16px "TT Norms"', '600 16px "TT Norms"', '16px "Geist Mono"'].map((f) => document.fonts.load(f))); } catch {}
   try { await document.fonts.ready; } catch {}
-  /* No personalising (Antonio, 3 Oct: "remove the personalization functionality altogether"):
+  /* No personalising (review, 3 Oct: "remove the personalization functionality altogether"):
      every viewer sees the whole deck, and a plan saved by an older build is ignored. */
   buildChrome();
   mountThread(stage);
@@ -199,7 +199,7 @@ function applyGlyphs(scope) {
 /* The way back from a jump. A door that leads to another slide is a detour off the route,
    so while you are standing on the slide it took you to, the brand mark becomes a Back
    control that returns you to the exact slide you clicked from. Moving the talk on in any
-   other way puts the mark back: the detour is over. (Antonio, 2026-09-27.) */
+   other way puts the mark back: the detour is over. (review, 2026-09-27.) */
 const BACK_MARK = `<svg class="brand-mark brand-mark--back" viewBox="0 0 46 46" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M27 12 16 23l11 11"/></svg><span class="appbar__back">Back</span>`;
 /* Every asset URL the engine builds is document-relative, and the deck is served from
    two places: src/pages/ here, and one opaque folder inside the site (the original deck's web bundle; not part of this copy),
@@ -207,11 +207,11 @@ const BACK_MARK = `<svg class="brand-mark brand-mark--back" viewBox="0 0 46 46" 
    window.__DECK_ROOT__ before the entry module runs; nothing else changes. */
 const R = (typeof window !== 'undefined' && window.__DECK_ROOT__) || '../';
 
-/* Hospitable's mark, from the design system's sprite (ds/channels/hospitable.svg, S02): the "o"
-   with its tail. For identification only: the deck is a case study for Hospitable, not Hospitable's
+/* Hostaway's mark, from the design system's sprite (ds/channels/hostaway.svg, S02): the "o"
+   with its tail. For identification only: the deck is a case study for Hostaway, not Hostaway's
    own (the title and the close say so). */
-const BRAND_MARK = `<svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#ch-hospitable"/></svg>`;
-const BRAND = `${BRAND_MARK}<span class="brand-word">hospitable</span>`;   // what this is moved to the byline (Antonio, 3 Oct)
+const BRAND_MARK = `<svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#ch-hostaway"/></svg>`;
+const BRAND = `${BRAND_MARK}<span class="brand-word">hostaway</span>`;   // what this is moved to the byline (review, 3 Oct)
 function buildChrome() {
   const bar = document.createElement('header');
   bar.className = 'appbar';
@@ -229,7 +229,7 @@ function buildChrome() {
   hints.className = 'hints';
   hints.innerHTML = `<button type="button" class="hint" data-hint="jump"><kbd><span class="hint__cmd">⌘</span>K</kbd>Jump</button><button type="button" class="hint" data-hint="next"><kbd>→</kbd>Next</button>`;
   /* Keys (and Notion, kit/hc.js) open on hover, right above their own hint; ? pins Keys open; any
-     click closes both, and a closed pop stays shut until the pointer leaves (Antonio, 4 Oct) */
+     click closes both, and a closed pop stays shut until the pointer leaves (review, 4 Oct) */
   const shut = () => hints.querySelectorAll('.hint-wrap').forEach((w) => { w.classList.remove('is-open'); if (w.matches(':hover')) w.classList.add('is-shut'); });
   document.addEventListener('click', shut, true);
   hints.addEventListener('mouseleave', (e) => { const w = e.target.closest?.('.hint-wrap'); w?.classList.remove('is-shut'); }, true);
@@ -237,7 +237,7 @@ function buildChrome() {
   // the byline holds the bottom left corner for the whole talk. On the cover it is set large,
   // as the slide's own; from the second slide on it scales down in place and stays there.
   const who = document.createElement('p');
-  who.className = 'byline'; who.innerHTML = '<b class="byline__name">Antonio Silva</b><span class="byline__role">Head of Design <i>·</i> Case Study</span>';
+  who.className = 'byline'; who.innerHTML = '<b class="byline__name">review Silva</b><span class="byline__role">Head of Design <i>·</i> Case Study</span>';
   const badge = document.createElement('aside');
   badge.className = 'casebadge';                     // whose story this is: filled by paintBadge()
   stage.classList.add('is-booting');                 // first chrome state lands without a transition
@@ -250,7 +250,7 @@ function buildChrome() {
   /* The atmosphere belongs to the window, not to the stage. The stage is 1920x1080 and a
      window of another shape leaves a band beside or under it; with the ground inside the
      stage those bands were flat colour against a graded picture, and read as stripes
-     (Antonio, 2026-09-27). In .viewport it runs to the edge of the window whatever the
+     (review, 2026-09-27). In .viewport it runs to the edge of the window whatever the
      shape, and the stage sits on it, transparent. */
   const atm = document.createElement('div'); atm.className = 'atmos'; atm.setAttribute('aria-hidden', 'true');
   const vp = stage.parentElement || document.body;
@@ -278,10 +278,10 @@ function buildChrome() {
 /* Screens that exist in both modes (data-pair) can be flipped, the way the case studies let you
    flip them, so light and dark can be compared without changing the deck's own theme. One switch
    does all of them: the choice lives on the document, so it holds as you walk between cases
-   (Antonio, 27 Sep, who wanted one button rather than one per screen). A slide that sets its own
+   (review, 27 Sep, who wanted one button rather than one per screen). A slide that sets its own
    data-shots still wins over the switch, because that pinning is deliberate. */
 /* a paired screen that pins its own variant (the two halves of a light/dark wipe) is not
-   switchable, so it never raises the switch (Antonio, 2026-09-28: "it doesn't work") */
+   switchable, so it never raises the switch (review, 2026-09-28: "it doesn't work") */
 const PAIR_FREE = 'img[data-pair]:not([data-scheme])';
 function shotsMode(s) { return s?.dataset.shots || html.dataset.shots || html.dataset.scheme; }
 /** The brand mark, or the way back out of a jump. */
@@ -318,7 +318,7 @@ function mountTouch() {
    always let a determined person get at a file it has downloaded, so this is a fence and
    not a lock: it turns off the long-press save sheet, the drag-to-desktop and the
    right-click menu on the artwork, which is how an image actually leaves a page by
-   accident (Antonio, 2026-09-29: "prevent the images from being copied on web and mobile").
+   accident (review, 2026-09-29: "prevent the images from being copied on web and mobile").
    The lightbox still opens a screenshot full size, because that is the deck's own door. */
 const OWN_ART = 'img, .shot, .device, .frame, figure, svg';
 for (const ev of ['contextmenu', 'dragstart']) {
@@ -330,7 +330,7 @@ for (const ev of ['contextmenu', 'dragstart']) {
 /* ── a screen that is not in the assets yet leaves no hole ────────────────
    A shot can be missing while it is being re-exported. Rather than a broken image in
    front of a room, the frame around it takes itself out of the layout until the file
-   lands (Antonio, 2026-09-27, about the Adeslas screens). The nearest of these
+   lands (review, 2026-09-27, about the Adeslas screens). The nearest of these
    wrappers goes; if a shot sits in none of them, only the image itself is hidden. */
 const MISSING_SHOT = '.device, .t5-card__thumb, .tb__screens li, .shot, .frame';
 document.addEventListener('error', (e) => {
@@ -344,7 +344,7 @@ document.addEventListener('error', (e) => {
 
 /* The switch lives in two places: the appbar, and the detail sheet's own chrome. A detail
    is where the mock-ups are largest, and while one is open the appbar is behind it, so the
-   screens could not be flipped there (Antonio, 2026-09-28: "add the same icon for light dark
+   screens could not be flipped there (review, 2026-09-28: "add the same icon for light dark
    mode that you have on the website because I want to be able to see it and make the change").
    Both paint from the same state and both call the same toggle. */
 function paintShot(btn, host, s) {
@@ -379,7 +379,7 @@ function toggleShots() {
   paintShotsHint(s);
 }
 
-/* The ground the slide stands on: the chrome inverts on aubergine (themes/hospitable.css). A slide
+/* The ground the slide stands on: the chrome inverts on aubergine (themes/hostaway.css). A slide
    whose cover is still down stands on the cover's aubergine. */
 const groundOf = () => 'white';                     // one ground for the whole talk (3 Oct)
 function paintGround(s, instant = false) {
@@ -425,7 +425,7 @@ function paintChrome() {
    One persistent element: it stays still while the case holds, swaps inside its box when the
    case changes, arrives and leaves with it. In print each case slide gets a static copy.
    The stage's lead/second/third role is still read here (the presenter window shows it in
-   Antonio's own notes) but is no longer drawn on the wall: see DECISIONS §23 and its note. */
+   review's own notes) but is no longer drawn on the wall: see DECISIONS §23 and its note. */
 let STORIES = { cases: {}, stages: {} }, LOGO_AR = {};
 const ROLE_FALLBACK = { lead: 'Main story', second: 'Second story', third: 'Third story' };
 const roleName = (r) => (STORIES.roles || ROLE_FALLBACK)[r] || ROLE_FALLBACK[r] || '';   // presenter window only now
@@ -469,7 +469,7 @@ function badgeInner(c) {
 }
 /* The case name used to be fitted to the mark above it, so every badge got a different size:
    "CoPilot AI" landed on the 22px ceiling and "ASISA Vive design system" on the 14px floor.
-   Antonio asked for one size across the case studies (27 Sep), so the fit is gone and the size
+   review asked for one size across the case studies (27 Sep), so the fit is gone and the size
    is a constant in deck.css. A long name now makes a wider badge rather than smaller type,
    which is the trade he chose. */
 function fitBadgeName() {}
@@ -596,7 +596,7 @@ function restoreStyles(m) {
 
 /* ── a legend is a filter ───────────────────────────────────────────────────
    "Hovering over one item of the legend dims the opacity of the other ones in the
-   chart" (Antonio, 2026-09-27), everywhere there is a legend. A legend opts in with
+   chart" (review, 2026-09-27), everywhere there is a legend. A legend opts in with
    data-legend="<selector for its chart's marks>"; each entry carries data-k with the
    class (or the mark's own data-k) it keys. An empty data-k is the residual entry:
    it keys every mark none of the other entries claim, which is how a legend whose
@@ -604,7 +604,7 @@ function restoreStyles(m) {
    and every listener is undone when the slide leaves. */
 /* A figure and the line beside it: one line of label sits on the figure's middle, two or
    more start at its top, because a tall number beside a two-line label reads as a step
-   down when it is centred (Antonio, 2026-09-28). CSS cannot count lines, so the label's
+   down when it is centred (review, 2026-09-28). CSS cannot count lines, so the label's
    height is measured against its own line box once per slide, and again whenever the
    stage is refitted. */
 function fitFigs(root = document) {
@@ -757,7 +757,7 @@ async function go(i, opts = {}) {
   paintBadge(to, opts.instant, crossing ? EXIT_T() : 0);   // sets the head's spacer BEFORE its lines are split; its motion waits for the hand-off
   const next = activate(i);
   /* Leaving a full-screen bookend (the cover), the bar and the ground wait until the bookend has gone, so
-     the chrome never lands on top of it (Antonio, 4 Oct: "the elements are still superposed"). */
+     the chrome never lands on top of it (review, 4 Oct: "the elements are still superposed"). */
   const chromeLate = crossing && fromEl.dataset.chrome === 'none';
   // Going back into it (to.dataset.chrome none, not a late bookend), the bar goes at once, before the bookend lands.
   const chromeSnap = crossing && to.dataset.chrome === 'none' && !to.dataset.chromeLate;
@@ -834,7 +834,7 @@ const EXIT_T = () => dur(1) * 0.75;
    one had gone the next slide should already have been reading. (go → arrive) */
 function defaultExit(el) {
   const kids = [...el.children].filter((c) => !c.classList.contains('notes') && c.tagName !== 'SCRIPT' && !c.dataset.key);
-  return g().to(kids, { autoAlpha: 0, duration: EXIT_T(), ease: E.io });          // Hospitable deck: a quick fade, no lift or blur
+  return g().to(kids, { autoAlpha: 0, duration: EXIT_T(), ease: E.io });          // Hostaway deck: a quick fade, no lift or blur
 }
 
 function playBeat({ instant = false } = {}) {
@@ -925,7 +925,7 @@ function media(i) {
 /* ═══════════════════════════════════════════════ DETAILS (a layer deeper) ══
    "Make things clickable on demand to show more information; if you enter the
    more-info screen, allow to close it; it should not be at the presentation level,
-   it's like a layer deeper; but don't go crazy." (Antonio, 2026-09-26)
+   it's like a layer deeper; but don't go crazy." (review, 2026-09-26)
 
    A slide holds its details as templates, one or two panels each:
      <template class="more" data-more="ID" data-title="Short title">
@@ -940,7 +940,7 @@ function media(i) {
    only: nothing inside a detail opens another. Focus is held inside the card and goes back
    to the door. Print: every panel prints after its slide as a page of its own (bootPrint).
 
-   The door and the card (Antonio, 3 Oct): "I don't like how pop-ups work anywhere. I'd like
+   The door and the card (review, 3 Oct): "I don't like how pop-ups work anywhere. I'd like
    them to be available from the top right of the content area, opposite the headline. When
    you click on it, dispel all of the content away from the slide, like a boomerang: you throw
    it and everything moves away to the sides, on a tangent; and when you close it, it comes
@@ -973,7 +973,7 @@ function morePanels(tpl) {
   kids.forEach((k) => d.append(k.cloneNode(true)));
   return [liftLegend(d)];
 }
-/* A detail's legend (Antonio, 4 Oct: "legends in details… bottom left, exactly the same text size as the
+/* A detail's legend (review, 4 Oct: "legends in details… bottom left, exactly the same text size as the
    source line"). Every chart caption, flow source and source line a panel holds becomes ONE line, the
    slide foot's .hc-src exactly (15 px, chips first, then the words), a direct child of the panel, which
    deck.css pins to the card's bottom left. Done once per template panel; idempotent. */
@@ -1058,7 +1058,7 @@ function mountMoreButtons({ buttons = true } = {}) {
       const label = t.dataset.label || (tpls.length > 1 && words) || 'More';
       const b = document.createElement('button');
       b.type = 'button'; b.className = 'more-btn'; b.dataset.more = id; b.dataset.cue = 'none';
-      // no title: a native tooltip lands on the content (Antonio, 3 Oct); the name says where it goes
+      // no title: a native tooltip lands on the content (review, 3 Oct); the name says where it goes
       b.setAttribute('aria-label', `${label}: ${t.dataset.title || 'detail'}`);
       b.innerHTML = `${ICON_PLUS}<span class="more-btn__t"></span>`;
       b.querySelector('.more-btn__t').textContent = label;
@@ -1216,11 +1216,11 @@ function fling(slide) {
 
 /** fill a detail panel: logos, shots, glyphs, connectors, videos, then its own declarative
     motion. → belongs to the panels, so a panel never waits for a press: its data-beat groups
-    play by themselves, one rung after another (Antonio, 3 Oct: "content that reveals should
+    play by themselves, one rung after another (review, 3 Oct: "content that reveals should
     come in on its own as a timed ladder"), and a panel with no data-a of its own has its
     blocks staggered in. Motion off and print land everything at once. */
 function mountPanel(p, { still: quiet = false, print = false } = {}) {
-  window.__hcPrepare?.(p);                           // the Hospitable components (kit/hc.js): charts, chips, frames
+  window.__hcPrepare?.(p);                           // the Hostaway components (kit/hc.js): charts, chips, frames
   applyLogos(p); applyShots(p, null); applyGlyphs(p); prepareEmbeds(p);
   p.querySelectorAll('video[data-video]').forEach((v) => { v.src = `${R}assets/video/${v.dataset.video}.mp4`; v.muted = true; v.playsInline = true; if (!quiet && !print) v.play().catch(() => {}); });
   layoutAllLinks(p);
@@ -1324,7 +1324,7 @@ function openMore(opener, { key = false } = {}) {
   if (still()) { fl?.tl.progress(1); G.set(scrim, { opacity: 1 }); G.set(sheet, { opacity: 1, y: 0, scale: 1 }); G.set(head, { opacity: 1 }); }
   else {
     fl?.tl.play(0);
-    // the room dims (Antonio, 3 Oct: "a pop-up with a fade-in colour change for the background"),
+    // the room dims (review, 3 Oct: "a pop-up with a fade-in colour change for the background"),
     // and the card pops up on it: opaque within a beat, then settling from a little smaller
     G.fromTo(scrim, { opacity: 0 }, { opacity: 1, duration: dur(2) * 0.75, ease: E.io });
     G.fromTo(sheet, { opacity: 0 }, { opacity: 1, duration: dur(1) * 0.8, ease: E.out, delay: CARD_AT() });
@@ -1460,7 +1460,7 @@ function filterPalette(v) {
 
 /* ═════════════════════════════════════════════════════════ LIGHTBOX ═══ */
 /* Every screenshot opens full size, not only the ones an author thought to mark
-   (Antonio, 27 Sep: "every screenshot opens full view, and you can flick through them").
+   (review, 27 Sep: "every screenshot opens full view, and you can flick through them").
    A screenshot is img[data-shot]; data-zoom stays for anything else that wants the same door. */
 const ZOOM_SEL = 'img[data-shot], [data-zoom] img, img[data-zoom]';
 let lbSet = [], lbAt = 0, lbSwiped = false;        // lbSwiped: a flick just moved the set, so the click it ends with is not a close
@@ -1629,7 +1629,7 @@ let chan = null;
 function post(m) { try { chan?.postMessage(m); } catch {} }
 function wireChannel() {
   if (!('BroadcastChannel' in window)) return;
-  chan = new BroadcastChannel('hospitable-deck');
+  chan = new BroadcastChannel('hostaway-deck');
   chan.onmessage = (e) => {
     const m = e.data || {};
     if (m.type === 'cmd') ({ next, prev, skip, replay, clock: toggleClock })[m.cmd]?.();
@@ -1638,7 +1638,7 @@ function wireChannel() {
 }
 /* The presenter window (P). A browser may block the pop-up, or open it in another space when the deck is full
    screen, so the window is focused, and when it is blocked the deck offers a link: a real click always opens it
-   (Antonio, 4 Oct: "nothing happens when I press P"). */
+   (review, 4 Oct: "nothing happens when I press P"). */
 document.addEventListener('click', (e) => { const a = e.target.closest?.('a[data-hint="notes"]'); if (a) a.href = presenterUrl(); }, true);
 function presenterUrl() { return `${location.pathname}?presenter&theme=${html.dataset.theme}`; }
 function openPresenter() {
@@ -1672,7 +1672,7 @@ function bootPresenter() {
       <section class="pv__now"><p class="pv__k">Now</p><h1 class="pv__title"></h1><p class="pv__meta"></p><div class="pv__more" hidden></div><div class="pv__notes"></div></section>
       <aside class="pv__next"><p class="pv__k">Next</p><h2 class="pv__ntitle"></h2></aside>
     </main>`;
-  const chanP = new BroadcastChannel('hospitable-deck');
+  const chanP = new BroadcastChannel('hostaway-deck');
   const paint = (i, beat) => {
     const s = slides[i]; const n = slides[i + 1]; if (!s) return;
     document.querySelector('.pv__title').textContent = s.dataset.title || s.dataset.id;
@@ -1775,7 +1775,7 @@ export { Deck, boot, go, next, prev, ready, defineThread, shotSrc };
    every slide and atmosphere module, so all registrations exist first. */
 
 /* How to move: on the first load, over the cover, a small pill shows → and ← pressing for a couple of seconds, then
-   leaves (Antonio, 5 Oct). Any key, click or slide change takes it away at once. Not shown in print or presenter. */
+   leaves (review, 5 Oct). Any key, click or slide change takes it away at once. Not shown in print or presenter. */
 (function navHint() {
   if (MODE.print || MODE.presenter || MODE.qa || MODE.static) return;
   let el = null, t1 = 0, t2 = 0;

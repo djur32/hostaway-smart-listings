@@ -7,7 +7,7 @@ export function useAccount() {
   const connected = useStore((s) => s.setup.connected)
   const user = currentUser()
   const properties = propertiesOf(user, connected)
-  // Priya has her listing and no setup (Antonio, 4 Oct): her home is the property Overview like everyone else's.
+  // Priya has her listing and no setup (review, 4 Oct): her home is the property Overview like everyone else's.
   const home = landingFor(user.id, properties.length > 0)
   const summary = (u: UserDef) => {
     const n = u.id === user.id ? properties.length : propertiesOf(u, []).length
@@ -15,11 +15,11 @@ export function useAccount() {
   }
   return {
     user, properties, home, summary,
-    /** Priya has no first-time setup (Antonio, 4 Oct): Getting started is hidden for her */
+    /** Priya has no first-time setup (review, 4 Oct): Getting started is hidden for her */
     gettingStartedHidden: user.id === 'priya',
     users: USER_ORDER.map((id) => USERS[id]),
     owns: (id: string) => properties.includes(id),
-    /** Priya has no setup pending (Antonio, 4 Oct). */
+    /** Priya has no setup pending (review, 4 Oct). */
     setupPending: false,
   }
 }

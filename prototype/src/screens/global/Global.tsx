@@ -36,7 +36,7 @@ export function Dashboard() {
       rows: all.filter((r) => r.channels.includes('airbnb') && r.channels.includes('booking') && r.fee('airbnb').value !== r.fee('booking').value && !s.portfolio.cleared[r.p.id]?.conflicts),
       why: 'Often on purpose (Booking.com’s commission). Decide once for all of them, or one by one.', action: { label: 'Decide for all', bulk: 'conflict' } },
     ...all.filter((r) => r.alert).map((r) => ({ id: `sync-${r.p.id}`, kind: 'Sync' as const, title: `${r.p.name} · ${r.alert!.text}`, rows: [r],
-      why: r.alert!.kind === 'failed' ? 'The channel refused the last push. Everything else on the listing is live.' : 'Someone edited the listing on the channel. Hospitable hasn’t overwritten it: which one wins?',
+      why: r.alert!.kind === 'failed' ? 'The channel refused the last push. Everything else on the listing is live.' : 'Someone edited the listing on the channel. Hostaway hasn’t overwritten it: which one wins?',
       action: { label: r.alert!.kind === 'failed' ? 'Fix it' : 'Review the change', to: `/property/${r.p.id}/overview/channels` } })),
     { id: 'stale', kind: 'Content', title: `${all.filter((r) => r.d.descriptionAgeMonths >= 12).length} descriptions untouched for 12+ months`, rows: all.filter((r) => r.d.descriptionAgeMonths >= 12),
       why: 'Older text often misses what changed (a new desk, faster Wi-Fi). A strategy drafts a refresh per property. You check a sample first.', action: { label: 'Refresh with a strategy', bulk: 'strategy' } },

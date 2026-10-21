@@ -1,13 +1,13 @@
-/* Knowledge Hub, reframed (plan/notion-v2/deck-review/KH-REFRAME.md, Antonio 4 Oct) · sample Inbox data.
- * SIMULATED throughout: the scenario property's guest questions are C's 47 clusters (C/data.ts, "312 conversations,
- * last 12 months"), grouped into Hospitable's nine Knowledge Hub topics by R's map (R/data.ts topicOf). This file adds
+/* Knowledge Hub, reframed (plan/notion-v2/deck-review/KH-REFRAME.md, review 4 Oct) · sample Inbox data.
+ * throughout: the scenario property's guest questions are C's 47 clusters (C/data.ts, "312 conversations,
+ * last 12 months"), grouped into Hostaway's nine Knowledge Hub topics by R's map (R/data.ts topicOf). This file adds
  * what the reframe needs on top of them, and nothing else:
  *   · how each question's asks split per channel and fall over the last 12 months (seeded, deterministic),
  *   · a few guest messages behind the questions (sample wording; the gaps' own messages come from C/data.ts GAPS),
- *   · one new question this month, shaped like the real "Ask the AI" example (HS-L08, REAL·PRODUCT: wheelchair access),
+ *   · one new question this month, shaped like the real "Ask the AI" example (HS-L08, wheelchair access),
  *   · the tips a gap becomes: which Listing base field the answer goes into and the words it adds. Every added sentence
  *     comes from the demo property's own data (C/data.ts GAPS drafts, data/v3-kh.ts KH_CUSTOM); none is new.
- * No provenance chrome in the UI (Antonio: "nobody cares about that"); it lives here. */
+ * No provenance chrome in the UI (review: "nobody cares about that"); it lives here. */
 import type { ListingChannel, WhyPoint } from '../../../../data/sl3'
 import { f, one, type Question } from '../C/data'
 import type { RTopicId } from '../R/data'
@@ -89,7 +89,7 @@ export const CONVOS: Record<string, ConvoDef[]> = {
 /** Names for the gaps' own messages (C/data.ts GAPS has the text, channel and month, not who wrote it). */
 export const GAP_GUESTS = ['Felix R.', 'Clara S.', 'Omar B.', 'Ines T.', 'Jakob H.', 'Lucía M.', 'Noah P.', 'Emma W.', 'Mateo C.', 'Zoe K.', 'Leon D.', 'Mia J.', 'Theo G.', 'Sara L.']
 
-/* ---------- one new question this month (shaped like Hospitable's own "Ask the AI" example, HS-L08) ----------
+/* ---------- one new question this month (shaped like Hostaway's own "Ask the AI" example, HS-L08) ----------
  * The answer quotes only the Listing base ("Other details to note": a 4th-floor walk-up with no elevator). It never says
  * more than that field does. */
 export const EXTRA_QUESTIONS: Question[] = [

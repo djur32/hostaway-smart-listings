@@ -1,10 +1,10 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Done** · The questions Smart Listings has to answer and the assumptions it rests on. The assumptions are **untested**: none has been checked with real hosts. Provenance: `ASSUMPTION`, each grounded in a `REAL·BRIEF`, `REAL·PRODUCT` or `REAL·PUBLIC` signal.
+	**Output · Done** · The questions Smart Listings has to answer and the assumptions it rests on. The assumptions are **untested**: none has been checked with real hosts. Provenance: each grounded in a or signal.
 </callout>
 ## The short version
 - Eight questions decide Smart Listings: trust in AI suggestions, who wants per-channel differences, where hosts look for things, what each channel accepts, what performance data exists, what "similar homes" can mean, who owns listing quality, and who must agree to one record.
 - Seventeen hypotheses test the thesis for Smart Listings. Each has a risk score, and the five riskiest are H-09, H-04, H-15, H-20 and H-17.
-- One was refuted before research began (H-05). Booking.com doesn't accept Hospitable's description, which is why its description is read-only.
+- One was refuted before research began (H-05). Booking.com doesn't accept Hostaway's description, which is why its description is read-only.
 ## The research questions
 <table header-row="true">
 	<tr>
@@ -28,7 +28,7 @@
 		<td><mention-page url="https://app.notion.com/p/3eee18af1645814595defdaab694e87d">Tree test</mention-page></td>
 	</tr>
 	<tr>
-		<td>Which fields can Hospitable read and write on each channel, and how fast does a write go live?</td>
+		<td>Which fields can Hostaway read and write on each channel, and how fast does a write go live?</td>
 		<td>Which fields are customisable or set by the channel; what a receipt can promise</td>
 		<td><mention-page url="https://app.notion.com/p/3eee18af1645814eb37ee21fc7bf4eb5">Stakeholder interviews</mention-page>, <mention-page url="https://app.notion.com/p/3eee18af164581459cf4cb6d1a03f1d9">Market & channel scan</mention-page></td>
 	</tr>
@@ -38,7 +38,7 @@
 		<td><mention-page url="https://app.notion.com/p/3eee18af16458150add8ef7c753dbd12">Data review</mention-page>, <mention-page url="https://app.notion.com/p/3eee18af1645814eb37ee21fc7bf4eb5">Stakeholder interviews</mention-page></td>
 	</tr>
 	<tr>
-		<td>Can Hospitable build a reliable set of similar homes per channel, and from which data?</td>
+		<td>Can Hostaway build a reliable set of similar homes per channel, and from which data?</td>
 		<td>Whether "similar homes" can be a reason in a tip</td>
 		<td><mention-page url="https://app.notion.com/p/3eee18af16458150add8ef7c753dbd12">Data review</mention-page>, <mention-page url="https://app.notion.com/p/3eee18af1645814eb37ee21fc7bf4eb5">Stakeholder interviews</mention-page></td>
 	</tr>
@@ -59,7 +59,7 @@ The design rests on one thesis, in three parts:
 - **Voice per channel.** What guests read can differ per channel, but money and stay rules vary far more than words, so a channel's own voice is a choice, not a default.
 - **Host in the loop.** AI proposes and the host decides. Each suggestion shows why, where it goes and how to undo it.
 
-Each hypothesis tests one of these parts, or the business case behind them. Importance is how much of the design falls if the hypothesis is wrong (1–5). Evidence is how much is already known (1–5). Risk = importance × (6 − evidence). Ties go to higher importance, then to decisions that are hard to undo. One person scored them, so the scores are `ASSUMPTION` too. The plan re-scores them with the PM, Integrations and CS leads.
+Each hypothesis tests one of these parts, or the business case behind them. Importance is how much of the design falls if the hypothesis is wrong (1–5). Evidence is how much is already known (1–5). Risk = importance × (6 − evidence). Ties go to higher importance, then to decisions that are hard to undo. One person scored them, so the scores are too. The plan re-scores them with the PM, Integrations and CS leads.
 
 ## Which assumptions matter most
 **The five riskiest**, in rank order:
@@ -73,7 +73,7 @@ H-10 (channel copy lifts booking conversion) is also risk 20, at importance 4. I
 
 All seventeen are in the table below, ranked.
 
-![All 20 hypotheses on the assumptions map (research/charts/assumptions-map.png). Provenance: ASSUMPTION.](../../research/charts/assumptions-map.png)
+![All 20 hypotheses on the assumptions map (research/charts/assumptions-map.png). Provenance: .](../../research/charts/assumptions-map.png)
 
 | Rank | ID | Hypothesis | Thesis part | Importance | Evidence | Risk | How I'd test it |
 |---|---|---|---|---|---|---|---|
@@ -86,7 +86,7 @@ All seventeen are in the table below, ranked.
 | 7 | H-06 | Direct edits on a channel can be detected per field within an hour | Facts once | 4 | 2 | 16 | Stakeholder interviews; channel constraints |
 | 8 | H-08 | Listing and sync issues are a top-three cause of support tickets | Business case | 4 | 2 | 16 | Support ticket review |
 | 9 | H-11 | Portfolio managers accept "apply to all, with exceptions" | Facts once | 4 | 2 | 16 | User interviews; support ticket review |
-| 10 | H-13 | New-to-PMS hosts resist Hospitable editing their listing content | Host in the loop | 4 | 2 | 16 | User interviews |
+| 10 | H-13 | New-to-PMS hosts resist Hostaway editing their listing content | Host in the loop | 4 | 2 | 16 | User interviews |
 | 11 | H-14 | AI copy is allowed by channel terms and law without disclosure | Voice per channel | 4 | 2 | 16 | Stakeholder interviews; channel constraints |
 | 12 | H-05 | Titles, descriptions and photos can be written back to channels. Refuted for Booking.com text | Voice per channel | 5 | 3 | 15 | Channel constraints |
 | 13 | H-03 | Hosts think of "my home", not "my listings" | Facts once | 4 | 3 | 12 | User interviews |
@@ -96,11 +96,11 @@ All seventeen are in the table below, ranked.
 | 17 | H-18 | Listing and sync reliability decides deals for 25+ property accounts | Business case | 3 | 2 | 12 | Gong call analysis; CRM review |
 
 <callout icon="✖️" color="red_bg">
-	**Refuted before research: "Booking.com accepts Hospitable's description."** The first plan assumed Hospitable could write titles, descriptions and photos to both Airbnb and Booking.com. Booking.com's own partner help says it generates the property description from the property's facts, and hosts can only request a fix (`REAL·PUBLIC` [partner.booking.com](https://partner.booking.com/en-us/help/property-page/general-info/changing-your-property-description-or-room-details)). Hospitable's help centre says it can't sync text fields such as Summary to Booking.com (`REAL·PUBLIC` [help.hospitable.com](https://help.hospitable.com/en/articles/6141381-properties-details-page)). So the assumption became a constraint: in Smart Listings, Booking.com's description is set by the channel and read-only, and a host shapes it through facts, photos and amenities. <mention-page url="https://app.notion.com/p/3eee18af16458164b971f07e49e0fa84">KD-04</mention-page>
+	**Refuted before research: "Booking.com accepts Hostaway's description."** The first plan assumed Hostaway could write titles, descriptions and photos to both Airbnb and Booking.com. Booking.com's own partner help says it generates the property description from the property's facts, and hosts can only request a fix ([partner.booking.com](https://partner.booking.com/en-us/help/property-page/general-info/changing-your-property-description-or-room-details)). Hostaway's help centre says it can't sync text fields such as Summary to Booking.com ([help.hostaway.com](https://help.hostaway.com/en/articles/6141381-properties-details-page)). So the assumption became a constraint: in Smart Listings, Booking.com's description is set by the channel and read-only, and a host shapes it through facts, photos and amenities. <mention-page url="https://app.notion.com/p/3eee18af16458164b971f07e49e0fa84">KD-04</mention-page>
 	What's still open: whether hosts accept that their "voice" on Booking.com is their facts. Untested.
 </callout>
 ## Left out: the import assumptions
-Three hypotheses belong to Angle A, first-time setup, and are out of scope: H-01 (hosts review an import before Hospitable takes over), H-02 (fear of losing data blocks the switch) and H-07 (setup trouble drives churn). They move with import to the <mention-page url="https://app.notion.com/p/3eee18af1645818daddff9b46244175c">Roadmap</mention-page>.
+Three hypotheses belong to Angle A, first-time setup, and are out of scope: H-01 (hosts review an import before Hostaway takes over), H-02 (fear of losing data blocks the switch) and H-07 (setup trouble drives churn). They move with import to the <mention-page url="https://app.notion.com/p/3eee18af1645818daddff9b46244175c">Roadmap</mention-page>.
 ## How it was made
 Questions were written across five lenses (user, business, platform, data, organisation), each naming the decision it unblocks. The thesis was broken into 20 hypotheses, each with what would disprove it, then scored. Grounded in <mention-page url="https://app.notion.com/p/3eee18af16458140b622c2f52f500edf">Product audit</mention-page> and <mention-page url="https://app.notion.com/p/3eee18af164581459cf4cb6d1a03f1d9">Desk research</mention-page>; the platform questions go to <mention-page url="https://app.notion.com/p/3eee18af1645814eb37ee21fc7bf4eb5">Stakeholder interviews</mention-page>.
 ---

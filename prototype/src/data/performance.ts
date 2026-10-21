@@ -1,7 +1,7 @@
 /* Angle C bridge (S12, D-155…D-159): what each channel lets software measure, a "90 days later" history for the scenario
  * listing, weekly series with the comps' demand as the control, sequential-test statistics, and a competitiveness read.
- * Availability is REAL·PUBLIC (research/market/channel-constraints.md §1 "Quality signal exposed") or ASSUMPTION where marked.
- * Every number below is SIMULATED ("Early access · sample data" in the UI). */
+ * Availability is (research/market/channel-constraints.md §1 "Quality signal exposed") or where marked.
+ * Every number below is ("Early access · sample data" in the UI). */
 import type { ChannelId, Photo, Version } from './types'
 import { COMPS } from './comps'
 import type { ListingChannel as SlChannel, Plan as SlPlan } from './sl3'
@@ -12,7 +12,7 @@ export interface MetricDef { id: MetricId; label: string; unit: string; help: st
 export type MetricId = 'bookings' | 'pace' | 'adr' | 'occupancy' | 'enquiries' | 'views' | 'conversion' | 'score' | 'rank' | 'reviews'
 
 export const METRICS: MetricDef[] = [
-  { id: 'bookings', label: 'Bookings made', unit: 'per week', help: 'Reservations created that week, for any future date. Hospitable has every reservation.' },
+  { id: 'bookings', label: 'Bookings made', unit: 'per week', help: 'Reservations created that week, for any future date. Hostaway has every reservation.' },
   { id: 'pace', label: 'Booking pace vs similar listings', unit: 'index, similar = 100', help: 'Your bookings over the median of 24 similar listings, 4-week rolling. Controls for season and demand.' },
   { id: 'adr', label: 'Average nightly rate (ADR)', unit: '€', help: 'Revenue per booked night, from reservations.' },
   { id: 'occupancy', label: 'Occupancy', unit: '%', help: 'Booked nights over available nights, from the calendar.' },
@@ -24,9 +24,9 @@ export const METRICS: MetricDef[] = [
   { id: 'reviews', label: 'Rating & reviews', unit: '★', help: 'Guest reviews. Not moved by copy in weeks, so not a test metric.' },
 ]
 
-/** What software can see, per channel (D-156). Direct = Hospitable's own site: everything. */
+/** What software can see, per channel (D-156). Direct = Hostaway's own site: everything. */
 export const AVAILABILITY: Record<MetricId, Partial<Record<ChannelId, { a: Avail; why: string }>>> = {
-  bookings: { airbnb: { a: 'yes', why: 'Reservations sync to Hospitable' }, booking: { a: 'yes', why: 'Reservations sync to Hospitable' }, vrbo: { a: 'yes', why: 'Reservations sync' }, direct: { a: 'yes', why: 'Your site' } },
+  bookings: { airbnb: { a: 'yes', why: 'Reservations sync to Hostaway' }, booking: { a: 'yes', why: 'Reservations sync to Hostaway' }, vrbo: { a: 'yes', why: 'Reservations sync' }, direct: { a: 'yes', why: 'Your site' } },
   pace: { airbnb: { a: 'proxy', why: 'Comps from market data (as Dynamic Pricing uses), not from Airbnb' }, booking: { a: 'proxy', why: 'Comps from market data' }, vrbo: { a: 'proxy', why: 'Comps from market data' }, direct: { a: 'proxy', why: 'No comps for a direct site' } },
   adr: { airbnb: { a: 'yes', why: 'From reservations' }, booking: { a: 'yes', why: 'From reservations' }, vrbo: { a: 'yes', why: 'From reservations' }, direct: { a: 'yes', why: 'Your site' } },
   occupancy: { airbnb: { a: 'yes', why: 'From the calendar' }, booking: { a: 'yes', why: 'From the calendar' }, vrbo: { a: 'yes', why: 'From the calendar' }, direct: { a: 'yes', why: 'Your site' } },
@@ -90,7 +90,7 @@ export function liveVersionAt(channel: ChannelId, w: number): number {
   return (w - 9) % 2 === 0 ? 3 : 2
 }
 
-// Similar listings' median bookings made per listing per week: October strong, November low, December holidays (SIMULATED).
+// Similar listings' median bookings made per listing per week: October strong, November low, December holidays.
 const COMPS_WEEKLY = [2.3, 2.4, 2.2, 2.0, 1.8, 1.6, 1.5, 1.4, 1.4, 1.6, 1.8, 2.1, 2.3]
 const EFFECT: Record<string, number[]> = { airbnb: [0.8, 1.05, 1.1, 1.38], booking: [0.7, 0.78, 0.84] }
 const noise = (i: number) => [1.04, 0.93, 1.08, 0.97, 1.02, 0.9, 1.1, 0.96, 1.05, 0.95, 1.07, 0.98, 1.0][i % 13]
@@ -147,7 +147,7 @@ export function switchbackRead(points: WeekPoint[], a: number, b: number, fromWe
     moreWeeks: Math.max(0, weeksNeeded - weeksSoFar), enoughBookings: na >= minPerVariant && nb >= minPerVariant }
 }
 
-/* ---------------- Competitiveness vs comps (D-159) — a heuristic, labelled ASSUMPTION ---------------- */
+/* ---------------- Competitiveness vs comps (D-159) — a heuristic, labelled ---------------- */
 
 const NEIGHBOURHOOD = /neuk(ö|oe|o)lln|reuterkiez|tempelhof|hermannplatz/i
 const COMPS_FEATURES = /desk|workspace|wi-?fi|balcony|art|paint|canal|self check/i
@@ -191,7 +191,7 @@ export function minDetectable(bookingsPerWeek: number, weeks: number, variants =
 }
 
 /* =====================================================================================================================
- * Smart Listings › Performance (WS-SL, 1 Oct · Antonio's "much more development" review). Everything below is SIMULATED.
+ * Smart Listings › Performance (WS-SL, 1 Oct · review's "much more development" review). Everything below is .
  *
  * A reservation-level dataset for the scenario listing (Beautiful Artist Apt. in Neukölln, sleeps 2), so every number on
  * Performance and Strategy › Versions derives from the same bookings and can't disagree: occupancy, ADR, RevPAR, revenue,
@@ -199,7 +199,7 @@ export function minDetectable(bookingsPerWeek: number, weeks: number, variants =
  *
  *  · 400 days of history (≈ 57 weeks) ending yesterday; day SL_DAYS is today. Smart Listings went live on day SL_START
  *    (≈ 29 weeks ago), so "since Smart Listings started" has an equal ≈ 29-week baseline before it. Extended from
- *    196/98 on 1 Oct (Antonio: "I want to pretend that all of the different channels have been running on Smart
+ *    196/98 on 1 Oct (review: "I want to pretend that all of the different channels have been running on Smart
  *    Listings for a long time… I want to see different timelines, time ranges, that I can choose among"), so Last 30 /
  *    Last 90 / Since Smart Listings started are genuinely different windows, and so every channel has four versions
  *    that each ran 30 days or more — the minimum Strategy › Versions needs before it will compare a version at all
@@ -223,7 +223,7 @@ export function minDetectable(bookingsPerWeek: number, weeks: number, variants =
  *  · Direct is deliberately low-volume (pull 0.2 against 1.0 / 1.3), as a single property's own booking site is: it
  *    takes roughly one booking every seven or eight weeks, so some 30-day windows hold very few or none. That is real,
  *    not a gap to paper over — Strategy › Versions says so instead of inventing numbers.
- *  · Views and view → booking conversion exist only for Direct (Hospitable's own site), as AVAILABILITY above says.
+ *  · Views and view → booking conversion exist only for Direct (Hostaway's own site), as AVAILABILITY above says.
  * ===================================================================================================================== */
 
 export const SL_DAYS = 400
@@ -264,10 +264,10 @@ export const slIsPeak = peak
 export interface SlSeedVersion { n: number; from: number; plan: SlPlan; mix?: SlMix | null; by: 'setup' | 'you' | 'autopilot' | 'recommendation'; note?: string }
 const plan = (goal: SlPlan['goal'], audience: SlPlan['audience'], priceMin: number, priceMax: number, mode: SlPlan['mode'] = 'suggest', asks = ['price', 'rules', 'policy']): SlPlan => ({ goal, audience, asks, priceMin, priceMax, mode })
 export const SL_SEED: Record<SlChannel, SlSeedVersion[]> = {
-  /* Airbnb and Booking.com: four genuinely different strategies each (Antonio, 3 Oct: "maybe three previous strategies
+  /* Airbnb and Booking.com: four genuinely different strategies each (review, 3 Oct: "maybe three previous strategies
    * for Airbnb and Booking.com, so I have more options to choose from") — every pair differs in goal or audience, price
    * range and/or Autopilot, and every one carries a short note. v4 is the live demo plan (data/v3-sl.ts DEMO_PLANS) and
-   * is unchanged. SIMULATED. Strategy › History shows these under whatever the host saves on top
+   * is unchanged. . Strategy › History shows these under whatever the host saves on top
    * (screens/smart/shared.ts ensureScenarioHistory). */
   airbnb: [
     { n: 1, from: 200, plan: plan('balance', 'couples', 38, 70), by: 'setup', note: 'First setup: weekend city breaks at the price the flat already had' },
@@ -362,14 +362,14 @@ function simulate(tl: Timeline, seed: number, chs: SlChannel[], scale = 1, cutof
     const rating = d + nights < SL_DAYS && r() < (c === 'airbnb' ? 0.72 : c === 'booking' ? 0.5 : 0.3) ? (r() < 0.82 ? 5 : 4) : null
     res.push({ ch: c, n: s.n, d, nights, booked, revenue, cancelled: false, rating })
   }
-  // Direct site visits (Hospitable's own site: the only channel that shares views), own stream so bookings don't move.
+  // Direct site visits (Hostaway's own site: the only channel that shares views), own stream so bookings don't move.
   const rv = slRng(seed + 99)
   const views = Array.from({ length: SL_DAYS }, (_, d) => Math.round((3.4 + 1.2 * season(d)) * (0.7 + rv() * 0.6) * (d >= SL_START ? 1.25 : 1)))
   return { res, own, views, channels: chs, timeline: tl }
 }
 
 
-/* ---------- a Smart Listings history for every OTHER property (1 Oct · Antonio, repeated: "I want to pretend that all
+/* ---------- a Smart Listings history for every OTHER property (1 Oct · review, repeated: "I want to pretend that all
  * of the different channels have been running on Smart Listings for a long time") ----------
  * Until now only the scenario listing had versions. Every other property ran `simulate` with an empty timeline, so
  * Strategy › Versions showed one row, "v1 · live since today · Still measuring · 4 weeks more needed", and Performance
@@ -384,7 +384,7 @@ function simulate(tl: Timeline, seed: number, chs: SlChannel[], scale = 1, cutof
  * The simulation seed is then SEARCHED, not fixed (SL_SEEDS does the same for the scenario listing): the first
  * candidate whose run satisfies the invariants — since-start RevPAR above the equal window before it, and every
  * version window with at least one booked night — is the one kept, so the numbers are plausible on every property
- * and on any weekday the demo is opened. Everything here is SIMULATED. */
+ * and on any weekday the demo is opened. Everything here is . */
 const MIN_SPAN = 36
 const hashOf = (s: string) => [...s].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7)
 /** How a channel's goal moved over the history. Each property picks one ladder per channel. "Earn more per booking"
@@ -492,7 +492,7 @@ const cache = new Map<string, SlSim>()
 const memo = (key: string, make: () => SlSim) => { const hit = cache.get(key); if (hit) return hit; const s = make(); cache.set(key, s); return s }
 /** The scenario listing with its Smart Listings history. */
 export const scenarioSim = () => memo('scenario', () => simulate(toTimeline(SL_SEED, SL_CHS), SL_SEEDS[TODAY_DOW], SL_CHS))
-/** Same period last year (3 Oct, Antonio: compare a strategy "against something", e.g. last year). SIMULATED: a second,
+/** Same period last year (3 Oct, review: compare a strategy "against something", e.g. last year). a second,
  *  deterministic run of the same calendar with no strategy on any channel (Smart Listings didn't exist a year ago), its
  *  own seed, and rates 6% lower. Day d of this dataset stands for day d one year earlier (364 days, so weekdays line
  *  up); similar homes' demand curve is the same, so the "vs similar homes" adjustment still holds. Every day is complete

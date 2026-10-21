@@ -1,8 +1,8 @@
-/* Smart Listing v3 · WS-SL data (V3-SPEC §1 Setup + Strategy management). Everything here is SIMULATED scenario
+/* Smart Listing v3 · WS-SL data (V3-SPEC §1 Setup + Strategy management). Everything here is scenario
  * content for "Beautiful Artist Apt. in Neukölln" (concepts/SCENARIO.md), except where marked. Channel rules are
- * REAL·PUBLIC (research/market/channel-constraints.md). The shared setup data (GOALS, AUDIENCES, ASKS, PERF) lives in
+ * (research/market/channel-constraints.md). The shared setup data (GOALS, AUDIENCES, ASKS, PERF) lives in
  * data/sl3.ts; this file adds the per-channel supporting lines, demo plans, strategy versions and a small UI-only store.
- * The performance dataset (SIMULATED) lives in data/performance.ts › Smart Listings › Performance. */
+ * The performance dataset lives in data/performance.ts › Smart Listings › Performance. */
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
 import { DEFAULT_PLAN, audienceLabel, goalLabel, type AudienceId, type GoalId, type ListingChannel, type Plan } from './sl3'
@@ -14,7 +14,7 @@ export const CHANNEL_STEPS: SetupStep[] = ['goal', 'audience', 'guardrails', 'ru
 /** The safe default: nothing changes on its own until the host picks Autopilot. */
 export const DRAFT_PLAN: Plan = { ...DEFAULT_PLAN, mode: 'suggest' }
 
-/** Channels step: one supporting line per channel (SIMULATED). */
+/** Channels step: one supporting line per channel. */
 export const CHANNEL_LINES: Record<ListingChannel, string> = {
   airbnb: 'Listed · guests stay 4.1 nights on average',
   booking: 'Listed · guests stay 2.4 nights on average',
@@ -27,7 +27,7 @@ export const SCOPE = {
   per: { title: 'A different strategy per channel', line: 'A good fit here: Airbnb guests stay 4.1 nights, Booking.com guests 2.4.' },
 }
 
-/** Goal tiles: one line per channel, grounded in the scenario (SIMULATED). `all` = same strategy everywhere. */
+/** Goal tiles: one line per channel, grounded in the scenario. `all` = same strategy everywhere. */
 type Lines<K extends string> = Record<ListingChannel | 'all', Record<K, string>> & { suggested: Record<ListingChannel | 'all', K> }
 export const GOAL_LINES: Lines<GoalId> = {
   all: {
@@ -95,8 +95,8 @@ export const MIX_ROWS = {
   minStay: { label: 'Minimum stay', line: '9 of your 13 empty nights sit between two bookings.', items: [{ id: '1', label: '1 night' }, { id: '2', label: '2 nights' }, { id: '3', label: '3 nights +' }] },
   policy: { label: 'Cancellation', line: '15 of 24 similar homes use Moderate.', items: [{ id: 'flexible', label: 'Flexible' }, { id: 'moderate', label: 'Moderate' }, { id: 'firm', label: 'Firm' }] },
 } as const
-/** Audience step (Antonio, 3 Oct: "if I tap on any of these, I should see what the configuration is"): the price,
- *  minimum stay and cancellation each audience starts from. SIMULATED defaults for the Neukölln scenario — remote
+/** Audience step (review, 3 Oct: "if I tap on any of these, I should see what the configuration is"): the price,
+ *  minimum stay and cancellation each audience starts from. defaults for the Neukölln scenario — remote
  *  workers: long stays, flexible cancel; city-break couples: 2-night weekends, priced like similar homes; Let Smart
  *  Listings decide: its recommended mix; `custom` (the host describes the guests): the neutral default. */
 export const AUDIENCE_MIX: Record<AudienceId | 'custom', Mix> = {
@@ -106,7 +106,7 @@ export const AUDIENCE_MIX: Record<AudienceId | 'custom', Mix> = {
   auto: { price: 'match', minStay: '2', policy: 'moderate' },
   custom: DEFAULT_MIX,
 }
-/** Why each audience starts there, one line (SIMULATED). */
+/** Why each audience starts there, one line. */
 export const AUDIENCE_MIX_LINE: Partial<Record<AudienceId | 'custom', string>> = {
   remote: 'Week-long stays priced a little under similar homes, so the weekly total wins.',
   couples: 'Weekend stays at the going rate.',
@@ -114,7 +114,7 @@ export const AUDIENCE_MIX_LINE: Partial<Record<AudienceId | 'custom', string>> =
   custom: 'Start from the usual set-up and change what you need.',
 }
 export const sameMix = (a: Mix, b: Mix) => a.price === b.price && a.minStay === b.minStay && a.policy === b.policy
-/** The similar-homes range, said once on the price block (SIMULATED, as MIX_ROWS.price.line). */
+/** The similar-homes range, said once on the price block (as MIX_ROWS.price.line). */
 export const SIMILAR_RANGE = '€38–€96'
 
 export const mixLabel = (m: Mix) =>
@@ -129,7 +129,7 @@ export const ASK_LINES: Record<string, string> = {
   photos: 'Only the order changes. No photo is added or removed.',
 }
 /** The guardrails step repeats per channel, so its lines must hold for whichever channel's pass you are on.
- *  "Keeping your reviews" is an Airbnb guarantee (REAL·PUBLIC, research/market/channel-constraints.md) and read as a
+ *  "Keeping your reviews" is an Airbnb guarantee (research/market/channel-constraints.md) and read as a
  *  false claim on the Booking.com and Direct passes, which showed it verbatim; every other line is channel-neutral. */
 export const askLine = (id: string, c?: ListingChannel) =>
   id === 'title' && c === 'airbnb' ? 'Airbnb keeps your reviews when the name changes.' : ASK_LINES[id]
@@ -147,10 +147,10 @@ export const AUTOPILOT_DEFINITION =
 export const FIRST_TIPS: Record<ListingChannel, number> = { airbnb: 6, booking: 3, direct: 1 }
 
 /* ---------- demo seed (?smart=on, or a persona that starts with Smart Listings on) ----------
- * Three genuinely different strategies (Antonio, 1 Oct): each channel has its own goal, audience, price range and
- * Autopilot setting. They are the live versions of the history in data/performance.ts › SL_SEED (SIMULATED). */
+ * Three genuinely different strategies (review, 1 Oct): each channel has its own goal, audience, price range and
+ * Autopilot setting. They are the live versions of the history in data/performance.ts › SL_SEED. */
 export const DEMO_PLANS: Partial<Record<ListingChannel, Plan>> = {
-  airbnb: { goal: 'fill', audience: 'remote', asks: ['price', 'rules', 'policy'], priceMin: 40, priceMax: 90, mode: 'suggest' }, // Autopilot is off by default everywhere (Antonio, 5 Oct): fields stay editable
+  airbnb: { goal: 'fill', audience: 'remote', asks: ['price', 'rules', 'policy'], priceMin: 40, priceMax: 90, mode: 'suggest' }, // Autopilot is off by default everywhere (review, 5 Oct): fields stay editable
   booking: { goal: 'earn', audience: 'couples', asks: ['price', 'rules', 'policy', 'title'], priceMin: 55, priceMax: 130, mode: 'suggest' },
   direct: { goal: 'balance', audience: 'auto', asks: ['price', 'rules', 'policy'], priceMin: 42, priceMax: 85, mode: 'suggest' },
 }
@@ -183,7 +183,7 @@ export interface StrategyVersion {
   test?: { against: number; weeks: number }
   /** What the host told the strategy in the wizard's free-text step ("Anything the strategy should know?"). */
   brief?: string
-  /** SIMULATED: one of the scenario property's seeded past strategies (data/performance.ts › SL_SEED), written under
+  /** one of the scenario property's seeded past strategies (data/performance.ts › SL_SEED), written under
    *  whatever the host saves (screens/smart/shared.ts ensureScenarioHistory). Never shown as a label on screen. */
   seed?: boolean
 }
@@ -220,15 +220,15 @@ export const useSlLocal = create<SlLocal>()(persist((set) => ({
   setMix: (k, m) => set((s) => ({ mix: { ...s.mix, [k]: m } })),
   setUndone: (i, v) => set((s) => ({ undone: { ...s.undone, [i]: v } })),
 }), {
-  name: 'hospitable-proto-v3-sl',
+  name: 'hostaway-proto-v3-sl',
   storage: createJSONStorage(() => {
     try { return sessionStorage } catch { return { getItem: () => null, setItem: () => {}, removeItem: () => {} } }
   }),
 }))
 
 /* ---------- the strategy wizard (screens/smart/StrategyWizard.tsx, 3 Oct) ----------
- * Full-screen, Hospitable's Add-property layout. Copy is short on purpose: one line under a question at most, and never
- * a reference to another page (Antonio, 3 Oct). */
+ * Full-screen, Hostaway's Add-property layout. Copy is short on purpose: one line under a question at most, and never
+ * a reference to another page (review, 3 Oct). */
 export const WIZARD_INTRO = [
   { icon: 'target', title: 'Pick a goal for each channel', line: 'Fill empty nights, earn more per night, or a balance.' },
   { icon: 'users', title: 'Choose who it’s for', line: 'The guests you want to attract on each channel.' },
@@ -244,5 +244,5 @@ export const AUTOPILOT_CHOICES = {
   suggest: { title: 'Autopilot off', line: 'Tips wait for you. Nothing changes until you accept one.' },
   autopilot: { title: 'Autopilot on', line: 'Text and photo-order tips apply on their own, inside your guardrails.' },
 }
-/** "Use voice" stand-in transcript (SIMULATED, grounded in the scenario: a 2-guest Neukölln flat with a desk). */
+/** "Use voice" stand-in transcript (grounded in the scenario: a 2-guest Neukölln flat with a desk). */
 export const VOICE_SAMPLE = 'The desk by the window is the best thing about the flat. Keep the name short, and don’t promise late check-in.'

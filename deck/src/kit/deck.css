@@ -105,7 +105,7 @@ html:not(.js) .s { position: relative; visibility: visible; height: var(--canvas
   transition: opacity var(--dur-2) var(--ease-io), transform var(--dur-2) var(--ease-io);
 }
 .appbar button:focus-visible, .hints button:focus-visible { outline: 1.5px solid var(--accent); outline-offset: 6px; border-radius: 2px; }
-/* the digimal.studio mark alone, large: the eight bars, no wordmark (Antonio, 2026-09-25) */
+/* the digimal.studio mark alone, large: the eight bars, no wordmark (review, 2026-09-25) */
 .appbar__brand { justify-self: start; display: inline-flex; align-items: center; color: var(--ink); cursor: pointer; }
 .brand-mark { display: block; flex: none; height: 46px; width: auto; aspect-ratio: 195 / 183; fill: currentColor; transition: fill var(--dur-1) var(--ease-io); }
 .appbar__brand:hover .brand-mark { fill: var(--accent); }
@@ -240,7 +240,7 @@ html:not(.js) .s { position: relative; visibility: visible; height: var(--canvas
 /* The product under the company mark is set the way it is set everywhere else the two
    appear together, on the route map and the lane charts: mono, small caps, quiet
    (.proj__n in components.css). One style, so "Hostaway · Owner App" reads the same
-   whether it is a badge or a row key (Antonio, 2026-09-27). */
+   whether it is a badge or a row key (review, 2026-09-27). */
 .casebadge__name {
   max-width: 100%; font: 500 var(--t-micro) / 1.35 var(--font-mono);
   letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); text-wrap: balance;
@@ -304,12 +304,12 @@ html.is-presenter body { overflow: auto; background: var(--bg); color: var(--ink
    element that was clicked, so it matches how the same screen sits on the slide. */
 .lightbox img { max-width: 78vw; max-height: 80vh; object-fit: contain; box-shadow: var(--shadow-2); cursor: default; }
 /* every zoomed screen sits on a white card, so a phone's transparent edges and soft matte never show against the scrim,
-   and no rectangle is drawn around a transparent image (Antonio, 4 Oct: the phone zoomed with a white box and ragged edges) */
+   and no rectangle is drawn around a transparent image (review, 4 Oct: the phone zoomed with a white box and ragged edges) */
 .lightbox img { box-sizing: content-box; padding: 28px; background: var(--bg); border-radius: 28px !important; box-shadow: 0 30px 80px -30px color-mix(in oklab, var(--color-sidebar-bg) 55%, transparent); max-height: calc(80vh - 56px); }
 .lightbox__cap { position: absolute; bottom: 2.4vh; left: 0; right: 0; text-align: center; color: var(--on-dark); font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; opacity: .8; }
 
 /* ── the detail layer: a card where the content was (engine.js DETAILS) ─────────
-   Antonio, 3 Oct: "a More button that opens a card taking up the space of the actual content:
+   review, 3 Oct: "a More button that opens a card taking up the space of the actual content:
    the same size as the cards in the covers". Opening throws the slide's content to the sides
    (the boomerang, engine.js fling) and this card rises into the room it left, with the cover
    plate's geometry (hc.css .hc-cover__plate: 40 px in from the sides, 20 px under the bar,
@@ -319,7 +319,7 @@ html.is-presenter body { overflow: auto; background: var(--bg); color: var(--ink
    No dim, no blur, no shadow: the slide is not behind it any more, so there is nothing to
    push back (CONTRACT §11). GSAP moves the card; nothing here transitions opacity or
    transform (CONTRACT §10).
-   Antonio, 3 Oct (after seeing it): "dim out all of the content underneath, so it feels like an
+   review, 3 Oct (after seeing it): "dim out all of the content underneath, so it feels like an
    overlay, something on top of something else … a pop-up with a fade-in colour change for the
    background". So the layer sits over the whole stage, the bar and the foot row included, and
    its scrim fades in an aubergine wash while the content is thrown away beneath it; the card
@@ -329,17 +329,17 @@ html.is-presenter body { overflow: auto; background: var(--bg); color: var(--ink
 .more-layer[hidden] { display: none; }
 .more-layer__scrim { position: absolute; inset: 0; background: color-mix(in oklab, var(--color-sidebar-bg) 38%, transparent); }
 /* the scrim lives on the stage, so the window's bands beside a letterboxed stage take the same wash
-   (Antonio, 3 Oct: "careful, there is a wide stripe on each side") */
+   (review, 3 Oct: "careful, there is a wide stripe on each side") */
 .viewport > .atmos { transition: box-shadow var(--dur-2) var(--ease-io); }
 .viewport:has(> .stage.is-dim) > .atmos { box-shadow: inset 0 0 0 100vmax color-mix(in oklab, var(--color-sidebar-bg) 38%, transparent); }
-.stage.is-dim { background: var(--bg); }   /* one wash colour: the stage's own scrim over white, the same as the bands (Antonio, 4 Oct) */
+.stage.is-dim { background: var(--bg); }   /* one wash colour: the stage's own scrim over white, the same as the bands (review, 4 Oct) */
 /* while its content is thrown, the slide rides above the layer on a transparent ground: the pieces
    fly over the scrim and the card (never seen through a card still fading up), and once they are
    off the canvas nothing of the slide is left to cover either. Clicks pass through to the layer. */
 .stage.is-more-throw > .deck { z-index: 61; pointer-events: none; }
 .stage.is-more-throw .s.is-current { background: none !important; }
 .more-sheet {
-  --more-card: var(--bg);                       /* white, always (Antonio, 4 Oct: "when you click on more, the background should always be white") */            /* neutral: tested against each part's cover tint (3 Oct) and kept,
+  --more-card: var(--bg);                       /* white, always (review, 4 Oct: "when you click on more, the background should always be white") */            /* neutral: tested against each part's cover tint (3 Oct) and kept,
                                                   since lavender means AI and a tinted ground fights the panels' own colour */
   --more-title-lh: 58px;
   position: absolute; left: 40px; right: 40px; top: var(--plate-y); bottom: var(--plate-y);   /* the cover plate's geometry, even bands (4 Oct) */
@@ -349,7 +349,7 @@ html.is-presenter body { overflow: auto; background: var(--bg); color: var(--ink
 }
 /* the head lines up with the slide it replaced: the kicker on the eyebrow's line (--pad-top),
    the content's edges on --pad-x; the title a little nearer the card's top than the slide's
-   headline (Antonio, 3 Oct), the × in the card's own corner */
+   headline (review, 3 Oct), the × in the card's own corner */
 .more-sheet__head {
   display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--s-6); row-gap: var(--s-3); align-items: start;
   padding: 40px calc(var(--pad-x) - 40px) 0;
@@ -377,10 +377,10 @@ html.is-presenter body { overflow: auto; background: var(--bg); color: var(--ink
    takeover) at wall size, in the card's top right corner: no outline, no fill until pointed at,
    no tooltip. Esc and M close it too. */
 .more-sheet__close {
-  position: absolute; z-index: 2; top: calc(40px + 9px - var(--more-btn-h) / 2); right: calc(var(--pad-x) - 40px);   /* centred on the kicker's line, on the content's right edge (Antonio, 4 Oct) */
+  position: absolute; z-index: 2; top: calc(40px + 9px - var(--more-btn-h) / 2); right: calc(var(--pad-x) - 40px);   /* centred on the kicker's line, on the content's right edge (review, 4 Oct) */
   display: inline-grid; place-items: center; width: var(--more-btn-h); height: var(--more-btn-h); padding: 0;
   /* the product's outlined close (ds .h-close: a white rounded square, a hairline, the buttons' xs shadow,
-     a thin strong X), at wall size (Antonio, 4 Oct: "the X with an outline, everywhere") */
+     a thin strong X), at wall size (review, 4 Oct: "the X with an outline, everywhere") */
   border: 1.5px solid var(--color-close-border, var(--color-gray-200)); border-radius: 12px;
   background: var(--color-close-bg, var(--bg)); color: var(--color-close-icon, var(--ink)); cursor: pointer;
   box-shadow: var(--elevation-button, 0 1px 2px color-mix(in oklab, var(--color-sidebar-bg) 6%, transparent));
@@ -412,7 +412,7 @@ html.is-presenter body { overflow: auto; background: var(--bg); color: var(--ink
    second headline: the big lead is only ever the one that opens a panel */
 .more__panel > .lead:not(:first-child) { font-size: var(--t-body); line-height: 1.45; max-width: 62ch; }
 .more__panel > .notes { display: none; }
-/* a panel's source line sits on the card's bottom inset, the same 40px as the kicker's from the top (Antonio, 4 Oct:
+/* a panel's source line sits on the card's bottom inset, the same 40px as the kicker's from the top (review, 4 Oct:
    "the same bottom padding as the top… right now you can't really see it"). Out of flow, so the panel's own
    centring is untouched; the body keeps room for it */
 .more-sheet__body:has(> .more__panel > :is(.hc-src, [class$="-src"])) { padding-bottom: 104px; }

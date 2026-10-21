@@ -12,7 +12,7 @@
      ia-structure  the property menu (the design system's h-chnav, live HTML) assembles:
                    Shared on entry; beat 1 closes the Listing base, brings in Smart Listings
                    and Channels, opens Airbnb; beat 2 wipes in what each channel takes from
-                   the Base (Antonio, 4 Oct: the sitemap's point, no percentages); beat 3
+                   the Base (review, 4 Oct: the sitemap's point, no percentages); beat 3
                    raises the field control that switches it
 
    Rules kept (CONTRACT §5, §16.6): tokens only, deck eases, nothing overshoots, entries

@@ -1,18 +1,18 @@
 # AI patterns · interaction rules
 
-> S02 · R-154. How AI shows up in Hospitable, next version. Components: `ds/components/index.html#ai-panel` onward. Thesis this serves: *host in the loop* (MASTER-PLAN §2.3, §6.4).
+> S02 · R-154. How AI shows up in Hostaway, next version. Components: `ds/components/index.html#ai-panel` onward. Thesis this serves: *host in the loop* (MASTER-PLAN §2.3, §6.4).
 
-## 1 · Extend the language Hospitable already has
+## 1 · Extend the language Hostaway already has
 
-Hospitable already speaks "AI" in four places (`REAL·PRODUCT`): the lavender **Dynamic Pricing · New** card (HS-30), the **sparkle** glyph in the sidebar footer (HS-22), **Ask the AI** in the Knowledge Hub (HS-42) and the **Onboarding assistant** button (HS-48). We extend that; we don't import another product's AI look (D-020).
+Hostaway already speaks "AI" in four places (): the lavender **Dynamic Pricing · New** card (HS-30), the **sparkle** glyph in the sidebar footer (HS-22), **Ask the AI** in the Knowledge Hub (HS-42) and the **Onboarding assistant** button (HS-48). We extend that; we don't import another product's AI look (D-020).
 
-**The assistant is AI Copilot (KD-20).** Hospitable's own AI assistant is **AI Copilot**: it answers hosts' business questions across the portfolio, writes smart replies and shows what's working (`REAL·PUBLIC`, hospitable.com, captured in `research/references/hospitable-marketing/02-…` and `06-…`). It is marked with the **sparkle**, purple on lavender, the same glyph as the sidebar footer. Smart Listings doesn't add a second assistant; it expands Copilot into the listing. So every AI surface in this system uses Copilot's sparkle (`Icon name="sparkles"`) and its purple-on-lavender roles below: the Tips button, each field's tip marker, the Tips panel and the Smart Listings nav item. Rewrite with AI keeps the same sparkle in Hospitable orange, because the host starts it (D-939). Never give the listing AI its own name, mascot or icon.
+**The assistant is the assistant (KD-20).** Hostaway's own AI assistant is **The assistant**: it answers hosts' business questions across the portfolio, writes smart replies and shows what's working (hostaway.com, captured in `research/references/hostaway-marketing/02-…` and `06-…`). It is marked with the **sparkle**, purple on lavender, the same glyph as the sidebar footer. Smart Listings doesn't add a second assistant; it expands the assistant into the listing. So every AI surface in this system uses the assistant's sparkle (`Icon name="sparkles"`) and its purple-on-lavender roles below: the Tips button, each field's tip marker, the Tips panel and the Smart Listings nav item. Rewrite with AI keeps the same sparkle in Hostaway orange, because the host starts it (D-939). Never give the listing AI its own name, mascot or icon.
 
 | Element | Token | Rule |
 |---|---|---|
 | AI surface | `--color-ai-surface` (grape-lighter #f6f0ff) | anything the AI *wrote or proposes* sits on lavender until the host accepts it |
 | AI title | `--color-ai-title` (grape-darker) | headings on AI surfaces |
-| AI body | `--color-ai-text` (secondary-700) | 6.45:1 on lavender; Hospitable's own #9571c3 (3.47:1) stays only in the replica of the existing card |
+| AI body | `--color-ai-text` (secondary-700) | 6.45:1 on lavender; Hostaway's own #9571c3 (3.47:1) stays only in the replica of the existing card |
 | AI glyph | `--color-ai-sparkle` / `--color-ai-accent` | sparkle icon, strength meter, autonomy track |
 | The decision | `--color-action-primary` (raspberry) | **Accept** is always the ordinary primary button — accepting AI is a normal host action, not an AI action |
 | After accept | success green | the lavender goes away; the source chip becomes "✓ Accepted" |
@@ -62,7 +62,7 @@ If any of the five can't be shown, the suggestion isn't shown.
 - Say what it used: "Based on your facts and 12 similar Airbnb listings in Neukölln."
 - Say what it didn't do: "Nothing changes until you accept." / "Your listing hasn't changed."
 - Guests are never told a description was AI-written unless a channel's policy requires it; the host is always told (version timeline author = AI).
-- Prototype sample data (listing copy, comps, market numbers) is `SIMULATED` and says so in the footer (CONVENTIONS §2).
+- Prototype sample data (listing copy, comps, market numbers) is and says so in the footer (CONVENTIONS §2).
 
 ## 7 · Do / don't
 

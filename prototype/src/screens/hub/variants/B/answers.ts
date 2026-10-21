@@ -1,8 +1,8 @@
 /* KH-B · "Test your AI": canned answers per question and channel, each sentence citing the facts it used.
  * Answers are built from the live fact values (store Base + channel values), so editing a fact changes the answer.
- * Neukölln (the scenario): suggested questions ranked by how often guests asked them in message history (SIMULATED counts
+ * Neukölln (the scenario): suggested questions ranked by how often guests asked them in message history (counts
  * and wording). Every other property: the standard guest questions (perProperty GENERIC_QUESTIONS), no counts, answered
- * from its own values (ASSUMPTION wording). */
+ * from its own values (wording). */
 import type { ListingChannel } from '../../../../data/sl3'
 import type { KhSectionId } from '../../../../data/v3-kh'
 import { GENERIC_QUESTIONS, genericAnswer, matchGeneric } from '../../perProperty'

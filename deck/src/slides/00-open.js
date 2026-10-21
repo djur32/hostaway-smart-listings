@@ -1,7 +1,7 @@
 /* ============================================================================
    00 · OPEN · the bespoke choreography (3 Oct, night).
 
-     op-how   one slide that plays as two (Antonio: "rewire it and make it more dynamic").
+     op-how   one slide that plays as two (review: "rewire it and make it more dynamic").
               Both parts are live HTML, drawn once at load from the JSON their figures carry.
               entry   the six stage plates wipe up, nothing under them yet
               → 1     the methods wipe in under each stage, row by row, and their marks grow;
@@ -52,7 +52,7 @@ function drawProcess(fig, data) {
 }
 
 /* part 2: the flow, at fixed coordinates on a 1728 x 618 stage (00-open.css sizes it). Each stage's two
-   inputs are 36 px chips 6 px apart, and the stages 18 px apart, so they read as six groups (Antonio, 3 Oct) */
+   inputs are 36 px chips 6 px apart, and the stages 18 px apart, so they read as six groups (review, 3 Oct) */
 const F = { st: 0, in: 200, inW: 248, sk: 530, skW: 300, gate: 950, out: 1470, head: 24, top: 99, pitch: 96, half: 26, inH: 36, inGap: 6, h: 618 };
 const IN_OFF = (F.inGap + F.inH) / 2;   // each input's centre, above and below the stage's line
 const cy = (i) => F.top + i * F.pitch;
@@ -170,20 +170,20 @@ Deck.define('op-how', {
 });
 
 /* ============================================================================
-   op-title · the launch (3 Oct, night; reworked with Antonio's notes the same night). One story
+   op-title · the launch (3 Oct, night; reworked with review's notes the same night). One story
    timeline on the blush plate, played one step per press of →, about a second a step:
      entry   the badge pops, the name, the promise and the context rise out of their masks,
-             then 1 · edit each channel on its own (Antonio, 4 Oct: say what's new first, not
+             then 1 · edit each channel on its own (review, 4 Oct: say what's new first, not
              onboarding): one card of the home's facts pops in, its lines draw
      → 2     under the same caption, the base slides left, four wires draw to four generic listings
      → 3     a strategy per channel: the wires undraw, the base scales away, the listings
              slide in and each takes a goal
      → 4     accept what helps: a lavender recommendation lands on each, then turns into a check
      → 5     save once, then earn more: the rows fold into one receipt
-     → end   the receipt goes and what it earns arrives, abstract (Antonio, 3 Oct): a calendar
+     → end   the receipt goes and what it earns arrives, abstract (review, 3 Oct): a calendar
              whose days fill one by one, a line graph that draws upward over a soft area and lands
              on a dot, and a small mascot rising beside them, cheering. No numbers, no chips.
-   Nothing fades (Antonio, 3 Oct): pieces scale from nothing, slide, draw or rise out of a mask,
+   Nothing fades (review, 3 Oct): pieces scale from nothing, slide, draw or rise out of a mask,
    and leave by scaling down or sliding out. Every story piece rests hidden in the CSS and the
    ending rests in place, so motion off, print and ?static land on the words and
    the ending. Each beat tweens the story's playhead from one label to the next, so a beat forced
@@ -332,7 +332,7 @@ function buildStory(api) {
   return tl;
 }
 
-/* ── op-hypothesis: the plate settles in (a slight scale, nothing else), then its words rise (Antonio, 4 Oct:
+/* ── op-hypothesis: the plate settles in (a slight scale, nothing else), then its words rise (review, 4 Oct:
    "create something super simple") */
 Deck.define('op-hypothesis', {
   enter(api) {
@@ -354,7 +354,7 @@ Deck.define('op-title', {
 });
 
 
-/* ── op-burden: the hosts' requests roll slowly upwards, fading out at both ends (Antonio, 3 Oct).
+/* ── op-burden: the hosts' requests roll slowly upwards, fading out at both ends (review, 3 Oct).
    The list is doubled once so the loop is seamless; the copies are plain (no data-a), so only the
    first set counts up when the column arrives. Motion off, reduced motion and print: a still list. */
 (function rollAsks() {

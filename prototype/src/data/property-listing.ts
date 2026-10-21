@@ -1,10 +1,10 @@
-/* Per-property content for the channel screens (QA B01/B02; Antonio: "each property has its own separate data, modelled
- * lightly", the same on mobile and desktop). SIMULATED.
+/* Per-property content for the channel screens (QA B01/B02; review: "each property has its own separate data, modelled
+ * lightly", the same on mobile and desktop). .
  * Neukölln (the scenario property) keeps its scripted constants: data/sl3.ts (amenities, tips), data/v3-ch.ts
  * (CHANNEL_META, PRICES) and data/v3-cv.ts (the replica pages' reviews, scores, prices). Every other property gets plain
  * values derived from its portfolio row (data/portfolio.ts PORTFOLIO + DETAIL) and its light profile
  * (data/property-seeds.ts PROFILES): amenities on all its channels, channel overview meta, default prices, the
- * content of its Airbnb / Booking.com / Direct pages in Canvas, and (Antonio, 1 Oct voice note) its own generated
+ * content of its Airbnb / Booking.com / Direct pages in Canvas, and (review, 1 Oct voice note) its own generated
  * Smart Listings tips for every property that defaults to Smart Listings on.
  * Also registers both tips rules (data/sl3.ts setTipScope / setExtraTips): the scenario's scripted TIPS while it's
  * active, this file's own propertyTipsFor() for every other property, none for the three "off" ones
@@ -45,9 +45,9 @@ const noLift = (f: PropertyProfile) => !/lift/.test(f.floor) || /no lift/.test(f
 /** An upper-floor flat without a lift (guests climb stairs). */
 const climbs = (f: PropertyProfile) => f.type !== 'House' && noLift(f) && /floor/.test(f.floor) && !/ground/.test(f.floor)
 
-/* ---------- tips: generated per property (Antonio, 1 Oct voice note: Smart Listings should default to on, with real
+/* ---------- tips: generated per property (review, 1 Oct voice note: Smart Listings should default to on, with real
  * suggestions, for every property except the last three in the switcher) ---------- */
-/** "n of total" evidence numbers, varied per property/channel so tips don't all read as the same copy (SIMULATED —
+/** "n of total" evidence numbers, varied per property/channel so tips don't all read as the same copy (—
  *  the scenario's own "17 of 24 similar homes" style lines, data/sl3.ts TIPS, aren't touched). */
 function nOf(seed: number, lo: number, hi: number, totalLo: number, totalHi: number) {
   const n = lo + (seed % (hi - lo))
@@ -60,11 +60,11 @@ const CH_LABEL: Record<ListingChannel, string> = { airbnb: 'Airbnb', booking: 'B
 const registerPhotoOrders = (tips: TipDef[]) => { for (const t of tips) if (t.photos?.order && !PHOTO_TIP_ORDER[t.id]) PHOTO_TIP_ORDER[t.id] = t.photos.order as PhotoKey[] }
 registerPhotoOrders(TIPS)
 
-/** Hand-written photo tips (Antonio, 3 Oct: "how it would look when we have recommendations for the photos"), one per
+/** Hand-written photo tips (review, 3 Oct: "how it would look when we have recommendations for the photos"), one per
  *  channel on a few properties. Each one only re-orders photos the property already has (data/property-seeds.ts
  *  PROFILES photos), starting from the order it imported on that channel (Airbnb follows the library; Booking.com
  *  leads with the second photo). Labels follow TipDef.photos: "bedroom #3" = moved to 3rd, otherwise the new cover.
- *  SIMULATED counts and guest questions. */
+ *  counts and guest questions. */
 type PhotoTipSpec = { title: string; now: string; next: string; nowKey: PhotoKey; nextKey: PhotoKey; order: PhotoKey[]; why: TipDef['why'] }
 const PHOTO_TIPS: Record<string, Partial<Record<ListingChannel, PhotoTipSpec>>> = {
   'kreuzberg-loft': {
@@ -209,7 +209,7 @@ function tipsForChannel(p: Property, f: PropertyProfile, seed: Record<string, Fi
 }
 /** Every tip a property has, across its Smart Listings channels (data/property-seeds.ts smartChannelsFor). The
  *  scenario property's own scripted TIPS (data/sl3.ts) are untouched; this only covers the other properties Smart
- *  Listings defaults to on for (data/portfolio.ts smartListingsDefaultOn) — none for the three "off" ones. SIMULATED. */
+ *  Listings defaults to on for (data/portfolio.ts smartListingsDefaultOn) — none for the three "off" ones. . */
 export const propertyTipsFor = memo((pid: string): TipDef[] => {
   const p = propertyById(pid)
   const f = profileOf(pid)
@@ -252,16 +252,16 @@ export const amenitiesFor = memo((pid: string): AmenityGroups => {
 export const amenityDefaultOn = (pid: string, ch: ListingChannel, name: string) =>
   !!amenitiesFor(pid).flatMap((g) => g.items).find((i) => i.name === name)?.on.includes(ch)
 
-/* ---------- channel-only amenities: each channel's own catalogue (SIMULATED) ----------
- * Antonio, 1 Oct (round 4): "you could also have 'add amenities' but add only Airbnb-specific amenities, which are not
- * exactly the same as the ones for booking or Hospitable (base)… add only the ones that are specific to Airbnb here",
+/* ---------- channel-only amenities: each channel's own catalogue ----------
+ * review, 1 Oct (round 4): "you could also have 'add amenities' but add only Airbnb-specific amenities, which are not
+ * exactly the same as the ones for booking or Hostaway (base)… add only the ones that are specific to Airbnb here",
  * and "come up with a few for each channel".
  * The Base list (the Knowledge Hub's one list, AMENITIES / amenitiesFor above, and the shared catalogue every channel
  * can satisfy, data/details.ts AMENITY_CATALOG) already covers everything the channels have in common. What is left per
  * channel is the vocabulary only that channel has a field for — so that, and only that, is what a channel's "Add
  * amenities" offers. Deliberately disjoint from AMENITY_CATALOG: a name in there is shared, so it belongs to the Base.
  * Vocabulary is each channel's real wording (Airbnb's amenity list, Booking.com's facility list); which ones this
- * property has is SIMULATED, like every other sample value in this prototype.
+ * property has is like every other sample value in this prototype.
  * Some amenities are not a one-tap yes: the channel wants structured sub-attributes (Airbnb's parking type and parking
  * access; Booking.com's shuttle charge and arrangement). Those open a small form of grouped single choices. An option
  * carries the channel's mark when the wording is that channel's own enum, and reads "All channels" when it is the
@@ -349,7 +349,7 @@ export function chAmenityLine(c: ListingChannel, a: AddedChAmenity): string {
   return `${a.name} – ${detail[0].toUpperCase()}${detail.slice(1)}`
 }
 
-/* ---------- reviews and scores (SIMULATED, plain) ---------- */
+/* ---------- reviews and scores (plain) ---------- */
 export interface ReviewStats { rating: number; count: number; score: number; location: number }
 export const reviewStats = memo((pid: string): ReviewStats => {
   if (isScenarioProperty(pid)) return { rating: 4.89, count: 27, score: 9.1, location: 9.6 }
@@ -379,7 +379,7 @@ export function channelMetaFor(pid: string, c: ListingChannel): ChannelMeta {
     owned: [['Review score', `${st.score.toFixed(1)} · ${plural(st.count, 'review')}`]], only: CHANNEL_META.booking.only,
   }
   return {
-    connection: 'Your booking site', account: `${slug(p?.nickname ?? pid)}.hospitable.rentals`, synced: 'Instant', live: 'Live on your site', liveSub: 'Anyone with the link can book', kpis: null,
+    connection: 'Your booking site', account: `${slug(p?.nickname ?? pid)}.hostaway.rentals`, synced: 'Instant', live: 'Live on your site', liveSub: 'Anyone with the link can book', kpis: null,
     owned: [], only: [],
   }
 }
@@ -448,7 +448,7 @@ export interface CvContent {
   stayGuests: number
   /** Airbnb rating ("4.89"), review count, Booking.com score and its location score. */
   rating: string; reviewCount: number; bkScore: number; bkLocation: number
-  /** Airbnb's Guest favourite badge (homes rated 4.8 and up, SIMULATED rule). */
+  /** Airbnb's Guest favourite badge (homes rated 4.8 and up, rule). */
   favourite: boolean
   /* Airbnb */
   typeLine: string; facts: string
@@ -479,7 +479,7 @@ export interface CvContent {
 
 const SCENARIO_CONTENT: CvContent = {
   scenario: true, area: 'Neukölln', city: 'Berlin', place: 'Neukölln, Berlin',
-  url: { airbnb: 'airbnb.com/rooms/9876543210', booking: 'booking.com/hotel/de/artist-apartment-neukolln.en-gb.html', direct: 'artist-apt-neukolln.hospitable.rentals' },
+  url: { airbnb: 'airbnb.com/rooms/9876543210', booking: 'booking.com/hotel/de/artist-apartment-neukolln.en-gb.html', direct: 'artist-apt-neukolln.hostaway.rentals' },
   stayGuests: STAY.guests,
   rating: '4.89', reviewCount: 27, bkScore: 9.1, bkLocation: 9.6, favourite: true,
   typeLine: 'Entire rental unit in Neukölln, Germany', facts: '2 guests · 1 bedroom · 1 bed · 1 bath',
@@ -546,7 +546,7 @@ function buildContent(p: Property, f: PropertyProfile): CvContent {
     url: {
       airbnb: `airbnb.com/rooms/${1000000000 + (h % 8999999999)}`,
       booking: `booking.com/hotel/de/${slug(p.name)}.en-gb.html`,
-      direct: `${slug(p.nickname)}.hospitable.rentals`,
+      direct: `${slug(p.nickname)}.hostaway.rentals`,
     },
     stayGuests: Math.min(2, f.guests),
     rating: st.rating.toFixed(2), reviewCount: st.count, bkScore: st.score, bkLocation: st.location, favourite: st.rating >= 4.8,

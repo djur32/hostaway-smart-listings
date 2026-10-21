@@ -57,7 +57,7 @@ export function AccountMenu({ user, users, summary, onSwitch, onReset }: {
             </button>
           ))}
           <div className="h-account__foot">
-            <Link className="h-menu__item" role="menuitem" to="/settings/guidance" onClick={() => setOpen(false)}><Icon name="settings" />How Hospitable helps you</Link>
+            <Link className="h-menu__item" role="menuitem" to="/settings/guidance" onClick={() => setOpen(false)}><Icon name="settings" />How Hostaway helps you</Link>
             {onReset && <button type="button" className="h-menu__item" role="menuitem" onClick={() => { setOpen(false); onReset() }}><Icon name="refresh" />Start {user.name}’s account over</button>}
           </div>
         </div>, document.body)

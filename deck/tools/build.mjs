@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /* ============================================================================
-   BUILD · one content source, one theme (Hospitable).
+   BUILD · one content source, one theme (Hostaway).
 
-     node tools/build.mjs            → src/pages/hospitable.html, index.html (a redirect)
+     node tools/build.mjs            → src/pages/hostaway.html, index.html (a redirect)
      node tools/build.mjs --quiet    → same, warnings only
      Exit code 1 when the lint finds an ERROR (more than 50 slides, a raw colour).
 
@@ -28,7 +28,7 @@ import { syncDs } from './sync-ds.mjs';
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const SRC = path.join(ROOT, 'src');
 
-/** build({ suffix, parts, quiet, kit }) → { files: {hospitable}, warnings, errors }
+/** build({ suffix, parts, quiet, kit }) → { files: {hostaway}, warnings, errors }
  *  suffix: write src/pages/<suffix>-<theme>.html instead of <theme>.html (private QA builds)
  *  parts:  array of filename prefixes to include (e.g. ['00','10']); default all
  *  kit:    build the _*.html component gallery instead of the deck            */
@@ -78,7 +78,7 @@ boot();
 
 const shell = fs.readFileSync(path.join(SRC, 'pages/shell.html'), 'utf8');
 const files = {};
-for (const [theme, scheme] of [['hospitable', 'light']]) {
+for (const [theme, scheme] of [['hostaway', 'light']]) {
   const out = shell.replace('{{THEME}}', theme).replace('{{SCHEME}}', scheme)
     .replace('<!-- @styles -->', styles).replace('<!-- @slides -->', slidesHtml).replace('<!-- @entry -->', entry);
   const name = `${suffix ? suffix + '-' : kit ? 'kit-' : ''}${theme}.html`;
@@ -89,7 +89,7 @@ for (const [theme, scheme] of [['hospitable', 'light']]) {
 if (suffix || kit) { const r = lint(); return { files, warnings: r, errors }; }
 
 /* ── the landing page: one theme, so it only forwards (keeping any #slide) ── */
-fs.writeFileSync(path.join(SRC, 'pages/index.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><title>Smart Listings · Head of Design Case Study</title><link rel="icon" href="data:,"><script>location.replace('hospitable.html' + location.search + location.hash)</script><meta http-equiv="refresh" content="0; url=hospitable.html"></head><body></body></html>\n`);
+fs.writeFileSync(path.join(SRC, 'pages/index.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><title>Smart Listings · Head of Design Case Study</title><link rel="icon" href="data:,"><script>location.replace('hostaway.html' + location.search + location.hash)</script><meta http-equiv="refresh" content="0; url=hostaway.html"></head><body></body></html>\n`);
 { const w = lint(); return { files, warnings: w, errors }; }
 
 /* ── lint ───────────────────────────────────────────────────────────────── */
@@ -145,7 +145,7 @@ const wallWords = (html) => { const o = orchWords(html); return { text: wallText
 const notesOf = (html) => (html.match(/<aside class="notes"[\s\S]*?<\/aside>/g) || []).join(' ').replace(TAG, ' ');
 const shotsDir = path.join(SRC, 'assets/shots');
 const REQUIRED = ['data-id', 'data-title', 'data-stage', 'data-min'];
-/* The Hospitable contract (CONTRACT.md §2): every slide says which part of the story it is,
+/* The Hostaway contract (CONTRACT.md §2): every slide says which part of the story it is,
    which path keeps it (S Short · St Standard · E Everything), which angle it serves (A, B,
    both, none), which requirements it answers and where it lives in Notion. */
 const CASE_ATTRS = ['data-part', 'data-path', 'data-angle', 'data-req'];
@@ -162,7 +162,7 @@ for (const f of parts) {
       // the bookends (the opening plate and the closing "Thanks.", data-bookend) frame the talk; R-185 counts the content slides
       if (!/\bdata-bookend\b/.test(attrs)) slideCount++; else bookends++;
       for (const r of CASE_ATTRS) if (!attrs.includes(r + '=')) warn(f, `${id} missing ${r}`);
-      if (!/\bdata-notion="[^"]+"/.test(attrs)) warn(f, `${id} has no data-notion: every slide is backed by a Notion page (R-186)`);
+      if (!/\b]+"/.test(attrs)) warn(f, `${id} has no data-notion: every slide is backed by a Notion page (R-186)`);
       const part = attr(attrs, 'data-part'), pth = attr(attrs, 'data-path'), ang = attr(attrs, 'data-angle');
       if (part && !PARTS.includes(part)) warn(f, `${id} data-part="${part}" is not one of ${PARTS.join(', ')}`);
       if (pth && !/^(S|St|E)$/.test(pth)) warn(f, `${id} data-path="${pth}" must be S, St or E`);
@@ -177,13 +177,13 @@ for (const f of parts) {
     const { text: visible, n: words } = wallWords(shown);
     if (words > 110) warn(f, `${id} carries ${words} words on the wall (aim ≤ 80, footnotes and captions excluded; split it or move detail into a <template class="more">)`);
     if (/[—–]/.test(visible)) warn(f, `${id} uses an em or en dash in visible text`);
-    // Antonio, 3 Oct: source lines say what the evidence is, in plain words. No file paths, no IDs, no timestamps.
+    // review, 3 Oct: source lines say what the evidence is, in plain words. No file paths, no IDs, no timestamps.
     for (const m of own.matchAll(/<p class="hc-src"[\s\S]*?<\/p>/g)) {
       const t = m[0].replace(/<span class="more-link"[\s\S]*?<\/span>/g, '').replace(TAG, ' ');
       const bad = t.match(/[\w-]+\/[\w./-]+|\b[\w-]+\.(md|csv|json|py|tsx?|svg|png|webp)\b|\b(E|HE|HS|HS-L|HS-A|INT|D|R|I|H|K|T|OQ|RC|J|P|Q|CMP|SCR)-\d+|\[\d+:\d+\]/);
       if (bad) warn(f, `${id} source line names "${bad[0]}": say what the evidence is in plain words (no paths, IDs or timestamps)`);
     }
-    // Antonio, 2026-09-26: "don't use em dashes anywhere, really important". The notes are
+    // review, 2026-09-26: "don't use em dashes anywhere, really important". The notes are
     // what he reads from on the day, so they are held to the same rule as the wall.
     if (/—/.test(notesOf(own))) warn(f, `${id} uses an em dash in its speaker notes`);
     // ── details: one layer, at most two short panels, every door finds its detail ──
@@ -304,7 +304,7 @@ for (const x of ['kit/tokens.css', 'kit/base.css', 'kit/deck.css', 'kit/componen
 // Lumen is flat light (CONTRACT §11): no glow that bleeds outside a shape, in any slide or skin
 {
   const files = [...fs.readdirSync(slidesDir).filter((x) => /^\d\d.*\.(css|js|html)$/.test(x)).map((x) => [x, path.join(slidesDir, x)]),
-    ...['kit/themes/hospitable.css', 'kit/hc.css', 'kit/components.css', 'kit/deck.css', 'kit/gen.js', 'kit/thread.js'].map((x) => [x, path.join(SRC, x)])];
+    ...['kit/themes/hostaway.css', 'kit/hc.css', 'kit/components.css', 'kit/deck.css', 'kit/gen.js', 'kit/thread.js'].map((x) => [x, path.join(SRC, x)])];
   for (const [name, file] of files) {
     if (!fs.existsSync(file)) continue;
     const src = fs.readFileSync(file, 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/<!--[\s\S]*?-->/g, '').replace(/^\s*\/\/.*$/gm, '');

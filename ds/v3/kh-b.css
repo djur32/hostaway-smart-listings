@@ -40,7 +40,7 @@
 .khb-src--add .khb-src__text b { white-space: normal; }
 .khb-menu { position: absolute; z-index: var(--z-floating); right: 8px; top: calc(100% - 8px); min-width: 200px; margin: 0; padding: 0; list-style: none;
   background: var(--color-surface-primary); border-radius: var(--radius-sm); box-shadow: var(--elevation-dropdown), 0 0 0 1px var(--color-border-secondary-alt); animation: h-drop var(--dur-2) var(--ease-enter); }
-/* the shared menu rows (.h-menu__item, Antonio 3 Oct) */
+/* the shared menu rows (.h-menu__item, review 3 Oct) */
 .khb-menu button { width: 100%; min-height: 48px; padding: 0 24px; border: 0; background: none; font: inherit; font-size: var(--text-md); font-weight: var(--font-weight-regular); color: var(--color-text-secondary); text-align: left; cursor: pointer; }
 .khb-menu button:hover, .khb-menu button:focus-visible { outline: none; background: var(--color-dropdown-option-active-bg); }
 

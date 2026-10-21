@@ -65,7 +65,7 @@ function Status({ ch, propertyId }: { ch: ChannelId; propertyId: string }) {
         <section className="p-card">
           <div className="p-row p-sb"><b>{listing?.title ?? '—'}</b><Pill kind="managed">{listing?.status ?? 'listed'}</Pill></div>
           <div className="p-row p-mt2" style={{ gap: 16 }}>
-            <span className="h-small">{listing?.lastPush ? <>Last push {new Date(listing.lastPush).toLocaleString()}</> : 'Not pushed from Hospitable yet'}</span>
+            <span className="h-small">{listing?.lastPush ? <>Last push {new Date(listing.lastPush).toLocaleString()}</> : 'Not pushed from Hostaway yet'}</span>
             {listing?.pageScore !== undefined && <span className="h-small">Page Score <b>{listing.pageScore}</b> / 100</span>}
             <span className="h-small">{queued.length} change{queued.length === 1 ? '' : 's'} waiting</span>
           </div>

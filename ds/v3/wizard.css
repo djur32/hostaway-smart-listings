@@ -1,13 +1,13 @@
-/* Full-screen wizard (Hospitable "Add property" replica) · WS-SL, 3 Oct.
- * Source: research/current-state/antonio-2026-10-03-add-property/01–06 (REAL·PRODUCT). Antonio: "reuse the same kind of
+/* Full-screen wizard (Hostaway "Add property" replica) · WS-SL, 3 Oct.
+ * Source: research/current-state/review-2026-10-03-add-property/01–06. review: "reuse the same kind of
  * style … style the selectors the same way". Used by Smart Listings › Strategy's create / edit / replace wizard
  * (prototype/src/screens/smart/StrategyWizard.tsx); React parts in prototype/src/ds/wizard.tsx. Tokens only.
  *
  * Anatomy (refs 01–06): a full-viewport takeover — top bar (bordered square back · centred title · bordered square ×,
  * 1px divider), a brand progress line under it, one centred content column, a footer bar with Back (secondary) left and
- * Continue (primary) right, both aligned to the column, both the same width. No live preview card (Antonio, 3 Oct: "I
+ * Continue (primary) right, both aligned to the column, both the same width. No live preview card (review, 3 Oct: "I
  * don't want to see the preview"). Sized to fit one view at 1440×900: H2-size question, compact cards, grids where
- * options are many (Antonio, 3 Oct: "way too big … fit everything in one screen, without having to scroll"). */
+ * options are many (review, 3 Oct: "way too big … fit everything in one screen, without having to scroll"). */
 
 .h-wz {
   position: fixed; inset: 0; z-index: calc(var(--z-toast) + 10);
@@ -54,7 +54,7 @@
 
 /* footer: Back left, Continue right, aligned to the column (refs 01–06) */
 .h-wz__foot { flex: none; border-top: 1px solid var(--color-border-secondary); background: var(--color-surface-primary); padding: var(--space-3) 0; }
-/* Back and Continue: one fixed width, the DS large height (Antonio, 3 Oct: "the same size, the same width") */
+/* Back and Continue: one fixed width, the DS large height (review, 3 Oct: "the same size, the same width") */
 .h-wz__foot-btn { flex: none; width: 168px; white-space: nowrap; }
 .h-wz__foot .h-wz__col { display: flex; align-items: center; gap: var(--space-3); }
 .h-wz__foot-gap { flex: 1 1 auto; }

@@ -38,12 +38,12 @@ export interface RFact {
 export type RFactInput = Pick<RFact, 'topic' | 'kind' | 'label' | 'value' | 'scope' | 'visibility' | 'source'>
 interface RFactsState { facts: Record<string, RFact> }
 const newId = () => `r-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`
-export const useRFacts = createPropertyStore('hospitable-kh-r-facts', (): RFactsState => ({ facts: {} }), (set) => ({
+export const useRFacts = createPropertyStore('hostaway-kh-r-facts', (): RFactsState => ({ facts: {} }), (set) => ({
   add: (f: RFactInput) => { const id = newId(); set((s) => ({ facts: { ...s.facts, [id]: { ...f, id, editable: true } } })) },
   update: (id: string, patch: RFactInput) => set((s) => (s.facts[id] ? { facts: { ...s.facts, [id]: { ...s.facts[id], ...patch } } } : {})),
 }))
 
-/** Only when the scope isn't the entire property (Antonio's exception-based rule, same as Listing details). */
+/** Only when the scope isn't the entire property (review's exception-based rule, same as Listing details). */
 export function rScopeLabel(scope: RScope, chs: ListingChannel[]): string | null {
   if (scope.type === 'all' || !scope.channels?.length) return null
   if (scope.type === 'one') return `Only on ${NAME(scope.channels[0])}`
@@ -163,7 +163,7 @@ export function useR(): R {
 
 export { questionLabel }
 
-/** The Smart Listing tips that touch the facts a question's answer uses (Antonio, 3 Oct: editing a question shows "how
+/** The Smart Listing tips that touch the facts a question's answer uses (review, 3 Oct: editing a question shows "how
  *  that is related" to the recommendations). Looser than tipForGap: any listing tip whose `field` is one of the
  *  question's fact keys, not only the `kb` ones; at most three. Only tips still waiting for the host (audit K-1, 3 Oct):
  *  the active property's tips (tipsFor), for channels whose Tips panel is open (the same gate as the rail's counts,

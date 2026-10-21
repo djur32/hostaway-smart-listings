@@ -10,7 +10,7 @@ import { Button, DetailsDrawer, Icon, KhrAnswer, KhrAsk, KqFactRef, KqHold } fro
 import { bestMatch } from '../R/workflows-data'
 import type { KQ, QView } from './model'
 
-/** The typical questions offered first: Hospitable's own "Ask the AI" set (check-in, checkout, keys, parking, access,
+/** The typical questions offered first: Hostaway's own "Ask the AI" set (check-in, checkout, keys, parking, access,
  *  Wi-Fi, smoking, recycling, damage), where this property's guests asked them. */
 const TYPICAL = ['a-time', 'c-time', 'c-keys', 'ar-parking', 's-access', 'a-wifi', 's-smoke', 's-trash', 's-broken', 'a-in', 'a-address', 's-rules', 'ar-around']
 

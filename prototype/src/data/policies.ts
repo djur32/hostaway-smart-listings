@@ -1,12 +1,12 @@
-/* Booking policies per channel (Hospitable's Airbnb "Booking policies" page and its Configure flow, Antonio's screens 14–21).
- * Airbnb wording is copied from the real flow (REAL·PRODUCT). Booking.com and Direct follow research/market/channel-constraints.md
- * (Cancellation rows): Booking.com policies live in the Extranet (read-only here); Direct is native to Hospitable.
- * Direct option wording is ours (ASSUMPTION). Current values are the scenario's (SIMULATED). */
+/* Booking policies per channel (Hostaway's Airbnb "Booking policies" page and its Configure flow, review's screens 14–21).
+ * Airbnb wording is copied from the real flow. Booking.com and Direct follow research/market/channel-constraints.md
+ * (Cancellation rows): Booking.com policies live in the Extranet (read-only here); Direct is native to Hostaway.
+ * Direct option wording is ours. Current values are the scenario's. */
 import type { ListingChannel } from './sl3'
 
 export interface PolicyOption { id: string; label: string; body: string }
 
-/** Airbnb's standard policies, in the order Hospitable lists them (15.png, 16.png). Strict and Super strict are by invitation only. */
+/** Airbnb's standard policies, in the order Hostaway lists them (15.png, 16.png). Strict and Super strict are by invitation only. */
 export const AIRBNB_CANCELLATION: PolicyOption[] = [
   { id: 'flexible', label: 'Flexible', body: 'Guests can cancel at least 24 hours before check-in for a full refund. If canceling after check-in, Host will receive 100% for each night the guest stays, plus one additional night.' },
   { id: 'moderate', label: 'Moderate', body: 'Guests can cancel at least five days before check-in for a full refund. If canceling after that, Host will receive 100% for each night the guest stays, plus one additional night, and 50% for all unspent nights.' },
@@ -20,7 +20,7 @@ export const AIRBNB_LONG_TERM: PolicyOption[] = [
   { id: 'strict', label: 'Strict', body: 'Guests must cancel within 48 hours of booking and at least 28 days before check-in to receive a full refund' },
 ]
 
-/** Direct bookings (Hospitable's own site): one policy, no add-on, no long-term variant. ASSUMPTION wording. */
+/** Direct bookings (Hostaway's own site): one policy, no add-on, no long-term variant. wording. */
 export const DIRECT_CANCELLATION: PolicyOption[] = [
   { id: 'flexible', label: 'Flexible', body: 'Guests can cancel at least 24 hours before check-in for a full refund. After that, they pay for the first night.' },
   { id: 'moderate', label: 'Moderate', body: 'Guests can cancel at least five days before check-in for a full refund. After that, they pay 50% of the stay.' },
@@ -29,7 +29,7 @@ export const DIRECT_CANCELLATION: PolicyOption[] = [
   { id: 'non_refundable', label: 'Non-refundable', body: 'Guests pay the full stay when they book and get nothing back if they cancel.' },
 ]
 
-/** Booking.com: set per rate plan in the Extranet (channel-constraints: "Extranet via Hospitable"). Shown read-only. */
+/** Booking.com: set per rate plan in the Extranet (channel-constraints: "Extranet via Hostaway"). Shown read-only. */
 export const BOOKING_POLICY = {
   label: 'Flexible',
   body: 'Guests can cancel free of charge until 1 day before arrival. After that, they pay the first night.',

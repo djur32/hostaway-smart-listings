@@ -2,7 +2,7 @@
 /* ============================================================================
    DIST · the light build to present from.
 
-     node tools/dist.mjs      → dist/pages/hospitable.html, index.html
+     node tools/dist.mjs      → dist/pages/hostaway.html, index.html
 
    The source pages load ~30 files (kit, themes, 11+ slide stylesheets and
    modules, 8 vendor scripts). The dist pages load four: one minified
@@ -35,7 +35,7 @@ link(path.join(SRC, 'data'), path.join(DIST, 'data'));
 link(path.join(SRC, 'kit/fonts'), path.join(DIST, 'kit/fonts'));
 link(path.join(SRC, 'kit/ds'), path.join(DIST, 'kit/ds'));            // the icon sprite (sync-ds)
 
-const page = fs.readFileSync(path.join(SRC, 'pages/hospitable.html'), 'utf8');
+const page = fs.readFileSync(path.join(SRC, 'pages/hostaway.html'), 'utf8');
 const sheets = [...page.matchAll(/<link rel="stylesheet" href="\.\.\/([^"]+)">/g)].map((m) => m[1]);
 const vendors = [...page.matchAll(/<script src="\.\.\/(vendor\/[^"]+)"><\/script>/g)].map((m) => m[1]);
 const mods = JSON.parse(page.match(/const mods = (\[[^\]]*\]);/)[1]).map((m) => m.replace(/^\.\.\//, ''));
@@ -67,16 +67,16 @@ const slim = (html) => html
   .replace(/<!--(?!\[)[\s\S]*?-->/g, '')
   .replace(/^[ \t]+/gm, '')
   .replace(/\n{2,}/g, '\n');
-for (const t of ['hospitable']) fs.writeFileSync(path.join(DIST, `pages/${t}.html`), slim(fs.readFileSync(path.join(SRC, `pages/${t}.html`), 'utf8')));
+for (const t of ['hostaway']) fs.writeFileSync(path.join(DIST, `pages/${t}.html`), slim(fs.readFileSync(path.join(SRC, `pages/${t}.html`), 'utf8')));
 fs.copyFileSync(path.join(SRC, 'pages/index.html'), path.join(DIST, 'pages/index.html'));
 
 /* report: what a browser downloads to open the deck, before and after */
 const gz = (b) => zlib.gzipSync(b).length;
 const size = (files) => files.reduce((a, f) => { const b = fs.readFileSync(f); return [a[0] + b.length, a[1] + gz(b)]; }, [0, 0]);
 const kb = ([r, z]) => `${(r / 1024).toFixed(0)} KB (${(z / 1024).toFixed(0)} KB gzipped)`;
-const before = [path.join(SRC, 'pages/hospitable.html'), ...sheets.map((s) => path.join(SRC, s)), ...vendors.map((v) => path.join(SRC, v)),
+const before = [path.join(SRC, 'pages/hostaway.html'), ...sheets.map((s) => path.join(SRC, s)), ...vendors.map((v) => path.join(SRC, v)),
   path.join(SRC, 'kit/engine.js'), path.join(SRC, 'kit/motion.js'), path.join(SRC, 'kit/gen.js'), path.join(SRC, 'kit/thread.js'), ...mods.map((m) => path.join(SRC, m))];
-const after = ['pages/hospitable.html', 'kit/deck.min.css', 'kit/deck.min.js', 'vendor/vendor.min.js'].map((f) => path.join(DIST, f));
+const after = ['pages/hostaway.html', 'kit/deck.min.css', 'kit/deck.min.js', 'vendor/vendor.min.js'].map((f) => path.join(DIST, f));
 console.log(`source page: ${before.length} files, ${kb(size(before))}`);
 console.log(`dist page:   ${after.length} files, ${kb(size(after))}`);
-console.log(`→ dist/pages/hospitable.html · dist/pages/index.html`);
+console.log(`→ dist/pages/hostaway.html · dist/pages/index.html`);

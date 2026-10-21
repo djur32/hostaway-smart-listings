@@ -16,11 +16,11 @@ import { useProperty } from '../../shell/PropertyLayout'
 import { buildRows, type Row } from '../portfolio/rows'
 
 const OWNER: Record<PriceOwner, { label: string; body: string }> = {
-  'hospitable-dynamic': { label: 'Hospitable · Dynamic Pricing', body: 'Hospitable sets a price per night from demand, inside your min and max, and sends it.' },
-  'hospitable-fixed': { label: 'Hospitable · your rates', body: 'Hospitable sends your base and weekend rates, plus the channel markup.' },
-  channel: { label: 'Airbnb Smart Pricing', body: 'Airbnb sets the price. Hospitable reads it and sends nothing, so edits here won’t reach Airbnb.' },
-  tool: { label: 'PriceLabs', body: 'A connected pricing tool sets the price. Hospitable passes it through; edit rates in PriceLabs.' },
-  manual: { label: 'Set on the channel', body: 'Rates are managed in the channel’s extranet. Hospitable doesn’t send prices.' },
+  'hostaway-dynamic': { label: 'Hostaway · Dynamic Pricing', body: 'Hostaway sets a price per night from demand, inside your min and max, and sends it.' },
+  'hostaway-fixed': { label: 'Hostaway · your rates', body: 'Hostaway sends your base and weekend rates, plus the channel markup.' },
+  channel: { label: 'Airbnb Smart Pricing', body: 'Airbnb sets the price. Hostaway reads it and sends nothing, so edits here won’t reach Airbnb.' },
+  tool: { label: 'PriceLabs', body: 'A connected pricing tool sets the price. Hostaway passes it through; edit rates in PriceLabs.' },
+  manual: { label: 'Set on the channel', body: 'Rates are managed in the channel’s extranet. Hostaway doesn’t send prices.' },
 }
 
 export function Pricing() {
@@ -75,7 +75,7 @@ function Inherited<K extends keyof PricingStrategy>({ row, k, label, help, fmt, 
   const deep = row.p.id === PROPERTY_ID
   const save = () => {
     s.setPropertyOverride(row.p.id, k, Number(v) as PricingStrategy[K])
-    if (deep) for (const c of row.channels.filter((c) => row.d.priceOwner[c]?.startsWith('hospitable')))
+    if (deep) for (const c of row.channels.filter((c) => row.d.priceOwner[c]?.startsWith('hostaway')))
       s.queueChange({ channel: c, fieldId: 'price.base_nightly', label, before: fmt(r.value), after: fmt(Number(v) as PricingStrategy[K]), origin: 'studio' })
     setEditing(false)
   }
@@ -111,7 +111,7 @@ function Rates({ row, lens, calendar }: { row: Row; lens: ChannelId | 'all'; cal
   const deep = row.p.id === PROPERTY_ID
   const sp = deep ? s.decisions.find((d) => d.id === 'smart-pricing') : undefined
   const owners: Partial<Record<ChannelId, PriceOwner>> = { ...row.d.priceOwner }
-  if (deep && sp?.status === 'decided') owners.airbnb = sp.choice === 'hospitable' ? 'hospitable-fixed' : 'channel'
+  if (deep && sp?.status === 'decided') owners.airbnb = sp.choice === 'hostaway' ? 'hostaway-fixed' : 'channel'
   const w = row.get('weekendPct')
   const dyn = row.get('dynamic')
   const strategies = deep ? (Object.entries(s.studio.strategy) as Array<[ChannelId, string | null]>).filter(([, id]) => id) : []
@@ -125,7 +125,7 @@ function Rates({ row, lens, calendar }: { row: Row; lens: ChannelId | 'all'; cal
           <table className="h-table p-mt2">
             <tbody>
               {shown.map((c) => {
-                const o = owners[c] ?? 'hospitable-fixed'
+                const o = owners[c] ?? 'hostaway-fixed'
                 return (
                   <tr key={c}>
                     <td style={{ width: 150 }}><Mark channel={c} /> {CHANNELS[c].name}</td>
@@ -139,8 +139,8 @@ function Rates({ row, lens, calendar }: { row: Row; lens: ChannelId | 'all'; cal
               })}
             </tbody>
           </table>
-          {new Set(shown.map((c) => owners[c] ?? 'hospitable-fixed')).size > 1 && (
-            <p className="h-caption" style={{ margin: '8px 0 0' }}><Icon name="info-circle" size={16} /> Different owners on different channels. Changes below reach only the channels Hospitable prices.</p>
+          {new Set(shown.map((c) => owners[c] ?? 'hostaway-fixed')).size > 1 && (
+            <p className="h-caption" style={{ margin: '8px 0 0' }}><Icon name="info-circle" size={16} /> Different owners on different channels. Changes below reach only the channels Hostaway prices.</p>
           )}
         </section>
 

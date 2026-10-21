@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// audit.mjs · requirements coverage + guardrails for the Hospitable case study.
+// audit.mjs · requirements coverage + guardrails for the Hostaway case study.
 // Run from the repo root:  node tools/audit.mjs      (exit 1 when there are errors)
 // Writes plan/audit/AUDIT-<date>.md. S18 runs it daily; S00, S07, S17, S19 run it after their work.
 // No dependencies (Node >= 18).

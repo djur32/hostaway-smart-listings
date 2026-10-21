@@ -60,13 +60,13 @@ export interface State {
   history: boolean
   /** S12 · listing tests (D-157). */
   tests: ListingTest[]
-  /** S12 · the host's own changes to their mode's defaults (Settings › How Hospitable helps you, D-150). */
+  /** S12 · the host's own changes to their mode's defaults (Settings › How Hostaway helps you, D-150). */
   modeOverrides: ModeOverrides
   /** S12 · guidance the host dismissed ("Got it"). */
   guideDismissed: string[]
   /** Smart Listing v3 (V3-SPEC): setup, per-channel plans, tip states, knowledge-base pushes, autopilot pause, custom values. */
   sl3: SL3State
-  /** Photos (Hospitable replica, per channel): library order, per-channel visibility / order / cover, captions, room tags. data/photos.ts */
+  /** Photos (Hostaway replica, per channel): library order, per-channel visibility / order / cover, captions, room tags. data/photos.ts */
   photoLib: PhotoLib
   /** Booking policies (additive): what the host confirmed in a channel's Configure flow. Missing = POLICY_DEFAULT (data/policies.ts). */
   policies: Partial<Record<ListingChannel, ChannelPolicy>>
@@ -74,7 +74,7 @@ export interface State {
   overview?: Record<string, OverviewSettings>
   /** Smart Listings has a performance history to compare (additive, QA B17): true for the ?smart=on demo, false after a first setup. */
   smartHistory?: boolean
-  /** Knowledge Hub state for this property (Antonio, 1 Oct): 'none' = never generated (a few properties start here),
+  /** Knowledge Hub state for this property (review, 1 Oct): 'none' = never generated (a few properties start here),
    *  'generating' = the creation process is running, 'ready' (or missing) = the Hub exists. */
   kb?: KbState
   /** Multi-property (QA B01/B02): the property whose slices (PROPERTY_SLICES) sit at the top level of this state. */
@@ -91,7 +91,7 @@ export type PropertySnapshot = Pick<State, typeof PROPERTY_SLICES[number]>
 
 export interface OverviewSettings {
   listed?: Partial<Record<ListingChannel, boolean>>; nickname?: string; sync?: boolean; muted?: boolean
-  /** Smart Listings on: what a non-channel-specific field (today Languages, Tags — data/sl3.ts FIELDS keys; Antonio,
+  /** Smart Listings on: what a non-channel-specific field (today Languages, Tags — data/sl3.ts FIELDS keys; review,
    *  1 Oct third round: "not just languages and tags... pricing, availability...", so this isn't closed to two
    *  fields — see OvFieldKey) does on every connected channel's page. 'show' (default, missing = 'show') is today's
    *  one value everywhere, unchanged, no chrome; 'edit' opens the per-channel override UI the channel editor already
@@ -102,7 +102,7 @@ export interface OverviewSettings {
   fieldVisibility?: Partial<Record<OvFieldKey, FieldVisibility>>
 }
 /** A field key from any fields ledger that isn't inherently channel-specific — today data/sl3.ts FIELDS' 'languages'
- *  and 'tags'. Kept as a plain string (not a closed two-value union): Antonio, 1 Oct third round, this setting isn't
+ *  and 'tags'. Kept as a plain string (not a closed two-value union): review, 1 Oct third round, this setting isn't
  *  just for Languages/Tags — it can apply to pricing, availability and other global fields later. Which fields
  *  actually show the control today is FIELD_VIS_KEYS (screens/smart/PropertyOverview.tsx), a plain array — adding a
  *  field there (e.g. a future base/Pricing.tsx key) is a one-line change, not a type change here. */
@@ -262,7 +262,7 @@ function initial(persona: PersonaId = 'P1'): State {
   const d = PERSONAS[persona]
   return {
     persona,
-    smartListings: false, // opt-in for every persona (Antonio, 30 Sep): the Overview toggle turns it on; ?smart=on for demos
+    smartListings: false, // opt-in for every persona (review, 30 Sep): the Overview toggle turns it on; ?smart=on for demos
     prefs: { previewOn: d.previewOn, needsYouMode: d.needsYouMode, compsOpen: d.compsOpen, voiceMode: d.voiceMode },
     facts: seedFacts(),
     decisions: seedDecisions(),
@@ -292,7 +292,7 @@ function initial(persona: PersonaId = 'P1'): State {
 
 /** A property's slices on its first visit. The scenario property starts as before (initial()); the others get their
  *  light seed (data/property-seeds.ts): own photo library, default policies, and — per data/portfolio.ts
- *  smartListingsDefaultOn (Antonio, 1 Oct voice note) — Smart Listings already on, past setup, with a strategy per
+ *  smartListingsDefaultOn (review, 1 Oct voice note) — Smart Listings already on, past setup, with a strategy per
  *  channel and real tips waiting, EXCEPT the three properties that deliberately stay off (the "before you turn this
  *  on" demonstration). Past setup (not just switched on): setupDone true and a Plan per channel, the same shape
  *  Setup.tsx's finish() would leave behind, so Overview/Strategy/Performance don't redirect to Setup or show a
@@ -315,7 +315,7 @@ const pickSlices = (s: State): PropertySnapshot => Object.fromEntries(PROPERTY_S
 /** Never hand back the SL3_INITIAL object itself: screens/push/changes.ts reads `sl3 === SL3_INITIAL` as "Reset demo". */
 const revive = (snap: PropertySnapshot): PropertySnapshot => (snap.sl3 === SL3_INITIAL ? { ...snap, sl3: { ...SL3_INITIAL } } : snap)
 
-/** What a channel does with a pushed change (channel-constraints §5, §9). SIMULATED outcomes, REAL·PUBLIC rules. */
+/** What a channel does with a pushed change (channel-constraints §5, §9). outcomes, rules. */
 function outcome(c: QueuedChange): { state: ReceiptState; reason?: string } {
   if (c.channel === 'booking' && c.fieldId === 'copy.description')
     return { state: 'not-supported', reason: 'Booking.com writes its own description from your facts.' }
@@ -661,7 +661,7 @@ export const useStore = create<State & Actions>()(
       },
     }),
     {
-      name: 'hospitable-proto-v1',
+      name: 'hostaway-proto-v1',
       version: 4,
       // v1 → v2 (S10): add `setup`. Older sessions are reset to the seed rather than migrated field by field.
       // v3 → v4 (multi-property): the top-level slices were Neukölln's (plus anything that leaked from other properties):
@@ -688,10 +688,10 @@ setConnectedReader(() => useStore.getState().setup.connected)
 useStore.subscribe((s, prev) => { if (s.activeProperty !== prev.activeProperty) applyPropertyData(s.activeProperty) })
 
 
-/* Autopilot is off by default everywhere (Antonio, 5 Oct): a saved session that still has it on is switched to tips-only
+/* Autopilot is off by default everywhere (review, 5 Oct): a saved session that still has it on is switched to tips-only
  * once, so its fields are editable. Applies to the active property and every parked one. */
 try {
-  const KEY = 'hospitable-autopilot-off'
+  const KEY = 'hostaway-autopilot-off'
   if (!sessionStorage.getItem(KEY)) {
     const off = (sl3: SL3State): SL3State => ({ ...sl3, plans: Object.fromEntries(Object.entries(sl3.plans).map(([c, pl]) => [c, pl && pl.mode === 'autopilot' ? { ...pl, mode: 'suggest' as const } : pl])) as SL3State['plans'] })
     useStore.setState((s) => ({

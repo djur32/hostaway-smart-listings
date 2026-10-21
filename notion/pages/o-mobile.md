@@ -1,12 +1,12 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Done** · The same screens at phone and tablet width, plus an app mode that behaves like Hospitable's mobile app. Provenance: the phone layout follows Hospitable's real mobile web app (`REAL·PRODUCT`, my phone captures); the bottom-sheet patterns follow other products (`REAL·PUBLIC`, Mobbin references); values are `SIMULATED`.
+	**Output · Done** · The same screens at phone and tablet width, plus an app mode that behaves like Hostaway's mobile app. Provenance: the phone layout follows Hostaway's real mobile web app (my phone captures); the bottom-sheet patterns follow other products (Mobbin references); values are .
 </callout>
 <columns>
 	<column>
 		![Phone · Airbnb › Listing. The title, "Listing ⌄", opens the Sections sheet, with the property selector at its top and the sections below it.](file-upload://3f0e18af-1645-8187-bc11-00b266e2ed7d)
 	</column>
 	<column>
-		![Phone · Airbnb › Listing. Stacked fields, the scope caption and its link under each field, Hospitable's bottom tab bar.](file-upload://3f0e18af-1645-81a5-ab8b-00b20a4c7651)
+		![Phone · Airbnb › Listing. Stacked fields, the scope caption and its link under each field, Hostaway's bottom tab bar.](file-upload://3f0e18af-1645-81a5-ab8b-00b20a4c7651)
 	</column>
 	<column>
 		![Phone · the Tips panel as a bottom sheet: the tip, its why from the listing, Dismiss and Accept.](file-upload://3f0e18af-1645-81cc-86fd-00b2ed0bbc42)
@@ -47,7 +47,7 @@ Almost everything that opens on a phone, a tooltip, a side panel, a menu or a dr
 	</tr>
 	<tr>
 		<td>Shell</td>
-		<td>Hospitable's bottom tab bar (Home, Inbox, Calendar, Properties, Menu), a sticky Discard / Save bar above it when something changed, and scrolling underline tabs.</td>
+		<td>Hostaway's bottom tab bar (Home, Inbox, Calendar, Properties, Menu), a sticky Discard / Save bar above it when something changed, and scrolling underline tabs.</td>
 	</tr>
 	<tr>
 		<td>Tap targets</td>
@@ -77,9 +77,9 @@ Almost everything that opens on a phone, a tooltip, a side panel, a menu or a dr
 ## Tablet (768 to 1023 px)
 Pages keep their desktop layout. The global sidebar shows icons only and expands over the page. The property rail opens from the same section bar as a slide-over from the left, with a scrim, so the page keeps its full width. When the split with a side panel gets too narrow, the panel floats over the form's right edge instead of squeezing it.
 ## App mode
-The phone app at [hospitable-case-mobile.digimal.studio](https://hospitable-case-mobile.digimal.studio), or any page under `/app` on the website. It opens on the property, uses push and pop page transitions, swipe from the left edge to go back, sheets you can drag, and a large title that condenses as you scroll. On a desktop browser it draws a phone frame around the same screens. It can be added to an iPhone's home screen.
+The phone app at [hostaway-case-mobile.digimal.studio](), or any page under `/app` on the website. It opens on the property, uses push and pop page transitions, swipe from the left edge to go back, sheets you can drag, and a large title that condenses as you scroll. On a desktop browser it draws a phone frame around the same screens. It can be added to an iPhone's home screen.
 ## How it was made
-Built in the prototype's mobile layer after my captures of Hospitable's mobile web app; bottom-sheet navigation was chosen from patterns in other products. Text sizes, input sizes and tap areas above were measured on the live site at 390 px.
+Built in the prototype's mobile layer after my captures of Hostaway's mobile web app; bottom-sheet navigation was chosen from patterns in other products. Text sizes, input sizes and tap areas above were measured on the live site at 390 px.
 ---
 **Builds on**
 - <mention-page url="https://app.notion.com/p/3eee18af164581178debffa0628f4703">Listing base & channels</mention-page>
@@ -92,6 +92,6 @@ Built in the prototype's mobile layer after my captures of Hospitable's mobile w
 **Decision records for the phone head**
 - [D-202 type scale](https://app.notion.com/p/3f0e18af1645817286c7ec810c740d02) · [D-203 page head](https://app.notion.com/p/3f0e18af1645817c8e92c1127fc8687e) · [D-204 bottom sheets](https://app.notion.com/p/3f0e18af164581afa12bc37c1770c9a7) · [D-205 controls](https://app.notion.com/p/3f0e18af164581c68737f3c30dd2cf67) · [D-207 Strategy cards](https://app.notion.com/p/3f0e18af164581b68b5ad04d17f048da)
 **In the prototype**
-- [Phone app](https://hospitable-case-mobile.digimal.studio)
-- [App mode on the website](https://hospitable-case-web.digimal.studio/app)
+- [Phone app]()
+- [App mode on the website]()
 - open any website page at phone width

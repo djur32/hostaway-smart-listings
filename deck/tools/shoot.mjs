@@ -9,7 +9,7 @@
      node tools/shoot.mjs --all                   every slide, final state
 
    options
-     --theme hospitable          the only theme (kept so old commands still run)
+     --theme hostaway          the only theme (kept so old commands still run)
      --beat N | --beat all       press → N times (all = every beat) before the shot
      --t 0.6[,1.2,…]             instead of the final state, freeze the entry
                                  animation at these seconds (to judge motion)
@@ -35,7 +35,7 @@ const flag = (k) => args.includes('--' + k);
 const VALUED = new Set(['--theme', '--beat', '--t', '--bt', '--out', '--scale', '--parts']);
 const bare = args.filter((a, i) => !a.startsWith('--') && !VALUED.has(args[i - 1]));
 const targets = flag('all') || !bare.length ? null : bare.join(',').split(',').filter(Boolean);
-const themes = ['hospitable'];                       // one theme (D-071); --theme is accepted and ignored
+const themes = ['hostaway'];                       // one theme (D-071); --theme is accepted and ignored
 const beatOpt = opt('beat', '0');
 const btimes = opt('bt', '') ? opt('bt').split(',').map(Number) : null;
 const times = btimes ? btimes.map((v) => ({ bt: v })) : opt('t', '') ? opt('t').split(',').map(Number) : [null];

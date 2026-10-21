@@ -1,7 +1,7 @@
 /* KH-B · "+ Add a fact to <Section>": inline at the end of the section. The section sets the type, the host fills in
  * two or three things, and "Where will this be used?" previews the text in each destination (AI replies, Airbnb,
  * Booking.com) before Add fact. Where a fact lands on each channel is unverified against the channels' APIs
- * (documented as ASSUMPTION in concepts/knowledge-hub/KH-B.md; no provenance labels on screen). */
+ * (documented as in concepts/knowledge-hub/KH-B.md; no provenance labels on screen). */
 import { useState, type ReactNode } from 'react'
 import { Button, ChannelBadge, Dropdown, Icon, KhbAddCard, NumberField, KhbDest, KhbLabeled, KhbTypePicker } from '../../../../ds'
 import type { ListingChannel } from '../../../../data/sl3'
@@ -32,7 +32,7 @@ const SECTION_TYPES: Partial<Record<KhSectionId, string[]>> = {
   location: ['Place nearby', 'Note for guests'], rules: ['Rule', 'Note for guests'], pricing: ['Fee', 'Discount', 'Deposit', 'Note for guests'],
   availability: ['Rule', 'Note for guests'], policies: ['Rule', 'Note for guests'], custom: ['Fact'],
 }
-/** Where a channel shows a fact of this section (unverified mapping: ASSUMPTION in KH-B.md). */
+/** Where a channel shows a fact of this section (unverified mapping: in KH-B.md). */
 const WHERE: Partial<Record<KhSectionId, { airbnb: string; booking: string }>> = {
   pricing: { airbnb: 'House rules › Additional rules', booking: 'Policies › Fees' },
   arrival: { airbnb: 'Arrival › House manual', booking: 'Property › Check-in instructions' },

@@ -1,5 +1,5 @@
 /* ============================================================================
-   HC · behaviour for the Hospitable case's components (styles: kit/hc.css,
+   HC · behaviour for the Hostaway case's components (styles: kit/hc.css,
    templates: src/slides/_kit.html). Loaded by the build's entry with the slide
    modules, before boot(), so everything it builds is in place when the engine's
    declarative motion pass (data-a) reads the slides.
@@ -37,12 +37,12 @@ const json = (url) => fetch(url).then((r) => (r.ok ? r.json() : null)).catch(() 
 
 /* ── provenance words (CONVENTIONS §2) ────────────────────────────────────── */
 export const PROV = {
-  brief:      { label: 'From the brief',   full: 'REAL·BRIEF: stated in Hospitable\'s brief' },
-  product:    { label: 'Hospitable today', full: 'REAL·PRODUCT: observed in the product' },
-  public:     { label: 'Public source',    full: 'REAL·PUBLIC: a public source' },
-  simulated:  { label: 'Simulated',        full: 'SIMULATED: generated to show the method, grounded in real signals' },
-  projected:  { label: 'Projected',        full: 'PROJECTED: a forecast or target' },
-  assumption: { label: 'Assumption',       full: 'ASSUMPTION: a belief to validate' },
+  brief:      { label: 'From the brief',   full: 'stated in Hostaway\'s brief' },
+  product:    { label: 'Hostaway today', full: 'observed in the product' },
+  public:     { label: 'Public source',    full: 'a public source' },
+  simulated:  { label: 'Simulated',        full: 'generated to show the method, grounded in real signals' },
+  projected:  { label: 'Projected',        full: 'a forecast or target' },
+  assumption: { label: 'Assumption',       full: 'a belief to validate' },
 };
 /* what became of an output (the covers' Outputs, D-072): made here, made from a simulated sample,
    or what I'd make with real access. Colours: produced = real, sampled = simulated, planned = gray. */
@@ -62,8 +62,8 @@ export function idUrl(id) {
   return (db && LINKS.databases?.[db]?.url) || '';
 }
 export function slideUrl(s) {
-  /* the condensed workspace first (Antonio, 4 Oct: "link every slide to something related in here"):
-     data/notion-links.json "slides" maps a slide id to its page in Hospitable · Smart Listings */
+  /* the condensed workspace first (review, 4 Oct: "link every slide to something related in here"):
+     data/notion-links.json "slides" maps a slide id to its page in Hostaway · Smart Listings */
   const own = LINKS.slides?.[s.dataset?.id];
   if (own?.url) return { url: own.url, what: own.title || s.dataset.id };
   const ids = (s.dataset.notion || '').split(/[\s,]+/).filter(Boolean);
@@ -90,7 +90,7 @@ function notionFoot(s) {
 }
 /* A foot that shows nothing (only the Notion link, now in the hint row, or a detail's hidden
    build marker) gives its height back: hidden, so the body centres in the whole space
-   (Antonio, 3 Oct: "we have more available space at the bottom … centred to that space"). */
+   (review, 3 Oct: "we have more available space at the bottom … centred to that space"). */
 function quietFoot(s) {
   const f = s.querySelector(':scope > .s-foot'); if (!f) return;
   const doors = new Set([...s.querySelectorAll('template[data-more]')].map((t) => t.dataset.more));
@@ -147,7 +147,7 @@ function chips(scope) {
   });
   // channel chips carry the design system's marks (sprite: #ch-airbnb …); the dot stays as the fallback
   scope.querySelectorAll('.hc-ch[data-ch]').forEach((el) => {
-    const mark = el.dataset.ch === 'direct' ? 'hospitable' : el.dataset.ch;         // Direct is Hospitable's own "o"
+    const mark = el.dataset.ch === 'direct' ? 'hostaway' : el.dataset.ch;         // Direct is Hostaway's own "o"
     if (el.querySelector('svg') || !document.getElementById(`ch-${mark}`) && !window.__hcSprite) return;
     el.insertAdjacentHTML('afterbegin', `<svg class="hc-ch__mark" viewBox="0 0 24 24" aria-hidden="true"><use href="#ch-${mark}"/></svg>`);
     el.classList.add('has-mark');
@@ -160,18 +160,18 @@ function chips(scope) {
     el.title ||= `Signal strength: ${STRENGTH[k] || k} (CONVENTIONS §2)`;
   });
 }
-/* a browser around a product screen: my.hospitable.com, one tab, no menu bar */
+/* a browser around a product screen: my.hostaway.com, one tab, no menu bar */
 function frames(scope) {
   scope.querySelectorAll('.hc-browser').forEach((f) => {
     if (f.querySelector('.hc-browser__bar')) return;
-    const url = f.dataset.url || 'my.hospitable.com';
+    const url = f.dataset.url || 'my.hostaway.com';
     const [host, ...rest] = url.split('/');
     const view = f.querySelector('.hc-browser__view') || (() => {
       const v = document.createElement('div'); v.className = 'hc-browser__view';
       [...f.childNodes].filter((n) => !(n.nodeType === 1 && n.tagName === 'FIGCAPTION')).forEach((n) => v.append(n));
       f.prepend(v); return v;
     })();
-    view.insertAdjacentHTML('beforebegin', `<div class="hc-browser__bar" aria-hidden="true"><span class="hc-browser__dots"><i></i><i></i><i></i></span><span class="hc-browser__tab">${esc(f.dataset.tab || 'Hospitable')}</span></div><div class="hc-browser__url" aria-hidden="true"><span><b>${esc(host)}</b>${rest.length ? '/' + esc(rest.join('/')) : ''}</span></div>`);
+    view.insertAdjacentHTML('beforebegin', `<div class="hc-browser__bar" aria-hidden="true"><span class="hc-browser__dots"><i></i><i></i><i></i></span><span class="hc-browser__tab">${esc(f.dataset.tab || 'Hostaway')}</span></div><div class="hc-browser__url" aria-hidden="true"><span><b>${esc(host)}</b>${rest.length ? '/' + esc(rest.join('/')) : ''}</span></div>`);
   });
   scope.querySelectorAll('.hc-phone').forEach((f) => {
     if (f.querySelector('.hc-phone__screen')) return;
@@ -218,7 +218,7 @@ function illos(scope) {
 
 /* On a cover the drawing is inlined, so its own little "///" strokes (a straight round-capped
    segment, three in a row, drawn in the illustration's yellow) can take the cover's stroke tone:
-   yellow on blush, lavender or mint clashes (Antonio, 3 Oct). The mascot itself is untouched. */
+   yellow on blush, lavender or mint clashes (review, 3 Oct). The mascot itself is untouched. */
 const IS_STROKE = /^M\s*[\d.]+[ ,][\d.]+\s*l\s*-?[\d.]+[ ,]-?[\d.]+\s*$/;
 function inlineIllo(f) {
   f.classList.add('is-inline');
@@ -233,7 +233,7 @@ function inlineIllo(f) {
   });
 }
 
-/* ═══════════════════════════════════════════ HOSPITABLE'S MARKETING TOUCH ══ */
+/* ═══════════════════════════════════════════ HOSTAWAY'S MARKETING TOUCH ══ */
 /* Doodles: hand-drawn rings and strokes (reference 11), drawn here so they stay in tokens
    (hc.css colours the stroke). <span class="hc-doodle" data-doodle="ring"></span>. */
 const DOODLES = {
@@ -254,7 +254,7 @@ function doodles(scope) {
    builds the tinted plate, the mascot and the doodles, and sets the entry so the engine's motion
    pass (data-a) choreographs it: the plate, the mascot, the words, the doodles drawing in. Under
    ~1 s; with motion off everything is simply there.
-   Antonio, 3 Oct (late): no "Part N of 6" badge (any .opener__n is dropped here, so old markup
+   review, 3 Oct (late): no "Part N of 6" badge (any .opener__n is dropped here, so old markup
    can't bring it back), no "With AI" line, and the outputs stay in the left column as words,
    each row led by its mark (.hc-mark: produced · sampled · planned). */
 let COVERS = {};
@@ -285,7 +285,7 @@ function covers(scope) {
     const illo = c.querySelector('.hc-illo');
     if (illo && cfg.illo && ILLOS.includes(cfg.illo)) illo.dataset.illo = cfg.illo;   // not drawn yet: the template's own
     /* the plate is the part's colour; the drawing stands on it, large, cropped by its bottom edge
-       (Antonio, 3 Oct: "much bigger… they don't need the colour background like the circle") */
+       (review, 3 Oct: "much bigger… they don't need the colour background like the circle") */
     c.insertAdjacentHTML('afterbegin', '<div class="hc-cover__plate" data-a="fade" data-d="1"></div>');
     const plate = c.firstElementChild;
     const art = document.createElement('div');
@@ -301,7 +301,7 @@ function covers(scope) {
     set('.opener__name', 'rise', '0.1'); set('.opener__vision', 'rise', '0.18');
     set('.opener__methods', 'stagger', '0.28'); set('.opener__out', 'rise', '0.4');
     const m = c.querySelector('.opener__methods'); if (m) m.dataset.s = '0.5';
-    /* every method and output opens its own Notion page (Antonio, 4 Oct; data/notion-links.json "chips") */
+    /* every method and output opens its own Notion page (review, 4 Oct; data/notion-links.json "chips") */
     const map = LINKS.chips?.[part] || {};
     c.querySelectorAll('.opener__methods > span:not(.opener__k), .opener__outs > span').forEach((sp) => {
       const hit = map[sp.textContent.trim()]; if (!hit?.url) return;
@@ -482,7 +482,7 @@ function fitScenes(scope) {
   }
 }
 /* A slide whose content fills little of its body sits nearer the headline instead of floating in the
-   middle (Antonio, 4 Oct: "where there is not a lot of content, bring it closer to the top, so it feels
+   middle (review, 4 Oct: "where there is not a lot of content, bring it closer to the top, so it feels
    connected"); a full slide stays centred. Measured on the final layout, after the scenes fit. */
 function balance(scope) {
   const list = scope.matches?.('.s') ? [scope] : [...scope.querySelectorAll('.deck > .s')];
@@ -523,14 +523,14 @@ window.__hcPrepare = (p) => { prepare(p); };
 await flowsReady;                                    // a detail draws its diagram the moment it opens
 await prepare(document);
 /* A "So →" conclusion strip belongs at the slide's foot, right above its source line, or at the very
-   bottom when there is none (Antonio, 4 Oct: "closer to the bottom … they should always be there") */
+   bottom when there is none (review, 4 Oct: "closer to the bottom … they should always be there") */
 function soToFoot(s) {
   const so = s.querySelector(':scope > .s-body .dc-so, :scope > .s-body .hc-so'); if (!so) return;
   let foot = s.querySelector(':scope > .s-foot');
   if (!foot) { foot = document.createElement('div'); foot.className = 's-foot hc-foot'; s.insertBefore(foot, s.querySelector(':scope > aside.notes')); }
   foot.classList.add('has-so'); foot.prepend(so);
 }
-/* no sentence starts at the end of a line (Antonio, 4 Oct: "prevent this sort of widow… just put it in the next
+/* no sentence starts at the end of a line (review, 4 Oct: "prevent this sort of widow… just put it in the next
    sentence"): in a slide's message and other running text, a sentence's first word is bound to its second with a
    no-break space, so it always wraps with its own sentence */
 function bindSentenceStarts(s) {
@@ -540,7 +540,7 @@ function bindSentenceStarts(s) {
   });
 }
 document.querySelectorAll('.deck > .s').forEach((s) => { bindSentenceStarts(s); soToFoot(s); notionFoot(s); quietFoot(s); });
-/* Notion lives in the hint row, next to Jump (Antonio, 3 Oct): one link that follows the current slide,
+/* Notion lives in the hint row, next to Jump (review, 3 Oct): one link that follows the current slide,
    hidden where a slide has no page. The per-slide foot links stay in the DOM (N and print read them), hidden. */
 (function notionHint() {
   let a = null, wrap = null, pop = null;
@@ -550,7 +550,7 @@ document.querySelectorAll('.deck > .s').forEach((s) => { bindSentenceStarts(s); 
     wrap = document.createElement('span'); wrap.className = 'hint-wrap hint-wrap--notion'; wrap.hidden = true;
     a = document.createElement('a');
     a.className = 'hint hint--notion'; a.target = '_blank'; a.rel = 'noopener';
-    a.innerHTML = '<kbd>N</kbd>Notion';                 // no arrow (Antonio, 4 Oct)
+    a.innerHTML = '<kbd>N</kbd>Notion';                 // no arrow (review, 4 Oct)
     pop = document.createElement('div'); pop.className = 'hint-pop npop'; pop.setAttribute('role', 'menu'); pop.setAttribute('aria-label', 'Open in Notion');
     wrap.append(a, pop); hints.prepend(wrap);
     /* with several pages the hint is only the door to its list: a click closes, never navigates */
@@ -587,7 +587,7 @@ document.querySelectorAll('.deck > .s').forEach((s) => { bindSentenceStarts(s); 
   const wait = () => { if (document.querySelector('.hints')) { first(); return; } if (tries++ < 60) setTimeout(wait, 100); };
   wait();
 })();
-/* The prototype lives in the hint row too, left of Notion (Antonio, 4 Oct): a solid dark chip, "Website" or "Mobile"
+/* The prototype lives in the hint row too, left of Notion (review, 4 Oct): a solid dark chip, "Website" or "Mobile"
    by the deployed project it opens, on slides whose data-proto names the exact screen they show (route and query).
    It replaces the white "Open the website" pill that sat in the foot and pushed the source line right. */
 (function protoHint() {

@@ -34,14 +34,14 @@ export function AppFrame() {
     <div className="app-stage">
       <div className="app-stage__device" style={{ width: (W + 2 * BEZEL) * scale, height: (H + 2 * BEZEL) * scale }}>
         <div className="app-device" style={{ transform: `scale(${scale})` }}>
-          <iframe className="app-device__screen" src={window.location.href} title="Hospitable app" width={W} height={H} />
+          <iframe className="app-device__screen" src={window.location.href} title="Hostaway app" width={W} height={H} />
           <StatusBar />
           <div className="app-device__island" aria-hidden="true" />
           <div className="app-device__home" aria-hidden="true" />
         </div>
       </div>
       <p className="app-stage__note">
-        Hospitable · app mode. Drag from the left edge to go back; drag a sheet's handle down to close it.
+        Hostaway · app mode. Drag from the left edge to go back; drag a sheet's handle down to close it.
         On an iPhone: open this page in Safari, Share › Add to Home Screen. {window.location.pathname.startsWith(`${import.meta.env.BASE_URL}app`) && <a href={website}>Open the website</a>}
       </p>
     </div>

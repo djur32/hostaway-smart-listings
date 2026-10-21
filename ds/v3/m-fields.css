@@ -1,4 +1,4 @@
-/* Phones: compound number fields (currency | amount | unit) read as ONE joined 48px control and never overflow (Antonio, 4 Oct).
+/* Phones: compound number fields (currency | amount | unit) read as ONE joined 48px control and never overflow (review, 4 Oct).
    React: NumberField (prototype/src/ds/v3-ch.tsx). Desktop is untouched. */
 @media (max-width: 767px) {
   .h-input-group.h-numfield { width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; }

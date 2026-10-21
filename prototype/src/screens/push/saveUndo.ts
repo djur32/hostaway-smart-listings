@@ -1,4 +1,4 @@
-/* The save toast's transaction (ds/unsaved.tsx `setSaveTransaction`, Antonio 4 Oct: a toast on Save, with Undo).
+/* The save toast's transaction (ds/unsaved.tsx `setSaveTransaction`, review 4 Oct: a toast on Save, with Undo).
  * Before a Save: snapshot the record (useStore) and the push log (usePushUi). After it: the receipts that Save sent
  * make the summary ("Listing title · sent to Airbnb and Booking.com", "3 changes · sent to Airbnb, Booking.com and
  * Direct"), and Undo puts back exactly the top-level slices that Save changed, receipts included (the same "withdraw

@@ -1,7 +1,7 @@
 <callout icon="✅" color="gray_bg">
-	**Output · Planned** · What Smart Listings sets off elsewhere in Hospitable, and what I'd do about it. Every effect is `ASSUMPTION`: the product isn't shipped, so none is observed.
+	**Output · Planned** · What Smart Listings sets off elsewhere in Hostaway, and what I'd do about it. Every effect is : the product isn't shipped, so none is observed.
 </callout>
-![How the property record flows through Hospitable. Shared is written once and read by every surface; dashed arrows are new or changed by this proposal. Import, on the left, is the next step on the Roadmap. Today's flows REAL·PRODUCT / REAL·PUBLIC; proposed flows ASSUMPTION.](file-upload://3f0e18af-1645-8196-be55-00b2003d97a5)
+![How the property record flows through Hostaway. Shared is written once and read by every surface; dashed arrows are new or changed by this proposal. Import, on the left, is the next step on the Roadmap. Today's flows ; proposed flows .](file-upload://3f0e18af-1645-8196-be55-00b2003d97a5)
 ## The short version
 - **Shared becomes the record the whole product reads.** Guest replies, pricing, operations and owner statements read the same facts the listings show.
 - **That's the upside and the risk.** A right fact reaches everywhere; so does a wrong one.
@@ -43,7 +43,7 @@
 	<tr>
 		<td>**Channel partners.** Autopilot writes more often than a listing that's "configured once".</td>
 		<td>Rate limits, rejections, or terms against automated content.</td>
-		<td>One batch per channel. At most one text change per channel per week until tested `ASSUMPTION`. Back off on rate limits. Pause Autopilot on a channel at any policy notice.</td>
+		<td>One batch per channel. At most one text change per channel per week until tested . Back off on rate limits. Pause Autopilot on a channel at any policy notice.</td>
 		<td>Fields rejected per field sent</td>
 	</tr>
 	<tr>
@@ -55,7 +55,7 @@
 	<tr>
 		<td>**Comps.** Similar homes frame strategies and tips.</td>
 		<td>A moat and a privacy question at once. Listings may also start to sound alike.</td>
-		<td>Aggregates only, with a minimum group size `ASSUMPTION`. Never another host's text verbatim. Tips are written from the host's own facts and audience, with alternatives.</td>
+		<td>Aggregates only, with a minimum group size . Never another host's text verbatim. Tips are written from the host's own facts and audience, with alternatives.</td>
 		<td>Tip acceptance vs AI copy reverted; comp groups under the minimum (no measure yet)</td>
 	</tr>
 	<tr>
@@ -83,4 +83,4 @@ Desk work on the prototype: each surface that reads the property record was trac
 - <mention-page url="https://app.notion.com/p/3eee18af16458160a7c1c703fcb2a033">KD-08</mention-page>
 - <mention-page url="https://app.notion.com/p/3eee18af164581b19c66d8d053ea6ab0">KD-12</mention-page>
 **In the prototype**
-- [Knowledge Hub › Sources](https://hospitable-case-web.digimal.studio/property/neukolln/hub/sources)
+- [Knowledge Hub › Sources]()

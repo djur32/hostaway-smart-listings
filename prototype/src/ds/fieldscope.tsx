@@ -1,9 +1,9 @@
-/* Field scope pieces (Antonio, 30 Sep 2026, fourth review):
+/* Field scope pieces (review, 30 Sep 2026, fourth review):
  * - ChannelBadge: the channel's mark + its name, for identity spots (headers, hover rows). Not in scope captions:
- *   Antonio dropped the logo-in-a-circle caption (30 Sep, fifth review); captions are plain text.
+ *   review dropped the logo-in-a-circle caption (30 Sep, fifth review); captions are plain text.
  * - ValueHover: hovering a field's scope shows the values behind it (the Base and the channel's own), so the host
  *   never has to switch channels to compare.
- * - Dropdown: Hospitable's real dropdown (HS-A01): bordered trigger with a chevron, a menu under it, the selected
+ * - Dropdown: Hostaway's real dropdown (HS-A01): bordered trigger with a chevron, a menu under it, the selected
  *   option in purple on grey. Replaces native <select> in the listing screens. Tokens only (ds/v3/fieldscope.css). */
 import { useEffect, useId, useLayoutEffect, useRef, useState, type ReactNode, type Ref } from 'react'
 import { Icon, Mark, cx } from './primitives'
@@ -78,7 +78,7 @@ export type DropdownOption = string | { value: string; label: string }
 const optValue = (o: DropdownOption) => (typeof o === 'string' ? o : o.value)
 const optLabel = (o: DropdownOption) => (typeof o === 'string' ? o : o.label)
 
-/** Hospitable's dropdown (HS-A01, Antonio's reference 3 Oct): a bordered 16px field with a chevron; the menu opens under
+/** Hostaway's dropdown (HS-A01, review's reference 3 Oct): a bordered 16px field with a chevron; the menu opens under
  *  it, white with a soft shadow, 48px rows of 16px regular grey text with 24px on the left; hover = light grey; the
  *  selected option is purple on light grey. The one select in the prototype: native <select>s were moved onto it.
  *  Keyboard: ↑ ↓ Home End to move, a letter jumps to the next option starting with it, Enter/Space to pick, Esc to close. */
@@ -92,7 +92,7 @@ export function Dropdown({ value, options, onChange, placeholder, label, disable
   const wrap = useRef<HTMLDivElement>(null)
   const list = useRef<HTMLUListElement>(null)
   const id = useId()
-  const mobile = useIsMobile() // phones (Antonio, 4 Oct): every dropdown opens as a bottom sheet
+  const mobile = useIsMobile() // phones (review, 4 Oct): every dropdown opens as a bottom sheet
   const known = options.some((o) => optValue(o) === value)
   const opts: DropdownOption[] = value && !known ? [value, ...options] : options
   const current = opts.find((o) => optValue(o) === value)
@@ -158,9 +158,9 @@ export function Dropdown({ value, options, onChange, placeholder, label, disable
   )
 }
 
-/** Hospitable's Guest checkout tasks (HS-A02/A03): task name, optional details, trash. "+ Add task" sits below the tasks;
- *  with no tasks yet it moves to the right of the field's title row (Antonio, 3 Oct), via .h-tasks--empty.
- *  Value = one task per line, "Task | details". Airbnb's presets (Checkout instructions): REAL·PUBLIC airbnb.com/help/article/1926. */
+/** Hostaway's Guest checkout tasks (HS-A02/A03): task name, optional details, trash. "+ Add task" sits below the tasks;
+ *  with no tasks yet it moves to the right of the field's title row (review, 3 Oct), via .h-tasks--empty.
+ *  Value = one task per line, "Task | details". Airbnb's presets (Checkout instructions): airbnb.com/help/article/1926. */
 export const CHECKOUT_PRESETS = ['Gather used towels', 'Throw rubbish away', 'Turn things off', 'Lock up', 'Return keys']
 export function TaskList({ value, onChange, disabled }: { value: string; onChange?: (v: string) => void; disabled?: boolean }) {
   const tasks = value.split('\n').filter(Boolean).map((l) => { const [n, ...d] = l.split(' | '); return { name: n.trim(), details: d.join(' | ').trim() } })
@@ -181,7 +181,7 @@ export function TaskList({ value, onChange, disabled }: { value: string; onChang
   )
 }
 
-/** A Guest resources link (Guidebook, Rental Agreement, Upsell — Hospitable's %shortcode% URLs). Antonio, 3 Oct: once a
+/** A Guest resources link (Guidebook, Rental Agreement, Upsell — Hostaway's %shortcode% URLs). review, 3 Oct: once a
  *  URL is in, it isn't shown as a raw input any more but as an item — the link, with Copy, Edit and Remove. Empty, or
  *  being edited, it's the input (placeholder "Your guidebook URL", as in the product). Read-only (Uses the Base / Show
  *  visibility / Autopilot): the item with Copy only. Edits write through `onChange` like typing (the section's draft). */
@@ -241,7 +241,7 @@ export function LinkField({ value, onChange, disabled, label, placeholder, input
   )
 }
 
-/** Help text with Hospitable's shortcodes (%guidebook%) in the brand text colour. */
+/** Help text with Hostaway's shortcodes (%guidebook%) in the brand text colour. */
 export function withShortcodes(text?: string): ReactNode {
   if (!text || !text.includes('%')) return text
   return text.split(/(%[a-z_]+%)/g).map((p, i) => (/^%[a-z_]+%$/.test(p) ? <span key={i} className="h-shortcode">{p}</span> : p))

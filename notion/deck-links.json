@@ -1,5 +1,5 @@
 {
-  "_note": "Which page of the Notion workspace 'Hospitable · Smart Listings' each deck slide, detail pop-up and section cover opens (N, or the hint next to Jump). Keys of 'pages' are map.json keys: a section ('01-discovery'), 'section/slug' ('01-discovery/o-today'), 'KD-##', 'hub' or 'decision_log_db'. Applied to deck/src/data/notion-links.json by tools/notion-links.py.",
+  "_note": "Which page of the Notion workspace 'Hostaway · Smart Listings' each deck slide, detail pop-up and section cover opens (N, or the hint next to Jump). Keys of 'pages' are map.json keys: a section ('01-discovery'), 'section/slug' ('01-discovery/o-today'), 'KD-##', 'hub' or 'decision_log_db'. Applied to deck/src/data/notion-links.json by tools/notion-links.py.",
   "covers": {
     "discovery": "01-discovery",
     "research": "02-research",
@@ -300,7 +300,7 @@
       "Pilot": "07-next/o-roadmap",
       "Staged rollout": "07-next/o-roadmap",
       "Where it falls short": "07-next/o-shortfalls",
-      "Smart Listings across Hospitable": "07-next/o-service-map"
+      "Smart Listings across Hostaway": "07-next/o-service-map"
     }
   }
 }
