@@ -1,20 +1,9 @@
-/* 65 · EXPERIMENTS · tokens only; classes prefixed ex-. */
+/* 65 · EXPERIMENTS · built from the Test and measure part's pieces (60-test.css: tm-line, tm-miss, tm-goal, tm-why);
+   only the differences live here. Classes prefixed ex-. */
 @layer slides {
-.ex-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-.ex-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.ex-owners { margin-top: 28px; }
-.ex-card { padding: 26px 28px; border-radius: 22px; background: var(--plate-quiet); }
-.ex-card b { display: block; margin-bottom: 8px; font: var(--w-head) 26px / 1.18 var(--font-display); color: var(--ink); }
-.ex-card p { margin: 0; font-size: 21px; line-height: 1.4; color: var(--ink-3); text-wrap: pretty; }
+/* the full table in the portfolio detail */
 .ex-table { width: 100%; border-collapse: collapse; font-size: 22px; line-height: 1.3; }
-.ex-table th { text-align: left; padding: 10px 16px; font-weight: 600; color: var(--ink-3); border-bottom: 2px solid var(--line-2); }
-.ex-table td { padding: 14px 16px; color: var(--ink-2, var(--ink)); border-bottom: 1px solid var(--line-2); }
+.ex-table th { text-align: left; padding: 10px 16px; font-weight: var(--w-head); color: var(--ink-3); border-bottom: 2px solid var(--line-2); }
+.ex-table td { padding: 14px 16px; color: var(--ink-2); border-bottom: 1px solid var(--line-2); }
 .ex-table td:first-child { color: var(--ink-3); width: 64px; }
-.ex-read { display: grid; grid-template-columns: 1fr 1.3fr; gap: 28px; align-items: start; }
-.ex-read .ex-card { grid-column: 1 / -1; }
-.ex-big { padding: 28px; border-radius: 22px; background: var(--accent); color: var(--on-accent); }
-.ex-k { margin: 0 0 6px; font-size: 20px; opacity: .85; }
-.ex-n { margin: 0 0 8px; font: var(--w-head) 84px / 1 var(--font-display); }
-.ex-s { margin: 0; font-size: 21px; line-height: 1.38; }
-.ex-cap { margin: 18px 0 0; font-size: 18px; color: var(--ink-3); }
 }

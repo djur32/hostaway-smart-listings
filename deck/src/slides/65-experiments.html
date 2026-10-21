@@ -1,90 +1,172 @@
-<!-- 65-experiments · the measurement design: framework, portfolio, readout, rollout (plan/EXPERIMENTS.md). Example numbers carry the caption Sample data. -->
+<!-- 65-experiments · the measurement design told as one story (plan/EXPERIMENTS.md): the frame every experiment follows,
+     the seven experiments and the decision each one tests, how a result is read, and how a win rolls out. Built from the
+     Test and measure part's own pieces (tm-line, tm-miss rows, tm-goal cards), so the two parts read as one. Nothing here ran. -->
 
-<section class="s" data-id="ex-method" data-title="Framework" data-stage="5" data-part="experiments" data-path="E" data-angle="B" data-min="0.8" data-req="R-170" data-ground="white">
+<section class="s" data-id="ex-method" data-title="The experiment frame" data-stage="5" data-part="experiments" data-path="St" data-angle="B" data-min="0.8" data-req="R-170 R-173" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Experiments</span><span>Framework</span></p>
-    <h2 class="h2" data-a="rise" data-at="0.05">Every experiment follows the same frame</h2>
-    <p class="hc-msg" data-a="rise" data-at="0.12">One primary metric, a few guardrails and a decision rule written before launch.</p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Every experiment is decided before it starts</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Six steps, and each one has its rule written before launch.</p>
   </header>
   <div class="s-body">
-    <div class="ex-grid">
-      <div class="ex-card" data-a="rise" data-at="0.2"><b>Hypothesis</b><p>If we [change], [metric] moves by [MDE], because [reason].</p></div>
-      <div class="ex-card" data-a="rise" data-at="0.26"><b>Unit</b><p>The host account, stratified by listings and channels.</p></div>
-      <div class="ex-card" data-a="rise" data-at="0.32"><b>Sample size</b><p>MDE is the smallest change worth shipping. Alpha 0.05, power 0.80.</p></div>
-      <div class="ex-card" data-a="rise" data-at="0.38"><b>Run length</b><p>Whole weeks, at least 2. No peeking.</p></div>
-      <div class="ex-card" data-a="rise" data-at="0.44"><b>Ramp</b><p>1%, 5%, 25%, 50%. A 5% holdout for 90 days.</p></div>
-      <div class="ex-card" data-a="rise" data-at="0.5"><b>Kill criteria</b><p>A guardrail breached 2 days running, undo above 15%, or a live rule violation.</p></div>
+    <div class="tm-prog">
+      <ol class="tm-line">
+        <li class="tm-line__rail" aria-hidden="true" data-a="grow" data-at="0.18"></li>
+        <li class="tm-step is-key" data-tint="blush" data-a="rise" data-at="0.2"><span class="tm-line__dot"><svg><use href="#i-bulb"/></svg></span><b>Hypothesis</b><span class="tm-step__d">A change, a metric, a reason</span>
+          <p class="tm-bar" data-a="rise" data-beat="1" data-at="0.05"><svg><use href="#i-target"/></svg><span>One primary metric</span></p></li>
+        <li class="tm-step" data-tint="butter" data-a="rise" data-at="0.3"><span class="tm-line__dot"><svg><use href="#i-users"/></svg></span><b>Unit</b><span class="tm-step__d">The host account, not the listing</span>
+          <p class="tm-bar" data-a="rise" data-beat="1" data-at="0.15"><svg><use href="#i-target"/></svg><span>Stratified by size and channels</span></p></li>
+        <li class="tm-step" data-tint="mint" data-a="rise" data-at="0.4"><span class="tm-line__dot"><svg><use href="#i-adjustments-horizontal"/></svg></span><b>Sample size</b><span class="tm-step__d">The smallest change worth shipping</span>
+          <p class="tm-bar" data-a="rise" data-beat="1" data-at="0.25"><svg><use href="#i-target"/></svg><span>Alpha 0.05, power 0.80</span></p></li>
+        <li class="tm-step" data-tint="butter" data-a="rise" data-at="0.5"><span class="tm-line__dot"><svg><use href="#i-clock"/></svg></span><b>Run</b><span class="tm-step__d">Whole weeks, at least two</span>
+          <p class="tm-bar" data-a="rise" data-beat="1" data-at="0.35"><svg><use href="#i-target"/></svg><span>No stopping on a good day</span></p></li>
+        <li class="tm-step" data-tint="mint" data-a="rise" data-at="0.6"><span class="tm-line__dot"><svg><use href="#i-git-compare"/></svg></span><b>Decide</b><span class="tm-step__d">Ship, iterate or stop</span>
+          <p class="tm-bar" data-a="rise" data-beat="1" data-at="0.45"><svg><use href="#i-target"/></svg><span>The rule picks, not the mood</span></p></li>
+        <li class="tm-step" data-tint="blush" data-a="rise" data-at="0.7"><span class="tm-line__dot"><svg><use href="#i-rocket"/></svg></span><b>Ramp</b><span class="tm-step__d">1% to 50%, then everyone</span>
+          <p class="tm-bar" data-a="rise" data-beat="1" data-at="0.55"><svg><use href="#i-target"/></svg><span>5% held out for 90 days</span></p></li>
+      </ol>
+      <p class="tm-note" data-a="rise" data-beat="1" data-at="0.75"><svg><use href="#i-shield-check"/></svg>Guardrails are watched every day, and they alone can stop a run early.</p>
     </div>
   </div>
-  <aside class="notes"><p>The frame every experiment follows. Hypothesis, one primary metric, guardrails, decision rule. About 30 seconds.</p></aside>
+  <template class="more" data-more="frame" data-title="Why the frame is shaped this way" data-label="Why this frame">
+    <div class="more__panel" data-title="Why">
+      <div class="tm-why" data-a="stagger" data-s="1.4">
+        <div data-tint="blush"><p class="tm-why__k">The unit</p><p class="tm-why__t">A host’s listings share tips, so splitting by listing leaks. The host account keeps groups clean.</p></div>
+        <div data-tint="butter"><p class="tm-why__k">The effect size</p><p class="tm-why__t">Set by what is worth shipping, not by what the sample can detect.</p></div>
+        <div data-tint="mint"><p class="tm-why__k">The holdout</p><p class="tm-why__t">Five percent stay on today’s product, so the long-run effect stays measurable.</p></div>
+      </div>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span>Owners: design writes the hypothesis, data the analysis plan, engineering the flags</span><span class="more-link" data-more="frame">Why this frame</span></p></div>
+  <aside class="notes"><p>Every experiment follows the same six steps, and each step has its rule written before launch. A hypothesis with one primary metric. The host account as the unit, because a host’s listings share tips. A sample sized from the smallest change worth shipping. Whole weeks, and no stopping on a good day. A decision the rule makes for us. Then a ramp, with five percent held out for ninety days. [Press] Guardrails are the only thing that can stop a run early. About 45 seconds.</p></aside>
 </section>
 
-<section class="s" data-id="ex-portfolio" data-title="Portfolio" data-stage="5" data-part="experiments" data-path="E" data-angle="B" data-min="0.8" data-req="R-170" data-ground="white">
+<section class="s" data-id="ex-portfolio" data-title="Seven experiments" data-stage="5" data-part="experiments" data-path="St" data-angle="B" data-min="0.8" data-req="R-170 R-172" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Experiments</span><span>Portfolio</span></p>
-    <h2 class="h2" data-a="rise" data-at="0.05">Seven experiments, one for each decision</h2>
-    <p class="hc-msg" data-a="rise" data-at="0.12">Each tests a decision from the concept against today’s behaviour.</p>
+    <h2 class="h2" data-a="rise" data-at="0.05">Seven experiments, one for each design decision</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Each tests one decision against today’s product, with its ship bar set first.</p>
   </header>
   <div class="s-body">
-    <table class="ex-table">
-      <thead><tr><th></th><th>Experiment</th><th>Primary metric</th><th>Guardrails</th><th>Ship bar</th></tr></thead>
-      <tbody>
-        <tr data-a="rise" data-at="0.20"><td>E1</td><td><b>Strategy per channel</b></td><td>Channel-tailored fields</td><td>Undo, tickets</td><td>+8 pts</td></tr>
-        <tr data-a="rise" data-at="0.25"><td>E2</td><td><b>Tips with a why</b></td><td>Tip acceptance rate</td><td>Undo, violations</td><td>+5 pts</td></tr>
-        <tr data-a="rise" data-at="0.30"><td>E3</td><td><b>Rewrite per channel</b></td><td>Time to finish a description</td><td>Edit-after-accept</td><td>-25%</td></tr>
-        <tr data-a="rise" data-at="0.35"><td>E4</td><td><b>Canvas preview</b></td><td>Acceptance after preview</td><td>Undo, decision time</td><td>+4 pts</td></tr>
-        <tr data-a="rise" data-at="0.40"><td>E5</td><td><b>Performance view</b></td><td>Weekly editors</td><td>Tickets, load time</td><td>Above MDE</td></tr>
-        <tr data-a="rise" data-at="0.45"><td>E6</td><td><b>Autopilot setting</b></td><td>Tips applied per week</td><td>Undo, violations</td><td>Gate</td></tr>
-        <tr data-a="rise" data-at="0.50"><td>E7</td><td><b>Channel-first menu</b></td><td>Channel title task success</td><td>Time on task, tickets</td><td>+10 pts</td></tr>
-      </tbody>
-    </table>
+    <ol class="tm-miss tm-miss--port" data-a="stagger" data-s="1.2" data-at="0.18">
+      <li data-tint="blush"><span class="tm-tile"><svg><use href="#i-target"/></svg></span><b class="tm-miss__s">E1 · Strategy per channel</b><span class="tm-miss__bar">Channel-tailored fields</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Ship at +8 pts</span></li>
+      <li data-tint="lavender"><span class="tm-tile"><svg><use href="#i-sparkles"/></svg></span><b class="tm-miss__s">E2 · Tips with a why</b><span class="tm-miss__bar">Tip acceptance</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Ship at +5 pts, undo not higher</span></li>
+      <li data-tint="mint"><span class="tm-tile"><svg><use href="#i-refresh"/></svg></span><b class="tm-miss__s">E3 · Rewrite per channel</b><span class="tm-miss__bar">Time to finish a description</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Ship at 25% faster</span></li>
+      <li data-tint="butter"><span class="tm-tile"><svg><use href="#i-eye"/></svg></span><b class="tm-miss__s">E4 · Canvas preview</b><span class="tm-miss__bar">Acceptance after preview</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Ship at +4 pts</span></li>
+      <li data-tint="mint"><span class="tm-tile"><svg><use href="#i-trending-up"/></svg></span><b class="tm-miss__s">E5 · Performance view</b><span class="tm-miss__bar">Weekly active editors</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Ship above the bar, iterate below it</span></li>
+      <li data-tint="blush"><span class="tm-tile"><svg><use href="#i-wand"/></svg></span><b class="tm-miss__s">E6 · Autopilot setting</b><span class="tm-miss__bar">Tips applied per week</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Ship only if undo stays under 8%</span></li>
+      <li data-tint="butter"><span class="tm-tile"><svg><use href="#i-sitemap"/></svg></span><b class="tm-miss__s">E7 · Channel-first menu</b><span class="tm-miss__bar">Channel task success</span><svg class="tm-miss__arrow"><use href="#i-arrow-right"/></svg><span class="tm-miss__do">Ship at +10 pts</span></li>
+    </ol>
   </div>
-  <aside class="notes"><p>Seven experiments, each with one primary metric and a ship bar. About 30 seconds.</p></aside>
+  <template class="more" data-more="portfolio" data-title="The seven experiments in full" data-label="Hypotheses and guardrails">
+    <div class="more__panel" data-title="In full">
+      <table class="ex-table">
+        <thead><tr><th></th><th>Hypothesis</th><th>Guardrails</th></tr></thead>
+        <tbody>
+          <tr><td>E1</td><td>A strategy per channel raises tailored fields</td><td>Undo, tickets, views</td></tr>
+          <tr><td>E2</td><td>The why behind a tip raises acceptance</td><td>Undo, rule violations</td></tr>
+          <tr><td>E3</td><td>A rewrite per channel cuts edit time</td><td>Edit after accept</td></tr>
+          <tr><td>E4</td><td>Seeing the guest page lifts confidence</td><td>Undo, time to decide</td></tr>
+          <tr><td>E5</td><td>Results per strategy bring hosts back</td><td>Tickets, load time</td></tr>
+          <tr><td>E6</td><td>Low-risk tips can apply themselves</td><td>Undo, violations, tickets</td></tr>
+          <tr><td>E7</td><td>A channel-first menu is easier to use</td><td>Time on task, tickets</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span>Each bar is the smallest change worth shipping</span><span class="more-link" data-more="portfolio">Hypotheses and guardrails</span></p></div>
+  <aside class="notes"><p>Seven experiments, one for each design decision. Each has one primary metric and a ship bar we set before it starts. The strategy per channel has to lift tailored fields by eight points. Tips with a why have to lift acceptance by five, without more undos. Autopilot is the strict one: it only ships if undo stays under eight percent. The detail has the hypothesis, audience and guardrails for each. About 45 seconds.</p></aside>
 </section>
 
-<section class="s" data-id="ex-readout" data-title="Reading a result" data-stage="5" data-part="experiments" data-path="E" data-angle="B" data-min="0.8" data-req="R-170" data-ground="white">
+<section class="s" data-id="ex-readout" data-title="Reading a result" data-stage="5" data-part="experiments" data-path="St" data-angle="B" data-min="0.8" data-req="R-170 R-171" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Experiments</span><span>Reading a result</span></p>
     <h2 class="h2" data-a="rise" data-at="0.05">A result is read the same way every time</h2>
-    <p class="hc-msg" data-a="rise" data-at="0.12">Example readout for E2.</p>
+    <p class="hc-msg" data-a="rise" data-at="0.12">The primary metric first, then every guardrail, then the rule decides.</p>
   </header>
   <div class="s-body">
-    <div class="ex-read">
-      <div class="ex-big" data-a="rise" data-at="0.2"><p class="ex-k">Primary metric · tip acceptance</p><p class="ex-n">+5.4 pts</p><p class="ex-s">31.0% control, 36.4% treatment. 95% interval +3.1 to +7.7. 4,200 hosts per arm.</p></div>
-      <table class="ex-table" data-a="rise" data-at="0.3">
-        <thead><tr><th>Guardrail</th><th>Change</th><th>Bound</th><th>Status</th></tr></thead>
-        <tbody>
-          <tr><td>Undo rate</td><td>6.1% to 6.4%</td><td>8%</td><td>Within</td></tr>
-          <tr><td>Rule violations</td><td>0</td><td>0</td><td>Within</td></tr>
-          <tr><td>Tickets per 1,000 hosts</td><td>flat</td><td>+5%</td><td>Within</td></tr>
-        </tbody>
-      </table>
-      <div class="ex-card" data-a="rise" data-at="0.4"><b>Decision: ship</b><p>The rule written before launch was +5 pts with undo not higher. Segment checks by channel and listing count are exploratory.</p></div>
+    <div class="tm-kt tm-kt--tight">
+      <div class="tm-star" data-a="rise" data-at="0.16">
+        <p class="tm-star__k"><svg><use href="#i-sparkles"/></svg>Readout</p>
+        <p class="tm-ns">E2 · Tips with a why</p>
+        <p class="tm-star__by"><svg><use href="#i-users"/></svg>4,200 hosts per group, four weeks</p>
+      </div>
+      <div class="tm-kgrid">
+        <p class="tm-kgrid__l" style="grid-row: 3" data-a="fade" data-at="0.3">Measure</p>
+        <p class="tm-kgrid__l" style="grid-row: 4" data-a="fade" data-beat="1">Read</p>
+        <p class="tm-kgrid__l" style="grid-row: 5" data-a="fade" data-beat="1" data-at="0.1">Verdict</p>
+        <article class="tm-goal" data-tint="lavender" data-a="rise" data-at="0.22">
+          <div class="tm-goal__plate"><svg class="tm-goal__i"><use href="#i-sparkles"/></svg><p class="tm-goal__v">+5.4<small>pts</small></p></div>
+          <h3 class="tm-goal__t">Tips accepted</h3>
+          <p class="tm-goal__kpi">Primary metric</p>
+          <p class="tm-goal__bet" data-a="rise" data-beat="1" data-at="0.05"><span>31.0% to 36.4%, interval +3.1 to +7.7</span></p>
+          <p class="tm-goal__test" data-a="rise" data-beat="1" data-at="0.15"><svg><use href="#i-circle-check"/></svg><span>Above the +5 pts bar</span></p>
+        </article>
+        <article class="tm-goal" data-tint="butter" data-a="rise" data-at="0.29">
+          <div class="tm-goal__plate"><svg class="tm-goal__i"><use href="#i-arrow-back-up"/></svg><p class="tm-goal__v">6.4<small>%</small></p></div>
+          <h3 class="tm-goal__t">Undo rate</h3>
+          <p class="tm-goal__kpi">Guardrail, bound 8%</p>
+          <p class="tm-goal__bet" data-a="rise" data-beat="1" data-at="0.08"><span>Up from 6.1%</span></p>
+          <p class="tm-goal__test" data-a="rise" data-beat="1" data-at="0.18"><svg><use href="#i-circle-check"/></svg><span>Within its bound</span></p>
+        </article>
+        <article class="tm-goal" data-tint="mint" data-a="rise" data-at="0.36">
+          <div class="tm-goal__plate"><svg class="tm-goal__i"><use href="#i-shield-check"/></svg><p class="tm-goal__v">0</p></div>
+          <h3 class="tm-goal__t">Rule violations</h3>
+          <p class="tm-goal__kpi">Guardrail, bound 0</p>
+          <p class="tm-goal__bet" data-a="rise" data-beat="1" data-at="0.11"><span>None shipped to a live listing</span></p>
+          <p class="tm-goal__test" data-a="rise" data-beat="1" data-at="0.21"><svg><use href="#i-circle-check"/></svg><span>Within its bound</span></p>
+        </article>
+        <article class="tm-goal" data-tint="blush" data-a="rise" data-at="0.43">
+          <div class="tm-goal__plate"><svg class="tm-goal__i"><use href="#i-alert-triangle"/></svg><p class="tm-goal__v">Flat</p></div>
+          <h3 class="tm-goal__t">Support tickets</h3>
+          <p class="tm-goal__kpi">Guardrail, bound +5%</p>
+          <p class="tm-goal__bet" data-a="rise" data-beat="1" data-at="0.14"><span>Per 1,000 hosts</span></p>
+          <p class="tm-goal__test" data-a="rise" data-beat="1" data-at="0.24"><svg><use href="#i-circle-check"/></svg><span>Within its bound</span></p>
+        </article>
+      </div>
+      <p class="tm-note" data-a="rise" data-beat="1" data-at="0.35"><svg><use href="#i-rocket"/></svg>Decision: ship. The rule written before launch was +5 pts with undo not higher than its bound.</p>
     </div>
-    
   </div>
-  <aside class="notes"><p>How a readout is laid out. Effect with interval, guardrails, decision. About 30 seconds.</p></aside>
+  <template class="more" data-more="segments" data-title="What a readout also shows" data-label="Segments">
+    <div class="more__panel" data-title="Segments">
+      <div class="tm-why" data-a="stagger" data-s="1.4">
+        <div data-tint="blush"><p class="tm-why__k">By channel</p><p class="tm-why__t">Airbnb, Booking.com and Direct read separately. Exploratory, never the decision.</p></div>
+        <div data-tint="butter"><p class="tm-why__k">By size</p><p class="tm-why__t">One listing, a few, a portfolio. A split that looks good starts the next experiment.</p></div>
+        <div data-tint="mint"><p class="tm-why__k">Owner</p><p class="tm-why__t">Data writes the readout, product makes the call the rule allows.</p></div>
+      </div>
+    </div>
+  </template>
+  <div class="s-foot"><p class="hc-src"><span class="more-link" data-more="segments">Segments</span></p></div>
+  <aside class="notes"><p>Every readout looks the same, so nobody argues about format. The primary metric first: tip acceptance up 5.4 points, with its interval. [Press] Then each guardrail against the bound set before launch: undo, rule violations, tickets. All within. The rule said ship at five points with undo not higher than its bound, so we ship. Splits by channel and size are there, but they are exploratory. About 40 seconds.</p></aside>
 </section>
 
-<section class="s" data-id="ex-rollout" data-title="Rollout and guardrails" data-stage="5" data-part="experiments" data-path="E" data-angle="B" data-min="0.8" data-req="R-170" data-ground="white">
+<section class="s" data-id="ex-rollout" data-title="Rollout and guardrails" data-stage="5" data-part="experiments" data-path="St" data-angle="B" data-min="0.7" data-req="R-170 R-173" data-ground="white">
   <header class="s-head">
     <p class="eyebrow" data-a="rise"><span>Experiments</span><span>Rollout and guardrails</span></p>
-    <h2 class="h2" data-a="rise" data-at="0.05">Rollout moves in stages, guardrails can stop it</h2>
-    <p class="hc-msg" data-a="rise" data-at="0.12">Each stage has an owner, a go criterion and the kill criteria.</p>
+    <h2 class="h2" data-a="rise" data-at="0.05">A win rolls out in stages, and guardrails can stop it</h2>
+    <p class="hc-msg" data-a="rise" data-at="0.12">Four stages, each with a go criterion and an owner.</p>
   </header>
   <div class="s-body">
-    <div class="ex-grid ex-grid--4">
-      <div class="ex-card" data-a="rise" data-at="0.20"><b>Stage 0 · Internal and plumbing</b><p>1%. Events fire, flags work, kill switch tested.</p></div>
-      <div class="ex-card" data-a="rise" data-at="0.27"><b>Stage 1 · Experiment</b><p>5% to 50%. Pre-computed sample reached, rule applied.</p></div>
-      <div class="ex-card" data-a="rise" data-at="0.34"><b>Stage 2 · Full rollout</b><p>100% with a 5% holdout. Holdout on the old behaviour for 90 days.</p></div>
-      <div class="ex-card" data-a="rise" data-at="0.41"><b>Stage 3 · Holdout read</b><p>Retire flags. Long-run effect read, flags removed.</p></div>
-    </div>
-    <div class="ex-grid ex-grid--4 ex-owners">
-      <div class="ex-card" data-a="rise" data-at="0.5"><b>Design</b><p>Hypothesis and variants.</p></div>
-      <div class="ex-card" data-a="rise" data-at="0.55"><b>Data</b><p>Analysis plan and readout.</p></div>
-      <div class="ex-card" data-a="rise" data-at="0.6"><b>Engineering</b><p>Flags and the kill switch.</p></div>
-      <div class="ex-card" data-a="rise" data-at="0.65"><b>Support</b><p>The ticket guardrail.</p></div>
+    <div class="tm-prog tm-prog--roomy">
+      <ol class="tm-line tm-line--4">
+        <li class="tm-line__rail" aria-hidden="true" data-a="grow" data-at="0.18"></li>
+        <li class="tm-step" data-tint="butter" data-a="rise" data-at="0.2"><span class="tm-line__dot"><svg><use href="#i-adjustments-horizontal"/></svg></span><b>Plumbing, 1%</b><span class="tm-step__d">Internal accounts first. Engineering owns it</span>
+          <p class="tm-bar" data-a="rise" data-beat="1" data-at="0.05"><svg><use href="#i-target"/></svg><span>Events fire, kill switch works</span></p></li>
+        <li class="tm-step" data-tint="mint" data-a="rise" data-at="0.32"><span class="tm-line__dot"><svg><use href="#i-git-compare"/></svg></span><b>Experiment, 5% to 50%</b><span class="tm-step__d">The planned sample. Data owns it</span>
+          <p class="tm-bar" data-a="rise" data-beat="1" data-at="0.15"><svg><use href="#i-target"/></svg><span>The ship rule is met</span></p></li>
+        <li class="tm-step is-key" data-tint="blush" data-a="rise" data-at="0.44"><span class="tm-line__dot"><svg><use href="#i-rocket"/></svg></span><b>Everyone, 5% held out</b><span class="tm-step__d">Full rollout. Product owns it</span>
+          <p class="tm-bar" data-a="rise" data-beat="1" data-at="0.25"><svg><use href="#i-target"/></svg><span>Guardrails hold for 90 days</span></p></li>
+        <li class="tm-step" data-tint="lavender" data-a="rise" data-at="0.56"><span class="tm-line__dot"><svg><use href="#i-circle-check"/></svg></span><b>Holdout read</b><span class="tm-step__d">The long-run effect. Design and data</span>
+          <p class="tm-bar" data-a="rise" data-beat="1" data-at="0.35"><svg><use href="#i-target"/></svg><span>Flags retired</span></p></li>
+      </ol>
+      <div class="tm-star" data-a="rise" data-beat="1" data-at="0.5">
+        <p class="tm-star__k"><svg><use href="#i-player-stop"/></svg>Kill criteria</p>
+        <p class="hc-chip">A guardrail past its bound 2 days running</p>
+        <p class="hc-chip">Undo above 15% of applied tips</p>
+        <p class="hc-chip">A rule violation on a live listing</p>
+      </div>
     </div>
   </div>
-  <aside class="notes"><p>Four stages, four owners. Guardrails alone are monitored daily and can stop a run early. About 30 seconds.</p></aside>
+  <div class="s-foot"><p class="hc-src"><span>Support owns the ticket guardrail at every stage</span></p></div>
+  <aside class="notes"><p>A win does not go to everyone at once. One percent first, internal accounts, to prove the events and the kill switch. Then the experiment itself, five to fifty percent. Then everyone, with five percent held back for ninety days. Then we read the holdout and retire the flags. [Press] At any stage, three things stop it: a guardrail past its bound two days running, undo above fifteen percent, or a rule violation on a live listing. About 40 seconds.</p></aside>
 </section>

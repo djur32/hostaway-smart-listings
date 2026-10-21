@@ -227,7 +227,7 @@ function buildChrome() {
   // the hints float at the bottom right, over the content, in their own element
   const hints = document.createElement('div');
   hints.className = 'hints';
-  hints.innerHTML = `<button type="button" class="hint" data-hint="jump"><kbd><span class="hint__cmd">⌘</span>K</kbd>Jump</button><button type="button" class="hint" data-hint="next"><kbd>→</kbd>Next</button>`;
+  hints.innerHTML = `<button type="button" class="hint" data-hint="notion"><kbd>N</kbd>Notion</button><button type="button" class="hint" data-hint="jump"><kbd><span class="hint__cmd">⌘</span>K</kbd>Jump</button><button type="button" class="hint" data-hint="next"><kbd>→</kbd>Next</button>`;
   const badge = document.createElement('aside');
   badge.className = 'casebadge';                     // whose story this is: filled by paintBadge()
   stage.classList.add('is-booting');                 // first chrome state lands without a transition
@@ -1511,6 +1511,21 @@ function lbKey(e) {
   if ((e.key === 'ArrowRight' || e.key === 'ArrowLeft') && lbStep(e.key === 'ArrowRight' ? 1 : -1)) { e.preventDefault(); return true; }
   return false;
 }
+/* Notion: every slide opens its page in the project's Notion tree (src/data/notion-links.json, made from
+   notion/deck-links.json). The slide's own page, else its part's section, else the hub. Method and output
+   chips on the part covers open their own pages. */
+let NL = null;
+const notionLinks = () => (NL ||= fetch(`${R}data/notion-links.json`).then((r) => r.json()).catch(() => ({ slides: {}, covers: {}, chips: {} })));
+async function openNotion(slide = slides[cur], label = '') {
+  const m = await notionLinks(); const part = slide?.dataset.part || '';
+  const url = (label && m.chips?.[part]?.[label]) || m.slides?.[slide?.dataset.id] || m.covers?.[part] || m.hub;
+  if (url) window.open(url, '_blank', 'noopener');
+}
+document.addEventListener('click', (e) => {
+  const chip = e.target.closest?.('.opener__methods span:not(.opener__k), .opener__outs span:not(.opener__outs)');
+  if (!chip) return;
+  e.stopPropagation(); openNotion(chip.closest('.s'), chip.textContent.trim());
+}, true);
 const closeLightbox = () => { const lb = document.querySelector('.lightbox'); if (lb) lb.hidden = true; lbSet = []; lbAt = 0; };
 
 /* ════════════════════════════════════════════════════════════ INPUT ═══ */
@@ -1544,6 +1559,7 @@ function wireInput() {
     else if (key === 'End') go(slides.length - 1);
     else if (/^[0-7]$/.test(key)) { const i = slides.findIndex((s) => +(s.dataset.stage || 0) === +key); if (i >= 0) go(i); }   // 0 is Intro
     else if (key === 'o' || key === 'O' || key === 'g') openPalette();
+    else if (key === 'n' || key === 'N') openNotion();
     else if (key === 'l' || key === 'L') toggleShots();
     else if (key === 'm' || key === 'M') openSlideMore();
     else if (key === 'c' || key === 'C') { clockShown = !clockShown; clockTick(); }
@@ -1584,7 +1600,7 @@ function wireInput() {
     const ctl = t.closest('.appbar button, .hints button'); if (ctl && e.detail) ctl.blur();
     if (t.closest('[data-go-back]')) { const to = jumpBack; jumpBack = null; go(to); return; }
     if (t.closest('[data-go-home]')) { go(0); return; }
-    const hint = t.closest('[data-hint]'); if (hint) { ({ jump: openPalette, next, shots: toggleShots })[hint.dataset.hint]?.(); return; }
+    const hint = t.closest('[data-hint]'); if (hint) { ({ jump: openPalette, next, shots: toggleShots, notion: openNotion })[hint.dataset.hint]?.(); return; }
     const tab = t.closest('[data-go-stage]'); if (tab) { const i = slides.findIndex((s) => +s.dataset.stage === +tab.dataset.goStage); if (i >= 0) go(i); return; }
     const it = t.closest('.palette__it'); if (it) { closePalette(); go(+it.dataset.i); return; }
     if (t.classList.contains('palette')) { closePalette(); return; }

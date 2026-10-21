@@ -263,6 +263,12 @@
   /* ────────────────────────────  2 · ROLES  ──────────────────────────── */
 
   /* ── App shell · sidebar (HS-22) ─────────────────────────────────────── */
+  /* ── Deck grounds (the presentation's dark plates and ink; not in the product) ── */
+  --color-deck-dark: #17323a;
+  --color-deck-dark-2: #21505c;
+  --color-deck-ink: #1d1b16;
+  --color-deck-warm-end: #7a3200;
+
   --color-sidebar-bg: #f4efe3;                /* sand */
   --color-sidebar-item-active-bg: #e7dec9;                  /* darker sand, text 12:1 */
   --color-sidebar-item-hover-bg: rgba(29, 27, 22, .06);

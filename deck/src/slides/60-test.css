@@ -105,4 +105,12 @@
 .tm-why > div { display: grid; grid-template-columns: 260px minmax(0, 1fr); align-items: center; gap: 28px; padding: 26px 34px; border-radius: 26px; background: var(--tint-plate); }
 .tm-why__k { margin: 0; font: var(--w-head) 26px / 1.2 var(--font-display); letter-spacing: -0.01em; color: var(--tint-title); }
 .tm-why__t { margin: 0; font: var(--w-medium) 28px / 1.32 var(--font-ui); color: var(--ink); text-wrap: pretty; }
+
+/* modifiers used by the Experiments part (65): four stages, the portfolio rows, tighter stacks */
+.tm-line--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.tm-line--4 .tm-line__rail { right: calc((100% - 66px) / 4 - 42px); }
+.tm-prog--roomy { gap: 48px; }
+.tm-miss--port { gap: 12px; }
+.tm-miss--port li { grid-template-columns: 60px 400px 380px 32px minmax(0, 1fr); padding-block: 8px; }
+.tm-kt--tight { gap: 26px; }
 }
